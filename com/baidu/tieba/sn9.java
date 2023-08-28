@@ -32,7 +32,7 @@ public class sn9 extends qn9 {
 
         /* renamed from: com.baidu.tieba.sn9$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0478a extends w05 {
+        public class C0480a extends w05 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -57,7 +57,7 @@ public class sn9 extends qn9 {
                 return (BdUniqueId) invokeV.objValue;
             }
 
-            public C0478a(a aVar) {
+            public C0480a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class sn9 extends qn9 {
             jo6 jo6Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, originalThreadInfo) == null) && (jo6Var = (sn9Var = this.a).b) != null) {
-                jo6Var.a(sn9Var.f, new C0478a(this));
+                jo6Var.a(sn9Var.f, new C0480a(this));
             }
         }
     }

@@ -10,7 +10,7 @@ public interface ge5 {
 
     void b(boolean z);
 
-    n7c<Boolean> c();
+    p7c<Boolean> c();
 
     boolean d();
 
@@ -18,5 +18,5 @@ public interface ge5 {
 
     boolean f();
 
-    n7c<NewsRemindMessage> g();
+    p7c<NewsRemindMessage> g();
 }

@@ -47,13 +47,13 @@ public class ru2 implements mi4 {
 
         /* renamed from: com.baidu.tieba.ru2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0473a extends xd2 {
+        public class C0474a extends xd2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0473a(a aVar, AtomicInteger atomicInteger) {
+            public C0474a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class ru2 implements mi4 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                t92.b(arrayList, "3", new C0473a(this, atomicInteger));
+                t92.b(arrayList, "3", new C0474a(this, atomicInteger));
             }
         }
     }

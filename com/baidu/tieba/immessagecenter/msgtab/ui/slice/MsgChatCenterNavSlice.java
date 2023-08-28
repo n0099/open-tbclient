@@ -34,7 +34,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ex8;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.sgb;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.uw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -340,7 +340,7 @@ public final class MsgChatCenterNavSlice extends Slice {
     public final void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (ex8.a() && !sgb.a(this.r) && !sgb.a(this.s)) {
+            if (ex8.a() && !ugb.a(this.r) && !ugb.a(this.s)) {
                 TbImageView tbImageView = this.q;
                 if (tbImageView != null) {
                     tbImageView.setVisibility(0);

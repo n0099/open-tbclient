@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gua;
-import com.baidu.tieba.pgb;
+import com.baidu.tieba.rgb;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -450,7 +450,7 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < pgb.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < rgb.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
                 int a2 = gua.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);

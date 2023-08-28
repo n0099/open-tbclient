@@ -19,7 +19,7 @@ public final class di9 extends ro6 {
     @JvmField
 
     /* renamed from: T  reason: collision with root package name */
-    public static final BdUniqueId f1100T;
+    public static final BdUniqueId f1098T;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<String> R;
     public final String S;
@@ -70,7 +70,7 @@ public final class di9 extends ro6 {
         }
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        f1100T = gen;
+        f1098T = gen;
     }
 
     public final List<String> G() {
@@ -99,7 +99,7 @@ public final class di9 extends ro6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return f1100T;
+            return f1098T;
         }
         return (BdUniqueId) invokeV.objValue;
     }

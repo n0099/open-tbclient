@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hyb;
-import com.baidu.tieba.iyb;
-import com.baidu.tieba.myb;
+import com.baidu.tieba.jyb;
+import com.baidu.tieba.kyb;
+import com.baidu.tieba.oyb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,35 +139,35 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public MovieParams decode(hyb hybVar) throws IOException {
+        public MovieParams decode(jyb jybVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jybVar)) == null) {
                 Builder builder = new Builder();
-                long c = hybVar.c();
+                long c = jybVar.c();
                 while (true) {
-                    int f = hybVar.f();
+                    int f = jybVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
-                                        FieldEncoding g = hybVar.g();
-                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(hybVar));
+                                        FieldEncoding g = jybVar.g();
+                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(jybVar));
                                     } else {
-                                        builder.frames(ProtoAdapter.INT32.decode(hybVar));
+                                        builder.frames(ProtoAdapter.INT32.decode(jybVar));
                                     }
                                 } else {
-                                    builder.fps(ProtoAdapter.INT32.decode(hybVar));
+                                    builder.fps(ProtoAdapter.INT32.decode(jybVar));
                                 }
                             } else {
-                                builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(hybVar));
+                                builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(jybVar));
                             }
                         } else {
-                            builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(hybVar));
+                            builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(jybVar));
                         }
                     } else {
-                        hybVar.d(c);
+                        jybVar.d(c);
                         return builder.build();
                     }
                 }
@@ -191,26 +191,26 @@ public final class MovieParams extends Message<MovieParams, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(iyb iybVar, MovieParams movieParams) throws IOException {
+        public void encode(kyb kybVar, MovieParams movieParams) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iybVar, movieParams) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, kybVar, movieParams) == null) {
                 Float f = movieParams.viewBoxWidth;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(iybVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(kybVar, 1, f);
                 }
                 Float f2 = movieParams.viewBoxHeight;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(iybVar, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(kybVar, 2, f2);
                 }
                 Integer num = movieParams.fps;
                 if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(iybVar, 3, num);
+                    ProtoAdapter.INT32.encodeWithTag(kybVar, 3, num);
                 }
                 Integer num2 = movieParams.frames;
                 if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(iybVar, 4, num2);
+                    ProtoAdapter.INT32.encodeWithTag(kybVar, 4, num2);
                 }
-                iybVar.k(movieParams.unknownFields());
+                kybVar.k(movieParams.unknownFields());
             }
         }
 
@@ -332,7 +332,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                 return false;
             }
             MovieParams movieParams = (MovieParams) obj;
-            if (unknownFields().equals(movieParams.unknownFields()) && myb.f(this.viewBoxWidth, movieParams.viewBoxWidth) && myb.f(this.viewBoxHeight, movieParams.viewBoxHeight) && myb.f(this.fps, movieParams.fps) && myb.f(this.frames, movieParams.frames)) {
+            if (unknownFields().equals(movieParams.unknownFields()) && oyb.f(this.viewBoxWidth, movieParams.viewBoxWidth) && oyb.f(this.viewBoxHeight, movieParams.viewBoxHeight) && oyb.f(this.fps, movieParams.fps) && oyb.f(this.frames, movieParams.frames)) {
                 return true;
             }
             return false;

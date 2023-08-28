@@ -77,7 +77,7 @@ public class bg {
         public IBinder.DeathRecipient f929a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0788b f933a = new C0788b();
+        public final C0789b f933a = new C0789b();
 
         /* loaded from: classes10.dex */
         public interface a {
@@ -86,7 +86,7 @@ public class bg {
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C0788b extends XMPushService.j {
+        public class C0789b extends XMPushService.j {
 
             /* renamed from: a  reason: collision with other field name */
             public String f941a;
@@ -96,7 +96,7 @@ public class bg {
             public String f942b;
             public int c;
 
-            public C0788b() {
+            public C0789b() {
                 super(0);
             }
 

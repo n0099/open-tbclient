@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-
-import java.util.HashMap;
 /* loaded from: classes5.dex */
 public interface e4c {
-    void a(String str, boolean z, HashMap<String, String> hashMap);
+    void a(String str, String str2);
+
+    void b(String str, String str2);
+
+    void c(String str, String str2);
+
+    void d(String str, String str2);
 }

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,47 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
 /* loaded from: classes5.dex */
-public class fcc {
+public final class fcc extends ecc {
     public static /* synthetic */ Interceptable $ic;
     public static final fcc a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public q7c g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    public q7c i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    public q7c j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    @Deprecated
-    public a8c k(a8c a8cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, a8cVar)) == null) ? a8cVar : (a8c) invokeL.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -81,75 +43,12 @@ public class fcc {
         }
     }
 
-    public static q7c a() {
+    public static ecc f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b(new RxThreadFactory("RxComputationScheduler-"));
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    public static q7c c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d(new RxThreadFactory("RxIoScheduler-"));
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    public static q7c e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f(new RxThreadFactory("RxNewThreadScheduler-"));
-        }
-        return (q7c) invokeV.objValue;
-    }
-
-    public static fcc h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             return a;
         }
-        return (fcc) invokeV.objValue;
-    }
-
-    public static q7c b(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new p9c(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (q7c) invokeL.objValue;
-    }
-
-    public static q7c d(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new o9c(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (q7c) invokeL.objValue;
-    }
-
-    public static q7c f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new t9c(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (q7c) invokeL.objValue;
+        return (ecc) invokeV.objValue;
     }
 }

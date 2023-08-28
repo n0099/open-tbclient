@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
+import com.baidu.tieba.ehc;
+import com.baidu.tieba.fhc;
+import com.baidu.tieba.ghc;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.IYYPayResultView;
 /* loaded from: classes8.dex */
 public interface ydc {
-    void a(Activity activity, nfc nfcVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, vdc vdcVar);
 
-    qfc b();
+    chc b(Activity activity);
 
-    void c(qfc qfcVar);
+    bhc c(Activity activity);
 
-    void release();
+    dhc d(Activity activity);
+
+    IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, vdc vdcVar);
+
+    ehc f(Activity activity, ehc.b bVar, PayUIKitConfig payUIKitConfig);
+
+    ghc g(Activity activity, ghc.b bVar, aec aecVar);
+
+    fhc h(Activity activity, PayUIKitConfig payUIKitConfig, fhc.b bVar, aec aecVar);
 }

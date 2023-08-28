@@ -111,7 +111,7 @@ public class eh7 {
     public int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1102T;
+    public int f1101T;
     public View U;
     public View V;
     public ObservedChangeLinearLayout W;
@@ -472,7 +472,7 @@ public class eh7 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.a0().notifyDataSetChanged();
                 if (!this.a.s0) {
-                    this.a.R.n(this.a.S, this.a.f1102T, this.a.J, true);
+                    this.a.R.n(this.a.S, this.a.f1101T, this.a.J, true);
                 }
             }
         }
@@ -831,7 +831,7 @@ public class eh7 {
                     this.a.a.Y4();
                     this.a.c0.setExpanded(true);
                     if (this.a.R != null) {
-                        this.a.R.n(this.a.S, this.a.f1102T, false, true);
+                        this.a.R.n(this.a.S, this.a.f1101T, false, true);
                     }
                 }
             }
@@ -957,7 +957,7 @@ public class eh7 {
         this.I = 0;
         this.J = false;
         this.S = 0;
-        this.f1102T = 0;
+        this.f1101T = 0;
         this.U = null;
         this.V = null;
         this.Y = false;
@@ -1244,7 +1244,7 @@ public class eh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048683, this, i2, i3) == null) {
             this.S = i2;
-            this.f1102T = i3;
+            this.f1101T = i3;
         }
     }
 
@@ -1306,7 +1306,7 @@ public class eh7 {
             }
             if (!z && z2) {
                 this.R.r(true);
-                this.R.n(this.S, this.f1102T, this.J, true);
+                this.R.n(this.S, this.f1101T, this.J, true);
                 return;
             }
             this.R.r(false);
@@ -2345,7 +2345,7 @@ public class eh7 {
         this.v.g(switchThreadDataToThreadCardInfo, frsViewData);
         ox9 ox9Var = this.R;
         if (ox9Var != null && (i2 = this.S) != 0) {
-            ox9Var.n(i2, this.f1102T, this.J, true);
+            ox9Var.n(i2, this.f1101T, this.J, true);
         }
         FrsFragment frsFragment2 = this.a;
         if (frsFragment2 != null) {

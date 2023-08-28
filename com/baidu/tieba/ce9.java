@@ -60,13 +60,13 @@ public class ce9 implements View.OnClickListener, k47 {
 
         /* renamed from: com.baidu.tieba.ce9$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0263a implements Runnable {
+        public class RunnableC0262a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0263a(a aVar, int i) {
+            public RunnableC0262a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class ce9 implements View.OnClickListener, k47 {
                 } else {
                     size = f.size();
                 }
-                SafeHandler.getInst().post(new RunnableC0263a(this, size));
+                SafeHandler.getInst().post(new RunnableC0262a(this, size));
             }
         }
     }

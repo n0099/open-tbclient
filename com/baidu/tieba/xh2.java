@@ -112,11 +112,11 @@ public final class xh2 implements sw2 {
 
         /* renamed from: com.baidu.tieba.xh2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0528a implements Runnable {
+        public class RunnableC0529a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0528a(a aVar) {
+            public RunnableC0529a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public final class xh2 implements sw2 {
                 d82.k("SwanAppCoreRuntime", "sReleaseCallback:isSwanAppRunning" + z);
                 if (!z) {
                     cb3.K().y().Y(15);
-                    xo3.e0(new RunnableC0528a(this));
+                    xo3.e0(new RunnableC0529a(this));
                 }
             }
         }

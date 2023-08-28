@@ -96,7 +96,7 @@ public final class c extends com.kwad.components.ad.draw.kwai.a implements View.
     };
 
     private void a(boolean z, int i) {
-        com.kwad.components.core.c.a.a.a(new a.C0647a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b() { // from class: com.kwad.components.ad.draw.a.c.3
+        com.kwad.components.core.c.a.a.a(new a.C0648a(this.bh.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i).aj(z).a(new a.b() { // from class: com.kwad.components.ad.draw.a.c.3
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(c.this.mAdTemplate, 1, c.this.aK.mRootContainer.getTouchCoords());

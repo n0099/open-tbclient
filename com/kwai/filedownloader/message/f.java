@@ -33,7 +33,7 @@ public class f {
 
     public static MessageSnapshot a(byte b, com.kwai.filedownloader.c.c cVar, d.a aVar) {
         InterceptResult invokeCommon;
-        MessageSnapshot c0706d;
+        MessageSnapshot c0707d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), cVar, aVar})) == null) {
             int id = cVar.getId();
@@ -42,7 +42,7 @@ public class f {
                     return cVar.Cg() ? new d.b(id, false, cVar.getTotal()) : new h.b(id, false, (int) cVar.getTotal());
                 }
                 if (b == -1) {
-                    c0706d = cVar.Cg() ? new d.C0706d(id, cVar.Em(), aVar.getException()) : new h.d(id, (int) cVar.Em(), aVar.getException());
+                    c0707d = cVar.Cg() ? new d.C0707d(id, cVar.Em(), aVar.getException()) : new h.d(id, (int) cVar.Em(), aVar.getException());
                 } else if (b == 1) {
                     return cVar.Cg() ? new d.f(id, cVar.Em(), cVar.getTotal()) : new h.f(id, (int) cVar.Em(), (int) cVar.getTotal());
                 } else if (b == 2) {
@@ -55,13 +55,13 @@ public class f {
                         String h = com.kwai.filedownloader.e.f.h("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b));
                         com.kwai.filedownloader.e.d.f(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b));
                         IllegalStateException illegalStateException = aVar.getException() != null ? new IllegalStateException(h, aVar.getException()) : new IllegalStateException(h);
-                        return cVar.Cg() ? new d.C0706d(id, cVar.Em(), illegalStateException) : new h.d(id, (int) cVar.Em(), illegalStateException);
+                        return cVar.Cg() ? new d.C0707d(id, cVar.Em(), illegalStateException) : new h.d(id, (int) cVar.Em(), illegalStateException);
                     }
                     return new MessageSnapshot.b(id);
                 } else {
-                    c0706d = cVar.Cg() ? new d.h(id, cVar.Em(), aVar.getException(), aVar.Ce()) : new h.C0707h(id, (int) cVar.Em(), aVar.getException(), aVar.Ce());
+                    c0707d = cVar.Cg() ? new d.h(id, cVar.Em(), aVar.getException(), aVar.Ce()) : new h.C0708h(id, (int) cVar.Em(), aVar.getException(), aVar.Ce());
                 }
-                return c0706d;
+                return c0707d;
             }
             throw new IllegalStateException(com.kwai.filedownloader.e.f.h("please use #catchWarn instead %d", Integer.valueOf(id)));
         }
@@ -77,7 +77,7 @@ public class f {
     public static MessageSnapshot a(int i, long j, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), th})) == null) ? j > 2147483647L ? new d.C0706d(i, j, th) : new h.d(i, (int) j, th) : (MessageSnapshot) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), th})) == null) ? j > 2147483647L ? new d.C0707d(i, j, th) : new h.d(i, (int) j, th) : (MessageSnapshot) invokeCommon.objValue;
     }
 
     public static MessageSnapshot a(int i, File file, boolean z) {
@@ -101,7 +101,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageSnapshot)) == null) {
             if (messageSnapshot.Ca() == -3) {
-                return new a.C0705a(messageSnapshot);
+                return new a.C0706a(messageSnapshot);
             }
             throw new IllegalStateException(com.kwai.filedownloader.e.f.h("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.getId()), Byte.valueOf(messageSnapshot.Ca())));
         }

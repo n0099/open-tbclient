@@ -32,7 +32,7 @@ public class va4 extends d73 implements a83 {
     public int f;
 
     /* loaded from: classes8.dex */
-    public class a implements b8c<String> {
+    public class a implements d8c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class va4 extends d73 implements a83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8c
+        @Override // com.baidu.tieba.d8c
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -168,7 +168,7 @@ public class va4 extends d73 implements a83 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            n7c.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
+            p7c.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
         }
     }
 }

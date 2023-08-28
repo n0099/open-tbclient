@@ -88,7 +88,7 @@ public class cm7 extends ln6<ThreadData> implements ho6, Object {
     public String S;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1098T;
+    public String f1096T;
     public String U;
     public View V;
     public int W;
@@ -1158,7 +1158,7 @@ public class cm7 extends ln6<ThreadData> implements ho6, Object {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            return q46.c().b(this.f1098T, i2);
+            return q46.c().b(this.f1096T, i2);
         }
         return invokeI.intValue;
     }
@@ -1193,7 +1193,7 @@ public class cm7 extends ln6<ThreadData> implements ho6, Object {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f1098T = str;
+            this.f1096T = str;
         }
     }
 

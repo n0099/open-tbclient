@@ -17,7 +17,7 @@ import com.baidu.tieba.hz4;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.jw8;
 import com.baidu.tieba.kw8;
-import com.baidu.tieba.occ;
+import com.baidu.tieba.qcc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,13 +35,13 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<kw8, jw8> {
     public final CustomMessageListener e;
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public occ l() {
+    public qcc l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (occ) invokeV.objValue;
+        return (qcc) invokeV.objValue;
     }
 
     public MsgTabInviteAnswerViewModel() {

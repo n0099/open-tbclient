@@ -39,7 +39,7 @@ import com.baidu.tieba.kf5;
 import com.baidu.tieba.o05;
 import com.baidu.tieba.ri8;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.txa;
+import com.baidu.tieba.uxa;
 import com.baidu.tieba.v7a;
 import com.baidu.tieba.w7a;
 import com.baidu.tieba.wna;
@@ -384,7 +384,7 @@ public class ShareStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class g extends BdAsyncTask<String, Integer, txa> {
+    public static class g extends BdAsyncTask<String, Integer, uxa> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -429,7 +429,7 @@ public class ShareStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public txa doInBackground(String... strArr) {
+        public uxa doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -439,28 +439,28 @@ public class ShareStatic {
                 this.a.addPostData("from", "3");
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    txa txaVar = new txa();
-                    txaVar.d(postNetData);
-                    return txaVar;
+                    uxa uxaVar = new uxa();
+                    uxaVar.d(postNetData);
+                    return uxaVar;
                 }
                 return null;
             }
-            return (txa) invokeL.objValue;
+            return (uxa) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(txa txaVar) {
+        public void onPostExecute(uxa uxaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, txaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uxaVar) == null) {
                 g unused = ShareStatic.a = null;
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    ri8.b(txaVar.c());
+                    ri8.b(uxaVar.c());
                 } else {
                     BdLog.d("request = error");
                 }
-                super.onPostExecute(txaVar);
+                super.onPostExecute(uxaVar);
             }
         }
     }

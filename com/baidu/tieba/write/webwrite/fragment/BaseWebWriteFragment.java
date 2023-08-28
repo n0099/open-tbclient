@@ -28,20 +28,21 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a0b;
 import com.baidu.tieba.ai5;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.bt5;
+import com.baidu.tieba.c0b;
 import com.baidu.tieba.cm6;
 import com.baidu.tieba.em6;
-import com.baidu.tieba.gza;
+import com.baidu.tieba.hxa;
+import com.baidu.tieba.iza;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.r3b;
 import com.baidu.tieba.ry4;
+import com.baidu.tieba.t3b;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.uxa;
+import com.baidu.tieba.vxa;
 import com.baidu.tieba.wl6;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
 import com.baidu.tieba.write.webwrite.data.WriteDataManager;
@@ -94,7 +95,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
     public abstract void q2(EditorTools editorTools);
 
     /* loaded from: classes8.dex */
-    public static final class a extends gza {
+    public static final class a extends iza {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Ref.ObjectRef<TbWebView> f;
@@ -141,7 +142,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             }
         }
 
-        @Override // com.baidu.tieba.gza
+        @Override // com.baidu.tieba.iza
         public void i(final WebView webView, final String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -196,7 +197,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
                 }
                 SafeHandler inst = SafeHandler.getInst();
                 final BaseWebWriteFragment baseWebWriteFragment4 = this.g;
-                inst.post(new Runnable() { // from class: com.baidu.tieba.yza
+                inst.post(new Runnable() { // from class: com.baidu.tieba.a0b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,7 +211,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
                 });
                 SafeHandler inst2 = SafeHandler.getInst();
                 final BaseWebWriteFragment baseWebWriteFragment5 = this.g;
-                inst2.postDelayed(new Runnable() { // from class: com.baidu.tieba.wza
+                inst2.postDelayed(new Runnable() { // from class: com.baidu.tieba.yza
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -225,7 +226,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             }
         }
 
-        @Override // com.baidu.tieba.gza
+        @Override // com.baidu.tieba.iza
         public void j(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
@@ -247,7 +248,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
                 return;
             }
         }
-        this.e = LazyKt__LazyJVMKt.lazy(new Function0<a0b>(this) { // from class: com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment$mWritePageState$2
+        this.e = LazyKt__LazyJVMKt.lazy(new Function0<c0b>(this) { // from class: com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment$mWritePageState$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseWebWriteFragment this$0;
@@ -276,13 +277,13 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final a0b invoke() {
+            public final c0b invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return new a0b(this.this$0);
+                    return new c0b(this.this$0);
                 }
-                return (a0b) invokeV.objValue;
+                return (c0b) invokeV.objValue;
             }
         });
         this.l = LazyKt__LazyJVMKt.lazy(new Function0<TbWebView>(this) { // from class: com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment$mWebView$2
@@ -404,7 +405,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             }
         });
         this.q = new ArrayList<>();
-        this.r = LazyKt__LazyJVMKt.lazy(new Function0<r3b>(this) { // from class: com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment$mBackgroundSwitchController$2
+        this.r = LazyKt__LazyJVMKt.lazy(new Function0<t3b>(this) { // from class: com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment$mBackgroundSwitchController$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseWebWriteFragment this$0;
@@ -433,16 +434,16 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final r3b invoke() {
+            public final t3b invoke() {
                 InterceptResult invokeV;
                 EditorTools v2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     TbPageContext<BaseFragmentActivity> pageContext = this.this$0.getPageContext();
                     v2 = this.this$0.v2();
-                    return new r3b(pageContext, v2);
+                    return new t3b(pageContext, v2);
                 }
-                return (r3b) invokeV.objValue;
+                return (t3b) invokeV.objValue;
             }
         });
     }
@@ -479,12 +480,11 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             if (!y2().i()) {
                 I2();
             }
-            w2().onResume();
             if (isAdded()) {
                 wl6.a().d(w2(), CommonTbJsBridge.RE_SHOW, null);
                 w2().setWebViewSkinOverly(this.a, R.color.CAM_X0503);
             }
-            uxa.a(w2());
+            vxa.a(w2());
         }
     }
 
@@ -605,7 +605,6 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onPause();
-            w2().onPause();
             u2().f();
         }
     }
@@ -626,13 +625,13 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
         return (ArrayList) invokeV.objValue;
     }
 
-    public final r3b u2() {
+    public final t3b u2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return (r3b) this.r.getValue();
+            return (t3b) this.r.getValue();
         }
-        return (r3b) invokeV.objValue;
+        return (t3b) invokeV.objValue;
     }
 
     public final EditorTools v2() {
@@ -662,13 +661,13 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
         return (WriteDataManager) invokeV.objValue;
     }
 
-    public final a0b y2() {
+    public final c0b y2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return (a0b) this.e.getValue();
+            return (c0b) this.e.getValue();
         }
-        return (a0b) invokeV.objValue;
+        return (c0b) invokeV.objValue;
     }
 
     public final cm6 z2() {
@@ -717,7 +716,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             }
             x2().f(y2(), bundle, intent);
             WriteDataManager x2 = x2();
-            a0b y2 = y2();
+            c0b y2 = y2();
             TbWebView w2 = w2();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
@@ -849,7 +848,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             if (y2().i()) {
-                uxa.b(w2());
+                vxa.b(w2());
                 if (!this.k) {
                     w2().r();
                 }
@@ -860,7 +859,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v13, types: [T, com.baidu.tieba.browser.TbWebView] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [T, com.baidu.tieba.browser.TbWebView] */
     /* JADX WARN: Type inference failed for: r1v4, types: [T, com.baidu.tieba.browser.TbWebView] */
     public final TbWebView J2() {
         InterceptResult invokeV;
@@ -875,9 +874,12 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             ?? d = b.d(mUrl, requireContext);
             objectRef.element = d;
             if (d == 0) {
-                ?? tbWebView = new TbWebView(getContext());
-                objectRef.element = tbWebView;
-                ((TbWebView) tbWebView).loadUrl(this.a);
+                hxa.a aVar = hxa.a;
+                Context requireContext2 = requireContext();
+                Intrinsics.checkNotNullExpressionValue(requireContext2, "requireContext()");
+                ?? a2 = aVar.a(requireContext2);
+                objectRef.element = a2;
+                ((TbWebView) a2).loadUrl(this.a);
             }
             y2().D(new a(objectRef, this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
@@ -888,7 +890,7 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             }
             viewGroup.addView((View) objectRef.element, layoutParams);
             ((TbWebView) objectRef.element).setNeedDisAllowParentInterceptTouchEvent(false);
-            ((TbWebView) objectRef.element).setOnReceivedErrorListener(new em6() { // from class: com.baidu.tieba.xza
+            ((TbWebView) objectRef.element).setOnReceivedErrorListener(new em6() { // from class: com.baidu.tieba.zza
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -947,22 +949,28 @@ public abstract class BaseWebWriteFragment extends BaseWebViewFragment implement
             super.onChangeSkinType(i);
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             ViewGroup viewGroup = this.g;
+            ViewGroup viewGroup2 = null;
             if (viewGroup == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 viewGroup = null;
             }
             bt5.a(pageContext, viewGroup);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            String currentSkinTypeString = SkinManager.getCurrentSkinTypeString();
-            Intrinsics.checkNotNullExpressionValue(currentSkinTypeString, "getCurrentSkinTypeString()");
-            linkedHashMap.put("skin", currentSkinTypeString);
-            wl6.a().d(w2(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
-            v2().z(TbadkCoreApplication.getInst().getSkinType());
-            WebView innerWebView = w2().getInnerWebView();
-            if (innerWebView != null) {
-                EMManager.from(innerWebView).setBackGroundColor(R.color.CAM_X0201);
+            ViewGroup viewGroup3 = this.g;
+            if (viewGroup3 == null) {
+                Intrinsics.throwUninitializedPropertyAccessException("mRootView");
+            } else {
+                viewGroup2 = viewGroup3;
             }
-            w2().setWebViewSkinOverly(this.a, R.color.CAM_X0503);
+            EMManager.from(viewGroup2).setBackGroundColor(R.color.CAM_X0201);
+            if (y2().i()) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                String currentSkinTypeString = SkinManager.getCurrentSkinTypeString();
+                Intrinsics.checkNotNullExpressionValue(currentSkinTypeString, "getCurrentSkinTypeString()");
+                linkedHashMap.put("skin", currentSkinTypeString);
+                wl6.a().d(w2(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                v2().z(TbadkCoreApplication.getInst().getSkinType());
+                w2().setWebViewSkinOverly(this.a, R.color.CAM_X0503);
+            }
         }
     }
 

@@ -50,7 +50,7 @@ public class MsgPhotoLiveCardVew extends uc8 {
     public TextView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1131T;
+    public int f1129T;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -155,8 +155,8 @@ public class MsgPhotoLiveCardVew extends uc8 {
         }
         this.H = 0L;
         this.J = 0;
-        this.f1131T = 0;
-        this.f1131T = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+        this.f1129T = 0;
+        this.f1129T = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
         w0();
     }
 
@@ -287,7 +287,7 @@ public class MsgPhotoLiveCardVew extends uc8 {
             }
             this.P.setText(decode);
             layoutParams.height = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07026a);
-            this.R.setPadding(this.f1131T, 0, 0, 0);
+            this.R.setPadding(this.f1129T, 0, 0, 0);
             this.L.setVisibility(0);
             this.L.setOnClickListener(new b(this));
             this.L.setTag(a2.b);

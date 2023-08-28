@@ -50,12 +50,12 @@ public class ss3 extends f23 {
 
         /* renamed from: com.baidu.tieba.ss3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0479a implements wp3<String> {
+        public class C0481a implements wp3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0479a(a aVar) {
+            public C0481a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class ss3 extends f23 {
                 if (!bg3.h(gg3Var)) {
                     bg3.q(gg3Var, this.a, this.b);
                 } else {
-                    ss3.z(this.c, new C0479a(this));
+                    ss3.z(this.c, new C0481a(this));
                 }
             }
         }

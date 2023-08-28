@@ -201,15 +201,15 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong("result");
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0674a c0674a = new a.C0674a();
-                        bVar.Sg = c0674a;
+                        a.C0675a c0675a = new a.C0675a();
+                        bVar.Sg = c0675a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0674a.a = optJSONObject.optInt("dynamicType");
-                            c0674a.b = optJSONObject.optString("dynamicUrl");
-                            c0674a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0674a.Se = optJSONObject.optLong("interval");
-                            c0674a.e = optJSONObject.optString(com.heytap.mcssdk.constant.b.C);
+                            c0675a.a = optJSONObject.optInt("dynamicType");
+                            c0675a.b = optJSONObject.optString("dynamicUrl");
+                            c0675a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0675a.Se = optJSONObject.optLong("interval");
+                            c0675a.e = optJSONObject.optString(com.heytap.mcssdk.constant.b.C);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

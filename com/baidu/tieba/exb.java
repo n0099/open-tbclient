@@ -1,67 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class exb {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947751130, "Lcom/baidu/tieba/exb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947751130, "Lcom/baidu/tieba/exb;");
-        }
-    }
-
-    public static String a(String str, String str2, Context context) {
-        InterceptResult invokeLLL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
-            return b(context).getString(str, str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static void c(String str, String str2, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
-            b(context).edit().putString(str, str2).apply();
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
         }
     }
 
-    public static synchronized SharedPreferences b(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (exb.class) {
-                if (a == null) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
-                    } else {
-                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
-                    }
-                }
-                sharedPreferences = a;
-            }
-            return sharedPreferences;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "SecurityComp10105310: " + str;
         }
-        return (SharedPreferences) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
+            Log.e(a(str), str2, th);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            Log.e(a(str), str2);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            Log.i(a(str), str2);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            Log.w(a(str), str2);
+        }
     }
 }

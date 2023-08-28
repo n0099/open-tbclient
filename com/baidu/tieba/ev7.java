@@ -36,12 +36,12 @@ public class ev7 {
 
         /* renamed from: com.baidu.tieba.ev7$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0281a implements View.OnClickListener {
+        public class View$OnClickListenerC0280a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0281a(a aVar) {
+            public View$OnClickListenerC0280a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class ev7 {
                     screenTopToast.m(this.a.a.getString(R.string.frs_recommend_suc_tip_title));
                     screenTopToast.l(this.a.a.getString(R.string.frs_recommend_suc_tip_content));
                     screenTopToast.k(this.a.a.getString(R.string.dialog_confirm_see));
-                    screenTopToast.j(new View$OnClickListenerC0281a(this));
+                    screenTopToast.j(new View$OnClickListenerC0280a(this));
                     screenTopToast.o((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090c54));
                     return;
                 }

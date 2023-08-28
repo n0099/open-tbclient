@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.Surface;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public abstract class nzb extends mzb {
+public final class nzb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void d(Context context) {
+    public static final String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringsKt__StringsJVMKt.isBlank(str)) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            Thread currentThread = Thread.currentThread();
+            Intrinsics.checkExpressionValueIsNotNull(currentThread, "Thread.currentThread()");
+            sb.append(currentThread.getName());
+            sb.append("] ");
+            sb.append(str);
+            return sb.toString();
         }
-    }
-
-    public void e(Context context, Surface surface, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-        }
-    }
-
-    public void f(Context context, Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        return (String) invokeL.objValue;
     }
 }

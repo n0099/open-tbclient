@@ -3,7 +3,7 @@ package com.baidu.tieba.immessagecenter.arch.vm;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ik8;
 import com.baidu.tieba.jk8;
-import com.baidu.tieba.occ;
+import com.baidu.tieba.qcc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,13 +18,13 @@ public final class StatelessViewModel extends BaseViewModel<jk8, ik8> {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public occ l() {
+    public qcc l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (occ) invokeV.objValue;
+        return (qcc) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

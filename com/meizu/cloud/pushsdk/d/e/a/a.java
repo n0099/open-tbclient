@@ -10,8 +10,8 @@ public class a extends com.meizu.cloud.pushsdk.d.e.a {
     public static final String n = "a";
     public static ScheduledExecutorService o;
 
-    public a(a.C0722a c0722a) {
-        super(c0722a);
+    public a(a.C0723a c0723a) {
+        super(c0723a);
         b.a(this.k);
         c();
     }

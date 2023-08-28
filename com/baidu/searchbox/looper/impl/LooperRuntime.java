@@ -17,7 +17,7 @@ import com.baidu.tieba.ik1;
 import com.baidu.tieba.jk1;
 import com.baidu.tieba.kk1;
 import com.baidu.tieba.lk1;
-import com.baidu.tieba.srb;
+import com.baidu.tieba.urb;
 /* loaded from: classes4.dex */
 public class LooperRuntime {
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT = new ILooperUIContext() { // from class: com.baidu.searchbox.looper.impl.LooperRuntime.1
@@ -77,10 +77,10 @@ public class LooperRuntime {
         return kk1Var.get();
     }
 
-    public void dispatchBlock(Context context, srb srbVar) {
+    public void dispatchBlock(Context context, urb urbVar) {
         lk1<ILooperRegister> lk1Var = this.mLooperMonitordList;
         if (lk1Var != null && lk1Var.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(srbVar.r, srbVar.q, srbVar.n, srbVar.o, srbVar.w);
+            LooperBlock looperBlock = new LooperBlock(urbVar.r, urbVar.q, urbVar.n, urbVar.o, urbVar.w);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {

@@ -2,857 +2,817 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.Socket;
-import java.net.URI;
 import java.nio.ByteBuffer;
+import java.nio.channels.ByteChannel;
 import java.nio.channels.NotYetConnectedException;
+import java.nio.channels.SelectionKey;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLException;
-import org.apache.commons.codec.net.RFC1522Codec;
+import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import org.java_websocket.WebSocket;
 import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.IncompleteHandshakeException;
+import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.exceptions.InvalidHandshakeException;
+import org.java_websocket.exceptions.WebsocketNotConnectedException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public abstract class j6c extends f6c implements Runnable, WebSocket {
-    public static /* synthetic */ Interceptable $ic;
+public class j6c implements WebSocket {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int t = 16384;
+    public static boolean u;
     public transient /* synthetic */ FieldHolder $fh;
-    public CountDownLatch closeLatch;
-    public CountDownLatch connectLatch;
-    public Thread connectReadThread;
-    public int connectTimeout;
-    public Draft draft;
-    public h6c engine;
-    public Map<String, String> headers;
-    public OutputStream ostream;
-    public Proxy proxy;
-    public Socket socket;
-    public URI uri;
-    public Thread writeThread;
+    public final BlockingQueue<ByteBuffer> a;
+    public final k6c b;
+    public SelectionKey c;
+    public ByteChannel d;
+    public volatile boolean e;
+    public WebSocket.READYSTATE f;
+    public List<Draft> g;
+    public Draft h;
+    public WebSocket.Role i;
+    public ByteBuffer j;
+    public y6c k;
+    public String l;
+    public Integer m;
+    public Boolean n;
+    public String o;
+    public long p;
+    public final Object q;
+    public v6c r;
+    public Object s;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public abstract void onClose(int i, String str, boolean z);
-
-    public void onCloseInitiated(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048603, this, i, str) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947836690, "Lcom/baidu/tieba/j6c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947836690, "Lcom/baidu/tieba/j6c;");
         }
     }
 
-    public void onClosing(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    public abstract void onError(Exception exc);
-
-    @Deprecated
-    public void onFragment(Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, framedata) == null) {
-        }
-    }
-
-    public abstract void onMessage(String str);
-
-    public void onMessage(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, byteBuffer) == null) {
-        }
-    }
-
-    public abstract void onOpen(d7c d7cVar);
-
-    @Override // com.baidu.tieba.i6c
-    public final void onWriteDemand(WebSocket webSocket) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, webSocket) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j6c a;
-
-        public b(j6c j6cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j6cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j6cVar;
-        }
-
-        public /* synthetic */ b(j6c j6cVar, a aVar) {
-            this(j6cVar);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName("WebSocketWriteThread-" + Thread.currentThread().getId());
-                while (true) {
-                    try {
-                        try {
-                            try {
-                                if (Thread.interrupted()) {
-                                    break;
-                                }
-                                ByteBuffer take = this.a.engine.a.take();
-                                this.a.ostream.write(take.array(), 0, take.limit());
-                                this.a.ostream.flush();
-                            } catch (IOException e) {
-                                this.a.handleIOException(e);
-                            }
-                        } finally {
-                            this.a.closeSocket();
-                            this.a.writeThread = null;
-                        }
-                    } catch (InterruptedException unused) {
-                        for (ByteBuffer byteBuffer : this.a.engine.a) {
-                            this.a.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
-                            this.a.ostream.flush();
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j6c(URI uri) {
-        this(uri, new k6c());
+    public j6c(k6c k6cVar, Draft draft) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URI) objArr2[0], (Draft) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j6c(URI uri, Map<String, String> map) {
-        this(uri, new k6c(), map);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, map};
+            Object[] objArr = {k6cVar, draft};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URI) objArr2[0], (Draft) objArr2[1], (Map) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j6c(URI uri, Draft draft) {
-        this(uri, draft, null, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, draft};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URI) objArr2[0], (Draft) objArr2[1], (Map) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public j6c(URI uri, Draft draft, Map<String, String> map) {
-        this(uri, draft, map, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, draft, map};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((URI) objArr2[0], (Draft) objArr2[1], (Map) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public j6c(URI uri, Draft draft, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri, draft, map, Integer.valueOf(i)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.uri = null;
-        this.engine = null;
-        this.socket = null;
-        this.proxy = Proxy.NO_PROXY;
-        this.connectLatch = new CountDownLatch(1);
-        this.closeLatch = new CountDownLatch(1);
-        this.connectTimeout = 0;
-        if (uri != null) {
+        this.e = false;
+        this.f = WebSocket.READYSTATE.NOT_YET_CONNECTED;
+        this.h = null;
+        this.j = ByteBuffer.allocate(0);
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.p = System.currentTimeMillis();
+        this.q = new Object();
+        if (k6cVar != null && (draft != null || this.i != WebSocket.Role.SERVER)) {
+            this.a = new LinkedBlockingQueue();
+            new LinkedBlockingQueue();
+            this.b = k6cVar;
+            this.i = WebSocket.Role.CLIENT;
             if (draft != null) {
-                this.uri = uri;
-                this.draft = draft;
-                this.headers = map;
-                this.connectTimeout = i;
-                setTcpNoDelay(false);
-                setReuseAddr(false);
-                this.engine = new h6c(this, draft);
+                this.h = draft.f();
                 return;
             }
-            throw new IllegalArgumentException("null as draft is permitted for `WebSocketServer` only!");
+            return;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("parameters must not be null");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handleIOException(IOException iOException) {
+    public boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, iOException) == null) {
-            if (iOException instanceof SSLException) {
-                onError(iOException);
-            }
-            this.engine.n();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return invokeV.booleanValue;
     }
 
-    public void close(int i) {
+    public boolean B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.engine.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public InetSocketAddress getLocalSocketAddress(WebSocket webSocket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, webSocket)) == null) {
-            Socket socket = this.socket;
-            if (socket != null) {
-                return (InetSocketAddress) socket.getLocalSocketAddress();
-            }
-            return null;
-        }
-        return (InetSocketAddress) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public InetSocketAddress getRemoteSocketAddress(WebSocket webSocket) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, webSocket)) == null) {
-            Socket socket = this.socket;
-            if (socket != null) {
-                return (InetSocketAddress) socket.getRemoteSocketAddress();
-            }
-            return null;
-        }
-        return (InetSocketAddress) invokeL.objValue;
-    }
-
-    public void send(String str) throws NotYetConnectedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
-            this.engine.D(str);
-        }
-    }
-
-    public void sendFrame(Collection<Framedata> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, collection) == null) {
-            this.engine.I(collection);
-        }
-    }
-
-    public <T> void setAttachment(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, t) == null) {
-            this.engine.K(t);
-        }
-    }
-
-    public void setProxy(Proxy proxy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, proxy) == null) {
-            if (proxy != null) {
-                this.proxy = proxy;
-                return;
-            }
-            throw new IllegalArgumentException();
-        }
-    }
-
-    public void setSocket(Socket socket) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, socket) == null) {
-            if (this.socket == null) {
-                this.socket = socket;
-                return;
-            }
-            throw new IllegalStateException("socket has already been set");
-        }
-    }
-
-    public void close(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            this.engine.c(i, str);
-        }
-    }
-
-    public void closeConnection(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            this.engine.f(i, str);
-        }
-    }
-
-    public boolean connectBlocking(long j, TimeUnit timeUnit) throws InterruptedException {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j, timeUnit)) == null) {
-            connect();
-            if (this.connectLatch.await(j, timeUnit) && this.engine.B()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (t() == WebSocket.READYSTATE.OPEN) {
                 return true;
             }
             return false;
         }
-        return invokeJL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public final void onWebsocketError(WebSocket webSocket, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, webSocket, exc) == null) {
-            onError(exc);
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public final void onWebsocketMessage(WebSocket webSocket, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048614, this, webSocket, str) == null) {
-            onMessage(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.g6c
-    public void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048616, this, webSocket, framedata) == null) {
-            onFragment(framedata);
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public final void onWebsocketOpen(WebSocket webSocket, b7c b7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048617, this, webSocket, b7cVar) == null) {
-            startConnectionLostTimer();
-            onOpen((d7c) b7cVar);
-            this.connectLatch.countDown();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void closeSocket() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            try {
-                if (this.socket != null) {
-                    this.socket.close();
-                }
-            } catch (IOException e) {
-                onWebsocketError(this, e);
-            }
-        }
-    }
-
-    public void close() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.writeThread != null) {
-            this.engine.b(1000);
-        }
-    }
-
-    public void closeBlocking() throws InterruptedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            close();
-            this.closeLatch.await();
-        }
-    }
-
-    public boolean connectBlocking() throws InterruptedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            connect();
-            this.connectLatch.await();
-            return this.engine.B();
-        }
         return invokeV.booleanValue;
     }
 
-    public <T> T getAttachment() {
+    public void J() throws NotYetConnectedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.r == null) {
+                this.r = new v6c();
+            }
+            sendFrame(this.r);
+        }
+    }
+
+    public void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.p = System.currentTimeMillis();
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            b(1000);
+        }
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return (T) this.engine.q();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return super.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public <T> T q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return (T) this.s;
         }
         return (T) invokeV.objValue;
     }
 
-    public WebSocket getConnection() {
+    public long r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.engine;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return this.p;
         }
-        return (WebSocket) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.f6c
-    public Collection<WebSocket> getConnections() {
+    public InetSocketAddress s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return Collections.singletonList(this.engine);
-        }
-        return (Collection) invokeV.objValue;
-    }
-
-    public Draft getDraft() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.draft;
-        }
-        return (Draft) invokeV.objValue;
-    }
-
-    public InetSocketAddress getLocalSocketAddress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.engine.s();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.b.getLocalSocketAddress(this);
         }
         return (InetSocketAddress) invokeV.objValue;
     }
 
-    public WebSocket.READYSTATE getReadyState() {
+    public WebSocket.READYSTATE t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.engine.t();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.f;
         }
         return (WebSocket.READYSTATE) invokeV.objValue;
     }
 
-    public InetSocketAddress getRemoteSocketAddress() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.engine.u();
-        }
-        return (InetSocketAddress) invokeV.objValue;
-    }
-
-    public String getResourceDescriptor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.uri.getPath();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return super.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public Socket getSocket() {
+    public InetSocketAddress u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.socket;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.b.getRemoteSocketAddress(this);
         }
-        return (Socket) invokeV.objValue;
+        return (InetSocketAddress) invokeV.objValue;
     }
 
-    public URI getURI() {
+    public k6c v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.uri;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return this.b;
         }
-        return (URI) invokeV.objValue;
+        return (k6c) invokeV.objValue;
     }
 
-    public boolean hasBufferedData() {
+    public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.engine.w();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.engine.x();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return !this.a.isEmpty();
         }
         return invokeV.booleanValue;
     }
 
-    public boolean isClosing() {
+    public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.engine.y();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (t() == WebSocket.READYSTATE.CLOSED) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            if (t() == WebSocket.READYSTATE.CLOSING) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
     @Deprecated
-    public boolean isConnecting() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.engine.z();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isFlushAndClose() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.engine.A();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isOpen() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.engine.B();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void reconnect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            reset();
-            connect();
-        }
-    }
-
-    public boolean reconnectBlocking() throws InterruptedException {
+    public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            reset();
-            return connectBlocking();
+            if (t() == WebSocket.READYSTATE.CONNECTING) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void sendPing() throws NotYetConnectedException {
+    public final void C(d7c d7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            this.engine.J();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d7cVar) == null) {
+            if (u) {
+                PrintStream printStream = System.out;
+                printStream.println("open using draft: " + this.h);
+            }
+            L(WebSocket.READYSTATE.OPEN);
+            try {
+                this.b.onWebsocketOpen(this, d7cVar);
+            } catch (RuntimeException e) {
+                this.b.onWebsocketError(this, e);
+            }
         }
     }
 
-    private int getPort() {
-        InterceptResult invokeV;
+    public void D(String str) throws WebsocketNotConnectedException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            int port = this.uri.getPort();
-            if (port == -1) {
-                String scheme = this.uri.getScheme();
-                if ("wss".equals(scheme)) {
-                    return 443;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str != null) {
+                Draft draft = this.h;
+                if (this.i == WebSocket.Role.CLIENT) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                if ("ws".equals(scheme)) {
-                    return 80;
-                }
-                throw new IllegalArgumentException("unknown scheme: " + scheme);
-            }
-            return port;
-        }
-        return invokeV.intValue;
-    }
-
-    private void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            Thread currentThread = Thread.currentThread();
-            if (currentThread != this.writeThread && currentThread != this.connectReadThread) {
-                try {
-                    closeBlocking();
-                    if (this.writeThread != null) {
-                        this.writeThread.interrupt();
-                        this.writeThread = null;
-                    }
-                    if (this.connectReadThread != null) {
-                        this.connectReadThread.interrupt();
-                        this.connectReadThread = null;
-                    }
-                    this.draft.s();
-                    if (this.socket != null) {
-                        this.socket.close();
-                        this.socket = null;
-                    }
-                    this.connectLatch = new CountDownLatch(1);
-                    this.closeLatch = new CountDownLatch(1);
-                    this.engine = new h6c(this, this.draft);
-                    return;
-                } catch (Exception e) {
-                    onError(e);
-                    this.engine.f(1006, e.getMessage());
-                    return;
-                }
-            }
-            throw new IllegalStateException("You cannot initialize a reconnect out of the websocket thread. Use reconnect in another thread to insure a successful cleanup.");
-        }
-    }
-
-    private void sendHandshake() throws InvalidHandshakeException {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            String rawPath = this.uri.getRawPath();
-            String rawQuery = this.uri.getRawQuery();
-            rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
-            if (rawQuery != null) {
-                rawPath = rawPath + RFC1522Codec.SEP + rawQuery;
-            }
-            int port = getPort();
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.uri.getHost());
-            if (port != 80 && port != 443) {
-                str = ":" + port;
-            } else {
-                str = "";
-            }
-            sb.append(str);
-            String sb2 = sb.toString();
-            z6c z6cVar = new z6c();
-            z6cVar.b(rawPath);
-            z6cVar.put("Host", sb2);
-            Map<String, String> map = this.headers;
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    z6cVar.put(entry.getKey(), entry.getValue());
-                }
-            }
-            this.engine.M(z6cVar);
-        }
-    }
-
-    public void connect() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.connectReadThread == null) {
-                Thread thread = new Thread(this);
-                this.connectReadThread = thread;
-                thread.setName("WebSocketConnectReadThread-" + this.connectReadThread.getId());
-                this.connectReadThread.start();
+                F(draft.h(str, z));
                 return;
             }
-            throw new IllegalStateException("WebSocketClient objects are not reuseable");
+            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
         }
     }
 
-    @Override // com.baidu.tieba.i6c
-    public final void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{webSocket, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            stopConnectionLostTimer();
-            Thread thread = this.writeThread;
-            if (thread != null) {
-                thread.interrupt();
-            }
-            onClose(i, str, z);
-            this.connectLatch.countDown();
-            this.closeLatch.countDown();
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048611, this, webSocket, i, str) == null) {
-            onCloseInitiated(i, str);
-        }
-    }
-
-    public void sendFragmentedFrame(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048625, this, opcode, byteBuffer, z) == null) {
-            this.engine.H(opcode, byteBuffer, z);
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{webSocket, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            onClosing(i, str, z);
-        }
-    }
-
-    @Override // com.baidu.tieba.i6c
-    public final void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048615, this, webSocket, byteBuffer) == null) {
-            onMessage(byteBuffer);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
+    public void E(ByteBuffer byteBuffer) throws IllegalArgumentException, WebsocketNotConnectedException {
         boolean z;
-        int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            try {
-                if (this.socket == null) {
-                    this.socket = new Socket(this.proxy);
+        if (interceptable == null || interceptable.invokeL(1048580, this, byteBuffer) == null) {
+            if (byteBuffer != null) {
+                Draft draft = this.h;
+                if (this.i == WebSocket.Role.CLIENT) {
                     z = true;
-                } else if (!this.socket.isClosed()) {
-                    z = false;
                 } else {
-                    throw new IOException();
+                    z = false;
                 }
-                this.socket.setTcpNoDelay(isTcpNoDelay());
-                this.socket.setReuseAddress(isReuseAddr());
-                if (!this.socket.isBound()) {
-                    this.socket.connect(new InetSocketAddress(this.uri.getHost(), getPort()), this.connectTimeout);
+                F(draft.i(byteBuffer, z));
+                return;
+            }
+            throw new IllegalArgumentException("Cannot send 'null' data to a WebSocketImpl.");
+        }
+    }
+
+    public void G(byte[] bArr) throws IllegalArgumentException, WebsocketNotConnectedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
+            E(ByteBuffer.wrap(bArr));
+        }
+    }
+
+    public void I(Collection<Framedata> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection) == null) {
+            F(collection);
+        }
+    }
+
+    public <T> void K(T t2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, t2) == null) {
+            this.s = t2;
+        }
+    }
+
+    public final void L(WebSocket.READYSTATE readystate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, readystate) == null) {
+            this.f = readystate;
+        }
+    }
+
+    public final void P(List<ByteBuffer> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
+            synchronized (this.q) {
+                for (ByteBuffer byteBuffer : list) {
+                    O(byteBuffer);
                 }
-                if (z && "wss".equals(this.uri.getScheme())) {
-                    SSLContext sSLContext = SSLContext.getInstance("TLS");
-                    sSLContext.init(null, null, null);
-                    this.socket = sSLContext.getSocketFactory().createSocket(this.socket, this.uri.getHost(), getPort(), true);
-                }
-                InputStream inputStream = this.socket.getInputStream();
-                this.ostream = this.socket.getOutputStream();
-                sendHandshake();
-                Thread thread = new Thread(new b(this, null));
-                this.writeThread = thread;
-                thread.start();
-                byte[] bArr = new byte[h6c.t];
-                while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
-                    try {
-                        this.engine.k(ByteBuffer.wrap(bArr, 0, read));
-                    } catch (IOException e) {
-                        handleIOException(e);
-                    } catch (RuntimeException e2) {
-                        onError(e2);
-                        this.engine.f(1006, e2.getMessage());
-                    }
-                }
-                this.engine.n();
-                this.connectReadThread = null;
-            } catch (Exception e3) {
-                onWebsocketError(this.engine, e3);
-                this.engine.f(-1, e3.getMessage());
             }
         }
     }
 
-    public void send(ByteBuffer byteBuffer) throws IllegalArgumentException, NotYetConnectedException {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, byteBuffer) == null) {
-            this.engine.E(byteBuffer);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            d(i, "", false);
+        }
+    }
+
+    public void e(InvalidDataException invalidDataException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, invalidDataException) == null) {
+            d(invalidDataException.getCloseCode(), invalidDataException.getMessage(), false);
+        }
+    }
+
+    public final void i(RuntimeException runtimeException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, runtimeException) == null) {
+            O(p(500));
+            o(-1, runtimeException.getMessage(), false);
+        }
+    }
+
+    public final void j(InvalidDataException invalidDataException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, invalidDataException) == null) {
+            O(p(404));
+            o(invalidDataException.getCloseCode(), invalidDataException.getMessage(), false);
         }
     }
 
     @Override // org.java_websocket.WebSocket
     public void sendFrame(Framedata framedata) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, framedata) == null) {
-            this.engine.sendFrame(framedata);
+        if (interceptable == null || interceptable.invokeL(1048612, this, framedata) == null) {
+            F(Collections.singletonList(framedata));
         }
     }
 
-    public void send(byte[] bArr) throws NotYetConnectedException {
+    public final void F(Collection<Framedata> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, bArr) == null) {
-            this.engine.G(bArr);
+        if (interceptable == null || interceptable.invokeL(1048581, this, collection) == null) {
+            if (B()) {
+                if (collection != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (Framedata framedata : collection) {
+                        if (u) {
+                            PrintStream printStream = System.out;
+                            printStream.println("send frame: " + framedata);
+                        }
+                        arrayList.add(this.h.g(framedata));
+                    }
+                    P(arrayList);
+                    return;
+                }
+                throw new IllegalArgumentException();
+            }
+            throw new WebsocketNotConnectedException();
+        }
+    }
+
+    public void M(z6c z6cVar) throws InvalidHandshakeException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, z6cVar) == null) {
+            this.h.m(z6cVar);
+            this.k = z6cVar;
+            this.o = z6cVar.f();
+            try {
+                this.b.onWebsocketHandshakeSentAsClient(this, this.k);
+                P(this.h.j(this.k, this.i));
+            } catch (RuntimeException e) {
+                this.b.onWebsocketError(this, e);
+                throw new InvalidHandshakeException("rejected because of" + e);
+            } catch (InvalidDataException unused) {
+                throw new InvalidHandshakeException("Handshake data rejected by client.");
+            }
+        }
+    }
+
+    public final void O(ByteBuffer byteBuffer) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, byteBuffer) == null) {
+            if (u) {
+                PrintStream printStream = System.out;
+                StringBuilder sb = new StringBuilder();
+                sb.append("write(");
+                sb.append(byteBuffer.remaining());
+                sb.append("): {");
+                if (byteBuffer.remaining() > 1000) {
+                    str = "too big to display";
+                } else {
+                    str = new String(byteBuffer.array());
+                }
+                sb.append(str);
+                sb.append('}');
+                printStream.println(sb.toString());
+            }
+            this.a.add(byteBuffer);
+            this.b.onWriteDemand(this);
+        }
+    }
+
+    public final void l(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, byteBuffer) == null) {
+            try {
+                for (Framedata framedata : this.h.u(byteBuffer)) {
+                    if (u) {
+                        PrintStream printStream = System.out;
+                        printStream.println("matched frame: " + framedata);
+                    }
+                    this.h.o(this, framedata);
+                }
+            } catch (InvalidDataException e) {
+                this.b.onWebsocketError(this, e);
+                e(e);
+            }
+        }
+    }
+
+    public final ByteBuffer p(int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
+            if (i != 404) {
+                str = "500 Internal Server Error";
+            } else {
+                str = "404 WebSocket Upgrade Failure";
+            }
+            return ByteBuffer.wrap(l7c.a("HTTP/1.1 " + str + "\r\nContent-Type: text/html\nServer: TooTallNate Java-WebSocket\r\nContent-Length: " + (str.length() + 48) + "\r\n\r\n<html><head></head><body><h1>" + str + "</h1></body></html>"));
+        }
+        return (ByteBuffer) invokeI.objValue;
+    }
+
+    public void H(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048583, this, opcode, byteBuffer, z) == null) {
+            F(this.h.e(opcode, byteBuffer, z));
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, str) == null) {
+            d(i, str, false);
+        }
+    }
+
+    public void f(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, str) == null) {
+            g(i, str, false);
+        }
+    }
+
+    public void h(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            g(i, "", z);
+        }
+    }
+
+    public synchronized void d(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (t() != WebSocket.READYSTATE.CLOSING && this.f != WebSocket.READYSTATE.CLOSED) {
+                    if (t() == WebSocket.READYSTATE.OPEN) {
+                        if (i == 1006) {
+                            L(WebSocket.READYSTATE.CLOSING);
+                            o(i, str, false);
+                            return;
+                        }
+                        if (this.h.l() != Draft.CloseHandshakeType.NONE) {
+                            try {
+                                if (!z) {
+                                    try {
+                                        this.b.onWebsocketCloseInitiated(this, i, str);
+                                    } catch (RuntimeException e) {
+                                        this.b.onWebsocketError(this, e);
+                                    }
+                                }
+                                if (B()) {
+                                    q6c q6cVar = new q6c();
+                                    q6cVar.r(str);
+                                    q6cVar.q(i);
+                                    q6cVar.h();
+                                    sendFrame(q6cVar);
+                                }
+                            } catch (InvalidDataException e2) {
+                                this.b.onWebsocketError(this, e2);
+                                o(1006, "generated frame is invalid", false);
+                            }
+                        }
+                        o(i, str, z);
+                    } else if (i == -3) {
+                        o(-3, str, true);
+                    } else if (i == 1002) {
+                        o(i, str, z);
+                    } else {
+                        o(-1, str, false);
+                    }
+                    L(WebSocket.READYSTATE.CLOSING);
+                    this.j = null;
+                }
+            }
+        }
+    }
+
+    public synchronized void g(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (t() == WebSocket.READYSTATE.CLOSED) {
+                    return;
+                }
+                if (t() == WebSocket.READYSTATE.OPEN && i == 1006) {
+                    L(WebSocket.READYSTATE.CLOSING);
+                }
+                if (this.c != null) {
+                    this.c.cancel();
+                }
+                if (this.d != null) {
+                    try {
+                        this.d.close();
+                    } catch (IOException e) {
+                        if (e.getMessage().equals("Broken pipe")) {
+                            if (u) {
+                                System.out.println("Caught IOException: Broken pipe during closeConnection()");
+                            }
+                        } else {
+                            this.b.onWebsocketError(this, e);
+                        }
+                    }
+                }
+                try {
+                    this.b.onWebsocketClose(this, i, str, z);
+                } catch (RuntimeException e2) {
+                    this.b.onWebsocketError(this, e2);
+                }
+                if (this.h != null) {
+                    this.h.s();
+                }
+                this.k = null;
+                L(WebSocket.READYSTATE.CLOSED);
+            }
+        }
+    }
+
+    public void k(ByteBuffer byteBuffer) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, byteBuffer) == null) {
+            if (u) {
+                PrintStream printStream = System.out;
+                StringBuilder sb = new StringBuilder();
+                sb.append("process(");
+                sb.append(byteBuffer.remaining());
+                sb.append("): {");
+                if (byteBuffer.remaining() > 1000) {
+                    str = "too big to display";
+                } else {
+                    str = new String(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+                }
+                sb.append(str);
+                sb.append('}');
+                printStream.println(sb.toString());
+            }
+            if (t() != WebSocket.READYSTATE.NOT_YET_CONNECTED) {
+                if (t() == WebSocket.READYSTATE.OPEN) {
+                    l(byteBuffer);
+                }
+            } else if (m(byteBuffer) && !y() && !x()) {
+                if (byteBuffer.hasRemaining()) {
+                    l(byteBuffer);
+                } else if (this.j.hasRemaining()) {
+                    l(this.j);
+                }
+            }
+        }
+    }
+
+    public final boolean m(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        ByteBuffer byteBuffer2;
+        d7c v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, byteBuffer)) == null) {
+            if (this.j.capacity() == 0) {
+                byteBuffer2 = byteBuffer;
+            } else {
+                if (this.j.remaining() < byteBuffer.remaining()) {
+                    ByteBuffer allocate = ByteBuffer.allocate(this.j.capacity() + byteBuffer.remaining());
+                    this.j.flip();
+                    allocate.put(this.j);
+                    this.j = allocate;
+                }
+                this.j.put(byteBuffer);
+                this.j.flip();
+                byteBuffer2 = this.j;
+            }
+            byteBuffer2.mark();
+            try {
+                try {
+                } catch (InvalidHandshakeException e) {
+                    e(e);
+                }
+            } catch (IncompleteHandshakeException e2) {
+                if (this.j.capacity() == 0) {
+                    byteBuffer2.reset();
+                    int preferedSize = e2.getPreferedSize();
+                    if (preferedSize == 0) {
+                        preferedSize = byteBuffer2.capacity() + 16;
+                    }
+                    ByteBuffer allocate2 = ByteBuffer.allocate(preferedSize);
+                    this.j = allocate2;
+                    allocate2.put(byteBuffer);
+                } else {
+                    ByteBuffer byteBuffer3 = this.j;
+                    byteBuffer3.position(byteBuffer3.limit());
+                    ByteBuffer byteBuffer4 = this.j;
+                    byteBuffer4.limit(byteBuffer4.capacity());
+                }
+            }
+            if (this.i == WebSocket.Role.SERVER) {
+                if (this.h == null) {
+                    for (Draft draft : this.g) {
+                        Draft f = draft.f();
+                        try {
+                            f.t(this.i);
+                            byteBuffer2.reset();
+                            v = f.v(byteBuffer2);
+                        } catch (InvalidHandshakeException unused) {
+                        }
+                        if (!(v instanceof y6c)) {
+                            j(new InvalidDataException(1002, "wrong http function"));
+                            return false;
+                        }
+                        y6c y6cVar = (y6c) v;
+                        if (f.b(y6cVar) == Draft.HandshakeState.MATCHED) {
+                            this.o = y6cVar.f();
+                            try {
+                                g7c onWebsocketHandshakeReceivedAsServer = this.b.onWebsocketHandshakeReceivedAsServer(this, f, y6cVar);
+                                f.n(y6cVar, onWebsocketHandshakeReceivedAsServer);
+                                P(f.j(onWebsocketHandshakeReceivedAsServer, this.i));
+                                this.h = f;
+                                C(y6cVar);
+                                return true;
+                            } catch (RuntimeException e3) {
+                                this.b.onWebsocketError(this, e3);
+                                i(e3);
+                                return false;
+                            } catch (InvalidDataException e4) {
+                                j(e4);
+                                return false;
+                            }
+                        }
+                    }
+                    if (this.h == null) {
+                        j(new InvalidDataException(1002, "no draft matches"));
+                    }
+                    return false;
+                }
+                d7c v2 = this.h.v(byteBuffer2);
+                if (!(v2 instanceof y6c)) {
+                    o(1002, "wrong http function", false);
+                    return false;
+                }
+                y6c y6cVar2 = (y6c) v2;
+                if (this.h.b(y6cVar2) == Draft.HandshakeState.MATCHED) {
+                    C(y6cVar2);
+                    return true;
+                }
+                c(1002, "the handshake did finaly not match");
+                return false;
+            }
+            if (this.i == WebSocket.Role.CLIENT) {
+                this.h.t(this.i);
+                d7c v3 = this.h.v(byteBuffer2);
+                if (!(v3 instanceof f7c)) {
+                    o(1002, "wrong http function", false);
+                    return false;
+                }
+                f7c f7cVar = (f7c) v3;
+                if (this.h.a(this.k, f7cVar) == Draft.HandshakeState.MATCHED) {
+                    try {
+                        this.b.onWebsocketHandshakeReceivedAsClient(this, this.k, f7cVar);
+                        C(f7cVar);
+                        return true;
+                    } catch (RuntimeException e5) {
+                        this.b.onWebsocketError(this, e5);
+                        o(-1, e5.getMessage(), false);
+                        return false;
+                    } catch (InvalidDataException e6) {
+                        o(e6.getCloseCode(), e6.getMessage(), false);
+                        return false;
+                    }
+                }
+                c(1002, "draft " + this.h + " refuses handshake");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            if (t() == WebSocket.READYSTATE.NOT_YET_CONNECTED) {
+                h(-1, true);
+            } else if (this.e) {
+                g(this.m.intValue(), this.l, this.n.booleanValue());
+            } else if (this.h.l() == Draft.CloseHandshakeType.NONE) {
+                h(1000, true);
+            } else if (this.h.l() == Draft.CloseHandshakeType.ONEWAY) {
+                if (this.i == WebSocket.Role.SERVER) {
+                    h(1006, true);
+                } else {
+                    h(1000, true);
+                }
+            } else {
+                h(1006, true);
+            }
+        }
+    }
+
+    public synchronized void o(int i, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (this.e) {
+                    return;
+                }
+                this.m = Integer.valueOf(i);
+                this.l = str;
+                this.n = Boolean.valueOf(z);
+                this.e = true;
+                this.b.onWriteDemand(this);
+                try {
+                    this.b.onWebsocketClosing(this, i, str, z);
+                } catch (RuntimeException e) {
+                    this.b.onWebsocketError(this, e);
+                }
+                if (this.h != null) {
+                    this.h.s();
+                }
+                this.k = null;
+            }
         }
     }
 }

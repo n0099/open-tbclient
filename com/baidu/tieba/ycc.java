@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,42 +8,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.DnsResultInfo;
-import com.yy.gslbsdk.GslbEvent;
-import com.yy.gslbsdk.HttpDnsService;
-import com.yy.gslbsdk.thread.ThreadPoolMgr;
-import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatisticsApi;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import okhttp3.Dns;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.FormBody;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes8.dex */
-public class ycc implements Dns {
+public class ycc {
     public static /* synthetic */ Interceptable $ic;
-    public static CopyOnWriteArrayList<IPayNetStateStatisticsApi> c;
+    public static OkHttpClient b;
+    public static volatile ycc c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpDnsService a;
-    public volatile boolean b;
+    public final HashMap<String, List<Cookie>> a;
 
     /* loaded from: classes8.dex */
-    public class a implements GslbEvent.GslbEventListener {
+    public class a implements CookieJar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.yy.gslbsdk.GslbEvent.GslbEventListener
-        public void onMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
+        public final /* synthetic */ ycc a;
 
         public a(ycc yccVar) {
             Interceptable interceptable = $ic;
@@ -61,31 +52,86 @@ public class ycc implements Dns {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = yccVar;
+        }
+
+        @Override // okhttp3.CookieJar
+        public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
+                List<Cookie> list = (List) this.a.a.get(httpUrl.host());
+                if (list == null) {
+                    return new ArrayList();
+                }
+                return list;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        @Override // okhttp3.CookieJar
+        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
+                this.a.a.put(httpUrl.host(), list);
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class b {
+    public class b implements Callback {
         public static /* synthetic */ Interceptable $ic;
-        public static final ycc a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zcc a;
+        public final /* synthetic */ Request b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-263705262, "Lcom/baidu/tieba/ycc$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-263705262, "Lcom/baidu/tieba/ycc$b;");
+        public b(ycc yccVar, zcc zccVar, Request request) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yccVar, zccVar, request};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new ycc(null);
+            this.a = zccVar;
+            this.b = request;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                boolean isCanceled = call.isCanceled();
+                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
+                this.a.a(this.b, isCanceled, iOException);
+                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) != null) {
+                return;
+            }
+            String unused = ycc.d = response.body().string();
+            try {
+                this.a.b(ycc.d);
+                RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + ycc.d);
+            } catch (Exception e) {
+                RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
+                e.printStackTrace();
+            }
         }
     }
 
@@ -102,14 +148,23 @@ public class ycc implements Dns {
                 return;
             }
         }
-        c = new CopyOnWriteArrayList<>();
+        MediaType.parse("application/json;charset=utf-8");
+        MediaType.parse("application/octet-stream");
+        MediaType.parse("text/x-markdown;charset=utf-8");
     }
 
-    public static ycc c() {
+    public static ycc f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                synchronized (ycc.class) {
+                    if (c == null) {
+                        c = new ycc();
+                    }
+                }
+            }
+            return c;
         }
         return (ycc) invokeV.objValue;
     }
@@ -127,210 +182,118 @@ public class ycc implements Dns {
                 return;
             }
         }
-        this.a = null;
-        this.b = true;
-        RLog.info("YYPayHttpDns", "new OkHttpDns:" + toString());
+        this.a = new HashMap<>();
+        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new bdc(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
+        cookieJar.dns(adc.c());
+        b = cookieJar.build();
+        RLog.info("HttpCore", "HttpCore -- init");
     }
 
-    public /* synthetic */ ycc(a aVar) {
-        this();
-    }
-
-    public List<String> d(String[] strArr) {
-        InterceptResult invokeL;
+    public static String i(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-            ArrayList arrayList = new ArrayList(strArr.length);
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str)) {
-                    arrayList.add(str);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void a(IPayNetStateStatisticsApi iPayNetStateStatisticsApi) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, iPayNetStateStatisticsApi) == null) {
-            if (!c.contains(iPayNetStateStatisticsApi)) {
-                c.add(iPayNetStateStatisticsApi);
-                z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (map == null) {
+                new HashMap();
             } else {
-                z = false;
-            }
-            RLog.info("YYPayHttpDns", "addPayNetStatisticsApi add " + z + " payNetReporter:" + iPayNetStateStatisticsApi);
-        }
-    }
-
-    public static void g(IPayNetStateStatisticsApi iPayNetStateStatisticsApi) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, iPayNetStateStatisticsApi) == null) {
-            if (c.contains(iPayNetStateStatisticsApi)) {
-                c.remove(iPayNetStateStatisticsApi);
-                z = true;
-            } else {
-                z = false;
-            }
-            RLog.info("YYPayHttpDns", "removePayNetStatisticsApi remove " + z + " payNetReporter:" + iPayNetStateStatisticsApi);
-        }
-    }
-
-    public static void e(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
-            Iterator<IPayNetStateStatisticsApi> it = c.iterator();
-            while (it.hasNext()) {
-                it.next().reportPayNetEvent(str, str2, str3);
-            }
-        }
-    }
-
-    public List<String> b(String str) throws UnknownHostException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a == null) {
-                RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
-                return null;
-            }
-            long uptimeMillis = SystemClock.uptimeMillis();
-            DnsResultInfo ipsByHost = this.a.getIpsByHost(str);
-            if (ipsByHost != null) {
-                ArrayList arrayList = new ArrayList();
-                String[] strArr = ipsByHost.mIpsV6;
-                if (strArr != null) {
-                    arrayList.addAll(d(strArr));
-                    if (ipsByHost.mIpsV6.length == 0) {
-                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 empty hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
+                boolean z = true;
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (z && !str.contains("?")) {
+                        z = false;
+                        sb.append("?");
+                    } else {
+                        sb.append("&");
                     }
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    if (entry.getValue() == null) {
+                        sb.append(" ");
+                    } else {
+                        sb.append(entry.getValue());
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            String g = g(i, i2);
+            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
+            OkHttpClient okHttpClient = b;
+            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
+                for (Call call : b.dispatcher().queuedCalls()) {
+                    if (g.equals(call.request().tag())) {
+                        RLog.info("HttpCore", "cancel queued call:" + call);
+                        call.cancel();
+                    }
+                }
+                for (Call call2 : b.dispatcher().runningCalls()) {
+                    if (g.equals(call2.request().tag())) {
+                        RLog.info("HttpCore", "cancel running call:" + call2);
+                        call2.cancel();
+                    }
+                }
+                return;
+            }
+            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
+        }
+    }
+
+    public String e(String str, Map<String, String> map, int i, int i2, String str2, String str3, String str4, String str5, int i3, zcc zccVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), zccVar})) == null) {
+            String g = g(i, i2);
+            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
+            if (map == null) {
+                map = new HashMap<>();
+            }
+            FormBody.Builder builder = new FormBody.Builder();
+            h(map, builder);
+            FormBody build = builder.build();
+            String i4 = i(str, null);
+            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
+            Request.Builder url = new Request.Builder().url(i4);
+            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
+            try {
+                b.newCall(build2).enqueue(new b(this, zccVar, build2));
+            } catch (Exception e) {
+                e.printStackTrace();
+                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
+            }
+            return d;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public String g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            return "payhttp:appId=" + i + "&userchanel=" + i2;
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public final void h(Map<String, String> map, FormBody.Builder builder) {
+        String value;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                String key = entry.getKey();
+                if (entry.getValue() == null) {
+                    value = "";
                 } else {
-                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 null hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
+                    value = entry.getValue();
                 }
-                String[] strArr2 = ipsByHost.mIpsV4;
-                if (strArr2 != null) {
-                    arrayList.addAll(d(strArr2));
-                    if (ipsByHost.mIpsV4.length == 0) {
-                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 empty hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
-                    }
-                } else {
-                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 null hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
-                }
-                e(EventType.PayNetStateID.EVENT_DNS_RESULT, ipsByHost.mErrorCode + "", "ipList " + arrayList.size());
-                RLog.info("YYPayHttpDns", "hostname " + str + " mDataSource " + ipsByHost.mDataSource + " code " + ipsByHost.mErrorCode + " res.IPList " + arrayList + " use duration " + (SystemClock.uptimeMillis() - uptimeMillis));
-                return arrayList;
+                builder.add(key, value);
             }
-            RLog.info("YYPayHttpDns", "getIPListByDns host " + str + "  use duration " + (SystemClock.uptimeMillis() - uptimeMillis));
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public List<InetAddress> f(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        arrayList.add(InetAddress.getByName(str));
-                    } catch (UnknownHostException e) {
-                        RLog.error("YYPayHttpDns", "getByName(" + str + ") error", e);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public synchronized int h(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
-                    return -1;
-                } else if (this.a != null) {
-                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
-                    return -2;
-                } else if (context == null) {
-                    RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
-                    return -3;
-                } else {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
-                    this.a = service;
-                    service.setLogEnabled(Env.instance().isTestEnv());
-                    this.a.setGslbEventMessager(new a(this));
-                    this.a.setHttpsEnable(true);
-                    this.a.setNetworkStatus(3);
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    arrayList.add(Env.instance().REVENUE_HTTP_URL);
-                    if (!Env.instance().isTestEnv()) {
-                        arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
-                    }
-                    RLog.info("YYPayHttpDns", "PreResolveHost hosts " + arrayList.toString());
-                    this.a.setPreResolveHosts(arrayList);
-                    RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
-                    return 1;
-                }
-            }
-        }
-        return invokeLLL.intValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(8:3|(5:7|8|9|(3:18|19|20)|(2:14|15)(1:17))|27|(1:11)|18|19|20|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
-        r5 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004e, code lost:
-        com.yy.mobile.framework.revenuesdk.baseapi.log.RLog.error("YYPayHttpDns", "System lookup dns error", r5);
-     */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0055  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // okhttp3.Dns
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<InetAddress> lookup(String str) {
-        InterceptResult invokeL;
-        List<InetAddress> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.b && this.a != null) {
-                RLog.info("YYPayHttpDns", "httpdns lookup ");
-                try {
-                    list = f(b(str));
-                } catch (Exception e) {
-                    RLog.error("YYPayHttpDns", "lookup exception:" + e.getLocalizedMessage(), new Object[0]);
-                }
-                if (list != null || list.isEmpty()) {
-                    RLog.info("YYPayHttpDns", "system lookup");
-                    list = Dns.SYSTEM.lookup(str);
-                }
-                if (list != null) {
-                    return Collections.emptyList();
-                }
-                return list;
-            }
-            list = null;
-            if (list != null) {
-            }
-            RLog.info("YYPayHttpDns", "system lookup");
-            list = Dns.SYSTEM.lookup(str);
-            if (list != null) {
-            }
-        } else {
-            return (List) invokeL.objValue;
         }
     }
 }

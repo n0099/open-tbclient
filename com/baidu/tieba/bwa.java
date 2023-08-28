@@ -75,7 +75,7 @@ public class bwa {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qgb.a().post(new a(this));
+            sgb.a().post(new a(this));
         }
     }
 }

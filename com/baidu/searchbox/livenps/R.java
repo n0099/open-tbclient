@@ -17366,12 +17366,15 @@ public final class R {
         /* renamed from: validation_external_webview_activity */
         public static final int obfuscated_res_0x7f10044c = 0x7f10044c;
 
+        /* renamed from: web_write_style */
+        public static final int obfuscated_res_0x7f10044d = 0x7f10044d;
+
         /* renamed from: window_no_title */
-        public static final int obfuscated_res_0x7f10044e = 0x7f10044e;
+        public static final int obfuscated_res_0x7f10044f = 0x7f10044f;
         public static final int window_translucent = 0x7f1003f0;
 
         /* renamed from: wxentry_activity_style */
-        public static final int obfuscated_res_0x7f10044f = 0x7f10044f;
+        public static final int obfuscated_res_0x7f100450 = 0x7f100450;
     }
 
     /* loaded from: classes4.dex */

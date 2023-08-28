@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
 public class enb {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +25,18 @@ public class enb {
                 return;
             }
         }
-        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
+        a = anb.a.getString("key_ad_ripper_path_config", "");
+    }
+
+    public static String a(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                new Thread(new dnb(obj)).start();
+            }
+            return a;
+        }
+        return (String) invokeL.objValue;
     }
 }

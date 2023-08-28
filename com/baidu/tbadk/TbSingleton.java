@@ -69,11 +69,11 @@ import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.md5;
 import com.baidu.tieba.ng5;
 import com.baidu.tieba.od5;
-import com.baidu.tieba.q6b;
 import com.baidu.tieba.qea;
 import com.baidu.tieba.rd5;
 import com.baidu.tieba.re5;
 import com.baidu.tieba.s0a;
+import com.baidu.tieba.s6b;
 import com.baidu.tieba.sd5;
 import com.baidu.tieba.sg5;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
@@ -289,7 +289,7 @@ public final class TbSingleton {
     public ud5 mWlConfigData;
     public String mWorldCupSponsorFlag;
     public YYLiveConfig mYYLiveConfig;
-    public q6b mYYLiveTabConfig;
+    public s6b mYYLiveTabConfig;
     public String msgCount;
     public boolean needRefreshForumSquare;
     public JSONObject newGodDataJson;
@@ -1889,13 +1889,13 @@ public final class TbSingleton {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public q6b getYYLiveTabConfig() {
+    public s6b getYYLiveTabConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
             return this.mYYLiveTabConfig;
         }
-        return (q6b) invokeV.objValue;
+        return (s6b) invokeV.objValue;
     }
 
     public boolean hasAgreeToPlay() {
@@ -3677,10 +3677,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setYYLiveTabConfig(q6b q6bVar) {
+    public void setYYLiveTabConfig(s6b s6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048917, this, q6bVar) == null) {
-            this.mYYLiveTabConfig = q6bVar;
+        if (interceptable == null || interceptable.invokeL(1048917, this, s6bVar) == null) {
+            this.mYYLiveTabConfig = s6bVar;
         }
     }
 

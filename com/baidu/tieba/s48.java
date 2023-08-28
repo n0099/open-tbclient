@@ -33,7 +33,7 @@ public class s48 extends yy7<zo6, ThreadCardViewHolder<zo6>> implements s46 {
     public boolean f;
     public jo6<zo6> g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends jo6<zo6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

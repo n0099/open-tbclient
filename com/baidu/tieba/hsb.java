@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class hsb extends AnimatorListenerAdapter {
+public final class hsb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ InstallActivity a;
@@ -31,12 +30,13 @@ public final class hsb extends AnimatorListenerAdapter {
         this.a = installActivity;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public final void onAnimationEnd(Animator animator) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
             return;
         }
-        this.a.m();
+        this.a.h();
+        this.a.n();
     }
 }

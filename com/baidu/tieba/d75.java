@@ -83,14 +83,14 @@ public class d75 extends Drawable implements Cloneable {
 
         /* renamed from: com.baidu.tieba.d75$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0268a implements Runnable {
+        public class RunnableC0269a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ ViewGroup.MarginLayoutParams b;
             public final /* synthetic */ a c;
 
-            public RunnableC0268a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
+            public RunnableC0269a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -186,7 +186,7 @@ public class d75 extends Drawable implements Cloneable {
                     marginLayoutParams.bottomMargin -= (int) u[3];
                     marginLayoutParams.width = (i3 - i) + ((int) u[0]) + ((int) u[2]);
                     marginLayoutParams.height = (i4 - i2) + ((int) u[1]) + ((int) u[3]);
-                    view2.post(new RunnableC0268a(this, view2, marginLayoutParams));
+                    view2.post(new RunnableC0269a(this, view2, marginLayoutParams));
                 }
                 view2.removeOnLayoutChangeListener(this);
             }

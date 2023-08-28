@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class ewb {
+public final class ewb<TResult> implements tvb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wvb<TResult> a;
+    public Executor b;
+    public final Object c;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wvb a;
-        public final /* synthetic */ Callable b;
+        public final /* synthetic */ xvb a;
+        public final /* synthetic */ ewb b;
 
-        public a(ewb ewbVar, wvb wvbVar, Callable callable) {
+        public a(ewb ewbVar, xvb xvbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ewbVar, wvbVar, callable};
+                Object[] objArr = {ewbVar, xvbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,106 +36,60 @@ public final class ewb {
                     return;
                 }
             }
-            this.a = wvbVar;
-            this.b = callable;
+            this.b = ewbVar;
+            this.a = xvbVar;
         }
 
+        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.wvb */
+        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.setResult(this.b.call());
-                } catch (Exception e) {
-                    this.a.c(e);
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onSuccess(this.a.e());
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b<TResult> implements Object, tvb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final CountDownLatch a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new CountDownLatch(1);
-        }
-
-        @Override // com.baidu.tieba.tvb
-        public final void onFailure(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.countDown();
-            }
-        }
-
-        public final void onSuccess(TResult tresult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
-                this.a.countDown();
-            }
-        }
-    }
-
-    public ewb() {
+    public ewb(Executor executor, wvb<TResult> wvbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, wvbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new Object();
+        this.a = wvbVar;
+        this.b = executor;
+    }
+
+    @Override // com.baidu.tieba.tvb
+    public final void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
             }
         }
     }
 
-    public static <TResult> TResult b(vvb<TResult> vvbVar) throws ExecutionException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tvb
+    public final void onComplete(xvb<TResult> xvbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vvbVar)) == null) {
-            if (vvbVar.h()) {
-                return vvbVar.e();
-            }
-            throw new ExecutionException(vvbVar.d());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xvbVar) == null) && xvbVar.h() && !xvbVar.f()) {
+            this.b.execute(new a(this, xvbVar));
         }
-        return (TResult) invokeL.objValue;
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && Looper.myLooper() == Looper.getMainLooper()) {
-            throw new IllegalStateException(str);
-        }
-    }
-
-    public final <TResult> vvb<TResult> a(Executor executor, Callable<TResult> callable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, executor, callable)) == null) {
-            wvb wvbVar = new wvb();
-            try {
-                executor.execute(new a(this, wvbVar, callable));
-            } catch (Exception e) {
-                wvbVar.c(e);
-            }
-            return wvbVar.b();
-        }
-        return (vvb) invokeLL.objValue;
     }
 }

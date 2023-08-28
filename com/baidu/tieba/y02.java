@@ -45,14 +45,14 @@ public class y02 extends u02 {
 
         /* renamed from: com.baidu.tieba.y02$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0532a implements se3.e {
+        public class C0533a implements se3.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ db3 b;
             public final /* synthetic */ a c;
 
-            public C0532a(a aVar, Activity activity, db3 db3Var) {
+            public C0533a(a aVar, Activity activity, db3 db3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class y02 extends u02 {
                         return;
                     }
                     this.a.a();
-                    se3.g(M, this.c, "", new C0532a(this, activity, M), this.d);
+                    se3.g(M, this.c, "", new C0533a(this, activity, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new d32(1001, "swan activity is null"));

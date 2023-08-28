@@ -11,18 +11,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.g8c;
-import com.baidu.tieba.h8c;
+import com.baidu.tieba.d8c;
+import com.baidu.tieba.i8c;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.j8c;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.pw8;
 import com.baidu.tieba.rna;
 import com.baidu.tieba.sna;
 import com.baidu.tieba.sv8;
-import com.baidu.tieba.u7c;
+import com.baidu.tieba.w7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,8 +37,8 @@ public final class MsgTabNotifyFragment extends BaseFragment implements sna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sv8 a;
-    public final jcc<Boolean> b;
-    public u7c c;
+    public final lcc<Boolean> b;
+    public w7c c;
     public final BdUniqueId d;
 
     public static final Boolean V1(Boolean bool) {
@@ -67,7 +67,7 @@ public final class MsgTabNotifyFragment extends BaseFragment implements sna {
                 return;
             }
         }
-        this.b = jcc.R(Boolean.FALSE);
+        this.b = lcc.R(Boolean.FALSE);
         this.d = BdUniqueId.gen();
     }
 
@@ -106,9 +106,9 @@ public final class MsgTabNotifyFragment extends BaseFragment implements sna {
             }
             sv8Var.i();
             super.onDestroyView();
-            u7c u7cVar = this.c;
-            if (u7cVar != null) {
-                u7cVar.unsubscribe();
+            w7c w7cVar = this.c;
+            if (w7cVar != null) {
+                w7cVar.unsubscribe();
             }
             this.c = null;
         }
@@ -210,30 +210,30 @@ public final class MsgTabNotifyFragment extends BaseFragment implements sna {
             super.onViewCreated(view2, bundle);
             this.b.onNext(Boolean.valueOf(isVisible()));
             Fragment parentFragment = getParentFragment();
-            n7c<Boolean> n7cVar = null;
+            p7c<Boolean> p7cVar = null;
             if (parentFragment instanceof MsgCenterContainerFragment) {
                 msgCenterContainerFragment = (MsgCenterContainerFragment) parentFragment;
             } else {
                 msgCenterContainerFragment = null;
             }
             if (msgCenterContainerFragment != null) {
-                n7cVar = msgCenterContainerFragment.W1();
+                p7cVar = msgCenterContainerFragment.W1();
             }
-            this.c = n7c.c(n7cVar, this.b.g(), new h8c() { // from class: com.baidu.tieba.yt8
+            this.c = p7c.c(p7cVar, this.b.g(), new j8c() { // from class: com.baidu.tieba.yt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.h8c
+                @Override // com.baidu.tieba.j8c
                 public final Object call(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgTabNotifyFragment.U1((Boolean) obj, (Boolean) obj2) : invokeLL.objValue;
                 }
-            }).k(new g8c() { // from class: com.baidu.tieba.zt8
+            }).k(new i8c() { // from class: com.baidu.tieba.zt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.g8c
+                @Override // com.baidu.tieba.i8c
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
@@ -244,11 +244,11 @@ public final class MsgTabNotifyFragment extends BaseFragment implements sna {
                     }
                     return invokeL.objValue;
                 }
-            }).H(new b8c() { // from class: com.baidu.tieba.wt8
+            }).H(new d8c() { // from class: com.baidu.tieba.wt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

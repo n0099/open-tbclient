@@ -161,7 +161,7 @@ public class hm8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            return sharedPrefHelper.getBoolean(ChatFloatEntranceFragment.f1135T + this.c.v(), true);
+            return sharedPrefHelper.getBoolean(ChatFloatEntranceFragment.f1133T + this.c.v(), true);
         }
         return invokeV.booleanValue;
     }

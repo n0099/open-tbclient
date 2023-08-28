@@ -44,13 +44,13 @@ public class s56 {
 
         /* renamed from: com.baidu.tieba.s56$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0474a extends BdRunnable {
+        public class C0475a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0474a(a aVar, JSONObject jSONObject) {
+            public C0475a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

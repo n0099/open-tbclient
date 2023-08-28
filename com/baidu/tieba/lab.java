@@ -1,66 +1,63 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.JsonWriter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class lab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
+        Object opt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
+        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
+            if (obj != null && obj != JSONObject.NULL) {
+                if (obj instanceof JSONArray) {
+                    JSONArray jSONArray = (JSONArray) obj;
+                    jsonWriter.beginArray();
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        Object opt2 = jSONArray.opt(i);
+                        if (opt2 != null) {
+                            a(jsonWriter, opt2);
+                        }
+                    }
+                    jsonWriter.endArray();
+                    return;
+                } else if (obj instanceof JSONObject) {
+                    JSONObject jSONObject = (JSONObject) obj;
+                    jsonWriter.beginObject();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
+                            jsonWriter.name(next);
+                            a(jsonWriter, opt);
+                        }
+                    }
+                    jsonWriter.endObject();
+                    return;
+                } else if (obj instanceof Number) {
+                    jsonWriter.value((Number) obj);
+                    return;
+                } else if (obj instanceof String) {
+                    jsonWriter.value((String) obj);
+                    return;
+                } else if (obj instanceof Boolean) {
+                    jsonWriter.value(((Boolean) obj).booleanValue());
+                    return;
                 } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                    jsonWriter.value(obj.toString());
+                    return;
                 }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
+            jsonWriter.nullValue();
         }
-        return (String) invokeLLL.objValue;
     }
 }

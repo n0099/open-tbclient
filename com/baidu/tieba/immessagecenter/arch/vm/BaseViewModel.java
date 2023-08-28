@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
-import com.baidu.tieba.occ;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.p7c;
+import com.baidu.tieba.qcc;
 import com.baidu.tieba.yj8;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import kotlinx.coroutines.flow.FlowKt;
 public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends IUiIntent> extends ViewModel implements yj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public occ a;
+    public qcc a;
     public final Lazy b;
     public final Channel<UiIntent> c;
 
@@ -50,7 +50,7 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
 
     public abstract UiState j();
 
-    public abstract occ l();
+    public abstract qcc l();
 
     @Metadata(d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u00020\u0003\"\b\b\u0001\u0010\u0004*\u00020\u0005*\u00020\u0006H\u008a@"}, d2 = {"<anonymous>", "", "UiState", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiState;", "UiIntent", "Lcom/baidu/tieba/immessagecenter/arch/vm/IUiIntent;", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
     @DebugMetadata(c = "com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel$1", f = "BaseViewModel.kt", i = {}, l = {111}, m = "invokeSuspend", n = {}, s = {})
@@ -183,7 +183,7 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
                 return;
             }
         }
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<jcc<UiState>>(this) { // from class: com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel$_uiStateBs$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<lcc<UiState>>(this) { // from class: com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel$_uiStateBs$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BaseViewModel<UiState, UiIntent> this$0;
@@ -211,13 +211,13 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function0
-            public final jcc<UiState> invoke() {
+            public final lcc<UiState> invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return jcc.R(this.this$0.j());
+                    return lcc.R(this.this$0.j());
                 }
-                return (jcc) invokeV.objValue;
+                return (lcc) invokeV.objValue;
             }
         });
         this.c = ChannelKt.Channel$default(Integer.MAX_VALUE, null, null, 6, null);
@@ -228,7 +228,7 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, copy) == null) {
             Intrinsics.checkNotNullParameter(copy, "copy");
-            jcc<UiState> g = g();
+            lcc<UiState> g = g();
             UiState T2 = g().T();
             Intrinsics.checkNotNullExpressionValue(T2, "_uiStateBs.value");
             g.onNext(copy.invoke(T2));
@@ -247,12 +247,12 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            occ occVar = new occ();
-            occ l = l();
+            qcc qccVar = new qcc();
+            qcc l = l();
             if (l != null) {
-                occVar.b(l);
+                qccVar.b(l);
             }
-            this.a = occVar;
+            this.a = qccVar;
         }
     }
 
@@ -265,39 +265,39 @@ public abstract class BaseViewModel<UiState extends IUiState, UiIntent extends I
         return (UiState) invokeV.objValue;
     }
 
-    public final n7c<UiState> f() {
+    public final p7c<UiState> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n7c<UiState> s = g().a().w().s(x7c.b());
+            p7c<UiState> s = g().a().w().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "_uiStateBs\n             …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
-    public final jcc<UiState> g() {
+    public final lcc<UiState> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Object value = this.b.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-_uiStateBs>(...)");
-            return (jcc) value;
+            return (lcc) value;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.yj8
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            occ occVar = this.a;
-            if (occVar != null) {
-                occVar.unsubscribe();
+            qcc qccVar = this.a;
+            if (qccVar != null) {
+                qccVar.unsubscribe();
             }
-            occ occVar2 = this.a;
-            if (occVar2 != null) {
-                occVar2.c();
+            qcc qccVar2 = this.a;
+            if (qccVar2 != null) {
+                qccVar2.c();
             }
             this.a = null;
         }

@@ -52,7 +52,7 @@ public final class t implements com.kwad.sdk.core.webview.kwai.a {
                     public final void run() {
                         u.b bVar = new u.b();
                         bVar.Mn = aVar.My.Mn;
-                        com.kwad.components.core.c.a.a.a(new a.C0647a(t.this.Lk.Gl.getContext()).L(adTemplate).b(cVar2).ae(aVar.Mx).aj(true).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.t.1.1
+                        com.kwad.components.core.c.a.a.a(new a.C0648a(t.this.Lk.Gl.getContext()).L(adTemplate).b(cVar2).ae(aVar.Mx).aj(true).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.t.1.1
                             @Override // com.kwad.components.core.c.a.a.b
                             public final void onAdClicked() {
                             }

@@ -77,13 +77,13 @@ public class to implements tha {
 
         /* renamed from: com.baidu.tieba.to$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0486b implements Runnable {
+        public class RunnableC0489b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0486b(b bVar, String str) {
+            public RunnableC0489b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class to implements tha {
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0486b(this, d));
+                        this.c.b.post(new RunnableC0489b(this, d));
                     }
                 }
             }

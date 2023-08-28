@@ -34,7 +34,7 @@ public class a {
 
     /* renamed from: com.heytap.mcssdk.constant.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0588a {
+    public interface InterfaceC0589a {
         public static final int a = -1;
         public static final int b = -2;
         public static final int c = -3;

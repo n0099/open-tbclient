@@ -70,12 +70,12 @@ public final class fb2 {
 
         /* renamed from: com.baidu.tieba.fb2$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0290b implements wp3<String> {
+        public class C0287b implements wp3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ wp3 a;
 
-            public C0290b(b bVar, wp3 wp3Var) {
+            public C0287b(b bVar, wp3 wp3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class fb2 {
         public void e(@NonNull wp3<String> wp3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wp3Var) == null) {
-                this.e.e(new C0290b(this, wp3Var));
+                this.e.e(new C0287b(this, wp3Var));
             }
         }
 

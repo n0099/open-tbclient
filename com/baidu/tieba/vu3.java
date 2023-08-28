@@ -27,13 +27,13 @@ public class vu3 {
 
         /* renamed from: com.baidu.tieba.vu3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0505a implements Runnable {
+        public class RunnableC0507a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0505a(a aVar, byte[] bArr) {
+            public RunnableC0507a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class vu3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                xn3.l(new RunnableC0505a(this, bArr), "HandshakeRequest");
+                xn3.l(new RunnableC0507a(this, bArr), "HandshakeRequest");
             }
         }
 

@@ -1,84 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.retrieve.YaLogInitManager;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            bi.d().h(SwanKV.LIB_CPP_SHARED, 2);
+            YaLogInitManager.getInstance().initYaLog(true, true, true, String.valueOf(10773430L));
+            TbLogManager.initTbUbcLog(new p6b());
+            c();
         }
     }
 
-    public q6b() {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            String string = SharedPrefHelper.getInstance().getString("key_ubc_yalog_config", "");
+            if (TextUtils.isEmpty(string)) {
                 return;
             }
-        }
-        this.a = new ArrayList();
-    }
-
-    public final void a(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) && jSONArray != null) {
             try {
-                if (jSONArray.length() > 0) {
-                    if (this.a == null) {
-                        this.a = new ArrayList();
-                    }
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        a aVar = new a();
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                        optJSONObject.optInt("tab_id");
-                        optJSONObject.optString("tab_name");
-                        optJSONObject.optInt("obj_type");
-                        this.a.add(aVar);
-                    }
-                }
-            } catch (Exception e) {
+                ((xib) ServiceManager.getService(xib.a)).a(new JSONObject(string));
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void b(JSONArray jSONArray) {
+    public static void b(Application application) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray != null) {
-            a(jSONArray);
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            YaLogInitManager.getInstance().initYaLogBaseContext(application);
         }
     }
 }

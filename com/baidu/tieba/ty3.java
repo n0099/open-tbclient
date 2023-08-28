@@ -70,13 +70,13 @@ public class ty3 extends Dialog {
 
         /* renamed from: com.baidu.tieba.ty3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0489a implements View.OnClickListener {
+        public class View$OnClickListenerC0492a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0489a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0492a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -412,7 +412,7 @@ public class ty3 extends Dialog {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0489a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0492a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

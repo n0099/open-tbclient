@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.yrb;
+import com.baidu.tieba.asb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum af extends Session.c {
@@ -9,7 +9,7 @@ public enum af extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final yrb a(long j, Session session) {
+    public final asb a(long j, Session session) {
         return new Plane(j, session);
     }
 }

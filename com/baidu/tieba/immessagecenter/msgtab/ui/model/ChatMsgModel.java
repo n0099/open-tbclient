@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.id8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
@@ -36,17 +36,17 @@ import com.baidu.tieba.immessagecenter.im.model.IMOfficialMaskModel;
 import com.baidu.tieba.immessagecenter.im.model.MsgChatTabModel;
 import com.baidu.tieba.immessagecenter.msgtab.obs.MainTabChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.ChatMsgModel;
-import com.baidu.tieba.jcc;
 import com.baidu.tieba.jd8;
 import com.baidu.tieba.jh8;
 import com.baidu.tieba.km6;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.qk8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.x7c;
 import com.baidu.tieba.yn5;
+import com.baidu.tieba.z7c;
 import com.baidu.tieba.zj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,11 +67,11 @@ public final class ChatMsgModel extends zj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<BaseFragmentActivity> a;
-    public final jcc<List<ImMessageCenterShowItemData>> b;
+    public final lcc<List<ImMessageCenterShowItemData>> b;
     public final Lazy c;
-    public jcc<Boolean> d;
-    public jcc<Object> e;
-    public jcc<Boolean> f;
+    public lcc<Boolean> d;
+    public lcc<Object> e;
+    public lcc<Boolean> f;
     public qk8 g;
     public final BdUniqueId h;
     public final Lazy i;
@@ -582,17 +582,17 @@ public final class ChatMsgModel extends zj8 {
             }
         }
         this.a = tbPageContext;
-        jcc<List<ImMessageCenterShowItemData>> Q = jcc.Q();
+        lcc<List<ImMessageCenterShowItemData>> Q = lcc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.b = Q;
         this.c = LazyKt__LazyJVMKt.lazy(ChatMsgModel$mAnswerVisibleBs$2.INSTANCE);
-        jcc<Boolean> R = jcc.R(Boolean.FALSE);
+        lcc<Boolean> R = lcc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R, "create(false)");
         this.d = R;
-        jcc<Object> R2 = jcc.R(Boolean.FALSE);
+        lcc<Object> R2 = lcc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R2, "create(false)");
         this.e = R2;
-        jcc<Boolean> R3 = jcc.R(Boolean.FALSE);
+        lcc<Boolean> R3 = lcc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R3, "create(false)");
         this.f = R3;
         BdUniqueId gen = BdUniqueId.gen();
@@ -624,11 +624,11 @@ public final class ChatMsgModel extends zj8 {
         this.g = u();
         this.j = new IMUserListModel(null, this.h);
         this.l = new IMOfficialMaskModel();
-        Intrinsics.checkNotNullExpressionValue(MainTabChangedMonitor.c.a().d().g().H(new b8c() { // from class: com.baidu.tieba.qu8
+        Intrinsics.checkNotNullExpressionValue(MainTabChangedMonitor.c.a().d().g().H(new d8c() { // from class: com.baidu.tieba.qu8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.b8c
+            @Override // com.baidu.tieba.d8c
             public final void call(Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -695,24 +695,24 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final jcc<Boolean> A() {
+    public final lcc<Boolean> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Object value = this.c.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-mAnswerVisibleBs>(...)");
-            return (jcc) value;
+            return (lcc) value;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
-    public final jcc<Boolean> B() {
+    public final lcc<Boolean> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.f;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     public final MsgChatTabModel C() {
@@ -724,22 +724,22 @@ public final class ChatMsgModel extends zj8 {
         return (MsgChatTabModel) invokeV.objValue;
     }
 
-    public final jcc<Object> D() {
+    public final lcc<Object> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
-    public final jcc<Boolean> E() {
+    public final lcc<Boolean> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     public final TbPageContext<BaseFragmentActivity> F() {
@@ -839,15 +839,15 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final n7c<List<ImMessageCenterShowItemData>> x() {
+    public final p7c<List<ImMessageCenterShowItemData>> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            n7c<List<ImMessageCenterShowItemData>> s = this.b.w().a().s(x7c.b());
+            p7c<List<ImMessageCenterShowItemData>> s = this.b.w().a().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mChatMsgDataBs.onBackpre…dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public final MsgChatTabModel y() {

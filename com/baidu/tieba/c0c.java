@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Process;
+import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class c0c {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
+    public static c0c a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,47 +29,45 @@ public class c0c {
                 return;
             }
         }
-        a = new AtomicBoolean(false);
+        a = new c0c();
     }
 
-    public static boolean a() {
+    public c0c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static c0c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return invokeV.booleanValue;
+        return (c0c) invokeV.objValue;
     }
 
-    public static synchronized void b() {
+    public File a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (c0c.class) {
-                if (a.get()) {
-                    return;
-                }
-                TLog.h("[LibraryLoad]", "loadAllLibrary return for this version need dynamic download library!");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (context == null) {
+                vzb.b(StorageUtils.TAG, "Context is null, need setting Context!");
+                return null;
+            } else if (context.getExternalCacheDir() != null && context.getExternalCacheDir().exists()) {
+                return context.getExternalCacheDir();
+            } else {
+                return context.getCacheDir();
             }
         }
-    }
-
-    public static synchronized void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (c0c.class) {
-                if (a.get()) {
-                    return;
-                }
-                TLog.h("[LibraryLoad]", "loadAllLibrary with context");
-                g1c.d();
-                if (a.compareAndSet(false, true)) {
-                    boolean z = e2c.z(context);
-                    a.set(z);
-                    if (z) {
-                        TLog.h("[LibraryLoad]", "load transvod success, processId:" + Process.myPid());
-                    }
-                }
-            }
-        }
+        return (File) invokeL.objValue;
     }
 }

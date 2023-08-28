@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
 public class se8 extends ge8 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -149,7 +150,7 @@ public class se8 extends ge8 {
             try {
                 try {
                     oe8 d2 = oe8.d();
-                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type=? AND (user_type=? OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
+                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type" + RFC1522Codec.PREFIX + " AND (user_type" + RFC1522Codec.PREFIX + " OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));

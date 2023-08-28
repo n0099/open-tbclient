@@ -939,22 +939,22 @@ public class bt6 implements zs6 {
     }
 
     /* loaded from: classes5.dex */
-    public class k implements ccb {
+    public class k implements ecb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ bt6 a;
 
-        @Override // com.baidu.tieba.ccb
-        public jdb c() {
+        @Override // com.baidu.tieba.ecb
+        public ldb c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (jdb) invokeV.objValue;
+            return (ldb) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -979,7 +979,7 @@ public class bt6 implements zs6 {
             this.a = bt6Var;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -989,7 +989,7 @@ public class bt6 implements zs6 {
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1131,9 +1131,9 @@ public class bt6 implements zs6 {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bcb.c().h(TbadkCoreApplication.getInst());
-            bcb.c().j(FileHelper.getCacheDir());
-            bcb.c().k(new k(this));
+            dcb.c().h(TbadkCoreApplication.getInst());
+            dcb.c().j(FileHelper.getCacheDir());
+            dcb.c().k(new k(this));
         }
     }
 
@@ -1151,7 +1151,7 @@ public class bt6 implements zs6 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            bcb.c().k(null);
+            dcb.c().k(null);
         }
     }
 

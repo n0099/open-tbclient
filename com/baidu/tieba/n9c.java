@@ -1,233 +1,118 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.s7c;
+import com.baidu.tieba.t7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class n9c implements p7c {
+public final class n9c<T> implements t7c.c<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final p7c g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public p7c b;
-    public boolean c;
-    public long d;
-    public long e;
-    public p7c f;
+    public final t7c.c<T> a;
+    public final s7c b;
 
     /* loaded from: classes7.dex */
-    public static class a implements p7c {
+    public static final class a<T> extends u7c<T> implements c8c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final u7c<? super T> b;
+        public final s7c.a c;
+        public T d;
+        public Throwable e;
 
-        @Override // com.baidu.tieba.p7c
-        public void request(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            }
-        }
-
-        public a() {
+        public a(u7c<? super T> u7cVar, s7c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u7cVar, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = u7cVar;
+            this.c = aVar;
+        }
+
+        @Override // com.baidu.tieba.u7c
+        public void b(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                this.e = th;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.u7c
+        public void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                this.d = t;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.c8c
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    Throwable th = this.e;
+                    if (th != null) {
+                        this.e = null;
+                        this.b.b(th);
+                    } else {
+                        T t = this.d;
+                        this.d = null;
+                        this.b.c(t);
+                    }
+                } finally {
+                    this.c.unsubscribe();
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947958737, "Lcom/baidu/tieba/n9c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947958737, "Lcom/baidu/tieba/n9c;");
-                return;
-            }
-        }
-        g = new a();
-    }
-
-    public n9c() {
+    public n9c(t7c.c<T> cVar, s7c s7cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, s7cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = cVar;
+        this.b = s7cVar;
+    }
+
+    public void call(u7c<? super T> u7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, u7cVar) == null) {
+            s7c.a createWorker = this.b.createWorker();
+            a aVar = new a(u7cVar, createWorker);
+            u7cVar.a(createWorker);
+            u7cVar.a(aVar);
+            this.a.call(aVar);
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        while (true) {
-            synchronized (this) {
-                long j = this.d;
-                long j2 = this.e;
-                p7c p7cVar = this.f;
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i == 0 && j2 == 0 && p7cVar == null) {
-                    this.c = false;
-                    return;
-                }
-                this.d = 0L;
-                this.e = 0L;
-                this.f = null;
-                long j3 = this.a;
-                if (j3 != Long.MAX_VALUE) {
-                    long j4 = j3 + j;
-                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
-                        j3 = j4 - j2;
-                        if (j3 >= 0) {
-                            this.a = j3;
-                        } else {
-                            throw new IllegalStateException("more produced than requested");
-                        }
-                    } else {
-                        this.a = Long.MAX_VALUE;
-                        j3 = Long.MAX_VALUE;
-                    }
-                }
-                if (p7cVar != null) {
-                    if (p7cVar == g) {
-                        this.b = null;
-                    } else {
-                        this.b = p7cVar;
-                        p7cVar.request(j3);
-                    }
-                } else {
-                    p7c p7cVar2 = this.b;
-                    if (p7cVar2 != null && i != 0) {
-                        p7cVar2.request(j);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j > 0) {
-                synchronized (this) {
-                    if (this.c) {
-                        this.e += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a;
-                        if (j2 != Long.MAX_VALUE) {
-                            long j3 = j2 - j;
-                            if (j3 >= 0) {
-                                this.a = j3;
-                            } else {
-                                throw new IllegalStateException("more items arrived than were requested");
-                            }
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n > 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // com.baidu.tieba.p7c
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    return;
-                }
-                synchronized (this) {
-                    if (this.c) {
-                        this.d += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a + j;
-                        if (j2 < 0) {
-                            j2 = Long.MAX_VALUE;
-                        }
-                        this.a = j2;
-                        p7c p7cVar = this.b;
-                        if (p7cVar != null) {
-                            p7cVar.request(j);
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n >= 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void c(p7c p7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p7cVar) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    if (p7cVar == null) {
-                        p7cVar = g;
-                    }
-                    this.f = p7cVar;
-                    return;
-                }
-                this.c = true;
-                try {
-                    this.b = p7cVar;
-                    if (p7cVar != null) {
-                        p7cVar.request(this.a);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.tieba.t7c.c, com.baidu.tieba.d8c
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((u7c) ((u7c) obj));
     }
 }

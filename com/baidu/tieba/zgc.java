@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import tv.athena.revenue.payui.view.PayViewState;
 /* loaded from: classes9.dex */
-public interface zgc extends ygc {
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface zgc {
+    void setViewState(PayViewState payViewState);
 }

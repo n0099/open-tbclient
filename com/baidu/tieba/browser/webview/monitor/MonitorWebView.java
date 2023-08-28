@@ -26,7 +26,7 @@ import com.baidu.tieba.fm6;
 import com.baidu.tieba.fn6;
 import com.baidu.tieba.hn6;
 import com.baidu.tieba.in6;
-import com.baidu.tieba.jcc;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.pm6;
 import com.baidu.tieba.wm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements hn6 
     public em6 u;
     public fm6 v;
     public PreRenderMode w;
-    public final jcc<Pair<Integer, Double>> x;
+    public final lcc<Pair<Integer, Double>> x;
     public final an6 y;
 
     public void setTargetInterceptor(@Nullable wm6 wm6Var) {
@@ -174,7 +174,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements hn6 
         this.u = null;
         this.v = null;
         this.w = PreRenderMode.NONE;
-        this.x = jcc.Q();
+        this.x = lcc.Q();
         cn6 cn6Var = new cn6(null, new a(this));
         this.y = cn6Var;
         super.setWebViewClient(cn6Var);
@@ -208,7 +208,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements hn6 
         this.u = null;
         this.v = null;
         this.w = PreRenderMode.NONE;
-        this.x = jcc.Q();
+        this.x = lcc.Q();
         cn6 cn6Var = new cn6(null, new a(this));
         this.y = cn6Var;
         super.setWebViewClient(cn6Var);
@@ -242,7 +242,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements hn6 
         this.u = null;
         this.v = null;
         this.w = PreRenderMode.NONE;
-        this.x = jcc.Q();
+        this.x = lcc.Q();
         cn6 cn6Var = new cn6(null, new a(this));
         this.y = cn6Var;
         super.setWebViewClient(cn6Var);
@@ -324,13 +324,13 @@ public abstract class MonitorWebView extends NestedScrollWebView implements hn6 
         return (PreRenderMode) invokeV.objValue;
     }
 
-    public jcc<Pair<Integer, Double>> getViewHeightBs() {
+    public lcc<Pair<Integer, Double>> getViewHeightBs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.x;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     public void r() {

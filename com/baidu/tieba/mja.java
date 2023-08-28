@@ -336,6 +336,7 @@ public final class mja {
                 dfVar = dfVar3;
             }
             dfVar.m(this.a);
+            YunDialogManager.markShowingDialogName("writeGuide");
             SafeHandler.getInst().removeCallbacks(this.h);
             SafeHandler.getInst().postDelayed(this.h, 5000L);
             TiebaStatic.log(new StatisticItem("c15362").param("obj_type", 1));

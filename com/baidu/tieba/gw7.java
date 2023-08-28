@@ -56,13 +56,13 @@ public class gw7 extends xm5 {
 
         /* renamed from: com.baidu.tieba.gw7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0317a implements View.OnClickListener {
+        public class View$OnClickListenerC0318a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0317a(a aVar, int i) {
+            public View$OnClickListenerC0318a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +159,7 @@ public class gw7 extends xm5 {
                     bVar.e.startLoad(getItem(i).avatar, 10, false);
                     bVar.c.setText(StringHelper.numberUniformFormat(getItem(i).member_count.intValue()));
                     bVar.b.setText(StringHelper.numberUniformFormat(getItem(i).post_num.intValue()));
-                    bVar.f.setOnClickListener(new View$OnClickListenerC0317a(this, i));
+                    bVar.f.setOnClickListener(new View$OnClickListenerC0318a(this, i));
                     SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
                     SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
                     SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);

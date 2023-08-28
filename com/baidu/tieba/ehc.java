@@ -5,32 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.PayFlowType;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes5.dex */
-public interface ehc extends ygc, xgc {
+public interface ehc extends ahc {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(rfc rfcVar, nfc nfcVar, AppCustomExpand appCustomExpand);
-
-        void b(rfc rfcVar, nfc nfcVar, AppCustomExpand appCustomExpand);
-
-        void c(qfc qfcVar);
-
-        void onRefreshViewFail(int i, String str);
-
-        void toHelpCenterPage();
+        void b();
     }
-
-    void a();
-
-    boolean d();
 
     void setCallback(a aVar);
 
@@ -38,16 +20,9 @@ public interface ehc extends ygc, xgc {
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<PayWayInfo> a;
-        public String b;
-        public nfc c;
-        public AppCustomExpand d;
-        public Map<String, String> e;
-        public AbsViewEventHandler f;
-        public PayFlowType g;
-        public WindowParams h;
-        public boolean i;
-        public String j;
+        public boolean a;
+        public pfc b;
+        public AbsViewEventHandler c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,17 +34,15 @@ public interface ehc extends ygc, xgc {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.i = false;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{payAmount=" + this.c + ", payFlowType=" + this.g + ", showFaqPage=" + this.i + ", appCustomExpand=" + this.d + ", clientInfoExpand='" + this.e + "', windowParams='" + this.h + "', viewEventListener='" + this.f + "', bubbleActMsg='" + this.b + "', splitOrderScene='" + this.j + "'}";
+                return "ViewParams{amount=" + this.b + "alwaysConfirm=" + this.a + "}";
             }
             return (String) invokeV.objValue;
         }

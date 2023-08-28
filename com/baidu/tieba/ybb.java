@@ -1,201 +1,92 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class ybb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1000;
-    public static boolean b = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948325808, "Lcom/baidu/tieba/ybb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948325808, "Lcom/baidu/tieba/ybb;");
-        }
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
-            c(2, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
-            c(5, "BaiDuAbSDK", str, null);
-        }
-    }
-
-    public static void d(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
-            c(2, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
-            c(4, "BaiDuAbSDK", "", th);
-        }
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            b = z;
-        }
-    }
-
-    public static void c(int i, String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            if (!TextUtils.isEmpty(str2)) {
-                int length = str2.length();
-                int i2 = a;
-                if (length >= i2) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    if (i == 5) {
-                                        Log.e(str, str2.substring(0, i2));
-                                    }
-                                } else {
-                                    Log.w(str, str2.substring(0, i2));
-                                }
-                            } else {
-                                Log.i(str, str2.substring(0, i2));
-                            }
-                        } else {
-                            Log.d(str, str2.substring(0, i2));
-                        }
-                    } else {
-                        Log.v(str, str2.substring(0, i2));
-                    }
-                } else if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    Log.d(str, str2);
-                                } else {
-                                    Log.e(str, str2);
-                                }
-                            } else {
-                                Log.w(str, str2);
-                            }
-                        } else {
-                            Log.i(str, str2);
-                        }
-                    } else {
-                        Log.d(str, str2);
-                    }
-                } else {
-                    Log.v(str, str2);
-                }
-            }
-            if (th != null) {
-                String f = f(th);
-                if (!TextUtils.isEmpty(f)) {
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i != 4) {
-                                    if (i != 5) {
-                                        Log.d(str, str2);
-                                        return;
-                                    } else {
-                                        Log.e(str, f);
-                                        return;
-                                    }
-                                }
-                                Log.w(str, f);
-                                return;
-                            }
-                            Log.i(str, f);
-                            return;
-                        }
-                        Log.d(str, f);
-                        return;
-                    }
-                    Log.v(str, f);
-                }
-            }
-        }
-    }
-
-    public static String f(Throwable th) {
+    public static String a(com.baidu.ubs.analytics.b bVar) {
         InterceptResult invokeL;
-        PrintWriter printWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
-            StringWriter stringWriter = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            JSONArray jSONArray3 = new JSONArray();
+            JSONArray jSONArray4 = new JSONArray();
             try {
-                StringWriter stringWriter2 = new StringWriter();
-                try {
-                    printWriter = new PrintWriter(stringWriter2);
-                    try {
-                        th.printStackTrace(printWriter);
-                        printWriter.flush();
-                        stringWriter2.flush();
-                        String stringWriter3 = stringWriter2.toString();
-                        try {
-                            stringWriter2.close();
-                        } catch (Throwable th2) {
-                            th2.printStackTrace();
-                        }
-                        printWriter.close();
-                        return stringWriter3;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        stringWriter = stringWriter2;
-                        try {
-                            th.printStackTrace();
-                            return "";
-                        } finally {
-                            if (stringWriter != null) {
-                                try {
-                                    stringWriter.close();
-                                } catch (Throwable th4) {
-                                    th4.printStackTrace();
-                                }
-                            }
-                            if (printWriter != null) {
-                                printWriter.close();
-                            }
-                        }
-                    }
-                } catch (Throwable th5) {
-                    th = th5;
-                    printWriter = null;
+                jSONObject2.put("cuid", bVar.n().l());
+                jSONObject2.put("imei", bVar.n().getImei());
+                jSONObject2.put("osVersion", bVar.n().getOsVersion());
+                jSONObject2.put("brandName", bVar.n().r());
+                jSONObject2.put("deviceType", bVar.n().s());
+                jSONObject2.put("mac", bVar.n().t());
+                jSONObject2.put(com.heytap.mcssdk.constant.b.C, bVar.n().u());
+                jSONObject2.put("testEnable", bVar.n().v());
+                jSONObject2.put("appVersion", bVar.n().w());
+                jSONObject2.put("appVersionName", bVar.n().w());
+                jSONObject2.put("screenWidth", bVar.n().y());
+                jSONObject2.put("screenHeight", bVar.n().z());
+                jSONObject2.put("screenDensity", bVar.n().A());
+                jSONObject2.put("netType", bVar.n().x());
+                jSONObject2.put("appName", bVar.n().C());
+                jSONObject2.put("expInfo", bVar.n().B());
+                jSONObject2.put("phone", bVar.n().getPhone());
+                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("startTime", nVar.N());
+                    jSONObject3.put("endTime", nVar.O());
+                    jSONObject3.put("keepTime", nVar.P());
+                    jSONObject3.put("sessionId", nVar.I());
+                    jSONArray.put(jSONObject3);
                 }
-            } catch (Throwable th6) {
-                th = th6;
-                printWriter = null;
+                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    jSONObject4.put("pagerName", lVar.E());
+                    jSONObject4.put("sessionId", lVar.I());
+                    jSONObject4.put("endTime", lVar.O());
+                    jSONObject4.put("startTime", lVar.N());
+                    jSONObject4.put("path", lVar.getPath());
+                    jSONArray2.put(jSONObject4);
+                }
+                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
+                    JSONObject jSONObject5 = new JSONObject();
+                    jSONObject5.put("type", aVar.G());
+                    jSONObject5.put("sessionId", aVar.I());
+                    jSONObject5.put("ext", aVar.H());
+                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
+                    jSONObject5.put("page", aVar.E());
+                    jSONObject5.put("from", aVar.D());
+                    jSONArray3.put(jSONObject5);
+                }
+                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
+                    JSONObject jSONObject6 = new JSONObject();
+                    jSONObject6.put("url", iVar.getUrl());
+                    jSONObject6.put("sessionId", iVar.I());
+                    jSONObject6.put("method", iVar.getType());
+                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
+                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
+                    jSONArray4.put(jSONObject6);
+                }
+                jSONObject.put("deviceinfo", jSONObject2);
+                jSONObject.put("sessions", jSONArray);
+                jSONObject.put("events", jSONArray3);
+                jSONObject.put("pagers", jSONArray2);
+                jSONObject.put("nets", jSONArray4);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } else {
-            return (String) invokeL.objValue;
+            return jSONObject.toString();
         }
+        return (String) invokeL.objValue;
     }
 }

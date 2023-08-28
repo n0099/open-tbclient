@@ -63,12 +63,12 @@ public class mf3 extends eb3 {
 
         /* renamed from: com.baidu.tieba.mf3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0408a implements wp3<gg3<ig3.e>> {
+        public class C0409a implements wp3<gg3<ig3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0408a(a aVar) {
+            public C0409a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class mf3 extends eb3 {
                         z2 = true;
                     }
                     if (z2) {
-                        this.e.c(this.d, this.b, this.c, new C0408a(this));
+                        this.e.c(this.d, this.b, this.c, new C0409a(this));
                         return;
                     }
                     if (dg3Var.j > 0) {

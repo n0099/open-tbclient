@@ -1,40 +1,54 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class d0c {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public HashMap<String, Object> b;
 
-    public d0c() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
+            if (context == null) {
+                return "";
+            }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
+            } catch (Throwable unused) {
+                b = null;
+            }
+            return b;
         }
-        this.b = new HashMap<>();
+        return (String) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubProcessData{cmd='" + this.a + "', data=" + this.b + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            if (context == null) {
+                return "";
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

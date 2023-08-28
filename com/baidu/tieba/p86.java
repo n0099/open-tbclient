@@ -62,7 +62,7 @@ public class p86 implements gs3 {
 
         /* renamed from: com.baidu.tieba.p86$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class DialogInterface$OnClickListenerC0433b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0435b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -72,14 +72,14 @@ public class p86 implements gs3 {
             public class a implements pr1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0433b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0435b a;
 
-                public a(DialogInterface$OnClickListenerC0433b dialogInterface$OnClickListenerC0433b) {
+                public a(DialogInterface$OnClickListenerC0435b dialogInterface$OnClickListenerC0435b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0433b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0435b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class p86 implements gs3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0433b;
+                    this.a = dialogInterface$OnClickListenerC0435b;
                 }
 
                 @Override // com.baidu.tieba.pr1
@@ -105,7 +105,7 @@ public class p86 implements gs3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0433b(b bVar) {
+            public DialogInterface$OnClickListenerC0435b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public class p86 implements gs3 {
                 ha3.a aVar = new ha3.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0091));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0433b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0435b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f008c), new a(this));
                 aVar.X();
             }

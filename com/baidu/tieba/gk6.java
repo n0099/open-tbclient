@@ -24,7 +24,7 @@ public class gk6 implements ck6<Pair<String, Map<String, String>>, Response> {
     public class a extends ResponseCallback<Response> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c8c a;
+        public final /* synthetic */ e8c a;
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
@@ -34,12 +34,12 @@ public class gk6 implements ck6<Pair<String, Map<String, String>>, Response> {
             return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
         }
 
-        public a(gk6 gk6Var, c8c c8cVar) {
+        public a(gk6 gk6Var, e8c e8cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gk6Var, c8cVar};
+                Object[] objArr = {gk6Var, e8cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public class gk6 implements ck6<Pair<String, Map<String, String>>, Response> {
                     return;
                 }
             }
-            this.a = c8cVar;
+            this.a = e8cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,13 +113,13 @@ public class gk6 implements ck6<Pair<String, Map<String, String>>, Response> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ck6
     /* renamed from: d */
-    public void b(Pair<String, Map<String, String>> pair, c8c<Response, Exception> c8cVar) {
+    public void b(Pair<String, Map<String, String>> pair, e8c<Response, Exception> e8cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, c8cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, e8cVar) == null) {
             if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, c8cVar));
+                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, e8cVar));
             } else {
-                c8cVar.call(null, new IllegalArgumentException("url is null !"));
+                e8cVar.call(null, new IllegalArgumentException("url is null !"));
             }
         }
     }

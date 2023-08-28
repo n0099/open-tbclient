@@ -36,13 +36,13 @@ public class g22 extends c22 {
 
         /* renamed from: com.baidu.tieba.g22$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0306a implements wp3<gg3<ig3.e>> {
+        public class C0304a implements wp3<gg3<ig3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ fz1.b a;
             public final /* synthetic */ a b;
 
-            public C0306a(a aVar, fz1.b bVar) {
+            public C0304a(a aVar, fz1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class g22 extends c22 {
                 if (b0 == null) {
                     return new d32(1001, "null swan runtime");
                 }
-                b0.e0().g(cb3.K(), "mapp_i_get_common_sys_info", new C0306a(this, bVar));
+                b0.e0().g(cb3.K(), "mapp_i_get_common_sys_info", new C0304a(this, bVar));
                 return new d32(0);
             }
             return (d32) invokeLL.objValue;

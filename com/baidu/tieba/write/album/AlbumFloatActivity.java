@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dt5;
-import com.baidu.tieba.nxa;
+import com.baidu.tieba.oxa;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nxa k;
+    public oxa k;
     public ViewGroup l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -76,9 +76,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            nxa nxaVar = this.k;
-            if (nxaVar != null) {
-                nxaVar.onDestroy();
+            oxa oxaVar = this.k;
+            if (oxaVar != null) {
+                oxaVar.onDestroy();
             }
         }
     }
@@ -87,9 +87,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            nxa nxaVar = this.k;
-            if (nxaVar != null) {
-                nxaVar.onPause();
+            oxa oxaVar = this.k;
+            if (oxaVar != null) {
+                oxaVar.onPause();
             }
             super.onPause();
         }
@@ -100,9 +100,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            nxa nxaVar = this.k;
-            if (nxaVar != null) {
-                nxaVar.onResume();
+            oxa oxaVar = this.k;
+            if (oxaVar != null) {
+                oxaVar.onResume();
             }
         }
     }
@@ -112,9 +112,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStart();
-            nxa nxaVar = this.k;
-            if (nxaVar != null) {
-                nxaVar.I();
+            oxa oxaVar = this.k;
+            if (oxaVar != null) {
+                oxaVar.I();
             }
         }
     }
@@ -124,9 +124,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
-            nxa nxaVar = this.k;
-            if (nxaVar != null) {
-                nxaVar.J();
+            oxa oxaVar = this.k;
+            if (oxaVar != null) {
+                oxaVar.J();
             }
         }
     }
@@ -201,19 +201,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048585, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            nxa nxaVar = this.k;
-            if (nxaVar != null) {
-                nxaVar.G(i, strArr, iArr);
+            oxa oxaVar = this.k;
+            if (oxaVar != null) {
+                oxaVar.G(i, strArr, iArr);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        nxa nxaVar;
+        oxa oxaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (nxaVar = this.k) != null) {
-            nxaVar.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (oxaVar = this.k) != null) {
+            oxaVar.onClick(view2);
         }
     }
 
@@ -255,9 +255,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                nxa nxaVar = new nxa(this, null, linearLayout.getId(), R.id.root_stub);
-                this.k = nxaVar;
-                nxaVar.R(navigationBar);
+                oxa oxaVar = new oxa(this, null, linearLayout.getId(), R.id.root_stub);
+                this.k = oxaVar;
+                oxaVar.R(navigationBar);
             }
             return this.k;
         }

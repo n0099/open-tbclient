@@ -107,7 +107,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements xo5.b, gm
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: T  reason: collision with root package name */
-    public static final String f1135T;
+    public static final String f1133T;
     public static long U;
     public static final int V;
     public static final int W;
@@ -1121,7 +1121,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements xo5.b, gm
                 return;
             }
         }
-        f1135T = SharedPrefHelper.getSharedPrefKeyWithAccount(PollingModel.SP_KEY_GROUP_CHAT_DISTURB_SETTING);
+        f1133T = SharedPrefHelper.getSharedPrefKeyWithAccount(PollingModel.SP_KEY_GROUP_CHAT_DISTURB_SETTING);
         U = 5000L;
         V = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
         W = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -1909,7 +1909,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements xo5.b, gm
             return;
         }
         SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-        String str3 = f1135T + str;
+        String str3 = f1133T + str;
         boolean z = sharedPrefHelper.getBoolean(str3, true);
         if (z) {
             i2 = R.string.obfuscated_res_0x7f0f0a51;

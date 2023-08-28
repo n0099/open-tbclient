@@ -38,13 +38,13 @@ public class fa3 extends ha3 {
 
         /* renamed from: com.baidu.tieba.fa3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class DialogInterface$OnKeyListenerC0284a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0281a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0284a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0281a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +308,7 @@ public class fa3 extends ha3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0284a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0281a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

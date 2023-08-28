@@ -83,15 +83,15 @@ import com.baidu.tieba.a37;
 import com.baidu.tieba.ai5;
 import com.baidu.tieba.b37;
 import com.baidu.tieba.di;
-import com.baidu.tieba.e1b;
 import com.baidu.tieba.eia;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.fw5;
 import com.baidu.tieba.fxa;
+import com.baidu.tieba.g1b;
 import com.baidu.tieba.hi5;
-import com.baidu.tieba.i1b;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.k1b;
 import com.baidu.tieba.n95;
 import com.baidu.tieba.ota;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
@@ -106,7 +106,7 @@ import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.tieba.write.view.PostCategoryView;
-import com.baidu.tieba.wxa;
+import com.baidu.tieba.xxa;
 import com.baidu.tieba.zh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -142,13 +142,13 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
 
     /* renamed from: T  reason: collision with root package name */
     public InputMethodManager f1184T;
-    public wxa U;
-    public i1b V;
+    public xxa U;
+    public k1b V;
     public TextWatcher W;
     public TextWatcher X;
     public TbFaceManager.a Y;
     public final AntiHelper.k Z;
-    public final e1b a;
+    public final g1b a;
     public final NewWriteModel.d a0;
     public final KeyEvent b;
     public final CustomMessageListener b0;
@@ -1184,7 +1184,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 return;
             }
         }
-        this.a = new e1b();
+        this.a = new g1b();
         this.b = new KeyEvent(0, 67);
         this.c = new Handler();
         this.e = null;
@@ -1264,9 +1264,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
             this.o = z;
-            wxa wxaVar = this.U;
-            if (wxaVar != null && !z) {
-                wxaVar.h();
+            xxa xxaVar = this.U;
+            if (xxaVar != null && !z) {
+                xxaVar.h();
             }
             if (this.V != null && !z) {
                 X1();
@@ -1421,10 +1421,10 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     }
 
     public void X1() {
-        i1b i1bVar;
+        k1b k1bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (i1bVar = this.V) != null) {
-            i1bVar.b();
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (k1bVar = this.V) != null) {
+            k1bVar.b();
         }
     }
 
@@ -1910,9 +1910,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             }
             H2();
             I2();
-            e1b e1bVar = this.a;
-            if (e1bVar != null) {
-                e1bVar.l(U1(), S1());
+            g1b g1bVar = this.a;
+            if (g1bVar != null) {
+                g1bVar.l(U1(), S1());
             }
             ForumTabSelectedView forumTabSelectedView = this.Q;
             if (forumTabSelectedView != null) {

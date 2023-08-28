@@ -12,7 +12,7 @@ import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.id0;
 import com.baidu.tieba.mc0;
-import com.baidu.tieba.qyb;
+import com.baidu.tieba.syb;
 import com.baidu.tieba.yb0;
 /* loaded from: classes3.dex */
 public class LiveFeedPageSdk {
@@ -98,7 +98,7 @@ public class LiveFeedPageSdk {
     }
 
     public String getYYHDID(Context context) {
-        return qyb.a(context);
+        return syb.a(context);
     }
 
     public void initInvoke(ILiveFeedPageInvoke iLiveFeedPageInvoke) {

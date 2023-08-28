@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dt5;
 import com.baidu.tieba.gea;
-import com.baidu.tieba.lya;
+import com.baidu.tieba.mya;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -410,7 +410,7 @@ public class SelectTagListView extends LinearLayout implements dt5, View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public class g implements lya.c {
+    public class g implements mya.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagListView a;
@@ -433,7 +433,7 @@ public class SelectTagListView extends LinearLayout implements dt5, View.OnClick
             this.a = selectTagListView;
         }
 
-        @Override // com.baidu.tieba.lya.c
+        @Override // com.baidu.tieba.mya.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -773,7 +773,7 @@ public class SelectTagListView extends LinearLayout implements dt5, View.OnClick
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
-            this.p.setFilters(new InputFilter[]{new lya.a(this.u, new g(this))});
+            this.p.setFilters(new InputFilter[]{new mya.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
             EMManager.from(this.j).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0209);
         }

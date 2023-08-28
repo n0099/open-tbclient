@@ -86,7 +86,7 @@ public class ewa {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iwaVar, zvaVar)) == null) {
             MultiMediaData multiMediaData = null;
-            if (iwaVar == null || zvaVar == null || iwaVar.b <= 0 || dgb.e(iwaVar.e) || dgb.e(iwaVar.f)) {
+            if (iwaVar == null || zvaVar == null || iwaVar.b <= 0 || fgb.e(iwaVar.e) || fgb.e(iwaVar.f)) {
                 return null;
             }
             long[] a = a(iwaVar.b, iwaVar.a);
@@ -95,7 +95,7 @@ public class ewa {
             for (int i = 0; i < iwaVar.b; i++) {
                 long j = ((float) a[i]) / 1000.0f;
                 int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(iwaVar.e, j);
-                MultiMediaData multiMediaData2 = (MultiMediaData) dgb.c(iwaVar.f, findInputIndexInSegments);
+                MultiMediaData multiMediaData2 = (MultiMediaData) fgb.c(iwaVar.f, findInputIndexInSegments);
                 if (multiMediaData2 != null) {
                     if (multiMediaData2 != multiMediaData) {
                         hwaVar = new hwa();
@@ -106,7 +106,7 @@ public class ewa {
                         hwaVar.b = multiMediaData2.rotation;
                         arrayList.add(hwaVar);
                     }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) dgb.c(iwaVar.e, findInputIndexInSegments), j) * 1000;
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) fgb.c(iwaVar.e, findInputIndexInSegments), j) * 1000;
                     bwa bwaVar = new bwa();
                     bwaVar.a = uva.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
                     bwaVar.b = multiMediaData2.path;

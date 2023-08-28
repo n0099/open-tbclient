@@ -75,7 +75,7 @@ public abstract class hl1 implements sl1, AdView.a, SensorEventListener {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1115T;
+    public int f1114T;
     public AtomicBoolean U;
     public float V;
     public LottieAnimationView W;
@@ -142,12 +142,12 @@ public abstract class hl1 implements sl1, AdView.a, SensorEventListener {
 
         /* renamed from: com.baidu.tieba.hl1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0324a implements View.OnClickListener {
+        public class View$OnClickListenerC0326a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0324a(a aVar) {
+            public View$OnClickListenerC0326a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public abstract class hl1 implements sl1, AdView.a, SensorEventListener {
                         this.c.W.setComposition(lottieComposition);
                         this.c.W.playAnimation();
                         this.c.o(this.c.W, this.a, this.b, "click_float_lottie", this.c.K);
-                        this.c.W.setOnClickListener(new View$OnClickListenerC0324a(this));
+                        this.c.W.setOnClickListener(new View$OnClickListenerC0326a(this));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -369,22 +369,22 @@ public abstract class hl1 implements sl1, AdView.a, SensorEventListener {
                         float k = m61.c.k(this.c.b.a, x - this.a);
                         float k2 = m61.c.k(this.c.b.a, y - this.b);
                         hl1 hl1Var = this.c.b;
-                        if ((hl1Var.f1115T & 1) == 1 && k2 <= (-hl1Var.S)) {
+                        if ((hl1Var.f1114T & 1) == 1 && k2 <= (-hl1Var.S)) {
                             BaseVM.s("2");
                             this.c.b.N();
                         } else {
                             hl1 hl1Var2 = this.c.b;
-                            if ((hl1Var2.f1115T & 2) == 2 && k2 >= hl1Var2.S) {
+                            if ((hl1Var2.f1114T & 2) == 2 && k2 >= hl1Var2.S) {
                                 BaseVM.s("2");
                                 this.c.b.N();
                             } else {
                                 hl1 hl1Var3 = this.c.b;
-                                if ((hl1Var3.f1115T & 4) == 4 && k <= (-hl1Var3.S)) {
+                                if ((hl1Var3.f1114T & 4) == 4 && k <= (-hl1Var3.S)) {
                                     BaseVM.s("2");
                                     this.c.b.N();
                                 } else {
                                     hl1 hl1Var4 = this.c.b;
-                                    if ((hl1Var4.f1115T & 8) == 8 && k >= hl1Var4.S) {
+                                    if ((hl1Var4.f1114T & 8) == 8 && k >= hl1Var4.S) {
                                         BaseVM.s("2");
                                         this.c.b.N();
                                     }
@@ -1500,7 +1500,7 @@ public abstract class hl1 implements sl1, AdView.a, SensorEventListener {
                 }
                 this.Q = z4;
                 this.S = (float) this.i.optDouble("gesture_lottie_sensitivity", 0.0d);
-                this.f1115T = this.i.optInt("gesture_lottie_direction", 1);
+                this.f1114T = this.i.optInt("gesture_lottie_direction", 1);
             } catch (Exception unused) {
             }
         }

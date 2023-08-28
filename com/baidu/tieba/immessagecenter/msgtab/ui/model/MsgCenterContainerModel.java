@@ -9,10 +9,10 @@ import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.repository.MsgCenterRepository;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.ot8;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.p7c;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class MsgCenterContainerModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MsgCenterRepository a;
-    public final jcc<List<ot8>> b;
+    public final lcc<List<ot8>> b;
 
     public MsgCenterContainerModel() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public final class MsgCenterContainerModel {
             }
         }
         this.a = new MsgCenterRepository();
-        jcc<List<ot8>> Q = jcc.Q();
+        lcc<List<ot8>> Q = lcc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.b = Q;
         this.a.k(new Function1<ForumListData, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgCenterContainerModel.1
@@ -104,15 +104,15 @@ public final class MsgCenterContainerModel {
         return (List) invokeV.objValue;
     }
 
-    public final n7c<List<ot8>> e() {
+    public final p7c<List<ot8>> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n7c<List<ot8>> s = this.b.a().x().s(x7c.b());
+            p7c<List<ot8>> s = this.b.a().x().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mUiDataBs\n              …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public final void c(ForumListData forumListData) {

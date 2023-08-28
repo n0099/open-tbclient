@@ -242,7 +242,7 @@ public final class WorkPublishViewModel extends ViewModel {
     public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            dfa.q(new dfa.i() { // from class: com.baidu.tieba.z5b
+            dfa.q(new dfa.i() { // from class: com.baidu.tieba.b6b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,17 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UserData;
-/* compiled from: UserData.java */
+import org.chromium.base.Callback;
+/* compiled from: Callback.java */
 /* loaded from: classes8.dex */
 public final /* synthetic */ class v5c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void $default$destroy(UserData userData) {
+    /* JADX DEBUG: Incorrect args count in method signature: (TT;)Ljava/lang/Runnable; */
+    public static Runnable $default$bind(final Callback callback, final Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, callback, obj)) == null) {
+            return new Runnable() { // from class: com.baidu.tieba.k5c
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        Callback.this.onResult(obj);
+                    }
+                }
+            };
         }
+        return (Runnable) invokeLL.objValue;
     }
 }

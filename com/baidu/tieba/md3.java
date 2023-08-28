@@ -41,14 +41,14 @@ public class md3 extends ad3 implements qz1.j {
 
         /* renamed from: com.baidu.tieba.md3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0407a implements Runnable {
+        public class RunnableC0408a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0407a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public RunnableC0408a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class md3 extends ad3 implements qz1.j {
                 d82.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
                 if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
                     rj3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    xo3.e0(new RunnableC0407a(this, parse, string));
+                    xo3.e0(new RunnableC0408a(this, parse, string));
                     return;
                 }
                 d82.i("ShowFavoriteGuideAction", "Not satisfying display conditions");

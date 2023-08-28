@@ -358,8 +358,8 @@ public final class d extends b {
         com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
         this.gY = j;
         if (j != null) {
-            j.a(new b.InterfaceC0602b() { // from class: com.kwad.components.ad.interstitial.b.d.2
-                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0602b
+            j.a(new b.InterfaceC0603b() { // from class: com.kwad.components.ad.interstitial.b.d.2
+                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0603b
                 public final void C(int i) {
                     if (i == com.kwad.components.ad.f.kwai.kwai.b.kt) {
                         d.this.gh.b(d.this.getContext(), d.this.mAdTemplate);
@@ -374,8 +374,8 @@ public final class d extends b {
 
     private com.kwad.components.ad.f.kwai.kwai.a cP() {
         final com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-        this.gh.gs.add(new c.InterfaceC0611c() { // from class: com.kwad.components.ad.interstitial.b.d.3
-            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0611c
+        this.gh.gs.add(new c.InterfaceC0612c() { // from class: com.kwad.components.ad.interstitial.b.d.3
+            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0612c
             public final void cH() {
                 aVar.ey();
             }
@@ -672,7 +672,7 @@ public final class d extends b {
         return new w.a() { // from class: com.kwad.components.ad.interstitial.b.d.10
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(d.this.mContext, new AdWebViewActivityProxy.a.C0654a().ao(bVar.title).ap(bVar.url).N(d.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(d.this.mContext, new AdWebViewActivityProxy.a.C0655a().ao(bVar.title).ap(bVar.url).N(d.this.mAdTemplate).nx());
             }
         };
     }

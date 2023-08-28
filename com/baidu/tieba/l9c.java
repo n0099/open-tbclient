@@ -1,34 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q7c;
-import com.baidu.tieba.r7c;
+import com.baidu.tieba.p7c;
+import com.baidu.tieba.t7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.NoSuchElementException;
 /* loaded from: classes6.dex */
-public final class l9c<T> implements r7c.c<T> {
+public final class l9c<T> implements t7c.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r7c.c<T> a;
-    public final q7c b;
+    public final p7c.a<T> a;
 
     /* loaded from: classes6.dex */
-    public static final class a<T> extends s7c<T> implements a8c {
+    public static final class a<T> extends v7c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final s7c<? super T> b;
-        public final q7c.a c;
-        public T d;
-        public Throwable e;
+        public final u7c<? super T> e;
+        public T f;
+        public int g;
 
-        public a(s7c<? super T> s7cVar, q7c.a aVar) {
+        public a(u7c<? super T> u7cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s7cVar, aVar};
+                Object[] objArr = {u7cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,55 +37,60 @@ public final class l9c<T> implements r7c.c<T> {
                     return;
                 }
             }
-            this.b = s7cVar;
-            this.c = aVar;
+            this.e = u7cVar;
         }
 
-        @Override // com.baidu.tieba.s7c
-        public void b(Throwable th) {
+        @Override // com.baidu.tieba.q7c
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.e = th;
-                this.c.b(this);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (this.g == 2) {
+                    dcc.j(th);
+                    return;
+                }
+                this.f = null;
+                this.e.b(th);
             }
         }
 
-        @Override // com.baidu.tieba.s7c
-        public void c(T t) {
+        @Override // com.baidu.tieba.q7c
+        public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.d = t;
-                this.c.b(this);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.g = 1;
+                    this.f = t;
+                } else if (i == 1) {
+                    this.g = 2;
+                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+                }
             }
         }
 
-        @Override // com.baidu.tieba.a8c
-        public void call() {
+        @Override // com.baidu.tieba.q7c
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.e;
-                    if (th != null) {
-                        this.e = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.d;
-                        this.d = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.g;
+                if (i == 0) {
+                    this.e.b(new NoSuchElementException());
+                } else if (i == 1) {
+                    this.g = 2;
+                    T t = this.f;
+                    this.f = null;
+                    this.e.c(t);
                 }
             }
         }
     }
 
-    public l9c(r7c.c<T> cVar, q7c q7cVar) {
+    public l9c(p7c.a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, q7cVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,23 +100,20 @@ public final class l9c<T> implements r7c.c<T> {
                 return;
             }
         }
-        this.a = cVar;
-        this.b = q7cVar;
+        this.a = aVar;
     }
 
-    public void call(s7c<? super T> s7cVar) {
+    public void call(u7c<? super T> u7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s7cVar) == null) {
-            q7c.a createWorker = this.b.createWorker();
-            a aVar = new a(s7cVar, createWorker);
-            s7cVar.a(createWorker);
-            s7cVar.a(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, u7cVar) == null) {
+            a aVar = new a(u7cVar);
+            u7cVar.a(aVar);
             this.a.call(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.r7c.c, com.baidu.tieba.b8c
+    @Override // com.baidu.tieba.t7c.c, com.baidu.tieba.d8c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((s7c) ((s7c) obj));
+        call((u7c) ((u7c) obj));
     }
 }

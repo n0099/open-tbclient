@@ -1,11 +1,9 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
 public interface n2b {
-    void i(String str);
+    void l(@NonNull s2b s2bVar);
 
-    void k(String str);
-
-    void u(String str);
-
-    void v(String str);
+    void q(@NonNull s2b s2bVar, boolean z);
 }

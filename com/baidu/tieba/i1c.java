@@ -1,83 +1,96 @@
 package com.baidu.tieba;
 
+import android.media.MediaCodecList;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes6.dex */
 public class i1c {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
 
-    public i1c(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    int codecCount = MediaCodecList.getCodecCount();
+                    for (int i = 0; i < codecCount; i++) {
+                        String name = MediaCodecList.getCodecInfoAt(i).getName();
+                        if (name.contains("decoder") && (name.contains("avc") || name.contains("h264"))) {
+                            boolean unused = i1c.a = true;
+                        }
+                        if (name.contains("decoder") && (name.contains("hevc") || name.contains("h265"))) {
+                            boolean unused2 = i1c.b = true;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802094, "Lcom/baidu/tieba/i1c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947802094, "Lcom/baidu/tieba/i1c;");
                 return;
             }
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = true;
+        new Thread(new a()).start();
     }
 
-    public i1c(float f, float f2, float f3, float f4, boolean z) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            TLog.h("CodecCheckHelper", "CodecCheck isSupportH264HwDecode " + a);
+            return a;
         }
-        this.b = f;
-        this.c = f2;
-        this.d = f3;
-        this.e = f4;
-        this.a = z;
+        return invokeV.booleanValue;
     }
 
-    public static i1c a(String str) {
-        InterceptResult invokeL;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            i1c i1cVar = new i1c(0.0f, 1.0f, 1.0f, 0.0f);
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                i1cVar.b = (float) jSONObject.optDouble("bottomLeftX");
-                i1cVar.c = (float) jSONObject.optDouble("bottomLeftY");
-                i1cVar.d = (float) jSONObject.optDouble("upperRightX");
-                i1cVar.e = (float) jSONObject.optDouble("upperRightY");
-                i1cVar.a = jSONObject.optBoolean("forceEnable");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return i1cVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TLog.h("CodecCheckHelper", "CodecCheck isSupportH265HwDecode " + b);
+            return b;
         }
-        return (i1c) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

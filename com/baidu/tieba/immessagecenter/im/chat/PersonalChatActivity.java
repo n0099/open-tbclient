@@ -124,7 +124,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public final CustomMessageListener S;
 
     /* renamed from: T  reason: collision with root package name */
-    public GamePlayServiceModel f1137T;
+    public GamePlayServiceModel f1135T;
     public String U;
     public GamePlayServiceData V;
     public final GamePlayServiceModel.a W;
@@ -1007,7 +1007,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (interceptable == null || interceptable.invokeL(1048612, this, bundle) == null) {
             super.onCreate(bundle);
             GamePlayServiceModel gamePlayServiceModel = new GamePlayServiceModel();
-            this.f1137T = gamePlayServiceModel;
+            this.f1135T = gamePlayServiceModel;
             gamePlayServiceModel.loadGodInfo(this.U, this.W);
         }
     }
@@ -1361,10 +1361,10 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             if (virtualBarAssist != null) {
                 virtualBarAssist.onDestroy();
             }
-            GamePlayServiceModel gamePlayServiceModel = this.f1137T;
+            GamePlayServiceModel gamePlayServiceModel = this.f1135T;
             if (gamePlayServiceModel != null) {
                 gamePlayServiceModel.release();
-                this.f1137T = null;
+                this.f1135T = null;
             }
         }
     }

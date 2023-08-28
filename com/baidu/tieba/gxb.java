@@ -1,74 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class gxb {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
-            webSettings.setAllowContentAccess(false);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947810712, "Lcom/baidu/tieba/gxb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947810712, "Lcom/baidu/tieba/gxb;");
         }
     }
 
-    public static void b(WebSettings webSettings) {
+    public static String a(String str, String str2, Context context) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
-            webSettings.setAllowFileAccess(false);
-            if (Build.VERSION.SDK_INT >= 16) {
-                webSettings.setAllowFileAccessFromFileURLs(false);
-                webSettings.setAllowUniversalAccessFromFileURLs(false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
+            return b(context).getString(str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void c(String str, String str2, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
+            b(context).edit().putString(str, str2).apply();
+        }
+    }
+
+    public static synchronized SharedPreferences b(Context context) {
+        InterceptResult invokeL;
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (gxb.class) {
+                if (a == null) {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
+                    } else {
+                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
+                    }
+                }
+                sharedPreferences = a;
             }
+            return sharedPreferences;
         }
-    }
-
-    public static void c(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
-            webSettings.setGeolocationEnabled(false);
-        }
-    }
-
-    public static void d(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
-            webSettings.setMixedContentMode(1);
-        }
-    }
-
-    public static void e(WebSettings webSettings) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
-            webSettings.setSavePassword(false);
-        }
-    }
-
-    public static void f(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
-            WebSettings settings = webView.getSettings();
-            b(settings);
-            g(webView);
-            e(settings);
-            c(settings);
-            d(settings);
-            a(settings);
-        }
-    }
-
-    public static void g(WebView webView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
-            webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            webView.removeJavascriptInterface("accessibility");
-            webView.removeJavascriptInterface("accessibilityTraversal");
-        }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

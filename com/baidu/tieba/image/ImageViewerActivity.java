@@ -170,7 +170,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
     public View.OnClickListener S0;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1134T;
+    public boolean f1132T;
     public CustomMessageListener T0;
     public boolean U;
     public CustomMessageListener U0;
@@ -1588,7 +1588,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         this.N = false;
         this.O = 0;
         this.S = false;
-        this.f1134T = true;
+        this.f1132T = true;
         this.U = true;
         this.V = true;
         this.W = false;
@@ -2351,7 +2351,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!this.f1134T) {
+            if (!this.f1132T) {
                 return false;
             }
             vj8 vj8Var = this.z0;
@@ -2531,7 +2531,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                 this.I = bundle.getString(IntentConfig.BJH_POST_ID);
                 this.b0 = bundle.getBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
                 this.a0 = bundle.getBoolean(ImageViewerConfig.REVERSE_MODE, true);
-                this.f1134T = bundle.getBoolean(ImageViewerConfig.IS_SHOW_AD, false);
+                this.f1132T = bundle.getBoolean(ImageViewerConfig.IS_SHOW_AD, false);
                 this.G = bundle.getString("user_id");
                 this.F = bundle.getString("from");
                 this.U = bundle.getBoolean(ImageViewerConfig.IS_CAN_DRAG, true);
@@ -2597,7 +2597,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
                     this.I = intent.getStringExtra(IntentConfig.BJH_POST_ID);
                     this.b0 = intent.getBooleanExtra(ImageViewerConfig.PARAM_IS_CDN, false);
                     this.a0 = intent.getBooleanExtra(ImageViewerConfig.REVERSE_MODE, true);
-                    this.f1134T = intent.getBooleanExtra(ImageViewerConfig.IS_SHOW_AD, false);
+                    this.f1132T = intent.getBooleanExtra(ImageViewerConfig.IS_SHOW_AD, false);
                     this.G = intent.getStringExtra("user_id");
                     this.F = intent.getStringExtra("from");
                     this.U = intent.getBooleanExtra(ImageViewerConfig.IS_CAN_DRAG, true);
@@ -2814,13 +2814,13 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             this.j.k(this.B0);
             if (this.L && this.g0) {
                 if (this.K == null) {
-                    this.K = new sj8(this.v, this.B, this.C, this.f1134T, this.s, getPageContext());
+                    this.K = new sj8(this.v, this.B, this.C, this.f1132T, this.s, getPageContext());
                 }
                 this.K.B(null);
                 this.j.k(this.K);
             }
             if (this.z0 == null) {
-                this.z0 = new vj8(this.v, this.B, this.E, this.b0, this.f1134T, getPageContext(), this.I0, this.w);
+                this.z0 = new vj8(this.v, this.B, this.E, this.b0, this.f1132T, getPageContext(), this.I0, this.w);
             }
             this.j.k(this.z0);
             this.j.setOriImgSelectedCallback(this.K0);
@@ -2892,7 +2892,7 @@ public class ImageViewerActivity extends BaseFragmentActivity implements VoiceMa
             bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.a0);
             bundle.putBoolean(ImageViewerConfig.IS_CAN_DRAG, this.U);
             bundle.putBoolean(ImageViewerConfig.IS_SHOW_HOST, this.V);
-            bundle.putBoolean(ImageViewerConfig.IS_SHOW_AD, this.f1134T);
+            bundle.putBoolean(ImageViewerConfig.IS_SHOW_AD, this.f1132T);
             bundle.putString("user_id", this.G);
             bundle.putBoolean(ImageViewerConfig.IS_SHOW_BOTTOM_CONTAINER, this.c0);
             bundle.putBoolean(ImageViewerConfig.IS_DYNAMIC_CARD, this.d0);

@@ -177,7 +177,7 @@ public final class AssociatedItemContainer extends LinearLayout {
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             itemCardView.U();
             itemCardView.setTag(R.id.obfuscated_res_0x7f09125b, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.rya
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.sya
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

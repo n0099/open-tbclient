@@ -328,11 +328,11 @@ public final class kc8 {
             this.d = panel;
             m = panel.J0();
             panel.w1(new c(this));
-            panel.o1(new d8c() { // from class: com.baidu.tieba.ec8
+            panel.o1(new f8c() { // from class: com.baidu.tieba.ec8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.d8c
+                @Override // com.baidu.tieba.f8c
                 public final void call(Object obj, Object obj2, Object obj3, Object obj4) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, obj, obj2, obj3, obj4) == null) {

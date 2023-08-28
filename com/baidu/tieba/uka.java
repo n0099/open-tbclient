@@ -48,7 +48,7 @@ public class uka extends HttpMessageListener {
                 if (httpMessage.getParams() != null) {
                     Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
                     if (obj instanceof String) {
-                        i = cgb.b((String) obj, Integer.MAX_VALUE);
+                        i = egb.b((String) obj, Integer.MAX_VALUE);
                     }
                 }
             }

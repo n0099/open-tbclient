@@ -31,7 +31,7 @@ public class yo0 extends xk1<lp0> {
 
         /* renamed from: com.baidu.tieba.yo0$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0542a implements it0<JSONObject> {
+        public class C0543a implements it0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ pr0 a;
@@ -46,7 +46,7 @@ public class yo0 extends xk1<lp0> {
                 }
             }
 
-            public C0542a(a aVar, pr0 pr0Var, lp0.b bVar, is0 is0Var) {
+            public C0543a(a aVar, pr0 pr0Var, lp0.b bVar, is0 is0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +184,7 @@ public class yo0 extends xk1<lp0> {
                 qt0Var.l(d(pr0Var.h()));
                 qt0Var.h(lt0.c);
                 qt0Var.d("User-Agent", sj0.c().a().h());
-                a.a(qt0Var, new C0542a(this, pr0Var, bVar, is0Var));
+                a.a(qt0Var, new C0543a(this, pr0Var, bVar, is0Var));
             }
         }
 

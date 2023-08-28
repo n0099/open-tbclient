@@ -72,10 +72,10 @@ import com.baidu.tieba.cp8;
 import com.baidu.tieba.di;
 import com.baidu.tieba.em8;
 import com.baidu.tieba.f31;
-import com.baidu.tieba.f8c;
 import com.baidu.tieba.fn8;
 import com.baidu.tieba.fx5;
 import com.baidu.tieba.gw5;
+import com.baidu.tieba.h8c;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.model.LocalPicModel;
@@ -151,7 +151,7 @@ public class GroupInputViewController implements LifecycleObserver {
     @Nullable
 
     /* renamed from: T  reason: collision with root package name */
-    public fn8 f1136T;
+    public fn8 f1134T;
     public final CustomMessageListener U;
     public final CustomMessageListener V;
     public ai5 W;
@@ -1783,17 +1783,17 @@ public class GroupInputViewController implements LifecycleObserver {
         this.l = groupChatFragment;
         this.j = groupChatFragment.getPageContext();
         this.c = groupChatFragment.getContext();
-        this.f1136T = fn8Var;
+        this.f1134T = fn8Var;
         this.p = new GroupInputTool(this.l);
         ro8 ro8Var = new ro8(this.l);
         this.B = ro8Var;
         ro8Var.o(this.W);
         this.M = new nq8(this);
-        this.A = new zo8(this.l, new f8c() { // from class: com.baidu.tieba.po8
+        this.A = new zo8(this.l, new h8c() { // from class: com.baidu.tieba.po8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.f8c
+            @Override // com.baidu.tieba.h8c
             public final Object call() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -3035,7 +3035,7 @@ public class GroupInputViewController implements LifecycleObserver {
                 so8Var.O(items, z2);
             }
             this.o.X(this.l.getPageContext());
-            this.o.W(this.f1136T);
+            this.o.W(this.f1134T);
             j0(!ListUtils.isEmpty(items));
             Object obj = this.E;
             if (obj instanceof BaseMsg) {
@@ -3061,7 +3061,7 @@ public class GroupInputViewController implements LifecycleObserver {
                     so8Var.O(items, z2);
                 }
                 this.o.X(this.l.getPageContext());
-                this.o.W(this.f1136T);
+                this.o.W(this.f1134T);
                 j0(!ListUtils.isEmpty(items));
                 Object obj = this.E;
                 if (obj instanceof BaseMsg) {

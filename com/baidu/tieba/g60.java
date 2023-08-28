@@ -59,11 +59,11 @@ public class g60 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.baidu.tieba.g60$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0309a implements n60 {
+        public class C0307a implements n60 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0309a(a aVar, Request request) {
+            public C0307a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class g60 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new i60(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0309a(this, e));
+                        Dns a = this.c.d.a(e, new C0307a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new k60(a));
                     }

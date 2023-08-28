@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.view.spanGroup.UrlParserHttpResponseMessage;
 import com.baidu.tbadk.core.view.spanGroup.UrlParserSocketResponseMessage;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.a0b;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.hza;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.lza;
-import com.baidu.tieba.n1b;
+import com.baidu.tieba.c0b;
+import com.baidu.tieba.jza;
+import com.baidu.tieba.kza;
 import com.baidu.tieba.np6;
+import com.baidu.tieba.nza;
+import com.baidu.tieba.p1b;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ import tbclient.UrlParser.DataRes;
 import tbclient.UrlParser.UrlParserResIdl;
 @Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\u0010\u0000\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B)\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0012\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0002J\u0013\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00140\u0013H\u0016¢\u0006\u0002\u0010\u0015J\u0013\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00170\u0013H\u0016¢\u0006\u0002\u0010\u0018J\b\u0010\u0019\u001a\u00020\u000fH\u0016J\u0013\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001b0\u0013H\u0016¢\u0006\u0002\u0010\u001cJ\u0018\u0010\u001d\u001a\u00020\u000f2\u0006\u0010\u001e\u001a\u00020\u001f2\u0006\u0010\u0010\u001a\u00020 H\u0002R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/LinkBizListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "context", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "mUrlParserListener", "Lcom/baidu/adp/framework/listener/NetMessageListener;", "addLink", "", "data", "Landroid/content/Intent;", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", MissionEvent.MESSAGE_DESTROY, "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "startAddLink", "id", "", "", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class LinkBizListener extends BizBase implements lza {
+public final class LinkBizListener extends BizBase implements nza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final NetMessageListener g;
@@ -145,7 +145,7 @@ public final class LinkBizListener extends BizBase implements lza {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LinkBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, a0b writePageState) {
+    public LinkBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, c0b writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -157,7 +157,7 @@ public final class LinkBizListener extends BizBase implements lza {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (a0b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c0b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -171,14 +171,14 @@ public final class LinkBizListener extends BizBase implements lza {
         MessageManager.getInstance().registerListener(this.g);
     }
 
-    @Override // com.baidu.tieba.kza
-    public hza[] d() {
+    @Override // com.baidu.tieba.mza
+    public jza[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hza[]{n(21, new LinkBizListener$editorActionHandlers$1(this))} : (hza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jza[]{n(21, new LinkBizListener$editorActionHandlers$1(this))} : (jza[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kza
+    @Override // com.baidu.tieba.mza
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -235,14 +235,14 @@ public final class LinkBizListener extends BizBase implements lza {
         })} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kza
-    public iza[] f() {
+    @Override // com.baidu.tieba.mza
+    public kza[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new iza[]{o(25049, new LinkBizListener$requestCodeHandlers$1(this))} : (iza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new kza[]{o(25049, new LinkBizListener$requestCodeHandlers$1(this))} : (kza[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lza
+    @Override // com.baidu.tieba.nza
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -276,7 +276,7 @@ public final class LinkBizListener extends BizBase implements lza {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, obj) == null) {
             l().o();
-            n1b.b(i().getPageActivity(), 5);
+            p1b.b(i().getPageActivity(), 5);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(i().getPageActivity(), 25049, "", true, null)));
         }
     }

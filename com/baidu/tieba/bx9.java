@@ -57,7 +57,7 @@ public class bx9 {
     public static int S = 5000;
 
     /* renamed from: T  reason: collision with root package name */
-    public static final float f1094T;
+    public static final float f1093T;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout A;
     public int B;
@@ -340,7 +340,7 @@ public class bx9 {
                 }
                 this.a.J.h(abs);
                 if (abs < 1.0f) {
-                    this.a.n = new float[]{bx9.f1094T, bx9.f1094T, bx9.f1094T, bx9.f1094T, 0.0f, 0.0f, 0.0f, 0.0f};
+                    this.a.n = new float[]{bx9.f1093T, bx9.f1093T, bx9.f1093T, bx9.f1093T, 0.0f, 0.0f, 0.0f, 0.0f};
                     this.a.D.setCornerRadii(this.a.n);
                     this.a.t.setBackgroundDrawable(this.a.D);
                     this.a.O();
@@ -891,7 +891,7 @@ public class bx9 {
                 return;
             }
         }
-        f1094T = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds30);
+        f1093T = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds30);
     }
 
     public cw9 L() {
@@ -962,7 +962,7 @@ public class bx9 {
                 return;
             }
         }
-        float f2 = f1094T;
+        float f2 = f1093T;
         this.n = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
         this.o = 674.0f;
         this.M = false;

@@ -33,12 +33,12 @@ public interface l81 {
 
         /* renamed from: com.baidu.tieba.l81$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0395a implements View.OnClickListener {
+        public class View$OnClickListenerC0396a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ m81 a;
 
-            public View$OnClickListenerC0395a(a aVar, m81 m81Var) {
+            public View$OnClickListenerC0396a(a aVar, m81 m81Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public interface l81 {
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, m81Var) == null) {
                 int intValue = ((Integer) view2.getTag()).intValue();
                 if (intValue == R.drawable.nad_web_back) {
-                    view2.setOnClickListener(new View$OnClickListenerC0395a(this, m81Var));
+                    view2.setOnClickListener(new View$OnClickListenerC0396a(this, m81Var));
                 } else if (intValue == R.drawable.nad_web_close) {
                     view2.setOnClickListener(new b(this, m81Var));
                 }

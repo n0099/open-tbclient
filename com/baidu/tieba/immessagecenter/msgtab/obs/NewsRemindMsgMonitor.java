@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.h8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.j8c;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.tt8;
-import com.baidu.tieba.u7c;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.w7c;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public final class NewsRemindMsgMonitor implements tt8 {
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy a;
     public final Lazy b;
-    public u7c c;
+    public w7c c;
     public final Lazy d;
     public final b e;
 
@@ -172,48 +172,48 @@ public final class NewsRemindMsgMonitor implements tt8 {
         }
     }
 
-    public final jcc<Integer> g() {
+    public final lcc<Integer> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Object value = this.d.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-mDelaySubject>(...)");
-            return (jcc) value;
+            return (lcc) value;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
-    public final jcc<NewsRemindMessage> h() {
+    public final lcc<NewsRemindMessage> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Object value = this.a.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-mSubject>(...)");
-            return (jcc) value;
+            return (lcc) value;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
-    public final n7c<Boolean> i() {
+    public final p7c<Boolean> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n7c<Boolean> g2 = j().g();
+            p7c<Boolean> g2 = j().g();
             Intrinsics.checkNotNullExpressionValue(g2, "upgradeTipsSubject.distinctUntilChanged()");
             return g2;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
-    public final jcc<Boolean> j() {
+    public final lcc<Boolean> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Object value = this.b.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-upgradeTipsSubject>(...)");
-            return (jcc) value;
+            return (lcc) value;
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     public final NewsRemindMessage m() {
@@ -254,15 +254,15 @@ public final class NewsRemindMsgMonitor implements tt8 {
         this.e = new b(this);
     }
 
-    public final n7c<NewsRemindMessage> k() {
+    public final p7c<NewsRemindMessage> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            n7c<NewsRemindMessage> s = n7c.c(g(), h(), new h8c() { // from class: com.baidu.tieba.st8
+            p7c<NewsRemindMessage> s = p7c.c(g(), h(), new j8c() { // from class: com.baidu.tieba.st8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.h8c
+                @Override // com.baidu.tieba.j8c
                 public final Object call(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -273,11 +273,11 @@ public final class NewsRemindMsgMonitor implements tt8 {
                     }
                     return invokeLL.objValue;
                 }
-            }).x().s(x7c.b());
+            }).x().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "combineLatest(\n         …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public static final void e(NewsRemindMsgMonitor this$0, Long l) {
@@ -313,16 +313,16 @@ public final class NewsRemindMsgMonitor implements tt8 {
                 }
                 if (l != null) {
                     long longValue = l.longValue();
-                    u7c u7cVar = this.c;
-                    if (u7cVar != null) {
-                        u7cVar.unsubscribe();
+                    w7c w7cVar = this.c;
+                    if (w7cVar != null) {
+                        w7cVar.unsubscribe();
                     }
                     g().onNext(Integer.valueOf(i));
-                    this.c = n7c.n(Long.valueOf(longValue)).e(longValue, TimeUnit.MILLISECONDS).H(new b8c() { // from class: com.baidu.tieba.qt8
+                    this.c = p7c.n(Long.valueOf(longValue)).e(longValue, TimeUnit.MILLISECONDS).H(new d8c() { // from class: com.baidu.tieba.qt8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
-                        @Override // com.baidu.tieba.b8c
+                        @Override // com.baidu.tieba.d8c
                         public final void call(Object obj) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

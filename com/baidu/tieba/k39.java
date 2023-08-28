@@ -75,7 +75,7 @@ public class k39 extends xk1<pn5> {
         }
 
         /* loaded from: classes6.dex */
-        public class e implements b.InterfaceC0378b {
+        public class e implements b.InterfaceC0381b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ho5 a;
@@ -90,7 +90,7 @@ public class k39 extends xk1<pn5> {
 
                 /* renamed from: com.baidu.tieba.k39$a$e$b$a  reason: collision with other inner class name */
                 /* loaded from: classes6.dex */
-                public class RunnableC0370a implements Runnable {
+                public class RunnableC0373a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long a;
@@ -98,7 +98,7 @@ public class k39 extends xk1<pn5> {
                     public final /* synthetic */ String c;
                     public final /* synthetic */ b d;
 
-                    public RunnableC0370a(b bVar, long j, int i, String str) {
+                    public RunnableC0373a(b bVar, long j, int i, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,20 +151,20 @@ public class k39 extends xk1<pn5> {
                 public void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, chatRoomInfo}) == null) {
-                        lg.g(new RunnableC0370a(this, j, i, str));
+                        lg.g(new RunnableC0373a(this, j, i, str));
                     }
                 }
             }
 
             /* renamed from: com.baidu.tieba.k39$a$e$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0369a implements Runnable {
+            public class RunnableC0372a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long a;
                 public final /* synthetic */ e b;
 
-                public RunnableC0369a(e eVar, long j) {
+                public RunnableC0372a(e eVar, long j) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,12 +213,12 @@ public class k39 extends xk1<pn5> {
                 this.b = context;
             }
 
-            @Override // com.baidu.tieba.k39.b.InterfaceC0378b
+            @Override // com.baidu.tieba.k39.b.InterfaceC0381b
             public void a(long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                     v39.j(j);
-                    lg.g(new RunnableC0369a(this, j));
+                    lg.g(new RunnableC0372a(this, j));
                     this.c.l(this.b, j, new b(this));
                 }
             }
@@ -226,26 +226,26 @@ public class k39 extends xk1<pn5> {
 
         /* renamed from: com.baidu.tieba.k39$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0366a implements IChatRoomMsgReceiveListener {
+        public class C0369a implements IChatRoomMsgReceiveListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.baidu.tieba.k39$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0367a implements Function1<zn5, Void> {
+            public class C0370a implements Function1<zn5, Void> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
                 public final /* synthetic */ long b;
                 public final /* synthetic */ TreeSet c;
 
-                public C0367a(C0366a c0366a, int i, long j, TreeSet treeSet) {
+                public C0370a(C0369a c0369a, int i, long j, TreeSet treeSet) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0366a, Integer.valueOf(i), Long.valueOf(j), treeSet};
+                        Object[] objArr = {c0369a, Integer.valueOf(i), Long.valueOf(j), treeSet};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -274,7 +274,7 @@ public class k39 extends xk1<pn5> {
                 }
             }
 
-            public C0366a(a aVar) {
+            public C0369a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -313,7 +313,7 @@ public class k39 extends xk1<pn5> {
                 this.a.A(list);
                 TreeSet treeSet = new TreeSet(pn5.b);
                 treeSet.addAll(list);
-                this.a.c.c(j, z, new C0367a(this, i, j, treeSet));
+                this.a.c.c(j, z, new C0370a(this, i, j, treeSet));
             }
         }
 
@@ -331,7 +331,7 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$c$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0368a implements f95<List<? extends ChatMsg>> {
+            public class C0371a implements f95<List<? extends ChatMsg>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
@@ -339,7 +339,7 @@ public class k39 extends xk1<pn5> {
                 public final /* synthetic */ ArrayList c;
                 public final /* synthetic */ c d;
 
-                public C0368a(c cVar, int i, String str, ArrayList arrayList) {
+                public C0371a(c cVar, int i, String str, ArrayList arrayList) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -417,7 +417,7 @@ public class k39 extends xk1<pn5> {
                 d95 d95Var = this.e;
                 if (d95Var != null) {
                     d95Var.d(arrayList);
-                    this.e.f(new C0368a(this, i, str, arrayList));
+                    this.e.f(new C0371a(this, i, str, arrayList));
                     this.e.a(Long.valueOf(this.a), arrayList);
                     return;
                 }
@@ -440,14 +440,14 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$f$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0371a implements IChatRoomListener {
+            public class C0374a implements IChatRoomListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
                 public final /* synthetic */ yw5.c b;
                 public final /* synthetic */ f c;
 
-                public C0371a(f fVar, boolean z, yw5.c cVar) {
+                public C0374a(f fVar, boolean z, yw5.c cVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -524,7 +524,7 @@ public class k39 extends xk1<pn5> {
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
                     Context context = this.a;
                     int i = this.b;
-                    BIMManager.enterChatRoomGroup(context, 9L, i, this.f.y(i, this.c), new C0371a(this, z, cVar));
+                    BIMManager.enterChatRoomGroup(context, 9L, i, this.f.y(i, this.c), new C0374a(this, z, cVar));
                 }
             }
         }
@@ -542,14 +542,14 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$g$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0372a implements IChatRoomListener {
+            public class C0375a implements IChatRoomListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
                 public final /* synthetic */ yw5.c b;
                 public final /* synthetic */ g c;
 
-                public C0372a(g gVar, boolean z, yw5.c cVar) {
+                public C0375a(g gVar, boolean z, yw5.c cVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -626,7 +626,7 @@ public class k39 extends xk1<pn5> {
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
                     Context context = this.a;
                     int i = this.b;
-                    BIMManager.exitChatRoomGroup(context, 9L, i, this.f.y(i, this.c), new C0372a(this, z, cVar));
+                    BIMManager.exitChatRoomGroup(context, 9L, i, this.f.y(i, this.c), new C0375a(this, z, cVar));
                 }
             }
         }
@@ -642,14 +642,14 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$h$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0373a implements IChatRoomEnterListener {
+            public class C0376a implements IChatRoomEnterListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
                 public final /* synthetic */ yw5.c b;
                 public final /* synthetic */ h c;
 
-                public C0373a(h hVar, boolean z, yw5.c cVar) {
+                public C0376a(h hVar, boolean z, yw5.c cVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -720,7 +720,7 @@ public class k39 extends xk1<pn5> {
             public void call(boolean z, yw5.c<Void> cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
-                    BIMManager.enterChatRoom(this.a, this.b, new C0373a(this, z, cVar));
+                    BIMManager.enterChatRoom(this.a, this.b, new C0376a(this, z, cVar));
                 }
             }
         }
@@ -736,14 +736,14 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$i$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0374a implements IChatRoomExitListener {
+            public class C0377a implements IChatRoomExitListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
                 public final /* synthetic */ yw5.c b;
                 public final /* synthetic */ i c;
 
-                public C0374a(i iVar, boolean z, yw5.c cVar) {
+                public C0377a(i iVar, boolean z, yw5.c cVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -814,7 +814,7 @@ public class k39 extends xk1<pn5> {
             public void call(boolean z, yw5.c<Void> cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
-                    BIMManager.exitChatRoom(this.a, this.b, new C0374a(this, z, cVar));
+                    BIMManager.exitChatRoom(this.a, this.b, new C0377a(this, z, cVar));
                 }
             }
         }
@@ -827,13 +827,13 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$k$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0375a implements Runnable {
+            public class RunnableC0378a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ List a;
                 public final /* synthetic */ k b;
 
-                public RunnableC0375a(k kVar, List list) {
+                public RunnableC0378a(k kVar, List list) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -884,7 +884,7 @@ public class k39 extends xk1<pn5> {
             public void onResult(int i, String str, List<String> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, list) == null) {
-                    lg.g(new RunnableC0375a(this, list));
+                    lg.g(new RunnableC0378a(this, list));
                 }
             }
         }
@@ -899,14 +899,14 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$l$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0376a implements Runnable {
+            public class RunnableC0379a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
                 public final /* synthetic */ String b;
                 public final /* synthetic */ l c;
 
-                public RunnableC0376a(l lVar, int i, String str) {
+                public RunnableC0379a(l lVar, int i, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -969,7 +969,7 @@ public class k39 extends xk1<pn5> {
                     if (BdLog.isDebugMode()) {
                         BdLog.i("send emoji reply request result: " + i + "\t" + str);
                     }
-                    lg.g(new RunnableC0376a(this, i, str));
+                    lg.g(new RunnableC0379a(this, i, str));
                 }
             }
         }
@@ -982,13 +982,13 @@ public class k39 extends xk1<pn5> {
 
             /* renamed from: com.baidu.tieba.k39$a$m$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0377a implements Runnable {
+            public class RunnableC0380a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IMEmojiReplyListListener.IMEmojiReplyListResponse a;
                 public final /* synthetic */ m b;
 
-                public RunnableC0377a(m mVar, IMEmojiReplyListListener.IMEmojiReplyListResponse iMEmojiReplyListResponse) {
+                public RunnableC0380a(m mVar, IMEmojiReplyListListener.IMEmojiReplyListResponse iMEmojiReplyListResponse) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1079,7 +1079,7 @@ public class k39 extends xk1<pn5> {
                         BdLog.i("fetch emoji list result: " + i + "\t" + str);
                     }
                     if (i == 0 && i2 == 1 && iMEmojiReplyListResponse != null) {
-                        lg.g(new RunnableC0377a(this, iMEmojiReplyListResponse));
+                        lg.g(new RunnableC0380a(this, iMEmojiReplyListResponse));
                         return;
                     }
                     if (i2 != 1 && BdLog.isDebugMode()) {
@@ -1213,7 +1213,7 @@ public class k39 extends xk1<pn5> {
             }
             AlaLiveSdkStatic.m();
             this.c = new c(null);
-            this.d = new C0366a(this);
+            this.d = new C0369a(this);
             this.e = new HashMap();
             this.f = new HashMap();
             this.g = new b(null);
@@ -1500,7 +1500,7 @@ public class k39 extends xk1<pn5> {
 
         /* renamed from: com.baidu.tieba.k39$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public interface InterfaceC0378b {
+        public interface InterfaceC0381b {
             void a(long j);
         }
 
@@ -1554,14 +1554,14 @@ public class k39 extends xk1<pn5> {
             @Nullable
             public List<ChatMsg> a;
             @NonNull
-            public final InterfaceC0378b b;
+            public final InterfaceC0381b b;
 
-            public c(@NonNull InterfaceC0378b interfaceC0378b) {
+            public c(@NonNull InterfaceC0381b interfaceC0381b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {interfaceC0378b};
+                    Object[] objArr = {interfaceC0381b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -1571,7 +1571,7 @@ public class k39 extends xk1<pn5> {
                         return;
                     }
                 }
-                this.b = interfaceC0378b;
+                this.b = interfaceC0381b;
             }
 
             public void c(@Nullable List<ChatMsg> list) {
@@ -1582,13 +1582,13 @@ public class k39 extends xk1<pn5> {
             }
 
             @NonNull
-            public InterfaceC0378b a() {
+            public InterfaceC0381b a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     return this.b;
                 }
-                return (InterfaceC0378b) invokeV.objValue;
+                return (InterfaceC0381b) invokeV.objValue;
             }
 
             public boolean b() {
@@ -1737,12 +1737,12 @@ public class k39 extends xk1<pn5> {
             }
         }
 
-        public synchronized void i(long j, @NonNull InterfaceC0378b interfaceC0378b) {
+        public synchronized void i(long j, @NonNull InterfaceC0381b interfaceC0381b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048582, this, j, interfaceC0378b) == null) {
+            if (interceptable == null || interceptable.invokeJL(1048582, this, j, interfaceC0381b) == null) {
                 synchronized (this) {
                     if (!this.b.containsKey(Long.valueOf(j))) {
-                        this.b.put(Long.valueOf(j), new c(interfaceC0378b));
+                        this.b.put(Long.valueOf(j), new c(interfaceC0381b));
                         if (this.b.size() == 1) {
                             lg.f(this.c, d);
                         }

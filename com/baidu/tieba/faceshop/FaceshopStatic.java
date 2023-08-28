@@ -93,25 +93,25 @@ public class FaceshopStatic {
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0285a implements Runnable {
+        public class RunnableC0282a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0286a implements Runnable {
+            public class RunnableC0283a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ StringBuilder a;
-                public final /* synthetic */ RunnableC0285a b;
+                public final /* synthetic */ RunnableC0282a b;
 
-                public RunnableC0286a(RunnableC0285a runnableC0285a, StringBuilder sb) {
+                public RunnableC0283a(RunnableC0282a runnableC0282a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0285a, sb};
+                        Object[] objArr = {runnableC0282a, sb};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -121,7 +121,7 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.b = runnableC0285a;
+                    this.b = runnableC0282a;
                     this.a = sb;
                 }
 
@@ -134,7 +134,7 @@ public class FaceshopStatic {
                 }
             }
 
-            public RunnableC0285a(a aVar, int i) {
+            public RunnableC0282a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,7 +167,7 @@ public class FaceshopStatic {
                             }
                         }
                     }
-                    SafeHandler.getInst().post(new RunnableC0286a(this, sb));
+                    SafeHandler.getInst().post(new RunnableC0283a(this, sb));
                 }
             }
         }
@@ -199,7 +199,7 @@ public class FaceshopStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer)) {
                 return;
             }
-            ed9.b().a(new RunnableC0285a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+            ed9.b().a(new RunnableC0282a(this, ((Integer) customResponsedMessage.getData()).intValue()));
         }
     }
 
@@ -217,13 +217,13 @@ public class FaceshopStatic {
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0287a extends BdAsyncTask<Void, Void, Boolean> {
+            public class C0284a extends BdAsyncTask<Void, Void, Boolean> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
                 public final /* synthetic */ a b;
 
-                public C0287a(a aVar, String str) {
+                public C0284a(a aVar, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -334,7 +334,7 @@ public class FaceshopStatic {
             public void onSuccess(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                    new C0287a(this, str).execute(new Void[0]);
+                    new C0284a(this, str).execute(new Void[0]);
                 }
             }
         }

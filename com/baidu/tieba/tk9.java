@@ -452,12 +452,12 @@ public class tk9 extends vk9<zfa, PbCommenFloorItemViewHolder> implements View.O
 
             /* renamed from: com.baidu.tieba.tk9$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class View$OnClickListenerC0484a implements View.OnClickListener {
+            public class View$OnClickListenerC0487a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0484a(a aVar) {
+                public View$OnClickListenerC0487a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -565,7 +565,7 @@ public class tk9 extends vk9<zfa, PbCommenFloorItemViewHolder> implements View.O
                 this.a.b.c0.setVisibility(8);
                 this.a.b.d0.setVisibility(8);
                 this.a.b.y0.setVisibility(0);
-                this.a.b.y0.setOnClickListener(new View$OnClickListenerC0484a(this));
+                this.a.b.y0.setOnClickListener(new View$OnClickListenerC0487a(this));
                 this.a.b.y0.postDelayed(new b(this), 5000L);
             }
         }

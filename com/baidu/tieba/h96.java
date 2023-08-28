@@ -257,9 +257,11 @@ public final class h96 implements vu1 {
             sb.append(str2);
             sb.append(" parameter:");
             sb.append(str);
-            sb.append("\n appId:");
+            sb.append("\n");
+            sb.append(" appId:");
             sb.append(cb3.K().getAppId());
-            sb.append("\n curPage:");
+            sb.append("\n");
+            sb.append(" curPage:");
             sb.append(qw2.T().S());
             sb.append("\n");
             wm3Var.f(sb.toString());

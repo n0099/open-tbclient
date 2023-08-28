@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface o0c {
-    void onPlayerError(e1c e1cVar, String str, int i, int i2);
+    void onPlayerCachePositionUpdate(g1c g1cVar, long j);
+
+    void onPlayerCacheWriteToDiskCompleted(g1c g1cVar, String str);
 }

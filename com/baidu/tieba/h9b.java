@@ -1,289 +1,201 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h9b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile h9b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779960, "Lcom/baidu/tieba/h9b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947779960, "Lcom/baidu/tieba/h9b;");
-                return;
-            }
-        }
-        b = f9b.m();
-    }
-
-    public h9b() {
+    public static void a() {
+        w9b c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = cab.c()) != null) {
+            c.b();
         }
-        this.a = mk1.g();
     }
 
-    public static h9b a() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (h9b.class) {
-                    if (c == null) {
-                        c = new h9b();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.getAppContext();
             }
-            return c;
+            return null;
         }
-        return (h9b) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public void b(String str, int i, String str2) {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, str2) != null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("dbOverNum", i);
-            jSONObject.put("tableName", str2);
-            c("logDiscard", "database", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return invokeV.intValue;
     }
 
-    public void l(String str, String str2, String str3) {
+    public static w8b i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
-                jSONObject.put("size", str3);
-                c("logSize", str, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return cab.e();
         }
+        return (w8b) invokeV.objValue;
     }
 
-    public final void c(String str, String str2, JSONObject jSONObject) {
-        String str3;
+    public static a9b j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (b) {
-                if (jSONObject != null) {
-                    str3 = jSONObject.toString();
-                } else {
-                    str3 = "";
-                }
-                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + str3);
-            }
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject2.put("type", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject2.put("value", str2);
-                }
-                if (jSONObject != null) {
-                    jSONObject2.put("ext", jSONObject);
-                }
-                uBCManager.onEvent("1876", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return cab.f();
         }
+        return (a9b) invokeV.objValue;
     }
 
-    public void d(String str, int i) {
+    public static boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            v9b b = cab.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
+            }
+            return false;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("fileNum", i);
-            c("logDiscard", "fileNum", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return invokeV.booleanValue;
     }
 
-    public void e(String str, int i, int i2, int i3) {
+    public static boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIII(1048579, this, str, i, i2, i3) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (i == 0 && i2 == 0 && i3 == 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            if (i != 0) {
-                jSONObject.put("flowExpired", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.isDebug();
             }
-            if (i2 != 0) {
-                jSONObject.put("eventExpired", i2);
-            }
-            if (i3 != 0) {
-                jSONObject.put("flowInterrupt", i3);
-            }
-            c("logDiscard", "timeExpired", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void f(String str) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.c(str);
+            }
+            return str;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            c("logDiscard", "realLog", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return (String) invokeL.objValue;
     }
 
-    public void h(String str) {
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            w9b c = cab.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exception", str);
-            c("sqlError", null, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        u9b a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = cab.a()) != null) {
+            a.a(i);
         }
     }
 
-    public void j(String str) {
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.getInt(str, i);
+            }
+            return i;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exception", str);
-            c("sendFail", "bodyError", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            u9b a = cab.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        u9b a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = cab.a()) != null) {
+            a.putInt(str, i);
         }
     }
 
-    public void k(int i) {
+    public static void o(String str, long j) {
+        u9b a;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || !this.a) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("errno", i);
-            c("sendFail", "backend", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = cab.a()) != null) {
+            a.putLong(str, j);
         }
     }
 
-    public void g(String str, String str2, String str3) {
+    public static void p(String str, String str2) {
+        u9b a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-                jSONObject.put("size", str2);
-                jSONObject.put("logId", str3);
-                c("logSize", "single", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !this.a) {
-            return;
-        }
-        if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(str)) {
-                jSONObject.put("msg", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                jSONObject.put("exception", str2);
-            }
-            c("sendFail", "requestError", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void m(boolean z, long j) {
-        int q;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            if (z) {
-                q = k8b.o().r();
-            } else {
-                q = k8b.o().q();
-            }
-            if (z) {
-                str = "uploadReal";
-            } else {
-                str = "uploadNonReal";
-            }
-            if (j > q) {
-                l(str, String.valueOf(q), String.valueOf(j));
-            }
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = cab.a()) != null) {
+            a.putString(str, str2);
         }
     }
 }

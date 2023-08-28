@@ -45,12 +45,12 @@ public class m13 {
 
         /* renamed from: com.baidu.tieba.m13$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0405a implements rv1.a {
+        public class C0406a implements rv1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0405a(a aVar, File[] fileArr) {
+            public C0406a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class m13 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0405a(this, fileArr));
+                    u.d(p, null, fileArr, new C0406a(this, fileArr));
                 }
             }
         }

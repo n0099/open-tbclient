@@ -1,24 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.os.Looper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.aub;
+import com.baidu.tieba.wtb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IPushInvoke;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class dub implements Handler.Callback {
+public class dub implements aub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ eub a;
+    public final AtomicInteger a;
+    public volatile IPushInvoke b;
+    public final aub.a c;
+    public gub d;
 
-    public dub(eub eubVar) {
+    public dub(aub.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eubVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,20 +37,36 @@ public class dub implements Handler.Callback {
                 return;
             }
         }
-        this.a = eubVar;
+        this.a = new AtomicInteger(1);
+        this.c = aVar;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message != null && message.what == 1001) {
-                this.a.b(8002003);
-                return true;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            Log.i("PushConnectionClient", "notifyFailed result: " + i);
+            aub.a aVar = this.c;
+            if (aVar != null) {
+                wtb.a aVar2 = (wtb.a) aVar;
+                aVar2.getClass();
+                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
+                    aVar2.b(HonorPushErrorEnum.fromCode(i));
+                } else {
+                    aVar2.f.a.post(new vtb(aVar2, i));
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() != 3 && this.a.get() != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

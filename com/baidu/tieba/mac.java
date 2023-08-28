@@ -6,10 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes7.dex */
-public abstract class mac<E> extends nac<E> {
+public final class mac<E> extends jac<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,51 +22,58 @@ public abstract class mac<E> extends nac<E> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
+        f(linkedQueueNode);
+        e(linkedQueueNode);
+        linkedQueueNode.soNext(null);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c() == a()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public final Iterator<E> iterator() {
+    @Override // java.util.Queue
+    public E peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw new UnsupportedOperationException();
+            LinkedQueueNode<E> lvNext = a().lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
+            }
+            return null;
         }
-        return (Iterator) invokeV.objValue;
+        return (E) invokeV.objValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public final int size() {
+    @Override // java.util.Queue
+    public E poll() {
         InterceptResult invokeV;
-        LinkedQueueNode<E> lvNext;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> c = c();
-            LinkedQueueNode<E> a = a();
-            int i = 0;
-            while (c != a && i < Integer.MAX_VALUE) {
-                do {
-                    lvNext = c.lvNext();
-                } while (lvNext == null);
-                i++;
-                c = lvNext;
+            LinkedQueueNode<E> lvNext = a().lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                e(lvNext);
+                return andNullValue;
             }
-            return i;
+            return null;
         }
-        return invokeV.intValue;
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                b().soNext(linkedQueueNode);
+                f(linkedQueueNode);
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
     }
 }

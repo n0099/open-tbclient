@@ -38,9 +38,9 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     public com.kwad.sdk.core.video.videoview.a dp;
     @Nullable
     public boolean ds = false;
-    public final a.InterfaceC0658a du = new a.InterfaceC0658a() { // from class: com.kwad.components.ad.interstitial.b.h.3
+    public final a.InterfaceC0659a du = new a.InterfaceC0659a() { // from class: com.kwad.components.ad.interstitial.b.h.3
         /* JADX WARN: Removed duplicated region for block: B:15:0x002e  */
-        @Override // com.kwad.components.core.video.a.InterfaceC0658a
+        @Override // com.kwad.components.core.video.a.InterfaceC0659a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -60,7 +60,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
                 bVar.gL = aVar;
                 bVar.gJ = i2;
                 bVar.abH = ag.cB(h.this.getContext()) ? 2 : 1;
-                com.kwad.components.core.c.a.a.a(new a.C0647a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+                com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         h.this.dx();
@@ -74,7 +74,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             bVar2.gL = aVar;
             bVar2.gJ = i2;
             bVar2.abH = ag.cB(h.this.getContext()) ? 2 : 1;
-            com.kwad.components.core.c.a.a.a(new a.C0647a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar2).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+            com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar2).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     h.this.dx();

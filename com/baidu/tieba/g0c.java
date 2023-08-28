@@ -1,7 +1,19 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface g0c {
-    void a(int i, int i2, int i3, int i4);
 
-    void b(int i, int i2, String str);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class g0c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return System.nanoTime() / 1000000;
+        }
+        return invokeV.longValue;
+    }
 }

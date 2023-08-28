@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.bcb;
-import com.baidu.tieba.dgb;
+import com.baidu.tieba.dcb;
+import com.baidu.tieba.fgb;
 import com.baidu.tieba.sg0;
 import com.baidu.tieba.xg0;
 import java.util.HashMap;
@@ -27,15 +27,15 @@ public class AEffectProcessor extends BaseEffectProcessor {
     public AEffectProcessor() {
         xg0 xg0Var = new xg0();
         this.mVlogEditCore = xg0Var;
-        xg0Var.a(bcb.c().getContext());
+        xg0Var.a(dcb.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkCamera() {
         MediaSegment mediaSegment;
         this.isCamera = false;
-        MediaTrack mediaTrack = (MediaTrack) dgb.c(this.mUpdateMediaTracks, 0);
-        if (mediaTrack != null && (mediaSegment = (MediaSegment) dgb.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
+        MediaTrack mediaTrack = (MediaTrack) fgb.c(this.mUpdateMediaTracks, 0);
+        if (mediaTrack != null && (mediaSegment = (MediaSegment) fgb.c(mediaTrack.mediaSegments, 0)) != null && TextUtils.equals(mediaSegment.type, "camera")) {
             this.isCamera = true;
         }
     }

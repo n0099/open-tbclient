@@ -48,7 +48,7 @@ public class l44 extends EventTargetImpl implements i44 {
 
         /* renamed from: com.baidu.tieba.l44$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0392a implements cq3 {
+        public class C0395a implements cq3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class l44 extends EventTargetImpl implements i44 {
                 }
             }
 
-            public C0392a(a aVar) {
+            public C0395a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public class l44 extends EventTargetImpl implements i44 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0392a(this);
+                        this.a.k = new C0395a(this);
                         l44.K(this.a.k);
                     }
                 } else if (this.a.e != null) {

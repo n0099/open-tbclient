@@ -64,18 +64,18 @@ public class dk6 implements ck6<String, Pair<InputStream, Long>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ck6
     /* renamed from: e */
-    public void b(String str, c8c<Pair<InputStream, Long>, Exception> c8cVar) {
+    public void b(String str, e8c<Pair<InputStream, Long>, Exception> e8cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, c8cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, e8cVar) == null) {
             try {
                 File c = c(str);
                 if (c != null) {
-                    c8cVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                    e8cVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
                 } else {
-                    c8cVar.call(null, new IllegalArgumentException(str + "file not exist !"));
+                    e8cVar.call(null, new IllegalArgumentException(str + "file not exist !"));
                 }
             } catch (Exception e) {
-                c8cVar.call(null, e);
+                e8cVar.call(null, e);
             }
         }
     }

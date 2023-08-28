@@ -109,12 +109,12 @@ public class nj8 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
 
             /* renamed from: com.baidu.tieba.nj8$j$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0421a implements s45.e {
+            public class C0424a implements s45.e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0421a(a aVar) {
+                public C0424a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -246,7 +246,7 @@ public class nj8 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     s45Var.setTitle(this.b.a.v(R.string.qr_url_jump_external_title));
                     s45Var.setMessageShowCenter(true);
                     s45Var.setMessage(this.b.a.v(R.string.qr_url_jump_external_message));
-                    s45Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f04c2), new C0421a(this));
+                    s45Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f04c2), new C0424a(this));
                     s45Var.setNegativeButton(this.b.a.v(R.string.obfuscated_res_0x7f0f03cf), new b(this));
                     s45Var.setCancelable(false);
                     s45Var.setCanceledOnTouchOutside(false);

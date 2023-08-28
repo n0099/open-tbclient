@@ -1,181 +1,154 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import kotlin.jvm.JvmOverloads;
+import java.io.File;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import okio.BufferedSource;
+import okio.Okio;
 /* loaded from: classes6.dex */
 public final class fza {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947782812, "Lcom/baidu/tieba/fza;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947782812, "Lcom/baidu/tieba/fza;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
 
     /* loaded from: classes6.dex */
-    public final class a extends BdAsyncTask<Void, jm5, jm5> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final jm5 a;
 
-        public a(fza fzaVar, jm5 mHoldData) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        /* renamed from: com.baidu.tieba.fza$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static final class C0303a extends BdAsyncTask<Void, Void, Boolean> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ Function1<BdImage, Unit> b;
+            public final /* synthetic */ int c;
+            public final /* synthetic */ int d;
+
+            public C0303a(String str, Function1<? super BdImage, Unit> function1, int i, int i2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {str, function1, Integer.valueOf(i), Integer.valueOf(i2)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = function1;
+                this.c = i;
+                this.d = i2;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Boolean doInBackground(Void... params) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
+                    Intrinsics.checkNotNullParameter(params, "params");
+                    File file = new File(this.a);
+                    if (!file.exists()) {
+                        this.b.invoke(null);
+                        return Boolean.FALSE;
+                    }
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    int i = 1;
+                    options.inJustDecodeBounds = true;
+                    BitmapFactory.decodeFile(this.a, options);
+                    options.inPreferredConfig = TbConfig.BitmapConfig;
+                    while (true) {
+                        int i2 = i * 2;
+                        if (options.outWidth / i2 <= this.c && options.outHeight / i2 <= this.d) {
+                            break;
+                        }
+                        i = i2;
+                    }
+                    options.inJustDecodeBounds = false;
+                    options.inSampleSize = i;
+                    BufferedSource buffer = Okio.buffer(Okio.source(file));
+                    this.b.invoke(new BdImage(BitmapFactory.decodeStream(buffer.inputStream(), null, options)));
+                    try {
+                        buffer.close();
+                    } catch (Exception unused) {
+                    }
+                    return Boolean.TRUE;
+                }
+                return (Boolean) invokeL.objValue;
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fzaVar, mHoldData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            Intrinsics.checkNotNullParameter(mHoldData, "mHoldData");
-            this.a = mHoldData;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public jm5 doInBackground(Void... params) {
-            InterceptResult invokeL;
+        public static /* synthetic */ void b(a aVar, String str, int i, int i2, Function1 function1, int i3, Object obj) {
+            if ((i3 & 2) != 0) {
+                i = 160;
+            }
+            if ((i3 & 4) != 0) {
+                i2 = 160;
+            }
+            aVar.a(str, i, i2, function1);
+        }
+
+        public final void a(String localPath, int i, int i2, Function1<? super BdImage, Unit> callback) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
-                Intrinsics.checkNotNullParameter(params, "params");
-                jm5 jm5Var = this.a;
-                ImageFileInfo imageFileInfo = jm5Var.a;
-                Intrinsics.checkNotNull(imageFileInfo);
-                jm5Var.d = hm5.f(imageFileInfo, this.a.c);
-                return this.a;
-            }
-            return (jm5) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(jm5 result) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
-                Intrinsics.checkNotNullParameter(result, "result");
-                super.onPostExecute(result);
-                ImageFileInfo imageFileInfo = this.a.a;
-                Intrinsics.checkNotNull(imageFileInfo);
-                String cachedKey = imageFileInfo.toCachedKey(this.a.c);
-                if (TbImageMemoryCache.B().D(cachedKey) == null) {
-                    result.e = false;
-                    TbImageMemoryCache.B().m(cachedKey, result.d);
-                }
-                em5 em5Var = result.b;
-                if (em5Var != null) {
-                    em5Var.a(result.d, cachedKey, result.e);
-                }
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{localPath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+                Intrinsics.checkNotNullParameter(localPath, "localPath");
+                Intrinsics.checkNotNullParameter(callback, "callback");
+                new C0303a(localPath, callback, i, i2).execute(new Void[0]);
             }
         }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                super.onCancelled();
-                jm5 jm5Var = this.a;
-                em5 em5Var = jm5Var.b;
-                if (em5Var != null) {
-                    ImageFileInfo imageFileInfo = jm5Var.a;
-                    Intrinsics.checkNotNull(imageFileInfo);
-                    em5Var.a(null, imageFileInfo.toCachedKey(this.a.c), false);
-                }
-            }
-        }
-    }
-
-    public fza() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = BdUniqueId.gen();
-    }
-
-    public static /* synthetic */ BdImage d(fza fzaVar, ImageFileInfo imageFileInfo, em5 em5Var, boolean z, boolean z2, int i, Object obj) {
-        if ((i & 8) != 0) {
-            z2 = false;
-        }
-        return fzaVar.c(imageFileInfo, em5Var, z, z2);
-    }
-
-    public final void a() {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (searchWaitingTask = BdAsyncTask.searchWaitingTask(this.a)) != null && searchWaitingTask.size() != 0) {
-            Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
-            while (it.hasNext()) {
-                BdAsyncTask<?, ?, ?> next = it.next();
-                if (next instanceof a) {
-                    aVar = (a) next;
-                } else {
-                    aVar = null;
-                }
-                if (aVar != null) {
-                    aVar.cancel();
-                }
-            }
-        }
-    }
-
-    public final BdImage b(ImageFileInfo localImageInfo, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, localImageInfo, z)) == null) {
-            Intrinsics.checkNotNullParameter(localImageInfo, "localImageInfo");
-            return TbImageMemoryCache.B().D(localImageInfo.toCachedKey(z));
-        }
-        return (BdImage) invokeLZ.objValue;
-    }
-
-    @JvmOverloads
-    public final BdImage c(ImageFileInfo localImageInfo, em5 em5Var, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{localImageInfo, em5Var, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            Intrinsics.checkNotNullParameter(localImageInfo, "localImageInfo");
-            BdImage b = b(localImageInfo, z);
-            if (b != null) {
-                return b;
-            }
-            if (z2) {
-                return null;
-            }
-            jm5 jm5Var = new jm5();
-            jm5Var.b = em5Var;
-            jm5Var.a = localImageInfo;
-            jm5Var.c = z;
-            a aVar = new a(this, jm5Var);
-            aVar.setTag(this.a);
-            aVar.execute(new Void[0]);
-            return null;
-        }
-        return (BdImage) invokeCommon.objValue;
     }
 }

@@ -1,30 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class frb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Double> a;
+public interface frb {
+    void a();
 
-    public frb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-    }
+    void a(int i, String str);
+
+    void a(RippedAd rippedAd, Map<String, String> map);
+
+    void a(Map<String, String> map);
+
+    void a(boolean z, int i, Map<String, String> map);
+
+    void b();
+
+    void b(int i, String str);
+
+    void b(RippedAd rippedAd, Map<String, String> map);
 }

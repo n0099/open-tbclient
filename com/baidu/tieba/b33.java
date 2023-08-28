@@ -43,12 +43,12 @@ public class b33 extends c33 {
 
         /* renamed from: com.baidu.tieba.b33$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0247a implements a33 {
+        public class C0245a implements a33 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0247a(a aVar) {
+            public C0245a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class b33 extends c33 {
                     return;
                 }
                 d82.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                z23.g().update(new C0247a(this));
+                z23.g().update(new C0245a(this));
             }
         }
     }

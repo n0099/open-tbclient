@@ -103,7 +103,7 @@ public class ck9 {
     public BdListView.p S;
 
     /* renamed from: T  reason: collision with root package name */
-    public CustomMessageListener f1097T;
+    public CustomMessageListener f1095T;
     public FoldCommentActivity a;
     public PbModel b;
     public NoNetworkView c;
@@ -1038,7 +1038,7 @@ public class ck9 {
         this.I = null;
         this.N = false;
         this.S = new k(this);
-        this.f1097T = new m(this, 2921597);
+        this.f1095T = new m(this, 2921597);
         this.a = foldCommentActivity;
         this.b = foldCommentActivity.B2();
         this.z = onClickListener;
@@ -1095,7 +1095,7 @@ public class ck9 {
         fl9Var.p(new p(this));
         this.P.s(this.a.P);
         this.R.i0(new q(this));
-        this.a.registerListener(this.f1097T);
+        this.a.registerListener(this.f1095T);
     }
 
     public void B(boolean z) {

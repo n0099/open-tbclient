@@ -1,35 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ehc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
 import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
 /* loaded from: classes7.dex */
 public class pgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ehc.b a(nfc nfcVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams) {
-        InterceptResult invokeLLLL;
+    public static int a(List<SplitMinAmountInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, nfcVar, list, str, viewParams)) == null) {
-            ehc.b bVar = new ehc.b();
-            bVar.c = nfcVar;
-            bVar.a = list;
-            bVar.b = str;
-            if (viewParams != null) {
-                bVar.d = viewParams.appCustomExpand;
-                bVar.f = viewParams.viewEventListener;
-                bVar.e = viewParams.clientInfoExpand;
-                bVar.h = viewParams.windowParams;
-                bVar.i = viewParams.showFaqPage;
-                bVar.j = viewParams.splitOrderPayScene;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            RLog.info("PaySplitOrderUtils", "getSplitMinAmount splitMinAmountInfoList:" + list);
+            for (SplitMinAmountInfo splitMinAmountInfo : list) {
+                if (splitMinAmountInfo.splitType == 1) {
+                    return splitMinAmountInfo.minAmount;
+                }
             }
-            return bVar;
+            return 0;
         }
-        return (ehc.b) invokeLLLL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            PaysSettingInfo d = rfc.d();
+            if (d == null) {
+                RLog.error("PaySplitOrderUtils", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
+                return false;
+            }
+            return c(d.splitMinAmountInfoList, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean c(List<SplitMinAmountInfo> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
+            if (list != null && !list.isEmpty()) {
+                int a = a(list);
+                if (a <= 0) {
+                    RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog false splitMinAmount:" + a);
+                    return false;
+                }
+                RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog inputAmount:" + i + " splitMinAmount:" + a);
+                if (i < a) {
+                    return false;
+                }
+                return true;
+            }
+            RLog.warn("PaySplitOrderUtils", "maybeShowSplitOrderDialog error splitMinAmountInfoList null");
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

@@ -1,22 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class f1c {
     public static /* synthetic */ Interceptable $ic;
-    public static f1c b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, e1c> a;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public transient j3c j;
+    public transient i3c k;
+    public int l;
+    public boolean m;
+    public int n;
+    public int o;
 
     public f1c() {
         Interceptable interceptable = $ic;
@@ -31,89 +41,86 @@ public class f1c {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = null;
+        this.b = 1;
+        this.c = 1;
+        this.d = 0;
+        this.e = 1;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.k = null;
+        this.l = 0;
+        this.m = false;
+        this.n = 1;
+        this.o = 4000;
     }
 
-    public static f1c b() {
+    public static f1c a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            f1c f1cVar = new f1c();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                f1cVar.a = jSONObject.optString("cacheDirectory");
+                f1cVar.b = jSONObject.optInt("avcCodec");
+                f1cVar.c = jSONObject.optInt("hevcCodec");
+                f1cVar.d = jSONObject.optInt("audioCodec");
+                f1cVar.e = jSONObject.optInt("videoSeekMode");
+                f1cVar.f = jSONObject.optBoolean("clearRender");
+                f1cVar.g = jSONObject.optBoolean("usingSurfaceView");
+                f1cVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
+                f1cVar.i = jSONObject.optBoolean("forceNotCrop");
+                f1cVar.l = jSONObject.optInt("samplerFilter");
+                f1cVar.m = jSONObject.optBoolean("isSubProcess");
+                f1cVar.n = jSONObject.optInt("pcdnCatonTime");
+                f1cVar.o = jSONObject.optInt("pcdnCatonCount");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return f1cVar;
+        }
+        return (f1c) invokeL.objValue;
+    }
+
+    public static String b(f1c f1cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, f1cVar)) == null) {
+            if (f1cVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cacheDirectory", f1cVar.a);
+                jSONObject.put("avcCodec", f1cVar.b);
+                jSONObject.put("hevcCodec", f1cVar.c);
+                jSONObject.put("audioCodec", f1cVar.d);
+                jSONObject.put("videoSeekMode", f1cVar.e);
+                jSONObject.put("clearRender", f1cVar.f);
+                jSONObject.put("usingSurfaceView", f1cVar.g);
+                jSONObject.put("hardDecodeOutputToBuffer", f1cVar.h);
+                jSONObject.put("forceNotCrop", f1cVar.i);
+                jSONObject.put("samplerFilter", f1cVar.l);
+                jSONObject.put("isSubProcess", f1cVar.m);
+                jSONObject.put("pcdnCatonTime", f1cVar.n);
+                jSONObject.put("pcdnCatonCount", f1cVar.o);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (f1c.class) {
-                    if (b == null) {
-                        b = new f1c();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
         }
-        return (f1c) invokeV.objValue;
-    }
-
-    public void a(String str, e1c e1cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, e1cVar) == null) {
-            TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer key:" + str + "-vodPlayer:" + e1cVar);
-            if (!TextUtils.isEmpty(str) && e1cVar != null) {
-                if (this.a.containsKey(str) && this.a.get(str) != null) {
-                    TLog.h("[VodPlayerManager]", "bindUniqueKeyForPlayer contain key and player");
-                    return;
-                }
-                if (this.a.containsValue(e1cVar)) {
-                    Iterator<Map.Entry<String, e1c>> it = this.a.entrySet().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        Map.Entry<String, e1c> next = it.next();
-                        if (e1cVar == next.getValue()) {
-                            this.a.remove(next.getKey());
-                            break;
-                        }
-                    }
-                }
-                this.a.put(str, e1cVar);
-                TLog.h("[VodPlayerManager]", "player bind suc, tastId:" + e1cVar.d());
-                return;
-            }
-            TLog.h("[VodPlayerManager]", "player or key is null");
-        }
-    }
-
-    public e1c c(String str, boolean z) {
-        InterceptResult invokeLZ;
-        x0c f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            TLog.h("[VodPlayerManager]", "obtainPlayer key:" + str);
-            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
-                e1c e1cVar = this.a.get(str);
-                TLog.h("[VodPlayerManager]", "TaskID:" + e1cVar.d() + "-obtainPlayer vodPlayer:" + e1cVar);
-                if (z && (f = e1cVar.f()) != null) {
-                    f.onPlayerStateUpdate(e1cVar, 10, 0);
-                }
-                return e1cVar;
-            }
-            TLog.h("[VodPlayerManager]", "player is null");
-            return null;
-        }
-        return (e1c) invokeLZ.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            e(str, "");
-        }
-    }
-
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            TLog.h("[VodPlayerManager]", "removePlayerUniqueKey key:" + str + ", source:" + str2);
-            if (!TextUtils.isEmpty(str) && this.a.containsKey(str)) {
-                this.a.remove(str);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

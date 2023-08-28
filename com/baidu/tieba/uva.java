@@ -23,9 +23,9 @@ public class uva {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
             if (i == 0) {
-                return hgb.b(str);
+                return jgb.b(str);
             }
-            return hgb.b(str) + "_" + j;
+            return jgb.b(str) + "_" + j;
         }
         return (String) invokeCommon.objValue;
     }

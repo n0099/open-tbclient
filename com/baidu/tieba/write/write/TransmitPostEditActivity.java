@@ -54,9 +54,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
 import com.baidu.tieba.di;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.i1b;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.jx5;
+import com.baidu.tieba.k1b;
 import com.baidu.tieba.li5;
 import com.baidu.tieba.mt4;
 import com.baidu.tieba.ni5;
@@ -66,7 +66,7 @@ import com.baidu.tieba.uc5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
-import com.baidu.tieba.wxa;
+import com.baidu.tieba.xxa;
 import com.baidu.tieba.zh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -485,7 +485,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             if (this.V == null) {
-                this.V = new i1b(getPageContext());
+                this.V = new k1b(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -794,9 +794,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             arrayList.add(5);
             this.S.d(new ni5(getActivity(), 2));
             if (this.U == null) {
-                wxa wxaVar = new wxa(getActivity(), this.k);
-                this.U = wxaVar;
-                wxaVar.i();
+                xxa xxaVar = new xxa(getActivity(), this.k);
+                this.U = xxaVar;
+                xxaVar.i();
                 this.U.j();
                 this.U.n("from_share_write");
                 this.U.k(this.p.getForumId(), this.j);

@@ -27,7 +27,7 @@ import tbclient.ThreadInfo;
 import tbclient.ThreadList.DataRes;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

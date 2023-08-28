@@ -103,11 +103,11 @@ import com.baidu.tieba.n20;
 import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
 import com.baidu.tieba.qe5;
 import com.baidu.tieba.qg;
-import com.baidu.tieba.qyb;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
+import com.baidu.tieba.syb;
 import com.baidu.tieba.t85;
 import com.baidu.tieba.tc5;
 import com.baidu.tieba.vw5;
@@ -1380,7 +1380,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                return qyb.a(sApp);
+                return syb.a(sApp);
             }
             return "";
         }

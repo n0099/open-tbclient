@@ -30,7 +30,7 @@ public class g43 implements wp3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.g43$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0308a {
+        public static class C0306a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class g43 implements wp3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0308a.a;
+                return C0306a.a;
             }
             return (a) invokeV.objValue;
         }

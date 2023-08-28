@@ -1,47 +1,56 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 /* loaded from: classes6.dex */
 public class fxb {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "h";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947780921, "Lcom/baidu/tieba/fxb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947780921, "Lcom/baidu/tieba/fxb;");
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Context a2 = bxb.a();
+            if (a2 == null) {
+                return "";
+            }
             try {
-                closeable.close();
-            } catch (IOException unused) {
-                Log.e("IOUtil", "closeSecure IOException");
+                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                String str2 = a;
+                exb.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
+                return "";
+            } catch (Exception e2) {
+                String str3 = a;
+                exb.d(str3, "getVersion: " + e2.getMessage());
+                return "";
+            } catch (Throwable unused) {
+                exb.d(a, "throwable");
+                return "";
             }
         }
-    }
-
-    public static void b(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
-            a(inputStream);
-        }
-    }
-
-    public static void c(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
-            a(outputStream);
-        }
-    }
-
-    public static void d(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && file.exists() && !file.delete()) {
-            Log.e("IOUtil", "deleteSecure exception");
-        }
+        return (String) invokeL.objValue;
     }
 }

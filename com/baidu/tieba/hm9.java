@@ -252,7 +252,7 @@ public class hm9 {
     public LinearLayout S1;
 
     /* renamed from: T  reason: collision with root package name */
-    public View.OnClickListener f1116T;
+    public View.OnClickListener f1115T;
     public int T0;
     public ho9 T1;
     public SortSwitchButton.f U;
@@ -1321,7 +1321,7 @@ public class hm9 {
                     SharedPrefHelper.getInstance().putBoolean("pb_share_red_dot_shown", true);
                     this.a.I0.setVisibility(8);
                 }
-                this.a.f1116T.onClick(view2);
+                this.a.f1115T.onClick(view2);
             }
         }
     }
@@ -2168,7 +2168,7 @@ public class hm9 {
                     SharedPrefHelper.getInstance().putBoolean("pb_share_red_dot_shown", true);
                     this.a.I0.setVisibility(8);
                 }
-                this.a.f1116T.onClick(this.a.G0);
+                this.a.f1115T.onClick(this.a.G0);
             }
         }
     }
@@ -3272,7 +3272,7 @@ public class hm9 {
         this.P = null;
         this.Q = null;
         this.R = null;
-        this.f1116T = null;
+        this.f1115T = null;
         this.V = null;
         this.W = null;
         this.X = null;
@@ -3332,7 +3332,7 @@ public class hm9 {
         this.l2 = false;
         this.f = pbFragment;
         this.h1.b = pbFragment.getPageContext().getUniqueId();
-        this.f1116T = onClickListener;
+        this.f1115T = onClickListener;
         this.U = fVar;
         this.p0 = fj9Var;
         this.s1 = BdUtilHelper.getEquipmentWidth(this.f.getContext()) / 8;
@@ -3394,7 +3394,7 @@ public class hm9 {
         ejectionAnimationView.setEjectionAnimationViewCallback(new a(this));
         this.D0 = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091ab7);
         this.O1 = (MaskView) this.g.findViewById(R.id.mask_view);
-        this.D0.setOnClickListener(this.f1116T);
+        this.D0.setOnClickListener(this.f1115T);
         AgreeView agreeView = (AgreeView) this.g.findViewById(R.id.obfuscated_res_0x7f091ab2);
         this.E0 = agreeView;
         agreeView.setAgreeAlone(true);
@@ -3411,7 +3411,7 @@ public class hm9 {
         boolean booleanExtra = this.f.getBaseFragmentActivity().getIntent().getBooleanExtra("key_is_from_dynamic", false);
         ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091ab5);
         this.F0 = imageView;
-        imageView.setOnClickListener(this.f1116T);
+        imageView.setOnClickListener(this.f1115T);
         if (booleanExtra) {
             this.F0.setVisibility(8);
         } else {
@@ -3444,10 +3444,10 @@ public class hm9 {
         this.E0.setVisibility(0);
         this.L0.setVisibility(0);
         this.v = new cn9(this.f, fj9Var);
-        this.x = new gn9(this.f, fj9Var, this.f1116T);
+        this.x = new gn9(this.f, fj9Var, this.f1115T);
         qk9 qk9Var = new qk9(this.f, this.o);
         this.I = qk9Var;
-        qk9Var.E0(this.f1116T);
+        qk9Var.E0(this.f1115T);
         this.I.H0(this.p0);
         this.I.B0(this.V);
         this.I.D0(this.U);
@@ -3476,12 +3476,12 @@ public class hm9 {
         }
         View view2 = this.Q;
         if (view2 != null) {
-            view2.setOnClickListener(this.f1116T);
+            view2.setOnClickListener(this.f1115T);
             SkinManager.setBackgroundResource(this.Q, R.drawable.pb_foot_more_trans_selector);
         }
         View view3 = this.R;
         if (view3 != null) {
-            view3.setOnClickListener(this.f1116T);
+            view3.setOnClickListener(this.f1115T);
         }
         this.O.D();
         this.O.r(R.drawable.pb_foot_more_trans_selector);
@@ -3520,7 +3520,7 @@ public class hm9 {
         this.d1 = pbReplyTitleViewHolder;
         pbReplyTitleViewHolder.t(pbFragment.d0);
         this.d1.g.setVisibility(8);
-        this.d1.s(this.f1116T);
+        this.d1.s(this.f1115T);
         this.d1.r(this.U);
         this.f.registerListener(this.a2);
         PbFragment pbFragment3 = this.f;
@@ -3878,10 +3878,10 @@ public class hm9 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             dk9 dk9Var = new dk9(this.f, this, (ViewStub) this.g.findViewById(R.id.obfuscated_res_0x7f0917a6));
             this.y1 = dk9Var;
-            dk9Var.n(this.f1116T);
+            dk9Var.n(this.f1115T);
             this.y1.o(this.Y);
             this.y1.p(this.V);
-            this.y1.n(this.f1116T);
+            this.y1.n(this.f1115T);
             this.y1.r(this.p0);
         }
     }
@@ -4575,7 +4575,7 @@ public class hm9 {
     public final void b2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048707, this) == null) && this.y == null) {
-            this.y = new dn9(this.f, this.f1116T);
+            this.y = new dn9(this.f, this.f1115T);
         }
     }
 
@@ -5901,8 +5901,8 @@ public class hm9 {
         if (this.G == null) {
             this.G = (TextView) this.E.findViewById(R.id.obfuscated_res_0x7f0916df);
         }
-        this.F.setOnClickListener(this.f1116T);
-        this.G.setOnClickListener(this.f1116T);
+        this.F.setOnClickListener(this.f1115T);
+        this.G.setOnClickListener(this.f1115T);
     }
 
     public final void W2() {
@@ -6368,7 +6368,7 @@ public class hm9 {
                 textView.setOnClickListener(new l0(this));
                 TextView textView2 = (TextView) this.c0.findViewById(R.id.dialog_button_ok);
                 this.f0 = textView2;
-                textView2.setOnClickListener(this.f1116T);
+                textView2.setOnClickListener(this.f1115T);
             }
             this.d0.removeAllViews();
             this.q = new ArrayList();
@@ -6538,7 +6538,7 @@ public class hm9 {
         }
         PbInterviewStatusView pbInterviewStatusView = (PbInterviewStatusView) this.X0.inflate();
         this.Y0 = pbInterviewStatusView;
-        pbInterviewStatusView.setOnClickListener(this.f1116T);
+        pbInterviewStatusView.setOnClickListener(this.f1115T);
         this.Y0.setCallback(this.f.N5());
         this.Y0.setData(this.f, yh9Var);
     }
@@ -7459,7 +7459,7 @@ public class hm9 {
                     this.r = pbThreadPostView;
                     this.o.w(pbThreadPostView, 1);
                     this.r.setData(yh9Var);
-                    this.r.setChildOnClickLinstener(this.f1116T);
+                    this.r.setChildOnClickLinstener(this.f1115T);
                 }
             } else {
                 PbThreadPostView pbThreadPostView2 = this.r;

@@ -1,68 +1,70 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.content.IntentFilter;
+import androidx.core.view.InputDeviceCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
+import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
 /* loaded from: classes7.dex */
 public class mgc {
     public static /* synthetic */ Interceptable $ic;
-    public static mgc a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mgc(Context context, String str) {
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
+            long nanoTime = System.nanoTime();
+            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
+            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
+            RLog.info("PayMessageHelper", "notifyReleaseAllPayFlowView releaseNanoTime:" + nanoTime);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
     }
 
-    public static mgc b(Context context, String str) {
-        InterceptResult invokeLL;
+    public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
-            }
-            if (a == null || !str.equals(c)) {
-                a = new mgc(context, str);
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            long nanoTime = System.nanoTime();
+            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
+            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
+            RLog.info("PayMessageHelper", "notifyReleaseDialogPayFlowView releaseNanoTime:" + nanoTime);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         }
-        return (mgc) invokeLL.objValue;
     }
 
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public static void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            long nanoTime = System.nanoTime();
+            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
+            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
+            RLog.info("PayMessageHelper", "notifyReleaseWalletPayFlowView releaseNanoTime:" + nanoTime);
+            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
         }
-        return invokeLZ.booleanValue;
     }
 
-    public void c(String str, boolean z) {
+    public static void d(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, absPayMessageReceiver) == null) {
+            RLog.info("PayMessageHelper", "register");
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
+            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
+            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
+            LocalBroadcastManager.getInstance(context).registerReceiver(absPayMessageReceiver, intentFilter);
+        }
+    }
+
+    public static void e(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, absPayMessageReceiver) == null) {
+            RLog.info("PayMessageHelper", "unregister");
+            LocalBroadcastManager.getInstance(context).unregisterReceiver(absPayMessageReceiver);
         }
     }
 }

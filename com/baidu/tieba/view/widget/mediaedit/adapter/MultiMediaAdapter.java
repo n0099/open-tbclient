@@ -12,10 +12,10 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dgb;
-import com.baidu.tieba.pgb;
-import com.baidu.tieba.sgb;
+import com.baidu.tieba.fgb;
+import com.baidu.tieba.rgb;
 import com.baidu.tieba.tva;
+import com.baidu.tieba.ugb;
 import com.baidu.tieba.view.widget.mediaedit.SimpleDraweeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -84,7 +84,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             public void onClick(View view2) {
                 tva tvaVar;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && this.b.g != null && !dgb.e(this.b.g.m()) && (tvaVar = (tva) dgb.c(this.b.g.m(), this.b.getAdapterPosition())) != null) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && this.b.g != null && !fgb.e(this.b.g.m()) && (tvaVar = (tva) fgb.c(this.b.g.m(), this.b.getAdapterPosition())) != null) {
                     this.a.e(this.b.getAdapterPosition(), view2, tvaVar);
                 }
             }
@@ -151,7 +151,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return dgb.b(this.a);
+            return fgb.b(this.a);
         }
         return invokeV.intValue;
     }
@@ -199,7 +199,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (dgb.e(this.a)) {
+            if (fgb.e(this.a)) {
                 return -1;
             }
             return this.a.get(i).getType();
@@ -235,7 +235,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         int i2;
         ArrayList<SimpleDraweeView> arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) && (tvaVar = (tva) dgb.c(this.a, i)) != null && (viewHolder instanceof MultiMediaHolder)) {
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) && (tvaVar = (tva) fgb.c(this.a, i)) != null && (viewHolder instanceof MultiMediaHolder)) {
             MultiMediaHolder multiMediaHolder = (MultiMediaHolder) viewHolder;
             LocalAlbumInfo a2 = tvaVar.a();
             if (a2 != null) {
@@ -250,7 +250,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         multiMediaHolder.a.setImageURI(Uri.fromFile(new File(a2.path)));
                     }
                 }
-                multiMediaHolder.e.setText(sgb.b((int) a2.getDurationWithSpeed()));
+                multiMediaHolder.e.setText(ugb.b((int) a2.getDurationWithSpeed()));
                 View view2 = multiMediaHolder.f;
                 if (tvaVar.b()) {
                     i2 = 0;
@@ -262,7 +262,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     int size = arrayList.size();
                     int i4 = 1;
                     if (!this.d && !this.e) {
-                        multiMediaHolder.h.getLayoutParams().width = ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a)) * size;
+                        multiMediaHolder.h.getLayoutParams().width = ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a)) * size;
                         while (i4 < size) {
                             multiMediaHolder.d.get(i4).setVisibility(0);
                             i4++;
@@ -273,7 +273,7 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         multiMediaHolder.d.get(i4).setVisibility(8);
                         i4++;
                     }
-                    multiMediaHolder.h.getLayoutParams().width = (int) pgb.i(R.dimen.obfuscated_res_0x7f07019a);
+                    multiMediaHolder.h.getLayoutParams().width = (int) rgb.i(R.dimen.obfuscated_res_0x7f07019a);
                 }
             }
         }
@@ -284,8 +284,8 @@ public class MultiMediaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048583, this, viewHolder, i, list) == null) {
-            if (!dgb.e(list)) {
-                tva tvaVar = (tva) dgb.c(this.a, i);
+            if (!fgb.e(list)) {
+                tva tvaVar = (tva) fgb.c(this.a, i);
                 if (viewHolder instanceof MultiMediaHolder) {
                     View view2 = ((MultiMediaHolder) viewHolder).f;
                     if (tvaVar.b()) {

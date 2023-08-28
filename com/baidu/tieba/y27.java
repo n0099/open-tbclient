@@ -80,7 +80,7 @@ public class y27 implements x27 {
 
         /* renamed from: com.baidu.tieba.y27$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0534a implements z27.a {
+        public class C0535a implements z27.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -88,7 +88,7 @@ public class y27 implements x27 {
             public final /* synthetic */ DownloadData c;
             public final /* synthetic */ a d;
 
-            public C0534a(a aVar, String str, String str2, DownloadData downloadData) {
+            public C0535a(a aVar, String str, String str2, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,7 +166,7 @@ public class y27 implements x27 {
                 if (this.a.d != null && this.a.e != null && this.a.e.fileUrl != null && this.a.e.fileUrl.equals(downloadData.getUrl()) && downloadData.getPath().endsWith(".zip")) {
                     String substring = downloadData.getPath().substring(y27.h.length() + 1, downloadData.getPath().lastIndexOf("."));
                     String str = y27.h + "/" + substring;
-                    z27 z27Var = new z27(downloadData.getPath(), str, new C0534a(this, substring, str, downloadData));
+                    z27 z27Var = new z27(downloadData.getPath(), str, new C0535a(this, substring, str, downloadData));
                     z27Var.execute(new Void[0]);
                     this.a.f.add(z27Var);
                 }

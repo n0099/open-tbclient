@@ -25,17 +25,17 @@ public interface li1 {
         public long e;
         public String f;
         public int g;
-        public List<C0400a> h;
+        public List<C0401a> h;
 
         /* renamed from: com.baidu.tieba.li1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0400a {
+        public static class C0401a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
             public String b;
 
-            public C0400a() {
+            public C0401a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public interface li1 {
                 }
             }
 
-            public static C0400a a(JSONObject jSONObject) {
+            public static C0401a a(JSONObject jSONObject) {
                 InterceptResult invokeL;
                 String optString;
                 Interceptable interceptable = $ic;
@@ -57,34 +57,34 @@ public interface li1 {
                     if (jSONObject == null) {
                         return null;
                     }
-                    C0400a c0400a = new C0400a();
+                    C0401a c0401a = new C0401a();
                     String str = "";
                     if (jSONObject.isNull("promotionInsId")) {
                         optString = "";
                     } else {
                         optString = jSONObject.optString("promotionInsId");
                     }
-                    c0400a.a = optString;
+                    c0401a.a = optString;
                     if (!jSONObject.isNull("valid")) {
                         str = jSONObject.optString("valid");
                     }
-                    c0400a.b = str;
-                    return c0400a;
+                    c0401a.b = str;
+                    return c0401a;
                 }
-                return (C0400a) invokeL.objValue;
+                return (C0401a) invokeL.objValue;
             }
 
-            public static JSONObject b(C0400a c0400a) {
+            public static JSONObject b(C0401a c0401a) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0400a)) == null) {
-                    if (c0400a == null) {
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0401a)) == null) {
+                    if (c0401a == null) {
                         return null;
                     }
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("promotionInsId", c0400a.a);
-                        jSONObject.put("valid", c0400a.b);
+                        jSONObject.put("promotionInsId", c0401a.a);
+                        jSONObject.put("valid", c0401a.b);
                     } catch (JSONException e) {
                         ci1.d(e.getMessage());
                     }
@@ -93,7 +93,7 @@ public interface li1 {
                 return (JSONObject) invokeL.objValue;
             }
 
-            public static List<C0400a> c(JSONArray jSONArray) {
+            public static List<C0401a> c(JSONArray jSONArray) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
@@ -149,8 +149,8 @@ public interface li1 {
                     jSONObject.put("usedHostMarketingDetail", aVar.f);
                     if (aVar.h != null && !aVar.h.isEmpty()) {
                         JSONArray jSONArray = new JSONArray();
-                        for (C0400a c0400a : aVar.h) {
-                            jSONArray.put(C0400a.b(c0400a));
+                        for (C0401a c0401a : aVar.h) {
+                            jSONArray.put(C0401a.b(c0401a));
                         }
                         jSONObject.put("promotionStatus", jSONArray);
                     }

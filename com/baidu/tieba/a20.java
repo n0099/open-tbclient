@@ -322,9 +322,9 @@ public class a20 {
                 jSONObject2.putOpt("value", str3);
                 jSONObject2.put("ext", jSONObject);
                 z(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject2.toString());
-                l9b l9bVar = (l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (l9bVar != null) {
-                    l9bVar.onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject2);
+                n9b n9bVar = (n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (n9bVar != null) {
+                    n9bVar.onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject2);
                 }
             } catch (Exception e) {
                 if (a) {
@@ -342,7 +342,7 @@ public class a20 {
                 jSONObject.put("from", "tool");
                 jSONObject.put("page", DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH);
                 jSONObject.put("source", str);
-                ((l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
+                ((n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
             } catch (JSONException e) {
                 if (a) {
                     e.printStackTrace();
@@ -415,7 +415,7 @@ public class a20 {
                 jSONObject.put("value", "download");
                 jSONObject.put("type", str2);
                 jSONObject.put("source", str);
-                ((l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject);
+                ((n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject);
             } catch (JSONException e) {
                 if (a) {
                     e.printStackTrace();
@@ -440,7 +440,7 @@ public class a20 {
                 jSONObject.put("from", "tool");
                 jSONObject.put("type", "click");
                 jSONObject.put("value", str);
-                ((l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
+                ((n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
             } catch (JSONException e) {
                 if (a) {
                     e.printStackTrace();
@@ -465,7 +465,7 @@ public class a20 {
                 jSONObject.put("value", "system");
                 jSONObject.put("type", str2);
                 jSONObject.put("source", str);
-                ((l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject);
+                ((n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject);
             } catch (JSONException e) {
                 if (a) {
                     e.printStackTrace();
@@ -484,7 +484,7 @@ public class a20 {
                 jSONObject.put("type", "show");
                 jSONObject.put("page", "downloadcenter");
                 jSONObject.put("value", str);
-                ((l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
+                ((n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
             } catch (JSONException e) {
                 if (a) {
                     e.printStackTrace();
@@ -518,7 +518,7 @@ public class a20 {
                 jSONObject.put("from", "tool");
                 jSONObject.put("type", "show");
                 jSONObject.put("value", str);
-                ((l9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
+                ((n9b) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(DownloadStatisticConstants.UBC_DOWNLOAD_CENTER_CLICK, jSONObject);
             } catch (JSONException e) {
                 if (a) {
                     e.printStackTrace();

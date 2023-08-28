@@ -4,19 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class otb implements Runnable {
+public final class otb<TResult> implements lub<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ vtb a;
-    public final /* synthetic */ qtb b;
+    public nub a;
+    public Executor b;
+    public final Object c;
 
-    public otb(qtb qtbVar, vtb vtbVar) {
+    public otb(Executor executor, nub nubVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qtbVar, vtbVar};
+            Object[] objArr = {executor, nubVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,21 +28,17 @@ public class otb implements Runnable {
                 return;
             }
         }
-        this.b = qtbVar;
-        this.a = vtbVar;
+        this.c = new Object();
+        this.a = nubVar;
+        this.b = executor;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tieba.lub
+    public final void a(xtb<TResult> xtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.b.c) {
-                Object obj = this.b.a;
-                if (obj != null) {
-                    this.a.d();
-                    ((ztb) obj).a.countDown();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, xtbVar) == null) && !xtbVar.f()) {
+            xtbVar.e();
+            this.b.execute(new mtb(this, xtbVar));
         }
     }
 }

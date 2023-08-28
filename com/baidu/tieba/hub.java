@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes6.dex */
-public class hub {
+public abstract class hub<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public final String a;
+    public final IMessageEntity b;
+    public final rtb c;
+    public RequestHeader d;
+    public pub<TResult> e;
 
-    public hub(Context context, String str) {
+    public abstract void a(ApiException apiException, Object obj);
+
+    public hub(String str, IMessageEntity iMessageEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,48 +35,20 @@ public class hub {
                 return;
             }
         }
-        if (context != null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
-                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
-                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putBoolean(str, true);
-                    edit.apply();
-                }
-                context = createDeviceProtectedStorageContext;
-            }
-            this.a = context.getSharedPreferences(str, 0);
-            return;
-        }
-        throw new NullPointerException("context is null!");
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = rtb.b(str);
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        SharedPreferences.Editor edit;
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
-                return edit.remove(str).commit();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
             }
-            return false;
+            String str = "This Task has been canceled, uri:" + this.a;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
-                return edit.putString(str, str2).commit();
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

@@ -46,7 +46,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.adapter.Excell
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.lab;
+import com.baidu.tieba.nab;
 import com.baidu.tieba.vm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -498,7 +498,7 @@ public class TopBubbleSlice extends Slice {
                     this.b.T0();
                     this.a.dismiss();
                 } else if (!StringUtils.isNull(this.b.p) && !StringUtils.isNull(this.b.s)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.L0(lab.a(lab.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{TopBubbleSlice.L0(nab.a(nab.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.s), "forumId", this.b.p))});
                     this.a.dismiss();
                 }
             }

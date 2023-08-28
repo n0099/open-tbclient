@@ -137,13 +137,13 @@ public abstract class xl3 implements yl3, zl3 {
 
         /* renamed from: com.baidu.tieba.xl3$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0530c implements Runnable {
+        public class RunnableC0531c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ wp3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0530c(c cVar, wp3 wp3Var) {
+            public RunnableC0531c(c cVar, wp3 wp3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -268,7 +268,7 @@ public abstract class xl3 implements yl3, zl3 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wp3Var) != null) || wp3Var == null) {
                 return;
             }
-            xn3.k(new RunnableC0530c(this, wp3Var), "wifiScan");
+            xn3.k(new RunnableC0531c(this, wp3Var), "wifiScan");
         }
 
         @Override // com.baidu.tieba.zl3

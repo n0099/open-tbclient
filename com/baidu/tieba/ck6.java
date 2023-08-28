@@ -6,5 +6,5 @@ public interface ck6<Key, Value> {
     @Nullable
     Value a(Key key) throws Exception;
 
-    void b(Key key, c8c<Value, Exception> c8cVar);
+    void b(Key key, e8c<Value, Exception> e8cVar);
 }

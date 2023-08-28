@@ -433,7 +433,7 @@ public final class y47 {
 
         /* renamed from: com.baidu.tieba.y47$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0536c implements g {
+        public class C0537c implements g {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -444,7 +444,7 @@ public final class y47 {
                 }
             }
 
-            public C0536c(c cVar) {
+            public C0537c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -883,7 +883,7 @@ public final class y47 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0536c(this);
+                return new C0537c(this);
             }
             return (g) invokeV.objValue;
         }

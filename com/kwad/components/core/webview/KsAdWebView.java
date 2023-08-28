@@ -55,7 +55,7 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
             if (readyClientConfig != null) {
                 readyClientConfig.R(KsAdWebView.this.gX.getAdTemplate());
             }
-            com.kwad.components.core.c.a.a.a(new a.C0647a(KsAdWebView.this.getContext2()).L(KsAdWebView.this.gX.getAdTemplate()).al(true));
+            com.kwad.components.core.c.a.a.a(new a.C0648a(KsAdWebView.this.getContext2()).L(KsAdWebView.this.gX.getAdTemplate()).al(true));
         }
     }
 

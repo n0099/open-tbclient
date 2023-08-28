@@ -27,11 +27,11 @@ public class z97 {
         }
         HashMap<String, Class> hashMap = new HashMap<>();
         a = hashMap;
-        hashMap.put("common_icon", aa7.class);
+        hashMap.put("common_text", ba7.class);
         a.put("text_with_bg", ea7.class);
-        a.put("common_text", ba7.class);
-        a.put("tie_plus", fa7.class);
+        a.put("common_icon", aa7.class);
         a.put("emoji", ca7.class);
+        a.put("tie_plus", fa7.class);
     }
 
     public static HashMap<String, Class> a() {

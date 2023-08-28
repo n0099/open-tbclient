@@ -1,196 +1,202 @@
 package com.baidu.tieba;
 
-import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.blb;
+import com.baidu.tieba.zkb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.tencent.open.SocialConstants;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vkb extends jlb {
+public final class vkb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
+    public long a;
+    public int b;
+    public int c;
+    public xkb d;
+    public final Set<Ssp> e;
+    public final Set<blb> f;
+    public final Set<zkb> g;
 
-    /* loaded from: classes8.dex */
-    public static class a extends jlb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final Map<String, Set<Object>> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readUTF();
-            HashMap hashMap = new HashMap();
-            int readInt = objectInput.readInt();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                String readUTF = objectInput.readUTF();
-                int readInt2 = objectInput.readInt();
-                HashSet hashSet = new HashSet();
-                for (int i5 = 0; i5 < readInt2; i5++) {
-                    try {
-                        hashSet.add(objectInput.readObject());
-                    } catch (ClassNotFoundException e) {
-                        LogPrinter.e(e);
-                    }
-                }
-                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
-            }
-            this.b = Collections.unmodifiableMap(hashMap);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject) {
-            super(1);
-            Map<String, Set<Object>> unmodifiableMap;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject.getString("key");
-            JSONArray optJSONArray = jSONObject.optJSONArray("content");
-            if (optJSONArray == null) {
-                unmodifiableMap = Collections.emptyMap();
-            } else {
-                HashMap hashMap = new HashMap();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
-                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
-                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
-                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
-                    HashSet hashSet = new HashSet();
-                    for (int i4 = 0; i4 < length; i4++) {
-                        hashSet.add(optJSONArray2.get(i4));
-                    }
-                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
-                }
-                unmodifiableMap = Collections.unmodifiableMap(hashMap);
-            }
-            this.b = unmodifiableMap;
-        }
-
-        @Override // com.baidu.tieba.jlb
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-                objectOutput.writeUTF(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
-                    Set<Object> value = entry.getValue();
-                    objectOutput.writeUTF(entry.getKey());
-                    objectOutput.writeInt(value.size());
-                    for (Object obj : value) {
-                        objectOutput.writeObject(obj);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vkb(int i, ObjectInput objectInput) {
-        super(i);
+    public vkb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet = new HashSet();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            hashSet.add(new a(objectInput.readInt(), objectInput));
-        }
-        this.a = Collections.unmodifiableSet(hashSet);
+        this.e = new HashSet();
+        this.f = new HashSet();
+        this.g = new HashSet();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vkb(JSONObject jSONObject) {
-        super(1);
-        Set<a> unmodifiableSet;
+    public boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
+            try {
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
+                }
+            } catch (JSONException e) {
+                LogPrinter.e(e);
+            }
+            this.e.clear();
+            this.f.clear();
+            this.g.clear();
+            return false;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
-        if (optJSONArray == null) {
-            unmodifiableSet = Collections.emptySet();
-        } else {
+        return invokeL.booleanValue;
+    }
+
+    @VisibleForTesting
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashSet hashSet = new HashSet();
-            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.e) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
+                }
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
+                    }
+                    hashSet2.add(Long.valueOf(pid.id));
+                }
             }
-            unmodifiableSet = Collections.unmodifiableSet(hashSet);
+            HashSet hashSet3 = new HashSet();
+            for (blb blbVar : this.f) {
+                if (hashSet3.contains(blbVar.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", blbVar.a);
+                    return false;
+                }
+                hashSet3.add(blbVar.a);
+                for (blb.c cVar : blbVar.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (blb.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), blbVar.a);
+                            return false;
+                        } else {
+                            hashSet4.add(Long.valueOf(bVar.a));
+                        }
+                    }
+                }
+            }
+            if (this.c == 2) {
+                for (zkb zkbVar : this.g) {
+                    if (hashSet3.contains(zkbVar.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", zkbVar.a);
+                        return false;
+                    }
+                    hashSet3.add(zkbVar.a);
+                    for (zkb.b bVar2 : zkbVar.b) {
+                        for (zkb.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
         }
-        this.a = unmodifiableSet;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jlb
-    public void srzableInternal(ObjectOutput objectOutput) {
+    public final void a() {
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (a aVar : this.a) {
-                aVar.srzable(objectOutput);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            okb okbVar = new okb(this.e, this.f, this.g);
+            xkb xkbVar = this.d;
+            Object obj = elb.a;
+            String d = skb.d(okbVar);
+            Object[] objArr = new Object[1];
+            if (d == null) {
+                length = -1;
+            } else {
+                length = d.length();
+            }
+            objArr[0] = Integer.valueOf(length);
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            elb.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", skb.d(xkbVar)).apply();
+        }
+    }
+
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
+                }
+                this.e.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.f.add(new blb(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.g.add(new zkb(optJSONArray.getJSONObject(i3), hashMap));
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
+            if (optJSONObject != null) {
+                this.d = new xkb(optJSONObject);
             }
         }
     }

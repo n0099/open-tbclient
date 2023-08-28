@@ -47,12 +47,12 @@ public class fk9 {
 
         /* renamed from: com.baidu.tieba.fk9$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0291a implements Runnable {
+        public class RunnableC0288a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0291a(a aVar) {
+            public RunnableC0288a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class fk9 {
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.c.k() && !this.a.e() && !this.a.f()) {
                 this.a.g(true);
                 this.a.h(true);
-                this.a.c.j().t(new RunnableC0291a(this));
+                this.a.c.j().t(new RunnableC0288a(this));
             }
         }
 

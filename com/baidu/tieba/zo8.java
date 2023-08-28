@@ -35,9 +35,9 @@ public class zo8 {
     @NonNull
     public final FastRequest c;
     @NonNull
-    public final f8c<CharSequence> d;
+    public final h8c<CharSequence> d;
     @NonNull
-    public final g8c<CharSequence, Boolean> e;
+    public final i8c<CharSequence, Boolean> e;
     public jp8 f;
     public fn8 g;
     public hp8 h;
@@ -70,26 +70,26 @@ public class zo8 {
 
         /* renamed from: com.baidu.tieba.zo8$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0554a implements kp8 {
+        public class C0555a implements kp8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.baidu.tieba.zo8$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes9.dex */
-            public class C0555a implements e {
+            public class C0556a implements e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AbilityItem a;
                 public final /* synthetic */ String b;
-                public final /* synthetic */ C0554a c;
+                public final /* synthetic */ C0555a c;
 
-                public C0555a(C0554a c0554a, AbilityItem abilityItem, String str) {
+                public C0556a(C0555a c0555a, AbilityItem abilityItem, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0554a, abilityItem, str};
+                        Object[] objArr = {c0555a, abilityItem, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -99,7 +99,7 @@ public class zo8 {
                             return;
                         }
                     }
-                    this.c = c0554a;
+                    this.c = c0555a;
                     this.a = abilityItem;
                     this.b = str;
                 }
@@ -153,7 +153,7 @@ public class zo8 {
                 }
             }
 
-            public C0554a(a aVar) {
+            public C0555a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +181,7 @@ public class zo8 {
                     } else {
                         str = "";
                     }
-                    this.a.a.g.d(abilityItem, null, new C0555a(this, abilityItem, str));
+                    this.a.a.g.d(abilityItem, null, new C0556a(this, abilityItem, str));
                     if (this.a.a.a.C2() != null && !"pic_gen_commit".equals(abilityItem.getType())) {
                         this.a.a.a.C2().y0();
                     }
@@ -234,7 +234,7 @@ public class zo8 {
                     if (relativeLayout != null) {
                         long v2 = this.a.a.v2();
                         long x2 = this.a.a.x2();
-                        this.a.f = new jp8(relativeLayout.findViewById(R.id.obfuscated_res_0x7f09043c), new C0554a(this));
+                        this.a.f = new jp8(relativeLayout.findViewById(R.id.obfuscated_res_0x7f09043c), new C0555a(this));
                         this.a.f.p(x2);
                         this.a.f.o(v2);
                         zo8 zo8Var = this.a;
@@ -253,8 +253,8 @@ public class zo8 {
     public static class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final f8c<CharSequence> a;
-        public final g8c<CharSequence, Boolean> b;
+        public final h8c<CharSequence> a;
+        public final i8c<CharSequence, Boolean> b;
         public final FastRequest c;
         public final c<RelativeMemeDetail> d;
         public final GroupChatFragment e;
@@ -312,12 +312,12 @@ public class zo8 {
             }
         }
 
-        public d(f8c<CharSequence> f8cVar, g8c<CharSequence, Boolean> g8cVar, FastRequest fastRequest, @NonNull c<RelativeMemeDetail> cVar, GroupChatFragment groupChatFragment) {
+        public d(h8c<CharSequence> h8cVar, i8c<CharSequence, Boolean> i8cVar, FastRequest fastRequest, @NonNull c<RelativeMemeDetail> cVar, GroupChatFragment groupChatFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f8cVar, g8cVar, fastRequest, cVar, groupChatFragment};
+                Object[] objArr = {h8cVar, i8cVar, fastRequest, cVar, groupChatFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -327,10 +327,10 @@ public class zo8 {
                     return;
                 }
             }
-            this.a = f8cVar;
+            this.a = h8cVar;
             this.c = fastRequest;
             this.d = cVar;
-            this.b = g8cVar;
+            this.b = i8cVar;
             this.e = groupChatFragment;
         }
 
@@ -385,12 +385,12 @@ public class zo8 {
         }
     }
 
-    public zo8(@NonNull GroupChatFragment groupChatFragment, @NonNull f8c<CharSequence> f8cVar, fn8 fn8Var) {
+    public zo8(@NonNull GroupChatFragment groupChatFragment, @NonNull h8c<CharSequence> h8cVar, fn8 fn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {groupChatFragment, f8cVar, fn8Var};
+            Object[] objArr = {groupChatFragment, h8cVar, fn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -400,11 +400,11 @@ public class zo8 {
                 return;
             }
         }
-        this.e = new g8c() { // from class: com.baidu.tieba.yo8
+        this.e = new i8c() { // from class: com.baidu.tieba.yo8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.g8c
+            @Override // com.baidu.tieba.i8c
             public final Object call(Object obj) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -413,11 +413,11 @@ public class zo8 {
         };
         this.i = new a(this);
         this.a = groupChatFragment;
-        this.d = f8cVar;
+        this.d = h8cVar;
         this.g = fn8Var;
         FastRequest fastRequest = new FastRequest(groupChatFragment.getPageContext(), CmdConfigHttp.CMD_HTTP_RELATIVE_MEME_LIST, TbConfig.GET_RELATIVE_MEME_LIST);
         this.c = fastRequest;
-        this.b = new d(f8cVar, this.e, fastRequest, this.i, this.a);
+        this.b = new d(h8cVar, this.e, fastRequest, this.i, this.a);
     }
 
     public final void l(boolean z) {

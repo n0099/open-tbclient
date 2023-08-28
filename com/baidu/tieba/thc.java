@@ -1,235 +1,142 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.webkit.JavascriptInterface;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.webview.UrlPageParams;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
 /* loaded from: classes8.dex */
-public class thc {
+public class thc extends Dialog {
     public static /* synthetic */ Interceptable $ic;
-    public static Gson c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public Handler b;
+    public String a;
+    public AbsPayMessageReceiver b;
+    public PayFlowType c;
+    public Context d;
 
     /* loaded from: classes8.dex */
-    public interface c {
-        void b(NativeOperationParams nativeOperationParams);
-
-        void c(UrlPageParams urlPageParams);
-
-        void e(UrlPageParams urlPageParams);
-
-        String getToken();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a extends AbsPayMessageReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ UrlPageParams b;
-        public final /* synthetic */ thc c;
+        public final /* synthetic */ thc this$0;
 
-        public a(thc thcVar, int i, UrlPageParams urlPageParams) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(thc thcVar, PayFlowType payFlowType) {
+            super(payFlowType);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {thcVar, Integer.valueOf(i), urlPageParams};
+                Object[] objArr = {thcVar, payFlowType};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((PayFlowType) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = thcVar;
-            this.a = i;
-            this.b = urlPageParams;
+            this.this$0 = thcVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onAllPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                if (this.a == 1) {
-                    this.c.a.e(this.b);
-                }
-                if (this.a == 3) {
-                    this.c.a.c(this.b);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info(this.this$0.a, "onAllPayFlowViewRelease");
+                this.this$0.dismiss();
             }
         }
-    }
 
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ thc c;
-
-        public b(thc thcVar, int i, String str) {
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onDialogPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {thcVar, Integer.valueOf(i), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                RLog.info(this.this$0.a, "onDialogPayFlowViewRelease");
+                this.this$0.dismiss();
             }
-            this.c = thcVar;
-            this.a = i;
-            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
+        public void onWalletPayFlowViewRelease() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                this.c.a.b(new NativeOperationParams(this.a, this.b));
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                RLog.info(this.this$0.a, "onWalletPayFlowViewRelease");
+                this.this$0.dismiss();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948182650, "Lcom/baidu/tieba/thc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948182650, "Lcom/baidu/tieba/thc;");
-                return;
-            }
-        }
-        c = new Gson();
-    }
-
-    @JavascriptInterface
-    public String getToken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c cVar = this.a;
-            if (cVar != null) {
-                return cVar.getToken();
-            }
-            RLog.error("YYPaySdkJsInterface", "getToken() mOnJsCallInterface null", new Object[0]);
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public thc(c cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public thc(Context context, int i, PayFlowType payFlowType) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {context, Integer.valueOf(i), payFlowType};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Handler(Looper.getMainLooper());
-        this.a = cVar;
+        this.a = "SafeDismissDialog";
+        this.a += "@" + hashCode();
+        this.d = context;
+        this.c = payFlowType;
     }
 
-    public final void b(Runnable runnable) {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                runnable.run();
-            } else {
-                this.b.post(runnable);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+            super.onCreate(bundle);
+            RLog.info(this.a, "onCreate");
+            b();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0069  */
-    /* JADX WARN: Removed duplicated region for block: B:35:? A[RETURN, SYNTHETIC] */
-    @JavascriptInterface
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void callAndroid(int i, String str) {
-        String str2;
-        UrlPageParams urlPageParams;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            RLog.info("YYPaySdkJsInterface", "callAndroid: code=" + i);
-            switch (i) {
-                case 1:
-                case 3:
-                    if (i == 1) {
-                        str2 = "CODE_OPEN_URL_PAGE";
-                    } else {
-                        str2 = "CODE_UPFATE_TOP_INFO";
-                    }
-                    UrlPageParams urlPageParams2 = null;
-                    try {
-                        urlPageParams = (UrlPageParams) c.fromJson(str, (Class<Object>) UrlPageParams.class);
-                        try {
-                            RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
-                        } catch (Throwable th) {
-                            th = th;
-                            urlPageParams2 = urlPageParams;
-                            RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
-                            urlPageParams = urlPageParams2;
-                            if (this.a == null) {
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    if (this.a == null) {
-                        b(new a(this, i, urlPageParams));
-                        return;
-                    }
-                    return;
-                case 2:
-                default:
-                    return;
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                case 10:
-                    if (this.a != null) {
-                        b(new b(this, i, str));
-                        return;
-                    }
-                    return;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+            return;
+        }
+        this.b = new a(this, this.c);
+        mgc.d(getContext(), this.b);
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && xgc.a.a(this.d)) {
+            super.dismiss();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onStop();
+            RLog.info(this.a, MissionEvent.MESSAGE_STOP);
+            if (this.b != null) {
+                mgc.e(getContext(), this.b);
+                this.b = null;
             }
         }
     }

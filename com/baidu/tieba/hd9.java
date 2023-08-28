@@ -107,12 +107,12 @@ public class hd9 {
 
         /* renamed from: com.baidu.tieba.hd9$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0322b implements Runnable {
+        public class RunnableC0325b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0322b(b bVar) {
+            public RunnableC0325b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -217,7 +217,7 @@ public class hd9 {
                         this.c.a.post(new a(this, str2));
                     }
                 } else if (this.b != null) {
-                    this.c.a.post(new RunnableC0322b(this));
+                    this.c.a.post(new RunnableC0325b(this));
                 }
             }
         }

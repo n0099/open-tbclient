@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 import android.graphics.PointF;
 import android.opengl.Matrix;
 import android.text.TextUtils;
-import com.baidu.tieba.dgb;
+import com.baidu.tieba.fgb;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
@@ -234,7 +234,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
 
     public void deleteCurrentStickerItem(a aVar, String str, boolean z) {
         int i;
-        if (aVar == null || dgb.e(this.mStickerItems)) {
+        if (aVar == null || fgb.e(this.mStickerItems)) {
             return;
         }
         if (TextUtils.equals(SubtitleLog.TAG, str)) {
@@ -242,7 +242,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         } else {
             i = this.mStickerItems.indexOf(aVar);
             this.mStickerItems.remove(aVar);
-            if (!dgb.e(this.mVisibleStickerItems)) {
+            if (!fgb.e(this.mVisibleStickerItems)) {
                 this.mVisibleStickerItems.remove(aVar);
             }
         }

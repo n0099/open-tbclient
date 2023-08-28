@@ -9,18 +9,18 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.g8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.gk8;
+import com.baidu.tieba.i8c;
 import com.baidu.tieba.immessagecenter.arch.utils.IMException;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.tieba.immessagecenter.msgtab.obs.SkinTypeChangedMonitor;
-import com.baidu.tieba.occ;
+import com.baidu.tieba.qcc;
 import com.baidu.tieba.uw5;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-    public occ b;
+    public qcc b;
     public LifecycleRootView c;
     public final Lazy d;
     public boolean e;
@@ -200,13 +200,13 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
     public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            occ occVar = this.b;
-            if (occVar != null) {
-                occVar.unsubscribe();
+            qcc qccVar = this.b;
+            if (qccVar != null) {
+                qccVar.unsubscribe();
             }
-            occ occVar2 = this.b;
-            if (occVar2 != null) {
-                occVar2.c();
+            qcc qccVar2 = this.b;
+            if (qccVar2 != null) {
+                qccVar2.c();
             }
             this.b = null;
         }
@@ -221,13 +221,13 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         }
     }
 
-    public final occ k() {
+    public final qcc k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.b;
         }
-        return (occ) invokeV.objValue;
+        return (qcc) invokeV.objValue;
     }
 
     public final LifecycleRootView m() {
@@ -268,12 +268,12 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             p().c();
             N();
-            occ occVar = new occ();
-            occVar.a(SkinTypeChangedMonitor.c.a().d().s(x7c.b()).g().H(new b8c() { // from class: com.baidu.tieba.ek8
+            qcc qccVar = new qcc();
+            qccVar.a(SkinTypeChangedMonitor.c.a().d().s(z7c.b()).g().H(new d8c() { // from class: com.baidu.tieba.ek8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -281,32 +281,32 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
                     }
                 }
             }));
-            occVar.a(p().f().k(new g8c() { // from class: com.baidu.tieba.ck8
+            qccVar.a(p().f().k(new i8c() { // from class: com.baidu.tieba.ck8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.g8c
+                @Override // com.baidu.tieba.i8c
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? BaseView.D((IUiState) obj) : invokeL.objValue;
                 }
-            }).I(new b8c() { // from class: com.baidu.tieba.fk8
+            }).I(new d8c() { // from class: com.baidu.tieba.fk8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         BaseView.E(BaseView.this, (IUiState) obj);
                     }
                 }
-            }, new b8c() { // from class: com.baidu.tieba.dk8
+            }, new d8c() { // from class: com.baidu.tieba.dk8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -314,7 +314,7 @@ public abstract class BaseView<UiState extends IUiState, UiIntent extends IUiInt
                     }
                 }
             }));
-            this.b = occVar;
+            this.b = qccVar;
         }
     }
 }

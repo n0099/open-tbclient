@@ -16,12 +16,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.afb;
 import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.fgb;
+import com.baidu.tieba.hgb;
 import com.baidu.tieba.pt6;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
 import com.baidu.tieba.view.capture.camera.PicGLSurfaceView;
-import com.baidu.tieba.yeb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,25 +41,25 @@ public class qt6 implements pt6 {
     public boolean c;
     public boolean d;
     public TbPageContext e;
-    public yeb f;
+    public afb f;
     public AspectGLSurfaceView g;
     public pt6.b h;
     public pt6.a i;
     public boolean j;
     public kf0 k;
-    public yeb.e l;
-    public fgb.a m;
-    public yeb.d n;
+    public afb.e l;
+    public hgb.a m;
+    public afb.d n;
     public bi6 o;
     public yh6 p;
 
     /* loaded from: classes7.dex */
-    public class d implements yeb.d {
+    public class d implements afb.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qt6 a;
 
-        @Override // com.baidu.tieba.yeb.d
+        @Override // com.baidu.tieba.afb.d
         public void onBeautyEnableChanged(mf0 mf0Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mf0Var) == null) {
@@ -96,7 +96,7 @@ public class qt6 implements pt6 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    fgb.j(this.a, this.b.a.m);
+                    hgb.j(this.a, this.b.a.m);
                 }
             }
         }
@@ -119,14 +119,14 @@ public class qt6 implements pt6 {
             this.a = qt6Var;
         }
 
-        @Override // com.baidu.tieba.yeb.d
+        @Override // com.baidu.tieba.afb.d
         public void onChangeGender(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.a.f == null || this.a.f.d()) {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.d
+        @Override // com.baidu.tieba.afb.d
         public void onLuaMessage(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
@@ -180,54 +180,54 @@ public class qt6 implements pt6 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements yeb.e {
+    public class b implements afb.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qt6 a;
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void b(ICaptureResult iCaptureResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iCaptureResult) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void d(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void g(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.jfb.b
+        @Override // com.baidu.tieba.lfb.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
@@ -252,7 +252,7 @@ public class qt6 implements pt6 {
             this.a = qt6Var;
         }
 
-        @Override // com.baidu.tieba.jfb.b
+        @Override // com.baidu.tieba.lfb.b
         public void onProgress(long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && this.a.i != null) {
@@ -260,7 +260,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.yeb.e
+        @Override // com.baidu.tieba.afb.e
         public void f(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) && i > 0 && i2 > 0) {
@@ -268,7 +268,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.jfb.b
+        @Override // com.baidu.tieba.lfb.b
         public void onStartSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -279,7 +279,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.jfb.b
+        @Override // com.baidu.tieba.lfb.b
         public void onStopSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -292,54 +292,54 @@ public class qt6 implements pt6 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements fgb.a {
+    public class c implements hgb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qt6 a;
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void g(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || i < 3000) {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void j(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void onRecordEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -364,7 +364,7 @@ public class qt6 implements pt6 {
             this.a = qt6Var;
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a.f != null) {
@@ -372,7 +372,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void k(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && this.a.f != null) {
@@ -380,7 +380,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void b() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.f != null) {
@@ -388,7 +388,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void h() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a.f != null) {
@@ -396,7 +396,7 @@ public class qt6 implements pt6 {
             }
         }
 
-        @Override // com.baidu.tieba.fgb.a
+        @Override // com.baidu.tieba.hgb.a
         public void i() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.f != null) {
@@ -518,7 +518,7 @@ public class qt6 implements pt6 {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements yeb.c {
+    public class h implements afb.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qt6 a;
@@ -541,7 +541,7 @@ public class qt6 implements pt6 {
             this.a = qt6Var;
         }
 
-        @Override // com.baidu.tieba.yeb.c
+        @Override // com.baidu.tieba.afb.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.f != null && z) {
@@ -586,22 +586,22 @@ public class qt6 implements pt6 {
     }
 
     /* loaded from: classes7.dex */
-    public static class j implements ccb {
+    public static class j implements ecb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<TbPageContext> a;
 
-        @Override // com.baidu.tieba.ccb
-        public jdb c() {
+        @Override // com.baidu.tieba.ecb
+        public ldb c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (jdb) invokeV.objValue;
+            return (ldb) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -626,7 +626,7 @@ public class qt6 implements pt6 {
             this.a = new WeakReference<>(tbPageContext);
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -640,7 +640,7 @@ public class qt6 implements pt6 {
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -762,9 +762,9 @@ public class qt6 implements pt6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            yeb yebVar = this.f;
-            if (yebVar != null) {
-                yebVar.C();
+            afb afbVar = this.f;
+            if (afbVar != null) {
+                afbVar.C();
                 return true;
             }
             return false;
@@ -797,9 +797,9 @@ public class qt6 implements pt6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            yeb yebVar = this.f;
-            if (yebVar != null) {
-                yebVar.a();
+            afb afbVar = this.f;
+            if (afbVar != null) {
+                afbVar.a();
                 return true;
             }
             return false;
@@ -812,9 +812,9 @@ public class qt6 implements pt6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            yeb yebVar = this.f;
-            if (yebVar != null) {
-                yebVar.f();
+            afb afbVar = this.f;
+            if (afbVar != null) {
+                afbVar.f();
                 return true;
             }
             return false;
@@ -832,9 +832,9 @@ public class qt6 implements pt6 {
                 this.c = true;
                 return true;
             }
-            yeb yebVar = this.f;
-            if (yebVar != null) {
-                yebVar.g();
+            afb afbVar = this.f;
+            if (afbVar != null) {
+                afbVar.g();
                 return true;
             }
             return false;
@@ -862,9 +862,9 @@ public class qt6 implements pt6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            yeb yebVar = this.f;
-            if (yebVar != null) {
-                yebVar.A();
+            afb afbVar = this.f;
+            if (afbVar != null) {
+                afbVar.A();
                 return true;
             }
             return false;
@@ -877,9 +877,9 @@ public class qt6 implements pt6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            yeb yebVar = this.f;
-            if (yebVar != null) {
-                yebVar.B();
+            afb afbVar = this.f;
+            if (afbVar != null) {
+                afbVar.B();
                 return true;
             }
             return false;
@@ -890,9 +890,9 @@ public class qt6 implements pt6 {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            yeb yebVar = new yeb(this.e.getPageActivity());
-            this.f = yebVar;
-            yebVar.k(this.k);
+            afb afbVar = new afb(this.e.getPageActivity());
+            this.f = afbVar;
+            afbVar.k(this.k);
             this.f.m(this.g);
             this.f.r(this.l);
             this.f.q(this.n);
@@ -922,9 +922,9 @@ public class qt6 implements pt6 {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            bcb.c().h(TbadkCoreApplication.getInst());
-            bcb.c().j(FileHelper.getCacheDir());
-            bcb.c().k(new j(this.e));
+            dcb.c().h(TbadkCoreApplication.getInst());
+            dcb.c().j(FileHelper.getCacheDir());
+            dcb.c().k(new j(this.e));
         }
     }
 }

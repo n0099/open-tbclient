@@ -87,7 +87,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public ShareThreadMsgData S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ShareForumMsgData f1133T;
+    public ShareForumMsgData f1131T;
     public short U;
     public int V;
     public long W;
@@ -352,7 +352,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.b.setVisibility(0);
                 if (ormObject instanceof ShareForumMsgData) {
                     ShareForumMsgData shareForumMsgData = (ShareForumMsgData) ormObject;
-                    this.f1133T = shareForumMsgData;
+                    this.f1131T = shareForumMsgData;
                     b(shareForumMsgData);
                     return;
                 }
@@ -530,9 +530,9 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 mi8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
                 return;
             }
-            if (this.f1133T != null) {
+            if (this.f1131T != null) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getContext());
-                frsActivityConfig.createNormalCfg(this.f1133T.getForum_name(), "");
+                frsActivityConfig.createNormalCfg(this.f1131T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
             mi8.d("c15286", 2, this.V, this.a0, this.b0, this.W);

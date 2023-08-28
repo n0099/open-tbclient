@@ -110,12 +110,12 @@ public class d66 {
 
         /* renamed from: com.baidu.tieba.d66$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0267a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0268a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0267a(a aVar) {
+            public C0268a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -236,7 +236,7 @@ public class d66 {
                                 ValueAnimator ofInt = ValueAnimator.ofInt(this.a.i.x, this.a.i.x - (c66.b - c66.a));
                                 ofInt.setDuration(200L);
                                 ofInt.setInterpolator(new DecelerateInterpolator());
-                                ofInt.addUpdateListener(new C0267a(this));
+                                ofInt.addUpdateListener(new C0268a(this));
                                 ofInt.start();
                             }
                             this.a.f.d();

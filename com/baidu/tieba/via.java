@@ -2,7 +2,9 @@ package com.baidu.tieba;
 
 import android.content.res.Configuration;
 import android.view.ViewGroup;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.splashad.SplashAdView;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,14 +75,18 @@ public class via {
 
     public void e(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
-            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
-            this.a = new WeakReference<>(splashAdView);
-            mainTabActivity.getWindow().setFlags(1024, 1024);
-            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09227d);
-            if (viewGroup != null) {
-                viewGroup.setVisibility(0);
-                viewGroup.addView(splashAdView);
+        if (interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("SplashAdViewController", "开屏广告：showSplash, activity is: " + mainTabActivity);
+            if (mainTabActivity != null) {
+                SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
+                this.a = new WeakReference<>(splashAdView);
+                mainTabActivity.getWindow().setFlags(1024, 1024);
+                ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09227d);
+                if (viewGroup != null) {
+                    viewGroup.setVisibility(0);
+                    viewGroup.addView(splashAdView);
+                }
             }
         }
     }

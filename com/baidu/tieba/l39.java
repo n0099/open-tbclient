@@ -34,13 +34,13 @@ public class l39 extends xk1<sn5> {
 
         /* renamed from: com.baidu.tieba.l39$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0391a implements SendMsgParam.SendMsgParamConstruct {
+        public class C0394a implements SendMsgParam.SendMsgParamConstruct {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ vn5 a;
             public final /* synthetic */ Context b;
 
-            public C0391a(a aVar, vn5 vn5Var, Context context) {
+            public C0394a(a aVar, vn5 vn5Var, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -259,7 +259,7 @@ public class l39 extends xk1<sn5> {
         public void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull vn5 vn5Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, chatMsg, Long.valueOf(j), vn5Var}) == null) {
-                SendMsgParam.newInstanceByPa(context, chatMsg, j, new b(this, vn5Var), new C0391a(this, vn5Var, context));
+                SendMsgParam.newInstanceByPa(context, chatMsg, j, new b(this, vn5Var), new C0394a(this, vn5Var, context));
             }
         }
     }

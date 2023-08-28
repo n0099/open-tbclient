@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.bcc;
-import com.baidu.tieba.ecc;
-import com.baidu.tieba.fcc;
-import com.baidu.tieba.q7c;
-import com.baidu.tieba.q9c;
-import com.baidu.tieba.r9c;
+import com.baidu.tieba.dcc;
+import com.baidu.tieba.gcc;
+import com.baidu.tieba.hcc;
+import com.baidu.tieba.s7c;
 import com.baidu.tieba.s9c;
-import com.baidu.tieba.v9c;
+import com.baidu.tieba.t9c;
+import com.baidu.tieba.u9c;
 import com.baidu.tieba.x9c;
+import com.baidu.tieba.z9c;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final q7c a;
-    public final q7c b;
-    public final q7c c;
+    public final s7c a;
+    public final s7c b;
+    public final s7c c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static q7c computation() {
-        return bcc.f(a().a);
+    public static s7c computation() {
+        return dcc.f(a().a);
     }
 
-    public static q7c immediate() {
-        return s9c.a;
+    public static s7c immediate() {
+        return u9c.a;
     }
 
-    public static q7c io() {
-        return bcc.k(a().b);
+    public static s7c io() {
+        return dcc.k(a().b);
     }
 
-    public static q7c newThread() {
-        return bcc.l(a().c);
+    public static s7c newThread() {
+        return dcc.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            r9c.d.shutdown();
+            t9c.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            r9c.d.start();
+            t9c.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static q7c trampoline() {
-        return x9c.a;
+    public static s7c trampoline() {
+        return z9c.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof v9c) {
-            ((v9c) this.a).shutdown();
+        if (this.a instanceof x9c) {
+            ((x9c) this.a).shutdown();
         }
-        if (this.b instanceof v9c) {
-            ((v9c) this.b).shutdown();
+        if (this.b instanceof x9c) {
+            ((x9c) this.b).shutdown();
         }
-        if (this.c instanceof v9c) {
-            ((v9c) this.c).shutdown();
+        if (this.c instanceof x9c) {
+            ((x9c) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof v9c) {
-            ((v9c) this.a).start();
+        if (this.a instanceof x9c) {
+            ((x9c) this.a).start();
         }
-        if (this.b instanceof v9c) {
-            ((v9c) this.b).start();
+        if (this.b instanceof x9c) {
+            ((x9c) this.b).start();
         }
-        if (this.c instanceof v9c) {
-            ((v9c) this.c).start();
+        if (this.c instanceof x9c) {
+            ((x9c) this.c).start();
         }
     }
 
     public Schedulers() {
-        fcc f = ecc.c().f();
-        q7c g = f.g();
+        hcc f = gcc.c().f();
+        s7c g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = fcc.a();
+            this.a = hcc.a();
         }
-        q7c i = f.i();
+        s7c i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = fcc.c();
+            this.b = hcc.c();
         }
-        q7c j = f.j();
+        s7c j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = fcc.e();
+            this.c = hcc.e();
         }
     }
 
-    public static q7c from(Executor executor) {
-        return new q9c(executor);
+    public static s7c from(Executor executor) {
+        return new s9c(executor);
     }
 }

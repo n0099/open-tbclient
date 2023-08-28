@@ -4,12 +4,12 @@ import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.h8c;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.j8c;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.tt8;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -105,22 +105,22 @@ public final class NotificationChangedMonitor implements tt8 {
         d = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) NotificationChangedMonitor$Companion$instance$2.INSTANCE);
     }
 
-    public final jcc<Boolean> c() {
+    public final lcc<Boolean> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (jcc) this.b.getValue();
+            return (lcc) this.b.getValue();
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
-    public final jcc<Boolean> d() {
+    public final lcc<Boolean> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (jcc) this.a.getValue();
+            return (lcc) this.a.getValue();
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     public final boolean e() {
@@ -150,7 +150,7 @@ public final class NotificationChangedMonitor implements tt8 {
             }
         }
         this.a = LazyKt__LazyJVMKt.lazy(NotificationChangedMonitor$mSubject$2.INSTANCE);
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<jcc<Boolean>>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor$mFrequencyControlSubject$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<lcc<Boolean>>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor$mFrequencyControlSubject$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NotificationChangedMonitor this$0;
@@ -179,48 +179,48 @@ public final class NotificationChangedMonitor implements tt8 {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final jcc<Boolean> invoke() {
+            public final lcc<Boolean> invoke() {
                 InterceptResult invokeV;
                 boolean e;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (jcc) invokeV.objValue;
+                    return (lcc) invokeV.objValue;
                 }
                 e = this.this$0.e();
-                return jcc.R(Boolean.valueOf(e));
+                return lcc.R(Boolean.valueOf(e));
             }
         });
     }
 
-    public final n7c<Pair<Boolean, Boolean>> f() {
+    public final p7c<Pair<Boolean, Boolean>> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n7c<Pair<Boolean, Boolean>> s = n7c.c(d().g(), c().g(), new h8c() { // from class: com.baidu.tieba.pt8
+            p7c<Pair<Boolean, Boolean>> s = p7c.c(d().g(), c().g(), new j8c() { // from class: com.baidu.tieba.pt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.h8c
+                @Override // com.baidu.tieba.j8c
                 public final Object call(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? NotificationChangedMonitor.g((Boolean) obj, (Boolean) obj2) : invokeLL.objValue;
                 }
-            }).h(new h8c() { // from class: com.baidu.tieba.rt8
+            }).h(new j8c() { // from class: com.baidu.tieba.rt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.h8c
+                @Override // com.baidu.tieba.j8c
                 public final Object call(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? NotificationChangedMonitor.h((Pair) obj, (Pair) obj2) : invokeLL.objValue;
                 }
-            }).s(x7c.b());
+            }).s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "combineLatest(\n         …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public final void i() {

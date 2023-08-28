@@ -1,140 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class z7c {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<z7c> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final s7c a;
 
-    public static void a(Throwable th, Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return;
-                }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314307, "Lcom/baidu/tieba/z7c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948314307, "Lcom/baidu/tieba/z7c;");
+                return;
             }
         }
+        b = new AtomicReference<>();
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
+    public static z7c a() {
+        z7c z7cVar;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                z7c z7cVar2 = b.get();
+                if (z7cVar2 != null) {
+                    return z7cVar2;
                 }
-                th = th.getCause();
-                i = i2;
+                z7cVar = new z7c();
+            } while (!b.compareAndSet(null, z7cVar));
+            return z7cVar;
+        }
+        return (z7c) invokeV.objValue;
+    }
+
+    public static s7c b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (s7c) invokeV.objValue;
+    }
+
+    public z7c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return th;
         }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
-                }
-                throw new RuntimeException(th);
-            }
-            throw ((RuntimeException) th);
-        }
-        return (RuntimeException) invokeL.objValue;
-    }
-
-    public static void d(List<? extends Throwable> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
-            if (list.size() == 1) {
-                Throwable th = list.get(0);
-                if (!(th instanceof RuntimeException)) {
-                    if (th instanceof Error) {
-                        throw ((Error) th);
-                    }
-                    throw new RuntimeException(th);
-                }
-                throw ((RuntimeException) th);
-            }
-            throw new CompositeException(list);
-        }
-    }
-
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (!(th instanceof LinkageError)) {
-                                    return;
-                                }
-                                throw ((LinkageError) th);
-                            }
-                            throw ((ThreadDeath) th);
-                        }
-                        throw ((VirtualMachineError) th);
-                    }
-                    throw ((OnCompletedFailedException) th);
-                }
-                throw ((OnErrorFailedException) th);
-            }
-            throw ((OnErrorNotImplementedException) th);
-        }
-    }
-
-    public static void f(Throwable th, o7c<?> o7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, o7cVar) == null) {
-            e(th);
-            o7cVar.onError(th);
-        }
-    }
-
-    public static void g(Throwable th, o7c<?> o7cVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, o7cVar, obj) == null) {
-            e(th);
-            o7cVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
-    }
-
-    public static void h(Throwable th, s7c<?> s7cVar, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, s7cVar, obj) == null) {
-            e(th);
-            s7cVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
+        s7c b2 = x7c.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new a8c(Looper.getMainLooper());
         }
     }
 }

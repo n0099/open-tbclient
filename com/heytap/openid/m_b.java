@@ -21,13 +21,13 @@ public interface m_b extends IInterface {
         @Keep
         /* renamed from: com.heytap.openid.m_b$m_a$m_a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public static class C0591m_a implements m_b {
+        public static class C0592m_a implements m_b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             @Keep
             public IBinder m_a;
 
-            public C0591m_a(IBinder iBinder) {
+            public C0592m_a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

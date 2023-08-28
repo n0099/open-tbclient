@@ -66,7 +66,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public RelativeLayout.LayoutParams S;
 
     /* renamed from: T  reason: collision with root package name */
-    public Runnable f1123T;
+    public Runnable f1122T;
     public f U;
     public ValueAnimator.AnimatorUpdateListener V;
     public int a;
@@ -362,7 +362,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
         this.a = 3;
         this.I = R.color.CAM_X0101;
-        this.f1123T = new a(this);
+        this.f1122T = new a(this);
         this.V = new c(this);
         p(context);
     }
@@ -388,7 +388,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
         this.a = 3;
         this.I = R.color.CAM_X0101;
-        this.f1123T = new a(this);
+        this.f1122T = new a(this);
         this.V = new c(this);
         p(context);
     }
@@ -414,7 +414,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
         this.a = 3;
         this.I = R.color.CAM_X0101;
-        this.f1123T = new a(this);
+        this.f1122T = new a(this);
         this.V = new c(this);
         p(context);
     }
@@ -632,7 +632,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             if (valueAnimator2 != null) {
                 valueAnimator2.cancel();
             }
-            removeCallbacks(this.f1123T);
+            removeCallbacks(this.f1122T);
             super.onDetachedFromWindow();
         }
     }
@@ -789,7 +789,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
                 layoutParams.width = x;
                 this.n.setLayoutParams(layoutParams);
-                postDelayed(this.f1123T, 300L);
+                postDelayed(this.f1122T, 300L);
             }
             int i12 = this.z;
             if (i12 < this.v) {
@@ -802,7 +802,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 ViewGroup.LayoutParams layoutParams2 = this.o.getLayoutParams();
                 layoutParams2.width = x;
                 this.o.setLayoutParams(layoutParams2);
-                postDelayed(this.f1123T, 300L);
+                postDelayed(this.f1122T, 300L);
             }
             int i13 = (this.t - this.G) / 2;
             this.p.layout(((int) this.e.getX()) + i13, ((int) this.e.getY()) + i13, ((int) this.e.getX()) + i13 + this.G, ((int) this.e.getY()) + i13 + this.G);

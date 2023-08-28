@@ -34,15 +34,15 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d1b;
+import com.baidu.tieba.a4b;
+import com.baidu.tieba.f1b;
 import com.baidu.tieba.mt6;
 import com.baidu.tieba.n55;
-import com.baidu.tieba.o2b;
-import com.baidu.tieba.r2b;
-import com.baidu.tieba.s2b;
+import com.baidu.tieba.q2b;
+import com.baidu.tieba.t2b;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
+import com.baidu.tieba.u2b;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.y3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 /* loaded from: classes8.dex */
-public class NewWriteActivity extends BaseFragmentActivity implements o2b, VoiceManager.i {
+public class NewWriteActivity extends BaseFragmentActivity implements q2b, VoiceManager.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -63,11 +63,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
     @Nullable
     public View h;
     @Nullable
-    public d1b i;
+    public f1b i;
     @Nullable
-    public y3b j;
+    public a4b j;
     @Nullable
-    public r2b k;
+    public t2b k;
     public boolean l;
     public boolean m;
     public final CustomMessageListener n;
@@ -121,9 +121,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                r2b r2bVar = this.a.k;
-                if (r2bVar != null) {
-                    r2bVar.a();
+                t2b t2bVar = this.a.k;
+                if (t2bVar != null) {
+                    t2bVar.a();
                 }
                 this.a.setResult(100);
                 this.a.x();
@@ -160,9 +160,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                r2b r2bVar = this.a.k;
-                if (r2bVar != null) {
-                    r2bVar.B();
+                t2b t2bVar = this.a.k;
+                if (t2bVar != null) {
+                    t2bVar.B();
                     return false;
                 }
                 return false;
@@ -199,9 +199,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                r2b r2bVar = this.a.k;
-                if (r2bVar != null) {
-                    r2bVar.s();
+                t2b t2bVar = this.a.k;
+                if (t2bVar != null) {
+                    t2bVar.s();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921756));
                 }
                 this.a.h.setVisibility(8);
@@ -276,9 +276,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                r2b r2bVar = this.a.k;
-                if (r2bVar != null) {
-                    r2bVar.A();
+                t2b t2bVar = this.a.k;
+                if (t2bVar != null) {
+                    t2bVar.A();
                 }
                 BdUtilHelper.hideSoftKeyPad(this.a.getActivity(), this.a.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -316,7 +316,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -324,7 +324,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         }
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -344,7 +344,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         }
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -366,12 +366,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        r2b r2bVar;
+        t2b t2bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            d1b d1bVar = this.i;
-            if ((d1bVar == null || !d1bVar.d()) && (r2bVar = this.k) != null) {
-                P0(r2bVar.onBackPressed());
+            f1b f1bVar = this.i;
+            if ((f1bVar == null || !f1bVar.d()) && (t2bVar = this.k) != null) {
+                P0(t2bVar.onBackPressed());
             }
         }
     }
@@ -381,9 +381,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onDestroy();
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onDestroy();
             }
             J();
             G0().onDestory(getPageContext());
@@ -398,9 +398,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPause();
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onPause();
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onPause();
                 this.k.i();
             }
             G0().onPause();
@@ -414,9 +414,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onResume();
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onResume();
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onResume();
             }
             G0().onResume(getPageContext());
             YunDialogManager.onShow(this, n55.n);
@@ -428,9 +428,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onStart();
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onStart();
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onStart();
             }
             G0().onStart(getPageContext());
         }
@@ -441,9 +441,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStop();
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onStop();
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onStop();
             }
             G0().onStop(getPageContext());
         }
@@ -453,8 +453,8 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            d1b d1bVar = this.i;
-            if (d1bVar != null && d1bVar.a()) {
+            f1b f1bVar = this.i;
+            if (f1bVar != null && f1bVar.a()) {
                 return true;
             }
             return false;
@@ -462,7 +462,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
@@ -471,7 +471,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         }
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void P0(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && !z) {
@@ -480,7 +480,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         }
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
@@ -505,9 +505,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onChangeSkinType(i);
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onChangeSkinType(i);
             }
             View view2 = this.h;
             if (view2 != null && view2.getVisibility() == 0) {
@@ -521,9 +521,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.e(z);
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.e(z);
             }
         }
     }
@@ -533,9 +533,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
             super.onNewIntent(intent);
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onNewIntent(intent);
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onNewIntent(intent);
             }
         }
     }
@@ -544,16 +544,16 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onSaveInstanceState(bundle);
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onSaveInstanceState(bundle);
             }
             G0().onSaveInstanceState(this);
             super.onSaveInstanceState(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.o2b
+    @Override // com.baidu.tieba.q2b
     public void Q0(int i, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
@@ -561,13 +561,13 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
             return;
         }
         intent.putExtra("type", i);
-        y3b y3bVar = this.j;
-        if (y3bVar != null) {
-            this.k = y3bVar.a(i, z);
+        a4b a4bVar = this.j;
+        if (a4bVar != null) {
+            this.k = a4bVar.a(i, z);
         }
-        r2b r2bVar = this.k;
-        if (r2bVar != null) {
-            r2bVar.onCreate(null);
+        t2b t2bVar = this.k;
+        if (t2bVar != null) {
+            t2bVar.onCreate(null);
             this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -577,9 +577,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            r2b r2bVar = this.k;
-            if (r2bVar != null) {
-                r2bVar.onActivityResult(i, i2, intent);
+            t2b t2bVar = this.k;
+            if (t2bVar != null) {
+                t2bVar.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -605,9 +605,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));
-            y3b y3bVar = new y3b(getPageContext(), this.b, this.d, this.e, this);
-            this.j = y3bVar;
-            r2b b2 = y3bVar.b(bundle);
+            a4b a4bVar = new a4b(getPageContext(), this.b, this.d, this.e, this);
+            this.j = a4bVar;
+            t2b b2 = a4bVar.b(bundle);
             this.k = b2;
             if (b2 != null) {
                 b2.onCreate(bundle);
@@ -615,9 +615,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
             this.f = new GestureDetector(getPageContext().getPageActivity(), new e(this, null));
             registerListener(this.n);
             G0().onCreate(getPageContext());
-            d1b d1bVar = new d1b(this);
-            this.i = d1bVar;
-            d1bVar.e();
+            f1b f1bVar = new f1b(this);
+            this.i = f1bVar;
+            f1bVar.e();
         }
     }
 
@@ -633,7 +633,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements o2b, Voice
                 }
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{s2b.a + str2 + ("&from=" + str)});
+                urlManager.dealOneLink(pageContext, new String[]{u2b.a + str2 + ("&from=" + str)});
             } catch (Exception e2) {
                 BdLog.e("openPageByUrl fail:" + e2);
             }

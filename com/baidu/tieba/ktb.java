@@ -4,19 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class ktb implements Runnable {
+public final class ktb<TResult> implements lub<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ vtb a;
-    public final /* synthetic */ mtb b;
+    public mub<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public ktb(mtb mtbVar, vtb vtbVar) {
+    public ktb(Executor executor, mub<TResult> mubVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mtbVar, vtbVar};
+            Object[] objArr = {executor, mubVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,21 +28,16 @@ public class ktb implements Runnable {
                 return;
             }
         }
-        this.b = mtbVar;
-        this.a = vtbVar;
+        this.c = new Object();
+        this.a = mubVar;
+        this.b = executor;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tieba.lub
+    public final void a(xtb<TResult> xtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.b.c) {
-                lub lubVar = this.b.a;
-                if (lubVar != null) {
-                    this.a.c();
-                    ((ztb) lubVar).a.countDown();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, xtbVar) == null) {
+            this.b.execute(new itb(this, xtbVar));
         }
     }
 }

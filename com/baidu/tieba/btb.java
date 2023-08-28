@@ -1,95 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.util.concurrent.Callable;
-import java.util.zip.DataFormatException;
-import java.util.zip.Inflater;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class btb implements Callable<atb> {
+public class btb {
     public static /* synthetic */ Interceptable $ic;
+    public static final btb a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Intent a;
 
-    public btb(Intent intent) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657913, "Lcom/baidu/tieba/btb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657913, "Lcom/baidu/tieba/btb;");
+                return;
+            }
+        }
+        a = new btb();
+    }
+
+    public btb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = intent;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, com.baidu.tieba.atb] */
-    @Override // java.util.concurrent.Callable
-    public atb call() throws Exception {
+    public static btb a() {
         InterceptResult invokeV;
-        byte[] bArr;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = this.a;
-            if (intent == null) {
-                return null;
-            }
-            long j = 0;
-            try {
-                j = intent.getLongExtra("msg_id", 0L);
-            } catch (Exception e) {
-                etb.b("PassByMsgIntentParser", "parserMsgId", e);
-            }
-            try {
-                bArr = this.a.getByteArrayExtra("msg_content");
-            } catch (Exception e2) {
-                etb.b("PassByMsgIntentParser", "parseMsgContent", e2);
-                bArr = null;
-            }
-            Inflater inflater = new Inflater();
-            inflater.setInput(bArr);
-            byte[] bArr2 = new byte[256];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
-            while (!inflater.finished()) {
-                try {
-                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
-                } catch (DataFormatException unused) {
-                    inflater.end();
-                    str = null;
-                } catch (Throwable th) {
-                    inflater.end();
-                    throw th;
-                }
-            }
-            inflater.end();
-            str = byteArrayOutputStream.toString("utf-8");
-            if (str == null) {
-                return null;
-            }
-            String optString = new JSONObject(str).optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            atb atbVar = new atb();
-            atbVar.d(j);
-            atbVar.c(optString);
-            return atbVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return invokeV.objValue;
+        return (btb) invokeV.objValue;
+    }
+
+    public void b(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            ltb ltbVar = ltb.e;
+            ptb ptbVar = new ptb();
+            ptbVar.a = context.getApplicationContext();
+            ptbVar.b = z;
+            ltbVar.c(ptbVar);
+        }
     }
 }

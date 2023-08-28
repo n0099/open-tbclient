@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes8.dex */
 public final class xxb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Path a;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,15 +28,6 @@ public final class xxb {
                 return;
             }
         }
-        a = new Path();
-    }
-
-    public static final Path a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return (Path) invokeV.objValue;
+        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
     }
 }

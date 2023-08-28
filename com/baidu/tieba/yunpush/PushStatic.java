@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
 import com.baidu.tieba.ke5;
-import com.baidu.tieba.p6b;
+import com.baidu.tieba.r6b;
 import com.baidu.tieba.rt6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,11 +47,11 @@ public class PushStatic {
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0543a implements Runnable {
+        public class RunnableC0544a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0543a(a aVar) {
+            public RunnableC0544a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class PushStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !TbadkCoreApplication.getInst().isMainProcess(false) || !PermissionUtil.isAgreePrivacyPolicy()) {
                 return;
             }
-            rt6.a(new RunnableC0543a(this), "processPushBySwitch", 3);
+            rt6.a(new RunnableC0544a(this), "processPushBySwitch", 3);
         }
     }
 
@@ -545,7 +545,7 @@ public class PushStatic {
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
             PushManager.enableHonorProxy(context, true);
-            PushManager.startWork(context, 0, p6b.a(context, "api_key"));
+            PushManager.startWork(context, 0, r6b.a(context, "api_key"));
             e();
             NotificationHelper.createIMChannel4Oppo(context);
         }

@@ -1,15 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class hcb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hcb {
+    void a(int i);
 
-    public abstract String a();
+    void b();
 
-    public abstract void b();
+    void c();
 
-    public abstract void c();
+    void d();
+
+    void e(String str);
+
+    void f(String str);
 }

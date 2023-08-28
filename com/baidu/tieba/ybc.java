@@ -3,141 +3,190 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorThrowable;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes8.dex */
-public final class ybc {
+public class ybc<T> implements q7c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final q7c<? super T> a;
+    public boolean b;
+    public volatile boolean c;
+    public a d;
 
-    /* JADX INFO: Add missing generic type declarations: [T] */
     /* loaded from: classes8.dex */
-    public static class a<T> extends t7c<T> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o7c e;
+        public Object[] a;
+        public int b;
 
-        public a(o7c o7cVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o7cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.e = o7cVar;
         }
 
-        @Override // com.baidu.tieba.o7c
-        public void onError(Throwable th) {
+        public void a(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.o7c
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.e.onNext(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.o7c
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.onCompleted();
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                int i = this.b;
+                Object[] objArr = this.a;
+                if (objArr == null) {
+                    objArr = new Object[16];
+                    this.a = objArr;
+                } else if (i == objArr.length) {
+                    Object[] objArr2 = new Object[(i >> 2) + i];
+                    System.arraycopy(objArr, 0, objArr2, 0, i);
+                    this.a = objArr2;
+                    objArr = objArr2;
+                }
+                objArr[i] = obj;
+                this.b = i + 1;
             }
         }
     }
 
-    /* JADX INFO: Add missing generic type declarations: [T] */
-    /* loaded from: classes8.dex */
-    public static class b<T> extends t7c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t7c e;
+    public ybc(q7c<? super T> q7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q7cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = q7cVar;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(t7c t7cVar, t7c t7cVar2) {
-            super(t7cVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t7cVar, t7cVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((t7c) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.q7c
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.b());
+                return;
+            }
+            this.b = true;
+            this.a.onCompleted();
+        }
+    }
+
+    @Override // com.baidu.tieba.q7c
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            b8c.e(th);
+            if (this.c) {
+                return;
+            }
+            synchronized (this) {
+                if (this.c) {
                     return;
                 }
-            }
-            this.e = t7cVar2;
-        }
-
-        @Override // com.baidu.tieba.o7c
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.onCompleted();
-            }
-        }
-
-        @Override // com.baidu.tieba.o7c
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.o7c
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.e.onNext(t);
+                this.c = true;
+                if (this.b) {
+                    a aVar = this.d;
+                    if (aVar == null) {
+                        aVar = new a();
+                        this.d = aVar;
+                    }
+                    aVar.a(NotificationLite.c(th));
+                    return;
+                }
+                this.b = true;
+                this.a.onError(th);
             }
         }
     }
 
-    public static <T> t7c<T> a() {
-        InterceptResult invokeV;
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
+        continue;
+     */
+    @Override // com.baidu.tieba.q7c
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onNext(T t) {
+        Object[] objArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b(tbc.a());
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
+            return;
         }
-        return (t7c) invokeV.objValue;
-    }
-
-    public static <T> t7c<T> b(o7c<? super T> o7cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o7cVar)) == null) {
-            return new a(o7cVar);
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.i(t));
+                return;
+            }
+            this.b = true;
+            try {
+                this.a.onNext(t);
+                while (true) {
+                    synchronized (this) {
+                        a aVar2 = this.d;
+                        if (aVar2 == null) {
+                            this.b = false;
+                            return;
+                        }
+                        this.d = null;
+                        for (Object obj : aVar2.a) {
+                            if (obj == null) {
+                                break;
+                            }
+                            try {
+                                if (NotificationLite.a(this.a, obj)) {
+                                    this.c = true;
+                                    return;
+                                }
+                            } catch (Throwable th) {
+                                this.c = true;
+                                b8c.e(th);
+                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                return;
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                this.c = true;
+                b8c.g(th2, this.a, t);
+            }
         }
-        return (t7c) invokeL.objValue;
-    }
-
-    public static <T> t7c<T> c(t7c<? super T> t7cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t7cVar)) == null) {
-            return new b(t7cVar, t7cVar);
-        }
-        return (t7c) invokeL.objValue;
     }
 }

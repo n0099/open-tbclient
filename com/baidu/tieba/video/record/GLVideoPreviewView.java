@@ -260,14 +260,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements ira {
 
         /* renamed from: com.baidu.tieba.video.record.GLVideoPreviewView$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class HandlerC0501c extends Handler {
+        public class HandlerC0503c extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public final /* synthetic */ c b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC0501c(c cVar, Looper looper, Context context) {
+            public HandlerC0503c(c cVar, Looper looper, Context context) {
                 super(looper);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -440,7 +440,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements ira {
             HandlerThread handlerThread = new HandlerThread("CreateItemThread");
             this.o = handlerThread;
             handlerThread.start();
-            this.p = new HandlerC0501c(this, this.o.getLooper(), context);
+            this.p = new HandlerC0503c(this, this.o.getLooper(), context);
             D(kpa.b(2));
         }
 

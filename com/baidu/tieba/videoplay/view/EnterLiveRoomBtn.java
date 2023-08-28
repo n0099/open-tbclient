@@ -60,7 +60,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
     public a j;
     public final ClickableSpan k;
     public final ClickableSpan l;
-    public final a.InterfaceC0503a m;
+    public final a.InterfaceC0505a m;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -75,11 +75,11 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public boolean b;
-        public InterfaceC0503a c;
+        public InterfaceC0505a c;
 
         /* renamed from: com.baidu.tieba.videoplay.view.EnterLiveRoomBtn$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public interface InterfaceC0503a {
+        public interface InterfaceC0505a {
             void a(int i);
 
             void onFinish();
@@ -105,28 +105,28 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         }
 
         public static final void a(a this$0) {
-            InterfaceC0503a interfaceC0503a;
-            InterfaceC0503a interfaceC0503a2;
+            InterfaceC0505a interfaceC0505a;
+            InterfaceC0505a interfaceC0505a2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
                 int i = this$0.a - 1;
                 this$0.a = i;
                 if (i < 0) {
-                    if (!this$0.b && (interfaceC0503a2 = this$0.c) != null) {
-                        interfaceC0503a2.onFinish();
+                    if (!this$0.b && (interfaceC0505a2 = this$0.c) != null) {
+                        interfaceC0505a2.onFinish();
                     }
                     this$0.cancel();
-                } else if (!this$0.b && (interfaceC0503a = this$0.c) != null) {
-                    interfaceC0503a.a(i);
+                } else if (!this$0.b && (interfaceC0505a = this$0.c) != null) {
+                    interfaceC0505a.a(i);
                 }
             }
         }
 
-        public final void b(InterfaceC0503a interfaceC0503a) {
+        public final void b(InterfaceC0505a interfaceC0505a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0503a) == null) {
-                this.c = interfaceC0503a;
+            if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0505a) == null) {
+                this.c = interfaceC0505a;
             }
         }
 
@@ -222,7 +222,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public static final class d implements a.InterfaceC0503a {
+    public static final class d implements a.InterfaceC0505a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterLiveRoomBtn a;
@@ -245,7 +245,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             this.a = enterLiveRoomBtn;
         }
 
-        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0503a
+        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0505a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -254,7 +254,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             this.a.setCountDownStyle(i);
         }
 
-        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0503a
+        @Override // com.baidu.tieba.videoplay.view.EnterLiveRoomBtn.a.InterfaceC0505a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

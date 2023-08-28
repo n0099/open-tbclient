@@ -30,13 +30,13 @@ public class as {
 
         /* renamed from: com.baidu.tieba.as$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0239a implements Runnable {
+        public class RunnableC0238a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0239a(a aVar, byte[] bArr) {
+            public RunnableC0238a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class as {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0239a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0238a(this, bArr), "HandshakeRequest");
             }
         }
 

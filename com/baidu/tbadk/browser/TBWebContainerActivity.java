@@ -1706,7 +1706,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
     }
 
     public /* synthetic */ void S1(final WebView webView) {
-        webView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.ow4
+        webView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.mw4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -2089,7 +2089,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
                 this.a.setWebChromeClient(new s(this));
                 this.a.s(this.createdTime);
                 R1();
-                this.a.F(new ri6() { // from class: com.baidu.tieba.mw4
+                this.a.F(new ri6() { // from class: com.baidu.tieba.ow4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

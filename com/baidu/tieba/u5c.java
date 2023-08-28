@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UnownedUserData;
-import org.chromium.base.UnownedUserDataHost;
-/* compiled from: UnownedUserData.java */
+import org.chromium.base.Callback;
+import org.chromium.base.Promise;
+/* compiled from: lambda */
 /* loaded from: classes8.dex */
-public final /* synthetic */ class u5c {
+public final /* synthetic */ class u5c implements Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Promise a;
 
-    public static boolean $default$informOnDetachmentFromHost(UnownedUserData unownedUserData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, unownedUserData)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
+    @Override // org.chromium.base.Callback
+    public /* synthetic */ Runnable bind(T t) {
+        return v5c.$default$bind(this, t);
     }
 
-    public static void $default$onDetachedFromHost(UnownedUserData unownedUserData, UnownedUserDataHost unownedUserDataHost) {
+    @Override // org.chromium.base.Callback
+    public final void onResult(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, unownedUserData, unownedUserDataHost) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            this.a.reject((Exception) obj);
         }
     }
 }

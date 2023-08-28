@@ -281,7 +281,7 @@ public class oh7 {
             shareItem.showTail = false;
             shareItem.shareType = 1;
             if (i == 6) {
-                shareItem.title = this.a.getString(R.string.come_on_look_forum) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.core_bar) + "]@" + this.a.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + di.getUrlEncode(this.n) + "&fr=frsshare";
+                shareItem.title = this.a.getString(R.string.come_on_look_forum) + PreferencesUtil.LEFT_MOUNT + this.n + this.a.getString(R.string.core_bar) + PreferencesUtil.RIGHT_MOUNT + "@" + this.a.getString(R.string.tieba_text) + "https://tieba.baidu.com/f?kw=" + di.getUrlEncode(this.n) + "&fr=frsshare";
             } else {
                 shareItem.title = this.a.getString(R.string.obfuscated_res_0x7f0f029e);
             }

@@ -1,32 +1,35 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public abstract class gza extends gn6 {
+public final class gza implements wm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView d;
-    public final HashSet<String> e;
+    public final HashMap<String, String> a;
+    public final WriteData b;
+    public hza c;
 
-    public abstract void i(WebView webView, String str);
-
-    public abstract void j(WebView webView, String str);
-
-    public gza(TbWebView webView) {
+    public gza(HashMap<String, String> pathInfo, WriteData writeData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
+            Object[] objArr = {pathInfo, writeData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,80 +39,67 @@ public abstract class gza extends gn6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        this.d = webView;
-        HashSet<String> hashSet = new HashSet<>();
-        this.e = hashSet;
-        hashSet.add("onPageStarted");
-        this.e.add("onPageFinished");
-        this.e.add("onAddView");
-        this.e.add("onDraftLoad");
-        this.d.p(this);
-        c(new dm6() { // from class: com.baidu.tieba.dza
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        Intrinsics.checkNotNullParameter(pathInfo, "pathInfo");
+        Intrinsics.checkNotNullParameter(writeData, "writeData");
+        this.a = pathInfo;
+        this.b = writeData;
+    }
 
-            @Override // com.baidu.tieba.dm6
-            public final void d(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    gza.d(gza.this, webView2, str);
+    @Override // com.baidu.tieba.wm6
+    public WebResourceResponse a(WebView view2, WebResourceRequest request) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, request)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(request, "request");
+            Uri u = request.getUrl();
+            String scheme = u.getScheme();
+            if (scheme != null) {
+                int hashCode = scheme.hashCode();
+                if (hashCode != -787290468) {
+                    if (hashCode != 1366925564) {
+                        if (hashCode == 1378998483 && scheme.equals("com.baidu.tieba.voice")) {
+                            Intrinsics.checkNotNullExpressionValue(u, "u");
+                            return LocalFileInterceptorKt.c(u, request);
+                        }
+                        return null;
+                    } else if (scheme.equals("com.baidu.tieba.image")) {
+                        HashMap<String, String> hashMap = this.a;
+                        WriteData writeData = this.b;
+                        hza hzaVar = this.c;
+                        Intrinsics.checkNotNullExpressionValue(u, "u");
+                        return LocalFileInterceptorKt.b(hashMap, writeData, hzaVar, u, request);
+                    } else {
+                        return null;
+                    }
+                } else if (scheme.equals("com.baidu.tieba.face")) {
+                    Intrinsics.checkNotNullExpressionValue(u, "u");
+                    return LocalFileInterceptorKt.a(u, request);
+                } else {
+                    return null;
                 }
             }
-        });
-        b(new cm6() { // from class: com.baidu.tieba.bza
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+            return null;
+        }
+        return (WebResourceResponse) invokeLL.objValue;
+    }
 
-            @Override // com.baidu.tieba.cm6
-            public final void onPageFinished(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    gza.e(gza.this, webView2, str);
-                }
+    public final void b(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo) == null) && imageFileInfo != null) {
+            String b = exa.b(imageFileInfo);
+            if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?t=", false, 2, (Object) null)) {
+                b = b.substring(0, StringsKt__StringsKt.lastIndexOf$default((CharSequence) b, "?t=", 0, false, 6, (Object) null));
+                Intrinsics.checkNotNullExpressionValue(b, "this as java.lang.String…ing(startIndex, endIndex)");
             }
-        });
-    }
-
-    public static final void d(gza this$0, WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.j(webView, str);
-            this$0.f("onPageStarted");
+            this.a.put(b, exa.a(imageFileInfo));
         }
     }
 
-    public static final void e(gza this$0, WebView webView, String str) {
+    public final void c(hza hzaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.i(webView, str);
-            this$0.f("onPageFinished");
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.e.remove(str);
-            if (this.e.isEmpty()) {
-                wl6.a().i(this.d, "writePageNa.pageReady", new JSONObject());
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f("onAddView");
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f("onDraftLoad");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hzaVar) == null) {
+            this.c = hzaVar;
         }
     }
 }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pqb;
+import com.baidu.tieba.rqb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -172,7 +172,7 @@ public class KSNativeAdGroupImgAppDownloadView extends y {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new pqb(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new rqb(ksNativeAd.getActionDescription(), this.k));
         }
     }
 }

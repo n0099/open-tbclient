@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.t7c;
-import com.baidu.tieba.z7c;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.r7c;
+import com.baidu.tieba.v7c;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements p7c {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements r7c {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final t7c<? super T> child;
+    public final v7c<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(t7c<? super T> t7cVar) {
-        this.child = t7cVar;
+    public SingleDelayedProducer(v7c<? super T> v7cVar) {
+        this.child = v7cVar;
     }
 
-    @Override // com.baidu.tieba.p7c
+    @Override // com.baidu.tieba.r7c
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements p7c
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(t7c<? super T> t7cVar, T t) {
-        if (t7cVar.isUnsubscribed()) {
+    public static <T> void emit(v7c<? super T> v7cVar, T t) {
+        if (v7cVar.isUnsubscribed()) {
             return;
         }
         try {
-            t7cVar.onNext(t);
-            if (t7cVar.isUnsubscribed()) {
+            v7cVar.onNext(t);
+            if (v7cVar.isUnsubscribed()) {
                 return;
             }
-            t7cVar.onCompleted();
+            v7cVar.onCompleted();
         } catch (Throwable th) {
-            z7c.g(th, t7cVar, t);
+            b8c.g(th, v7cVar, t);
         }
     }
 }

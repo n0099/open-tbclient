@@ -14,7 +14,7 @@ import java.util.List;
 public class a {
     public Application a;
     public c b;
-    public final List<InterfaceC0747a> c;
+    public final List<InterfaceC0748a> c;
     public int d;
     public WeakReference<Activity> e;
     public volatile int f;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0747a {
+    public interface InterfaceC0748a {
         @MainThread
         void b();
 
@@ -135,7 +135,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0747a) obj).b();
+                ((InterfaceC0748a) obj).b();
             }
         }
     }
@@ -146,7 +146,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0747a) obj).c();
+                ((InterfaceC0748a) obj).c();
             }
         }
     }
@@ -208,19 +208,19 @@ public class a {
         }
     }
 
-    public void b(InterfaceC0747a interfaceC0747a) {
+    public void b(InterfaceC0748a interfaceC0748a) {
         synchronized (this.c) {
-            this.c.remove(interfaceC0747a);
+            this.c.remove(interfaceC0748a);
         }
     }
 
-    public void a(InterfaceC0747a interfaceC0747a) {
-        if (interfaceC0747a == null) {
+    public void a(InterfaceC0748a interfaceC0748a) {
+        if (interfaceC0748a == null) {
             return;
         }
         synchronized (this.c) {
-            if (!this.c.contains(interfaceC0747a)) {
-                this.c.add(interfaceC0747a);
+            if (!this.c.contains(interfaceC0748a)) {
+                this.c.add(interfaceC0748a);
             }
         }
     }

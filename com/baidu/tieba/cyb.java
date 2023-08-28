@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class cyb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final double a;
-    public final double b;
+    public final float a;
+    public final float b;
 
-    public cyb(double d, double d2, double d3, double d4) {
+    public cyb(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,25 +28,25 @@ public final class cyb {
                 return;
             }
         }
-        this.a = d3;
-        this.b = d4;
+        this.a = f;
+        this.b = f2;
     }
 
-    public final double a() {
+    public final float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.doubleValue;
+        return invokeV.floatValue;
     }
 
-    public final double b() {
+    public final float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return invokeV.doubleValue;
+        return invokeV.floatValue;
     }
 }

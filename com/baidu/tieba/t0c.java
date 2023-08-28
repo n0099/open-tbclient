@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import com.yy.transvod.player.common.NetRequestStatusInfo;
 /* loaded from: classes8.dex */
 public interface t0c {
-    void a(e1c e1cVar, int i, NetRequestStatusInfo netRequestStatusInfo);
+    void onPlayerInfo(g1c g1cVar, int i, long j);
+
+    void onPlayerVideoSizeUpdate(g1c g1cVar, int i, int i2);
 }

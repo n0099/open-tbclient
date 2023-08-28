@@ -36,12 +36,12 @@ public class kja {
 
         /* renamed from: com.baidu.tieba.kja$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0382a extends bx5<String> {
+        public class C0385a extends bx5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0382a(a aVar) {
+            public C0385a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class kja {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.b == null) {
                 return;
             }
-            fx5.c(new C0382a(this), new b(this));
+            fx5.c(new C0385a(this), new b(this));
         }
     }
 

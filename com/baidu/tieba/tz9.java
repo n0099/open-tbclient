@@ -43,8 +43,8 @@ public class tz9 implements hk1 {
             arrayList.add(new zo9());
             arrayList.add(new ap9());
             arrayList.add(new bp9());
-            arrayList.add(new l4b());
-            arrayList.add(new m4b());
+            arrayList.add(new n4b());
+            arrayList.add(new o4b());
             return arrayList;
         }
         return invokeV.objValue;

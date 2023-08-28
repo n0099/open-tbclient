@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.bj6;
-import com.baidu.tieba.g8c;
+import com.baidu.tieba.i8c;
 /* loaded from: classes4.dex */
 public class InitWebViewTask extends LaunchTask {
     public static final String KEY_UA_SKIN = "skin/";
@@ -31,9 +31,9 @@ public class InitWebViewTask extends LaunchTask {
         try {
             bj6 bj6Var = new bj6();
             bj6Var.j(TbadkCoreApplication.getInst().isDebugMode());
-            bj6.d(new g8c<String, Pair<Boolean, String>>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
+            bj6.d(new i8c<String, Pair<Boolean, String>>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.g8c
+                @Override // com.baidu.tieba.i8c
                 public Pair<Boolean, String> call(String str) {
                     return InitWebViewTask.updateUA(str);
                 }

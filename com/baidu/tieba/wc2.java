@@ -43,11 +43,11 @@ public class wc2 extends li2 {
 
         /* renamed from: com.baidu.tieba.wc2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0512a implements Runnable {
+        public class RunnableC0514a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0512a(a aVar) {
+            public RunnableC0514a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class wc2 extends li2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 d82.k("SwanAppV8DaemonEngine", "reload");
-                xo3.a0(new RunnableC0512a(this));
+                xo3.a0(new RunnableC0514a(this));
             }
         }
 

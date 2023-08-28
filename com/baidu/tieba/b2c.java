@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,92 +10,137 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVStream;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.common.AlphaChannelData;
-import com.yy.transvod.player.common.AudioSendStamp;
-import com.yy.transvod.player.common.MixAudioExtraInfo;
-import com.yy.transvod.player.common.MixVideoExtraInfo;
-import com.yy.transvod.player.common.NetRequestStatusInfo;
-import com.yy.transvod.player.common.VideoExtraInfo;
-import com.yy.transvod.player.common.effectmp4.EffectFrame;
-import com.yy.transvod.player.common.effectmp4.EffectInfo;
-import com.yy.transvod.player.common.effectmp4.EffectObject;
-import com.yy.transvod.player.common.effectmp4.EffectSource;
-import com.yy.transvod.player.core.TransVodProxy;
+import com.huawei.hms.support.api.entity.auth.AuthCode;
 import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
-import java.util.UUID;
+import java.lang.ref.WeakReference;
+import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes5.dex */
 public class b2c {
     public static /* synthetic */ Interceptable $ic;
-    public static String d;
+    public static int u;
     public transient /* synthetic */ FieldHolder $fh;
-    public TransVodProxy a;
-    public y1c b;
-    public Context c;
+    public Timer a;
+    public int b;
+    public AtomicInteger c;
+    public WeakReference<x1c> d;
+    public boolean e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public AtomicLong q;
+    public AtomicLong r;
+    public AtomicLong s;
+    public AtomicBoolean t;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947594518, "Lcom/baidu/tieba/b2c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947594518, "Lcom/baidu/tieba/b2c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947594518, "Lcom/baidu/tieba/b2c;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b2c a;
+
+        public a(b2c b2cVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947594518, "Lcom/baidu/tieba/b2c;");
-                return;
-            }
-        }
-        c0c.b();
-        d = null;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c0c.a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.l();
-                    this.a = null;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b2cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            y1c y1cVar = this.b;
-            if (y1cVar != null) {
-                y1cVar.f();
-                this.b = null;
-            }
+            this.a = b2cVar;
         }
-    }
 
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.v(true);
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!this.a.e) {
+                    b2c.k(this.a);
+                    int i = ((System.currentTimeMillis() - this.a.r.get()) > 600L ? 1 : ((System.currentTimeMillis() - this.a.r.get()) == 600L ? 0 : -1));
+                    if (i <= 0 || this.a.f || this.a.g == -1 || this.a.r.get() == 0) {
+                        if (i < 0 && this.a.f) {
+                            this.a.g = -1;
+                            this.a.f = false;
+                            this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
+                        }
+                    } else {
+                        this.a.f = true;
+                        this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
+                    }
+                    if (this.a.b % 20 == 0) {
+                        this.a.v(6000);
+                        this.a.k = 0;
+                    }
+                    if (this.a.b % 20 == 0) {
+                        this.a.v(6001);
+                        this.a.l = 0;
+                    }
+                    if (this.a.b % 30 == 0 && this.a.t.get()) {
+                        long currentTimeMillis = System.currentTimeMillis() - this.a.q.get();
+                        if (currentTimeMillis > 2000 && this.a.q.get() >= this.a.r.get() && this.a.r.get() > 0) {
+                            TLog.g(this, "[draw] may block, elapse " + currentTimeMillis + "ms after drawStart");
+                            this.a.t.set(false);
+                        }
+                    }
+                    if (this.a.b % 50 == 0 && this.a.s.get() > 1500) {
+                        TLog.g(this, "[draw] max cost: " + this.a.s.get());
+                        this.a.s.set(0L);
+                    }
+                    if (this.a.b % 50 != 0) {
+                        return;
+                    }
+                    this.a.v(AuthCode.StatusCode.PERMISSION_NOT_EXIST);
+                    this.a.m = 0L;
+                    this.a.n = 0L;
+                    this.a.b = 0;
+                    return;
                 }
+                this.a.e = false;
+                this.a.m = 0L;
+                this.a.n = 0L;
+                this.a.l = 0;
             }
         }
     }
 
-    public b2c(Context context, d1c d1cVar) {
+    public b2c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, d1cVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -107,93 +151,194 @@ public class b2c {
             }
         }
         this.a = null;
-        this.b = null;
-        this.c = null;
-        c0c.c(context);
-        c();
-        this.c = context;
-        String a = a(context);
-        TLog.h("TransVodManager", "generated uid " + a);
+        this.b = 0;
+        this.c = new AtomicInteger(0);
+        this.d = new WeakReference<>(null);
+        this.e = true;
+        this.f = false;
+        this.g = -1;
+        this.h = 0;
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = 0L;
+        this.n = 0L;
+        this.o = 0L;
+        this.p = 0L;
+        this.q = new AtomicLong(0L);
+        this.r = new AtomicLong(0L);
+        this.s = new AtomicLong(0L);
+        this.t = new AtomicBoolean(false);
     }
 
-    public static synchronized String a(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (b2c.class) {
-                if (d == null) {
-                    SharedPreferences sharedPreferences = context.getSharedPreferences("transvod-uid-pref", 0);
-                    String string = sharedPreferences.getString("transvod-uid-pref", null);
-                    d = string;
-                    if (string == null) {
-                        d = UUID.randomUUID().toString();
-                        SharedPreferences.Editor edit = sharedPreferences.edit();
-                        edit.putString("transvod-uid-pref", d);
-                        edit.commit();
-                    }
-                }
-                str = d;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+    public static /* synthetic */ int k(b2c b2cVar) {
+        int i = b2cVar.b;
+        b2cVar.b = i + 1;
+        return i;
     }
 
-    public final void c() {
+    public void A(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!c0c.a()) {
-                TLog.h("TransVodManager", "init failed, library not load success");
-                return;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.r.set(j);
+            long j2 = this.r.get() - this.q.get();
+            if (j2 >= this.s.get()) {
+                this.s.set(j2);
             }
-            Log.i("TransVodManager", "TLog.setLevel()");
-            TLog.i(4);
-            TransVodProxy.nativeClassInit();
-            AVframe.nativeClassInit();
-            AVStream.nativeClassInit();
-            NativeFfmpeg.nativeClassInit();
-            NativeIttiam.nativeClassInit();
-            VideoExtraInfo.nativeClassInit();
-            AlphaChannelData.nativeClassInit();
-            MixVideoExtraInfo.nativeClassInit();
-            MixAudioExtraInfo.nativeClassInit();
-            NetRequestStatusInfo.nativeClassInit();
-            AudioSendStamp.nativeClassInit();
-            EffectInfo.nativeClassInit();
-            EffectSource.nativeClassInit();
-            EffectObject.nativeClassInit();
-            EffectFrame.nativeClassInit();
         }
     }
 
-    public TransVodProxy d(int i, d1c d1cVar) {
-        InterceptResult invokeIL;
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, d1cVar)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new TransVodProxy(null, i, d1cVar);
-                }
-            }
-            if (this.b == null) {
-                y1c y1cVar = new y1c(this.c, this);
-                this.b = y1cVar;
-                y1cVar.i();
-            }
-            return this.a;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.q.set(j);
+            this.t.set(true);
         }
-        return (TransVodProxy) invokeIL.objValue;
     }
 
-    public void e(int i) {
+    public void C(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (this) {
-                if (this.a != null) {
-                    this.a.f(i);
-                }
-            }
+            this.k = i;
         }
+    }
+
+    public void D(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.n += i;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.m += i;
+        }
+    }
+
+    public void x(x1c x1cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, x1cVar) == null) {
+            this.d = new WeakReference<>(x1cVar);
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.h = i;
+            v(6002);
+        }
+    }
+
+    public void y(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            this.i = i;
+            this.j = i2;
+            v(AuthCode.StatusCode.CERT_FINGERPRINT_ERROR);
+        }
+    }
+
+    public static int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            return u;
+        }
+        return invokeV.intValue;
+    }
+
+    public void F() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (timer = this.a) != null) {
+            timer.cancel();
+            this.a = null;
+            this.e = true;
+            this.p = 0L;
+            this.o = 0L;
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.l++;
+        }
+    }
+
+    public void E(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c.set(i);
+            TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor playTaskId %d", Integer.valueOf(this.c.get())));
+            TLog.g(this, "QualityMonitor start");
+            if (this.a == null) {
+                Timer timer = new Timer();
+                this.a = timer;
+                timer.schedule(new a(this), 1000L, 100L);
+            }
+            TLog.g(this, "QualityMonitor start");
+        }
+    }
+
+    public final void v(int i) {
+        x1c x1cVar;
+        float currentTimeMillis;
+        float currentTimeMillis2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || (x1cVar = this.d.get()) == null) {
+            return;
+        }
+        Message message = null;
+        switch (i) {
+            case 6000:
+                message = Message.obtain(null, 6000, this.k, 0);
+                break;
+            case 6001:
+                if (this.p == 0) {
+                    currentTimeMillis = 2.0f;
+                } else {
+                    currentTimeMillis = (float) ((System.currentTimeMillis() - this.p) / 1000);
+                }
+                int i2 = (int) (this.l / currentTimeMillis);
+                u = i2;
+                message = Message.obtain(null, 6001, i2, 0);
+                this.p = System.currentTimeMillis();
+                break;
+            case 6002:
+                message = Message.obtain(null, 6002, this.h, 0);
+                break;
+            case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
+                message = Message.obtain(null, AuthCode.StatusCode.CERT_FINGERPRINT_ERROR, this.i, this.j);
+                TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor output size %d * %d  , taskId %d", Integer.valueOf(this.i), Integer.valueOf(this.j), Integer.valueOf(this.c.get())));
+                break;
+            case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
+                if (this.o == 0) {
+                    currentTimeMillis2 = 5.0f;
+                } else {
+                    currentTimeMillis2 = (float) ((System.currentTimeMillis() - this.o) / 1000);
+                }
+                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_EXIST, (int) (((float) (this.m * 8)) / currentTimeMillis2), (int) (((float) (this.n * 8)) / currentTimeMillis2));
+                this.o = System.currentTimeMillis();
+                break;
+            case AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED /* 6005 */:
+                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED, this.f ? 1 : 0, this.g);
+                break;
+            case AuthCode.StatusCode.PERMISSION_EXPIRED /* 6006 */:
+                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_EXPIRED, 1, this.g);
+                break;
+        }
+        x1cVar.a(message, this.c.get());
     }
 }

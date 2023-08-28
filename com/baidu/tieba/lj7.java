@@ -81,12 +81,12 @@ public class lj7 {
 
         /* renamed from: com.baidu.tieba.lj7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0404a implements Runnable {
+        public class RunnableC0405a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0404a(a aVar) {
+            public RunnableC0405a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class lj7 {
         public void V(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == 3) {
-                this.a.a.post(new RunnableC0404a(this));
+                this.a.a.post(new RunnableC0405a(this));
                 this.a.p.f();
             }
         }

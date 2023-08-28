@@ -4,9 +4,9 @@ import android.graphics.SurfaceTexture;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.tieba.dgb;
-import com.baidu.tieba.sgb;
-import com.baidu.tieba.yfb;
+import com.baidu.tieba.agb;
+import com.baidu.tieba.fgb;
+import com.baidu.tieba.ugb;
 import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
@@ -163,7 +163,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void createPlayer(boolean z) {
-        if (sgb.a(this.mPath) && dgb.e(this.mPathList)) {
+        if (ugb.a(this.mPath) && fgb.e(this.mPathList)) {
             return;
         }
         pause();
@@ -182,7 +182,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
             }
             this.mCurrentState = 1;
         } catch (Exception e) {
-            yfb.g(e);
+            agb.g(e);
             this.mMediaPlayer = null;
             this.mPath = null;
             this.mPathList = null;
@@ -195,7 +195,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     }
 
     private VideoPlayData getCurrentPlayData() {
-        if (dgb.e(this.mPathList)) {
+        if (fgb.e(this.mPathList)) {
             return null;
         }
         long currentPosition = getCurrentPosition();

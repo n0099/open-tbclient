@@ -1,18 +1,18 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.e8c;
-import com.baidu.tieba.k8c;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.t7c;
-import com.baidu.tieba.u7c;
+import com.baidu.tieba.g8c;
+import com.baidu.tieba.m8c;
+import com.baidu.tieba.r7c;
+import com.baidu.tieba.scc;
+import com.baidu.tieba.v7c;
+import com.baidu.tieba.w7c;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
 /* loaded from: classes2.dex */
-public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, p7c, u7c {
+public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, r7c, w7c {
     public static final long serialVersionUID = 7326289992464377023L;
-    public final t7c<? super T> actual;
-    public final qcc serial = new qcc();
+    public final v7c<? super T> actual;
+    public final scc serial = new scc();
 
     public abstract /* synthetic */ void onNext(T t);
 
@@ -22,8 +22,8 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
     public void onUnsubscribed() {
     }
 
-    public OnSubscribeFromEmitter$BaseEmitter(t7c<? super T> t7cVar) {
-        this.actual = t7cVar;
+    public OnSubscribeFromEmitter$BaseEmitter(v7c<? super T> v7cVar) {
+        this.actual = v7cVar;
     }
 
     public void onError(Throwable th) {
@@ -37,23 +37,23 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         }
     }
 
-    @Override // com.baidu.tieba.p7c
+    @Override // com.baidu.tieba.r7c
     public final void request(long j) {
-        if (k8c.h(j)) {
-            k8c.b(this, j);
+        if (m8c.h(j)) {
+            m8c.b(this, j);
             onRequested();
         }
     }
 
-    public final void setCancellation(e8c e8cVar) {
-        setSubscription(new CancellableSubscription(e8cVar));
+    public final void setCancellation(g8c g8cVar) {
+        setSubscription(new CancellableSubscription(g8cVar));
     }
 
-    public final void setSubscription(u7c u7cVar) {
-        this.serial.a(u7cVar);
+    public final void setSubscription(w7c w7cVar) {
+        this.serial.a(w7cVar);
     }
 
-    @Override // com.baidu.tieba.u7c
+    @Override // com.baidu.tieba.w7c
     public final boolean isUnsubscribed() {
         return this.serial.isUnsubscribed();
     }
@@ -73,7 +73,7 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         return get();
     }
 
-    @Override // com.baidu.tieba.u7c
+    @Override // com.baidu.tieba.w7c
     public final void unsubscribe() {
         this.serial.unsubscribe();
         onUnsubscribed();

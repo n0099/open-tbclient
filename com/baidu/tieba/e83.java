@@ -70,13 +70,13 @@ public final class e83 {
 
         /* renamed from: com.baidu.tieba.e83$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0273a implements wp3<a83> {
+        public class C0275a implements wp3<a83> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ c83 b;
 
-            public C0273a(a aVar, String str, c83 c83Var) {
+            public C0275a(a aVar, String str, c83 c83Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class e83 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + c83Var.b);
                 }
                 synchronized (this.a.g) {
-                    vp3.a(cb3.M(), new C0273a(this, str, c83Var), this.a.g);
+                    vp3.a(cb3.M(), new C0275a(this, str, c83Var), this.a.g);
                 }
             }
         }

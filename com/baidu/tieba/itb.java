@@ -4,21 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public final class itb<TResult> implements jub<TResult> {
+public class itb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kub<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ xtb a;
+    public final /* synthetic */ ktb b;
 
-    public itb(Executor executor, kub<TResult> kubVar) {
+    public itb(ktb ktbVar, xtb xtbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, kubVar};
+            Object[] objArr = {ktbVar, xtbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,16 +26,20 @@ public final class itb<TResult> implements jub<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = kubVar;
-        this.b = executor;
+        this.b = ktbVar;
+        this.a = xtbVar;
     }
 
-    @Override // com.baidu.tieba.jub
-    public final void a(vtb<TResult> vtbVar) {
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vtbVar) == null) {
-            this.b.execute(new gtb(this, vtbVar));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                mub<TResult> mubVar = this.b.a;
+                if (mubVar != 0) {
+                    mubVar.a(this.a);
+                }
+            }
         }
     }
 }

@@ -49,13 +49,13 @@ public class jp1 {
 
         /* renamed from: com.baidu.tieba.jp1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0363a extends hq1 {
+        public class C0364a extends hq1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ vo1.a b;
             public final /* synthetic */ a c;
 
-            public C0363a(a aVar, vo1.a aVar2) {
+            public C0364a(a aVar, vo1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class jp1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         vo1.a aVar2 = (vo1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            jq1.c().b(new C0363a(this, aVar2));
+                            jq1.c().b(new C0364a(this, aVar2));
                         }
                     }
                 }

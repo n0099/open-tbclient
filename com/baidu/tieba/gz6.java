@@ -46,12 +46,12 @@ public class gz6 {
 
         /* renamed from: com.baidu.tieba.gz6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0318a implements pi5.a {
+        public class C0319a implements pi5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0318a(a aVar) {
+            public C0319a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class gz6 {
             }
             this.c = gz6Var;
             this.a = new ArrayList<>();
-            this.b = new C0318a(this);
+            this.b = new C0319a(this);
             setPriority(4);
             setParallel(gz6.d);
         }

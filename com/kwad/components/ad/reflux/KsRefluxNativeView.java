@@ -99,8 +99,8 @@ public class KsRefluxNativeView extends FrameLayout {
             if (itemViewType == FeedType.FEED_TYPE_UNKNOWN.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_ABOVE.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
                 if (aVar.eP()) {
                     aVar.eK();
-                    aVar.a(new a.InterfaceC0616a() { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.1
-                        @Override // com.kwad.components.ad.reflux.a.InterfaceC0616a
+                    aVar.a(new a.InterfaceC0617a() { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.1
+                        @Override // com.kwad.components.ad.reflux.a.InterfaceC0617a
                         public final void eF() {
                             try {
                                 b.this.notifyDataSetChanged();
@@ -118,7 +118,7 @@ public class KsRefluxNativeView extends FrameLayout {
             if (view2 instanceof com.kwad.components.ad.reflux.kwai.a) {
                 final com.kwad.components.ad.reward.c.b eJ = aVar.eJ();
                 ((com.kwad.components.ad.reflux.kwai.a) view2).setAdClickListener(new b.a() { // from class: com.kwad.components.ad.reflux.KsRefluxNativeView.b.2
-                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0671b
+                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0672b
                     public final void onAdClicked() {
                         super.onAdClicked();
                         if (b.this.kJ != null) {
@@ -126,7 +126,7 @@ public class KsRefluxNativeView extends FrameLayout {
                         }
                     }
 
-                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0671b
+                    @Override // com.kwad.components.core.widget.b.a, com.kwad.components.core.widget.b.InterfaceC0672b
                     public final void onAdShow() {
                         super.onAdShow();
                         if (b.this.kJ != null) {

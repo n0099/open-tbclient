@@ -114,12 +114,12 @@ public class k58 {
 
         /* renamed from: com.baidu.tieba.k58$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0380a implements Runnable {
+        public class RunnableC0383a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0380a(a aVar) {
+            public RunnableC0383a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public class k58 {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.Y != null) {
-                this.b.Y.e(new RunnableC0380a(this));
+                this.b.Y.e(new RunnableC0383a(this));
             }
         }
     }

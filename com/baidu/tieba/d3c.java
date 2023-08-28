@@ -1,36 +1,43 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.graphics.SurfaceTexture;
+import android.media.MediaCodec;
 import android.media.MediaFormat;
+import android.os.Message;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
+import com.google.android.exoplayer2.video.MediaCodecVideoRenderer;
 import com.yy.transvod.player.log.TLog;
 import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import com.yy.transvod.player.mediafilter.MediaCodecFilter;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
-import java.util.Locale;
+@TargetApi(16)
 /* loaded from: classes5.dex */
-public final class d3c extends v2c implements NativeFfmpeg.a {
+public final class d3c extends MediaCodecFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int P;
+    public int Q;
+    public int R;
+    public boolean S;
 
-    @Override // com.baidu.tieba.q2c
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1097T;
 
-    public d3c(z1c z1cVar, int i) {
+    public d3c(r3c r3cVar, boolean z, boolean z2, b2c b2cVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z1cVar, Integer.valueOf(i)};
+            Object[] objArr = {r3cVar, Boolean.valueOf(z), Boolean.valueOf(z2), b2cVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -40,59 +47,304 @@ public final class d3c extends v2c implements NativeFfmpeg.a {
                 return;
             }
         }
-        this.l.d(-16);
-        this.s = new WeakReference<>(z1cVar);
+        this.P = 0;
+        this.Q = 0;
+        this.R = 0;
+        this.S = false;
+        this.f1097T = false;
+        j1c j1cVar = this.l;
+        if (j1cVar != null) {
+            j1cVar.d(-10);
+        }
+        this.H = new WeakReference<>(r3cVar);
+        this.O = z;
+        this.S = z2;
         this.w = true;
+        this.s = new WeakReference<>(b2cVar);
         this.b = i;
-        this.A.i(i);
-        this.o = 3;
+        this.o = 1;
+        TLog.g(this, "videoHwDecoder decodeOutputToBuffer : " + this.O);
     }
 
-    public void M(MediaInfo mediaInfo) {
+    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter
+    public int N(long j) {
+        int i;
+        int i2;
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
-            TLog.g(this, mediaInfo.toString());
-            synchronized (this) {
-                if (this.q.e(mediaInfo)) {
-                    this.q.c(mediaInfo);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            try {
+                if (this.B == null) {
+                    return -1;
+                }
+                if (!this.f1097T && this.L > 2) {
+                    j = 10000;
+                }
+                int dequeueOutputBuffer = this.B.dequeueOutputBuffer(this.C, j);
+                if (dequeueOutputBuffer >= 0) {
+                    if (!this.f1097T) {
+                        TLog.l(this, "mediaCodec got first decoded frame, decode cost: " + (System.currentTimeMillis() - this.M) + " mCodecDequeueCount:" + this.L);
+                        this.f1097T = true;
+                    }
+                    ByteBuffer byteBuffer = this.E[dequeueOutputBuffer];
+                    if (byteBuffer != null && byteBuffer.remaining() != this.C.size) {
+                        byteBuffer.position(this.C.offset).limit(this.C.offset + this.C.size);
+                    }
+                    MediaSample c = this.r.c();
+                    if (c != null && c.g != null && c.i != null && MediaInfo.g(this.q)) {
+                        c.i.c(this.q);
+                        this.u++;
+                        f2c.c(c, 6);
+                        n(c);
+                        b2c b2cVar = this.s.get();
+                        if (b2cVar != null && c.g != null) {
+                            b2cVar.t((int) c.g.l);
+                        }
+                        if (this.F == null) {
+                            c.i.k = byteBuffer;
+                            synchronized (this.k) {
+                                if (this.d != null) {
+                                    this.d.f(c);
+                                }
+                            }
+                            this.B.releaseOutputBuffer(dequeueOutputBuffer, false);
+                        } else {
+                            c.i.k = null;
+                            c.h = this.G.get();
+                            synchronized (this.k) {
+                                if (this.d != null) {
+                                    this.d.f(c);
+                                }
+                            }
+                            this.B.releaseOutputBuffer(dequeueOutputBuffer, true);
+                        }
+                    }
+                    return -1;
+                } else if (dequeueOutputBuffer == -3) {
+                    this.E = this.B.getOutputBuffers();
+                    TLog.g(this, "mediaCodec output buffers have been changed.");
+                    this.l.f(2004);
+                } else if (dequeueOutputBuffer == -2) {
+                    MediaFormat outputFormat = this.B.getOutputFormat();
+                    TLog.g(this, "mediaCodec output format has been changed from " + this.p + " to " + outputFormat);
+                    this.p = outputFormat;
+                    if (this.F != null) {
+                        this.q.a = 8;
+                    } else {
+                        int integer = outputFormat.getInteger("color-format");
+                        if (integer != 21 && integer != 2135033992) {
+                            if (integer == 19) {
+                                this.q.a = 2;
+                            } else {
+                                this.q.a = 3;
+                            }
+                        }
+                        this.q.a = 3;
+                    }
+                    if (this.p.containsKey("stride")) {
+                        i = this.p.getInteger("stride");
+                    } else {
+                        i = 0;
+                    }
+                    if (this.p.containsKey("slice-height")) {
+                        i2 = this.p.getInteger("slice-height");
+                    } else {
+                        i2 = 0;
+                    }
+                    this.q.d = this.p.getInteger("width");
+                    this.q.e = this.p.getInteger("height");
+                    if ((i > 0 || i2 > 0) && this.q.a != 8) {
+                        MediaInfo mediaInfo = this.q;
+                        if (this.q.d > i) {
+                            i = this.q.d;
+                        }
+                        mediaInfo.d = i;
+                        MediaInfo mediaInfo2 = this.q;
+                        if (this.q.e > i2) {
+                            i2 = this.q.e;
+                        }
+                        mediaInfo2.e = i2;
+                    }
+                    int i3 = this.q.b;
+                    int i4 = this.q.c;
+                    if (this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_LEFT) && this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_TOP) && this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_RIGHT) && this.p.containsKey(MediaCodecVideoRenderer.KEY_CROP_BOTTOM)) {
+                        this.q.b = (this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_RIGHT) + 1) - this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_LEFT);
+                        this.q.c = (this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_BOTTOM) + 1) - this.p.getInteger(MediaCodecVideoRenderer.KEY_CROP_TOP);
+                    } else {
+                        this.q.b = this.q.d;
+                        this.q.c = this.q.e;
+                    }
+                    if (!this.O && (this.q.d >= this.q.b + 16 || this.q.e >= this.q.c + 16)) {
+                        this.q.d = (int) o2c.j(this.q.b, 16L);
+                        this.q.e = (int) o2c.j(this.q.c, 16L);
+                    }
+                    if (!this.O && this.S) {
+                        this.q.e = this.q.c;
+                        this.q.d = this.q.b;
+                        TLog.g(this, "force not crop  planeHeight = height");
+                    }
+                    this.q.i = this.q.d * this.q.e;
+                    if (this.G != null && this.G.get() != null) {
+                        this.G.get().setDefaultBufferSize(this.q.d, this.q.e);
+                    }
+                    j(i3, i4, this.q);
+                    this.l.f(2004);
+                } else if (dequeueOutputBuffer == -1) {
+                    if (!this.f1097T && this.L > 2 && this.Q < 10) {
+                        this.Q++;
+                        this.l.a(2004, 5L);
+                    }
+                    if (this.R < 5) {
+                        TLog.g(this, "mediaCodec decode again output:" + dequeueOutputBuffer + " mInputCnt=" + this.L + " drainMsgCnt= " + this.Q);
+                        this.R = this.R + 1;
+                    }
                 } else {
-                    TLog.g(this, String.format(Locale.getDefault(), "onFormatChanged output size %d * %d", Integer.valueOf(mediaInfo.b), Integer.valueOf(mediaInfo.c)));
+                    TLog.g(this, "mediaCodec decode output:" + dequeueOutputBuffer + " mInputCnt=" + this.L);
                 }
-                if (this.B == null || this.B.capacity() < this.q.i) {
-                    this.B = ByteBuffer.allocateDirect(this.q.i);
+                if (dequeueOutputBuffer < 0) {
+                    return 0;
                 }
-                int j = ((((int) m2c.j(this.q.d, 16L)) * ((int) m2c.j(this.q.e, 16L))) * 3) >> 1;
-                if (j > this.E) {
-                    this.E = j;
-                    this.C = ByteBuffer.allocateDirect(j);
-                }
+                return 1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                TLog.c(this, "mediaCodec decode error.");
+                throw e;
             }
+        }
+        return invokeJ.intValue;
+    }
+
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.g(this, "VideoHwDecodeFilter.releaseSurface enter.");
+            super.onStop();
+            Surface surface = this.F;
+            if (surface != null) {
+                surface.release();
+                this.F = null;
+            }
+            this.G = null;
+            TLog.g(this, "VideoHwDecodeFilter.releaseSurface leave.");
         }
     }
 
-    @Override // com.baidu.tieba.q2c
-    public void z(MediaFormat mediaFormat, int i) {
-        int i2;
+    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter, com.baidu.tieba.s2c, com.baidu.tieba.b3c, com.baidu.tieba.j1c.a
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
-            TLog.g(this, "VideoSwDecoder handleCreateDecoder: taskId " + i);
-            this.x = System.currentTimeMillis();
-            this.a = i;
-            this.A.p(this);
-            this.A.h(i);
-            String string = mediaFormat.getString("mime");
-            if (string.compareTo("video/avc") == 0) {
-                i2 = 6;
-            } else if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
-                i2 = 7;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+            int i = message.what;
+            if (i != 1002) {
+                if (i == 2004) {
+                    TLog.g(this, "VideoHwDecodeFilter.CODEC_FILTER_DRAIN_OUTPUT.");
+                    if (!this.f1097T) {
+                        try {
+                            N(0L);
+                        } catch (Exception e) {
+                            TLog.c(this, "mediaCodec decode error::get first frame" + e.toString());
+                        }
+                    }
+                }
             } else {
-                i2 = 0;
+                P();
             }
-            if (this.A.j(i2, mediaFormat) != 0) {
-                m(50);
+            super.handleMessage(message);
+        }
+    }
+
+    @Override // com.baidu.tieba.s2c
+    public void z(MediaFormat mediaFormat, int i) {
+        boolean z;
+        SurfaceTexture surfaceTexture;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, mediaFormat, i) == null) {
+            if (this.P % 20 == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
-            this.y = System.currentTimeMillis();
+            this.P++;
+            r3c r3cVar = this.H.get();
+            if (!this.z.get() && (r3cVar == null || r3cVar.y() == null)) {
+                try {
+                    Thread.sleep(30L);
+                } catch (Exception unused) {
+                    TLog.g(this, "videoHwDecoder sleep exception");
+                }
+                Message obtain = Message.obtain();
+                obtain.what = 2001;
+                obtain.obj = mediaFormat;
+                obtain.arg1 = i;
+                this.l.g(2001);
+                this.l.sendMessage(obtain);
+                if (z) {
+                    TLog.g(this, "handleCreateDecoder try again ");
+                }
+            } else {
+                this.x = System.currentTimeMillis();
+                TLog.g(this, "VideoHwDecoder do create codec. taskId " + i);
+                MediaCodec mediaCodec = this.B;
+                try {
+                    if (mediaCodec != null) {
+                        try {
+                            mediaCodec.stop();
+                            this.B.release();
+                            TLog.l(this, "VideoHwDecodeFilter stop old codec when create decoder");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            TLog.c(this, "VideoHwDecodeFilter mediaCodec stop error");
+                        }
+                        this.B.release();
+                        this.B = null;
+                    }
+                    if (this.O) {
+                        MediaCodec J = J(null, mediaFormat);
+                        this.B = J;
+                        this.a = i;
+                        this.L = 0;
+                        if (J == null) {
+                            A();
+                        }
+                    } else {
+                        if (r3cVar != null) {
+                            surfaceTexture = r3cVar.y();
+                        } else {
+                            surfaceTexture = null;
+                        }
+                        WeakReference<SurfaceTexture> weakReference = new WeakReference<>(surfaceTexture);
+                        this.G = weakReference;
+                        if (weakReference.get() != null) {
+                            Surface surface = this.F;
+                            if (surface != null) {
+                                surface.release();
+                                this.F = null;
+                            }
+                            TLog.g(this, "mSurfaceTexture " + this.G.get());
+                            Surface surface2 = new Surface(this.G.get());
+                            this.F = surface2;
+                            MediaCodec J2 = J(surface2, mediaFormat);
+                            this.B = J2;
+                            this.a = i;
+                            this.L = 0;
+                            if (J2 == null) {
+                                A();
+                            }
+                        }
+                    }
+                    this.f1097T = false;
+                    this.Q = 0;
+                    this.R = 0;
+                    this.P = 0;
+                    this.y = System.currentTimeMillis();
+                    TLog.l(this, "VideoHwDecodeFilter.handleCreateDecoder suceess, cost= " + (this.y - this.x));
+                } catch (Throwable th) {
+                    this.B.release();
+                    throw th;
+                }
+            }
+            if (z) {
+                TLog.g(this, "VideoHwDecodeFilter.handleCreateDecoder leave ");
+            }
         }
     }
 }

@@ -33,11 +33,11 @@ public class woa {
         }
     }
 
-    public static boolean a(InputStream inputStream, String str, xeb xebVar) throws IOException {
+    public static boolean a(InputStream inputStream, String str, zeb zebVar) throws IOException {
         double d;
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, xebVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, zebVar)) == null) {
             try {
                 if (inputStream instanceof FileInputStream) {
                     d = ((FileInputStream) inputStream).getChannel().size();
@@ -53,10 +53,10 @@ public class woa {
                         break;
                     }
                     i += read;
-                    if (xebVar != null && d != 0.0d) {
-                        xebVar.b((int) ((i / d) * 100.0d));
-                    } else if (xebVar != null && d == 0.0d) {
-                        xebVar.b(80);
+                    if (zebVar != null && d != 0.0d) {
+                        zebVar.b((int) ((i / d) * 100.0d));
+                    } else if (zebVar != null && d == 0.0d) {
+                        zebVar.b(80);
                     }
                     fileOutputStream.write(bArr, 0, read);
                 }
@@ -74,11 +74,11 @@ public class woa {
         return invokeLLL.booleanValue;
     }
 
-    public static boolean b(String str, String str2, xeb xebVar) throws IOException {
+    public static boolean b(String str, String str2, zeb zebVar) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, xebVar)) == null) {
-            return a(new FileInputStream(str), str2, xebVar);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, zebVar)) == null) {
+            return a(new FileInputStream(str), str2, zebVar);
         }
         return invokeLLL.booleanValue;
     }

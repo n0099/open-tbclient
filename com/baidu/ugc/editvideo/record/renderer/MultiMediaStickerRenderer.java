@@ -6,7 +6,7 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.dgb;
+import com.baidu.tieba.fgb;
 import com.baidu.tieba.sg0;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
@@ -49,7 +49,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     private void releaseTempStickerItemList() {
-        if (dgb.e(this.mTempStickerItemList)) {
+        if (fgb.e(this.mTempStickerItemList)) {
             return;
         }
         for (a aVar : this.mTempStickerItemList) {
@@ -177,7 +177,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                 if (j == 0 || j <= this.mCurrentPos) {
                     long j2 = mediaSegment.end;
                     if ((j2 == 0 || j2 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
-                        this.mVisibleStickerItems.add((a) dgb.c(this.mStickerItems, i));
+                        this.mVisibleStickerItems.add((a) fgb.c(this.mStickerItems, i));
                     }
                 }
             }
@@ -191,16 +191,16 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
         super.setCurrentItem(aVar);
         List<a> list = this.mStickerItems;
         int indexOf = list.indexOf(aVar);
-        dgb.h(list, indexOf, list.size() - 1);
+        fgb.h(list, indexOf, list.size() - 1);
         MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
         if (multiMediaDataTrack != null) {
             List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
-            dgb.h(list2, indexOf, list2.size() - 1);
+            fgb.h(list2, indexOf, list2.size() - 1);
         }
         MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
         if (mediaTrack != null) {
             List<MediaSegment> list3 = mediaTrack.mediaSegments;
-            dgb.h(list3, indexOf, list3.size() - 1);
+            fgb.h(list3, indexOf, list3.size() - 1);
         }
         if (z) {
             notifyStickerDataChange(StickerDataChangeType.SWAP);
@@ -214,10 +214,10 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             return;
         }
         List<MediaSegment> stickerSegmentsDataByType = MultiDataSourceUtil.getStickerSegmentsDataByType(this.mSubtitleAndStickerTrack, str);
-        if (dgb.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) dgb.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
+        if (fgb.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) fgb.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
             return;
         }
-        a aVar = (a) dgb.c(this.mStickerItems, indexOf);
+        a aVar = (a) fgb.c(this.mStickerItems, indexOf);
         if (aVar != null) {
             setCurrentItem(aVar);
         }

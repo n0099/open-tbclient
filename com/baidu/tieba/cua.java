@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tieba.yeb;
+import com.baidu.tieba.afb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class cua extends zta {
     public Camera r;
     public Camera.Parameters s;
     public int t;
-    public yeb.f u;
+    public afb.f u;
     public int v;
     public List<Camera.Area> w;
     public List<Camera.Area> x;
@@ -58,15 +58,15 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
-    public void s(yeb.a aVar) {
+    @Override // com.baidu.tieba.afb.b
+    public void s(afb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
         }
@@ -131,7 +131,7 @@ public class cua extends zta {
         arrayList2.add(new Camera.Area(new Rect(0, 0, 0, 0), 1));
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void l(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && this.r != null) {
@@ -153,7 +153,7 @@ public class cua extends zta {
                         this.A = i2;
                     }
                 } catch (Exception e) {
-                    yfb.g(e);
+                    agb.g(e);
                 }
             }
         }
@@ -256,7 +256,7 @@ public class cua extends zta {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    gcb.b("getCameraInfo", e.getMessage());
+                    icb.b("getCameraInfo", e.getMessage());
                 }
             }
             if (zta.o && !DeviceInfoUtil.isHuaweiMateX() && !DeviceInfoUtil.isOppN5207()) {
@@ -295,7 +295,7 @@ public class cua extends zta {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void d(byte[] bArr) {
         Camera camera;
         Interceptable interceptable = $ic;
@@ -304,7 +304,7 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void i(boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
@@ -318,7 +318,7 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void u(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
@@ -402,7 +402,7 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void q() {
         Camera camera;
         Interceptable interceptable = $ic;
@@ -455,7 +455,7 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -469,7 +469,7 @@ public class cua extends zta {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -479,7 +479,7 @@ public class cua extends zta {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -492,7 +492,7 @@ public class cua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void n() {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
@@ -502,7 +502,7 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -516,7 +516,7 @@ public class cua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -527,13 +527,13 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void c(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) && this.r != null && this.a != null) {
             try {
-                z(i, i2, 1.0f, i3, i4, rgb.e(), rgb.d(), this.w.get(0).rect);
-                z(i, i2, 1.5f, i3, i4, rgb.e(), rgb.d(), this.x.get(0).rect);
+                z(i, i2, 1.0f, i3, i4, tgb.e(), tgb.d(), this.w.get(0).rect);
+                z(i, i2, 1.5f, i3, i4, tgb.e(), tgb.d(), this.x.get(0).rect);
                 this.r.cancelAutoFocus();
                 Camera.Parameters parameters = this.r.getParameters();
                 if (parameters.getSupportedFocusModes().contains("auto")) {
@@ -544,12 +544,12 @@ public class cua extends zta {
                 this.r.setParameters(parameters);
                 this.r.autoFocus(null);
             } catch (Exception e) {
-                yfb.g(e);
+                agb.g(e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void g(int i, int i2, int i3, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
@@ -567,8 +567,8 @@ public class cua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
-    public boolean k(SurfaceTexture surfaceTexture, yeb.f fVar) {
+    @Override // com.baidu.tieba.afb.b
+    public boolean k(SurfaceTexture surfaceTexture, afb.f fVar) {
         InterceptResult invokeLL;
         float f;
         List<String> supportedAntibanding;
@@ -636,7 +636,7 @@ public class cua extends zta {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void t(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIIII(1048595, this, i, i2, i3, i4) != null) || this.r == null || this.a == null) {

@@ -38,7 +38,7 @@ public class nk6 extends mk6<WebResourceResponse> {
     public final ck6<Pair<String, Map<String, String>>, Response> b;
 
     /* loaded from: classes7.dex */
-    public class a implements c8c<Response, Exception> {
+    public class a implements e8c<Response, Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -66,7 +66,7 @@ public class nk6 extends mk6<WebResourceResponse> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.c8c
+        @Override // com.baidu.tieba.e8c
         public void call(Response response, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, exc) == null) {

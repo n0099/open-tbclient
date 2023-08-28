@@ -85,12 +85,12 @@ public class FrsGameStrategyItemListView extends FrameLayout implements in7 {
 
         /* renamed from: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0298a implements Runnable {
+        public class RunnableC0295a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public RunnableC0298a(a aVar, String str) {
+            public RunnableC0295a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +170,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements in7 {
             }
             String ad_url = threadData.getAd_url();
             if (ad_url != null && !ad_url.equals("")) {
-                rt6.a(new RunnableC0298a(this, ad_url), "RequestAdNetwork", 3);
+                rt6.a(new RunnableC0295a(this, ad_url), "RequestAdNetwork", 3);
                 z = true;
             } else {
                 z = false;

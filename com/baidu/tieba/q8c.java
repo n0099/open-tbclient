@@ -1,33 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.p7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes7.dex */
-public final class q8c<T, R> implements n7c.a<R> {
+public final class q8c<T> implements p7c.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n7c<T> a;
-    public final g8c<? super T, ? extends R> b;
+    public final p7c<T> a;
+    public final i8c<? super T, Boolean> b;
 
     /* loaded from: classes7.dex */
-    public static final class a<T, R> extends t7c<T> {
+    public static final class a<T> extends v7c<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final t7c<? super R> e;
-        public final g8c<? super T, ? extends R> f;
+        public final v7c<? super T> e;
+        public final i8c<? super T, Boolean> f;
         public boolean g;
 
-        public a(t7c<? super R> t7cVar, g8c<? super T, ? extends R> g8cVar) {
+        public a(v7c<? super T> v7cVar, i8c<? super T, Boolean> i8cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t7cVar, g8cVar};
+                Object[] objArr = {v7cVar, i8cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,24 +37,26 @@ public final class q8c<T, R> implements n7c.a<R> {
                     return;
                 }
             }
-            this.e = t7cVar;
-            this.f = g8cVar;
+            this.e = v7cVar;
+            this.f = i8cVar;
+            e(0L);
         }
 
-        @Override // com.baidu.tieba.t7c
-        public void f(p7c p7cVar) {
+        @Override // com.baidu.tieba.v7c
+        public void f(r7c r7cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p7cVar) == null) {
-                this.e.f(p7cVar);
+            if (interceptable == null || interceptable.invokeL(1048576, this, r7cVar) == null) {
+                super.f(r7cVar);
+                this.e.f(r7cVar);
             }
         }
 
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.q7c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 if (this.g) {
-                    bcc.j(th);
+                    dcc.j(th);
                     return;
                 }
                 this.g = true;
@@ -62,21 +64,7 @@ public final class q8c<T, R> implements n7c.a<R> {
             }
         }
 
-        @Override // com.baidu.tieba.o7c
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    this.e.onNext(this.f.call(t));
-                } catch (Throwable th) {
-                    z7c.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.q7c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
@@ -84,14 +72,32 @@ public final class q8c<T, R> implements n7c.a<R> {
             }
             this.e.onCompleted();
         }
+
+        @Override // com.baidu.tieba.q7c
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                try {
+                    if (this.f.call(t).booleanValue()) {
+                        this.e.onNext(t);
+                    } else {
+                        e(1L);
+                    }
+                } catch (Throwable th) {
+                    b8c.e(th);
+                    unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                }
+            }
+        }
     }
 
-    public q8c(n7c<T> n7cVar, g8c<? super T, ? extends R> g8cVar) {
+    public q8c(p7c<T> p7cVar, i8c<? super T, Boolean> i8cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n7cVar, g8cVar};
+            Object[] objArr = {p7cVar, i8cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,21 +107,21 @@ public final class q8c<T, R> implements n7c.a<R> {
                 return;
             }
         }
-        this.a = n7cVar;
-        this.b = g8cVar;
+        this.a = p7cVar;
+        this.b = i8cVar;
     }
 
-    public void call(t7c<? super R> t7cVar) {
+    public void call(v7c<? super T> v7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t7cVar) == null) {
-            a aVar = new a(t7cVar, this.b);
-            t7cVar.b(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, v7cVar) == null) {
+            a aVar = new a(v7cVar, this.b);
+            v7cVar.b(aVar);
             this.a.O(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.n7c.a, com.baidu.tieba.b8c
+    @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((t7c) ((t7c) obj));
+        call((v7c) ((v7c) obj));
     }
 }

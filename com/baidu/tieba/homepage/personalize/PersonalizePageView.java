@@ -225,7 +225,7 @@ public class PersonalizePageView extends FrameLayout implements yx5 {
     public rf5 S;
 
     /* renamed from: T  reason: collision with root package name */
-    public PollingModel f1119T;
+    public PollingModel f1118T;
     public BdUniqueId U;
     public k58.f V;
     public CustomMessageListener W;
@@ -2851,7 +2851,7 @@ public class PersonalizePageView extends FrameLayout implements yx5 {
     public final void Y0() {
         PollingModel pollingModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (pollingModel = this.f1119T) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (pollingModel = this.f1118T) != null) {
             pollingModel.getData("live,level,icon,festival_info,live_follow_second_floor,member_broadcast,activity_broadcast,live_index_second_floor");
         }
     }
@@ -3487,9 +3487,9 @@ public class PersonalizePageView extends FrameLayout implements yx5 {
                     c48Var.Z0(this.o);
                 }
                 PollingModel pollingModel = new PollingModel(this.l, this.U);
-                this.f1119T = pollingModel;
+                this.f1118T = pollingModel;
                 pollingModel.setDialogTime(n55.d);
-                this.f1119T.setLiveIndexSecondFloorCallback(new s(this));
+                this.f1118T.setLiveIndexSecondFloorCallback(new s(this));
                 S0(TbadkCoreApplication.getInst().getSkinType());
                 this.B = SharedPrefHelper.getInstance().getInt("show_is_uninterest_tag", 0);
                 if (!MainTabBottomDynamicIconManager.getInstance().checkIsHasShowIcon()) {
@@ -3899,7 +3899,7 @@ public class PersonalizePageView extends FrameLayout implements yx5 {
             if (c48Var != null) {
                 c48Var.J0();
             }
-            PollingModel pollingModel = this.f1119T;
+            PollingModel pollingModel = this.f1118T;
             if (pollingModel != null) {
                 pollingModel.onDestroy();
             }

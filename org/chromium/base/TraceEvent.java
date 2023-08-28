@@ -104,7 +104,7 @@ public class TraceEvent implements AutoCloseable {
             this.mNativeTracingReady.set(true);
             this.mTraceTagActive.set(false);
             if (this.mUiThreadReady.get()) {
-                ThreadUtils.postOnUiThread(new Runnable() { // from class: com.baidu.tieba.p5c
+                ThreadUtils.postOnUiThread(new Runnable() { // from class: com.baidu.tieba.r5c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +123,7 @@ public class TraceEvent implements AutoCloseable {
         public void onUiThreadReady() {
             this.mUiThreadReady.set(true);
             if (!ThreadUtils.runningOnUiThread()) {
-                ThreadUtils.postOnUiThread(new Runnable() { // from class: com.baidu.tieba.o5c
+                ThreadUtils.postOnUiThread(new Runnable() { // from class: com.baidu.tieba.q5c
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

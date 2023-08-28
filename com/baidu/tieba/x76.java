@@ -34,12 +34,12 @@ public class x76 extends xk1<l81> {
 
         /* renamed from: com.baidu.tieba.x76$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0523a implements View.OnClickListener {
+        public class View$OnClickListenerC0524a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ m81 a;
 
-            public View$OnClickListenerC0523a(a aVar, m81 m81Var) {
+            public View$OnClickListenerC0524a(a aVar, m81 m81Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class x76 extends xk1<l81> {
             if (interceptable == null || interceptable.invokeLL(1048576, this, view2, m81Var) == null) {
                 int intValue = ((Integer) view2.getTag()).intValue();
                 if (intValue == R.drawable.nad_web_back) {
-                    view2.setOnClickListener(new View$OnClickListenerC0523a(this, m81Var));
+                    view2.setOnClickListener(new View$OnClickListenerC0524a(this, m81Var));
                 } else if (intValue == R.drawable.nad_web_close) {
                     view2.setOnClickListener(new b(this, m81Var));
                 }

@@ -61,13 +61,13 @@ public class rja {
 
         /* renamed from: com.baidu.tieba.rja$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0471a implements Runnable {
+        public class RunnableC0472a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomDialogData a;
             public final /* synthetic */ a b;
 
-            public RunnableC0471a(a aVar, CustomDialogData customDialogData) {
+            public RunnableC0472a(a aVar, CustomDialogData customDialogData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class rja {
         public void b(CustomDialogData customDialogData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                SafeHandler.getInst().postDelayed(new RunnableC0471a(this, customDialogData), 1000L);
+                SafeHandler.getInst().postDelayed(new RunnableC0472a(this, customDialogData), 1000L);
             }
         }
     }

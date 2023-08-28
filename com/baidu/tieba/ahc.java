@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.view.View;
+import android.view.Window;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes5.dex */
-public interface ahc extends ygc {
+public interface ahc {
+    void attachWindow(Window window);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
+    View getContentView();
 
-    void setCallback(a aVar);
+    void refreshView();
 
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    void refreshWindow(WindowParams windowParams);
 }

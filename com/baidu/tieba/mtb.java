@@ -4,21 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class mtb<TResult> implements jub<TResult> {
+public class mtb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lub a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ xtb a;
+    public final /* synthetic */ otb b;
 
-    public mtb(Executor executor, lub lubVar) {
+    public mtb(otb otbVar, xtb xtbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, lubVar};
+            Object[] objArr = {otbVar, xtbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,17 +26,21 @@ public final class mtb<TResult> implements jub<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = lubVar;
-        this.b = executor;
+        this.b = otbVar;
+        this.a = xtbVar;
     }
 
-    @Override // com.baidu.tieba.jub
-    public final void a(vtb<TResult> vtbVar) {
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, vtbVar) == null) && !vtbVar.f()) {
-            vtbVar.e();
-            this.b.execute(new ktb(this, vtbVar));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                nub nubVar = this.b.a;
+                if (nubVar != null) {
+                    this.a.c();
+                    ((bub) nubVar).a.countDown();
+                }
+            }
         }
     }
 }

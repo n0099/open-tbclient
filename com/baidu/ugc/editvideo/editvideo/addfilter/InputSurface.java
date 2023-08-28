@@ -8,7 +8,7 @@ import android.opengl.EGLDisplay;
 import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
-import com.baidu.tieba.yfb;
+import com.baidu.tieba.agb;
 import com.baidu.webkit.internal.monitor.MonitorType;
 @TargetApi(18)
 /* loaded from: classes9.dex */
@@ -42,7 +42,7 @@ public class InputSurface {
             if (eglGetError == 12288) {
                 break;
             }
-            yfb.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+            agb.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
             z = true;
         }
         if (!z) {

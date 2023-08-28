@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d8c;
 import com.baidu.tieba.di;
+import com.baidu.tieba.f8c;
 import com.baidu.tieba.hc8;
 import com.baidu.tieba.ic8;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
@@ -64,7 +64,7 @@ public final class InputSlice extends SliceFragment implements jc8 {
     public final ViewGroup f;
     public final String g;
     public SliceInputBinding h;
-    public d8c<PanelType, PanelType, Float, Float> i;
+    public f8c<PanelType, PanelType, Float, Float> i;
     public final kc8 j;
     public PanelType k;
     public final int l;
@@ -301,7 +301,7 @@ public final class InputSlice extends SliceFragment implements jc8 {
     }
 
     @Override // com.baidu.tieba.jc8
-    public void o1(d8c<PanelType, PanelType, Float, Float> listener) {
+    public void o1(f8c<PanelType, PanelType, Float, Float> listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
@@ -527,10 +527,10 @@ public final class InputSlice extends SliceFragment implements jc8 {
             f2 = -kc8.l;
             f = this.m;
         }
-        d8c<PanelType, PanelType, Float, Float> d8cVar = this.i;
-        if (d8cVar != null) {
-            Intrinsics.checkNotNull(d8cVar);
-            d8cVar.call(this.k, this.n, Float.valueOf(f2), Float.valueOf(f));
+        f8c<PanelType, PanelType, Float, Float> f8cVar = this.i;
+        if (f8cVar != null) {
+            Intrinsics.checkNotNull(f8cVar);
+            f8cVar.call(this.k, this.n, Float.valueOf(f2), Float.valueOf(f));
         }
         this.n = this.k;
     }

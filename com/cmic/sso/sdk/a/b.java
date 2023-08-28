@@ -44,7 +44,7 @@ public class b {
             }
         }
         this.d = false;
-        com.cmic.sso.sdk.a.a a2 = new a.C0579a().a();
+        com.cmic.sso.sdk.a.a a2 = new a.C0580a().a();
         this.b = a2;
         if (!z) {
             this.a = d();
@@ -247,7 +247,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            return new a.C0579a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a();
+            return new a.C0580a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a();
         }
         return (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }

@@ -116,7 +116,7 @@ public class ep9 implements KeyboardEventLayout.a {
     public pi9 S;
 
     /* renamed from: T  reason: collision with root package name */
-    public TextView f1103T;
+    public TextView f1102T;
     public RelativeLayout U;
     public ImageView V;
     public ImageView W;
@@ -756,7 +756,7 @@ public class ep9 implements KeyboardEventLayout.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f1103T;
+            return this.f1102T;
         }
         return (TextView) invokeV.objValue;
     }
@@ -1027,7 +1027,7 @@ public class ep9 implements KeyboardEventLayout.a {
         this.O = null;
         this.P = null;
         this.Q = 0;
-        this.f1103T = null;
+        this.f1102T = null;
         this.U = null;
         this.V = null;
         this.W = null;
@@ -1044,7 +1044,7 @@ public class ep9 implements KeyboardEventLayout.a {
         this.b = (LinearLayout) this.a.findViewById(R.id.navigation_bar_group);
         this.U = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092302);
         TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092303);
-        this.f1103T = textView;
+        this.f1102T = textView;
         textView.setOnClickListener(this.J);
         this.V = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092305);
         ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092304);
@@ -1254,7 +1254,7 @@ public class ep9 implements KeyboardEventLayout.a {
                 this.k.setCenterTextTitle(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f1488), Integer.valueOf(this.Q)));
                 NewSubPbActivity newSubPbActivity = this.f;
                 if (newSubPbActivity != null) {
-                    this.f1103T.setText(newSubPbActivity.F3());
+                    this.f1102T.setText(newSubPbActivity.F3());
                 }
             } else {
                 this.k.setCenterTextTitle(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0bfa));
@@ -1486,11 +1486,11 @@ public class ep9 implements KeyboardEventLayout.a {
     public void M() {
         hk5 hk5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.f1103T != null && (hk5Var = this.P) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.f1102T != null && (hk5Var = this.P) != null) {
             if (hk5Var.y()) {
-                this.f1103T.setText(R.string.obfuscated_res_0x7f0f0607);
+                this.f1102T.setText(R.string.obfuscated_res_0x7f0f0607);
             } else {
-                this.f1103T.setText(this.f.F3());
+                this.f1102T.setText(this.f.F3());
             }
         }
     }
@@ -1716,11 +1716,11 @@ public class ep9 implements KeyboardEventLayout.a {
             }
             this.B.e(i2);
             this.x.b();
-            SkinManager.setViewTextColor(this.f1103T, (int) R.color.CAM_X0110);
+            SkinManager.setViewTextColor(this.f1102T, (int) R.color.CAM_X0110);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0302);
             EMManager.from(this.q).setTextStyle(R.string.F_X01);
             SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0106);
-            this.f1103T.setAlpha(0.95f);
+            this.f1102T.setAlpha(0.95f);
             gp9 gp9Var = this.h0;
             if (gp9Var != null) {
                 gp9Var.c();

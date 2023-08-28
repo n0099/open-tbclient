@@ -36,13 +36,13 @@ public class ka4 extends ja4 {
 
         /* renamed from: com.baidu.tieba.ka4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0381a implements Runnable {
+        public class RunnableC0384a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ pa4 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0381a(a aVar, pa4 pa4Var) {
+            public RunnableC0384a(a aVar, pa4 pa4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class ka4 extends ja4 {
                 if (ja4.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0381a(this, pa4Var));
+                this.c.b.post(new RunnableC0384a(this, pa4Var));
             }
         }
 

@@ -1,93 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gwb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes5.dex */
-public final class awb<TResult> implements rvb<TResult> {
+public class awb {
     public static /* synthetic */ Interceptable $ic;
+    public static gwb a;
     public transient /* synthetic */ FieldHolder $fh;
-    public svb<TResult> a;
-    public Executor b;
-    public final Object c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vvb a;
-        public final /* synthetic */ awb b;
-
-        public a(awb awbVar, vvb vvbVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947631005, "Lcom/baidu/tieba/awb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {awbVar, vvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = awbVar;
-            this.a = vvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onComplete(this.a);
-                    }
-                }
-            }
-        }
-    }
-
-    public awb(Executor executor, svb<TResult> svbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, svbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947631005, "Lcom/baidu/tieba/awb;");
                 return;
             }
         }
-        this.c = new Object();
-        this.a = svbVar;
-        this.b = executor;
+        a = new gwb();
     }
 
-    @Override // com.baidu.tieba.rvb
-    public final void cancel() {
+    public static <TResult> TResult a(xvb<TResult> xvbVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xvbVar)) == null) {
+            gwb.c("await must not be called on the UI thread");
+            if (xvbVar.g()) {
+                return (TResult) gwb.b(xvbVar);
             }
+            gwb.b bVar = new gwb.b();
+            xvbVar.c(bVar);
+            xvbVar.b(bVar);
+            bVar.a.await();
+            return (TResult) gwb.b(xvbVar);
         }
+        return (TResult) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rvb
-    public final void onComplete(vvb<TResult> vvbVar) {
+    public static <TResult> xvb<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vvbVar) == null) {
-            this.b.execute(new a(this, vvbVar));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(zvb.a(), callable) : (xvb) invokeL.objValue;
+    }
+
+    public static <TResult> xvb<TResult> call(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(zvb.b(), callable) : (xvb) invokeL.objValue;
     }
 }

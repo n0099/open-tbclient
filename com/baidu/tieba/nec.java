@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tdc;
+import com.baidu.tieba.vdc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,14 +8,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class nec implements tdc.b {
+public class nec implements vdc.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public nec() {
+    public nec(ghc ghcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ghcVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,22 +27,14 @@ public class nec implements tdc.b {
                 return;
             }
         }
-        RLog.info("PayGiftDialogCallback", "create PayGiftDialogCallback");
+        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
     }
 
-    @Override // com.baidu.tieba.tdc.b
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayGiftDialogCallback", "showPayGiftDialog onKonwn");
-        }
-    }
-
-    @Override // com.baidu.tieba.tdc.b
+    @Override // com.baidu.tieba.vdc.a
     public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogCallback", "PayGiftDialog onNotifyCancelType clickArea:" + cancelType);
+            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
         }
     }
 }

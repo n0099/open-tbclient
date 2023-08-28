@@ -1,108 +1,170 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.util.PhotoType;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.BufferUnderflowException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
 public class kya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public List<SimpleForum> b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public NetMessageListener j;
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PhotoType a(String str) {
-        InterceptResult invokeL;
-        RandomAccessFile randomAccessFile;
-        RandomAccessFile randomAccessFile2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            PhotoType photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            RandomAccessFile randomAccessFile3 = null;
-            try {
-                try {
-                    try {
-                        randomAccessFile = new RandomAccessFile(str, "r");
-                        try {
-                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
-                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
-                                photoType = PhotoType.APNG;
-                            }
-                            randomAccessFile.close();
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (IOException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (BufferUnderflowException e3) {
-                            e = e3;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        randomAccessFile3 = randomAccessFile2;
-                        if (randomAccessFile3 != null) {
-                            try {
-                                randomAccessFile3.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException e5) {
-                    e = e5;
-                    randomAccessFile = null;
-                } catch (IOException e6) {
-                    e = e6;
-                    randomAccessFile = null;
-                } catch (BufferUnderflowException e7) {
-                    e = e7;
-                    randomAccessFile = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (randomAccessFile3 != null) {
-                    }
-                    throw th;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(List<SimpleForum> list, int i);
+
+        void onError();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kya a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kya kyaVar, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kyaVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (IOException e8) {
-                e8.printStackTrace();
             }
-            return photoType;
+            this.a = kyaVar;
         }
-        return (PhotoType) invokeL.objValue;
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (!z && !(responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) && this.a.i != ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                return;
+            }
+            if (responsedMessage.hasError()) {
+                if (this.a.d != null) {
+                    this.a.d.onError();
+                    return;
+                }
+                return;
+            }
+            if (z) {
+                GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                this.a.b = getRepostForumHttpResMessage.getForumList();
+                this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+            }
+            if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                this.a.b = getRepostForumSocketResMessage.getForumList();
+                this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+            }
+            if (this.a.d != null) {
+                this.a.d.a(this.a.b, this.a.g);
+            }
+        }
+    }
+
+    public kya(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
+        }
     }
 }

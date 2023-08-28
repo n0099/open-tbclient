@@ -26,7 +26,7 @@ public final class a {
     public boolean BR;
     public boolean BS;
     public View BT;
-    public InterfaceC0608a BU;
+    public InterfaceC0609a BU;
     public b BY;
     @Nullable
     public com.kwad.sdk.core.webview.a.kwai.a bJ;
@@ -45,7 +45,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.ad.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0608a {
+    public interface InterfaceC0609a {
         void V(boolean z);
     }
 
@@ -189,8 +189,8 @@ public final class a {
         this.BP = false;
     }
 
-    public final void a(InterfaceC0608a interfaceC0608a) {
-        this.BU = interfaceC0608a;
+    public final void a(InterfaceC0609a interfaceC0609a) {
+        this.BU = interfaceC0609a;
     }
 
     public final void a(b bVar) {

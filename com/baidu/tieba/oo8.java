@@ -43,13 +43,13 @@ public final class oo8 {
 
         /* renamed from: com.baidu.tieba.oo8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C0428a extends FastRequest.b<MsgContentMergeUtil.Result> {
+        public static final class C0430a extends FastRequest.b<MsgContentMergeUtil.Result> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ jo8 b;
             public final /* synthetic */ int c;
 
-            public C0428a(jo8 jo8Var, int i) {
+            public C0430a(jo8 jo8Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -167,7 +167,7 @@ public final class oo8 {
                 fastRequest2.W(2000);
                 fastRequest2.R(2000);
                 fastRequest2.X(1);
-                fastRequest2.Q(new C0428a(this.b, i));
+                fastRequest2.Q(new C0430a(this.b, i));
                 final oo8 oo8Var2 = this.a;
                 lg.g(new Runnable() { // from class: com.baidu.tieba.no8
                     public static /* synthetic */ Interceptable $ic;

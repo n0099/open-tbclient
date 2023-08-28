@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.l95;
-import com.baidu.tieba.oya;
+import com.baidu.tieba.pya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public oya c;
+    public pya c;
     public BaseWebView d;
     public View e;
     public BlueCircleProgressDialog f;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(oya oyaVar) {
+    public void setPresenter(pya pyaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, oyaVar) == null) {
-            this.c = oyaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pyaVar) == null) {
+            this.c = pyaVar;
             this.i = false;
         }
     }

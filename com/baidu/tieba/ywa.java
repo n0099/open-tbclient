@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.jya;
+import com.baidu.tieba.kya;
 import com.baidu.tieba.ps6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,16 +20,16 @@ import tbclient.SimpleForum;
 public class ywa implements ps6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jya a;
+    public kya a;
     public ArrayList<TransmitForumData> b;
     public List<SimpleForum> c;
     public ps6.a d;
     public boolean e;
     public int f;
-    public jya.b g;
+    public kya.b g;
 
     /* loaded from: classes8.dex */
-    public class a implements jya.b {
+    public class a implements kya.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ywa a;
@@ -52,7 +52,7 @@ public class ywa implements ps6 {
             this.a = ywaVar;
         }
 
-        @Override // com.baidu.tieba.jya.b
+        @Override // com.baidu.tieba.kya.b
         public void a(List<SimpleForum> list, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeLI(1048576, this, list, i) != null) {
@@ -63,7 +63,7 @@ public class ywa implements ps6 {
             this.a.h();
         }
 
-        @Override // com.baidu.tieba.jya.b
+        @Override // com.baidu.tieba.kya.b
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -88,9 +88,9 @@ public class ywa implements ps6 {
         this.b = new ArrayList<>();
         this.g = new a(this);
         BdUniqueId gen = BdUniqueId.gen();
-        jya jyaVar = new jya(gen);
-        this.a = jyaVar;
-        jyaVar.i(this.g);
+        kya kyaVar = new kya(gen);
+        this.a = kyaVar;
+        kyaVar.i(this.g);
         this.a.j(gen);
     }
 
@@ -104,11 +104,11 @@ public class ywa implements ps6 {
 
     @Override // com.baidu.tieba.ps6
     public void b() {
-        jya jyaVar;
+        kya kyaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (jyaVar = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (kyaVar = this.a) != null) {
             this.e = false;
-            jyaVar.l(null);
+            kyaVar.l(null);
             this.a.k(null);
             this.a.h();
         }

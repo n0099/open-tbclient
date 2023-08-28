@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,50 +11,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.render.RenderEngine;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.yy.render.trans.SimpleClientMessageSender;
 import com.yy.transvod.player.log.TLog;
 import com.yy.transvod.preference.Preference;
-import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k4c implements ezb, bzb {
+public class k4c extends SimpleClientMessageSender {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile AtomicBoolean v;
-    public static volatile k4c w;
+    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public final AtomicBoolean b;
-    public final AtomicBoolean c;
-    public final boolean d;
-    public final int e;
-    public i4c f;
-    public HashMap<String, String> g;
-    public Context h;
-    public WeakReference<f4c> i;
-    public final List<e4c> j;
-    public final List<e4c> k;
-    public int l;
-    public int m;
-    public AtomicBoolean n;
-    public AtomicBoolean o;
-    public final AtomicBoolean p;
-    public final Queue<Long> q;
-    public final AtomicBoolean r;
-    public Handler s;
-    public HashMap<String, String> t;
-    public j1c.a u;
+    public final String f;
+    public final Gson g;
+    public final ExecutorService h;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947864559, "Lcom/baidu/tieba/k4c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947864559, "Lcom/baidu/tieba/k4c;");
+        }
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public void d(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+        }
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public String e(String str, Bitmap bitmap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public void f(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
+        }
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public String g(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, bundle)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public void j(String str, int i2, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048582, this, str, i2, str2, str3) == null) {
+        }
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements j1c.a {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ k4c b;
 
         public a(k4c k4cVar) {
             Interceptable interceptable = $ic;
@@ -70,41 +111,18 @@ public class k4c implements ezb, bzb {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = k4cVar;
-            this.a = 0L;
-        }
-
-        @Override // com.baidu.tieba.j1c.a
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                synchronized (this) {
-                    if (j <= this.a) {
-                        return;
-                    }
-                    this.a = j;
-                    TLog.m("[PreferenceSubProcess]", "PreferenceSubProcess app background");
-                    this.b.r.set(false);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.j1c.a
-        public void b(long j) {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                synchronized (this) {
-                    if (j <= this.a) {
-                        return;
-                    }
-                    this.a = j;
-                    this.b.r.set(true);
-                    TLog.m("[PreferenceSubProcess]", "PreferenceSubProcess app front ground");
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return new Thread(runnable, "C-preference-" + k4c.n());
             }
+            return (Thread) invokeL.objValue;
         }
     }
 
@@ -134,482 +152,268 @@ public class k4c implements ezb, bzb {
 
         @Override // java.lang.Runnable
         public void run() {
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = false;
-                if (!this.a.p.get() && k4c.v.compareAndSet(false, true)) {
-                    z = true;
-                }
-                if (z) {
-                    TLog.h("[PreferenceSubProcess]", "init render engine onInitTimeout.");
-                    x3c.b(true);
-                    if (this.a.o.get()) {
-                        str = "initRenderEngineFail";
-                    } else {
-                        str = "initTimeout";
-                    }
-                    TLog.h("[PreferenceSubProcess]", "close RenderEngine!!!");
-                    RenderEngine.r.a().D(this.a);
-                    RenderEngine.r.a().C(this.a);
-                    i0c.h().g();
-                    this.a.t(str);
-                    TLog.h("[PreferenceSubProcess]", "onInitTimeout: destroy RenderEngine!!!");
-                    RenderEngine.r.a().s();
-                    for (e4c e4cVar : this.a.k) {
-                        e4cVar.a(str, k4c.v.get(), new HashMap<>());
-                    }
-                    for (e4c e4cVar2 : this.a.j) {
-                        e4cVar2.a(str, k4c.v.get(), new HashMap<>());
-                    }
-                }
+                TLog.h("[PreferenceClient]", "initPreference");
+                f0c f0cVar = new f0c();
+                f0cVar.a = "initPreference";
+                k4c k4cVar = this.a;
+                k4cVar.l(k4cVar.g.toJson(f0cVar));
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864559, "Lcom/baidu/tieba/k4c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ HashMap a;
+        public final /* synthetic */ k4c b;
+
+        public c(k4c k4cVar, HashMap hashMap) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864559, "Lcom/baidu/tieba/k4c;");
-                return;
-            }
-        }
-        v = new AtomicBoolean(false);
-        w = null;
-    }
-
-    public static k4c n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (w == null) {
-                synchronized (k4c.class) {
-                    if (w == null) {
-                        w = new k4c();
-                        l4c.c();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k4cVar, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return w;
+            this.b = k4cVar;
+            this.a = hashMap;
         }
-        return (k4c) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TLog.h("[PreferenceClient]", "setMediaConfig");
+                String json = this.b.g.toJson(this.a);
+                f0c f0cVar = new f0c();
+                f0cVar.a = "setMediaConfig";
+                f0cVar.b.put("configs", json);
+                k4c k4cVar = this.b;
+                k4cVar.l(k4cVar.g.toJson(f0cVar));
+            }
+        }
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return v.get();
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f4c a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ b1c e;
+        public final /* synthetic */ boolean f;
+
+        public d(k4c k4cVar, f4c f4cVar, int i, int i2, String str, b1c b1cVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k4cVar, f4cVar, Integer.valueOf(i), Integer.valueOf(i2), str, b1cVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f4cVar;
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = b1cVar;
+            this.f = z;
         }
-        return invokeV.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a != null && (i = this.b) == 0) {
+                    if (i == 0) {
+                        TLog.h("[PreferenceClient]", "onStatistics,taskId:" + this.c + ",type:" + this.b + ",text:" + this.d);
+                        this.a.a(this.c, this.b, this.d);
+                        return;
+                    } else if (this.e == null) {
+                        TLog.h("[PreferenceClient]", "onStatistics,taskId:" + this.c + ",type:" + this.b + ",text:" + this.d);
+                        this.a.a(this.c, this.b, this.d);
+                        return;
+                    }
+                }
+                if (this.b == 0) {
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("pkg", d0c.a(null));
+                hashMap.put("appinfo", d0c.b(null));
+                String str = "";
+                String str2 = "";
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    str2 = str2 + "&" + entry.getKey() + "=" + entry.getValue();
+                }
+                String str3 = this.d + str2;
+                if (this.e != null && this.b != 0) {
+                    HashMap<String, String> hashMap2 = new HashMap<>();
+                    this.e.a(this.c, this.b, this.f, hashMap2);
+                    if (hashMap2.size() > 0) {
+                        if (this.d.contains("scene=")) {
+                            hashMap2.remove("scene");
+                        }
+                        hashMap2.remove("pkg");
+                        hashMap2.remove("appinfo");
+                        for (Map.Entry<String, String> entry2 : hashMap2.entrySet()) {
+                            str = str + "&" + ((Object) entry2.getKey()) + "=" + ((Object) entry2.getValue());
+                        }
+                        str3 = str3 + str;
+                    }
+                }
+                TLog.h("[PreferenceClient]", "PlayerStatisticsParams,taskId:" + this.c + ",stop:" + this.f + ",type:" + this.b + ",text:" + str3);
+                a4c.i(this.c, this.b, str3);
+            }
+        }
     }
 
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.p.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.s == null) {
-            return;
-        }
-        TLog.h("[PreferenceSubProcess]", "stopInitTimeout");
-        this.s.removeCallbacksAndMessages(null);
-    }
-
-    public k4c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k4c(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        this.b = new AtomicBoolean(false);
-        this.c = new AtomicBoolean(true);
-        new AtomicBoolean(false);
-        this.e = hashCode();
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = new WeakReference<>(null);
-        this.j = new CopyOnWriteArrayList();
-        this.k = new CopyOnWriteArrayList();
-        this.l = 0;
-        this.m = 0;
-        this.n = new AtomicBoolean(true);
-        this.o = new AtomicBoolean(false);
-        this.p = new AtomicBoolean(false);
-        this.q = new LinkedList();
-        this.r = new AtomicBoolean(true);
-        this.s = null;
-        this.t = null;
-        this.u = new a(this);
-        boolean x = RenderEngine.r.a().x();
-        this.d = x;
-        if (x) {
-            this.f = new i4c(String.valueOf(this.e));
-            this.s = new Handler(Looper.getMainLooper());
-        } else {
-            TLog.m("[PreferenceSubProcess]", "subprocess is not support in current devices!!");
-        }
-        x3c.d(this.d);
-        j1c.b(this.u);
-        TLog.h("[PreferenceSubProcess]", "PreferenceSubProcess constor");
+        this.h = Executors.newSingleThreadExecutor(new a(this));
+        this.f = str;
+        this.g = new GsonBuilder().excludeFieldsWithModifiers(128, 8).serializeNulls().create();
     }
 
-    public final void p() {
-        boolean v2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TLog.h("[PreferenceSubProcess]", "initSubProcessInternal begin !!!");
-            boolean z = false;
-            if (this.h != null && this.a.compareAndSet(false, true)) {
-                TLog.h("[PreferenceSubProcess]", "do initSubProcessInternal!!!");
-                RenderEngine.r.a().r(this);
-                i0c.h().i();
-                if (this.c.compareAndSet(true, false)) {
-                    TLog.h("[PreferenceSubProcess]", "initSubProcessInternal, init RenderEngine");
-                    if (this.t == null) {
-                        this.t = new HashMap<>();
-                    }
-                    String v3 = e2c.v(this.h);
-                    if (v3 != null) {
-                        this.t.put("nativeLib", v3);
-                    }
-                    if (this.t == null) {
-                        v2 = RenderEngine.r.a().u(this.h, this);
-                    } else {
-                        v2 = RenderEngine.r.a().v(this.h, this, this.t);
-                    }
-                    this.n.set(v2);
-                    this.o.set(!v2);
-                    if (!v2) {
-                        v.set(true);
-                        w();
-                        TLog.h("[PreferenceSubProcess]", "initSubProcessInternal end, init RenderEngine Fail");
-                    } else {
-                        v();
-                        TLog.h("[PreferenceSubProcess]", "initSubProcessInternal end, init RenderEngine success");
-                    }
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("initSubProcessInternal end, but don't render engine this time, mFinistTimeInitEngineSuccess: ");
-            sb.append(this.n.get());
-            sb.append(", mAppContext: ");
-            if (this.h != null) {
-                z = true;
-            }
-            sb.append(z);
-            sb.append(", renderEngineInited: ");
-            sb.append(this.a.get());
-            TLog.h("[PreferenceSubProcess]", sb.toString());
-        }
+    public static /* synthetic */ int n() {
+        return r();
     }
 
-    public boolean o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            if (this.d) {
-                this.h = context;
-                if (context != null) {
-                    this.h = context.getApplicationContext();
-                }
-                p();
-                return this.n.get();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void u(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) && this.d) {
-            this.g = hashMap;
-            if (this.b.get()) {
-                this.f.s(hashMap);
-            }
-        }
-    }
-
-    public void j(e4c e4cVar, boolean z) {
-        List<e4c> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, e4cVar, z) == null) && this.d && e4cVar != null) {
-            if (z) {
-                list = this.k;
-            } else {
-                list = this.j;
-            }
-            if (!list.contains(e4cVar)) {
-                list.add(e4cVar);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bzb
-    public void a(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            TLog.h("[PreferenceSubProcess]", "on service crash: " + str);
-            boolean z = v.get() ^ true;
-            s(str);
-            t(str);
-            if (this.b.compareAndSet(true, false)) {
-                TLog.h("[PreferenceSubProcess]", "close msg client!!!");
-                this.f.a();
-            }
-            if (this.a.get()) {
-                TLog.h("[PreferenceSubProcess]", "close RenderEngine!!!");
-                RenderEngine.r.a().D(this);
-                RenderEngine.r.a().C(this);
-            }
-            i0c.h().g();
-            this.a.set(false);
-            this.c.set(true);
-            if (!v.get()) {
-                p();
-            } else {
-                TLog.h("[PreferenceSubProcess]", "on service crash, destroy RenderEngine!!!");
-                RenderEngine.r.a().s();
-            }
-            if (z) {
-                for (e4c e4cVar : this.k) {
-                    e4cVar.a(str, v.get(), new HashMap<>());
-                }
-                for (e4c e4cVar2 : this.j) {
-                    e4cVar2.a(str, v.get(), new HashMap<>());
-                }
-            }
-        }
-    }
-
-    public final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            int d = l4c.c().d();
-            int i = l4c.c().i();
-            int f = l4c.c().f();
-            int a2 = l4c.c().a();
-            int b2 = l4c.c().b();
-            HashMap hashMap = new HashMap();
-            hashMap.put("playercnt", String.valueOf(d));
-            hashMap.put("playtask", String.valueOf(i));
-            hashMap.put("livetask", String.valueOf(f));
-            hashMap.put("frontground", String.valueOf(this.r.get() ? 1 : 0));
-            hashMap.put("fail2Main", String.valueOf(v.get() ? 1 : 0));
-            hashMap.put("crashcnt", String.valueOf(this.l));
-            hashMap.put("rctCrashCnt", String.valueOf(this.m));
-            hashMap.put("downloadclient", String.valueOf(a2));
-            hashMap.put("downloadTask", String.valueOf(b2));
-            StringBuilder sb = new StringBuilder("");
-            sb.append("crashReason=");
-            sb.append(str);
-            sb.append("&playercnt=");
-            sb.append(d);
-            sb.append("&playtask=");
-            sb.append(i);
-            sb.append("&livetask=");
-            sb.append(f);
-            sb.append("&frontground=");
-            sb.append(this.r.get() ? 1 : 0);
-            sb.append("&fail2Main=");
-            sb.append(v.get() ? 1 : 0);
-            sb.append("&crashcnt=");
-            sb.append(this.l);
-            sb.append("&rctCrashCnt=");
-            sb.append(this.m);
-            sb.append("&downloadclient=");
-            sb.append(a2);
-            sb.append("&downloadTask=");
-            sb.append(b2);
-            TLog.h("[PreferenceSubProcess]", sb.toString());
-            g4c d2 = Preference.d();
-            if (d2 != null) {
-                d2.a(1, sb.toString());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ezb
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TLog.h("[PreferenceSubProcess]", "on service connect");
-            w();
-            this.p.set(true);
-            if (v.get()) {
-                TLog.h("[PreferenceSubProcess]", "on service connect fail over to main process, destroy the renderEngine and return");
-                RenderEngine.r.a().s();
-                return;
-            }
-            this.o.set(false);
-            if (this.b.compareAndSet(false, true)) {
-                TLog.h("[PreferenceSubProcess]", "init msg client!!!");
-                this.f.c(j4c.class);
-                this.f.q();
-                HashMap<String, String> hashMap = this.g;
-                if (hashMap != null) {
-                    this.f.s(hashMap);
-                }
-            }
-            f4c f4cVar = this.i.get();
-            if (f4cVar != null) {
-                f4cVar.a();
-            }
-        }
-    }
-
-    public final int l() {
+    public static synchronized int r() {
         InterceptResult invokeV;
-        int i;
-        String str;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap<String, String> hashMap = this.g;
-            int i2 = 1;
-            if (hashMap != null && (str = hashMap.get("MC_SUBPROCESS_CRASH_LIMIT")) != null) {
-                try {
-                    i = Integer.parseInt(str);
-                } catch (Exception e) {
-                    TLog.g(this, "mMediaConfig, crashCntLimitKey-" + str + ": " + e.toString());
-                }
-                if (i >= 0 && i <= 100) {
-                    i2 = i;
-                }
-                TLog.h("[PreferenceSubProcess]", "getCrashCntLimit: " + i2);
-                return i2;
-            }
-            i = 1;
-            if (i >= 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (k4c.class) {
                 i2 = i;
+                i = i2 + 1;
             }
-            TLog.h("[PreferenceSubProcess]", "getCrashCntLimit: " + i2);
             return i2;
         }
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x004f  */
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.h.execute(new b(this));
+        }
+    }
+
+    public void s(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, hashMap) == null) && hashMap != null) {
+            this.h.execute(new c(this, hashMap));
+        }
+    }
+
+    @Override // com.yy.render.trans.SimpleClientMessageSender
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, str2) != null) || !str.equals(this.f)) {
+            return;
+        }
+        try {
+            p(str2);
+        } catch (Exception e) {
+            e.printStackTrace();
+            TLog.d("[PreferenceClient]", "(onDataFromServer) ex" + e.getMessage());
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:30:?, code lost:
+        return "";
+     */
+    @Override // com.yy.render.trans.SimpleClientMessageSender
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final int m() {
-        InterceptResult invokeV;
-        int i;
-        String str;
+    public String i(String str, String str2) {
+        InterceptResult invokeLL;
+        c4c e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HashMap<String, String> hashMap = this.g;
-            int i2 = 15000;
-            if (hashMap != null && (str = hashMap.get("MC_SUBPROCESS_INIT_TIMEOUT")) != null) {
-                try {
-                    i = Integer.parseInt(str);
-                } catch (Exception e) {
-                    TLog.g(this, "mMediaConfig, Subprocess InitTimeoutMs-" + str + ": " + e.toString());
-                }
-                if (i >= 5000 && i <= 180000) {
-                    i2 = i;
-                }
-                if (this.o.get()) {
-                    i2 = 3000;
-                }
-                TLog.h("[PreferenceSubProcess]", "getInitTimeoutMs: " + i2);
-                return i2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            String str3 = "";
+            if (!str.equals(this.f)) {
+                return "";
             }
-            i = 15000;
-            if (i >= 5000) {
-                i2 = i;
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                String optString = jSONObject.optString("cmd");
+                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                char c2 = 65535;
+                if (optString.hashCode() == 2015108602 && optString.equals("onDnsHostResolve")) {
+                    c2 = 0;
+                }
+                d4c a2 = Preference.a();
+                if (a2 == null || (e = a2.e(jSONObject2.optString("hostName"))) == null) {
+                    return "";
+                }
+                str3 = c4c.b(e);
+                TLog.h("[PreferenceClient]", "return DnsHostResolve result to subprocess:" + str3);
+                return str3;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                TLog.d("[PreferenceClient]", "(onDataFromServerForStr) ex" + e2.getMessage());
+                return str3;
             }
-            if (this.o.get()) {
-            }
-            TLog.h("[PreferenceSubProcess]", "getInitTimeoutMs: " + i2);
-            return i2;
         }
-        return invokeV.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ezb
-    public void c() {
+    public final void p(String str) throws Exception {
+        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TLog.h("[PreferenceSubProcess]", "on service disconnect");
-            this.p.set(false);
-            if (this.h != null && !v.get()) {
-                TLog.h("[PreferenceSubProcess]", "onDisconnect, init RenderEngine again");
-                if (this.t == null) {
-                    this.o.set(!RenderEngine.r.a().u(this.h, this));
-                } else {
-                    this.o.set(!RenderEngine.r.a().v(this.h, this, this.t));
-                }
-                v();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("cmd");
+            if (optString.hashCode() == -1048965022 && optString.equals("onStatistics")) {
+                c2 = 0;
+            } else {
+                c2 = 65535;
             }
-        }
-    }
-
-    public final void s(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.l++;
-            long currentTimeMillis = System.currentTimeMillis();
-            this.q.offer(Long.valueOf(currentTimeMillis));
-            this.m = this.q.size();
-            TLog.h("[PreferenceSubProcess]", "onCrashCheck, time:" + currentTimeMillis + ",crashCnt:" + this.m);
-            if (this.m > l()) {
-                Long poll = this.q.poll();
-                if (poll != null && currentTimeMillis - poll.longValue() < 300000) {
-                    TLog.h("[PreferenceSubProcess]", "onCrashCheck##fail over to main process, crash cnt:" + this.m + ", first:" + poll + ", now:" + currentTimeMillis + ",interval:" + (currentTimeMillis - poll.longValue()) + "ms");
-                    v.set(true);
-                    x3c.b(true);
-                    return;
-                }
-                int i = this.m;
-                if (i > 0) {
-                    this.m = i - 1;
-                }
+            if (c2 == 0) {
+                f4c b2 = Preference.b();
+                b1c c3 = Preference.c();
+                JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                int optInt = jSONObject2.optInt("taskId");
+                this.h.execute(new d(this, b2, jSONObject2.optInt("type"), optInt, jSONObject2.optString("text"), c3, jSONObject2.optBoolean("stop")));
             }
-        }
-    }
-
-    public final void v() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (handler = this.s) == null) {
-            return;
-        }
-        handler.removeCallbacksAndMessages(null);
-        TLog.h("[PreferenceSubProcess]", "startInitTimeout");
-        if (!v.get()) {
-            this.s.postDelayed(new b(this), m());
         }
     }
 }

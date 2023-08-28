@@ -1,55 +1,108 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class cxb {
+public class cxb extends AsyncTask<Context, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void b(String str, String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691548, "Lcom/baidu/tieba/cxb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691548, "Lcom/baidu/tieba/cxb;");
+                return;
+            }
+        }
+        a = cxb.class.getSimpleName();
+    }
+
+    public cxb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static String a(String str) {
+    @Override // android.os.AsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            exb.b(a, "onPreExecute");
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(Context... contextArr) {
         InterceptResult invokeL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "SecurityComp10105310: " + str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                inputStream = zwb.m(contextArr[0]);
+            } catch (Exception e) {
+                String str = a;
+                exb.d(str, "doInBackground: exception : " + e.getMessage());
+                inputStream = null;
+            }
+            String str2 = a;
+            exb.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            if (inputStream != null) {
+                dxb.b(inputStream);
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         }
-        return (String) invokeL.objValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public static void c(String str, String str2, Throwable th) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
-            Log.e(a(str), str2, th);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+            if (bool.booleanValue()) {
+                exb.e(a, "onPostExecute: upate done");
+            } else {
+                exb.d(a, "onPostExecute: upate failed");
+            }
         }
     }
 
-    public static void d(String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: c */
+    public void onProgressUpdate(Integer... numArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            Log.e(a(str), str2);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Log.i(a(str), str2);
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            Log.w(a(str), str2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
+            exb.e(a, "onProgressUpdate");
         }
     }
 }

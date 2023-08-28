@@ -25,15 +25,15 @@ import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a6b;
 import com.baidu.tieba.lpa;
 import com.baidu.tieba.mpa;
 import com.baidu.tieba.os6;
 import com.baidu.tieba.ux5;
 import com.baidu.tieba.video.EditVideoData;
 import com.baidu.tieba.woa;
-import com.baidu.tieba.x5b;
 import com.baidu.tieba.xwa;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u000f\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\b\u0016\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004¢\u0006\u0002\u0010\u0005B\u001b\b\u0016\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bB#\b\u0016\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0006\u00103\u001a\u000204J\u0006\u00105\u001a\u000206J\u0006\u00107\u001a\u000204J\b\u00108\u001a\u000204H\u0016J\u0006\u00109\u001a\u000204J\b\u0010:\u001a\u000204H\u0016J\b\u0010;\u001a\u000204H\u0016J\u0006\u0010<\u001a\u000204J\u0006\u0010=\u001a\u000204J\u0012\u0010>\u001a\u0002042\n\u0010?\u001a\u0006\u0012\u0002\b\u00030 J\u0016\u0010@\u001a\u0002042\u0006\u00101\u001a\u0002022\u0006\u0010A\u001a\u000206J\u0016\u0010B\u001a\u0002042\u0006\u0010C\u001a\u00020\n2\u0006\u0010D\u001a\u00020\nR\u0014\u0010\f\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0014\u0010\u000f\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u000eR\u0014\u0010\u0011\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u000eR\u0014\u0010\u0013\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u000eR\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u0012\u0010\u001f\u001a\u0006\u0012\u0002\b\u00030 X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020&X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u0001X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020&X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020,X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020.X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010/\u001a\u0004\u0018\u000100X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00101\u001a\u0004\u0018\u000102X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006E"}, d2 = {"Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/write/write/work/interf/IWriteVideoPreviewListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "STATE_FAILED", "getSTATE_FAILED", "()I", "STATE_MIXING", "getSTATE_MIXING", "STATE_NONE", "getSTATE_NONE", "STATE_SUCCESS", "getSTATE_SUCCESS", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/video/EditVideoTaskDataAndCallback;", "editData", "Lcom/baidu/tieba/video/EditVideoData;", "iWorkVideoMixListener", "Lcom/baidu/tieba/write/write/work/interf/IWorkVideoMixListener;", "getIWorkVideoMixListener", "()Lcom/baidu/tieba/write/write/work/interf/IWorkVideoMixListener;", "setIWorkVideoMixListener", "(Lcom/baidu/tieba/write/write/work/interf/IWorkVideoMixListener;)V", "mContext", "Lcom/baidu/tbadk/TbPageContext;", "mRootView", "Landroid/view/View;", "mVideoMuxer", "Lcom/baidu/ugc/editvideo/muxer/VideoMuxer;", "mixPercentText", "Landroid/widget/TextView;", "mixRetryText", "mixState", "mixStateLayout", "mixStateText", "muxerProgressStartListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "publishVideoView", "Lcom/baidu/tieba/write/write/work/videoview/WorkPublishVideoView;", "saveEditVideoController", "Lcom/baidu/tieba/controller/ISaveEditVideoController;", "videoInfo", "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "initView", "", "isVisible", "", "onChangeSkin", "onCoverEditClick", MissionEvent.MESSAGE_DESTROY, "onEditClick", "onPlayClick", "onStart", MissionEvent.MESSAGE_STOP, "setPageContext", "tbPageContext", "setVideoInfo", "isDraft", "updateStateTexts", "state", "percent", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
+public final class WorkPublishMixVideoView extends LinearLayout implements a6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -67,7 +67,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
     public os6 n;
     public VideoInfo o;
     public EditVideoData p;
-    public x5b q;
+    public z5b q;
     public VideoMuxer r;
     public final CustomMessageListener s;
 
@@ -79,7 +79,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
 
         /* renamed from: com.baidu.tieba.write.write.work.videoview.WorkPublishMixVideoView$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static final class C0519a implements ux5.b {
+        public static final class C0521a implements ux5.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WorkPublishMixVideoView a;
@@ -92,7 +92,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
                 }
             }
 
-            public C0519a(WorkPublishMixVideoView workPublishMixVideoView, xwa xwaVar) {
+            public C0521a(WorkPublishMixVideoView workPublishMixVideoView, xwa xwaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +182,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
                     editVideoData.originPath = str3;
                     editVideoData.finalPath = str;
                     videoInfo.setEditVideoData(editVideoData);
-                    x5b iWorkVideoMixListener = this.a.getIWorkVideoMixListener();
+                    z5b iWorkVideoMixListener = this.a.getIWorkVideoMixListener();
                     if (iWorkVideoMixListener != null) {
                         iWorkVideoMixListener.o1(videoInfo);
                     }
@@ -227,7 +227,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
                             videoMuxer.interruptProcess();
                         }
                         WorkPublishMixVideoView workPublishMixVideoView = this.a;
-                        workPublishMixVideoView.r = ux5.d(xwaVar, new C0519a(workPublishMixVideoView, xwaVar));
+                        workPublishMixVideoView.r = ux5.d(xwaVar, new C0521a(workPublishMixVideoView, xwaVar));
                         return;
                     }
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.write.PublishMuxerData");
@@ -316,10 +316,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
         f();
     }
 
-    public final void setIWorkVideoMixListener(x5b x5bVar) {
+    public final void setIWorkVideoMixListener(z5b z5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, x5bVar) == null) {
-            this.q = x5bVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, z5bVar) == null) {
+            this.q = z5bVar;
         }
     }
 
@@ -338,7 +338,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
         }
     }
 
-    @Override // com.baidu.tieba.y5b
+    @Override // com.baidu.tieba.a6b
     public void a() {
         TbMultiMediaData tbMultiMediaData;
         Interceptable interceptable = $ic;
@@ -379,7 +379,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
         }
     }
 
-    @Override // com.baidu.tieba.y5b
+    @Override // com.baidu.tieba.a6b
     public void c() {
         TbMultiMediaData tbMultiMediaData;
         Interceptable interceptable = $ic;
@@ -419,7 +419,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
         }
     }
 
-    @Override // com.baidu.tieba.y5b
+    @Override // com.baidu.tieba.a6b
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e != this.b && this.o != null) {
@@ -527,13 +527,13 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
         }
     }
 
-    public final x5b getIWorkVideoMixListener() {
+    public final z5b getIWorkVideoMixListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.q;
         }
-        return (x5b) invokeV.objValue;
+        return (z5b) invokeV.objValue;
     }
 
     public final int getSTATE_FAILED() {
@@ -699,9 +699,9 @@ public final class WorkPublishMixVideoView extends LinearLayout implements y5b {
                     }
                     textView11.setVisibility(8);
                 }
-                x5b x5bVar = this.q;
-                if (x5bVar != null) {
-                    x5bVar.j(this.e);
+                z5b z5bVar = this.q;
+                if (z5bVar != null) {
+                    z5bVar.j(this.e);
                 }
             }
             WorkPublishVideoView workPublishVideoView2 = this.h;

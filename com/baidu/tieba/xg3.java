@@ -46,11 +46,11 @@ public class xg3 {
 
         /* renamed from: com.baidu.tieba.xg3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class RunnableC0527a implements Runnable {
+        public static class RunnableC0528a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0527a() {
+            public RunnableC0528a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class xg3 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0527a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0528a(), "V8SoCleaner", 3);
             }
         }
     }

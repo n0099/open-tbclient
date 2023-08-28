@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface c8c<T1, T2> {
-    void call(T1 t1, T2 t2);
+public interface c8c {
+    void call();
 }

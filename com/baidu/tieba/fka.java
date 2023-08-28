@@ -32,13 +32,13 @@ public class fka extends CustomMessageListener {
 
         /* renamed from: com.baidu.tieba.fka$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0292a implements Runnable {
+        public class RunnableC0289a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yca a;
             public final /* synthetic */ a b;
 
-            public RunnableC0292a(a aVar, yca ycaVar) {
+            public RunnableC0289a(a aVar, yca ycaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class fka extends CustomMessageListener {
         public void a(yca ycaVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ycaVar) == null) {
-                this.a.a.runOnUiThread(new RunnableC0292a(this, ycaVar));
+                this.a.a.runOnUiThread(new RunnableC0289a(this, ycaVar));
             }
         }
     }

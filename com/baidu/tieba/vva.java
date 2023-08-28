@@ -51,7 +51,7 @@ public class vva {
             if (!FileUtils.isExists(c)) {
                 return null;
             }
-            Bitmap f = zfb.f(c);
+            Bitmap f = bgb.f(c);
             if (f != null) {
                 cwa.f().g().b(str, f);
             }

@@ -39,13 +39,13 @@ public class ks3 extends gz1 {
 
         /* renamed from: com.baidu.tieba.ks3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0387a implements wp3<gg3<ig3.e>> {
+        public class C0390a implements wp3<gg3<ig3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ fz1.b a;
             public final /* synthetic */ a b;
 
-            public C0387a(a aVar, fz1.b bVar) {
+            public C0390a(a aVar, fz1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class ks3 extends gz1 {
                 if (b0 == null) {
                     return new d32(1001, "null swan runtime");
                 }
-                b0.e0().g(cb3.K(), "mapp_i_get_bduss", new C0387a(this, bVar));
+                b0.e0().g(cb3.K(), "mapp_i_get_bduss", new C0390a(this, bVar));
                 return d32.f();
             }
             return (d32) invokeLL.objValue;

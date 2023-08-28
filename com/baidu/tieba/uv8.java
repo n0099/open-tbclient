@@ -270,33 +270,33 @@ public final class uv8 extends hk8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.c();
-            occ k = k();
+            qcc k = k();
             if (k != null) {
-                k.a(ForumChannelDataObs.b.a().b().k(new g8c() { // from class: com.baidu.tieba.mv8
+                k.a(ForumChannelDataObs.b.a().b().k(new i8c() { // from class: com.baidu.tieba.mv8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.g8c
+                    @Override // com.baidu.tieba.i8c
                     public final Object call(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? uv8.S(uv8.this, (Map) obj) : invokeL.objValue;
                     }
-                }).x().p(new g8c() { // from class: com.baidu.tieba.hv8
+                }).x().p(new i8c() { // from class: com.baidu.tieba.hv8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.g8c
+                    @Override // com.baidu.tieba.i8c
                     public final Object call(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? uv8.T(uv8.this, (Map) obj) : invokeL.objValue;
                     }
-                }).s(x7c.b()).H(new b8c() { // from class: com.baidu.tieba.xu8
+                }).s(z7c.b()).H(new d8c() { // from class: com.baidu.tieba.xu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.b8c
+                    @Override // com.baidu.tieba.d8c
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

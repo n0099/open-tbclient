@@ -40,12 +40,12 @@ public class y0a implements j1a, l1a {
 
         /* renamed from: com.baidu.tieba.y0a$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0533a implements ne.a<String> {
+        public class C0534a implements ne.a<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0533a(a aVar) {
+            public C0534a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class y0a implements j1a, l1a {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (neVar = (ne) this.a.a.get()) == null) {
                 return;
             }
-            neVar.f(this.a.e, new C0533a(this));
+            neVar.f(this.a.e, new C0534a(this));
         }
     }
 

@@ -158,13 +158,13 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
         });
         com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.mWebContainer);
         this.mTitleBarHelper = aVar;
-        aVar.a(new a.InterfaceC0653a() { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.3
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0653a
+        aVar.a(new a.InterfaceC0654a() { // from class: com.kwad.components.core.page.AdLandPageActivityProxy.3
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0654a
             public final void r(View view2) {
                 AdLandPageActivityProxy.this.onBackPressed();
             }
 
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0653a
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0654a
             public final void s(View view2) {
                 AdLandPageActivityProxy.this.finish();
             }
@@ -176,7 +176,7 @@ public class AdLandPageActivityProxy extends com.kwad.components.core.i.a {
             com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
             setupJsBridge(this.mAdWebView, cVar);
             if (com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                cVar.m(new a.C0647a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
+                cVar.m(new a.C0648a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
             }
             ksAdWebView = this.mAdWebView;
             ar = this.mDialogUrl;

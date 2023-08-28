@@ -38,12 +38,12 @@ public class ov7 implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.ov7$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0431a implements Runnable {
+        public class RunnableC0433a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0431a(a aVar) {
+            public RunnableC0433a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class ov7 implements View.OnClickListener {
                 this.a.e = new PopupWindow(h, -2, dimens);
                 GreyUtil.grey(this.a.e);
                 this.a.e.showAtLocation(this.a.d, 53, dimens2, dimens3);
-                this.a.f.postDelayed(new RunnableC0431a(this), 3000L);
+                this.a.f.postDelayed(new RunnableC0433a(this), 3000L);
             }
         }
     }

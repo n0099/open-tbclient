@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -63,7 +64,7 @@ public class oj6 {
             TbLog hybridLog = HybridLog.getInstance();
             hybridLog.i("JsBridge", "H5通知callJsDispatchEvent params:" + str);
             if (webView != null && !TextUtils.isEmpty(str)) {
-                webView.evaluateJavascript("javascript:var eventType = 'naNotify';var setEvent = new Event(eventType);setEvent.detail = " + str + ";document.dispatchEvent(setEvent);", null);
+                webView.evaluateJavascript("javascript:var eventType = 'naNotify';var setEvent = new Event(eventType);setEvent.detail = " + str + ParamableElem.DIVIDE_PARAM + "document.dispatchEvent(setEvent);", null);
             }
         }
     }

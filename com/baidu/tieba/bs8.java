@@ -9,7 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bs8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "2";
+    public static final String b = "1";
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, String str2, String str3, int i, boolean z) {
@@ -21,9 +23,9 @@ public class bs8 {
             statisticItem.addParam("obj_id", str);
             statisticItem.addParam("obj_name", str2);
             if (z) {
-                str4 = "2";
+                str4 = a;
             } else {
-                str4 = "1";
+                str4 = b;
             }
             statisticItem.addParam("obj_type", str4);
             statisticItem.addParam("obj_locate", i);
@@ -41,9 +43,9 @@ public class bs8 {
             statisticItem.addParam("obj_id", str);
             statisticItem.addParam("obj_name", str2);
             if (z) {
-                str4 = "2";
+                str4 = a;
             } else {
-                str4 = "1";
+                str4 = b;
             }
             statisticItem.addParam("obj_type", str4);
             statisticItem.addParam("obj_locate", i);
@@ -62,9 +64,9 @@ public class bs8 {
             statisticItem.addParam("obj_id", str2);
             statisticItem.addParam("obj_name", str3);
             if (z) {
-                str4 = "2";
+                str4 = a;
             } else {
-                str4 = "1";
+                str4 = b;
             }
             statisticItem.addParam("obj_type", str4);
             statisticItem.addParam("obj_locate", i);
@@ -82,9 +84,9 @@ public class bs8 {
             statisticItem.addParam("obj_id", str);
             statisticItem.addParam("obj_name", str2);
             if (z) {
-                str4 = "2";
+                str4 = a;
             } else {
-                str4 = "1";
+                str4 = b;
             }
             statisticItem.addParam("obj_type", str4);
             statisticItem.addParam("obj_locate", i);

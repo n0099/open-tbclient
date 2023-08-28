@@ -10,6 +10,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.player.model.YYOption;
@@ -18,6 +19,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.AdSdkSwitch;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,27 +66,32 @@ public class kaa implements baa {
         public void run() {
             int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.e && this.a.d != null) {
-                SpeedStatsManager.getInstance().setIsTimeout(true);
-                CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
-                if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("ThirdPartySplashController", "开屏广告：mTimeOutRunnable, hasLoadBesFinish is: " + this.a.e + " ,besSplashHolder is: " + this.a.d);
+                if (!this.a.e && this.a.d != null) {
+                    SpeedStatsManager.getInstance().setIsTimeout(true);
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
+                    if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
+                        return;
+                    }
+                    kia.a("ThirdPartySplashController mTimeOutRunnable");
+                    TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
+                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
+                    if (this.a.a.h()) {
+                        i = 2;
+                    } else {
+                        i = 1;
+                    }
+                    param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
+                    if (TbadkCoreApplication.getInst().isDebugMode()) {
+                        Log.d("IAdSdkSplash", "兜底time out and jump maintab");
+                    }
+                    this.a.a.getRootView().removeView(this.a.d);
+                    this.a.b.a();
+                    DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：mTimeOutRunnable, closeSplash");
+                    BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", YYOption.IsLive.VALUE_TRUE);
                 }
-                kia.a("ThirdPartySplashController mTimeOutRunnable");
-                TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
-                if (this.a.a.h()) {
-                    i = 2;
-                } else {
-                    i = 1;
-                }
-                param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
-                if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    Log.d("IAdSdkSplash", "兜底time out and jump maintab");
-                }
-                this.a.a.getRootView().removeView(this.a.d);
-                this.a.b.a();
-                BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", YYOption.IsLive.VALUE_TRUE);
             }
         }
     }
@@ -174,6 +181,7 @@ public class kaa implements baa {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：invokeTimeoutTask, postDelayed mTimeOutRunnable");
             SafeHandler.getInst().postDelayed(this.h, 500L);
         }
     }
@@ -181,6 +189,7 @@ public class kaa implements baa {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：releaseTimeout");
             this.g = true;
             SafeHandler.getInst().removeCallbacks(this.h);
         }
@@ -192,6 +201,7 @@ public class kaa implements baa {
             if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
                 this.b.a();
             } else if (MessageManager.getInstance().findTask(2016555) == null) {
+                DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showADView, bes is null, closeSplash");
                 this.b.a();
             } else {
                 m();
@@ -202,6 +212,7 @@ public class kaa implements baa {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showBesAdView");
             this.g = false;
             long currentTimeMillis = System.currentTimeMillis();
             this.f = System.currentTimeMillis();
@@ -213,6 +224,7 @@ public class kaa implements baa {
             this.c.e(new jaa(this.a, this.b, this));
             MessageManager.getInstance().runTask(2016555, Long.class, this.c);
             if (!this.g) {
+                DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showBesAdView, postDelayed mTimeOutRunnable");
                 ns5.a().i(System.currentTimeMillis() - currentTimeMillis);
                 SafeHandler.getInst().postDelayed(this.h, lv5.l() + 500);
             }

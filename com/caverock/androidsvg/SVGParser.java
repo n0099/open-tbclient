@@ -22,8 +22,8 @@ import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.ljb;
-import com.baidu.tieba.mjb;
+import com.baidu.tieba.njb;
+import com.baidu.tieba.ojb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1441,7 +1441,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public mjb d;
+        public ojb d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1472,7 +1472,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new mjb();
+            this.d = new ojb();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -4062,7 +4062,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                ljb b2 = ljb.b(str, 1, str.length());
+                njb b2 = njb.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4585,7 +4585,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new mjb().b(str, i, i2);
+            float b2 = new ojb().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }

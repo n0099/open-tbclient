@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -32,6 +33,7 @@ import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
 import com.baidu.tieba.g56;
 import com.baidu.tieba.in5;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.yw7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -606,16 +608,8 @@ public class l76 implements c86 {
         }
         w();
         this.f = AdLoadState.SHOWED;
+        DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：show, showAdIfNeed");
         C();
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && z() && this.f != AdLoadState.FORCESHOW) {
-            w();
-            this.f = AdLoadState.FORCESHOW;
-            C();
-        }
     }
 
     public boolean z() {
@@ -687,10 +681,21 @@ public class l76 implements c86 {
         }
     }
 
+    public void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && z() && this.f != AdLoadState.FORCESHOW) {
+            w();
+            this.f = AdLoadState.FORCESHOW;
+            DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：forceShow, showAdIfNeed");
+            C();
+        }
+    }
+
     public boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：showAdIfNeed，显示小熊广告");
             if (this.c != null && this.d != null) {
                 if (this.h == null) {
                     this.h = new g(this);
@@ -704,6 +709,8 @@ public class l76 implements c86 {
                             PrintStream printStream = System.out;
                             printStream.println("IAdSdkSplash BEAR ad showSplash: " + p);
                         }
+                        TbLog defaultLog = DefaultLog.getInstance();
+                        defaultLog.i("IAdSdkSplash", "开屏广告：小熊广告 showAdIfNeed, showSplash， splashSid is：" + p);
                         yw7.m().F((Activity) context, p, this.d, this.o, yw7.b("spalsh", b86.d().c() + ""));
                         SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
                         return true;
@@ -713,32 +720,6 @@ public class l76 implements c86 {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && r != null && !g56.c().d(f()).isEmpty()) {
-            for (g56.a aVar : g56.c().d(f())) {
-                String str = aVar.a;
-                char c2 = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != -1349867671) {
-                    if (hashCode == 861234439 && str.equals("onAdLoaded")) {
-                        c2 = 0;
-                    }
-                } else if (str.equals(GameAssistConstKt.TYPE_CALLBACK_ERROR)) {
-                    c2 = 1;
-                }
-                if (c2 != 0) {
-                    if (c2 == 1) {
-                        r.onError((String) aVar.b.get("sid"));
-                    }
-                } else {
-                    r.a((String) aVar.b.get("sid"), ((Integer) aVar.b.get("loadSize")).intValue());
-                }
-            }
-            g56.c().b(f());
-        }
     }
 
     @Override // com.baidu.tieba.c86
@@ -814,6 +795,32 @@ public class l76 implements c86 {
             EMManager.from(this.e).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0608);
             EMManager.from((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092281)).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0101);
             WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092280), R.drawable.obfuscated_res_0x7f080b58, R.color.CAM_X0201, null);
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && r != null && !g56.c().d(f()).isEmpty()) {
+            for (g56.a aVar : g56.c().d(f())) {
+                String str = aVar.a;
+                char c2 = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != -1349867671) {
+                    if (hashCode == 861234439 && str.equals("onAdLoaded")) {
+                        c2 = 0;
+                    }
+                } else if (str.equals(GameAssistConstKt.TYPE_CALLBACK_ERROR)) {
+                    c2 = 1;
+                }
+                if (c2 != 0) {
+                    if (c2 == 1) {
+                        r.onError((String) aVar.b.get("sid"));
+                    }
+                } else {
+                    r.a((String) aVar.b.get("sid"), ((Integer) aVar.b.get("loadSize")).intValue());
+                }
+            }
+            g56.c().b(f());
         }
     }
 }

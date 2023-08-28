@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.a0b;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.hza;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.lza;
+import com.baidu.tieba.c0b;
+import com.baidu.tieba.jza;
+import com.baidu.tieba.kza;
 import com.baidu.tieba.np6;
+import com.baidu.tieba.nza;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +32,12 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B)\u0012\n\u0010\u0003\u001a\u0006\u0012\u0002\b\u00030\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0013\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00100\u000fH\u0016¢\u0006\u0002\u0010\u0011J\u0015\u0010\u0012\u001a\n\u0012\u0004\u0012\u00020\u0013\u0018\u00010\u000fH\u0016¢\u0006\u0002\u0010\u0014J\b\u0010\u0015\u001a\u00020\u0016H\u0016J\u001a\u0010\u0017\u001a\u00020\u00162\u0006\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u001bH\u0002J\u0013\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u001d0\u000fH\u0016¢\u0006\u0002\u0010\u001eJ\u0018\u0010\u001f\u001a\u00020\u00162\u0006\u0010 \u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020!H\u0002R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/write/webwrite/hybirdlistener/BubbleBizListener;", "Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Clean;", "context", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "mUpdateBubbleListener", "Lcom/baidu/adp/framework/listener/HttpMessageListener;", "editorActionHandlers", "", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "keyListeners", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "()[Lcom/baidu/tieba/write/webwrite/data/WrapListener;", MissionEvent.MESSAGE_DESTROY, "", "onResult", "requestCode", "", "data", "Landroid/content/Intent;", "requestCodeHandlers", "Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "()[Lcom/baidu/tieba/write/webwrite/data/ActivityRequestCodeHandler;", "setBubble", "id", "", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public final class BubbleBizListener extends BizBase implements lza {
+public final class BubbleBizListener extends BizBase implements nza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HttpMessageListener g;
 
-    @Override // com.baidu.tieba.kza
+    @Override // com.baidu.tieba.mza
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,16 +51,13 @@ public final class BubbleBizListener extends BizBase implements lza {
     public static final class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BubbleBizListener a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(BubbleBizListener bubbleBizListener) {
+        public a() {
             super(CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bubbleBizListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,7 +68,6 @@ public final class BubbleBizListener extends BizBase implements lza {
                     return;
                 }
             }
-            this.a = bubbleBizListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,18 +85,16 @@ public final class BubbleBizListener extends BizBase implements lza {
                 if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(TbadkCoreApplication.getInst().getDefaultBubble())) {
                     TbadkCoreApplication.getInst().setDefaultBubble(str);
                     TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(str2);
-                    this.a.u(0, map);
                 } else if (!TextUtils.isEmpty(str) && !StringsKt__StringsJVMKt.equals$default(str, TbadkCoreApplication.getInst().getDefaultBubble(), false, 2, null)) {
                     TbadkCoreApplication.getInst().setDefaultBubble(str);
                     TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(str2);
-                    this.a.u(0, map);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BubbleBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, a0b writePageState) {
+    public BubbleBizListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, c0b writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -112,7 +106,7 @@ public final class BubbleBizListener extends BizBase implements lza {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (a0b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c0b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -122,25 +116,25 @@ public final class BubbleBizListener extends BizBase implements lza {
         Intrinsics.checkNotNullParameter(webView, "webView");
         Intrinsics.checkNotNullParameter(writeData, "writeData");
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
-        this.g = new a(this);
+        this.g = new a();
         MessageManager.getInstance().registerListener(this.g);
     }
 
-    @Override // com.baidu.tieba.kza
-    public hza[] d() {
+    @Override // com.baidu.tieba.mza
+    public jza[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hza[]{n(25, new BubbleBizListener$editorActionHandlers$1(this))} : (hza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jza[]{n(25, new BubbleBizListener$editorActionHandlers$1(this))} : (jza[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kza
-    public iza[] f() {
+    @Override // com.baidu.tieba.mza
+    public kza[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new iza[]{p(23004, new BubbleBizListener$requestCodeHandlers$1(this))} : (iza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new kza[]{p(23004, new BubbleBizListener$requestCodeHandlers$1(this))} : (kza[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lza
+    @Override // com.baidu.tieba.nza
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -158,16 +152,18 @@ public final class BubbleBizListener extends BizBase implements lza {
     public final void u(int i, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048581, this, i, obj) == null) && (obj instanceof Map)) {
-            JSONObject jSONObject = new JSONObject();
             Map map = (Map) obj;
-            if ((map.get("ios_b_url") instanceof String) && !TextUtils.isEmpty((String) map.get("ios_b_url"))) {
-                np6.a(jSONObject, "b_url", map.get("ios_b_url"));
-            } else {
-                np6.a(jSONObject, "b_url", map.get("b_url"));
+            if (Intrinsics.areEqual("set", map.get("from"))) {
+                JSONObject jSONObject = new JSONObject();
+                if ((map.get("ios_b_url") instanceof String) && !TextUtils.isEmpty((String) map.get("ios_b_url"))) {
+                    np6.a(jSONObject, "b_url", map.get("ios_b_url"));
+                } else {
+                    np6.a(jSONObject, "b_url", map.get("b_url"));
+                }
+                np6.a(jSONObject, "dynamic_url", map.get("dynamic_url"));
+                np6.a(jSONObject, "ios_bimg_format", map.get("ios_bimg_format"));
+                g().invoke("writePageNa.refreshBubble", jSONObject);
             }
-            np6.a(jSONObject, "dynamic_url", map.get("dynamic_url"));
-            np6.a(jSONObject, "ios_bimg_format", map.get("ios_bimg_format"));
-            g().invoke("writePageNa.refreshBubble", jSONObject);
         }
     }
 }

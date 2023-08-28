@@ -1,53 +1,50 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.PayFlowModel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class ufc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static void a(int i, int i2, PayFlowType payFlowType, int i3) {
+    public ufc(String str, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3)}) == null) {
-            b(i, i2, payFlowType, i3, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, str5, str6};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = str4;
+        this.e = str5;
+        this.f = str6;
     }
 
-    public static void b(int i, int i2, PayFlowType payFlowType, int i3, Map<String, String> map) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, Integer.valueOf(i3), map}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayBdLiveStatisticManager", "onPayInfo null yyPayUIKit", new Object[0]);
-                return;
-            }
-            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-            if (payFlowModel != null && payFlowModel.viewEventListener != null) {
-                String str = "{}";
-                if (map != null) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            jSONObject.put(entry.getKey(), entry.getValue());
-                        }
-                        str = jSONObject.toString();
-                    } catch (JSONException e) {
-                        RLog.error("PayBdLiveStatisticManager", "onPayInfo JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    }
-                }
-                RLog.info("PayBdLiveStatisticManager", "onPayInfo type:" + i3 + " json:" + str + " listener:" + payFlowModel.viewEventListener + " content:" + map);
-                payFlowModel.viewEventListener.onPayInfo(i3, str);
-                return;
-            }
-            RLog.error("PayBdLiveStatisticManager", "onPayInfo error h5PayFlowModel null", new Object[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "TopUiParams{title='" + this.a + "', rightTitle='" + this.b + "', rightUrl='" + wgc.a(this.c) + "', rightIcon='" + wgc.a(this.d) + "', rightIconTitle='" + this.e + "', rightIconUrl='" + wgc.a(this.f) + "'}";
         }
+        return (String) invokeV.objValue;
     }
 }

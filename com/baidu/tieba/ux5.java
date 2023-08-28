@@ -39,12 +39,12 @@ public class ux5 {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements fcb {
+    public static class a implements hcb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        @Override // com.baidu.tieba.fcb
+        @Override // com.baidu.tieba.hcb
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -69,7 +69,7 @@ public class ux5 {
             this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.fcb
+        @Override // com.baidu.tieba.hcb
         public void a(int i) {
             b bVar;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class ux5 {
             }
         }
 
-        @Override // com.baidu.tieba.fcb
+        @Override // com.baidu.tieba.hcb
         public void e(String str) {
             b bVar;
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class ux5 {
             }
         }
 
-        @Override // com.baidu.tieba.fcb
+        @Override // com.baidu.tieba.hcb
         public void f(String str) {
             b bVar;
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class ux5 {
             }
         }
 
-        @Override // com.baidu.tieba.fcb
+        @Override // com.baidu.tieba.hcb
         public void b() {
             b bVar;
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class ux5 {
             }
         }
 
-        @Override // com.baidu.tieba.fcb
+        @Override // com.baidu.tieba.hcb
         public void d() {
             b bVar;
             Interceptable interceptable = $ic;
@@ -196,7 +196,7 @@ public class ux5 {
                 videoMuxerData.setMusicData(xwaVar.d());
                 ArrayList arrayList2 = new ArrayList();
                 AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
-                AudioPlayData audioPlayData = new AudioPlayData(xwaVar.d().localPath, 0, jgb.f(xwaVar.d().localPath), 1.0f);
+                AudioPlayData audioPlayData = new AudioPlayData(xwaVar.d().localPath, 0, lgb.f(xwaVar.d().localPath), 1.0f);
                 ArrayList arrayList3 = new ArrayList();
                 audioPlayTrackData.mAudioPlayDataList = arrayList3;
                 arrayList3.add(audioPlayData);

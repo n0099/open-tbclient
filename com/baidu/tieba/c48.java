@@ -118,7 +118,7 @@ public class c48 {
     public u58 S;
 
     /* renamed from: T  reason: collision with root package name */
-    public BdAsyncTask<Void, Void, DataRes> f1095T;
+    public BdAsyncTask<Void, Void, DataRes> f1094T;
     public RecyclerView.OnScrollListener U;
     public View.OnTouchListener V;
     public by6.b W;
@@ -2212,7 +2212,7 @@ public class c48 {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z2) == null) {
             this.h = true;
             h hVar = new h(this, z2);
-            this.f1095T = hVar;
+            this.f1094T = hVar;
             hVar.execute(new Void[0]);
         }
     }
@@ -2793,7 +2793,7 @@ public class c48 {
             if (t3aVar != null) {
                 t3aVar.c();
             }
-            BdAsyncTask<Void, Void, DataRes> bdAsyncTask = this.f1095T;
+            BdAsyncTask<Void, Void, DataRes> bdAsyncTask = this.f1094T;
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }

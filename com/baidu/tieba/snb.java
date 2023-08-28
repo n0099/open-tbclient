@@ -40,15 +40,36 @@ public class snb extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object findField;
+        Object findField2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
             try {
-                Object field = ReflectionUtils.getField(((qob) obj).a, "d", "a", "k");
-                Field declaredField = field.getClass().getDeclaredField("M");
+                Object obj2 = ((sob) obj).a;
+                Field declaredField = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
                 declaredField.setAccessible(true);
-                return znb.a((JSONObject) declaredField.get(field));
-            } catch (Exception unused) {
-                LogPrinter.e();
+                Object obj3 = declaredField.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj3.getClass().getDeclaredField("c");
+                declaredField2.setAccessible(true);
+                Object obj4 = declaredField2.get(obj3);
+                if (obj4 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.a", obj4)) == null || (findField2 = ReflectionUtils.findField("com.qq.e.comm.plugin.B.r", findField)) == null) {
+                    return null;
+                }
+                Field declaredField3 = findField2.getClass().getSuperclass().getDeclaredField("L");
+                declaredField3.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField3.get(findField2);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return bob.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
                 return null;
             }
         }

@@ -2,11 +2,11 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.lsb;
+import com.baidu.tieba.nsb;
 import com.google.ar.core.ArCoreApk;
 /* loaded from: classes9.dex */
 public final class u extends com.google.a.b.a.a.a.e {
-    public final /* synthetic */ lsb a;
+    public final /* synthetic */ nsb a;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -16,8 +16,8 @@ public final class u extends com.google.a.b.a.a.a.e {
     public final void a(Bundle bundle) {
     }
 
-    public u(lsb lsbVar) {
-        this.a = lsbVar;
+    public u(nsb nsbVar) {
+        this.a = nsbVar;
     }
 
     @Override // com.google.a.b.a.a.a.d

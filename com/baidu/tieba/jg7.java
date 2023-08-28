@@ -55,12 +55,12 @@ public class jg7 extends ln6<fg7> {
 
         /* renamed from: com.baidu.tieba.jg7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnLongClickListenerC0361a implements View.OnLongClickListener {
+        public class View$OnLongClickListenerC0362a implements View.OnLongClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnLongClickListenerC0361a(a aVar, jg7 jg7Var) {
+            public View$OnLongClickListenerC0362a(a aVar, jg7 jg7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +184,7 @@ public class jg7 extends ln6<fg7> {
             this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907c5);
             this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090877);
             c();
-            this.b.setOnLongClickListener(new View$OnLongClickListenerC0361a(this, jg7Var));
+            this.b.setOnLongClickListener(new View$OnLongClickListenerC0362a(this, jg7Var));
             this.b.setOnClickListener(new b(this, jg7Var));
             this.c.setOnClickListener(new c(this, jg7Var));
         }

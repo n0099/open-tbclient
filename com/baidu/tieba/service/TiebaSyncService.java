@@ -63,8 +63,8 @@ import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.lv5;
 import com.baidu.tieba.m46;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.q6b;
 import com.baidu.tieba.re5;
+import com.baidu.tieba.s6b;
 import com.baidu.tieba.sc5;
 import com.baidu.tieba.t26;
 import com.baidu.tieba.ud5;
@@ -572,7 +572,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteYYLiveTabConfigData() {
-        q6b y;
+        s6b y;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65562, this) == null) && (y = this.mModel.y()) != null) {
             TbSingleton.getInstance().setYYLiveTabConfig(y);

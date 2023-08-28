@@ -115,11 +115,11 @@ public class t17 extends gr5<tz6, pz6> implements kz6 {
 
         /* renamed from: com.baidu.tieba.t17$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0481c implements s45.e {
+        public class C0483c implements s45.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0481c(c cVar) {
+            public C0483c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class t17 extends gr5<tz6, pz6> implements kz6 {
                                 string = b2.N();
                             }
                         }
-                        DialogUtil.createAlertDialog(this.a.b(), (String) null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b46), (String) null, new C0481c(this), (s45.e) null).show();
+                        DialogUtil.createAlertDialog(this.a.b(), (String) null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b46), (String) null, new C0483c(this), (s45.e) null).show();
                     }
                 }
             }

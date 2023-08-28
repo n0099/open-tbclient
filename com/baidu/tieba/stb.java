@@ -4,20 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class stb implements Runnable {
+public final class stb<TResult> implements lub<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ nub a;
-    public final /* synthetic */ Callable b;
+    public oub<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public stb(nub nubVar, Callable callable) {
+    public stb(Executor executor, oub<TResult> oubVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nubVar, callable};
+            Object[] objArr = {executor, oubVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,19 +28,17 @@ public class stb implements Runnable {
                 return;
             }
         }
-        this.a = nubVar;
-        this.b = callable;
+        this.c = new Object();
+        this.a = oubVar;
+        this.b = executor;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // com.baidu.tieba.lub
+    public final void a(xtb<TResult> xtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.b(this.b.call());
-            } catch (Exception e) {
-                this.a.a(e);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, xtbVar) == null) && xtbVar.f()) {
+            xtbVar.e();
+            this.b.execute(new qtb(this, xtbVar));
         }
     }
 }

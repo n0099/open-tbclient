@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.feb;
+import com.baidu.tieba.heb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,19 +100,19 @@ public abstract class k27 implements n27 {
             if (!q27Var.g && !q27Var.e) {
                 float f = q27Var.d;
                 if (f != 0.0f) {
-                    feb.a e = feb.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    heb.a e = heb.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
                     iArr[0] = e.b();
                     iArr[1] = e.a();
                 }
             } else {
-                feb.a e2 = e();
+                heb.a e2 = e();
                 float f2 = this.a.d;
                 if (f2 != 0.0f) {
-                    feb.a f3 = feb.f(f2, e2.b(), e2.a());
+                    heb.a f3 = heb.f(f2, e2.b(), e2.a());
                     iArr[0] = f3.b();
                     iArr[1] = f3.a();
                 }
-                feb.a d = feb.d(iArr[0], iArr[1]);
+                heb.a d = heb.d(iArr[0], iArr[1]);
                 iArr[0] = d.b();
                 iArr[1] = d.a();
             }
@@ -171,7 +171,7 @@ public abstract class k27 implements n27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
             if (i != 0 && i2 != 0) {
-                Bitmap h = zfb.h(bitmap, i, i2, z);
+                Bitmap h = bgb.h(bitmap, i, i2, z);
                 if (this.d) {
                     a2 = mwa.b();
                 } else {
@@ -189,7 +189,7 @@ public abstract class k27 implements n27 {
         return (String) invokeCommon.objValue;
     }
 
-    public feb.a e() {
+    public heb.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -197,7 +197,7 @@ public abstract class k27 implements n27 {
             int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
             int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
             if (multiMediaData == null) {
-                return new feb.a(i, i2);
+                return new heb.a(i, i2);
             }
             if (multiMediaData.type == 1) {
                 float f = multiMediaData.angle;
@@ -210,9 +210,9 @@ public abstract class k27 implements n27 {
                     i2 = multiMediaData.width;
                 }
             }
-            return new feb.a(i, i2);
+            return new heb.a(i, i2);
         }
-        return (feb.a) invokeV.objValue;
+        return (heb.a) invokeV.objValue;
     }
 
     public void g(p27 p27Var, Bitmap bitmap) {

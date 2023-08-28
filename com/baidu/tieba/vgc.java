@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes8.dex */
 public final class vgc {
     public static /* synthetic */ Interceptable $ic;
@@ -48,23 +47,40 @@ public final class vgc {
         }
     }
 
-    @TargetApi(17)
-    public final boolean a(Context context) {
+    public final int a(PayUIKitConfig payUIKitConfig) {
         InterceptResult invokeL;
+        ThemeColorConfig themeColorConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
+            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
+                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
+                if (themeResId == null) {
+                    Intrinsics.throwNpe();
                 }
+                return themeResId.intValue();
             }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
+            return R.style.obfuscated_res_0x7f100162;
+        }
+        return invokeL.intValue;
+    }
+
+    public final boolean b(PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeL;
+        ThemeColorConfig themeColorConfig;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
+            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
+                return true;
+            }
+            if (themeColorConfig != null) {
+                num = themeColorConfig.getThemeResId();
+            } else {
+                num = null;
+            }
+            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100162) {
+                return true;
+            }
             return false;
         }
         return invokeL.booleanValue;

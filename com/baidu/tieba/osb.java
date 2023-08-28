@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class osb implements Runnable {
+public final class osb extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ nsb b;
+    public final /* synthetic */ lsb a;
+    public final /* synthetic */ ksb b;
 
-    public osb(nsb nsbVar, AtomicBoolean atomicBoolean) {
+    public osb(ksb ksbVar, lsb lsbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nsbVar, atomicBoolean};
+            Object[] objArr = {ksbVar, lsbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,18 +30,33 @@ public final class osb implements Runnable {
                 return;
             }
         }
-        this.b = nsbVar;
-        this.a = atomicBoolean;
+        this.b = ksbVar;
+        this.a = lsbVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
-            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            nsb nsbVar = this.b;
-            isb isbVar = nsbVar.c;
-            isb.n(nsbVar.a, nsbVar.b);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
+                return;
+            }
+            this.b.p();
+            int i = extras.getInt("install.status");
+            if (i != 1 && i != 2 && i != 3) {
+                if (i != 4) {
+                    if (i == 6) {
+                        this.a.a(com.google.ar.core.p.CANCELLED);
+                        return;
+                    }
+                    return;
+                }
+                this.a.a(com.google.ar.core.p.COMPLETED);
+                return;
+            }
+            this.a.a(com.google.ar.core.p.ACCEPTED);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.huawei.hms.hatool;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.hwb;
+import com.baidu.tieba.jwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class d1 extends v {
             f1 a2 = v.a(str, str2, str3, str4);
             String a3 = z0.a().a(c.c(str2, str3));
             long currentTimeMillis = System.currentTimeMillis();
-            String b = hwb.b(b.f() + a3 + currentTimeMillis);
+            String b = jwb.b(b.f() + a3 + currentTimeMillis);
             a2.f(String.valueOf(currentTimeMillis));
             a2.g(b);
             return a2;

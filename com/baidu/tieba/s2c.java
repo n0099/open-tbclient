@@ -1,249 +1,356 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
+import android.media.MediaFormat;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.j1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.core.TransVodProxy;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class s2c {
+public abstract class s2c extends b3c implements j1c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d2c a;
-    public c2c b;
-    public List<t2c> c;
-    public List<t2c> d;
-    public AtomicInteger e;
-    public WeakReference<TransVodProxy> f;
-    public AtomicBoolean g;
-    public AtomicBoolean h;
-    public long i;
+    public int o;
+    public MediaFormat p;
+    public MediaInfo q;
+    public m2c r;
+    public WeakReference<b2c> s;
+    public long t;
+    public long u;
+    public long v;
+    public boolean w;
+    public long x;
+    public long y;
+    public AtomicBoolean z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948100965, "Lcom/baidu/tieba/s2c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948100965, "Lcom/baidu/tieba/s2c;");
-        }
-    }
+    public abstract void B();
 
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-        }
-    }
+    public abstract void C();
+
+    public abstract int D(MediaSample mediaSample);
+
+    public abstract void z(MediaFormat mediaFormat, int i);
 
     public s2c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new c2c();
-        this.c = new LinkedList();
-        this.d = new LinkedList();
-        this.e = new AtomicInteger(4);
-        this.f = null;
-        this.g = new AtomicBoolean(false);
-        this.h = new AtomicBoolean(false);
-        this.i = 0L;
+        this.o = 0;
+        this.p = null;
+        this.q = MediaInfo.a();
+        this.r = new m2c();
+        this.s = new WeakReference<>(null);
+        this.t = 0L;
+        this.u = 0L;
+        this.v = 0L;
+        this.w = true;
+        this.x = 0L;
+        this.y = 0L;
+        this.z = new AtomicBoolean(false);
     }
 
-    public void c() {
-        t2c t2cVar;
+    public void A() {
+        x1c x1cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Iterator<t2c> it = this.c.iterator();
-            t2c t2cVar2 = null;
-            if (it.hasNext()) {
-                t2cVar = it.next();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            x();
+            TLog.g(this, "MediaCodec decoderError");
+            WeakReference<x1c> weakReference = this.g;
+            if (weakReference != null && (x1cVar = weakReference.get()) != null) {
+                Message obtain = Message.obtain();
+                obtain.what = 53;
+                x1cVar.a(obtain, this.a);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v2c
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            TLog.g(this, "CodecFilter.setop enter.");
+            this.z.set(true);
+            this.l.g(1002);
+            this.l.f(1002);
+        }
+    }
+
+    public void E(MediaSample mediaSample, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, mediaSample, j) == null) {
+            long j2 = this.y;
+            if (j2 > 0) {
+                long j3 = mediaSample.v;
+                if (j3 < j2) {
+                    j += j2 - Math.max(j3, this.x);
+                }
+                this.x = 0L;
+                this.y = 0L;
+                if (j > 0) {
+                    f2c.d(mediaSample, 11, j);
+                }
+            } else if (j > 0) {
+                f2c.d(mediaSample, 11, j);
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (!this.f.isEmpty()) {
+                int i = 0;
+                while (true) {
+                    MediaSample poll = this.f.poll();
+                    if (poll == null) {
+                        break;
+                    }
+                    i++;
+                    v(poll, 5, "player is stopped");
+                    m1c.f().e(poll);
+                }
+                TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not decoded.", Integer.valueOf(i)));
+            }
+            if (!this.r.b()) {
+                int i2 = 0;
+                while (true) {
+                    MediaSample c = this.r.c();
+                    if (c != null) {
+                        i2++;
+                        v(c, 6, "player is stopped");
+                        m1c.f().e(c);
+                    } else {
+                        TLog.g(this, String.format("CodecFilter there are still %d entries in queue that not presented.", Integer.valueOf(i2)));
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.b3c, com.baidu.tieba.t2c
+    public void a() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TLog.g(this, "CodecFilter.setup enter. type:" + n2c.a[this.q.a]);
+            j1c j1cVar = this.l;
+            Object[] objArr = new Object[1];
+            if (this.c == 0) {
+                str = "video";
             } else {
-                t2cVar = null;
+                str = "audio";
             }
-            while (it.hasNext()) {
-                t2c next = it.next();
-                t2cVar.k(next);
-                t2cVar = next;
-            }
-            Iterator<t2c> it2 = this.d.iterator();
-            if (it2.hasNext()) {
-                t2cVar2 = it2.next();
-            }
-            while (it2.hasNext()) {
-                t2c next2 = it2.next();
-                t2cVar2.k(next2);
-                t2cVar2 = next2;
-            }
+            objArr[0] = str;
+            j1cVar.setName(String.format("VOD %s decode", objArr));
+            this.t = 0L;
+            this.u = 0L;
+            this.z.set(false);
+            super.a();
+            TLog.g(this, "CodecFilter.setup leave. type:" + n2c.a[this.q.a]);
         }
     }
 
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.set(6);
-            for (t2c t2cVar : this.c) {
-                t2cVar.a();
-            }
-            for (t2c t2cVar2 : this.d) {
-                t2cVar2.a();
-            }
-            this.g.set(true);
-            this.h.set(true);
-        }
-    }
-
-    public void n() {
+    @Override // com.baidu.tieba.b3c, com.baidu.tieba.v2c
+    public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.e.set(1);
-            for (t2c t2cVar : this.c) {
-                t2cVar.x();
+            TLog.g(this, "CodecFilter.release enter. type:" + n2c.a[this.q.a]);
+            super.p();
+            this.p = null;
+            F();
+            TLog.g(this, String.format("inputCount:%d, outputCount:%d", Long.valueOf(this.t), Long.valueOf(this.u)));
+            TLog.g(this, "CodecFilter.release leave. type:" + n2c.a[this.q.a]);
+        }
+    }
+
+    @Override // com.baidu.tieba.b3c
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (this.w) {
+                I();
+            } else {
+                H();
             }
-            for (t2c t2cVar2 : this.d) {
-                t2cVar2.x();
+            MediaSample peek = this.f.peek();
+            if (peek == null) {
+                this.l.g(2102);
+                return;
             }
-            this.g.set(false);
-            this.h.set(false);
-            d2c d2cVar = this.a;
-            if (d2cVar != null) {
-                d2cVar.f();
+            synchronized (this.k) {
+                if (this.d != null) {
+                    this.d.e(peek.E);
+                }
             }
-            c2c c2cVar = this.b;
-            if (c2cVar != null) {
-                c2cVar.h();
-            }
-        }
-    }
-
-    public s2c a(int i, t2c t2cVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, t2cVar)) == null) {
-            t2cVar.t(i);
-            t2cVar.q(this);
-            if (i == 0) {
-                this.c.add(t2cVar);
-            } else if (i == 1) {
-                this.d.add(t2cVar);
-            }
-            return this;
-        }
-        return (s2c) invokeIL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
-            this.d.clear();
-        }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.longValue;
-    }
-
-    public final d2c f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (d2c) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e.get();
-        }
-        return invokeV.intValue;
-    }
-
-    public final c2c h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (c2c) invokeV.objValue;
-    }
-
-    public final TransVodProxy i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f.get();
-        }
-        return (TransVodProxy) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (t2c t2cVar : this.c) {
-                t2cVar.l();
-            }
-            for (t2c t2cVar2 : this.d) {
-                t2cVar2.l();
-            }
-        }
-    }
-
-    public void k(Handler handler, TransVodProxy transVodProxy, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, handler, transVodProxy, context) == null) {
-            if (handler != null) {
-                if (transVodProxy != null) {
-                    this.f = new WeakReference<>(transVodProxy);
-                    this.a = new d2c(this.f.get(), context);
-                    this.b.b(this.f.get());
+            f2c.c(peek, 5);
+            int D = D(peek);
+            if (D != -2) {
+                if (D != -1) {
+                    if (D == 1) {
+                        this.f.poll();
+                    }
+                } else {
+                    this.f.poll();
+                    v(peek, 6, "exception occurs");
+                    m1c.f().e(peek);
+                }
+                if (!this.f.isEmpty() && !this.z.get()) {
+                    this.l.f(2102);
                     return;
                 }
-                throw new RuntimeException("proxy MUST not be null.");
+                return;
             }
-            throw new RuntimeException("handler MUST not be null.");
+            u2c u2cVar = this.e;
+            if (u2cVar != null) {
+                u2cVar.j(D);
+            }
         }
     }
 
-    public void l(long j) {
+    public void G() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.i = j;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.r.b()) {
+            int i = 0;
+            while (true) {
+                MediaSample c = this.r.c();
+                if (c != null) {
+                    i++;
+                    m1c.f().e(c);
+                } else {
+                    TLog.g(this, String.format("there are still %d entries in queue that not presented.", Integer.valueOf(i)));
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void H() {
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f.size() >= 15 && (poll = this.f.poll()) != null) {
+            MediaInfo mediaInfo = poll.i;
+            if (mediaInfo.k != null) {
+                mediaInfo.k = null;
+            }
+            m1c.f().e(poll);
+        }
+    }
+
+    public final void I() {
+        int size;
+        MediaSample peek;
+        MediaSample poll;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (size = this.f.size()) >= 15 && (peek = this.f.peek()) != null && peek.d) {
+            Iterator<MediaSample> it = this.f.iterator();
+            int i = -1;
+            boolean z = false;
+            int i2 = -1;
+            int i3 = -1;
+            while (it.hasNext()) {
+                MediaSample next = it.next();
+                i2++;
+                if (i2 != 0 && next.d && i3 == -1) {
+                    i3 = i2;
+                    z = true;
+                }
+            }
+            if (z) {
+                TLog.g(this, "first frame index 0second frame index " + i3 + "inputSize " + size);
+                Iterator<MediaSample> it2 = this.f.iterator();
+                while (it2.hasNext()) {
+                    it2.next();
+                    i++;
+                    if (i >= 0 && i < i3 && (poll = this.f.poll()) != null) {
+                        MediaInfo mediaInfo = poll.i;
+                        if (mediaInfo.k != null) {
+                            mediaInfo.k = null;
+                        }
+                        m1c.f().e(poll);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v2c, com.baidu.tieba.t2c
+    public void d(String str, Object obj, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.t = 0L;
+            this.u = 0L;
+            if (str.compareTo("setFormat") == 0 && (obj instanceof MediaFormat)) {
+                Message obtain = Message.obtain();
+                obtain.what = 2001;
+                obtain.obj = obj;
+                obtain.arg1 = i;
+                this.l.g(2001);
+                this.l.sendMessage(obtain);
+                TLog.g(this, "CodecFilter sendEmptyMessage(CODEC_FILTER_CREATE_DECODER)");
+            }
+            super.d(str, obj, i, z);
+        }
+    }
+
+    @Override // com.baidu.tieba.v2c, com.baidu.tieba.t2c
+    public final void f(MediaSample mediaSample) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, mediaSample) == null) {
+            if (this.z.get()) {
+                TLog.c(this, "CodecFilter codec is stop");
+                m1c.f().e(mediaSample);
+            } else if (mediaSample.f) {
+                m1c.f().e(mediaSample);
+                TLog.c(this, "CodecFilter.processMediaSample bForVideoCodecConfigfOnly is true!!");
+            } else {
+                this.t++;
+                mediaSample.s = this.o;
+                f2c.c(mediaSample, 4);
+                this.f.add(mediaSample);
+                u2c u2cVar = this.e;
+                if (u2cVar != null && this.i && u2cVar.g() == 6) {
+                    this.l.f(2102);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.b3c, com.baidu.tieba.j1c.a
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, message) == null) {
+            switch (message.what) {
+                case 2001:
+                    z((MediaFormat) message.obj, message.arg1);
+                    return;
+                case 2002:
+                    B();
+                    return;
+                case 2003:
+                    C();
+                    return;
+                default:
+                    super.handleMessage(message);
+                    return;
+            }
         }
     }
 }

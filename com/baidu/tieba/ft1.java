@@ -31,7 +31,7 @@ public class ft1 implements iv1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new v4c(inputStream);
+            return new x4c(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

@@ -24,7 +24,7 @@ public interface mx0 {
 
         /* renamed from: com.baidu.tieba.mx0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0411a implements ox0 {
+        public class C0412a implements ox0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface mx0 {
                 }
             }
 
-            public C0411a(a aVar) {
+            public C0412a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface mx0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0411a(this);
+                return new C0412a(this);
             }
             return (ox0) invokeLL.objValue;
         }

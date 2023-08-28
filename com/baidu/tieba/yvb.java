@@ -1,61 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ewb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yvb {
+public class yvb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static ewb a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final fwb<TResult> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948345028, "Lcom/baidu/tieba/yvb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yvb a;
+
+        public a(yvb yvbVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yvbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948345028, "Lcom/baidu/tieba/yvb;");
+            this.a = yvbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.l();
+            }
+        }
+    }
+
+    public yvb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ewb();
+        this.a = new fwb<>();
     }
 
-    public static <TResult> TResult a(vvb<TResult> vvbVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public yvb(svb svbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vvbVar)) == null) {
-            ewb.c("await must not be called on the UI thread");
-            if (vvbVar.g()) {
-                return (TResult) ewb.b(vvbVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {svbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            ewb.b bVar = new ewb.b();
-            vvbVar.c(bVar);
-            vvbVar.b(bVar);
-            bVar.a.await();
-            return (TResult) ewb.b(vvbVar);
         }
-        return (TResult) invokeL.objValue;
+        this.a = new fwb<>();
+        svbVar.b(new a(this));
     }
 
-    public static <TResult> vvb<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public xvb<TResult> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(xvb.a(), callable) : (vvb) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (xvb) invokeV.objValue;
     }
 
-    public static <TResult> vvb<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public void c(Exception exc) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(xvb.b(), callable) : (vvb) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.a.j(exc);
+        }
+    }
+
+    public void setResult(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tresult) == null) {
+            this.a.k(tresult);
+        }
     }
 }

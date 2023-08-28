@@ -62,7 +62,7 @@ public class yb6 extends ln6<ua6> {
 
         /* renamed from: com.baidu.tieba.yb6$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0538a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0539a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -73,7 +73,7 @@ public class yb6 extends ln6<ua6> {
             public final /* synthetic */ a f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0538a(a aVar, View view2) {
+            public C0539a(a aVar, View view2) {
                 super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -205,7 +205,7 @@ public class yb6 extends ln6<ua6> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-                return new C0538a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d094b, viewGroup, false));
+                return new C0539a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d094b, viewGroup, false));
             }
             return (AlaBannerViewHolder) invokeLI.objValue;
         }

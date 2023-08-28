@@ -13,13 +13,13 @@ import com.baidu.tieba.ct6;
 import com.baidu.tieba.dt6;
 import com.baidu.tieba.ft6;
 import com.baidu.tieba.gt6;
-import com.baidu.tieba.jza;
-import com.baidu.tieba.rza;
+import com.baidu.tieba.lza;
 import com.baidu.tieba.tza;
-import com.baidu.tieba.u3b;
+import com.baidu.tieba.vza;
+import com.baidu.tieba.w3b;
 import com.baidu.tieba.write.webwrite.data.WriteDataManager;
-import com.baidu.tieba.wxa;
 import com.baidu.tieba.xxa;
+import com.baidu.tieba.yxa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,13 +60,13 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a extends gt6<rza> {
+    public static final class a extends gt6<tza> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ArticleWebWriteFragment b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ArticleWebWriteFragment articleWebWriteFragment, Class<rza> cls) {
+        public a(ArticleWebWriteFragment articleWebWriteFragment, Class<tza> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -88,7 +88,7 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.gt6
-        public void onEvent(rza event) {
+        public void onEvent(tza event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -116,7 +116,7 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new jza();
+            return new lza();
         }
         return (WriteDataManager) invokeV.objValue;
     }
@@ -125,7 +125,7 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
     public void L2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dt6.b().b(new tza());
+            dt6.b().b(new vza());
         }
     }
 
@@ -138,7 +138,7 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
             ft6 b = dt6.b();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            b.a(new ct6(pageContext, rza.class), new a(this, rza.class));
+            b.a(new ct6(pageContext, tza.class), new a(this, tza.class));
             return super.onCreateView(inflater, viewGroup, bundle);
         }
         return (View) invokeLLL.objValue;
@@ -149,7 +149,7 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, editorTools) == null) {
             Intrinsics.checkNotNullParameter(editorTools, "editorTools");
-            new xxa().b();
+            new yxa().b();
             editorTools.setBarMaxLauCount(3);
             editorTools.setMoreButtonAtEnd(true);
             editorTools.setMoreVipIcon(true);
@@ -157,16 +157,16 @@ public final class ArticleWebWriteFragment extends BaseWebWriteFragment {
             editorTools.F(true);
             editorTools.G(false);
             editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            u3b.h(getPageContext(), editorTools, this);
-            u3b.d(editorTools, this);
-            u3b.a(getPageContext(), editorTools, this);
-            u3b.b(getPageContext(), editorTools, this);
-            u3b.i(getPageContext(), editorTools);
-            final wxa m = u3b.m(getPageContext(), editorTools, x2().b().getCallFrom(), this);
+            w3b.h(getPageContext(), editorTools, this);
+            w3b.d(editorTools, this);
+            w3b.a(getPageContext(), editorTools, this);
+            w3b.b(getPageContext(), editorTools, this);
+            w3b.i(getPageContext(), editorTools);
+            final xxa m = w3b.m(getPageContext(), editorTools, x2().b().getCallFrom(), this);
             t2().add(new Function0<Unit>(m) { // from class: com.baidu.tieba.write.webwrite.fragment.ArticleWebWriteFragment$configEditor$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ wxa $writeTool;
+                public final /* synthetic */ xxa $writeTool;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {

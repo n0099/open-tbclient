@@ -13,11 +13,11 @@ import java.util.List;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class c9a implements u8b {
+public class c9a implements w8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -27,7 +27,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class c9a implements u8b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class c9a implements u8b {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class c9a implements u8b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class c9a implements u8b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class c9a implements u8b {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public List<String> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class c9a implements u8b {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean isPeakTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,7 +147,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -167,7 +167,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,7 +177,7 @@ public class c9a implements u8b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u8b
+    @Override // com.baidu.tieba.w8b
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

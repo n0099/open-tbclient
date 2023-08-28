@@ -11,6 +11,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.BdStatsItem;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.TbSingleton;
@@ -23,6 +24,7 @@ import com.baidu.tieba.advert.sdk.data.AdLoadState;
 import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.tieba.cl1;
 import com.baidu.tieba.g56;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,16 +82,6 @@ public class m76 implements c86 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m76 a;
 
-        @Override // com.baidu.tieba.jj1
-        public boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
         public a(m76 m76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -109,12 +101,25 @@ public class m76 implements c86 {
         }
 
         @Override // com.baidu.tieba.jj1
+        public boolean c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("IAdSdkSplash", "开屏广告：原生广告，request，handleUrl， s is：" + str);
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.jj1
         public void a() {
             boolean z;
             boolean z2;
             boolean z3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onAdClick");
                 if (c86.a) {
                     System.out.println("IAdSdkSplash prologue ad onclick");
                 }
@@ -147,6 +152,7 @@ public class m76 implements c86 {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onAdLoadFailed");
                 i86.h(i86.b, "1", str, null, 1, 0, this.a.f, this.a.g);
                 i86.i(i86.b, "1", str, null, null, null, this.a.g);
                 if (c86.a) {
@@ -165,86 +171,10 @@ public class m76 implements c86 {
         }
 
         @Override // com.baidu.tieba.jj1
-        public void d() {
-            int hashCode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad finish");
-                }
-                int i = 1;
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1);
-                if (this.a.e == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = this.a.e.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
-                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, lv5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                if (this.a.f) {
-                    i = 2;
-                }
-                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
-                if (this.a.e != null) {
-                    this.a.e.onAdDismiss();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jj1
-        public void onAdShow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad show");
-                }
-                int i = 0;
-                if (this.a.e != null) {
-                    this.a.e.g(true, false, this.a.b);
-                }
-                if (!this.a.j) {
-                    this.a.j = true;
-                    i86.i(i86.b, "0", null, lv5.m(this.a.i), null, null, this.a.g);
-                }
-                h("advert_show", 1);
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0);
-                if (this.a.e != null) {
-                    i = this.a.e.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, i));
-            }
-        }
-
-        @Override // com.baidu.tieba.jj1
-        public void onSkip() {
-            int hashCode;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                System.out.println("SplashTes=>PrologueAdSdkSplash=>onSkip");
-                if (c86.a) {
-                    System.out.println("IAdSdkSplash prologue ad onskip");
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
-                int i = 2;
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2);
-                if (this.a.e == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = this.a.e.hashCode();
-                }
-                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
-                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, lv5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
-                if (!this.a.f) {
-                    i = 1;
-                }
-                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
-            }
-        }
-
-        @Override // com.baidu.tieba.jj1
         public void e(ul1 ul1Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, ul1Var) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onAdLoaded");
                 if (c86.a) {
                     System.out.println("IAdSdkSplash prologue gd loaded success");
                 }
@@ -277,9 +207,63 @@ public class m76 implements c86 {
         }
 
         @Override // com.baidu.tieba.jj1
+        public void d() {
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onAdFinish");
+                if (c86.a) {
+                    System.out.println("IAdSdkSplash prologue ad finish");
+                }
+                int i = 1;
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 1);
+                if (this.a.e == null) {
+                    hashCode = 0;
+                } else {
+                    hashCode = this.a.e.hashCode();
+                }
+                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
+                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 2).param(TiebaStatic.Params.OBJ_TO, lv5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+                if (this.a.f) {
+                    i = 2;
+                }
+                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
+                if (this.a.e != null) {
+                    this.a.e.onAdDismiss();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jj1
+        public void onAdShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onAdShow");
+                if (c86.a) {
+                    System.out.println("IAdSdkSplash prologue ad show");
+                }
+                int i = 0;
+                if (this.a.e != null) {
+                    this.a.e.g(true, false, this.a.b);
+                }
+                if (!this.a.j) {
+                    this.a.j = true;
+                    i86.i(i86.b, "0", null, lv5.m(this.a.i), null, null, this.a.g);
+                }
+                h("advert_show", 1);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 0);
+                if (this.a.e != null) {
+                    i = this.a.e.hashCode();
+                }
+                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, i));
+            }
+        }
+
+        @Override // com.baidu.tieba.jj1
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onAdPlayError");
                 if (c86.a) {
                     System.out.println("IAdSdkSplash prologue ad onAdPlayError");
                 }
@@ -311,6 +295,33 @@ public class m76 implements c86 {
                 BdStatisticsManager.getInstance().debug(str, logItem);
             }
         }
+
+        @Override // com.baidu.tieba.jj1
+        public void onSkip() {
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，request，onSkip");
+                System.out.println("SplashTes=>PrologueAdSdkSplash=>onSkip");
+                if (c86.a) {
+                    System.out.println("IAdSdkSplash prologue ad onskip");
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, "advertevent://ignore"));
+                int i = 2;
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 2);
+                if (this.a.e == null) {
+                    hashCode = 0;
+                } else {
+                    hashCode = this.a.e.hashCode();
+                }
+                TiebaStatic.log(param.param(TiebaStatic.Params.OBJ_PARAM2, hashCode));
+                StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 5).param("obj_type", "a064").param("obj_param1", 3).param(TiebaStatic.Params.OBJ_TO, lv5.m(this.a.i)).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+                if (!this.a.f) {
+                    i = 1;
+                }
+                param2.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.a.g).eventStat();
+            }
+        }
     }
 
     /* loaded from: classes7.dex */
@@ -318,16 +329,6 @@ public class m76 implements c86 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ m76 a;
-
-        @Override // com.baidu.tieba.jj1
-        public boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
 
         public b(m76 m76Var) {
             Interceptable interceptable = $ic;
@@ -348,56 +349,69 @@ public class m76 implements c86 {
         }
 
         @Override // com.baidu.tieba.jj1
+        public boolean c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("IAdSdkSplash", "开屏广告：原生广告，preLoad，handleUrl， s is：" + str);
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.jj1
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m76.n != null) {
-                m76.n.a();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onAdClick");
+                if (m76.n != null) {
+                    m76.n.a();
+                }
             }
         }
 
         @Override // com.baidu.tieba.jj1
         public void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && m76.n != null) {
-                m76.n.d();
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onAdFinish");
+                if (m76.n != null) {
+                    m76.n.d();
+                }
             }
         }
 
         @Override // com.baidu.tieba.jj1
         public void f() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && m76.n != null) {
-                m76.n.f();
-            }
-        }
-
-        @Override // com.baidu.tieba.jj1
-        @NonNull
-        public ViewGroup g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onAdPlayError");
                 if (m76.n != null) {
-                    return m76.n.g();
+                    m76.n.f();
                 }
-                return new RelativeLayout(TbadkCoreApplication.getInst().getContext());
             }
-            return (ViewGroup) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.jj1
         public void onAdShow() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && m76.n != null) {
-                m76.n.onAdShow();
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onAdShow");
+                if (m76.n != null) {
+                    m76.n.onAdShow();
+                }
             }
         }
 
         @Override // com.baidu.tieba.jj1
         public void onSkip() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m76.n != null) {
-                m76.n.onSkip();
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onSkip");
+                if (m76.n != null) {
+                    m76.n.onSkip();
+                }
             }
         }
 
@@ -405,6 +419,7 @@ public class m76 implements c86 {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onAdLoadFailed");
                 if (m76.n == null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("data", str);
@@ -419,6 +434,7 @@ public class m76 implements c86 {
         public void e(ul1 ul1Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, ul1Var) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，onAdLoaded");
                 if (m76.n == null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("data", ul1Var);
@@ -427,6 +443,21 @@ public class m76 implements c86 {
                     m76.n.e(ul1Var);
                 }
             }
+        }
+
+        @Override // com.baidu.tieba.jj1
+        @NonNull
+        public ViewGroup g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，preLoad，getAdViewHolder");
+                if (m76.n != null) {
+                    return m76.n.g();
+                }
+                return new RelativeLayout(TbadkCoreApplication.getInst().getContext());
+            }
+            return (ViewGroup) invokeV.objValue;
         }
     }
 
@@ -454,26 +485,6 @@ public class m76 implements c86 {
         this.j = false;
         this.k = null;
         this.h = splashNativePolicy;
-    }
-
-    @Override // com.baidu.tieba.c86
-    public void e(kw4 kw4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, kw4Var) == null) && kw4Var != null && kw4Var.b() != null && kw4Var.b().getContext() != null) {
-            this.e = kw4Var.a();
-            this.f = kw4Var.d();
-            this.g = kw4Var.c();
-            this.d = new WeakReference<>(kw4Var.b());
-            if (n == null) {
-                n = new a(this);
-            }
-            if (m) {
-                t();
-                m = false;
-                return;
-            }
-            x(n, this.e);
-        }
     }
 
     public static void u() {
@@ -546,6 +557,28 @@ public class m76 implements c86 {
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tieba.c86
+    public void e(kw4 kw4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, kw4Var) == null) && kw4Var != null && kw4Var.b() != null && kw4Var.b().getContext() != null) {
+            this.e = kw4Var.a();
+            this.f = kw4Var.d();
+            this.g = kw4Var.c();
+            this.d = new WeakReference<>(kw4Var.b());
+            if (n == null) {
+                n = new a(this);
+            }
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("IAdSdkSplash", "开屏广告：原生广告，request，hasPreLoad is：" + m);
+            if (m) {
+                t();
+                m = false;
+                return;
+            }
+            x(n, this.e);
+        }
+    }
+
     public final void s() {
         WeakReference<ViewGroup> weakReference;
         Interceptable interceptable = $ic;
@@ -571,6 +604,7 @@ public class m76 implements c86 {
         }
         try {
             l.o(this.d.get());
+            DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：show，原生广告开始展示");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -633,6 +667,7 @@ public class m76 implements c86 {
                 if (c86.a) {
                     System.out.println("IAdSdkSplash prologue ad start load");
                 }
+                DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：原生广告，loadSplash，原生广告开始加载");
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onLowMemory();
                 if (hw4Var != null) {

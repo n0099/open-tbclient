@@ -50,13 +50,13 @@ public class nv5 {
 
         /* renamed from: com.baidu.tieba.nv5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0423a implements Runnable {
+        public class RunnableC0426a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ApkDownloadInfoData a;
             public final /* synthetic */ a b;
 
-            public RunnableC0423a(a aVar, ApkDownloadInfoData apkDownloadInfoData) {
+            public RunnableC0426a(a aVar, ApkDownloadInfoData apkDownloadInfoData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +129,7 @@ public class nv5 {
                     }
                     ApkDownloadInfoData apkDownloadInfoData = (ApkDownloadInfoData) it.next();
                     if (apkDownloadInfoData != null && apkDownloadInfoData.getStatus() == AdDownloadStatus.COMPLETED && this.a.l(apkDownloadInfoData)) {
-                        SafeHandler.getInst().post(new RunnableC0423a(this, apkDownloadInfoData));
+                        SafeHandler.getInst().post(new RunnableC0426a(this, apkDownloadInfoData));
                         break;
                     }
                 }

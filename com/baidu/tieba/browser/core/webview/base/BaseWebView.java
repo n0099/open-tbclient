@@ -18,6 +18,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.browser.BrowserHelper;
@@ -98,7 +99,7 @@ public class BaseWebView extends MonitorWebView implements sl6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 TbLog hybridLog = HybridLog.getInstance();
-                hybridLog.e(com.baidu.tbadk.coreExtra.view.BaseWebView.TAG, "onPageStart not called after loadUrl 1000ms, url=" + this.a.getOriginalUrl());
+                hybridLog.e(com.baidu.tbadk.coreExtra.view.BaseWebView.TAG, "onPageStart not called after loadUrl 1800ms, url=" + this.a.getOriginalUrl());
                 wj6 a = wj6.a(HybridStatisticKey.KEY_RD_USE);
                 a.c("obj_type", "hybrid-check");
                 a.c("obj_source", this.a.getOriginalUrl());
@@ -517,7 +518,7 @@ public class BaseWebView extends MonitorWebView implements sl6 {
             SafeHandler.getInst().removeCallbacks(this.I);
             super.loadUrl(str2, map);
             if (!TextUtils.isEmpty(str) && !str.startsWith("file:///android_asset/blank.html") && !TextUtils.equals("about:blank", str)) {
-                SafeHandler.getInst().postDelayed(this.I, 1000L);
+                SafeHandler.getInst().postDelayed(this.I, DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT);
             }
         }
     }

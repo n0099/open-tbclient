@@ -45,22 +45,22 @@ public class gt1 implements kv1 {
         public boolean c;
         public String d;
         public zy2 e;
-        public HandlerC0314b f;
+        public HandlerC0315b f;
         public a g;
 
         /* loaded from: classes6.dex */
         public class a extends lw2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0314b a;
+            public HandlerC0315b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0314b handlerC0314b) {
+            public a(b bVar, HandlerC0315b handlerC0315b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0314b};
+                    Object[] objArr = {bVar, handlerC0315b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class gt1 implements kv1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0314b;
+                this.a = handlerC0315b;
             }
 
             @Override // com.baidu.tieba.lw2, android.app.Application.ActivityLifecycleCallbacks
@@ -83,9 +83,9 @@ public class gt1 implements kv1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0314b handlerC0314b = this.a;
-                        if (handlerC0314b != null) {
-                            handlerC0314b.removeMessages(1);
+                        HandlerC0315b handlerC0315b = this.a;
+                        if (handlerC0315b != null) {
+                            handlerC0315b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -97,13 +97,13 @@ public class gt1 implements kv1 {
 
         /* renamed from: com.baidu.tieba.gt1$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class HandlerC0314b extends Handler {
+        public static class HandlerC0315b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public HandlerC0314b(Context context) {
+            public HandlerC0315b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class gt1 implements kv1 {
                 this.a = new WeakReference<>(context);
             }
 
-            public /* synthetic */ HandlerC0314b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0315b(Context context, a aVar) {
                 this(context);
             }
 
@@ -184,7 +184,7 @@ public class gt1 implements kv1 {
             this.c = co3.c(bundle, "compressed", false);
             this.d = co3.g(bundle, "swanTmpPath");
             this.e = zy2Var;
-            this.f = new HandlerC0314b(context, null);
+            this.f = new HandlerC0315b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -255,9 +255,9 @@ public class gt1 implements kv1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0314b handlerC0314b = this.f;
-                if (handlerC0314b != null) {
-                    handlerC0314b.sendEmptyMessage(1);
+                HandlerC0315b handlerC0315b = this.f;
+                if (handlerC0315b != null) {
+                    handlerC0315b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -288,9 +288,9 @@ public class gt1 implements kv1 {
                         }
                     }
                 }
-                HandlerC0314b handlerC0314b2 = this.f;
-                if (handlerC0314b2 != null) {
-                    handlerC0314b2.sendEmptyMessage(2);
+                HandlerC0315b handlerC0315b2 = this.f;
+                if (handlerC0315b2 != null) {
+                    handlerC0315b2.sendEmptyMessage(2);
                 }
                 zy2 zy2Var = this.e;
                 if (zy2Var != null) {

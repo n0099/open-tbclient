@@ -131,12 +131,12 @@ public final class xo3 {
 
         /* renamed from: com.baidu.tieba.xo3$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0531b implements Runnable {
+        public class RunnableC0532b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0531b(b bVar) {
+            public RunnableC0532b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public final class xo3 {
                         return;
                     }
                 }
-                xo3.e0(new RunnableC0531b(this));
+                xo3.e0(new RunnableC0532b(this));
             }
         }
     }

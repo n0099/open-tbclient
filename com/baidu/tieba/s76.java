@@ -45,13 +45,13 @@ public class s76 extends xk1<jj0> {
 
         /* renamed from: com.baidu.tieba.s76$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0475a implements mj0 {
+        public class C0476a implements mj0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean[] a;
             public final /* synthetic */ kj0 b;
 
-            public C0475a(a aVar, boolean[] zArr, kj0 kj0Var) {
+            public C0476a(a aVar, boolean[] zArr, kj0 kj0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class s76 extends xk1<jj0> {
                     return true;
                 }
                 if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                    oj0.a(context, str, null, new C0475a(this, new boolean[1], kj0Var), false);
+                    oj0.a(context, str, null, new C0476a(this, new boolean[1], kj0Var), false);
                     return true;
                 }
                 UrlManager.getInstance().dealOneLink(new String[]{str});

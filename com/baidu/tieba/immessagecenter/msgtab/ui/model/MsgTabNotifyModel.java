@@ -18,12 +18,12 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.immessagecenter.im.model.MsgNotifyTabModel;
 import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgTabNotifyModel;
-import com.baidu.tieba.jcc;
 import com.baidu.tieba.km6;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.nt8;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.yj8;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,9 +43,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class MsgTabNotifyModel implements yj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jcc<Boolean> a;
-    public final jcc<List<nt8>> b;
-    public final jcc<List<ImMessageCenterShowItemData>> c;
+    public final lcc<Boolean> a;
+    public final lcc<List<nt8>> b;
+    public final lcc<List<ImMessageCenterShowItemData>> c;
     public final Lazy d;
     public boolean e;
     public final id8 f;
@@ -209,11 +209,11 @@ public final class MsgTabNotifyModel implements yj8 {
                 return;
             }
         }
-        jcc<Boolean> Q = jcc.Q();
+        lcc<Boolean> Q = lcc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.a = Q;
-        this.b = jcc.Q();
-        this.c = jcc.Q();
+        this.b = lcc.Q();
+        this.c = lcc.Q();
         this.d = LazyKt__LazyJVMKt.lazy(MsgTabNotifyModel$mDataRepository$2.INSTANCE);
         this.b.onNext(k());
         this.a.onNext(Boolean.valueOf(SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("msg_tab_entrance_invitation_answer"), false)));
@@ -303,26 +303,26 @@ public final class MsgTabNotifyModel implements yj8 {
         }
     }
 
-    public final n7c<Boolean> j() {
+    public final p7c<Boolean> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n7c<Boolean> s = this.a.a().w().s(x7c.b());
+            p7c<Boolean> s = this.a.a().w().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mAnswerVisibleBs\n       …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
-    public final n7c<List<nt8>> l() {
+    public final p7c<List<nt8>> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n7c<List<nt8>> s = this.b.a().w().s(x7c.b());
+            p7c<List<nt8>> s = this.b.a().w().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mInteractNotifyDataBs\n  …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public final MsgNotifyTabModel m() {
@@ -334,15 +334,15 @@ public final class MsgTabNotifyModel implements yj8 {
         return (MsgNotifyTabModel) invokeV.objValue;
     }
 
-    public final n7c<List<ImMessageCenterShowItemData>> n() {
+    public final p7c<List<ImMessageCenterShowItemData>> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            n7c<List<ImMessageCenterShowItemData>> s = this.c.a().w().s(x7c.b());
+            p7c<List<ImMessageCenterShowItemData>> s = this.c.a().w().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mSystemNotifyDataBs\n    …dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public final void v() {

@@ -40,7 +40,7 @@ public class it4 {
     public static String S = "threadtext";
 
     /* renamed from: T  reason: collision with root package name */
-    public static String f1141T = "threadimg";
+    public static String f1139T = "threadimg";
     public static String U = "threadforum";
     public static String V = "tab_code";
     public static String W = "wise_sample_id";
@@ -665,7 +665,7 @@ public class it4 {
                 this.h = jSONObject.optLong(Q);
                 this.i = jSONObject.optLong(R);
                 this.m = jSONObject.optString(S);
-                this.n = jSONObject.optString(f1141T);
+                this.n = jSONObject.optString(f1139T);
                 this.o = jSONObject.optLong(U);
                 int optInt2 = jSONObject.optInt(X);
                 if (optInt2 > 0) {

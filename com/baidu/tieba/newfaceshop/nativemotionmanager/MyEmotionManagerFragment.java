@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements be9<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0419a implements Runnable {
+        public class RunnableC0422a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0419a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0422a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements be9<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                ed9.b().a(new RunnableC0419a(this, customResponsedMessage));
+                ed9.b().a(new RunnableC0422a(this, customResponsedMessage));
             }
         }
     }

@@ -30,17 +30,17 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.dx8;
-import com.baidu.tieba.g8c;
 import com.baidu.tieba.ge5;
-import com.baidu.tieba.h8c;
+import com.baidu.tieba.i8c;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterFragment;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ObserverRegistry;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.tieba.in5;
-import com.baidu.tieba.n7c;
-import com.baidu.tieba.u7c;
+import com.baidu.tieba.j8c;
+import com.baidu.tieba.p7c;
+import com.baidu.tieba.w7c;
 import com.baidu.tieba.z5a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -56,7 +56,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView a;
-    public u7c b;
+    public w7c b;
 
     /* loaded from: classes6.dex */
     public class a implements in5.b {
@@ -160,7 +160,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements b8c<Triple<Boolean, Integer, Boolean>> {
+    public class d implements d8c<Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ge5 a;
@@ -186,7 +186,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8c
+        @Override // com.baidu.tieba.d8c
         public void call(Triple<Boolean, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, triple) == null) {
@@ -205,7 +205,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements g8c<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
+    public class e implements i8c<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,7 +226,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g8c
+        @Override // com.baidu.tieba.i8c
         public Triple<Boolean, Integer, Boolean> call(Pair<NewsRemindMessage, Boolean> pair) {
             InterceptResult invokeL;
             boolean z;
@@ -246,7 +246,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements g8c<NewsRemindMessage, Boolean> {
+    public class f implements i8c<NewsRemindMessage, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -267,7 +267,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g8c
+        @Override // com.baidu.tieba.i8c
         public Boolean call(NewsRemindMessage newsRemindMessage) {
             InterceptResult invokeL;
             boolean z;
@@ -285,7 +285,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements h8c<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
+    public class g implements j8c<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -306,7 +306,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.h8c
+        @Override // com.baidu.tieba.j8c
         public Pair<NewsRemindMessage, Boolean> call(NewsRemindMessage newsRemindMessage, Boolean bool) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -368,9 +368,9 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onRemove();
-            u7c u7cVar = this.b;
-            if (u7cVar != null) {
-                u7cVar.unsubscribe();
+            w7c w7cVar = this.b;
+            if (w7cVar != null) {
+                w7cVar.unsubscribe();
             }
             this.b = null;
             FragmentTabStructure fragmentTabStructure = this.mFragement;
@@ -455,7 +455,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         ge5 ge5Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ge5Var = (ge5) ServiceManager.getService(ge5.a)) != null && this.b == null) {
-            this.b = n7c.c(ge5Var.g().k(new f(this)), ge5Var.c(), new g(this)).p(new e(this)).H(new d(this, ge5Var));
+            this.b = p7c.c(ge5Var.g().k(new f(this)), ge5Var.c(), new g(this)).p(new e(this)).H(new d(this, ge5Var));
         }
     }
 

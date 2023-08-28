@@ -50,14 +50,14 @@ public class c94 extends mw2 {
 
         /* renamed from: com.baidu.tieba.c94$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0261a implements Runnable {
+        public class RunnableC0260a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ wt2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0261a(a aVar, wt2 wt2Var, int i) {
+            public RunnableC0260a(a aVar, wt2 wt2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class c94 extends mw2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, wt2Var) == null) {
                 xo3.d0(this.c.m);
-                this.c.m = new RunnableC0261a(this, wt2Var, i);
+                this.c.m = new RunnableC0260a(this, wt2Var, i);
                 xo3.g0(this.c.m);
             }
         }

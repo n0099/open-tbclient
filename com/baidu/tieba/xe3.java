@@ -41,13 +41,13 @@ public class xe3 extends ad3 {
 
         /* renamed from: com.baidu.tieba.xe3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0526a implements Runnable {
+        public class RunnableC0527a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0526a(a aVar, Bitmap bitmap) {
+            public RunnableC0527a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class xe3 extends ad3 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    xn3.k(new RunnableC0526a(this, y), "savescreenshot");
+                    xn3.k(new RunnableC0527a(this, y), "savescreenshot");
                 }
             }
         }

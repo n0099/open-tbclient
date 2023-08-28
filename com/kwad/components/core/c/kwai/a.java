@@ -15,25 +15,25 @@ import com.kwad.sdk.widget.KSFrameLayout;
 public final class a extends KSFrameLayout {
     @Nullable
     public final b DG;
-    public final b.C0649b DH;
+    public final b.C0650b DH;
     public d DI;
-    public InterfaceC0648a DJ;
+    public InterfaceC0649a DJ;
     public final AdTemplate mAdTemplate;
     public Presenter mPresenter;
     public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0648a {
+    public interface InterfaceC0649a {
         void mp();
     }
 
-    public a(@Nullable b bVar, b.C0649b c0649b) {
-        super(c0649b.context);
+    public a(@Nullable b bVar, b.C0650b c0650b) {
+        super(c0650b.context);
         this.DG = bVar;
-        this.DH = c0649b;
-        this.mAdTemplate = c0649b.adTemplate;
-        FrameLayout.inflate(c0649b.context, R.layout.obfuscated_res_0x7f0d0493, this);
+        this.DH = c0650b;
+        this.mAdTemplate = c0650b.adTemplate;
+        FrameLayout.inflate(c0650b.context, R.layout.obfuscated_res_0x7f0d0493, this);
         this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913f4);
     }
 
@@ -82,13 +82,13 @@ public final class a extends KSFrameLayout {
     @Override // android.view.View
     public final void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        InterfaceC0648a interfaceC0648a = this.DJ;
-        if (interfaceC0648a != null) {
-            interfaceC0648a.mp();
+        InterfaceC0649a interfaceC0649a = this.DJ;
+        if (interfaceC0649a != null) {
+            interfaceC0649a.mp();
         }
     }
 
-    public final void setChangeListener(InterfaceC0648a interfaceC0648a) {
-        this.DJ = interfaceC0648a;
+    public final void setChangeListener(InterfaceC0649a interfaceC0649a) {
+        this.DJ = interfaceC0649a;
     }
 }

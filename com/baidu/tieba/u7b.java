@@ -1,72 +1,94 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.lang.reflect.InvocationTargetException;
-import java.util.NoSuchElementException;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class u7b {
+public final class u7b {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (b()) {
-                try {
-                    return (String) Class.forName("okhttp3.internal.Version").getMethod(TTDownloadField.TT_USERAGENT, new Class[0]).invoke(null, new Object[0]);
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165321, "Lcom/baidu/tieba/u7b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            try {
-                Class.forName("okhttp3.OkHttpClient");
-                return true;
-            } catch (Exception unused) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948165321, "Lcom/baidu/tieba/u7b;");
+                return;
             }
         }
-        return invokeV.booleanValue;
+        a = new Object();
     }
 
-    public static boolean c() throws RuntimeException {
-        InterceptResult invokeV;
+    public static void a(StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a = a();
-            if (!a.isEmpty()) {
-                String[] split = a.split("/");
-                if (split.length == 2) {
-                    String[] split2 = split[1].split("\\.");
-                    if (split2.length == 3) {
-                        try {
-                            if (Integer.parseInt(split2[0]) == 3) {
-                                if (Integer.parseInt(split2[1]) >= 9) {
-                                    return true;
-                                }
-                            }
-                            return false;
-                        } catch (NumberFormatException unused) {
-                            throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
-                        }
+        if (interceptable == null || interceptable.invokeL(65537, null, sb) == null) {
+            sb.append(" TurboNet/");
+            sb.append(c7b.a());
+        }
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(c(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
+            }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            a(sb);
+            sb.append(')');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int c(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        throw new IllegalStateException("Cannot determine package version", e);
                     }
-                    throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
                 }
-                throw new IllegalArgumentException(String.format("okhttp version format(%s) is not valid", a));
+                i = b;
             }
-            throw new NoSuchElementException();
+            return i;
         }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 }

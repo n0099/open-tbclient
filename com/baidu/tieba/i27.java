@@ -167,10 +167,10 @@ public class i27 implements f27, PreViewPickCoverView.c, lwa, OnChangeStickerLis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null && this.a.b.isPaused()) {
                 if (this.a.l != null) {
-                    qgb.a().post(new a(this, BitmapFactory.decodeFile(this.a.l.path)));
+                    sgb.a().post(new a(this, BitmapFactory.decodeFile(this.a.l.path)));
                     return;
                 }
-                qgb.a().post(new b(this));
+                sgb.a().post(new b(this));
             }
         }
     }
@@ -589,9 +589,9 @@ public class i27 implements f27, PreViewPickCoverView.c, lwa, OnChangeStickerLis
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == null) {
             return;
         }
-        int j = pgb.j(R.dimen.tbds32);
+        int j = rgb.j(R.dimen.tbds32);
         if (this.d.getWidth() > this.d.getHeight()) {
-            j = pgb.j(R.dimen.tbds28);
+            j = rgb.j(R.dimen.tbds28);
         }
         zoa.d().k((int) (j * 1.0f));
         dpa dpaVar = new dpa(this.a.getPageActivity(), this.b);
@@ -706,7 +706,7 @@ public class i27 implements f27, PreViewPickCoverView.c, lwa, OnChangeStickerLis
             if (this.k == null) {
                 MultiMediaData multiMediaData = new MultiMediaData();
                 this.k = multiMediaData;
-                multiMediaData.setExt("text", pgb.l(R.string.obfuscated_res_0x7f0f1772));
+                multiMediaData.setExt("text", rgb.l(R.string.obfuscated_res_0x7f0f1772));
                 this.i.add(this.k);
                 this.j.f(-1);
             } else {
@@ -791,7 +791,7 @@ public class i27 implements f27, PreViewPickCoverView.c, lwa, OnChangeStickerLis
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             MultiMediaData multiMediaData2 = this.k;
             if (multiMediaData2 != null) {
-                multiMediaData2.setExt("text", pgb.l(R.string.obfuscated_res_0x7f0f1772));
+                multiMediaData2.setExt("text", rgb.l(R.string.obfuscated_res_0x7f0f1772));
             }
             this.k = null;
             this.e.h();

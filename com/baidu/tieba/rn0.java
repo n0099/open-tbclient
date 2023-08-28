@@ -31,12 +31,12 @@ public class rn0 {
 
         /* renamed from: com.baidu.tieba.rn0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0472a extends BroadcastReceiver {
+        public class C0473a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0472a(a aVar) {
+            public C0473a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class rn0 {
                 } else if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
-                    this.a.d = new C0472a(this);
+                    this.a.d = new C0473a(this);
                     sj0.b().registerReceiver(this.a.d, intentFilter);
                 }
             }

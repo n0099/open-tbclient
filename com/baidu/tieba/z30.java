@@ -33,7 +33,7 @@ public class z30 implements v30 {
 
         /* renamed from: com.baidu.tieba.z30$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0548a {
+        public static class C0549a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class z30 implements v30 {
             public String c;
             public int d;
 
-            public C0548a(Context context) {
+            public C0549a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class z30 implements v30 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0548a c0548a = new C0548a(context);
-                String d = c0548a.d();
-                int c = c0548a.c();
+                C0549a c0549a = new C0549a(context);
+                String d = c0549a.d();
+                int c = c0549a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

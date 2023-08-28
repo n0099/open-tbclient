@@ -151,7 +151,7 @@ public class hs8 extends BdBaseView<ChatAggregationFragment> implements p95.g, V
     public MessageRedDotView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1128T;
+    public int f1127T;
     public int U;
     public boolean V;
     public boolean W;
@@ -1945,9 +1945,9 @@ public class hs8 extends BdBaseView<ChatAggregationFragment> implements p95.g, V
         if ((interceptable != null && interceptable.invokeL(1048587, this, newsNotifyMessage) != null) || newsNotifyMessage == null) {
             return;
         }
-        this.f1128T = newsNotifyMessage.getMsgAtme();
+        this.f1127T = newsNotifyMessage.getMsgAtme();
         this.U = newsNotifyMessage.getMsgAgree();
-        Z0(this.f1128T);
+        Z0(this.f1127T);
         Y0(this.U);
         c1(newsNotifyMessage.getMsgFans());
         e1(newsNotifyMessage.getMsgReplyme());
@@ -2444,20 +2444,20 @@ public class hs8 extends BdBaseView<ChatAggregationFragment> implements p95.g, V
             int i4 = 1;
             if (view2 == this.v) {
                 StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (this.f1128T > 0) {
+                if (this.f1127T > 0) {
                     i3 = 1;
                 }
-                TiebaStatic.log(param.param("obj_type", i3).param("obj_param1", this.f1128T));
+                TiebaStatic.log(param.param("obj_type", i3).param("obj_param1", this.f1127T));
                 AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(getPageContext().getPageActivity());
                 BdPageContext<T> bdPageContext = this.mContext;
                 if (bdPageContext != 0 && bdPageContext.getUniqueId() != null) {
                     atMeActivityConfig.setLastUniqueId(this.mContext.getUniqueId().getId());
                 }
-                atMeActivityConfig.setAtNumber(this.f1128T);
+                atMeActivityConfig.setAtNumber(this.f1127T);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
                 ie5.p0().j();
                 ie5.p0().g0(0);
-                this.f1128T = 0;
+                this.f1127T = 0;
                 Z0(0);
                 TiebaStatic.log("c12925");
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "msg_atme_tab_click", "click", 1, new Object[0]);

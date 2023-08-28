@@ -2,14 +2,15 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
-import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.oib;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.tieba.zhb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,130 +20,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class aib {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile aib e;
+    public static final boolean n;
+    public static volatile aib o;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
     public File b;
-    public ExecutorService c;
-
-    /* loaded from: classes5.dex */
-    public class a implements bib {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ dib b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ String f;
-
-        public a(aib aibVar, File file, dib dibVar, String str, String str2, JSONObject jSONObject, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aibVar, file, dibVar, str, str2, jSONObject, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            this.b = dibVar;
-            this.c = str;
-            this.d = str2;
-            this.e = jSONObject;
-            this.f = str3;
-        }
-
-        @Override // com.baidu.tieba.bib
-        public void a(eib eibVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, eibVar) == null) {
-                if (eibVar != null && eibVar.c()) {
-                    if (aib.d) {
-                        Log.d("VoyagerFileManager", "bos upload success");
-                    }
-                    if (this.a.exists()) {
-                        this.a.delete();
-                    }
-                    dib dibVar = this.b;
-                    if (dibVar != null) {
-                        dibVar.d(this.c, this.d, this.e);
-                    }
-                } else if (eibVar != null) {
-                    int a = eibVar.a();
-                    String b = eibVar.b();
-                    if (aib.d) {
-                        Log.d("VoyagerFileManager", "bos upload fail: error code = " + a + ", error message: " + b);
-                    }
-                    dib dibVar2 = this.b;
-                    if (dibVar2 != null) {
-                        dibVar2.c(this.f, a, b, this.e);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-        public final /* synthetic */ bib d;
-        public final /* synthetic */ aib e;
-
-        public b(aib aibVar, String str, String str2, File file, bib bibVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aibVar, str, str2, file, bibVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = aibVar;
-            this.a = str;
-            this.b = str2;
-            this.c = file;
-            this.d = bibVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.e.m(this.a, this.b, this.c, this.d);
-        }
-    }
+    public boolean c;
+    public boolean d;
+    public long e;
+    public int f;
+    public int g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public HashMap<String, zhb> m;
 
     static {
         InterceptResult invokeClinit;
@@ -157,46 +57,7 @@ public class aib {
                 return;
             }
         }
-        d = AppConfig.isDebug();
-    }
-
-    public static aib g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (aib.class) {
-                    if (e == null) {
-                        e = new aib();
-                    }
-                }
-            }
-            return e;
-        }
-        return (aib) invokeV.objValue;
-    }
-
-    public ArrayList<File> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<File> arrayList = new ArrayList<>();
-            File[] listFiles = this.a.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                return new ArrayList<>(Arrays.asList(listFiles));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public File h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (File) invokeV.objValue;
+        n = AppConfig.isDebug();
     }
 
     public aib() {
@@ -212,339 +73,541 @@ public class aib {
                 return;
             }
         }
-        j();
-        this.c = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        n();
     }
 
-    public void c(hib hibVar, dib dibVar) {
+    public static aib f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, hibVar, dibVar) == null) {
-            String j = hibVar.j();
-            String a2 = hibVar.a();
-            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
-                File file = new File(this.a, j);
-                JSONObject c = hibVar.c();
-                if (file.exists()) {
-                    if (d) {
-                        Log.d("VoyagerFileManager", "retry: " + j + " exists and upload");
-                    }
-                    k(j, a2, file, c, dibVar);
-                    return;
-                }
-                d(hibVar, dibVar);
-            }
-        }
-    }
-
-    public void d(hib hibVar, dib dibVar) {
-        File i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hibVar, dibVar) == null) {
-            String j = hibVar.j();
-            String a2 = hibVar.a();
-            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
-                ArrayList<String> g = hibVar.g();
-                JSONObject c = hibVar.c();
-                if (c == null) {
-                    c = new JSONObject();
-                    hibVar.n(c);
-                }
-                JSONObject jSONObject = c;
-                if (g != null && g.size() != 0) {
-                    if (!hibVar.l() && g.size() == 1) {
-                        String str = g.get(0);
-                        if (TextUtils.isEmpty(str)) {
-                            dibVar.a(j, jSONObject);
-                            return;
-                        }
-                        File file = new File(str);
-                        if (!file.exists()) {
-                            dibVar.a(j, jSONObject);
-                            return;
-                        } else {
-                            i = new File(this.a, j);
-                            qib.a(file, i);
-                        }
-                    } else {
-                        long e2 = hibVar.e();
-                        if (e2 == 0) {
-                            e2 = yhb.f().d(a2);
-                        }
-                        i = i(j, g, e2, jSONObject);
-                    }
-                    File file2 = i;
-                    if (file2 != null && file2.exists()) {
-                        k(j, a2, file2, jSONObject, dibVar);
-                        return;
-                    } else {
-                        dibVar.b(j, jSONObject);
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (o == null) {
+                synchronized (aib.class) {
+                    if (o == null) {
+                        o = new aib();
                     }
                 }
-                dibVar.a(j, jSONObject);
             }
+            return o;
         }
+        return (aib) invokeV.objValue;
     }
 
-    public void e(String str, String str2, String str3, File file, String str4, boolean z, JSONObject jSONObject) {
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, file, str4, Boolean.valueOf(z), jSONObject}) == null) {
-            try {
-                JSONObject b2 = pib.b(file, str4, str2, str3, z);
-                jSONObject.put(str, b2);
-                if (d) {
-                    Log.d("VoyagerFileManager", "generateMetaInfo path " + str + " fileMeta ：" + b2);
-                }
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
         }
+        return invokeV.intValue;
     }
 
-    public File i(String str, ArrayList<String> arrayList, long j, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        JSONObject jSONObject2;
-        String str2;
-        File file;
-        String str3;
-        Iterator<String> it;
-        File file2;
-        String str4;
-        boolean z;
-        String str5;
-        File file3;
-        String str6;
-        String str7;
+    public long h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, arrayList, Long.valueOf(j), jSONObject})) == null) {
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
-            if (jSONObject == null) {
-                jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.j;
+        }
+        return invokeV.longValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public long j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.h;
+        }
+        return invokeV.longValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (i > 0 && i <= bib.k) {
+                this.f = i;
             } else {
-                jSONObject2 = jSONObject;
+                this.f = bib.k;
             }
-            Iterator<String> it2 = arrayList.iterator();
-            long j2 = 0;
-            while (true) {
-                if (!it2.hasNext()) {
-                    str2 = "VoyagerFileManager";
-                    file = null;
-                    str3 = " not exist";
-                    break;
-                }
-                String next = it2.next();
-                if (!TextUtils.isEmpty(next)) {
-                    if (next.startsWith("external:")) {
-                        next = next.replace("external:", AppRuntime.getAppContext().getExternalFilesDir(null).getParent() + File.separatorChar);
-                    } else if (next.startsWith("internal:")) {
-                        next = next.replace("internal:", AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator);
-                    }
-                    String str8 = next;
-                    if (str8.contains("../")) {
-                        e(str8, "4", str8 + " error", null, null, true, jSONObject2);
-                    } else {
-                        File file4 = new File(str8);
-                        if (!file4.exists()) {
-                            e(str8, "1", str8 + " not exist", null, null, true, jSONObject2);
-                        } else {
-                            if (d) {
-                                Log.d("VoyagerFileManager", "path: " + str8);
-                            }
-                            if (file4.isFile()) {
-                                long length = file4.length() + j2;
-                                if (d) {
-                                    Log.d("VoyagerFileManager", "total file size: " + length);
-                                    Log.d("VoyagerFileManager", "max file size: " + j);
-                                }
-                                if (length > j) {
-                                    file = null;
-                                    e(str8, "3", str8 + " size exceed maxFileSize ", null, null, true, jSONObject2);
-                                    str3 = " not exist";
-                                    str2 = "VoyagerFileManager";
-                                    break;
-                                }
-                                file = null;
-                                StringBuilder sb = new StringBuilder(rib.c(file4.getAbsolutePath().getBytes(), true));
-                                sb.append("_");
-                                sb.append(file4.getName());
-                                arrayList2.add(new oib.a(file4, sb.toString()));
-                                file2 = file4;
-                                str4 = str8;
-                                it = it2;
-                                z = true;
-                                str3 = " not exist";
-                                e(str8, "0", str8 + " success", file2, sb.toString(), true, jSONObject2);
-                                if (d) {
-                                    Log.d("VoyagerFileManager", "zip name: " + ((Object) sb));
-                                }
-                                str5 = "VoyagerFileManager";
-                                j2 = length;
-                            } else {
-                                it = it2;
-                                file2 = file4;
-                                str4 = str8;
-                                file = null;
-                                str3 = " not exist";
-                                z = true;
-                                str5 = "VoyagerFileManager";
-                            }
-                            if (file2.isDirectory()) {
-                                ArrayList arrayList3 = new ArrayList();
-                                File file5 = file2;
-                                qib.e(file5, arrayList3);
-                                if (arrayList3.size() != 0) {
-                                    boolean z2 = false;
-                                    Iterator it3 = arrayList3.iterator();
-                                    while (true) {
-                                        if (it3.hasNext()) {
-                                            String str9 = (String) it3.next();
-                                            if (!TextUtils.isEmpty(str9)) {
-                                                File file6 = new File(str9);
-                                                if (file6.exists()) {
-                                                    j2 += file6.length();
-                                                    if (j2 > j) {
-                                                        file3 = file5;
-                                                        str6 = str5;
-                                                        e(str4, "3", file5.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject2);
-                                                        z2 = true;
-                                                        break;
-                                                    }
-                                                }
-                                                file5 = file5;
-                                                str5 = str5;
-                                            }
-                                        } else {
-                                            file3 = file5;
-                                            str6 = str5;
-                                            break;
-                                        }
-                                    }
-                                    if (z2) {
-                                        str2 = str6;
-                                        break;
-                                    }
-                                    File file7 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/store/");
-                                    String c = rib.c(file3.getAbsolutePath().getBytes(), z);
-                                    File file8 = new File(file7, c + ".zip");
-                                    if (d) {
-                                        str7 = str6;
-                                        Log.d(str7, "inner path: " + file7.getAbsolutePath());
-                                        Log.d(str7, "inner path md5: " + c);
-                                        Log.d(str7, "inner zip out file: " + file8.getAbsolutePath());
-                                    } else {
-                                        str7 = str6;
-                                    }
-                                    if (!file7.exists()) {
-                                        file7.mkdir();
-                                    }
-                                    if (file8.exists()) {
-                                        file8.delete();
-                                    }
-                                    if (qib.h(file3, file8.getAbsolutePath())) {
-                                        if (d) {
-                                            Log.d(str7, "inner zip out file: " + file8.getName());
-                                        }
-                                        arrayList2.add(new oib.a(file8, file8.getName(), z));
-                                        e(str4, "0", "success", file8, file8.getPath(), false, jSONObject2);
-                                    } else {
-                                        StringBuilder sb2 = new StringBuilder();
-                                        String str10 = str4;
-                                        sb2.append(str10);
-                                        sb2.append("copy error");
-                                        e(str10, "2", sb2.toString(), null, null, false, jSONObject2);
-                                    }
-                                }
-                            }
-                            it2 = it;
-                        }
-                    }
-                }
-            }
-            File file9 = new File(this.b, "filemeta_" + str + ".log");
-            try {
-                file9.createNewFile();
-                qib.g(jSONObject2.toString(), file9);
-            } catch (IOException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-            if (file9.exists()) {
-                arrayList2.add(new oib.a(file9, file9.getName(), true));
-            }
-            if (d) {
-                Log.d(str2, "start generate out zip file");
-            }
-            File file10 = new File(this.a, str);
-            try {
-                if (file10.exists()) {
-                    file10.delete();
-                }
-                file10.createNewFile();
-            } catch (IOException e3) {
-                if (d) {
-                    e3.printStackTrace();
-                }
-            }
-            if (arrayList2.size() > 0) {
-                oib.a(file10, arrayList2);
-                File file11 = new File(file10.getAbsolutePath());
-                if (d) {
-                    Log.d(str2, "out put File: " + file11.getAbsolutePath());
-                }
-                return file11;
-            }
-            e(file10.getAbsolutePath(), "1", file10.getPath() + str3, null, null, true, jSONObject2);
-            return file;
         }
-        return (File) invokeCommon.objValue;
     }
 
-    public final void j() {
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        zhb zhbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            String str = AppRuntime.getAppContext().getApplicationInfo().dataDir + "/.voyager";
-            File file = new File(str, "/upload/");
-            this.a = file;
-            if (!file.exists()) {
-                this.a.mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.c;
             }
-            File file2 = new File(str, "/store/");
-            this.b = file2;
-            if (!file2.exists()) {
+            HashMap<String, zhb> hashMap = this.m;
+            if (hashMap != null && (zhbVar = hashMap.get(str)) != null) {
+                return zhbVar.e();
+            }
+            return this.c;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public long b(String str) {
+        InterceptResult invokeL;
+        zhb zhbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.i;
+            }
+            HashMap<String, zhb> hashMap = this.m;
+            if (hashMap != null && (zhbVar = hashMap.get(str)) != null) {
+                return zhbVar.a();
+            }
+            return this.i;
+        }
+        return invokeL.longValue;
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        zhb zhbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.l;
+            }
+            HashMap<String, zhb> hashMap = this.m;
+            if (hashMap != null && (zhbVar = hashMap.get(str)) != null) {
+                return zhbVar.b();
+            }
+            return this.l;
+        }
+        return invokeL.intValue;
+    }
+
+    public long d(String str) {
+        InterceptResult invokeL;
+        zhb zhbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.h;
+            }
+            HashMap<String, zhb> hashMap = this.m;
+            if (hashMap != null && (zhbVar = hashMap.get(str)) != null) {
+                return zhbVar.d();
+            }
+            return this.h;
+        }
+        return invokeL.longValue;
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        zhb zhbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this.g;
+            }
+            HashMap<String, zhb> hashMap = this.m;
+            if (hashMap != null && (zhbVar = hashMap.get(str)) != null) {
+                return zhbVar.c();
+            }
+            return this.g;
+        }
+        return invokeL.intValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void u(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            if (j <= 0) {
+                this.i = bib.g;
+            } else {
+                this.i = j;
+            }
+        }
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            if (i > 0 && i <= bib.i) {
+                this.k = i;
+            } else {
+                this.k = bib.i;
+            }
+        }
+    }
+
+    public void w(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            if (j > 0 && j <= bib.h) {
+                this.j = j;
+            } else {
+                this.j = bib.h;
+            }
+        }
+    }
+
+    public void x(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            if (j > 0 && j <= DownloadManager.MIN_LEFT_SIZE) {
+                this.h = j;
+            } else {
+                this.h = DownloadManager.MIN_LEFT_SIZE;
+            }
+        }
+    }
+
+    public void y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            if (i > 0 && i <= bib.j) {
+                this.g = i;
+            } else {
+                this.g = bib.j;
+            }
+        }
+    }
+
+    public void z(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            if (j <= 0) {
+                this.e = bib.e;
+            } else {
+                this.e = j;
+            }
+        }
+    }
+
+    public final boolean B(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return false;
+            }
+            if (jSONObject.optInt("switch") != bib.p) {
+                t(bib.a);
+            } else {
+                t(bib.b);
+            }
+            if (jSONObject.optInt(DownloadStatisticConstants.UBC_VALUE_CLEAR) != bib.q) {
+                r(bib.c);
+            } else {
+                r(bib.d);
+            }
+            long j2 = 1000;
+            z(jSONObject.optInt("upload_interval") * 60 * 1000);
+            A(jSONObject.optInt("max_count_per_round"));
+            u(jSONObject.optInt("expired_time") * 24 * 60 * 60 * 1000);
+            v(jSONObject.optInt("total_max_count"));
+            w(jSONObject.optInt("total_max_size") * 1024 * 1024);
+            y(jSONObject.optInt("single_max_count"));
+            x(jSONObject.optInt("single_max_size") * 1024 * 1024);
+            JSONObject optJSONObject = jSONObject.optJSONObject("set");
+            if (optJSONObject != null && optJSONObject.length() > 0) {
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                    if (optJSONObject2 != null && optJSONObject2.length() != 0) {
+                        zhb g = new zhb.b(next).g();
+                        if (optJSONObject2.optInt("switch") != bib.p) {
+                            g.f(bib.a);
+                        } else {
+                            g.f(bib.b);
+                        }
+                        int optInt = optJSONObject2.optInt("expired_time", 0);
+                        if (optInt > 0) {
+                            g.g(optInt * 24 * 60 * 60 * j2);
+                        }
+                        int optInt2 = optJSONObject2.optInt("single_max_count", 0);
+                        if (optInt2 > 0) {
+                            g.i(optInt2);
+                        }
+                        int optInt3 = optJSONObject2.optInt("single_max_size", 0);
+                        if (optInt3 > 0) {
+                            j = 1024;
+                            g.j(optInt3 * 1024 * 1024);
+                        } else {
+                            j = 1024;
+                        }
+                        if (optJSONObject2.has("only_wifi")) {
+                            g.h(optJSONObject2.optInt("only_wifi"));
+                        }
+                        if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
+                            if (this.m == null) {
+                                this.m = new HashMap<>();
+                            }
+                            this.m.put(next, g);
+                        }
+                        j2 = 1000;
+                    }
+                }
+                return true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean C(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject != null && jSONObject.length() != 0) {
+                if (n) {
+                    Log.d("VoyagerConfig", "update Config: " + jSONObject.toString());
+                }
+                if (B(jSONObject)) {
+                    boolean D = D();
+                    if (D && !this.c && this.d) {
+                        ((pib) ServiceManager.getService(pib.a)).f();
+                    }
+                    return D;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean D() {
+        InterceptResult invokeV;
+        zhb zhbVar;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("en", this.c);
+                jSONObject.put("c", this.d);
+                jSONObject.put(TaskUIData.key, this.e);
+                jSONObject.put("utc", this.f);
+                jSONObject.put("et", this.i);
+                jSONObject.put("mfc", this.k);
+                jSONObject.put("mfs", this.j);
+                jSONObject.put("an", this.l);
+                jSONObject.put("stmc", this.g);
+                jSONObject.put("stms", this.h);
+                if (this.m != null && this.m.size() > 0) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    for (String str : this.m.keySet()) {
+                        if (!TextUtils.isEmpty(str) && (zhbVar = this.m.get(str)) != null) {
+                            JSONObject jSONObject3 = new JSONObject();
+                            if (zhbVar.e()) {
+                                i = bib.o;
+                            } else {
+                                i = bib.p;
+                            }
+                            jSONObject3.put("en", i);
+                            jSONObject3.put("et", zhbVar.a());
+                            jSONObject3.put("stmc", zhbVar.c());
+                            jSONObject3.put("stms", zhbVar.d());
+                            jSONObject3.put("an", zhbVar.b());
+                            jSONObject2.put(str, jSONObject3);
+                        }
+                    }
+                    if (jSONObject2.length() > 0) {
+                        jSONObject.put("set", jSONObject2);
+                    }
+                }
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
+                }
+            }
+            if (!this.a.exists()) {
+                try {
+                    this.a.createNewFile();
+                } catch (IOException e2) {
+                    if (n) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return sib.g(jSONObject.toString(), this.a);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
+            this.b = file;
+            if (!file.exists()) {
                 this.b.mkdirs();
             }
-        }
-    }
-
-    public final void k(String str, String str2, File file, JSONObject jSONObject, dib dibVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, file, jSONObject, dibVar) == null) {
-            String str3 = str + ".zip";
-            String createObjectKey = BOSUploader.getInstance().createObjectKey(str2, str3);
-            if (d) {
-                Log.d("VoyagerFileManager", "bos object key is : " + createObjectKey);
+            File file2 = new File(this.b, "voyager_config.txt");
+            this.a = file2;
+            if (file2.exists()) {
+                q();
+            } else {
+                s();
             }
-            l(str2, str3, file, new a(this, file, dibVar, str3, createObjectKey, jSONObject, str));
         }
     }
 
-    public final void l(String str, String str2, File file, bib bibVar) {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, file, bibVar) == null) {
-            this.c.execute(new b(this, str, str2, file, bibVar));
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.c = bib.a;
+            this.d = bib.c;
+            this.e = bib.e;
+            this.f = bib.f;
+            this.i = bib.g;
+            this.k = bib.i;
+            this.j = bib.h;
+            this.g = bib.j;
+            this.h = bib.l;
+            this.l = bib.m;
         }
     }
 
-    public final void m(@NonNull String str, @NonNull String str2, @NonNull File file, bib bibVar) {
+    public final void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, file, bibVar) == null) {
-            BOSResponseEntity uploadFileSync = BOSUploader.getInstance().uploadFileSync(str, str2, file);
-            eib eibVar = new eib(uploadFileSync.isSuccess(), uploadFileSync.getErrorCode(), uploadFileSync.getMessage());
-            if (bibVar != null) {
-                bibVar.a(eibVar);
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            String f = sib.f(this.a);
+            if (n) {
+                Log.d("VoyagerConfig", "read from local: " + f);
+            }
+            if (TextUtils.isEmpty(f)) {
+                s();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(f);
+                this.c = jSONObject.optBoolean("en", bib.a);
+                this.d = jSONObject.optBoolean("c", bib.c);
+                this.e = jSONObject.optLong(TaskUIData.key, bib.e);
+                this.f = jSONObject.optInt("utc", bib.f);
+                this.i = jSONObject.optLong("et", bib.g);
+                this.k = jSONObject.optInt("mfc", bib.i);
+                this.j = jSONObject.optLong("mfs", bib.h);
+                this.l = jSONObject.optInt("an", bib.m);
+                this.g = jSONObject.optInt("stmc", bib.j);
+                this.h = jSONObject.optLong("stms", bib.l);
+                JSONObject optJSONObject = jSONObject.optJSONObject("set");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                        if (optJSONObject2 != null && optJSONObject2.length() != 0) {
+                            zhb g = new zhb.b(next).g();
+                            if (optJSONObject2.optInt("en") != bib.p) {
+                                g.f(bib.a);
+                            } else {
+                                g.f(bib.b);
+                            }
+                            long optInt = optJSONObject2.optInt("et", 0);
+                            if (optInt > 0) {
+                                g.g(optInt);
+                            } else {
+                                g.g(this.i);
+                            }
+                            int optInt2 = optJSONObject2.optInt("stmc", 0);
+                            if (optInt2 > 0) {
+                                g.i(optInt2);
+                            } else {
+                                g.i(this.g);
+                            }
+                            long optLong = optJSONObject2.optLong("stms", 0L);
+                            if (optLong > 0) {
+                                g.j(optLong);
+                            } else {
+                                g.j(this.h);
+                            }
+                            if (optJSONObject2.optInt("an") != bib.n) {
+                                g.h(bib.m);
+                            } else {
+                                g.h(bib.n);
+                            }
+                            if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
+                                if (this.m == null) {
+                                    this.m = new HashMap<>();
+                                }
+                                this.m.put(next, g);
+                            }
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                if (n) {
+                    e.printStackTrace();
+                }
             }
         }
     }

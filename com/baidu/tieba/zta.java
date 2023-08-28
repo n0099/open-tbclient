@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.graphics.SurfaceTexture;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.yeb;
+import com.baidu.tieba.afb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public abstract class zta implements yeb.b {
+public abstract class zta implements afb.b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean o;
     public static boolean p;
@@ -66,7 +66,7 @@ public abstract class zta implements yeb.b {
         this.n = false;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public abstract class zta implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public abstract class zta implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public abstract class zta implements yeb.b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public abstract class zta implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -132,7 +132,7 @@ public abstract class zta implements yeb.b {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void m(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {

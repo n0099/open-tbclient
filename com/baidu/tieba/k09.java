@@ -93,15 +93,15 @@ public final class k09 {
                 e();
                 return;
             }
-            qgb.a().removeCallbacks(this.d);
-            qgb.a().postDelayed(this.d, this.b);
+            sgb.a().removeCallbacks(this.d);
+            sgb.a().postDelayed(this.d, this.b);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qgb.a().removeCallbacks(this.d);
+            sgb.a().removeCallbacks(this.d);
         }
     }
 
@@ -196,8 +196,8 @@ public final class k09 {
     public final void k(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            qgb.a().removeCallbacks(this.d);
-            qgb.a().postDelayed(this.d, j);
+            sgb.a().removeCallbacks(this.d);
+            sgb.a().postDelayed(this.d, j);
         }
     }
 

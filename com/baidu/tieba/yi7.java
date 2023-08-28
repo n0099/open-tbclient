@@ -44,12 +44,12 @@ public class yi7 {
 
         /* renamed from: com.baidu.tieba.yi7$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0541a implements View.OnClickListener {
+        public class View$OnClickListenerC0542a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0541a(a aVar) {
+            public View$OnClickListenerC0542a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class yi7 {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                lv7.h(this.a.a.getActivity(), new View$OnClickListenerC0541a(this), new b(this));
+                lv7.h(this.a.a.getActivity(), new View$OnClickListenerC0542a(this), new b(this));
             }
         }
     }

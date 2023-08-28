@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jcc;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.tt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public final class NetWorkChangedMonitor implements tt8 {
     public static final Lazy<NetWorkChangedMonitor> d;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener a;
-    public final jcc<Boolean> b;
+    public final lcc<Boolean> b;
 
     public /* synthetic */ NetWorkChangedMonitor(DefaultConstructorMarker defaultConstructorMarker) {
         this();
@@ -165,7 +165,7 @@ public final class NetWorkChangedMonitor implements tt8 {
             }
         }
         this.a = new b(this);
-        this.b = jcc.R(Boolean.TRUE);
+        this.b = lcc.R(Boolean.TRUE);
     }
 
     @Override // com.baidu.tieba.tt8

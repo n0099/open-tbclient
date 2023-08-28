@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.util.zip.GZIPOutputStream;
+import java.io.Closeable;
 /* loaded from: classes6.dex */
 public class iab {
     public static /* synthetic */ Interceptable $ic;
@@ -26,31 +26,34 @@ public class iab {
                 return;
             }
         }
-        a = f9b.m();
+        a = h9b.m();
     }
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            byte[] bArr2 = null;
+        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
             try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-                gZIPOutputStream.write(bArr);
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                bArr2 = byteArrayOutputStream.toByteArray();
-                byteArrayOutputStream.close();
-                return bArr2;
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
             } catch (Exception e) {
                 if (a) {
                     e.printStackTrace();
-                    return bArr2;
                 }
-                return bArr2;
             }
         }
-        return (byte[]) invokeL.objValue;
+    }
+
+    public static void b(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

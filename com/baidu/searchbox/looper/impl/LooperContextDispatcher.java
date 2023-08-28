@@ -2,11 +2,11 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.util.Printer;
-import com.baidu.tieba.krb;
-import com.baidu.tieba.srb;
+import com.baidu.tieba.mrb;
+import com.baidu.tieba.urb;
 /* loaded from: classes4.dex */
-public class LooperContextDispatcher extends krb {
-    @Override // com.baidu.tieba.krb
+public class LooperContextDispatcher extends mrb {
+    @Override // com.baidu.tieba.mrb
     public boolean displayNotification() {
         return LooperRuntime.getInstance().getLooperUIContext().displayNotification();
     }
@@ -19,9 +19,9 @@ public class LooperContextDispatcher extends krb {
         LooperRuntime.getInstance().getLooperNeedContext().removeLooperPrinter(printer);
     }
 
-    @Override // com.baidu.tieba.krb, com.baidu.tieba.mrb
-    public void onBlock(Context context, srb srbVar) {
-        super.onBlock(context, srbVar);
-        LooperRuntime.getInstance().dispatchBlock(context, srbVar);
+    @Override // com.baidu.tieba.mrb, com.baidu.tieba.orb
+    public void onBlock(Context context, urb urbVar) {
+        super.onBlock(context, urbVar);
+        LooperRuntime.getInstance().dispatchBlock(context, urbVar);
     }
 }

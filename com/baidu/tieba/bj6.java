@@ -32,7 +32,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class bj6 {
     public static /* synthetic */ Interceptable $ic;
-    public static g8c<String, Pair<Boolean, String>> a;
+    public static i8c<String, Pair<Boolean, String>> a;
     public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,10 +271,10 @@ public class bj6 {
         }
     }
 
-    public static void d(g8c<String, Pair<Boolean, String>> g8cVar) {
+    public static void d(i8c<String, Pair<Boolean, String>> i8cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, g8cVar) == null) {
-            a = g8cVar;
+        if (interceptable == null || interceptable.invokeL(65541, null, i8cVar) == null) {
+            a = i8cVar;
         }
     }
 
@@ -289,14 +289,14 @@ public class bj6 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            g8c<String, Pair<Boolean, String>> g8cVar = a;
-            if (g8cVar == null) {
+            i8c<String, Pair<Boolean, String>> i8cVar = a;
+            if (i8cVar == null) {
                 if (!ll6.a()) {
                     return new Pair<>(Boolean.FALSE, null);
                 }
                 throw new TbWebViewException("TBWebKit need call initUserAgent first !");
             }
-            return g8cVar.call(str);
+            return i8cVar.call(str);
         }
         return (Pair) invokeL.objValue;
     }

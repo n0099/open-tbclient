@@ -115,7 +115,7 @@ public class ej5 {
             EditorTools a = ((mj5) new nj5(this.d).a(this.b)).a();
             this.a = a;
             a.setId(R.id.local_input_tool);
-            this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dj5
+            this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cj5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,7 +129,7 @@ public class ej5 {
             });
             Context context = this.b;
             if (context instanceof Activity) {
-                vj5.b((Activity) context, this.a.b, new vj5.b() { // from class: com.baidu.tieba.cj5
+                vj5.b((Activity) context, this.a.b, new vj5.b() { // from class: com.baidu.tieba.dj5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -36,12 +36,12 @@ import com.baidu.tieba.ea5;
 import com.baidu.tieba.ei5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.mi5;
-import com.baidu.tieba.n1b;
+import com.baidu.tieba.p1b;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.s45;
 import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
-import com.baidu.tieba.vxa;
 import com.baidu.tieba.write.view.CustomPrivacyDialogView;
+import com.baidu.tieba.wxa;
 import com.baidu.tieba.zh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -153,7 +153,7 @@ public class EditorInfoContainer extends LinearLayout implements mi5 {
                         }
                         this.a.b.G(i);
                         if ("2".equals(this.a.b.i)) {
-                            vxa.b(this.a.b.k, i);
+                            wxa.b(this.a.b.k, i);
                         }
                     }
                 }
@@ -189,7 +189,7 @@ public class EditorInfoContainer extends LinearLayout implements mi5 {
                 } else {
                     i = 12;
                 }
-                n1b.b(this.a, i);
+                p1b.b(this.a, i);
                 EditorInfoContainer editorInfoContainer = this.b;
                 editorInfoContainer.F(this.a, ((Integer) editorInfoContainer.a.a).intValue(), new a(this));
             }
@@ -520,7 +520,7 @@ public class EditorInfoContainer extends LinearLayout implements mi5 {
     }
 
     /* loaded from: classes8.dex */
-    public class j implements vxa.c {
+    public class j implements wxa.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -543,7 +543,7 @@ public class EditorInfoContainer extends LinearLayout implements mi5 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.vxa.c
+        @Override // com.baidu.tieba.wxa.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -729,7 +729,7 @@ public class EditorInfoContainer extends LinearLayout implements mi5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048605, this, str, i2) == null) && "2".equals(this.i)) {
             this.k = str;
-            vxa.a(str, i2, new j(this));
+            wxa.a(str, i2, new j(this));
         }
     }
 

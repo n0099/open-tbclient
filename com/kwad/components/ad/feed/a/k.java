@@ -105,7 +105,7 @@ public final class k extends a implements View.OnClickListener {
             i = 1;
         }
         g(false);
-        com.kwad.components.core.c.a.a.a(new a.C0647a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.k.1
+        com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.k.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 k.this.aq(i);

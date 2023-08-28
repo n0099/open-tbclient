@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cgb;
+import com.baidu.tieba.egb;
 import com.baidu.tieba.ew5;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
 import com.baidu.tieba.jx8;
@@ -370,7 +370,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = cgb.b(str, 0);
+            int b = egb.b(str, 0);
             jx8.b((b == 1 || b == 2) ? true : true);
         }
     }

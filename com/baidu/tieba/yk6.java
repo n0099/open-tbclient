@@ -31,7 +31,7 @@ public class yk6 implements hk1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new aza());
+            arrayList.add(new bza());
             return arrayList;
         }
         return invokeV.objValue;

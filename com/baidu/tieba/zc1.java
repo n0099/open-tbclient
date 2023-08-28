@@ -66,13 +66,13 @@ public class zc1 extends yc1 {
 
         /* renamed from: com.baidu.tieba.zc1$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class View$OnClickListenerC0553a implements View.OnClickListener {
+        public class View$OnClickListenerC0554a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0553a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0554a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -403,7 +403,7 @@ public class zc1 extends yc1 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0553a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0554a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

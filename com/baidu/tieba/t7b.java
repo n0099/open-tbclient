@@ -1,61 +1,47 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.net.URL;
+import com.baidu.turbonet.net.UrlResponseInfo;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
-import java.util.NoSuchElementException;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.Protocol;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okhttp3.internal.Version;
-import okhttp3.internal.http.RealResponseBody;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.Okio;
+import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public class t7b implements Interceptor {
+public final class t7b extends UrlResponseInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static Field c;
-    public static boolean d;
-    public static Constructor<RealResponseBody> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieJar a;
-    public TurbonetEngine b;
+    public final List<String> a;
+    public final int b;
+    public final String c;
+    public final boolean d;
+    public final String e;
+    public final String f;
+    public final AtomicLong g;
+    public final a h;
 
     /* loaded from: classes8.dex */
-    public class a implements w7b {
+    public static final class a extends UrlResponseInfo.HeaderBlock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a8b a;
+        public final List<Map.Entry<String, String>> a;
+        public Map<String, List<String>> b;
 
-        public a(t7b t7bVar, a8b a8bVar) {
+        public a(List<Map.Entry<String, String>> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t7bVar, a8bVar};
+                Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,355 +51,200 @@ public class t7b implements Interceptor {
                     return;
                 }
             }
-            this.a = a8bVar;
+            this.a = list;
         }
 
-        @Override // com.baidu.tieba.w7b
-        public void a(long j) {
+        public List<Map.Entry<String, String>> a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.a.disconnect();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
+            return (List) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.w7b
-        public void onComplete(long j) {
+        public Map<String, List<String>> b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                this.a.disconnect();
-            }
-        }
-
-        @Override // com.baidu.tieba.w7b
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                this.a.disconnect();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements w7b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z6b a;
-        public final /* synthetic */ t7b b;
-
-        public b(t7b t7bVar, z6b z6bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t7bVar, z6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Map<String, List<String>> map = this.b;
+                if (map != null) {
+                    return map;
                 }
+                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+                for (Map.Entry<String, String> entry : this.a) {
+                    ArrayList arrayList = new ArrayList();
+                    if (treeMap.containsKey(entry.getKey())) {
+                        arrayList.addAll((Collection) treeMap.get(entry.getKey()));
+                    }
+                    arrayList.add(entry.getValue());
+                    treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
+                }
+                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
+                this.b = unmodifiableMap;
+                return unmodifiableMap;
             }
-            this.b = t7bVar;
-            this.a = z6bVar;
-        }
-
-        @Override // com.baidu.tieba.w7b
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                z6b z6bVar = this.a;
-                z6bVar.e = j;
-                z6bVar.c();
-                z6b z6bVar2 = this.a;
-                z6bVar2.c = -12;
-                z6bVar2.d(this.b.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.w7b
-        public void onComplete(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                z6b z6bVar = this.a;
-                z6bVar.e = j;
-                z6bVar.c();
-                z6b z6bVar2 = this.a;
-                z6bVar2.c = 0;
-                z6bVar2.d(this.b.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.w7b
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                z6b z6bVar = this.a;
-                z6bVar.e = j;
-                z6bVar.c();
-                this.a.a(exc);
-                this.a.d(this.b.b);
-            }
+            return (Map) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135530, "Lcom/baidu/tieba/t7b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948135530, "Lcom/baidu/tieba/t7b;");
-                return;
-            }
-        }
-        try {
-            Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            c = declaredField;
-            declaredField.setAccessible(true);
-        } catch (NoSuchFieldException e2) {
-            Log.e("tn_OkHttp3Intercept", "Can not find source field from RealResponseBody.", e2);
-            c = null;
-        }
-        try {
-            boolean c2 = u7b.c();
-            d = c2;
-            if (c2) {
-                e = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
-                Log.d("tn_OkHttp3Intercept", "found okhttp 3.9+");
-                return;
-            }
-            e = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
-            Log.d("tn_OkHttp3Intercept", "found okhttp 3.8-");
-        } catch (IllegalArgumentException e3) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e3);
-            e = null;
-        } catch (NoSuchMethodException e4) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e4);
-            e = null;
-        } catch (NoSuchElementException e5) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e5);
-            e = null;
-        }
-    }
-
-    public t7b(o7b o7bVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
+    public t7b(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
+        this(list, i, str, list2, z, str2, str3, 0L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o7bVar};
+            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (List) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (String) objArr2[5], (String) objArr2[6], ((Long) objArr2[7]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public t7b(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = CookieJar.NO_COOKIES;
-        TurbonetEngine b2 = o7bVar.b();
-        this.b = b2;
-        if (b2 != null) {
-            return;
-        }
-        throw new NullPointerException("TurbonetEngine is null.");
+        this.a = Collections.unmodifiableList(list);
+        this.b = i;
+        this.c = str;
+        this.h = new a(Collections.unmodifiableList(list2));
+        this.d = z;
+        this.e = str2;
+        this.f = str3;
+        this.g = new AtomicLong(j);
     }
 
-    public final String b(List<Cookie> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public List<Map.Entry<String, String>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append('=');
-                sb.append(cookie.value());
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h.a();
         }
-        return (String) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final Response c(Interceptor.Chain chain, Request request) throws IOException {
-        InterceptResult invokeLL;
-        RealResponseBody realResponseBody;
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain, request)) == null) {
-            if (c == null) {
-                return chain.proceed(request);
-            }
-            z6b z6bVar = new z6b(request.url().toString());
-            z6bVar.b = request.method();
-            Request.Builder newBuilder = request.newBuilder();
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
-                }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
-                }
-            }
-            if (request.header("User-Agent") == null) {
-                newBuilder.header("User-Agent", Version.userAgent());
-            }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            Response proceed = chain.proceed(newBuilder.build());
-            z6bVar.b();
-            z6bVar.d = proceed.code();
-            ResponseBody body2 = proceed.body();
-            if (body2 instanceof RealResponseBody) {
-                realResponseBody = (RealResponseBody) body2;
-            } else {
-                realResponseBody = null;
-            }
-            if (this.a != CookieJar.NO_COOKIES) {
-                List<Cookie> parseAll = Cookie.parseAll(request.url(), proceed.headers());
-                if (!parseAll.isEmpty()) {
-                    this.a.saveFromResponse(request.url(), parseAll);
-                }
-            }
-            if (realResponseBody != null) {
-                try {
-                    c.set(realResponseBody, Okio.buffer(Okio.source(new v7b(body2.source().inputStream(), new b(this, z6bVar)))));
-                } catch (IllegalAccessException e2) {
-                    Log.e("tn_OkHttp3Intercept", "Can not set ProxyInputStream to Okio's InputStream", e2);
-                }
-            }
-            return proceed;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (Response) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Protocol protocol;
-        InputStream errorStream;
-        long j;
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
-            Request request = chain.request();
-            if (e != null && !this.b.c() && (!d || chain.call() != null)) {
-                a8b a8bVar = new a8b(new URL(request.url().toString()), this.b);
-                a8bVar.q();
-                if (d && chain.call().isCanceled()) {
-                    a8bVar.disconnect();
-                    return c(chain, request);
-                }
-                if (d) {
-                    a8bVar.setReadTimeout(chain.readTimeoutMillis());
-                    a8bVar.setConnectTimeout(chain.connectTimeoutMillis());
-                }
-                Headers headers = request.headers();
-                for (String str : headers.names()) {
-                    a8bVar.addRequestProperty(str, headers.get(str));
-                }
-                List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-                if (loadForRequest != null && !loadForRequest.isEmpty()) {
-                    a8bVar.addRequestProperty("Cookie", b(loadForRequest));
-                }
-                a8bVar.setRequestMethod(request.method());
-                try {
-                    if (request.body() != null) {
-                        if (request.body().contentType() != null) {
-                            a8bVar.setRequestProperty("Content-Type", request.body().contentType().toString());
-                        }
-                        a8bVar.setDoOutput(true);
-                        OutputStream outputStream = a8bVar.getOutputStream();
-                        BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
-                        request.body().writeTo(buffer);
-                        buffer.flush();
-                        outputStream.close();
-                    }
-                    int responseCode = a8bVar.getResponseCode();
-                    if (d && chain.call().isCanceled()) {
-                        a8bVar.disconnect();
-                        return c(chain, request);
-                    }
-                    String str2 = a8bVar.z().d().toString();
-                    try {
-                        protocol = Protocol.get(str2);
-                    } catch (IOException unused) {
-                        Log.e("tn_OkHttp3Intercept", "Unexpected protocol: " + str2);
-                        protocol = Protocol.HTTP_1_1;
-                    }
-                    Response.Builder builder = new Response.Builder();
-                    builder.request(request).protocol(protocol).code(responseCode).message(a8bVar.getResponseMessage());
-                    Headers.Builder builder2 = new Headers.Builder();
-                    for (Map.Entry<String, List<String>> entry : a8bVar.getHeaderFields().entrySet()) {
-                        for (String str3 : entry.getValue()) {
-                            if (entry.getKey() != null && !entry.getKey().isEmpty() && entry.getValue() != null) {
-                                builder.addHeader(entry.getKey(), str3);
-                                builder2.add(entry.getKey(), str3);
-                            }
-                        }
-                    }
-                    Headers build = builder2.build();
-                    if (this.a != CookieJar.NO_COOKIES) {
-                        List<Cookie> parseAll = Cookie.parseAll(request.url(), build);
-                        if (!parseAll.isEmpty()) {
-                            this.a.saveFromResponse(request.url(), parseAll);
-                        }
-                    }
-                    if (responseCode >= 200 && responseCode < 400) {
-                        errorStream = a8bVar.getInputStream();
-                    } else {
-                        errorStream = a8bVar.getErrorStream();
-                    }
-                    BufferedSource buffer2 = Okio.buffer(Okio.source(new v7b(errorStream, new a(this, a8bVar))));
-                    if (builder2.get("Content-Length") == null) {
-                        j = -1L;
-                    } else {
-                        try {
-                            j = Long.valueOf(builder2.get("Content-Length"));
-                        } catch (NumberFormatException e2) {
-                            Log.e("tn_OkHttp3Intercept", "invalid content length: " + builder2.get("Content-Length").toString(), e2);
-                            j = 0L;
-                        }
-                    }
-                    try {
-                        if (d) {
-                            builder.body(e.newInstance(builder2.get("Content-Type"), j, buffer2));
-                        } else {
-                            builder.body(e.newInstance(builder2.build(), buffer2));
-                        }
-                    } catch (Exception e3) {
-                        Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
-                    }
-                    String responseMessage = a8bVar.getResponseMessage();
-                    if (responseMessage == null) {
-                        responseMessage = "";
-                    }
-                    return builder.message(responseMessage).build();
-                } catch (IOException e4) {
-                    Log.e("tn_OkHttp3Intercept", "Write data or build connection caught exception: " + e4.toString());
-                    a8bVar.disconnect();
-                    return c(chain, request);
-                }
-            }
-            return c(chain, request);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (Response) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<String> list = this.a;
+            return list.get(list.size() - 1);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map<String, List<String>> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h.b();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.g.set(j);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedByteCount = %d", Integer.toHexString(System.identityHashCode(this)), f(), i().toString(), Integer.valueOf(b()), c(), a().toString(), Boolean.valueOf(k()), d(), h(), Long.valueOf(e()));
+        }
+        return (String) invokeV.objValue;
     }
 }

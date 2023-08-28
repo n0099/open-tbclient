@@ -9,11 +9,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.nya;
 import com.baidu.tieba.oya;
 import com.baidu.tieba.pya;
 import com.baidu.tieba.qd5;
 import com.baidu.tieba.qya;
+import com.baidu.tieba.rya;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public oya c;
+    public pya c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -150,22 +150,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final oya C1() {
+    public final pya C1() {
         InterceptResult invokeV;
-        oya pyaVar;
+        pya qyaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == JavaTypesHelper.toInt("5", 0)) {
-                pyaVar = new nya(this.b, this.a);
+                qyaVar = new oya(this.b, this.a);
             } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
-                pyaVar = new qya(this.b, this.a);
+                qyaVar = new rya(this.b, this.a);
             } else {
-                pyaVar = new pya(this.b, this.a);
+                qyaVar = new qya(this.b, this.a);
             }
-            pyaVar.c(this.f);
-            return pyaVar;
+            qyaVar.c(this.f);
+            return qyaVar;
         }
-        return (oya) invokeV.objValue;
+        return (pya) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -215,7 +215,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.j0(z);
             }
-            oya C1 = C1();
+            pya C1 = C1();
             this.c = C1;
             this.b.setPresenter(C1);
             this.c.a(this.g);

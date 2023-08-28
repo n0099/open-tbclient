@@ -7,10 +7,10 @@ import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
-import com.baidu.tieba.bcb;
-import com.baidu.tieba.sgb;
-import com.baidu.tieba.xfb;
-import com.baidu.tieba.yfb;
+import com.baidu.tieba.agb;
+import com.baidu.tieba.dcb;
+import com.baidu.tieba.ugb;
+import com.baidu.tieba.zfb;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -66,7 +66,7 @@ public class FileUtils {
     public static File getBaiDuUgcCacheFile() {
         File file = null;
         if (isSDMounted()) {
-            file = bcb.c().getContext().getExternalFilesDir(null);
+            file = dcb.c().getContext().getExternalFilesDir(null);
         }
         File file2 = new File(file, FaceItem.DIR_UGC_DEFAULT);
         if (!file2.exists()) {
@@ -104,14 +104,14 @@ public class FileUtils {
     }
 
     public static boolean checkFile(String str) {
-        if (checkSD() && !sgb.a(str)) {
+        if (checkSD() && !ugb.a(str)) {
             try {
                 if (!new File(str).exists()) {
                     return false;
                 }
                 return true;
             } catch (Exception e) {
-                yfb.g(e);
+                agb.g(e);
             }
         }
         return false;
@@ -204,20 +204,20 @@ public class FileUtils {
                     } catch (Exception e) {
                         e = e;
                         fileInputStream = fileInputStream2;
-                        yfb.g(e);
-                        xfb.b(fileInputStream);
+                        agb.g(e);
+                        zfb.b(fileInputStream);
                         return j;
                     } catch (Throwable th) {
                         th = th;
                         fileInputStream = fileInputStream2;
-                        xfb.b(fileInputStream);
+                        zfb.b(fileInputStream);
                         throw th;
                     }
                 }
             } catch (Exception e2) {
                 e = e2;
             }
-            xfb.b(fileInputStream);
+            zfb.b(fileInputStream);
             return j;
         } catch (Throwable th2) {
             th = th2;
@@ -229,12 +229,12 @@ public class FileUtils {
     }
 
     public static File getPrivateCaptureRootChildDir(String str) {
-        File file = new File(bcb.c().a(), str);
+        File file = new File(dcb.c().a(), str);
         if (!file.exists()) {
             if (file.mkdirs()) {
                 return file;
             }
-            return bcb.c().getContext().getCacheDir();
+            return dcb.c().getContext().getCacheDir();
         }
         return file;
     }
@@ -378,19 +378,19 @@ public class FileUtils {
                             z = true;
                         } catch (Exception e) {
                             e = e;
-                            yfb.g(e);
-                            xfb.b(fileChannel2);
-                            xfb.b(fileOutputStream);
-                            xfb.b(fileChannel);
-                            xfb.b(fileInputStream);
+                            agb.g(e);
+                            zfb.b(fileChannel2);
+                            zfb.b(fileOutputStream);
+                            zfb.b(fileChannel);
+                            zfb.b(fileInputStream);
                             return z;
                         }
                     } catch (Throwable th) {
                         th = th;
-                        xfb.b(fileChannel2);
-                        xfb.b(fileOutputStream);
-                        xfb.b(fileChannel);
-                        xfb.b(fileInputStream);
+                        zfb.b(fileChannel2);
+                        zfb.b(fileOutputStream);
+                        zfb.b(fileChannel);
+                        zfb.b(fileInputStream);
                         throw th;
                     }
                 } catch (Exception e2) {
@@ -399,10 +399,10 @@ public class FileUtils {
                 } catch (Throwable th2) {
                     th = th2;
                     fileChannel = null;
-                    xfb.b(fileChannel2);
-                    xfb.b(fileOutputStream);
-                    xfb.b(fileChannel);
-                    xfb.b(fileInputStream);
+                    zfb.b(fileChannel2);
+                    zfb.b(fileOutputStream);
+                    zfb.b(fileChannel);
+                    zfb.b(fileInputStream);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -425,10 +425,10 @@ public class FileUtils {
             fileChannel = null;
             fileInputStream = null;
         }
-        xfb.b(fileChannel2);
-        xfb.b(fileOutputStream);
-        xfb.b(fileChannel);
-        xfb.b(fileInputStream);
+        zfb.b(fileChannel2);
+        zfb.b(fileOutputStream);
+        zfb.b(fileChannel);
+        zfb.b(fileInputStream);
         return z;
     }
 
@@ -821,40 +821,40 @@ public class FileUtils {
                 if (!bitmap.isRecycled()) {
                     File file = new File(str);
                     if (!file.exists() && !file.mkdirs()) {
-                        xfb.b(null);
+                        zfb.b(null);
                         return null;
                     }
                     File file2 = new File(str, str2);
                     if (file2.exists() && !file2.delete()) {
-                        xfb.b(null);
+                        zfb.b(null);
                         return null;
                     } else if (!file2.createNewFile()) {
-                        xfb.b(null);
+                        zfb.b(null);
                         return null;
                     } else {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file2);
                         try {
                             bitmap.compress(compressFormat, i, fileOutputStream3);
                             String absolutePath = file2.getAbsolutePath();
-                            xfb.b(fileOutputStream3);
+                            zfb.b(fileOutputStream3);
                             return absolutePath;
                         } catch (Exception e) {
                             fileOutputStream = fileOutputStream3;
                             e = e;
                             try {
-                                yfb.g(e);
-                                xfb.b(fileOutputStream);
+                                agb.g(e);
+                                zfb.b(fileOutputStream);
                                 return null;
                             } catch (Throwable th) {
                                 th = th;
                                 fileOutputStream2 = fileOutputStream;
-                                xfb.b(fileOutputStream2);
+                                zfb.b(fileOutputStream2);
                                 throw th;
                             }
                         } catch (Throwable th2) {
                             fileOutputStream2 = fileOutputStream3;
                             th = th2;
-                            xfb.b(fileOutputStream2);
+                            zfb.b(fileOutputStream2);
                             throw th;
                         }
                     }
@@ -866,7 +866,7 @@ public class FileUtils {
                 th = th3;
             }
         }
-        xfb.b(null);
+        zfb.b(null);
         return null;
     }
 
@@ -896,18 +896,18 @@ public class FileUtils {
         try {
             fileOutputStream.write(str.getBytes());
             fileOutputStream.flush();
-            xfb.b(fileOutputStream);
+            zfb.b(fileOutputStream);
             return true;
         } catch (Exception e2) {
             e = e2;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
-            xfb.b(fileOutputStream2);
+            zfb.b(fileOutputStream2);
             return false;
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream2 = fileOutputStream;
-            xfb.b(fileOutputStream2);
+            zfb.b(fileOutputStream2);
             throw th;
         }
     }

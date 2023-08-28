@@ -18,12 +18,12 @@ public class c {
         aVar.a();
         com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->isAppForegroundSecond:::" + b2);
         if (!b2) {
-            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0747a() { // from class: com.ss.android.downloadlib.b.c.1
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0747a
+            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0748a() { // from class: com.ss.android.downloadlib.b.c.1
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
                 public void c() {
                 }
 
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0747a
+                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
                 public void b() {
                     com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                     com.ss.android.socialbase.downloader.a.a.a().b(this);

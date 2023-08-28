@@ -1,60 +1,34 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.ehc;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
+import android.view.ViewGroup;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes8.dex */
 public interface vdc {
-    void a(Activity activity, nfc nfcVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    void b(boolean z);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(CancelType cancelType);
+    }
 
-    boolean c(Activity activity, AbsViewEventHandler absViewEventHandler);
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(CancelType cancelType);
 
-    void d(Activity activity, ehc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+        void b();
+    }
 
-    void e(int i, String str, PayCallBackBean payCallBackBean);
+    GiftBagsInfo a();
 
-    void g(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+    boolean b(Activity activity, b bVar, xdc xdcVar, AbsViewEventHandler absViewEventHandler);
 
-    ydc h();
+    void c(ViewGroup viewGroup, Activity activity);
 
-    void j(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
+    void d(GiftBagsInfo giftBagsInfo);
 
-    void k(Activity activity, rfc rfcVar, nfc nfcVar, Dialog dialog, xgc xgcVar, AppCustomExpand appCustomExpand, ehc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    boolean e(Activity activity, a aVar, xdc xdcVar, AbsViewEventHandler absViewEventHandler);
 
-    void l(PayFinishInfo payFinishInfo);
-
-    void m(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
-
-    void n(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void p(Activity activity, nfc nfcVar, rfc rfcVar, Dialog dialog, xgc xgcVar, AppCustomExpand appCustomExpand, ehc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void q(Activity activity, String str);
-
-    void r(ygc ygcVar, Dialog dialog);
-
-    void refreshWindow(WindowParams windowParams);
-
-    boolean s(Activity activity, ehc ehcVar, AbsViewEventHandler absViewEventHandler);
-
-    void t(Activity activity, nfc nfcVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void u(Activity activity);
-
-    PayDialogType v();
+    void f(GiftBagsInfo giftBagsInfo);
 }

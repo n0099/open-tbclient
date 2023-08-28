@@ -1,134 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes5.dex */
 public class fgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(double d, double d2) {
-        InterceptResult invokeCommon;
+    public static void a(View view2, ImageView imageView) {
+        ObjectAnimator objectAnimator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d + " accountAmount:" + d2);
-            double d3 = (d - d2) / 100.0d;
-            double d4 = 1.0d;
-            if (d3 > 1.0d) {
-                if (d3 > 1.0d && d3 <= 10.0d) {
-                    d4 = Math.ceil(d3);
-                } else {
-                    if (d3 % 10.0d > 0.0d) {
-                        d3 = (((int) (d3 / 10.0d)) + 1) * 10;
-                    }
-                    d4 = d3;
-                }
-            }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d4);
-            return (int) d4;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int b(List<nfc> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).c() == i) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static nfc c(List<nfc> list, PayUIKitConfig payUIKitConfig, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d + " accountAmount:" + d2);
-            if (list != null && !list.isEmpty()) {
-                int a = a(d, d2);
-                RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-                int b = b(list, a);
-                RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b);
-                if (b >= 0) {
-                    d(list, b);
-                } else {
-                    f(list, payUIKitConfig, a);
-                }
-                return list.get(0);
-            }
-            return null;
-        }
-        return (nfc) invokeCommon.objValue;
-    }
-
-    public static void d(List<nfc> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i != 0) {
-                list.add(0, list.remove(i));
-            }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
-                return;
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
-        }
-    }
-
-    public static boolean e(nfc nfcVar) {
-        InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nfcVar)) == null) {
-            if (nfcVar != null && (productInfo = nfcVar.a) != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(List<nfc> list, PayUIKitConfig payUIKitConfig, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i > 500000) {
-                i = 500000;
-            }
-            nfc a = agc.a(i * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
+        if ((interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) && view2 != null && imageView != null) {
+            view2.setVisibility(8);
+            if (imageView.getTag() != null) {
+                objectAnimator = (ObjectAnimator) imageView.getTag();
             } else {
-                list.remove(0);
+                objectAnimator = null;
             }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
+            if (objectAnimator != null) {
+                objectAnimator.cancel();
+                imageView.setTag(null);
+                RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
+            }
+        }
+    }
+
+    public static void b(View view2, ImageView imageView) {
+        ObjectAnimator objectAnimator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) && view2 != null && imageView != null) {
+            if (imageView.getTag() != null) {
+                objectAnimator = (ObjectAnimator) imageView.getTag();
+            } else {
+                objectAnimator = null;
+            }
+            if (objectAnimator != null) {
+                objectAnimator.cancel();
+                imageView.setTag(null);
+                RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
+            }
+            view2.setVisibility(0);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
+            ofFloat.setDuration(1000L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            ofFloat.setRepeatCount(-1);
+            ofFloat.start();
+            imageView.setTag(ofFloat);
         }
     }
 }

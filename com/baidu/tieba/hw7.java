@@ -77,7 +77,7 @@ public abstract class hw7 {
     public FrsLikeRecommendLayout S;
 
     /* renamed from: T  reason: collision with root package name */
-    public String f1129T;
+    public String f1128T;
     public String U;
     public String V;
     public FrsViewData W;
@@ -214,7 +214,7 @@ public abstract class hw7 {
 
         /* renamed from: com.baidu.tieba.hw7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0327a implements Animator.AnimatorListener {
+        public class C0329a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -240,7 +240,7 @@ public abstract class hw7 {
                 }
             }
 
-            public C0327a(a aVar) {
+            public C0329a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -293,10 +293,10 @@ public abstract class hw7 {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                C0327a c0327a = new C0327a(this);
+                C0329a c0329a = new C0329a(this);
                 ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a, Key.SCALE_X, 1.0f, 0.0f);
                 ofFloat.setDuration(300L);
-                ofFloat.addListener(c0327a);
+                ofFloat.addListener(c0329a);
                 ofFloat.start();
             }
         }

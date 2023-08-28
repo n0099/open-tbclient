@@ -3,8 +3,8 @@ package com.baidu.tieba.immessagecenter.msgtab.obs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.tt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -112,15 +112,15 @@ public final class ForumChannelDataObs implements tt8 {
         this.a = LazyKt__LazyJVMKt.lazy(ForumChannelDataObs$mForumSubject$2.INSTANCE);
     }
 
-    public final n7c<Map<Long, MsgTabForumData>> b() {
+    public final p7c<Map<Long, MsgTabForumData>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n7c<Map<Long, MsgTabForumData>> a2 = e().a();
+            p7c<Map<Long, MsgTabForumData>> a2 = e().a();
             Intrinsics.checkNotNullExpressionValue(a2, "mForumSubject.asObservable()");
             return a2;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     public final int c() {
@@ -132,13 +132,13 @@ public final class ForumChannelDataObs implements tt8 {
         return invokeV.intValue;
     }
 
-    public final jcc<Map<Long, MsgTabForumData>> e() {
+    public final lcc<Map<Long, MsgTabForumData>> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return (jcc) this.a.getValue();
+            return (lcc) this.a.getValue();
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     public final void f() {

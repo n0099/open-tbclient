@@ -104,13 +104,13 @@ public class HotTopicTabRankListLayout extends RecyclerView {
 
         /* renamed from: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0325b implements View.OnClickListener {
+        public class View$OnClickListenerC0327b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ x28 a;
             public final /* synthetic */ b b;
 
-            public View$OnClickListenerC0325b(b bVar, x28 x28Var) {
+            public View$OnClickListenerC0327b(b bVar, x28 x28Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                     return;
                 }
                 this.b.setVisibility(0);
-                this.b.setOnClickListener(new View$OnClickListenerC0325b(this, x28Var));
+                this.b.setOnClickListener(new View$OnClickListenerC0327b(this, x28Var));
                 this.f.setVisibility(8);
                 int i = x28Var.d;
                 if (i > 0) {

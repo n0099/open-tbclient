@@ -1,25 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public interface nib {
-    public static final ServiceReference a = new ServiceReference("voyager", "upload");
+public class nib implements hk1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, int i, mib mibVar);
+    public nib() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
-
-    void c(String str, String str2, JSONObject jSONObject);
-
-    boolean d(JSONObject jSONObject);
-
-    void e(String str, String str2, mib mibVar);
-
-    void f();
-
-    void g(List<String> list, String str, long j, mib mibVar);
-
-    void retry();
+    @Override // com.baidu.tieba.hk1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AcUploadResultObserver());
+            return arrayList;
+        }
+        return invokeV.objValue;
+    }
 }

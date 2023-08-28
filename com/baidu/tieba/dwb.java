@@ -1,30 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class dwb<TResult> extends vvb<TResult> {
+public final class dwb<TResult> implements tvb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public boolean b;
-    public volatile boolean c;
-    public TResult d;
-    public Exception e;
-    public List<rvb<TResult>> f;
+    public vvb a;
+    public Executor b;
+    public final Object c;
 
-    public dwb() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xvb a;
+        public final /* synthetic */ dwb b;
+
+        public a(dwb dwbVar, xvb xvbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dwbVar, xvbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dwbVar;
+            this.a = xvbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onFailure(this.a.d());
+                    }
+                }
+            }
+        }
+    }
+
+    public dwb(Executor executor, vvb vvbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, vvbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,221 +68,27 @@ public final class dwb<TResult> extends vvb<TResult> {
                 return;
             }
         }
-        this.a = new Object();
-        this.f = new ArrayList();
+        this.c = new Object();
+        this.a = vvbVar;
+        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.vvb
-    public final vvb<TResult> a(svb<TResult> svbVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tvb
+    public final void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, svbVar)) == null) {
-            m(xvb.c(), svbVar);
-            return this;
-        }
-        return (vvb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final vvb<TResult> b(tvb tvbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tvbVar)) == null) {
-            n(xvb.c(), tvbVar);
-            return this;
-        }
-        return (vvb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final vvb<TResult> c(uvb<TResult> uvbVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uvbVar)) == null) {
-            o(xvb.c(), uvbVar);
-            return this;
-        }
-        return (vvb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final Exception d() {
-        InterceptResult invokeV;
-        Exception exc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                exc = this.e;
-            }
-            return exc;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final TResult e() {
-        InterceptResult invokeV;
-        TResult tresult;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-                if (this.e != null) {
-                    throw new RuntimeException(this.e);
-                }
-                tresult = this.d;
-            }
-            return tresult;
-        }
-        return (TResult) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final boolean g() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this.a) {
-                z = this.b;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vvb
-    public final boolean h() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this.a) {
-                z = this.b && !f() && this.e == null;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final vvb<TResult> i(rvb<TResult> rvbVar) {
-        InterceptResult invokeL;
-        boolean g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rvbVar)) == null) {
-            synchronized (this.a) {
-                g = g();
-                if (!g) {
-                    this.f.add(rvbVar);
-                }
-            }
-            if (g) {
-                rvbVar.onComplete(this);
-            }
-            return this;
-        }
-        return (vvb) invokeL.objValue;
-    }
-
-    public final void j(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.e = exc;
-                this.a.notifyAll();
-                p();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
             }
         }
     }
 
-    public final void k(TResult tresult) {
+    @Override // com.baidu.tieba.tvb
+    public final void onComplete(xvb<TResult> xvbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tresult) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                this.d = tresult;
-                this.a.notifyAll();
-                p();
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xvbVar) == null) || xvbVar.h() || xvbVar.f()) {
+            return;
         }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    return false;
-                }
-                this.b = true;
-                this.c = true;
-                this.a.notifyAll();
-                p();
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final vvb<TResult> m(Executor executor, svb<TResult> svbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, executor, svbVar)) == null) {
-            i(new awb(executor, svbVar));
-            return this;
-        }
-        return (vvb) invokeLL.objValue;
-    }
-
-    public final vvb<TResult> n(Executor executor, tvb tvbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, executor, tvbVar)) == null) {
-            i(new bwb(executor, tvbVar));
-            return this;
-        }
-        return (vvb) invokeLL.objValue;
-    }
-
-    public final vvb<TResult> o(Executor executor, uvb<TResult> uvbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, executor, uvbVar)) == null) {
-            i(new cwb(executor, uvbVar));
-            return this;
-        }
-        return (vvb) invokeLL.objValue;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this.a) {
-                for (rvb<TResult> rvbVar : this.f) {
-                    try {
-                        rvbVar.onComplete(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.f = null;
-            }
-        }
+        this.b.execute(new a(this, xvbVar));
     }
 }

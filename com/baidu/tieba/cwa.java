@@ -52,10 +52,10 @@ public class cwa {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 yva.a().c(bVar);
-                if (!dgb.e(this.a.b)) {
+                if (!fgb.e(this.a.b)) {
                     cwa cwaVar = this.a;
-                    cwaVar.h((hwa) dgb.c(cwaVar.b, 0));
-                    dgb.g(this.a.b, 0);
+                    cwaVar.h((hwa) fgb.c(cwaVar.b, 0));
+                    fgb.g(this.a.b, 0);
                 }
             }
         }
@@ -82,7 +82,7 @@ public class cwa {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, iwaVar, zvaVar) == null) {
             List<hwa> c2 = ewa.c(iwaVar, zvaVar);
-            if (!dgb.e(c2)) {
+            if (!fgb.e(c2)) {
                 for (hwa hwaVar : c2) {
                     h(hwaVar);
                 }

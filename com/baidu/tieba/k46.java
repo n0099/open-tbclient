@@ -34,7 +34,7 @@ public class k46 extends xk1<TbadkCore> {
 
         /* renamed from: com.baidu.tieba.k46$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0379a extends CustomMessageListener {
+        public class C0382a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -42,7 +42,7 @@ public class k46 extends xk1<TbadkCore> {
             public final /* synthetic */ HashMap c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0379a(a aVar, int i, String str, HashMap hashMap, HashMap hashMap2) {
+            public C0382a(a aVar, int i, String str, HashMap hashMap, HashMap hashMap2) {
                 super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -165,7 +165,7 @@ public class k46 extends xk1<TbadkCore> {
         public void registerDbListener(String str, HashMap hashMap, HashMap hashMap2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048581, this, str, hashMap, hashMap2) == null) {
-                MessageManager.getInstance().registerListenerFromBackground(new C0379a(this, 2000998, str, hashMap, hashMap2));
+                MessageManager.getInstance().registerListenerFromBackground(new C0382a(this, 2000998, str, hashMap, hashMap2));
             }
         }
     }

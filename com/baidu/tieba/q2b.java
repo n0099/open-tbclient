@@ -1,15 +1,21 @@
 package com.baidu.tieba;
-
-import android.widget.EditText;
 /* loaded from: classes7.dex */
 public interface q2b {
-    void e(boolean z);
+    void J();
 
-    int f();
+    void P();
 
-    void l();
+    void P0(boolean z);
 
-    void n();
+    void Q0(int i, boolean z);
 
-    EditText p();
+    void b(String str);
+
+    void d();
+
+    void finish();
+
+    void setResult(int i);
+
+    void x();
 }

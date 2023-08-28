@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.ifa;
-import com.baidu.tieba.k4b;
+import com.baidu.tieba.m4b;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
@@ -24,7 +24,7 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k4b a;
+    public m4b a;
     public NetMessageListener b;
 
     /* loaded from: classes8.dex */
@@ -100,10 +100,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void O(k4b k4bVar) {
+    public void O(m4b m4bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k4bVar) == null) {
-            this.a = k4bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, m4bVar) == null) {
+            this.a = m4bVar;
         }
     }
 

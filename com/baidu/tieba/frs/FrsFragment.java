@@ -131,13 +131,13 @@ import com.baidu.tieba.av7;
 import com.baidu.tieba.ax7;
 import com.baidu.tieba.b46;
 import com.baidu.tieba.b56;
-import com.baidu.tieba.b8c;
 import com.baidu.tieba.bn;
 import com.baidu.tieba.bt5;
 import com.baidu.tieba.c45;
 import com.baidu.tieba.cea;
 import com.baidu.tieba.ck7;
 import com.baidu.tieba.co6;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.database.FrsVisitedInfoManager;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.dh7;
@@ -172,24 +172,24 @@ import com.baidu.tieba.fs5;
 import com.baidu.tieba.fv7;
 import com.baidu.tieba.fx7;
 import com.baidu.tieba.g36;
-import com.baidu.tieba.g8c;
 import com.baidu.tieba.ge5;
 import com.baidu.tieba.gi7;
 import com.baidu.tieba.gs7;
 import com.baidu.tieba.gv7;
 import com.baidu.tieba.gw7;
 import com.baidu.tieba.h36;
-import com.baidu.tieba.h8c;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.hi7;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.hq7;
 import com.baidu.tieba.hv7;
+import com.baidu.tieba.i8c;
 import com.baidu.tieba.iea;
 import com.baidu.tieba.ih5;
 import com.baidu.tieba.iq7;
 import com.baidu.tieba.it4;
 import com.baidu.tieba.iv7;
+import com.baidu.tieba.j8c;
 import com.baidu.tieba.jh7;
 import com.baidu.tieba.ji7;
 import com.baidu.tieba.jk7;
@@ -212,7 +212,6 @@ import com.baidu.tieba.ms7;
 import com.baidu.tieba.mv7;
 import com.baidu.tieba.n1a;
 import com.baidu.tieba.n55;
-import com.baidu.tieba.n7c;
 import com.baidu.tieba.ni7;
 import com.baidu.tieba.no7;
 import com.baidu.tieba.ns7;
@@ -221,6 +220,7 @@ import com.baidu.tieba.og7;
 import com.baidu.tieba.oq7;
 import com.baidu.tieba.os7;
 import com.baidu.tieba.ov7;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.pg7;
 import com.baidu.tieba.pi7;
 import com.baidu.tieba.pq7;
@@ -250,7 +250,6 @@ import com.baidu.tieba.tg7;
 import com.baidu.tieba.tq7;
 import com.baidu.tieba.tu7;
 import com.baidu.tieba.u56;
-import com.baidu.tieba.u7c;
 import com.baidu.tieba.ui7;
 import com.baidu.tieba.uo5;
 import com.baidu.tieba.view.BdTopToast;
@@ -259,6 +258,7 @@ import com.baidu.tieba.vl7;
 import com.baidu.tieba.vo5;
 import com.baidu.tieba.vu7;
 import com.baidu.tieba.vv7;
+import com.baidu.tieba.w7c;
 import com.baidu.tieba.wh7;
 import com.baidu.tieba.x36;
 import com.baidu.tieba.xea;
@@ -428,7 +428,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
     public CustomMessageListener i2;
     public boolean j;
     public iq7 j0;
-    public u7c j1;
+    public w7c j1;
     public CustomMessageListener j2;
     public String k;
     public final CustomMessageListener k1;
@@ -516,7 +516,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
 
             /* renamed from: com.baidu.tieba.frs.FrsFragment$n0$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0294a implements Runnable {
+            public class RunnableC0291a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long a;
@@ -526,7 +526,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
                 public final /* synthetic */ int e;
                 public final /* synthetic */ a f;
 
-                public RunnableC0294a(a aVar, long j, int i, int i2, float f, int i3) {
+                public RunnableC0291a(a aVar, long j, int i, int i2, float f, int i3) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -596,7 +596,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
                     } else {
                         i = 1;
                     }
-                    SafeHandler.getInst().postDelayed(new RunnableC0294a(this, j, equipmentWidth, equipmentHeight, f, i), 1000L);
+                    SafeHandler.getInst().postDelayed(new RunnableC0291a(this, j, equipmentWidth, equipmentHeight, f, i), 1000L);
                 }
             }
         }
@@ -1916,7 +1916,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
     }
 
     /* loaded from: classes5.dex */
-    public class h0 implements b8c<NewsRemindMessage> {
+    public class h0 implements d8c<NewsRemindMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFragment a;
@@ -1940,7 +1940,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8c
+        @Override // com.baidu.tieba.d8c
         public void call(NewsRemindMessage newsRemindMessage) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -2045,7 +2045,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
     }
 
     /* loaded from: classes5.dex */
-    public class i0 implements g8c<Pair<NewsRemindMessage, Boolean>, NewsRemindMessage> {
+    public class i0 implements i8c<Pair<NewsRemindMessage, Boolean>, NewsRemindMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFragment a;
@@ -2069,7 +2069,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g8c
+        @Override // com.baidu.tieba.i8c
         public NewsRemindMessage call(Pair<NewsRemindMessage, Boolean> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -2156,7 +2156,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
     }
 
     /* loaded from: classes5.dex */
-    public class j0 implements g8c<NewsRemindMessage, Boolean> {
+    public class j0 implements i8c<NewsRemindMessage, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFragment a;
@@ -2180,7 +2180,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g8c
+        @Override // com.baidu.tieba.i8c
         public Boolean call(NewsRemindMessage newsRemindMessage) {
             InterceptResult invokeL;
             boolean z;
@@ -2301,7 +2301,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
     }
 
     /* loaded from: classes5.dex */
-    public class k0 implements h8c<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
+    public class k0 implements j8c<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFragment a;
@@ -2325,7 +2325,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.h8c
+        @Override // com.baidu.tieba.j8c
         public Pair<NewsRemindMessage, Boolean> call(NewsRemindMessage newsRemindMessage, Boolean bool) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -7052,7 +7052,7 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
             lifecycle.addObserver(pollingLifecycleHelper);
             ge5 ge5Var = (ge5) ServiceManager.getService(ge5.a);
             if (ge5Var != null && this.j1 == null) {
-                this.j1 = n7c.c(ge5Var.g().k(new j0(this)), ge5Var.c(), new k0(this)).p(new i0(this)).H(new h0(this));
+                this.j1 = p7c.c(ge5Var.g().k(new j0(this)), ge5Var.c(), new k0(this)).p(new i0(this)).H(new h0(this));
             }
             this.F = System.currentTimeMillis() - currentTimeMillis;
         }
@@ -7226,9 +7226,9 @@ public class FrsFragment extends BaseFragment implements VoiceManager.i, hq7, Us
                 this.b1.onDestroy();
             }
             this.b1 = null;
-            u7c u7cVar = this.j1;
-            if (u7cVar != null) {
-                u7cVar.unsubscribe();
+            w7c w7cVar = this.j1;
+            if (w7cVar != null) {
+                w7cVar.unsubscribe();
             }
             this.j1 = null;
             YunDialogManager.unMarkShowingDialogName("frsGroupChatGuide");

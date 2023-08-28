@@ -105,11 +105,11 @@ public class AlaLiveSdkStatic {
 
             /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0402a extends bx5<String> {
+            public class C0403a extends bx5<String> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C0402a(a aVar) {
+                public C0403a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +191,7 @@ public class AlaLiveSdkStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (TbadkCoreApplication.getInst().isMIUIRom()) {
-                        fx5.b(new C0402a(this), new b(this));
+                        fx5.b(new C0403a(this), new b(this));
                     } else {
                         AlaLiveSdkStatic.r(UtilHelper.getClipBoardContent());
                     }
@@ -236,12 +236,12 @@ public class AlaLiveSdkStatic {
 
         /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0401a extends CustomMessageListener {
+        public class C0402a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0401a(a aVar, int i) {
+            public C0402a(a aVar, int i) {
                 super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -288,7 +288,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(new C0401a(this, 2921569));
+                MessageManager.getInstance().registerListener(new C0402a(this, 2921569));
             }
         }
     }

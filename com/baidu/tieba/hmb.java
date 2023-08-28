@@ -1,231 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gmb;
+import com.baidu.tieba.cmb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
 import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public abstract class hmb<A extends gmb> extends ReporterPidLoader<A> {
+public class hmb extends FunNativeAd2Bridger<pmb, com.fun.module.csj.f0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TTAdNative e;
-    public final Handler f;
+    public final TTNativeAd.AdInteractionListener b;
+    public final /* synthetic */ cmb c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public hmb(FunAdType funAdType, Ssp.Pid pid) {
-        this(funAdType, pid, false);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hmb(cmb cmbVar, ReporterPidLoader reporterPidLoader, pmb pmbVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {cmbVar, reporterPidLoader, pmbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = cmbVar;
+        this.b = new cmb.b(cmbVar, pmbVar);
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public hmb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hmb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        super(funAdType, pid, true, z, z2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.f = new Handler(Looper.getMainLooper());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void g(int i) {
-        onError(e(i));
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jmb(this.mPid) : (AdReporter) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.f0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.f0 createExpressView(pmb pmbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pid)) == null) ? new qlb(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pmbVar)) == null) {
+            return dmb.a((TTNativeAd) pmbVar.a);
+        }
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader, com.fun.ad.sdk.internal.api.PidLoader
-    public synchronized void destroy() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, pmb pmbVar, BaseNativeAd2<pmb, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                super.destroy();
-                this.e = null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pmbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.c.k(activity, pmbVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
         }
     }
 
-    public String e(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, pmb pmbVar, BaseNativeAd2<pmb, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i != -8 ? i != 112 ? i != 228 ? "" : "cheat" : "toomuch" : "toofast" : (String) invokeI.objValue;
-    }
-
-    public abstract void f(Context context, FunAdSlot funAdSlot);
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public Object getErrInfo(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, str)) == null) {
-            if (i != 20001 || TextUtils.isEmpty(str)) {
-                return Integer.valueOf(i);
-            }
-            String[] split = str.split("\\D+");
-            int length = split.length;
-            int i2 = 0;
-            while (true) {
-                if (i2 >= length) {
-                    str2 = "";
-                    break;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pmbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            pmb pmbVar2 = pmbVar;
+            cmb cmbVar = this.c;
+            FunNativeAdListenerHelper<pmb, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = cmbVar.g;
+            pid = cmbVar.mPid;
+            funNativeAdListenerHelper.startShow(pmbVar2, str, pid, this.b, funAdInteractionListener);
+            com.fun.module.csj.f0 expressView = baseNativeAd2.getExpressView();
+            if (expressView == null) {
+                if (!FunAdSdk.isLogEnabled()) {
+                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+                    return;
                 }
-                String str3 = split[i2];
-                if (str3.length() > 1) {
-                    str2 = i + "_" + str3;
-                    break;
-                }
-                i2++;
+                throw new RuntimeException("The image mode of ad is not support!");
             }
-            return TextUtils.isEmpty(str2) ? Integer.valueOf(i) : str2;
-        }
-        return invokeIL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            final int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                this.f.postAtTime(new Runnable() { // from class: com.baidu.tieba.nlb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            hmb.this.g(checkForbidStatus);
-                        }
-                    }
-                }, 50L);
-            } else {
-                f(context, funAdSlot);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            return ((gmb) obj).a();
-        }
-        return invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        String str2;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            gmb gmbVar = (gmb) obj;
-            double d3 = d * 100.0d;
-            double d4 = d2 * 100.0d;
-            if (FunAdSdk.PLATFORM_GDT.equals(str)) {
-                str2 = "ylh";
-            } else if ("baidu".equals(str)) {
-                str2 = "bqt";
-            } else if (FunAdSdk.PLATFORM_KS.equals(str)) {
-                str2 = "kuai";
-            } else {
-                str2 = null;
-            }
-            String str3 = str2;
-            if (i != 3 && i != 5) {
-                i2 = 102;
-            } else {
-                i2 = 1;
-            }
-            gmbVar.b(str3, d3, d4, z, i2);
+            this.c.j(activity, pmbVar2, expressInflater.inflate(), expressView, this.b);
         }
     }
 }

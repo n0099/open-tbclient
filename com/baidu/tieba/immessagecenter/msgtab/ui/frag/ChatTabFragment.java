@@ -20,10 +20,9 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.dt8;
-import com.baidu.tieba.g8c;
-import com.baidu.tieba.h8c;
+import com.baidu.tieba.i8c;
 import com.baidu.tieba.immessagecenter.mention.base.NotificationView;
 import com.baidu.tieba.immessagecenter.msgtab.adapt.ChatTabFragmentAdapt;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
@@ -34,12 +33,13 @@ import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterSlice;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.immessagecenter.slice.SliceFragment;
-import com.baidu.tieba.jcc;
+import com.baidu.tieba.j8c;
 import com.baidu.tieba.ju8;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.mu8;
-import com.baidu.tieba.n7c;
-import com.baidu.tieba.occ;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.pw8;
+import com.baidu.tieba.qcc;
 import com.baidu.tieba.rna;
 import com.baidu.tieba.rw8;
 import com.baidu.tieba.sna;
@@ -62,9 +62,9 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
     public a e;
     public MsgChatCenterSlice f;
     public String g;
-    public occ h;
+    public qcc h;
     public final BdUniqueId i;
-    public final jcc<Boolean> j;
+    public final lcc<Boolean> j;
     public boolean k;
     public final ju8 l;
 
@@ -301,7 +301,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         }
         this.g = "MSGTAB";
         this.i = BdUniqueId.gen();
-        this.j = jcc.R(Boolean.FALSE);
+        this.j = lcc.R(Boolean.FALSE);
         this.l = new b(this);
     }
 
@@ -442,14 +442,14 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                 notificationView = null;
             }
             new mu8(notificationView);
-            occ occVar = new occ();
-            this.h = occVar;
-            if (occVar != null) {
-                occVar.a(NotificationChangedMonitor.c.a().f().H(new b8c() { // from class: com.baidu.tieba.cu8
+            qcc qccVar = new qcc();
+            this.h = qccVar;
+            if (qccVar != null) {
+                qccVar.a(NotificationChangedMonitor.c.a().f().H(new d8c() { // from class: com.baidu.tieba.cu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.b8c
+                    @Override // com.baidu.tieba.d8c
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -523,13 +523,13 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroyView();
-            occ occVar = this.h;
-            if (occVar != null) {
-                occVar.unsubscribe();
+            qcc qccVar = this.h;
+            if (qccVar != null) {
+                qccVar.unsubscribe();
             }
-            occ occVar2 = this.h;
-            if (occVar2 != null) {
-                occVar2.c();
+            qcc qccVar2 = this.h;
+            if (qccVar2 != null) {
+                qccVar2.c();
             }
             this.h = null;
         }
@@ -561,7 +561,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
             Intrinsics.checkNotNullExpressionValue(requireContext, "requireContext()");
             new PopActionChatPresenter(requireContext);
             Bundle arguments = getArguments();
-            n7c<Boolean> n7cVar = null;
+            p7c<Boolean> p7cVar = null;
             if (arguments != null) {
                 obj = arguments.get("FROM");
             } else {
@@ -575,8 +575,8 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
             if (msgChatCenterSlice != null && (Z = msgChatCenterSlice.Z()) != null) {
                 Z.G0(this.l);
             }
-            occ occVar = this.h;
-            if (occVar != null) {
+            qcc qccVar = this.h;
+            if (qccVar != null) {
                 Fragment parentFragment = getParentFragment();
                 if (parentFragment instanceof MsgCenterContainerFragment) {
                     msgCenterContainerFragment = (MsgCenterContainerFragment) parentFragment;
@@ -584,23 +584,23 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                     msgCenterContainerFragment = null;
                 }
                 if (msgCenterContainerFragment != null) {
-                    n7cVar = msgCenterContainerFragment.W1();
+                    p7cVar = msgCenterContainerFragment.W1();
                 }
-                occVar.a(n7c.c(n7cVar, this.j.g(), new h8c() { // from class: com.baidu.tieba.hu8
+                qccVar.a(p7c.c(p7cVar, this.j.g(), new j8c() { // from class: com.baidu.tieba.hu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.h8c
+                    @Override // com.baidu.tieba.j8c
                     public final Object call(Object obj2, Object obj3) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj2, obj3)) == null) ? ChatTabFragment.c2((Boolean) obj2, (Boolean) obj3) : invokeLL.objValue;
                     }
-                }).k(new g8c() { // from class: com.baidu.tieba.xt8
+                }).k(new i8c() { // from class: com.baidu.tieba.xt8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.g8c
+                    @Override // com.baidu.tieba.i8c
                     public final Object call(Object obj2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -611,11 +611,11 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                         }
                         return invokeL.objValue;
                     }
-                }).x().H(new b8c() { // from class: com.baidu.tieba.gu8
+                }).x().H(new d8c() { // from class: com.baidu.tieba.gu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.b8c
+                    @Override // com.baidu.tieba.d8c
                     public final void call(Object obj2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {

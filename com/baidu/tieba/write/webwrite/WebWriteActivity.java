@@ -2,6 +2,8 @@ package com.baidu.tieba.write.webwrite;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
+import android.os.MessageQueue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -53,9 +55,7 @@ import com.baidu.tieba.gt6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.n55;
 import com.baidu.tieba.np6;
-import com.baidu.tieba.uza;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vza;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
 import com.baidu.tieba.write.webwrite.WebWriteActivity;
 import com.baidu.tieba.write.webwrite.fragment.ArticleWebWriteFragment;
@@ -63,7 +63,9 @@ import com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment;
 import com.baidu.tieba.write.webwrite.fragment.HelpWebWriteFragment;
 import com.baidu.tieba.write.webwrite.fragment.NormalWebWriteFragment;
 import com.baidu.tieba.write.webwrite.fragment.TabPagerAdapter;
+import com.baidu.tieba.wza;
 import com.baidu.tieba.x65;
+import com.baidu.tieba.xza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -159,13 +161,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class b extends gt6<vza> {
+    public static final class b extends gt6<xza> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(WebWriteActivity webWriteActivity, Class<vza> cls) {
+        public b(WebWriteActivity webWriteActivity, Class<xza> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -187,7 +189,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.gt6
-        public void onEvent(vza event) {
+        public void onEvent(xza event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -203,13 +205,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class c extends gt6<uza> {
+    public static final class c extends gt6<wza> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(WebWriteActivity webWriteActivity, Class<uza> cls) {
+        public c(WebWriteActivity webWriteActivity, Class<wza> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -231,7 +233,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.gt6
-        public void onEvent(uza event) {
+        public void onEvent(wza event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -654,18 +656,17 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             BaseWebWriteFragment b2 = tabPagerAdapter.b();
             final String str = (b2 == null || (str = b2.A2()) == null) ? "normal" : "normal";
             SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_last_select_write_tab"), str);
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.xya
+            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.xya
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // java.lang.Runnable
-                public final void run() {
+                @Override // android.os.MessageQueue.IdleHandler
+                public final boolean queueIdle() {
+                    InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        WebWriteActivity.I1(str);
-                    }
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? WebWriteActivity.I1(str) : invokeV.booleanValue;
                 }
-            }, 200L);
+            });
             MutiProcessManager.publishEvent(new NewWritePageStateEvent(false));
             G0().stopPlay();
             G0().onDestory(getPageContext());
@@ -688,12 +689,15 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         }
     }
 
-    public static final void I1(String lastTab) {
+    public static final boolean I1(String lastTab) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lastTab) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, lastTab)) == null) {
             Intrinsics.checkNotNullParameter(lastTab, "$lastTab");
             WriteWebViewCacheManager.c.b().j(lastTab);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
     public static final void J1(WebWriteActivity this$0) {
@@ -796,7 +800,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             C1().setTabPadding(BdUtilHelper.getDimens(this, R.dimen.tbds36), 0, BdUtilHelper.getDimens(this, R.dimen.tbds36), 0);
             C1().setViewPager(D1());
             A1().setIsClose(true);
-            A1().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zya
+            A1().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aza
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -867,7 +871,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                     Intrinsics.throwUninitializedPropertyAccessException("mNavigationBarRightBtn");
                     relativeLayout4 = null;
                 }
-                A1.addCustomView(controlAlign, relativeLayout4, new View.OnClickListener() { // from class: com.baidu.tieba.wya
+                A1.addCustomView(controlAlign, relativeLayout4, new View.OnClickListener() { // from class: com.baidu.tieba.yya
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1105,11 +1109,11 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             ft6 b2 = dt6.b();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            b2.a(new ct6(pageContext, vza.class), new b(this, vza.class));
+            b2.a(new ct6(pageContext, xza.class), new b(this, xza.class));
             ft6 b3 = dt6.b();
             TbPageContext<BaseFragmentActivity> pageContext2 = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext2, "pageContext");
-            b3.a(new ct6(pageContext2, uza.class), new c(this, uza.class));
+            b3.a(new ct6(pageContext2, wza.class), new c(this, wza.class));
             String str2 = "";
             if (bundle != null) {
                 str2 = bundle.getString("from", "");
@@ -1139,7 +1143,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             if (this.isResumed) {
                 if (x65.a.a("newWritePageGuideDialog") < 1) {
                     this.d = false;
-                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yya
+                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.zya
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

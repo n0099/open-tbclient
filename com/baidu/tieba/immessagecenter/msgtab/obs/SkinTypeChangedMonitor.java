@@ -5,10 +5,10 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.jcc;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.lcc;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.tt8;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -157,24 +157,24 @@ public final class SkinTypeChangedMonitor implements tt8 {
         this.b = new b(this);
     }
 
-    public final jcc<Integer> c() {
+    public final lcc<Integer> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (jcc) this.a.getValue();
+            return (lcc) this.a.getValue();
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
-    public final n7c<Integer> d() {
+    public final p7c<Integer> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n7c<Integer> s = c().a().s(x7c.b());
+            p7c<Integer> s = c().a().s(z7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mSubject.asObservable()\n…dSchedulers.mainThread())");
             return s;
         }
-        return (n7c) invokeV.objValue;
+        return (p7c) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.tt8

@@ -101,8 +101,8 @@ public final class f extends b {
             });
             fVar.a(this.mAdTemplate, this.mAdInfo);
             fVar.t(true);
-            this.gh.gs.add(new c.InterfaceC0611c() { // from class: com.kwad.components.ad.interstitial.b.f.6
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0611c
+            this.gh.gs.add(new c.InterfaceC0612c() { // from class: com.kwad.components.ad.interstitial.b.f.6
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0612c
                 public final void cH() {
                     fVar.ec();
                     f.this.dp.setVisibility(0);

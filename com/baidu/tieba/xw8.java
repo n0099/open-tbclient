@@ -46,13 +46,13 @@ public final class xw8 extends xk1<ge5> {
         }
 
         @Override // com.baidu.tieba.ge5
-        public n7c<Boolean> c() {
+        public p7c<Boolean> c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return NewsRemindMsgMonitor.f.a().i();
             }
-            return (n7c) invokeV.objValue;
+            return (p7c) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.ge5
@@ -66,13 +66,13 @@ public final class xw8 extends xk1<ge5> {
         }
 
         @Override // com.baidu.tieba.ge5
-        public n7c<NewsRemindMessage> g() {
+        public p7c<NewsRemindMessage> g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return NewsRemindMsgMonitor.f.a().k();
             }
-            return (n7c) invokeV.objValue;
+            return (p7c) invokeV.objValue;
         }
 
         @Override // com.baidu.tieba.ge5

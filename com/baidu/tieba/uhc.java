@@ -1,45 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes8.dex */
-public abstract class uhc implements View.OnClickListener {
+public final class uhc {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(View view2);
-
-    public uhc() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948212441, "Lcom/baidu/tieba/uhc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948212441, "Lcom/baidu/tieba/uhc;");
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @JvmStatic
+    public static final void a(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - a >= 1000) {
-                a = currentTimeMillis;
-                a(view2);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            if (webView != null) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
             }
-            RLog.debug("OnMultiClickListener", "click too often");
+            if (webView != null) {
+                webView.removeJavascriptInterface("accessibility");
+            }
+            if (webView != null) {
+                webView.removeJavascriptInterface("accessibilityTraversal");
+            }
         }
     }
 }

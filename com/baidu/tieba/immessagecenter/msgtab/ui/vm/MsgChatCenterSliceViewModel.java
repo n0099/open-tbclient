@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.b8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.hw8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
@@ -17,10 +17,10 @@ import com.baidu.tieba.immessagecenter.msgtab.ui.model.ChatMsgModel;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
 import com.baidu.tieba.iw8;
 import com.baidu.tieba.jd8;
-import com.baidu.tieba.occ;
+import com.baidu.tieba.qcc;
 import com.baidu.tieba.qk8;
 import com.baidu.tieba.rw8;
-import com.baidu.tieba.x7c;
+import com.baidu.tieba.z7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> d;
-    public occ e;
+    public qcc e;
     public ChatMsgModel f;
 
     public Void D() {
@@ -292,8 +292,8 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public /* bridge */ /* synthetic */ occ l() {
-        return (occ) D();
+    public /* bridge */ /* synthetic */ qcc l() {
+        return (qcc) D();
     }
 
     public final MsgChatTabModel n() {
@@ -345,13 +345,13 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                 chatMsgModel = null;
             }
             chatMsgModel.X();
-            occ occVar = this.e;
-            if (occVar != null) {
-                occVar.unsubscribe();
+            qcc qccVar = this.e;
+            if (qccVar != null) {
+                qccVar.unsubscribe();
             }
-            occ occVar2 = this.e;
-            if (occVar2 != null) {
-                occVar2.c();
+            qcc qccVar2 = this.e;
+            if (qccVar2 != null) {
+                qccVar2.c();
             }
             this.e = null;
         }
@@ -403,12 +403,12 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                 chatMsgModel = null;
             }
             chatMsgModel.T();
-            occ occVar = new occ();
-            occVar.a(chatMsgModel.x().H(new b8c() { // from class: com.baidu.tieba.zv8
+            qcc qccVar = new qcc();
+            qccVar.a(chatMsgModel.x().H(new d8c() { // from class: com.baidu.tieba.zv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -416,11 +416,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                     }
                 }
             }));
-            occVar.a(chatMsgModel.E().w().s(x7c.b()).g().H(new b8c() { // from class: com.baidu.tieba.gw8
+            qccVar.a(chatMsgModel.E().w().s(z7c.b()).g().H(new d8c() { // from class: com.baidu.tieba.gw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -428,11 +428,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                     }
                 }
             }));
-            occVar.a(chatMsgModel.D().w().s(x7c.b()).H(new b8c() { // from class: com.baidu.tieba.bw8
+            qccVar.a(chatMsgModel.D().w().s(z7c.b()).H(new d8c() { // from class: com.baidu.tieba.bw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -440,11 +440,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                     }
                 }
             }));
-            occVar.a(chatMsgModel.B().w().s(x7c.b()).H(new b8c() { // from class: com.baidu.tieba.aw8
+            qccVar.a(chatMsgModel.B().w().s(z7c.b()).H(new d8c() { // from class: com.baidu.tieba.aw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -452,11 +452,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                     }
                 }
             }));
-            occVar.a(NotificationChangedMonitor.c.a().f().H(new b8c() { // from class: com.baidu.tieba.dw8
+            qccVar.a(NotificationChangedMonitor.c.a().f().H(new d8c() { // from class: com.baidu.tieba.dw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -464,7 +464,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
                     }
                 }
             }));
-            this.e = occVar;
+            this.e = qccVar;
         }
     }
 }

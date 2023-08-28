@@ -2,61 +2,35 @@ package com.baidu.tieba;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface r2b {
-    void A();
+public interface r2b<D> {
+    void a(WriteData writeData);
 
-    void B();
+    void b();
 
-    void C(zh5 zh5Var);
+    void c(@NonNull WriteData writeData);
 
-    void D();
+    void d(@NonNull WriteData writeData);
 
-    LinkedList<xa5> F();
+    boolean g();
 
-    void a();
+    void h(@Nullable String str, @NonNull WriteData writeData);
 
-    void b(String str);
+    void j(@NonNull t2b t2bVar);
 
-    void d();
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
 
-    void e(boolean z);
-
-    void f(int i, boolean z);
-
-    void g();
-
-    int h();
-
-    void i();
-
-    boolean j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
+    boolean o();
 
     void onActivityResult(int i, int i2, Intent intent);
 
-    boolean onBackPressed();
-
     void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
 
     void onPause();
 
@@ -64,28 +38,11 @@ public interface r2b {
 
     void onSaveInstanceState(Bundle bundle);
 
-    void onStart();
+    void q(@NonNull List<r2b<?>> list);
 
-    void onStop();
+    void r(zh5 zh5Var);
 
-    void p(boolean z);
+    View s(@NonNull ViewGroup viewGroup);
 
-    void r();
-
-    void s();
-
-    @NonNull
-    PermissionJudgePolicy t();
-
-    void u();
-
-    void v();
-
-    void w();
-
-    void x(int[] iArr);
-
-    void y(boolean z);
-
-    void z(zh5 zh5Var);
+    boolean t();
 }

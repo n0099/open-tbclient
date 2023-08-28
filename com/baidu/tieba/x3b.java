@@ -1,123 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.write.WriteVideoUtil;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class x3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public b a;
+    public final CustomMessageListener b;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
-            String str2 = "";
-            if (WriteVideoUtil.hasDraft()) {
-                if (TextUtils.isEmpty(writeData.getTitle())) {
-                    str = "";
-                    i = 1;
-                } else {
-                    str = writeData.getTitle();
-                    i = 5;
-                }
-                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
-                    WriteVideoUtil.openBottomActionSheet(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(@NonNull SelectForumData selectForumData);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x3b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(x3b x3bVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x3bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                WriteVideoUtil.openBottomActionSheet(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
+            }
+            this.a = x3bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            SelectForumData selectForumData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SelectForumData) && (selectForumData = (SelectForumData) customResponsedMessage.getData()) != null && !StringUtils.isNull(selectForumData.forumId) && !StringUtils.isNull(selectForumData.forumName) && this.a.a != null) {
+                this.a.a.a(selectForumData);
+            }
+        }
+    }
+
+    public x3b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (writeData.getWriteImagesInfo() != null) {
-                str2 = writeData.getWriteImagesInfo().toJsonString();
-            }
-            c(tbPageContext, writeData, str2, writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
+        }
+        this.b = new a(this, 2921505);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
-        String str3;
-        JSONObject json;
+    public void b(@NonNull BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
-            String jsonString = writeImagesInfo.toJsonString();
-            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
-                try {
-                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
-                    json.put("chosedFiles", (Object) null);
-                    jsonString = json.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    str3 = null;
-                }
-            }
-            str3 = jsonString;
-            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            d();
+            this.b.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.b);
         }
     }
 
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
-            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
-            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
-            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
-            albumFloatActivityConfig.getIntent().putExtra("from", str2);
-            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumFloatActivityConfig.setAlbumThread(0);
-            albumFloatActivityConfig.setCanSelectVideo(z2);
-            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
-            albumFloatActivityConfig.setCanEditImage(false);
-            albumFloatActivityConfig.setFromWrite(3);
-            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
-            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
-            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
-            if (z2) {
-                if (!TextUtils.isEmpty(writeData.getTitle())) {
-                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
-                } else {
-                    albumFloatActivityConfig.setVideoTitle("");
-                }
-                albumFloatActivityConfig.setBarName(writeData.getForumName());
-                albumFloatActivityConfig.setBarID(writeData.getForumId());
-                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
-                    albumFloatActivityConfig.setCanChangeBarName(false);
-                } else {
-                    albumFloatActivityConfig.setCanChangeBarName(true);
-                }
-                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
-            }
-            AntiData antiData = new AntiData();
-            antiData.voice_message = str3;
-            antiData.setIfVoice(z);
-            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
-            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
-        }
-    }
-
-    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
-            int guideStatus = WriteVideoUtil.getGuideStatus();
-            if (WriteVideoUtil.isShowGuide(guideStatus)) {
-                WriteVideoUtil.jumpWorkVideoGuide(tbPageContext.getPageActivity(), guideStatus, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
-            } else {
-                a(tbPageContext, writeData);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 }

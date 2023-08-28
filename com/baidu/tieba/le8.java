@@ -97,7 +97,7 @@ public class le8 {
 
         /* renamed from: com.baidu.tieba.le8$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0398b implements Runnable {
+        public class RunnableC0399b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -105,7 +105,7 @@ public class le8 {
             public final /* synthetic */ int c;
             public final /* synthetic */ b d;
 
-            public RunnableC0398b(b bVar, int i, String str, int i2) {
+            public RunnableC0399b(b bVar, int i, String str, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -275,7 +275,7 @@ public class le8 {
         public final void h(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-                SafeHandler.getInst().post(new RunnableC0398b(this, i, str, i2));
+                SafeHandler.getInst().post(new RunnableC0399b(this, i, str, i2));
             }
         }
 

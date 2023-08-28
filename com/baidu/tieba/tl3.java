@@ -55,12 +55,12 @@ public class tl3 extends gz1 {
 
         /* renamed from: com.baidu.tieba.tl3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0485a implements wp3<dm3<cm3>> {
+        public class C0488a implements wp3<dm3<cm3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0485a(a aVar) {
+            public C0488a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class tl3 extends gz1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                am3.s(this.a).a(this.b, new C0485a(this));
+                am3.s(this.a).a(this.b, new C0488a(this));
             }
         }
 

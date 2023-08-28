@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class a extends com.kwad.components.core.i.b implements a.InterfaceC0653a, x.b {
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0654a, x.b {
     public boolean Fu = true;
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -110,12 +110,12 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0653a
         super.onResume();
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0653a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0654a
     public final void r(View view2) {
         onBackPressed();
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0653a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0654a
     public final void s(View view2) {
         finish();
     }

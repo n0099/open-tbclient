@@ -1,72 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.n7c;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.p7c;
+import com.baidu.tieba.s7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public final class u8c<T> implements n7c.b<T, T> {
+public final class u8c implements p7c.a<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public t7c<? super T> call(t7c<? super T> t7cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t7cVar)) == null) ? t7cVar : (t7c) invokeL.objValue;
-    }
+    public final long a;
+    public final TimeUnit b;
+    public final s7c c;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a implements c8c {
         public static /* synthetic */ Interceptable $ic;
-        public static final u8c<Object> a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v7c a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-417933300, "Lcom/baidu/tieba/u8c$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-417933300, "Lcom/baidu/tieba/u8c$a;");
+        public a(u8c u8cVar, v7c v7cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u8cVar, v7cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new u8c<>();
+            this.a = v7cVar;
+        }
+
+        @Override // com.baidu.tieba.c8c
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.onNext(0L);
+                    this.a.onCompleted();
+                } catch (Throwable th) {
+                    b8c.f(th, this.a);
+                }
+            }
         }
     }
 
-    public u8c() {
+    public u8c(long j, TimeUnit timeUnit, s7c s7cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), timeUnit, s7cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = timeUnit;
+        this.c = s7cVar;
     }
 
-    public static <T> u8c<T> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+    public void call(v7c<? super Long> v7cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (u8c<T>) a.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, v7cVar) == null) {
+            s7c.a createWorker = this.c.createWorker();
+            v7cVar.b(createWorker);
+            createWorker.c(new a(this, v7cVar), this.a, this.b);
         }
-        return (u8c) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.n7c.b, com.baidu.tieba.g8c
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((t7c) ((t7c) obj));
     }
 }

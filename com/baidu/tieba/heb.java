@@ -1,245 +1,179 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.IOException;
-import java.util.List;
-@TargetApi(18)
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes6.dex */
 public class heb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
-    public MediaMuxer c;
-    public int d;
-    public int e;
-    public MediaFormat f;
-    public MediaFormat g;
-    public xeb h;
 
-    public heb(List<String> list, String str, xeb xebVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, xebVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = i;
+            this.b = i2;
         }
-        yfb.e("VideoComposer", list.size() + " composer to " + str);
-        this.a = list;
-        this.b = str;
-        this.h = xebVar;
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        }
     }
 
-    public final long a(long j, String str) throws IOException {
-        InterceptResult invokeJL;
-        boolean z;
-        int i;
-        int i2;
-        geb gebVar;
-        int i3;
-        geb gebVar2;
-        int i4;
-        geb gebVar3;
-        String str2;
+    public static int[] a(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
-            String str3 = "VideoComposer";
-            yfb.e("VideoComposer", j + " compose " + str);
-            geb gebVar4 = new geb();
-            gebVar4.m(str, FileUtils.VIDEO_FILE_START);
-            int d = gebVar4.d();
-            geb gebVar5 = null;
-            if (d < 0) {
-                gebVar4.j();
-                gebVar4 = null;
-            } else {
-                gebVar4.l(this.e);
-            }
-            geb gebVar6 = new geb();
-            gebVar6.m(str, "audio/");
-            int d2 = gebVar6.d();
-            if (d2 < 0) {
-                gebVar6.j();
-            } else {
-                gebVar6.l(this.d);
-                gebVar5 = gebVar6;
-            }
-            boolean z2 = false;
-            if (gebVar4 == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (gebVar5 == null) {
-                z2 = true;
-            }
-            long j2 = 0;
-            long j3 = 0;
-            while (true) {
-                if (z && z2) {
-                    break;
-                }
-                if (!z2 && (z || gebVar5.e() - gebVar4.e() <= 50000)) {
-                    i = this.d;
-                    i3 = d2;
-                    i2 = i3;
-                    gebVar = gebVar5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int[] iArr = new int[2];
+            if (f > 1.0f) {
+                iArr[0] = i;
+                iArr[1] = (int) (i * f);
+                int i2 = iArr[1] % 16;
+                if (i2 > 8) {
+                    iArr[1] = iArr[1] + (16 - i2);
                 } else {
-                    i = this.e;
-                    i2 = d2;
-                    gebVar = gebVar4;
-                    i3 = d;
+                    iArr[1] = iArr[1] - i2;
                 }
-                MediaCodec.BufferInfo h = gebVar.h();
-                if (h == null) {
-                    i4 = d;
-                    geb gebVar7 = gebVar;
-                    if (gebVar7 == gebVar4) {
-                        j2 = gebVar4.e();
-                        d2 = i2;
-                        d = i4;
-                        z = true;
-                    } else if (gebVar7 == gebVar5) {
-                        j3 = gebVar5.e();
-                        d2 = i2;
-                        d = i4;
-                        z2 = true;
-                    } else {
-                        gebVar2 = gebVar4;
-                        gebVar3 = gebVar5;
-                        str2 = str3;
-                    }
+            } else {
+                iArr[1] = i;
+                iArr[0] = (int) (i * (1.0f / f));
+                int i3 = iArr[0] % 16;
+                if (i3 > 8) {
+                    iArr[0] = iArr[0] + (16 - i3);
                 } else {
-                    gebVar2 = gebVar4;
-                    i4 = d;
-                    geb gebVar8 = gebVar;
-                    if (gebVar8.f() != i3) {
-                        StringBuilder sb = new StringBuilder();
-                        gebVar3 = gebVar5;
-                        sb.append("WEIRD: got sample from track ");
-                        sb.append(gebVar8.f());
-                        sb.append(", expected ");
-                        sb.append(i3);
-                        yfb.e(str3, sb.toString());
-                    } else {
-                        gebVar3 = gebVar5;
-                    }
-                    str2 = str3;
-                    h.presentationTimeUs += j;
-                    this.c.writeSampleData(i, gebVar8.c(), h);
-                    gebVar8.a();
+                    iArr[0] = iArr[0] - i3;
                 }
-                str3 = str2;
-                d2 = i2;
-                d = i4;
-                gebVar4 = gebVar2;
-                gebVar5 = gebVar3;
             }
-            long max = j + Math.max(j2, j3) + 10000;
-            xeb xebVar = this.h;
-            if (xebVar != null) {
-                xebVar.c(max);
-            }
-            yfb.e(str3, "finish one file, ptsOffset " + max);
-            if (gebVar4 != null) {
-                gebVar4.j();
-            }
-            if (gebVar5 != null) {
-                gebVar5.j();
-            }
-            return max;
+            return iArr;
         }
-        return invokeJL.longValue;
+        return (int[]) invokeCommon.objValue;
     }
 
-    public boolean b(StringBuilder sb) {
-        InterceptResult invokeL;
+    public static int[] b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
-            boolean z = false;
-            boolean z2 = false;
-            for (String str : this.a) {
-                try {
-                    geb gebVar = new geb();
-                    try {
-                        gebVar.m(str, FileUtils.VIDEO_FILE_START);
-                        if (!z) {
-                            MediaFormat mediaFormat = gebVar.g().a;
-                            this.g = mediaFormat;
-                            if (mediaFormat == null) {
-                                yfb.e("VideoComposer", "No video track found in " + str);
-                            } else {
-                                z = true;
-                            }
-                        }
-                        if (!z2) {
-                            MediaFormat mediaFormat2 = gebVar.b().a;
-                            this.f = mediaFormat2;
-                            if (mediaFormat2 == null) {
-                                yfb.e("VideoComposer", "No audio track found in " + str);
-                            } else {
-                                z2 = true;
-                            }
-                        }
-                    } catch (Exception e) {
-                        yfb.e("VideoComposer", e.getMessage());
-                        e.printStackTrace();
-                    }
-                    gebVar.j();
-                    if (z && z2) {
-                        break;
-                    }
-                } catch (Exception e2) {
-                    if (sb != null) {
-                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
-                    }
-                    e2.printStackTrace();
-                    return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int[] iArr = new int[2];
+            if (i > i2) {
+                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i3 == 0) {
+                    iArr[0] = c(i);
+                    iArr[1] = c(i);
+                    return iArr;
                 }
-            }
-            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
-            this.c = mediaMuxer;
-            if (z) {
-                this.e = mediaMuxer.addTrack(this.g);
-            }
-            if (z2) {
-                this.d = this.c.addTrack(this.f);
-            }
-            this.c.start();
-            long j = 0;
-            for (String str2 : this.a) {
-                j = a(j, str2);
-            }
-            if (this.c != null) {
-                try {
-                    this.c.stop();
-                    this.c.release();
-                } catch (Exception unused) {
-                    yfb.e("VideoComposer", "Muxer close error. No data was written");
+                if (i3 > 0) {
+                    iArr[1] = i;
+                    iArr[0] = (int) (i * (1.0f / f));
+                } else {
+                    iArr[1] = i2;
+                    iArr[0] = (int) (i2 * (1.0f / f));
                 }
-                this.c = null;
+                iArr[0] = c(iArr[0]);
+            } else {
+                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i4 == 0) {
+                    iArr[0] = c(i2);
+                    iArr[1] = c(i2);
+                    return iArr;
+                }
+                if (i4 > 0) {
+                    iArr[0] = i;
+                    iArr[1] = (int) (i * f);
+                } else {
+                    iArr[0] = i2;
+                    iArr[1] = (int) (i2 * f);
+                }
+                iArr[1] = c(iArr[1]);
             }
-            yfb.j("VideoComposer", "video join finished");
-            return true;
+            return iArr;
         }
-        return invokeL.booleanValue;
+        return (int[]) invokeCommon.objValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i % 16;
+            return i2 > 8 ? i + (16 - i2) : i - i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static a d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i > 1920 || i2 > 1920) {
+                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                return new a(a2[0], a2[1]);
+            }
+            return new a(i, i2);
+        }
+        return (a) invokeII.objValue;
+    }
+
+    public static a e(float f, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] a2 = a(f, i);
+            return new a(a2[0], a2[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static a f(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] b = b(f, i, i2);
+            return new a(b[0], b[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static boolean g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

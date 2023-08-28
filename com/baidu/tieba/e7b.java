@@ -1,64 +1,66 @@
 package com.baidu.tieba;
 
-import android.support.v4.media.session.PlaybackStateCompat;
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.Locale;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UrlRequest;
+import java.util.Collection;
 import java.util.concurrent.Executor;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public abstract class e7b extends UploadDataSink {
+public final class e7b extends u6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public final Executor b;
-    public final Executor c;
-    public final UploadDataProvider d;
-    public ByteBuffer e;
-    public long f;
-    public long g;
+    public final String b;
+    public final ExecutorService c;
 
-    public abstract void o() throws IOException;
+    @Override // com.baidu.turbonet.net.TurbonetEngine
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    public abstract Runnable p(h7b h7bVar);
-
-    public abstract Runnable q(h7b h7bVar);
-
-    public abstract void r() throws IOException;
-
-    public abstract void s(long j);
-
-    public abstract int t(ByteBuffer byteBuffer) throws IOException;
-
-    public abstract void u(Throwable th);
+    @Override // com.baidu.turbonet.net.TurbonetEngine
+    public void e(String str, String str2, int i, int i2, long j, long j2, long j3, long j4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class b implements h7b {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ e7b b;
+        public final /* synthetic */ int a;
 
+        /* renamed from: com.baidu.tieba.e7b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class a implements h7b {
+        public class RunnableC0274a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ Runnable a;
+            public final /* synthetic */ a b;
 
-            public a(b bVar) {
+            public RunnableC0274a(a aVar, Runnable runnable) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {aVar, runnable};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -68,238 +70,56 @@ public abstract class e7b extends UploadDataSink {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.b = aVar;
+                this.a = runnable;
             }
 
-            @Override // com.baidu.tieba.h7b
-            public void run() throws Exception {
+            @Override // java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    UploadDataProvider uploadDataProvider = this.a.b.d;
-                    e7b e7bVar = this.a.b;
-                    uploadDataProvider.b(e7bVar, e7bVar.e);
+                    Thread.currentThread().setName("JavaCronetEngine");
+                    Process.setThreadPriority(this.b.a);
+                    this.a.run();
                 }
             }
         }
 
-        public b(e7b e7bVar, boolean z) {
+        public a(e7b e7bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e7bVar, Boolean.valueOf(z)};
+                Object[] objArr = {e7bVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = e7bVar;
-            this.a = z;
+            this.a = i;
         }
 
-        @Override // com.baidu.tieba.h7b
-        public void run() throws Exception {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.e.flip();
-                if (this.b.f != -1 && this.b.f - this.b.g < this.b.e.remaining()) {
-                    this.b.u(new IllegalArgumentException(String.format(Locale.getDefault(), "Read upload data length %d exceeds expected length %d", Long.valueOf(this.b.g + this.b.e.remaining()), Long.valueOf(this.b.f))));
-                    return;
-                }
-                e7b e7bVar = this.b;
-                e7b.i(e7bVar, e7bVar.t(e7bVar.e));
-                if (this.b.g >= this.b.f && (this.b.f != -1 || this.a)) {
-                    if (this.b.f == -1) {
-                        this.b.o();
-                        return;
-                    } else if (this.b.f == this.b.g) {
-                        this.b.o();
-                        return;
-                    } else {
-                        this.b.u(new IllegalArgumentException(String.format(Locale.getDefault(), "Read upload data length %d exceeds expected length %d", Long.valueOf(this.b.g), Long.valueOf(this.b.f))));
-                        return;
-                    }
-                }
-                this.b.e.clear();
-                this.b.a.set(0);
-                this.b.n(new a(this));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                return Executors.defaultThreadFactory().newThread(new RunnableC0274a(this, runnable));
             }
+            return (Thread) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements h7b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e7b a;
-
-        /* loaded from: classes5.dex */
-        public class a implements h7b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.baidu.tieba.h7b
-            public void run() throws Exception {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    UploadDataProvider uploadDataProvider = this.a.a.d;
-                    e7b e7bVar = this.a.a;
-                    uploadDataProvider.b(e7bVar, e7bVar.e);
-                }
-            }
-        }
-
-        public c(e7b e7bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e7bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e7bVar;
-        }
-
-        @Override // com.baidu.tieba.h7b
-        public void run() throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.r();
-                this.a.a.set(0);
-                this.a.n(new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Executor a;
-        public final /* synthetic */ e7b b;
-
-        public a(e7b e7bVar, Executor executor) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e7bVar, executor};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e7bVar;
-            this.a = executor;
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                try {
-                    this.a.execute(runnable);
-                } catch (RejectedExecutionException e) {
-                    this.b.u(e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements h7b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ e7b b;
-
-        public d(e7b e7bVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e7bVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e7bVar;
-            this.a = z;
-        }
-
-        @Override // com.baidu.tieba.h7b
-        public void run() throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e7b e7bVar = this.b;
-                e7bVar.f = e7bVar.d.a();
-                if (this.b.f == 0) {
-                    this.b.o();
-                    return;
-                }
-                if (this.b.f > 0 && this.b.f < PlaybackStateCompat.ACTION_PLAY_FROM_URI) {
-                    e7b e7bVar2 = this.b;
-                    e7bVar2.e = ByteBuffer.allocateDirect(((int) e7bVar2.f) + 1);
-                } else {
-                    this.b.e = ByteBuffer.allocateDirect(8192);
-                }
-                e7b e7bVar3 = this.b;
-                e7bVar3.s(e7bVar3.f);
-                if (this.a) {
-                    this.b.w();
-                    return;
-                }
-                this.b.a.set(1);
-                this.b.d.c(this.b);
-            }
-        }
-    }
-
-    public e7b(Executor executor, Executor executor2, UploadDataProvider uploadDataProvider) {
+    public e7b(v6b v6bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, executor2, uploadDataProvider};
+            Object[] objArr = {v6bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -309,72 +129,23 @@ public abstract class e7b extends UploadDataSink {
                 return;
             }
         }
-        this.a = new AtomicInteger(3);
-        this.b = new a(this, executor);
-        this.c = executor2;
-        this.d = uploadDataProvider;
+        int E = v6bVar.E(9);
+        this.b = v6bVar.r();
+        this.c = new ThreadPoolExecutor(10, 20, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a(this, E));
     }
 
-    @Override // com.baidu.turbonet.net.UploadDataSink
-    public void b(Exception exc) {
+    @Override // com.baidu.turbonet.net.ExperimentalCronetEngine, com.baidu.turbonet.net.TurbonetEngine
+    public /* bridge */ /* synthetic */ UrlRequest.Builder d(String str, UrlRequest.Callback callback, Executor executor) {
+        return super.f(str, callback, executor);
+    }
+
+    @Override // com.baidu.tieba.u6b
+    public r7b g(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, RequestFinishedInfo.Listener listener, int i4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            u(exc);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, callback, executor, Integer.valueOf(i), collection, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i2), Boolean.valueOf(z5), Integer.valueOf(i3), listener, Integer.valueOf(i4)})) == null) {
+            return new h7b(callback, this.c, executor, str, this.b, z3, z4, i2, z5, i3);
         }
-    }
-
-    public final void n(h7b h7bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, h7bVar) == null) {
-            try {
-                this.b.execute(q(h7bVar));
-            } catch (RejectedExecutionException e) {
-                u(e);
-            }
-        }
-    }
-
-    public void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            n(new d(this, z));
-        }
-    }
-
-    public static /* synthetic */ long i(e7b e7bVar, long j) {
-        long j2 = e7bVar.g + j;
-        e7bVar.g = j2;
-        return j2;
-    }
-
-    @Override // com.baidu.turbonet.net.UploadDataSink
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (this.a.compareAndSet(0, 2)) {
-                this.c.execute(p(new b(this, z)));
-                return;
-            }
-            throw new IllegalStateException("onReadSucceeded() called when not awaiting a read result; in state: " + this.a.get());
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.UploadDataSink
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a.compareAndSet(1, 2)) {
-                w();
-                return;
-            }
-            throw new IllegalStateException("onRewindSucceeded() called when not awaiting a rewind; in state: " + this.a.get());
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c.execute(p(new c(this)));
-        }
+        return (r7b) invokeCommon.objValue;
     }
 }

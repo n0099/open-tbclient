@@ -5,7 +5,7 @@ import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.yeb;
+import com.baidu.tieba.afb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dua implements yeb.b {
+public class dua implements afb.b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile dua k;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public yeb.b b;
-    public yeb.b c;
-    public yeb.b d;
+    public afb.b b;
+    public afb.b c;
+    public afb.b d;
     public boolean e;
-    public yeb.f f;
+    public afb.f f;
     public SurfaceTexture g;
     public int h;
     public boolean i;
-    public yeb.a j;
+    public afb.a j;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class dua implements yeb.b {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements yeb.a {
+    public class a implements afb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dua a;
@@ -68,7 +68,7 @@ public class dua implements yeb.b {
             this.a = duaVar;
         }
 
-        @Override // com.baidu.tieba.yeb.a
+        @Override // com.baidu.tieba.afb.a
         public void a(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -118,18 +118,18 @@ public class dua implements yeb.b {
         this.d = B;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void d(byte[] bArr) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
             bVar.d(bArr);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void h(boolean z) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.e = z;
@@ -138,7 +138,7 @@ public class dua implements yeb.b {
                 this.d = this.c;
                 return;
             }
-            yeb.b bVar2 = this.c;
+            afb.b bVar2 = this.c;
             if (bVar2 != null) {
                 bVar2.release();
             }
@@ -146,57 +146,57 @@ public class dua implements yeb.b {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void i(boolean z) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
             bVar.i(z);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void j(boolean z) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
             bVar.j(z);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void l(int i) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
             bVar.l(i);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void m(boolean z) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
             bVar.m(z);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
-    public void s(yeb.a aVar) {
-        yeb.b bVar;
+    @Override // com.baidu.tieba.afb.b
+    public void s(afb.a aVar) {
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
             bVar.s(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void u(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             this.h = i;
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 bVar.u(i);
             }
@@ -233,12 +233,12 @@ public class dua implements yeb.b {
         return (TbPageContext) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.a();
             }
@@ -247,12 +247,12 @@ public class dua implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.b();
             }
@@ -261,12 +261,12 @@ public class dua implements yeb.b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.e();
             }
@@ -275,12 +275,12 @@ public class dua implements yeb.b {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.f();
             }
@@ -289,24 +289,24 @@ public class dua implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.i = true;
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 bVar.n();
             }
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.o();
             }
@@ -315,12 +315,12 @@ public class dua implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.p();
             }
@@ -329,21 +329,21 @@ public class dua implements yeb.b {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void q() {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
             bVar.q();
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.r();
             }
@@ -352,17 +352,17 @@ public class dua implements yeb.b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             q();
             this.d = null;
-            yeb.b bVar = this.b;
+            afb.b bVar = this.b;
             if (bVar != null) {
                 bVar.release();
             }
-            yeb.b bVar2 = this.c;
+            afb.b bVar2 = this.c;
             if (bVar2 != null) {
                 bVar2.release();
             }
@@ -374,12 +374,12 @@ public class dua implements yeb.b {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            yeb.b bVar = this.d;
+            afb.b bVar = this.d;
             if (bVar != null) {
                 return bVar.v();
             }
@@ -402,40 +402,40 @@ public class dua implements yeb.b {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void c(int i, int i2, int i3, int i4) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
             bVar.c(i, i2, i3, i4);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void t(int i, int i2, int i3, int i4) {
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
             bVar.t(i, i2, i3, i4);
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void g(int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             this.b.g(i, i2, i3, z);
-            yeb.b bVar = this.c;
+            afb.b bVar = this.c;
             if (bVar != null) {
                 bVar.g(i, i2, i3, z);
             }
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
-    public boolean k(SurfaceTexture surfaceTexture, yeb.f fVar) {
+    @Override // com.baidu.tieba.afb.b
+    public boolean k(SurfaceTexture surfaceTexture, afb.f fVar) {
         InterceptResult invokeLL;
-        yeb.b bVar;
+        afb.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
             this.g = surfaceTexture;
@@ -445,7 +445,7 @@ public class dua implements yeb.b {
                     return true;
                 }
                 C();
-                yeb.b bVar2 = this.d;
+                afb.b bVar2 = this.d;
                 if (bVar2 == null) {
                     return false;
                 }
@@ -456,7 +456,7 @@ public class dua implements yeb.b {
                 }
                 return k2;
             }
-            yeb.b bVar3 = this.b;
+            afb.b bVar3 = this.b;
             this.d = bVar3;
             if (bVar3 == null) {
                 return false;

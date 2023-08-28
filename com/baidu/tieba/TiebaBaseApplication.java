@@ -198,7 +198,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             qk1.b(this);
             AppConfig.init(false, false, false, false);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
-            o6b.b(this);
+            q6b.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1011);

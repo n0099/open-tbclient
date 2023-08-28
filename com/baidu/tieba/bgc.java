@@ -1,21 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.TypedValue;
+import android.graphics.Color;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes5.dex */
-public class bgc {
+public final class bgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947645451, "Lcom/baidu/tieba/bgc;")) == null) {
+            return;
         }
-        return invokeF.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947645451, "Lcom/baidu/tieba/bgc;");
+        }
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str, 0, 2, null) : invokeL.intValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                RLog.error("ColorUtil", e.getLocalizedMessage(), new Object[0]);
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static /* synthetic */ int c(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = -16777216;
+        }
+        return b(str, i);
     }
 }

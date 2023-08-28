@@ -29,7 +29,7 @@ public final class yab {
         this.a = new xab();
     }
 
-    public final List<com.baidu.ubs.analytics.a.l> a() {
+    public final List<com.baidu.ubs.analytics.a.i> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,13 +42,6 @@ public final class yab {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.b(i);
-        }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.c(lVar);
         }
     }
 }

@@ -434,6 +434,23 @@ public class ZeusTransformUtils {
         }
     }
 
+    public static void startActivity(Object obj, Intent intent, Bundle bundle, String str) {
+        try {
+            ComponentManager.startActivity(obj, intent, bundle, str);
+        } catch (Throwable th) {
+            if (obj instanceof Context) {
+                ComponentManager.startActivity((Context) obj, intent, bundle, str);
+                return;
+            }
+            try {
+                MethodUtils.invokeMethod(obj, WBConstants.SHARE_START_ACTIVITY, new Object[]{intent, bundle}, new Class[]{Intent.class, Bundle.class});
+            } catch (Throwable th2) {
+                th2.addSuppressed(th);
+                throw new RuntimeException(th2);
+            }
+        }
+    }
+
     public static void startActivityForResult(Object obj, Intent intent, int i, String str) {
         startActivityForResult(obj, intent, i, null, str);
     }
@@ -652,23 +669,6 @@ public class ZeusTransformUtils {
             MethodUtils.invokeMethod(obj, "setResult", Integer.valueOf(i), intent);
         } catch (Exception e) {
             throw new RuntimeException(e);
-        }
-    }
-
-    public static void startActivity(Object obj, Intent intent, Bundle bundle, String str) {
-        try {
-            ComponentManager.startActivity(obj, intent, bundle, str);
-        } catch (Throwable th) {
-            if (obj instanceof Context) {
-                ComponentManager.startActivity((Context) obj, intent, bundle, str);
-                return;
-            }
-            try {
-                MethodUtils.invokeMethod(obj, WBConstants.SHARE_START_ACTIVITY, new Object[]{intent, bundle}, new Class[]{Intent.class, Bundle.class});
-            } catch (Throwable th2) {
-                th2.addSuppressed(th);
-                throw new RuntimeException(th2);
-            }
         }
     }
 

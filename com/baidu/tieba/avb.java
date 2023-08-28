@@ -1,22 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class avb extends rub {
+public class avb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, rub> a;
-    public static final Object b;
-    public static String c;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,59 +24,55 @@ public class avb extends rub {
                 return;
             }
         }
-        a = new HashMap();
-        b = new Object();
+        a = "0123456789ABCDEF".toCharArray();
     }
 
-    public avb(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        wub.d(context, str);
-    }
-
-    public static rub a(Context context) {
+    public static byte[] a(char[] cArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if ((cArr.length & 1) == 0) {
+                byte[] bArr = new byte[cArr.length >> 1];
+                int i = 0;
+                int i2 = 0;
+                while (i < cArr.length) {
+                    int digit = Character.digit(cArr[i], 16);
+                    if (digit == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
+                    }
+                    int i3 = i + 1;
+                    int digit2 = Character.digit(cArr[i3], 16);
+                    if (digit2 == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
+                    }
+                    i = i3 + 1;
+                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
+                    i2++;
+                }
+                return bArr;
             }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
+            throw new IllegalArgumentException("Odd number of characters.");
         }
-        return (rub) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static rub b(Context context, String str) {
-        InterceptResult invokeLL;
-        rub rubVar;
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b >> 4) & 15]);
+                sb.append(a[b & 15]);
             }
-            synchronized (b) {
-                rubVar = a.get(str);
-                if (rubVar == null) {
-                    a.put(str, new avb(context, str));
-                }
-            }
-            return rubVar;
+            return sb.toString();
         }
-        return (rub) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 }

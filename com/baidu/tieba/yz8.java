@@ -75,7 +75,7 @@ public abstract class yz8<SdkMsg extends ChatMsg, T> implements b09<SdkMsg, cy8<
             Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
             cy8Var.d(msgKey);
             cy8Var.e().l(msg.getContacterUk());
-            cy8Var.e().k(cgb.c(msg.getSenderUid(), 0L));
+            cy8Var.e().k(egb.c(msg.getSenderUid(), 0L));
             cy8Var.e().i(msg.getStatus());
             cy8Var.j(msg);
             boolean isSelf = msg.isSelf(TbadkApplication.getInst());

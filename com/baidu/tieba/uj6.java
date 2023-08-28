@@ -6,6 +6,7 @@ import android.util.Pair;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,13 @@ public abstract class uj6 {
         webView.setScrollBarStyle(0);
         webView.requestFocusFromTouch();
         if (Build.VERSION.SDK_INT >= 26) {
-            webView.setRendererPriorityPolicy(2, false);
+            try {
+                webView.setRendererPriorityPolicy(2, false);
+            } catch (Exception e) {
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    throw e;
+                }
+            }
         }
     }
 

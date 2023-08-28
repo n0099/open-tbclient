@@ -25,8 +25,8 @@ import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nib;
-import com.baidu.tieba.vib;
+import com.baidu.tieba.pib;
+import com.baidu.tieba.xib;
 import com.baidu.yalog.Logger;
 import com.baidu.yalog.LoggerManager;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -682,9 +682,9 @@ public class DebugYaLogActivity extends Activity {
             if (jSONObject2.length() > 0) {
                 jSONObject.put("set", jSONObject2);
             }
-            vib vibVar = (vib) ServiceManager.getService(vib.a);
-            if (vibVar != null) {
-                vibVar.a(jSONObject);
+            xib xibVar = (xib) ServiceManager.getService(xib.a);
+            if (xibVar != null) {
+                xibVar.a(jSONObject);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -840,9 +840,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject4.put("only_wifi", str2);
             jSONObject2.put(str20, jSONObject4);
             jSONObject.put("set", jSONObject2);
-            nib nibVar = (nib) ServiceManager.getService(nib.a);
-            if (nibVar != null) {
-                nibVar.d(jSONObject);
+            pib pibVar = (pib) ServiceManager.getService(pib.a);
+            if (pibVar != null) {
+                pibVar.d(jSONObject);
                 Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
             } else {
                 Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -909,9 +909,9 @@ public class DebugYaLogActivity extends Activity {
                 Toast.makeText(this, "无id配置", 0).show();
                 return;
             }
-            vib vibVar = (vib) ServiceManager.getService(vib.a);
-            if (vibVar != null) {
-                vibVar.b(jSONObject, true);
+            xib xibVar = (xib) ServiceManager.getService(xib.a);
+            if (xibVar != null) {
+                xibVar.b(jSONObject, true);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }

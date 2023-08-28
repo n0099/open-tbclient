@@ -58,7 +58,7 @@ public class zoa {
         this.f = new TextPaint(1);
         this.g = new TextPaint(1);
         this.h = new TextPaint(1);
-        this.a = pgb.j(R.dimen.tbds72);
+        this.a = rgb.j(R.dimen.tbds72);
     }
 
     public static zoa d() {
@@ -102,7 +102,7 @@ public class zoa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (int) (rgb.e() * 0.85d);
+            return (int) (tgb.e() * 0.85d);
         }
         return invokeV.intValue;
     }
@@ -220,8 +220,8 @@ public class zoa {
             this.f.setTextSize(this.a);
             int[] g = g(str);
             if (g[0] >= 1 && g[1] >= 1) {
-                Bitmap a = bgb.a(this.d);
-                NinePatchChunk f = bgb.f(a, this.d);
+                Bitmap a = dgb.a(this.d);
+                NinePatchChunk f = dgb.f(a, this.d);
                 if (f != null) {
                     Rect rect = f.padding;
                     i = rect.left;
@@ -242,16 +242,16 @@ public class zoa {
                 Canvas canvas2 = new Canvas(createBitmap);
                 canvas2.save();
                 int i5 = 20;
-                bgb.b(a, f, canvas2, 20);
-                int g2 = bgb.g(this.f);
+                dgb.b(a, f, canvas2, 20);
+                int g2 = dgb.g(this.f);
                 int i6 = i + 20;
                 int abs = (g2 / 2) + ((int) (Math.abs(this.f.ascent() + this.f.descent()) / 2.0f)) + 20 + i2;
                 int i7 = 0;
                 while (i7 < this.i) {
                     int i8 = i7 + 1;
-                    bgb.c(this.f, this.d, null);
-                    int[] d = bgb.d(this.f, this.g, this.h, this.d, null);
-                    bgb.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
+                    dgb.c(this.f, this.d, null);
+                    int[] d = dgb.d(this.f, this.g, this.h, this.d, null);
+                    dgb.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
                     if (d[0] != 0) {
                         i3 = i7;
                         canvas = canvas2;

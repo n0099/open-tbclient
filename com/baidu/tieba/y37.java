@@ -46,12 +46,12 @@ public class y37 extends pi5 {
 
         /* renamed from: com.baidu.tieba.y37$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0535a implements Runnable {
+        public class RunnableC0536a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0535a(a aVar) {
+            public RunnableC0536a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class y37 extends pi5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                rt6.a(new RunnableC0535a(this), "UpdateUserCollect", 1);
+                rt6.a(new RunnableC0536a(this), "UpdateUserCollect", 1);
             }
         }
     }

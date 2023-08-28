@@ -2,43 +2,119 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.flavor.Flavors;
+import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
 import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.banner2.UnifiedBannerADListener;
-import com.qq.e.ads.banner2.UnifiedBannerView;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
+import com.qq.e.ads.rewardvideo.RewardVideoADListener;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.util.AdError;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class lob extends vnb<rob> {
+public class lob extends xnb<xob> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ModuleConfigGdt e;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lob(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigGdt};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = moduleConfigGdt;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ynb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            xob xobVar = (xob) obj;
+        }
+    }
+
+    @Override // com.baidu.tieba.xnb
+    public void e(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            onLoadStart(funAdSlot, tid);
+            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
+            Ssp.Pid pid = this.mPid;
+            int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
+            if (checkForbidStatus != 0) {
+                onError(checkForbidStatus != 5004 ? checkForbidStatus != 109502 ? "" : "toomuch" : "cheat", tid);
+                return;
+            }
+            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ this.e.autoPlayMuted);
+            RewardVideoAD[] rewardVideoADArr = {rewardVideoAD};
+            rewardVideoAD.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setUserId(FunAdSdk.getFunAdConfig().userId).setCustomData(buildExtra).build());
+            rewardVideoAD.loadAD();
+        }
+    }
+
+    @Override // com.baidu.tieba.xnb, com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            e(context, funAdSlot);
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements UnifiedBannerADListener {
+    public class a implements RewardVideoADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
-        public rob c;
-        public final /* synthetic */ UnifiedBannerView[] d;
-        public final /* synthetic */ lob e;
+        public xob c;
+        public final /* synthetic */ RewardVideoAD[] d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ lob f;
 
-        public a(lob lobVar, UnifiedBannerView[] unifiedBannerViewArr) {
+        public a(lob lobVar, RewardVideoAD[] rewardVideoADArr, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lobVar, unifiedBannerViewArr};
+                Object[] objArr = {lobVar, rewardVideoADArr, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,116 +124,103 @@ public class lob extends vnb<rob> {
                     return;
                 }
             }
-            this.e = lobVar;
-            this.d = unifiedBannerViewArr;
+            this.f = lobVar;
+            this.d = rewardVideoADArr;
+            this.e = str;
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClicked() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.e.onAdClicked((lob) this.c, this.b, new String[0]);
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdClicked((lob) this.c, this.b, (Map<String, String>) hashMap);
                 this.b = true;
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClosed() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.e();
-                this.e.onAdClose(this.c);
+                LogPrinter.d();
+                this.f.onAdClose((lob) this.c, this.e);
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADExposure() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADExpose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.e.onAdShow((lob) this.c, this.a, new String[0]);
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdShow((lob) this.c, this.a, (Map<String, String>) hashMap);
                 this.a = true;
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADLeftApplication() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
+                xob xobVar = new xob(this.d[0]);
+                this.c = xobVar;
+                this.f.onAdLoaded(xobVar, this.e);
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADReceive() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 LogPrinter.d();
-                rob robVar = new rob(this.d[0]);
-                this.c = robVar;
-                this.e.onAdLoaded(robVar, new String[0]);
             }
         }
 
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onNoAD(AdError adError) {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onError(AdError adError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
-                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
+                LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.f.onError(adError.getErrorCode(), adError.getErrorMsg(), this.e);
             }
         }
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lob(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                LogPrinter.d();
             }
         }
-    }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new cob(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vnb
-    public void e(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (!(context instanceof Activity)) {
-                onError(0, "NoA");
-                return;
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                LogPrinter.d();
             }
-            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
-            unifiedBannerView.setRefresh(0);
-            unifiedBannerView.loadAD();
-            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
         }
-    }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        rob robVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (robVar = (rob) obj) != null) {
-            ((UnifiedBannerView) robVar.a).destroy();
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onReward(Map<String, Object> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+                LogPrinter.d();
+                String str = (String) map.get("transId");
+                this.c.b = str;
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                hashMap.put("p_trs_id", str);
+                this.f.onRewardedVideo((lob) this.c, (Map<String, String>) hashMap);
+            }
         }
     }
 
@@ -165,15 +228,10 @@ public class lob extends vnb<rob> {
     public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            rob robVar = (rob) obj;
-            onShowStart(robVar);
-            if (((UnifiedBannerView) robVar.a).getParent() != null) {
-                ((ViewGroup) ((UnifiedBannerView) robVar.a).getParent()).removeView((View) robVar.a);
-            }
-            viewGroup.removeAllViews();
-            int width = viewGroup.getWidth();
-            viewGroup.addView((View) robVar.a, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            xob xobVar = (xob) obj;
+            onShowStart(xobVar);
+            ((RewardVideoAD) xobVar.a).showAD(activity);
             return true;
         }
         return invokeLLLL.booleanValue;

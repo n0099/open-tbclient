@@ -23,12 +23,12 @@ public class oja {
 
         /* renamed from: com.baidu.tieba.oja$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0426a implements Runnable {
+        public class RunnableC0428a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0426a(a aVar) {
+            public RunnableC0428a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,7 +77,7 @@ public class oja {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SafeHandler.getInst().post(new RunnableC0426a(this));
+                SafeHandler.getInst().post(new RunnableC0428a(this));
             }
         }
     }

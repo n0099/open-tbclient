@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
@@ -15,6 +16,7 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -138,6 +140,8 @@ public class iaa {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             kia.a("SplashCloseManager closeInternal flag:" + this.a.g() + " isHot:" + this.a.h());
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.i("SplashCloseManager", "开屏广告：closeInternal, flag: " + this.a.g() + " isHot:" + this.a.h());
             this.a.getActivity();
             if (this.a.g() == 1) {
                 if (this.a.h()) {
@@ -170,10 +174,13 @@ public class iaa {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            DefaultLog.getInstance().i("SplashCloseManager", "开屏广告：removeAdView");
             ViewGroup viewGroup = (ViewGroup) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09227d);
             if (viewGroup != null) {
                 viewGroup.setVisibility(8);
                 viewGroup.removeAllViews();
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("SplashCloseManager", "开屏广告：removeAdView, 移除后子View数量（判断是否移除成功）：" + viewGroup.getChildCount());
             }
             SafeHandler.getInst().post(new b(this));
         }

@@ -41,14 +41,14 @@ public class we3 extends ad3 {
 
         /* renamed from: com.baidu.tieba.we3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0513a implements ih2.f {
+        public class C0515a implements ih2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ih2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0513a(a aVar, ih2.e eVar, JSONObject jSONObject) {
+            public C0515a(a aVar, ih2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class we3 extends ad3 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                ih2.q(f, new C0513a(this, f, c2));
+                ih2.q(f, new C0515a(this, f, c2));
             }
         }
 

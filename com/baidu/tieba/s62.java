@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.t62;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +39,7 @@ public abstract class s62<V extends View, M extends t62> {
     @Nullable
     public SwanAppComponentContainerView e;
     @Nullable
-    public t7c f;
+    public v7c f;
     public int g;
 
     public void A(@NonNull V v) {
@@ -58,7 +58,7 @@ public abstract class s62<V extends View, M extends t62> {
     }
 
     /* loaded from: classes8.dex */
-    public class a extends t7c<Object> {
+    public class a extends v7c<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String e;
@@ -86,7 +86,7 @@ public abstract class s62<V extends View, M extends t62> {
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.s62 */
         /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.s62 */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.q7c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -103,7 +103,7 @@ public abstract class s62<V extends View, M extends t62> {
             }
         }
 
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.q7c
         @SuppressLint({"BDThrowableCheck"})
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public abstract class s62<V extends View, M extends t62> {
             }
         }
 
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.q7c
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -126,7 +126,7 @@ public abstract class s62<V extends View, M extends t62> {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements n7c.a<Object> {
+    public class b implements p7c.a<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -152,17 +152,17 @@ public abstract class s62<V extends View, M extends t62> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n7c.a, com.baidu.tieba.b8c
-        public void call(t7c<? super Object> t7cVar) {
+        @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+        public void call(v7c<? super Object> v7cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t7cVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, v7cVar) == null) {
                 if (s62.h) {
                     Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
                 }
                 if (this.a != Thread.currentThread().getId()) {
                     w72.a("Component-Base", "save subscriber and return subscriber: nolinear !");
                 }
-                this.b.f = t7cVar;
+                this.b.f = v7cVar;
             }
         }
     }
@@ -226,9 +226,9 @@ public abstract class s62<V extends View, M extends t62> {
     }
 
     public final void E() {
-        t7c t7cVar;
+        v7c v7cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (t7cVar = this.f) != null && !t7cVar.isUnsubscribed()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (v7cVar = this.f) != null && !v7cVar.isUnsubscribed()) {
             this.f.unsubscribe();
         }
     }
@@ -578,7 +578,7 @@ public abstract class s62<V extends View, M extends t62> {
 
     @Nullable
     @UiThread
-    public final t7c w() {
+    public final v7c w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -598,8 +598,8 @@ public abstract class s62<V extends View, M extends t62> {
             if (this.e != null) {
                 d82.o("Component-Base", o + " repeat insert delayed: container view repeat");
             }
-            t7c t7cVar = this.f;
-            if (t7cVar != null && !t7cVar.isUnsubscribed()) {
+            v7c v7cVar = this.f;
+            if (v7cVar != null && !v7cVar.isUnsubscribed()) {
                 this.f.unsubscribe();
                 this.f = null;
                 d82.o("Component-Base", o + " insert delayed repeat: subscriber repeat");
@@ -610,13 +610,13 @@ public abstract class s62<V extends View, M extends t62> {
                 if (h) {
                     Log.d("Component-Base", o + " insert delayed（container view）: success");
                 }
-                n7c.d(new b(this, Thread.currentThread().getId())).F(new a(this, o));
+                p7c.d(new b(this, Thread.currentThread().getId())).F(new a(this, o));
                 return this.f;
             }
             d82.c("Component-Base", o + " insert delayed: attach fail");
             return null;
         }
-        return (t7c) invokeV.objValue;
+        return (v7c) invokeV.objValue;
     }
 
     @NonNull

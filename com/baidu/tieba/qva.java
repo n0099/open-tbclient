@@ -227,10 +227,10 @@ public class qva extends AMediaPlayer {
                 String extractMetadata3 = mediaMetadataRetriever.extractMetadata(19);
                 String extractMetadata4 = mediaMetadataRetriever.extractMetadata(9);
                 mediaMetadataRetriever.release();
-                int b2 = cgb.b(extractMetadata, 0);
-                int b3 = cgb.b(extractMetadata2, 0);
-                int b4 = cgb.b(extractMetadata3, 0);
-                int b5 = cgb.b(extractMetadata4, 0);
+                int b2 = egb.b(extractMetadata, 0);
+                int b3 = egb.b(extractMetadata2, 0);
+                int b4 = egb.b(extractMetadata3, 0);
+                int b5 = egb.b(extractMetadata4, 0);
                 videoPlayData.rotation = b2;
                 videoPlayData.width = b3;
                 videoPlayData.height = b4;
@@ -653,7 +653,7 @@ public class qva extends AMediaPlayer {
             mediaMetadataRetriever.setDataSource(uri.getPath());
             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
             mediaMetadataRetriever.release();
-            this.f = cgb.b(extractMetadata, 0);
+            this.f = egb.b(extractMetadata, 0);
         }
     }
 }

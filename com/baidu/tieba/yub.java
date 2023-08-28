@@ -1,14 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+@Deprecated
 /* loaded from: classes8.dex */
-public class yub {
+public abstract class yub implements vub {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static final Map<String, yub> a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -24,55 +31,57 @@ public class yub {
                 return;
             }
         }
-        a = "0123456789ABCDEF".toCharArray();
+        a = new HashMap();
+        b = new Object();
     }
 
-    public static byte[] a(char[] cArr) {
+    public yub() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static yub c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if ((cArr.length & 1) == 0) {
-                byte[] bArr = new byte[cArr.length >> 1];
-                int i = 0;
-                int i2 = 0;
-                while (i < cArr.length) {
-                    int digit = Character.digit(cArr[i], 16);
-                    if (digit == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
-                    }
-                    int i3 = i + 1;
-                    int digit2 = Character.digit(cArr[i3], 16);
-                    if (digit2 == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
-                    }
-                    i = i3 + 1;
-                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
-                    i2++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
+            }
+            return d(context, context.getPackageName());
+        }
+        return (yub) invokeL.objValue;
+    }
+
+    public static yub d(Context context, String str) {
+        InterceptResult invokeLL;
+        yub yubVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            synchronized (b) {
+                yubVar = a.get(str);
+                if (yubVar == null) {
+                    yubVar = new evb(context, str);
+                    a.put(str, yubVar);
                 }
-                return bArr;
             }
-            throw new IllegalArgumentException("Odd number of characters.");
+            return yubVar;
         }
-        return (byte[]) invokeL.objValue;
+        return (yub) invokeLL.objValue;
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
-    }
+    @Override // com.baidu.tieba.vub
+    public abstract /* synthetic */ Context getContext();
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b >> 4) & 15]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
+    @Override // com.baidu.tieba.vub
+    public abstract /* synthetic */ String getIdentifier();
 }

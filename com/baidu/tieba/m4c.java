@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.l1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,801 +13,603 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.render.RenderEngine;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.preference.Preference;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public final class m4c {
+public class m4c implements gzb, dzb {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile AtomicBoolean v;
+    public static volatile m4c w;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i2) == null) {
-        }
-    }
+    public final AtomicBoolean a;
+    public final AtomicBoolean b;
+    public final AtomicBoolean c;
+    public final boolean d;
+    public final int e;
+    public k4c f;
+    public HashMap<String, String> g;
+    public Context h;
+    public WeakReference<h4c> i;
+    public final List<g4c> j;
+    public final List<g4c> k;
+    public int l;
+    public int m;
+    public AtomicBoolean n;
+    public AtomicBoolean o;
+    public final AtomicBoolean p;
+    public final Queue<Long> q;
+    public final AtomicBoolean r;
+    public Handler s;
+    public HashMap<String, String> t;
+    public l1c.a u;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a implements l1c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public final /* synthetic */ m4c b;
 
-        public a() {
+        public a(m4c m4cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m4cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int alpha = 2130771969;
-        public static int font = 2130771969;
-        public static int fontProviderAuthority = 2130771969;
-        public static int fontProviderCerts = 2130771969;
-        public static int fontProviderFetchStrategy = 2130771969;
-        public static int fontProviderFetchTimeout = 2130771969;
-        public static int fontProviderPackage = 2130771969;
-        public static int fontProviderQuery = 2130771969;
-        public static int fontStyle = 2130771969;
-        public static int fontVariationSettings = 2130771969;
-        public static int fontWeight = 2130771969;
-        public static int ttcIndex = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660499, "Lcom/baidu/tieba/m4c$d;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660499, "Lcom/baidu/tieba/m4c$d;");
-            }
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int androidx_core_ripple_material_light = 2130771969;
-        public static int androidx_core_secondary_text_default_material_light = 2130771969;
-        public static int notification_action_color_filter = 2130771969;
-        public static int notification_icon_bg_color = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660437, "Lcom/baidu/tieba/m4c$f;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660437, "Lcom/baidu/tieba/m4c$f;");
-            }
-        }
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class g {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int compat_button_inset_horizontal_material = 2130771969;
-        public static int compat_button_inset_vertical_material = 2130771969;
-        public static int compat_button_padding_horizontal_material = 2130771969;
-        public static int compat_button_padding_vertical_material = 2130771969;
-        public static int compat_control_corner_material = 2130771969;
-        public static int compat_notification_large_icon_max_height = 2130771969;
-        public static int compat_notification_large_icon_max_width = 2130771969;
-        public static int notification_action_icon_size = 2130771969;
-        public static int notification_action_text_size = 2130771969;
-        public static int notification_big_circle_margin = 2130771969;
-        public static int notification_content_margin_start = 2130771969;
-        public static int notification_large_icon_height = 2130771969;
-        public static int notification_large_icon_width = 2130771969;
-        public static int notification_main_column_padding_top = 2130771969;
-        public static int notification_media_narrow_margin = 2130771969;
-        public static int notification_right_icon_size = 2130771969;
-        public static int notification_right_side_padding_top = 2130771969;
-        public static int notification_small_icon_background_padding = 2130771969;
-        public static int notification_small_icon_size_as_large = 2130771969;
-        public static int notification_subtext_size = 2130771969;
-        public static int notification_top_pad = 2130771969;
-        public static int notification_top_pad_large_text = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660406, "Lcom/baidu/tieba/m4c$g;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660406, "Lcom/baidu/tieba/m4c$g;");
-            }
-        }
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class h {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int notification_action_background = 2130771969;
-        public static int notification_bg = 2130771969;
-        public static int notification_bg_low = 2130771969;
-        public static int notification_bg_low_normal = 2130771969;
-        public static int notification_bg_low_pressed = 2130771969;
-        public static int notification_bg_normal = 2130771969;
-        public static int notification_bg_normal_pressed = 2130771969;
-        public static int notification_icon_background = 2130771969;
-        public static int notification_template_icon_bg = 2130771969;
-        public static int notification_template_icon_low_bg = 2130771969;
-        public static int notification_tile_bg = 2130771969;
-        public static int notify_panel_notification_icon_bg = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660375, "Lcom/baidu/tieba/m4c$h;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660375, "Lcom/baidu/tieba/m4c$h;");
-            }
-        }
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public j() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class k {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int accessibility_action_clickable_span = 2130771969;
-        public static int accessibility_custom_action_0 = 2130771969;
-        public static int accessibility_custom_action_1 = 2130771969;
-        public static int accessibility_custom_action_10 = 2130771969;
-        public static int accessibility_custom_action_11 = 2130771969;
-        public static int accessibility_custom_action_12 = 2130771969;
-        public static int accessibility_custom_action_13 = 2130771969;
-        public static int accessibility_custom_action_14 = 2130771969;
-        public static int accessibility_custom_action_15 = 2130771969;
-        public static int accessibility_custom_action_16 = 2130771969;
-        public static int accessibility_custom_action_17 = 2130771969;
-        public static int accessibility_custom_action_18 = 2130771969;
-        public static int accessibility_custom_action_19 = 2130771969;
-        public static int accessibility_custom_action_2 = 2130771969;
-        public static int accessibility_custom_action_20 = 2130771969;
-        public static int accessibility_custom_action_21 = 2130771969;
-        public static int accessibility_custom_action_22 = 2130771969;
-        public static int accessibility_custom_action_23 = 2130771969;
-        public static int accessibility_custom_action_24 = 2130771969;
-        public static int accessibility_custom_action_25 = 2130771969;
-        public static int accessibility_custom_action_26 = 2130771969;
-        public static int accessibility_custom_action_27 = 2130771969;
-        public static int accessibility_custom_action_28 = 2130771969;
-        public static int accessibility_custom_action_29 = 2130771969;
-        public static int accessibility_custom_action_3 = 2130771969;
-        public static int accessibility_custom_action_30 = 2130771969;
-        public static int accessibility_custom_action_31 = 2130771969;
-        public static int accessibility_custom_action_4 = 2130771969;
-        public static int accessibility_custom_action_5 = 2130771969;
-        public static int accessibility_custom_action_6 = 2130771969;
-        public static int accessibility_custom_action_7 = 2130771969;
-        public static int accessibility_custom_action_8 = 2130771969;
-        public static int accessibility_custom_action_9 = 2130771969;
-        public static int action_container = 2130771969;
-        public static int action_divider = 2130771969;
-        public static int action_image = 2130771969;
-        public static int action_text = 2130771969;
-        public static int actions = 2130771969;
-        public static int async = 2130771969;
-        public static int blocking = 2130771969;
-        public static int chronometer = 2130771969;
-        public static int dialog_button = 2130771969;
-        public static int forever = 2130771969;
-        public static int icon = 2130771969;
-        public static int icon_group = 2130771969;
-        public static int info = 2130771969;
-        public static int italic = 2130771969;
-        public static int line1 = 2130771969;
-        public static int line3 = 2130771969;
-        public static int normal = 2130771969;
-        public static int notification_background = 2130771969;
-        public static int notification_main_column = 2130771969;
-        public static int notification_main_column_container = 2130771969;
-        public static int right_icon = 2130771969;
-        public static int right_side = 2130771969;
-        public static int tag_accessibility_actions = 2130771969;
-        public static int tag_accessibility_clickable_spans = 2130771969;
-        public static int tag_accessibility_heading = 2130771969;
-        public static int tag_accessibility_pane_title = 2130771969;
-        public static int tag_screen_reader_focusable = 2130771969;
-        public static int tag_state_description = 2130771969;
-        public static int tag_transition_group = 2130771969;
-        public static int tag_unhandled_key_event_manager = 2130771969;
-        public static int tag_unhandled_key_listeners = 2130771969;
-        public static int text = 2130771969;
-        public static int text2 = 2130771969;
-        public static int time = 2130771969;
-        public static int title = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660282, "Lcom/baidu/tieba/m4c$k;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660282, "Lcom/baidu/tieba/m4c$k;");
-            }
-        }
-
-        public k() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class l {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int status_bar_notification_info_maxnum = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660251, "Lcom/baidu/tieba/m4c$l;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660251, "Lcom/baidu/tieba/m4c$l;");
-            }
-        }
-
-        public l() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class m {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public m() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class n {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int custom_dialog = 2130771969;
-        public static int notification_action = 2130771969;
-        public static int notification_action_tombstone = 2130771969;
-        public static int notification_template_custom_big = 2130771969;
-        public static int notification_template_icon_group = 2130771969;
-        public static int notification_template_part_chronometer = 2130771969;
-        public static int notification_template_part_time = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660189, "Lcom/baidu/tieba/m4c$n;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660189, "Lcom/baidu/tieba/m4c$n;");
-            }
-        }
-
-        public n() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class o {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public o() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public p() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class q {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public q() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class r {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public r() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class s {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int status_bar_notification_info_overflow = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660034, "Lcom/baidu/tieba/m4c$s;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660034, "Lcom/baidu/tieba/m4c$s;");
-            }
-        }
-
-        public s() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class t {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int TextAppearance_Compat_Notification = 2130771969;
-        public static int TextAppearance_Compat_Notification_Info = 2130771969;
-        public static int TextAppearance_Compat_Notification_Line2 = 2130771969;
-        public static int TextAppearance_Compat_Notification_Time = 2130771969;
-        public static int TextAppearance_Compat_Notification_Title = 2130771969;
-        public static int Widget_Compat_NotificationActionContainer = 2130771969;
-        public static int Widget_Compat_NotificationActionText = 2130771969;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-650660003, "Lcom/baidu/tieba/m4c$t;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-650660003, "Lcom/baidu/tieba/m4c$t;");
-            }
-        }
-
-        public t() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class u {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int[] ColorStateListItem = null;
-        public static int ColorStateListItem_alpha = 1;
-        public static int ColorStateListItem_android_alpha = 1;
-        public static int ColorStateListItem_android_color = 1;
-        public static int[] FontFamily = null;
-        public static int[] FontFamilyFont = null;
-        public static int FontFamilyFont_android_font = 1;
-        public static int FontFamilyFont_android_fontStyle = 1;
-        public static int FontFamilyFont_android_fontVariationSettings = 1;
-        public static int FontFamilyFont_android_fontWeight = 1;
-        public static int FontFamilyFont_android_ttcIndex = 1;
-        public static int FontFamilyFont_font = 1;
-        public static int FontFamilyFont_fontStyle = 1;
-        public static int FontFamilyFont_fontVariationSettings = 1;
-        public static int FontFamilyFont_fontWeight = 1;
-        public static int FontFamilyFont_ttcIndex = 1;
-        public static int FontFamily_fontProviderAuthority = 1;
-        public static int FontFamily_fontProviderCerts = 1;
-        public static int FontFamily_fontProviderFetchStrategy = 1;
-        public static int FontFamily_fontProviderFetchTimeout = 1;
-        public static int FontFamily_fontProviderPackage = 1;
-        public static int FontFamily_fontProviderQuery = 1;
-        public static int[] GradientColor = null;
-        public static int[] GradientColorItem = null;
-        public static int GradientColorItem_android_color = 1;
-        public static int GradientColorItem_android_offset = 1;
-        public static int GradientColor_android_centerColor = 1;
-        public static int GradientColor_android_centerX = 1;
-        public static int GradientColor_android_centerY = 1;
-        public static int GradientColor_android_endColor = 1;
-        public static int GradientColor_android_endX = 1;
-        public static int GradientColor_android_endY = 1;
-        public static int GradientColor_android_gradientRadius = 1;
-        public static int GradientColor_android_startColor = 1;
-        public static int GradientColor_android_startX = 1;
-        public static int GradientColor_android_startY = 1;
-        public static int GradientColor_android_tileMode = 1;
-        public static int GradientColor_android_type = 1;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650659972, "Lcom/baidu/tieba/m4c$u;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-650659972, "Lcom/baidu/tieba/m4c$u;");
                     return;
                 }
             }
-            GradientColorItem = new int[]{R.anim.obfuscated_res_0x7f010001};
-            FontFamily = new int[]{R.anim.obfuscated_res_0x7f010001};
-            GradientColor = new int[]{R.anim.obfuscated_res_0x7f010001};
-            FontFamilyFont = new int[]{R.anim.obfuscated_res_0x7f010001};
-            ColorStateListItem = new int[]{R.anim.obfuscated_res_0x7f010001};
+            this.b = m4cVar;
+            this.a = 0L;
         }
 
-        public u() {
+        @Override // com.baidu.tieba.l1c.a
+        public void a(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                synchronized (this) {
+                    if (j <= this.a) {
+                        return;
+                    }
+                    this.a = j;
+                    TLog.m("[PreferenceSubProcess]", "PreferenceSubProcess app background");
+                    this.b.r.set(false);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.l1c.a
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                synchronized (this) {
+                    if (j <= this.a) {
+                        return;
+                    }
+                    this.a = j;
+                    this.b.r.set(true);
+                    TLog.m("[PreferenceSubProcess]", "PreferenceSubProcess app front ground");
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class v {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m4c a;
 
-        public v() {
+        public b(m4c m4cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m4cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m4cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean z = false;
+                if (!this.a.p.get() && m4c.v.compareAndSet(false, true)) {
+                    z = true;
+                }
+                if (z) {
+                    TLog.h("[PreferenceSubProcess]", "init render engine onInitTimeout.");
+                    z3c.b(true);
+                    if (this.a.o.get()) {
+                        str = "initRenderEngineFail";
+                    } else {
+                        str = "initTimeout";
+                    }
+                    TLog.h("[PreferenceSubProcess]", "close RenderEngine!!!");
+                    RenderEngine.r.a().D(this.a);
+                    RenderEngine.r.a().C(this.a);
+                    k0c.h().g();
+                    this.a.t(str);
+                    TLog.h("[PreferenceSubProcess]", "onInitTimeout: destroy RenderEngine!!!");
+                    RenderEngine.r.a().s();
+                    for (g4c g4cVar : this.a.k) {
+                        g4cVar.a(str, m4c.v.get(), new HashMap<>());
+                    }
+                    for (g4c g4cVar2 : this.a.j) {
+                        g4cVar2.a(str, m4c.v.get(), new HashMap<>());
+                    }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class w {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public w() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924141, "Lcom/baidu/tieba/m4c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947924141, "Lcom/baidu/tieba/m4c;");
+                return;
+            }
+        }
+        v = new AtomicBoolean(false);
+        w = null;
+    }
+
+    public static m4c n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (w == null) {
+                synchronized (m4c.class) {
+                    if (w == null) {
+                        w = new m4c();
+                        n4c.c();
+                    }
                 }
             }
+            return w;
+        }
+        return (m4c) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return v.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.p.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.s == null) {
+            return;
+        }
+        TLog.h("[PreferenceSubProcess]", "stopInitTimeout");
+        this.s.removeCallbacksAndMessages(null);
+    }
+
+    public m4c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+        this.c = new AtomicBoolean(true);
+        new AtomicBoolean(false);
+        this.e = hashCode();
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = new WeakReference<>(null);
+        this.j = new CopyOnWriteArrayList();
+        this.k = new CopyOnWriteArrayList();
+        this.l = 0;
+        this.m = 0;
+        this.n = new AtomicBoolean(true);
+        this.o = new AtomicBoolean(false);
+        this.p = new AtomicBoolean(false);
+        this.q = new LinkedList();
+        this.r = new AtomicBoolean(true);
+        this.s = null;
+        this.t = null;
+        this.u = new a(this);
+        boolean x = RenderEngine.r.a().x();
+        this.d = x;
+        if (x) {
+            this.f = new k4c(String.valueOf(this.e));
+            this.s = new Handler(Looper.getMainLooper());
+        } else {
+            TLog.m("[PreferenceSubProcess]", "subprocess is not support in current devices!!");
+        }
+        z3c.d(this.d);
+        l1c.b(this.u);
+        TLog.h("[PreferenceSubProcess]", "PreferenceSubProcess constor");
+    }
+
+    public final void p() {
+        boolean v2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TLog.h("[PreferenceSubProcess]", "initSubProcessInternal begin !!!");
+            boolean z = false;
+            if (this.h != null && this.a.compareAndSet(false, true)) {
+                TLog.h("[PreferenceSubProcess]", "do initSubProcessInternal!!!");
+                RenderEngine.r.a().r(this);
+                k0c.h().i();
+                if (this.c.compareAndSet(true, false)) {
+                    TLog.h("[PreferenceSubProcess]", "initSubProcessInternal, init RenderEngine");
+                    if (this.t == null) {
+                        this.t = new HashMap<>();
+                    }
+                    String v3 = g2c.v(this.h);
+                    if (v3 != null) {
+                        this.t.put("nativeLib", v3);
+                    }
+                    if (this.t == null) {
+                        v2 = RenderEngine.r.a().u(this.h, this);
+                    } else {
+                        v2 = RenderEngine.r.a().v(this.h, this, this.t);
+                    }
+                    this.n.set(v2);
+                    this.o.set(!v2);
+                    if (!v2) {
+                        v.set(true);
+                        w();
+                        TLog.h("[PreferenceSubProcess]", "initSubProcessInternal end, init RenderEngine Fail");
+                    } else {
+                        v();
+                        TLog.h("[PreferenceSubProcess]", "initSubProcessInternal end, init RenderEngine success");
+                    }
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("initSubProcessInternal end, but don't render engine this time, mFinistTimeInitEngineSuccess: ");
+            sb.append(this.n.get());
+            sb.append(", mAppContext: ");
+            if (this.h != null) {
+                z = true;
+            }
+            sb.append(z);
+            sb.append(", renderEngineInited: ");
+            sb.append(this.a.get());
+            TLog.h("[PreferenceSubProcess]", sb.toString());
+        }
+    }
+
+    public boolean o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            if (this.d) {
+                this.h = context;
+                if (context != null) {
+                    this.h = context.getApplicationContext();
+                }
+                p();
+                return this.n.get();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void u(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, hashMap) == null) && this.d) {
+            this.g = hashMap;
+            if (this.b.get()) {
+                this.f.s(hashMap);
+            }
+        }
+    }
+
+    public void j(g4c g4cVar, boolean z) {
+        List<g4c> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, g4cVar, z) == null) && this.d && g4cVar != null) {
+            if (z) {
+                list = this.k;
+            } else {
+                list = this.j;
+            }
+            if (!list.contains(g4cVar)) {
+                list.add(g4cVar);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dzb
+    public void a(String str) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            TLog.h("[PreferenceSubProcess]", "on service crash: " + str);
+            boolean z = v.get() ^ true;
+            s(str);
+            t(str);
+            if (this.b.compareAndSet(true, false)) {
+                TLog.h("[PreferenceSubProcess]", "close msg client!!!");
+                this.f.a();
+            }
+            if (this.a.get()) {
+                TLog.h("[PreferenceSubProcess]", "close RenderEngine!!!");
+                RenderEngine.r.a().D(this);
+                RenderEngine.r.a().C(this);
+            }
+            k0c.h().g();
+            this.a.set(false);
+            this.c.set(true);
+            if (!v.get()) {
+                p();
+            } else {
+                TLog.h("[PreferenceSubProcess]", "on service crash, destroy RenderEngine!!!");
+                RenderEngine.r.a().s();
+            }
+            if (z) {
+                for (g4c g4cVar : this.k) {
+                    g4cVar.a(str, v.get(), new HashMap<>());
+                }
+                for (g4c g4cVar2 : this.j) {
+                    g4cVar2.a(str, v.get(), new HashMap<>());
+                }
+            }
+        }
+    }
+
+    public final void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            int d = n4c.c().d();
+            int i = n4c.c().i();
+            int f = n4c.c().f();
+            int a2 = n4c.c().a();
+            int b2 = n4c.c().b();
+            HashMap hashMap = new HashMap();
+            hashMap.put("playercnt", String.valueOf(d));
+            hashMap.put("playtask", String.valueOf(i));
+            hashMap.put("livetask", String.valueOf(f));
+            hashMap.put("frontground", String.valueOf(this.r.get() ? 1 : 0));
+            hashMap.put("fail2Main", String.valueOf(v.get() ? 1 : 0));
+            hashMap.put("crashcnt", String.valueOf(this.l));
+            hashMap.put("rctCrashCnt", String.valueOf(this.m));
+            hashMap.put("downloadclient", String.valueOf(a2));
+            hashMap.put("downloadTask", String.valueOf(b2));
+            StringBuilder sb = new StringBuilder("");
+            sb.append("crashReason=");
+            sb.append(str);
+            sb.append("&playercnt=");
+            sb.append(d);
+            sb.append("&playtask=");
+            sb.append(i);
+            sb.append("&livetask=");
+            sb.append(f);
+            sb.append("&frontground=");
+            sb.append(this.r.get() ? 1 : 0);
+            sb.append("&fail2Main=");
+            sb.append(v.get() ? 1 : 0);
+            sb.append("&crashcnt=");
+            sb.append(this.l);
+            sb.append("&rctCrashCnt=");
+            sb.append(this.m);
+            sb.append("&downloadclient=");
+            sb.append(a2);
+            sb.append("&downloadTask=");
+            sb.append(b2);
+            TLog.h("[PreferenceSubProcess]", sb.toString());
+            i4c d2 = Preference.d();
+            if (d2 != null) {
+                d2.a(1, sb.toString());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gzb
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[PreferenceSubProcess]", "on service connect");
+            w();
+            this.p.set(true);
+            if (v.get()) {
+                TLog.h("[PreferenceSubProcess]", "on service connect fail over to main process, destroy the renderEngine and return");
+                RenderEngine.r.a().s();
+                return;
+            }
+            this.o.set(false);
+            if (this.b.compareAndSet(false, true)) {
+                TLog.h("[PreferenceSubProcess]", "init msg client!!!");
+                this.f.c(l4c.class);
+                this.f.q();
+                HashMap<String, String> hashMap = this.g;
+                if (hashMap != null) {
+                    this.f.s(hashMap);
+                }
+            }
+            h4c h4cVar = this.i.get();
+            if (h4cVar != null) {
+                h4cVar.a();
+            }
+        }
+    }
+
+    public final int l() {
+        InterceptResult invokeV;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HashMap<String, String> hashMap = this.g;
+            int i2 = 1;
+            if (hashMap != null && (str = hashMap.get("MC_SUBPROCESS_CRASH_LIMIT")) != null) {
+                try {
+                    i = Integer.parseInt(str);
+                } catch (Exception e) {
+                    TLog.g(this, "mMediaConfig, crashCntLimitKey-" + str + ": " + e.toString());
+                }
+                if (i >= 0 && i <= 100) {
+                    i2 = i;
+                }
+                TLog.h("[PreferenceSubProcess]", "getCrashCntLimit: " + i2);
+                return i2;
+            }
+            i = 1;
+            if (i >= 0) {
+                i2 = i;
+            }
+            TLog.h("[PreferenceSubProcess]", "getCrashCntLimit: " + i2);
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int m() {
+        InterceptResult invokeV;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            HashMap<String, String> hashMap = this.g;
+            int i2 = 15000;
+            if (hashMap != null && (str = hashMap.get("MC_SUBPROCESS_INIT_TIMEOUT")) != null) {
+                try {
+                    i = Integer.parseInt(str);
+                } catch (Exception e) {
+                    TLog.g(this, "mMediaConfig, Subprocess InitTimeoutMs-" + str + ": " + e.toString());
+                }
+                if (i >= 5000 && i <= 180000) {
+                    i2 = i;
+                }
+                if (this.o.get()) {
+                    i2 = 3000;
+                }
+                TLog.h("[PreferenceSubProcess]", "getInitTimeoutMs: " + i2);
+                return i2;
+            }
+            i = 15000;
+            if (i >= 5000) {
+                i2 = i;
+            }
+            if (this.o.get()) {
+            }
+            TLog.h("[PreferenceSubProcess]", "getInitTimeoutMs: " + i2);
+            return i2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gzb
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[PreferenceSubProcess]", "on service disconnect");
+            this.p.set(false);
+            if (this.h != null && !v.get()) {
+                TLog.h("[PreferenceSubProcess]", "onDisconnect, init RenderEngine again");
+                if (this.t == null) {
+                    this.o.set(!RenderEngine.r.a().u(this.h, this));
+                } else {
+                    this.o.set(!RenderEngine.r.a().v(this.h, this, this.t));
+                }
+                v();
+            }
+        }
+    }
+
+    public final void s(String str) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.l++;
+            long currentTimeMillis = System.currentTimeMillis();
+            this.q.offer(Long.valueOf(currentTimeMillis));
+            this.m = this.q.size();
+            TLog.h("[PreferenceSubProcess]", "onCrashCheck, time:" + currentTimeMillis + ",crashCnt:" + this.m);
+            if (this.m > l()) {
+                Long poll = this.q.poll();
+                if (poll != null && currentTimeMillis - poll.longValue() < 300000) {
+                    TLog.h("[PreferenceSubProcess]", "onCrashCheck##fail over to main process, crash cnt:" + this.m + ", first:" + poll + ", now:" + currentTimeMillis + ",interval:" + (currentTimeMillis - poll.longValue()) + "ms");
+                    v.set(true);
+                    z3c.b(true);
+                    return;
+                }
+                int i = this.m;
+                if (i > 0) {
+                    this.m = i - 1;
+                }
+            }
+        }
+    }
+
+    public final void v() {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (handler = this.s) == null) {
+            return;
+        }
+        handler.removeCallbacksAndMessages(null);
+        TLog.h("[PreferenceSubProcess]", "startInitTimeout");
+        if (!v.get()) {
+            this.s.postDelayed(new b(this), m());
         }
     }
 }

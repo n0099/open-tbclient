@@ -67,7 +67,7 @@ public class xva {
                 if (zvaVar != null) {
                     zvaVar.a(i, bitmap);
                 }
-                yfb.d("single-frameResult: " + i);
+                agb.d("single-frameResult: " + i);
             }
         }
     }
@@ -104,7 +104,7 @@ public class xva {
                 if (zvaVar != null) {
                     zvaVar.a(i, bitmap);
                 }
-                yfb.d("multi-frameResult: " + i);
+                agb.d("multi-frameResult: " + i);
             }
         }
     }
@@ -136,7 +136,7 @@ public class xva {
             iwaVar.a = vlogEditManager.getDuration();
             iwaVar.b = i;
             iwaVar.f = vlogEditManager.getInputMultiMediaData();
-            MediaTrack mediaTrack = (MediaTrack) dgb.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            MediaTrack mediaTrack = (MediaTrack) fgb.c(vlogEditManager.getUpdateMediaTracks(), 0);
             if (mediaTrack == null) {
                 return;
             }

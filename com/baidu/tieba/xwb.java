@@ -1,420 +1,468 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.security.auth.x500.X500Principal;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes8.dex */
 public class xwb {
     public static /* synthetic */ Interceptable $ic;
-    public static final Uri a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public char[] g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316198, "Lcom/baidu/tieba/xwb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948316198, "Lcom/baidu/tieba/xwb;");
+    public xwb(X500Principal x500Principal) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x500Principal};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Uri.parse("content://com.huawei.hwid");
-        b = new String[]{"B92825C2BD5D6D6D1E7F39EECD17843B7D9016F611136B75441BC6F4D3F00F05", "E49D5C2C0E11B3B1B96CA56C6DE2A14EC7DAB5CCC3B5F300D03E5B4DBA44F539"};
+        String name = x500Principal.getName("RFC2253");
+        this.a = name;
+        this.b = name.length();
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public final int a(int i) {
+        InterceptResult invokeI;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            File file = new File(str);
-            if (file.exists()) {
-                cxb.f("BksUtil", "The directory  has already exists");
-                return 1;
-            } else if (file.mkdirs()) {
-                cxb.b("BksUtil", "create directory  success");
-                return 0;
-            } else {
-                cxb.d("BksUtil", "create directory  failed");
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i4 = i + 1;
+            if (i4 < this.b) {
+                char c = this.g[i];
+                if (c >= '0' && c <= '9') {
+                    i2 = c - TransactionIdCreater.FILL_BYTE;
+                } else if (c >= 'a' && c <= 'f') {
+                    i2 = c - 'W';
+                } else if (c >= 'A' && c <= 'F') {
+                    i2 = c - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
                 }
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-                messageDigest.update(bArr);
-                return c(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                cxb.d("BksUtil", "inputstraem exception");
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return new File(b(context) + File.separator + "hmsrootcas.bks").exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static InputStream n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            if (k(context)) {
-                cxb.e("BksUtil", "getFilesBksIS ");
-                try {
-                    return new FileInputStream(f(context));
-                } catch (FileNotFoundException unused) {
-                    cxb.d("BksUtil", "FileNotFoundExceptio: ");
-                    return null;
+                char c2 = this.g[i4];
+                if (c2 >= '0' && c2 <= '9') {
+                    i3 = c2 - TransactionIdCreater.FILL_BYTE;
+                } else if (c2 >= 'a' && c2 <= 'f') {
+                    i3 = c2 - 'W';
+                } else if (c2 >= 'A' && c2 <= 'F') {
+                    i3 = c2 - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
                 }
+                return (i2 << 4) + i3;
             }
-            return null;
+            throw new IllegalStateException("Malformed DN: " + this.a);
         }
-        return (InputStream) invokeL.objValue;
+        return invokeI.intValue;
     }
 
-    public static String b(Context context) {
+    public List<String> d(String str) {
         InterceptResult invokeL;
+        String h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return context.createDeviceProtectedStorageContext().getFilesDir() + File.separator + "aegis";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = this.a.toCharArray();
+            List<String> emptyList = Collections.emptyList();
+            String g = g();
+            if (g == null) {
+                return emptyList;
             }
-            return context.getApplicationContext().getFilesDir() + File.separator + "aegis";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("SHA-256").digest(bArr));
-            } catch (NoSuchAlgorithmException e) {
-                Log.e("BksUtil", "NoSuchAlgorithmException" + e.getMessage());
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(InputStream inputStream, Context context) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, context) == null) && inputStream != null && context != null) {
-            String b2 = b(context);
-            if (!new File(b2).exists()) {
-                a(b2);
-            }
-            File file = new File(b2, "hmsrootcas.bks");
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    cxb.e("BksUtil", "write output stream ");
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException unused) {
-            }
-            try {
-                byte[] bArr = new byte[2048];
-                while (true) {
-                    int read = inputStream.read(bArr, 0, 2048);
-                    if (read != -1) {
-                        fileOutputStream.write(bArr, 0, read);
+            do {
+                int i = this.c;
+                if (i < this.b) {
+                    char c = this.g[i];
+                    if (c != '\"') {
+                        if (c != '#') {
+                            if (c != '+' && c != ',' && c != ';') {
+                                h = b();
+                            } else {
+                                h = "";
+                            }
+                        } else {
+                            h = f();
+                        }
                     } else {
-                        bxb.c(fileOutputStream);
-                        return;
+                        h = h();
+                    }
+                    if (str.equalsIgnoreCase(g)) {
+                        if (emptyList.isEmpty()) {
+                            emptyList = new ArrayList<>();
+                        }
+                        emptyList.add(h);
+                    }
+                    int i2 = this.c;
+                    if (i2 < this.b) {
+                        char[] cArr = this.g;
+                        if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
+                            throw new IllegalStateException("Malformed DN: " + this.a);
+                        }
+                        this.c++;
+                        g = g();
                     }
                 }
-            } catch (IOException unused2) {
-                fileOutputStream2 = fileOutputStream;
-                cxb.d("BksUtil", " IOException");
-                bxb.c(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                bxb.c(fileOutputStream2);
-                throw th;
-            }
+                return emptyList;
+            } while (g != null);
+            throw new IllegalStateException("Malformed DN: " + this.a);
         }
+        return (List) invokeL.objValue;
     }
 
-    public static byte[] e(Context context, String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageInfo;
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ab, code lost:
+        return new java.lang.String(r1, r2, r8.f - r2);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    if (packageManager != null && (packageInfo = packageManager.getPackageInfo(str, 64)) != null) {
-                        return packageInfo.signatures[0].toByteArray();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.c;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 >= this.b) {
+                    char[] cArr = this.g;
+                    int i3 = this.d;
+                    return new String(cArr, i3, this.e - i3);
+                }
+                char[] cArr2 = this.g;
+                char c = cArr2[i2];
+                if (c != ' ') {
+                    if (c == ';') {
+                        break;
+                    } else if (c != '\\') {
+                        if (c == '+' || c == ',') {
+                            break;
+                        }
+                        int i4 = this.e;
+                        this.e = i4 + 1;
+                        cArr2[i4] = cArr2[i2];
+                        this.c = i2 + 1;
+                    } else {
+                        int i5 = this.e;
+                        this.e = i5 + 1;
+                        cArr2[i5] = c();
+                        this.c++;
                     }
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.e("BksUtil", "PackageManager.NameNotFoundException : " + e.getMessage());
-                } catch (Exception e2) {
-                    Log.e("BksUtil", "get pm exception : " + e2.getMessage());
-                }
-                return new byte[0];
-            }
-            Log.e("BksUtil", "packageName is null or context is null");
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return b(context) + File.separator + "hmsrootcas.bks";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            return "E49D5C2C0E11B3B1B96CA56C6DE2A14EC7DAB5CCC3B5F300D03E5B4DBA44F539".equalsIgnoreCase(j(e(context, str)));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean l(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
-            byte[] e = e(context, str);
-            for (String str2 : b) {
-                if (str2.equalsIgnoreCase(j(e))) {
-                    return true;
+                } else {
+                    int i6 = this.e;
+                    this.f = i6;
+                    this.c = i2 + 1;
+                    this.e = i6 + 1;
+                    cArr2[i6] = WebvttCueParser.CHAR_SPACE;
+                    while (true) {
+                        int i7 = this.c;
+                        if (i7 >= this.b) {
+                            break;
+                        }
+                        char[] cArr3 = this.g;
+                        if (cArr3[i7] != ' ') {
+                            break;
+                        }
+                        int i8 = this.e;
+                        this.e = i8 + 1;
+                        cArr3[i8] = WebvttCueParser.CHAR_SPACE;
+                        this.c = i7 + 1;
+                    }
+                    int i9 = this.c;
+                    if (i9 == this.b) {
+                        break;
+                    }
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9] == ',' || cArr4[i9] == '+' || cArr4[i9] == ';') {
+                        break;
+                    }
                 }
             }
-            return false;
+            char[] cArr5 = this.g;
+            int i10 = this.d;
+            return new String(cArr5, i10, this.e - i10);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean i(String str) {
-        InterceptResult invokeL;
-        int parseInt;
+    public final char c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i != this.b) {
+                char[] cArr = this.g;
+                char c = cArr[i];
+                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
+                    switch (c) {
+                        case '*':
+                        case '+':
+                        case ',':
+                            break;
+                        default:
+                            switch (c) {
+                                case ';':
+                                case '<':
+                                case '=':
+                                case '>':
+                                    break;
+                                default:
+                                    return e();
+                            }
+                    }
+                }
+                return cArr[i];
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return invokeV.charValue;
+    }
+
+    public final char e() {
+        InterceptResult invokeV;
         int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int a = a(this.c);
+            this.c++;
+            if (a < 128) {
+                return (char) a;
             }
-            cxb.e("BksUtil", "hms version code is : " + str);
-            String[] split = str.split("\\.");
-            String[] split2 = "4.0.2.300".split("\\.");
-            int length = split.length;
-            int length2 = split2.length;
-            int max = Math.max(length, length2);
-            for (int i2 = 0; i2 < max; i2++) {
-                if (i2 < length) {
-                    try {
-                        parseInt = Integer.parseInt(split[i2]);
-                    } catch (Exception e) {
-                        cxb.d("BksUtil", " exception : " + e.getMessage());
-                        if (i2 < length2) {
-                            return false;
-                        }
-                        return true;
-                    }
-                } else {
-                    parseInt = 0;
-                }
-                if (i2 < length2) {
-                    i = Integer.parseInt(split2[i2]);
-                } else {
-                    i = 0;
-                }
-                if (parseInt < i) {
-                    return false;
-                }
-                if (parseInt > i) {
-                    return true;
-                }
+            if (a < 192 || a > 247) {
+                return RFC1522Codec.SEP;
             }
-            return true;
+            if (a <= 223) {
+                i2 = a & 31;
+                i = 1;
+            } else if (a <= 239) {
+                i = 2;
+                i2 = a & 15;
+            } else {
+                i = 3;
+                i2 = a & 7;
+            }
+            for (int i3 = 0; i3 < i; i3++) {
+                int i4 = this.c + 1;
+                this.c = i4;
+                if (i4 == this.b || this.g[i4] != '\\') {
+                    return RFC1522Codec.SEP;
+                }
+                int i5 = i4 + 1;
+                this.c = i5;
+                int a2 = a(i5);
+                this.c++;
+                if ((a2 & 192) != 128) {
+                    return RFC1522Codec.SEP;
+                }
+                i2 = (i2 << 6) + (a2 & 63);
+            }
+            return (char) i2;
         }
-        return invokeL.booleanValue;
+        return invokeV.charValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x0100 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v18 */
-    /* JADX WARN: Type inference failed for: r2v19 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
-    public static synchronized InputStream m(Context context) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        ByteArrayInputStream byteArrayInputStream;
-        String a2;
-        String g;
+    public final String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            synchronized (xwb.class) {
-                cxb.e("BksUtil", "get bks from tss begin");
-                if (context != null) {
-                    zwb.b(context);
-                }
-                Context a3 = zwb.a();
-                ByteArrayInputStream byteArrayInputStream2 = null;
-                if (a3 == null) {
-                    cxb.d("BksUtil", "context is null");
-                    return null;
-                } else if (!i(dxb.a("com.huawei.hwid")) && !i(dxb.a("com.huawei.hms"))) {
-                    cxb.d("BksUtil", "hms version code is too low : " + dxb.a("com.huawei.hwid"));
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 != this.b) {
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '\"') {
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                        char[] cArr2 = this.g;
+                        int i4 = this.d;
+                        return new String(cArr2, i4, this.e - i4);
+                    }
+                    if (cArr[i2] == '\\') {
+                        cArr[this.e] = c();
+                    } else {
+                        cArr[this.e] = cArr[i2];
+                    }
+                    this.c++;
+                    this.e++;
                 } else {
-                    boolean l = l(a3, "com.huawei.hwid");
-                    ?? r2 = l;
-                    if (!l) {
-                        boolean h = h(a3, "com.huawei.hms");
-                        r2 = h;
-                        if (!h) {
-                            cxb.d("BksUtil", "hms sign error");
-                            return null;
-                        }
-                    }
-                    try {
-                        r2 = new ByteArrayOutputStream();
-                        try {
-                            inputStream = a3.getContentResolver().openInputStream(Uri.withAppendedPath(a, "files/hmsrootcas.bks"));
-                            try {
-                                byte[] bArr = new byte[1024];
-                                while (true) {
-                                    int read = inputStream.read(bArr);
-                                    if (read <= -1) {
-                                        break;
-                                    }
-                                    r2.write(bArr, 0, read);
-                                }
-                                r2.flush();
-                                byteArrayInputStream = new ByteArrayInputStream(r2.toByteArray());
-                            } catch (Exception unused) {
-                            }
-                            try {
-                                a2 = exb.a("bks_hash", "", a3);
-                                g = g(r2.toByteArray());
-                            } catch (Exception unused2) {
-                                byteArrayInputStream2 = byteArrayInputStream;
-                                cxb.d("BksUtil", "Get bks from HMS_VERSION_CODE exception : No content provider");
-                                bxb.b(inputStream);
-                                bxb.c(r2);
-                                bxb.b(byteArrayInputStream2);
-                                return n(a3);
-                            } catch (Throwable th) {
-                                th = th;
-                                byteArrayInputStream2 = byteArrayInputStream;
-                                bxb.b(inputStream);
-                                bxb.c(r2);
-                                bxb.b(byteArrayInputStream2);
-                                throw th;
-                            }
-                        } catch (Exception unused3) {
-                            inputStream = null;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = null;
-                        }
-                        if (k(a3) && a2.equals(g)) {
-                            cxb.e("BksUtil", "bks not update");
-                            bxb.b(inputStream);
-                            bxb.c(r2);
-                            bxb.b(byteArrayInputStream);
-                            return n(a3);
-                        }
-                        cxb.e("BksUtil", "update bks and sp");
-                        d(byteArrayInputStream, a3);
-                        exb.c("bks_hash", g, a3);
-                        bxb.b(inputStream);
-                        bxb.c(r2);
-                        bxb.b(byteArrayInputStream);
-                        return n(a3);
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
+                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
             }
         } else {
-            return (InputStream) invokeL.objValue;
+            return (String) invokeV.objValue;
         }
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.c;
+            if (i + 4 < this.b) {
+                this.d = i;
+                this.c = i + 1;
+                while (true) {
+                    int i2 = this.c;
+                    if (i2 == this.b) {
+                        break;
+                    }
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
+                        break;
+                    } else if (cArr[i2] == ' ') {
+                        this.e = i2;
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                    } else {
+                        if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
+                            cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
+                        }
+                        this.c++;
+                    }
+                }
+                this.e = this.c;
+                int i4 = this.e;
+                int i5 = this.d;
+                int i6 = i4 - i5;
+                if (i6 >= 5 && (i6 & 1) != 0) {
+                    int i7 = i6 / 2;
+                    byte[] bArr = new byte[i7];
+                    int i8 = i5 + 1;
+                    for (int i9 = 0; i9 < i7; i9++) {
+                        bArr[i9] = (byte) a(i8);
+                        i8 += 2;
+                    }
+                    return new String(this.g, this.d, i6);
+                }
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            while (true) {
+                int i = this.c;
+                if (i >= this.b || this.g[i] != ' ') {
+                    break;
+                }
+                this.c = i + 1;
+            }
+            int i2 = this.c;
+            if (i2 == this.b) {
+                return null;
+            }
+            this.d = i2;
+            this.c = i2 + 1;
+            while (true) {
+                int i3 = this.c;
+                if (i3 >= this.b) {
+                    break;
+                }
+                char[] cArr = this.g;
+                if (cArr[i3] == '=' || cArr[i3] == ' ') {
+                    break;
+                }
+                this.c = i3 + 1;
+            }
+            int i4 = this.c;
+            if (i4 < this.b) {
+                this.e = i4;
+                if (this.g[i4] == ' ') {
+                    while (true) {
+                        int i5 = this.c;
+                        if (i5 >= this.b) {
+                            break;
+                        }
+                        char[] cArr2 = this.g;
+                        if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
+                            break;
+                        }
+                        this.c = i5 + 1;
+                    }
+                    char[] cArr3 = this.g;
+                    int i6 = this.c;
+                    if (cArr3[i6] != '=' || i6 == this.b) {
+                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                    }
+                }
+                this.c++;
+                while (true) {
+                    int i7 = this.c;
+                    if (i7 >= this.b || this.g[i7] != ' ') {
+                        break;
+                    }
+                    this.c = i7 + 1;
+                }
+                int i8 = this.e;
+                int i9 = this.d;
+                if (i8 - i9 > 4) {
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9 + 3] == '.' && (cArr4[i9] == 'O' || cArr4[i9] == 'o')) {
+                        char[] cArr5 = this.g;
+                        int i10 = this.d + 1;
+                        if (cArr5[i10] == 'I' || cArr5[i10] == 'i') {
+                            char[] cArr6 = this.g;
+                            int i11 = this.d + 2;
+                            if (cArr6[i11] == 'D' || cArr6[i11] == 'd') {
+                                this.d += 4;
+                            }
+                        }
+                    }
+                }
+                char[] cArr7 = this.g;
+                int i12 = this.d;
+                return new String(cArr7, i12, this.e - i12);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return (String) invokeV.objValue;
     }
 }

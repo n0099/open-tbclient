@@ -43,7 +43,7 @@ public final class f {
         boolean a = com.kwad.components.core.m.m.oF().a(ksScene, "loadRewardVideoAd");
         ksScene.setAdStyle(2);
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0652a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.reward.f.1
+        KsAdLoadManager.a(new a.C0653a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.reward.f.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
             public final void a(@NonNull AdResultData adResultData, boolean z) {
                 List<AdTemplate> a2 = f.a(ksScene, adResultData.getProceedTemplateList());

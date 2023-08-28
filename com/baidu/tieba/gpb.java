@@ -1,28 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gpb implements PidLoaderCreator {
+public class gpb implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs a;
+    public final PBNative a;
+    public final Context b;
+    public PBMediaView c;
 
-    public gpb(ModuleConfigKs moduleConfigKs) {
+    public gpb(Context context, PBNative pBNative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigKs};
+            Object[] objArr = {context, pBNative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,98 +38,75 @@ public class gpb implements PidLoaderCreator {
                 return;
             }
         }
-        this.a = moduleConfigKs;
+        this.b = context;
+        this.a = pBNative;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
-        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
-     */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            char c = 0;
-            try {
-                Long.parseLong(pid.pid);
-                String str = pid.type;
-                str.hashCode();
-                switch (str.hashCode()) {
-                    case -1377301807:
-                        break;
-                    case -1291455752:
-                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1187931233:
-                        if (str.equals(FunAdType.KS_NATIVE)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1106926588:
-                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1031178769:
-                        if (str.equals(FunAdType.KS_SPLASH)) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1860126748:
-                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 2017609999:
-                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        return new vpb(pid);
-                    case 1:
-                        return new npb(pid, this.a);
-                    case 2:
-                        return new zpb(pid);
-                    case 3:
-                        return new fqb(pid, this.a);
-                    case 4:
-                        return new iqb(pid);
-                    case 5:
-                        return new rpb(pid, this.a);
-                    case 6:
-                        return new jpb(pid);
-                    default:
-                        return null;
-                }
-            } catch (NumberFormatException unused) {
-                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
-                return null;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.a.getIM());
+            return arrayList;
         }
-        return (PidLoader) invokeL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            if (!adType.equals("h5") && !adType.equals("video")) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z && this.c == null) {
+                this.c = new PBMediaView(this.b.getApplicationContext());
+            }
+            return this.c;
+        }
+        return (View) invokeV.objValue;
     }
 }

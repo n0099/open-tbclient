@@ -44,19 +44,19 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aya;
+import com.baidu.tieba.bya;
 import com.baidu.tieba.di;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
-import com.baidu.tieba.iya;
+import com.baidu.tieba.jya;
 import com.baidu.tieba.kg8;
 import com.baidu.tieba.li8;
 import com.baidu.tieba.ni8;
 import com.baidu.tieba.oi8;
 import com.baidu.tieba.sh8;
 import com.baidu.tieba.th8;
-import com.baidu.tieba.txa;
 import com.baidu.tieba.uh8;
+import com.baidu.tieba.uxa;
 import com.baidu.tieba.vh8;
 import com.baidu.tieba.wh8;
 import com.baidu.tieba.xh8;
@@ -91,8 +91,8 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public List<MetaData> d;
     public List<MetaData> e;
     public List<String> f;
-    public aya g;
-    public iya h;
+    public bya g;
+    public jya h;
     public View i;
     public FrameLayout j;
     public BdListView k;
@@ -636,7 +636,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes8.dex */
-    public static class n extends BdAsyncTask<String, Integer, txa> {
+    public static class n extends BdAsyncTask<String, Integer, uxa> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<ShareFriendActivity> a;
@@ -664,7 +664,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public txa doInBackground(String... strArr) {
+        public uxa doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -686,37 +686,37 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 if (!this.b.getNetContext().getResponse().isRequestSuccess()) {
                     return null;
                 }
-                txa txaVar = new txa();
-                txaVar.d(postNetData);
-                return txaVar;
+                uxa uxaVar = new uxa();
+                uxaVar.d(postNetData);
+                return uxaVar;
             }
-            return (txa) invokeL.objValue;
+            return (uxa) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(txa txaVar) {
+        public void onPostExecute(uxa uxaVar) {
             ShareFriendActivity shareFriendActivity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, txaVar) == null) && (shareFriendActivity = this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uxaVar) == null) && (shareFriendActivity = this.a.get()) != null) {
                 shareFriendActivity.l = null;
                 shareFriendActivity.hideNetRefreshView(shareFriendActivity.j);
                 if (this.b.getNetContext().getResponse().isRequestSuccess()) {
                     shareFriendActivity.k.setVisibility(0);
-                    shareFriendActivity.g.b(txaVar);
+                    shareFriendActivity.g.b(uxaVar);
                     if (shareFriendActivity.h == null) {
                         return;
                     }
-                    if (shareFriendActivity.z && txaVar != null && txaVar.c() != null && txaVar.c().isEmpty()) {
+                    if (shareFriendActivity.z && uxaVar != null && uxaVar.c() != null && uxaVar.c().isEmpty()) {
                         shareFriendActivity.f2(2);
-                    } else if (!shareFriendActivity.y || txaVar == null || txaVar.c() == null || !txaVar.c().isEmpty() || oi8.a() == null || !oi8.a().isEmpty()) {
+                    } else if (!shareFriendActivity.y || uxaVar == null || uxaVar.c() == null || !uxaVar.c().isEmpty() || oi8.a() == null || !oi8.a().isEmpty()) {
                         shareFriendActivity.f2(0);
                     } else {
                         shareFriendActivity.f2(2);
                     }
-                    if (txaVar != null) {
-                        ArrayList<MetaData> c = txaVar.c();
+                    if (uxaVar != null) {
+                        ArrayList<MetaData> c = uxaVar.c();
                         int size = c.size();
                         for (int i = 0; i < size; i++) {
                             c.get(i).setItemType(shareFriendActivity.D);
@@ -730,7 +730,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                     shareFriendActivity.k.setVisibility(8);
                     shareFriendActivity.showNetRefreshView(shareFriendActivity.j, shareFriendActivity.getString(R.string.refresh_view_title_text), null, shareFriendActivity.getString(R.string.refresh_view_button_text), true, shareFriendActivity.getNetRefreshListener());
                 }
-                super.onPostExecute(txaVar);
+                super.onPostExecute(uxaVar);
             }
         }
 
@@ -901,7 +901,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void X1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.g = new aya();
+            this.g = new bya();
             if (bundle != null) {
                 this.z = bundle.getBoolean(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
                 this.y = bundle.getBoolean(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
@@ -1108,9 +1108,9 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0921ee);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0921ca);
             this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f091549);
-            iya iyaVar = new iya(this);
-            this.h = iyaVar;
-            this.k.setAdapter((ListAdapter) iyaVar);
+            jya jyaVar = new jya(this);
+            this.h = jyaVar;
+            this.k.setAdapter((ListAdapter) jyaVar);
             this.h.b(this.e);
             this.k.setOnItemClickListener(new g(this));
             this.k.setOnScrollListener(new h(this));

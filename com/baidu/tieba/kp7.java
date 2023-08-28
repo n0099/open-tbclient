@@ -35,12 +35,12 @@ public class kp7 extends om<vp7, a> {
 
         /* renamed from: com.baidu.tieba.kp7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0383a implements View.OnClickListener {
+        public class View$OnClickListenerC0386a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0383a(a aVar, kp7 kp7Var) {
+            public View$OnClickListenerC0386a(a aVar, kp7 kp7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class kp7 extends om<vp7, a> {
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cee);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ced);
-            this.a.setOnClickListener(new View$OnClickListenerC0383a(this, kp7Var));
+            this.a.setOnClickListener(new View$OnClickListenerC0386a(this, kp7Var));
         }
 
         public void e(int i) {

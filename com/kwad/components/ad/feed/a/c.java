@@ -51,7 +51,7 @@ public abstract class c extends a implements View.OnClickListener {
     public d dr;
     public boolean ds;
     public boolean dt;
-    public final a.InterfaceC0658a du;
+    public final a.InterfaceC0659a du;
     public h.a dv;
     public a.b dw;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -66,8 +66,8 @@ public abstract class c extends a implements View.OnClickListener {
                 com.kwad.sdk.utils.k.cj(c.this.mAdTemplate);
             }
         };
-        this.du = new a.InterfaceC0658a() { // from class: com.kwad.components.ad.feed.a.c.2
-            @Override // com.kwad.components.core.video.a.InterfaceC0658a
+        this.du = new a.InterfaceC0659a() { // from class: com.kwad.components.ad.feed.a.c.2
+            @Override // com.kwad.components.core.video.a.InterfaceC0659a
             public final void a(int i, aa.a aVar) {
                 int i2;
                 int i3 = 2;
@@ -86,7 +86,7 @@ public abstract class c extends a implements View.OnClickListener {
                 u.b bVar = new u.b();
                 bVar.gL = aVar;
                 bVar.gJ = i2;
-                com.kwad.components.core.c.a.a.a(new a.C0647a(com.kwad.sdk.b.kwai.a.x(c.this.dp)).L(c.this.mAdTemplate).b(c.this.mApkDownloadHelper).ae(i3).aj(z).al(true).an(true).a(bVar).a(new a.b() { // from class: com.kwad.components.ad.feed.a.c.2.1
+                com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(c.this.dp)).L(c.this.mAdTemplate).b(c.this.mApkDownloadHelper).ae(i3).aj(z).al(true).an(true).a(bVar).a(new a.b() { // from class: com.kwad.components.ad.feed.a.c.2.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         c.this.dx();
@@ -174,7 +174,7 @@ public abstract class c extends a implements View.OnClickListener {
                 }
                 i2 = 100;
             }
-            com.kwad.components.core.c.a.a.a(new a.C0647a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(i).an(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.c.5
+            com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(i).an(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.c.5
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     c.this.aq(i2);

@@ -147,7 +147,7 @@ public class et9 extends ln6<ns9> {
 
         /* renamed from: com.baidu.tieba.et9$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0280b {
+        public class C0279b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -157,7 +157,7 @@ public class et9 extends ln6<ns9> {
             public TextView e;
             public TBSpecificationBtn f;
 
-            public C0280b(b bVar) {
+            public C0279b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,7 +175,7 @@ public class et9 extends ln6<ns9> {
                 this.a = 3;
             }
 
-            public /* synthetic */ C0280b(b bVar, a aVar) {
+            public /* synthetic */ C0279b(b bVar, a aVar) {
                 this(bVar);
             }
         }
@@ -200,16 +200,16 @@ public class et9 extends ln6<ns9> {
             this.b = LayoutInflater.from(tbPageContext.getPageActivity());
         }
 
-        public final void b(C0280b c0280b, View view2, int i) {
+        public final void b(C0279b c0279b, View view2, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, c0280b, view2, i) == null) && c0280b != null && c0280b.a != i) {
-                EMManager.from(c0280b.c).setTextColor(R.color.CAM_X0105);
-                EMManager.from(c0280b.e).setTextColor(R.color.CAM_X0109);
-                EMManager.from(c0280b.d).setTextColor(R.color.CAM_X0118);
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, c0279b, view2, i) == null) && c0279b != null && c0279b.a != i) {
+                EMManager.from(c0279b.c).setTextColor(R.color.CAM_X0105);
+                EMManager.from(c0279b.e).setTextColor(R.color.CAM_X0109);
+                EMManager.from(c0279b.d).setTextColor(R.color.CAM_X0118);
                 ea5 ea5Var = new ea5();
                 ea5Var.u(R.color.CAM_X0118);
-                c0280b.f.setConfig(ea5Var);
-                c0280b.a = i;
+                c0279b.f.setConfig(ea5Var);
+                c0279b.a = i;
             }
         }
 
@@ -306,7 +306,7 @@ public class et9 extends ln6<ns9> {
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
-            C0280b c0280b;
+            C0279b c0279b;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
                 gh5 item = getItem(i);
@@ -317,32 +317,32 @@ public class et9 extends ln6<ns9> {
                     StatisticItem statisticItem = new StatisticItem("c15059");
                     statisticItem.addParam("obj_param1", "LV" + this.c.I.c().a()).eventStat();
                 }
-                if (view2 != null && (view2.getTag() instanceof C0280b)) {
-                    c0280b = (C0280b) view2.getTag();
+                if (view2 != null && (view2.getTag() instanceof C0279b)) {
+                    c0279b = (C0279b) view2.getTag();
                 } else {
                     view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d09c7, (ViewGroup) null);
-                    c0280b = new C0280b(this, null);
-                    c0280b.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092842);
-                    c0280b.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092844);
-                    c0280b.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092845);
-                    c0280b.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092841);
-                    c0280b.f = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f092840);
-                    view2.setTag(c0280b);
+                    c0279b = new C0279b(this, null);
+                    c0279b.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092842);
+                    c0279b.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092844);
+                    c0279b.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092845);
+                    c0279b.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092841);
+                    c0279b.f = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f092840);
+                    view2.setTag(c0279b);
                 }
-                c0280b.b.startLoad(item.f(), 10, false);
-                c0280b.c.setText(item.c());
-                c0280b.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f17c5), Integer.valueOf(item.g())));
-                c0280b.e.setText(item.b());
+                c0279b.b.startLoad(item.f(), 10, false);
+                c0279b.c.setText(item.c());
+                c0279b.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f17c5), Integer.valueOf(item.g())));
+                c0279b.e.setText(item.b());
                 if (item.d() == 2) {
-                    c0280b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f17c7));
-                    c0280b.f.setEnabled(false);
-                    c0280b.f.setOnClickListener(null);
+                    c0279b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f17c7));
+                    c0279b.f.setEnabled(false);
+                    c0279b.f.setOnClickListener(null);
                 } else {
-                    c0280b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f17c6));
-                    c0280b.f.setEnabled(true);
-                    c0280b.f.setOnClickListener(new a(this, item));
+                    c0279b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f17c6));
+                    c0279b.f.setEnabled(true);
+                    c0279b.f.setOnClickListener(new a(this, item));
                 }
-                b(c0280b, view2, TbadkCoreApplication.getInst().getSkinType());
+                b(c0279b, view2, TbadkCoreApplication.getInst().getSkinType());
                 return view2;
             }
             return (View) invokeILL.objValue;

@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.tieba.write.write.sticker.view.StickerView;
 /* loaded from: classes7.dex */
 public interface r4b {
-    void a();
+    void a(StickerView stickerView);
 
-    void b();
+    void b(StickerView stickerView, boolean z);
 
-    boolean c(Bitmap bitmap);
+    void c(StickerView stickerView);
 
-    void d();
+    void onDelete();
 }

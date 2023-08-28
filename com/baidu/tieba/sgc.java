@@ -3,83 +3,45 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.common.StringUtils;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class sgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.##").format(d);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.#").format(d);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static double c(String str) {
+    public static List<tfc> a(List<PayWayInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && list.size() != 0) {
+                for (int i = 0; i < list.size(); i++) {
+                    PayWayInfo payWayInfo = list.get(i);
+                    if (PayType.ALI_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.ALI_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.ALI_PAY, payWayInfo.name, payWayInfo.tips, 0.0d, false, payWayInfo.perFreePassAmount, payWayInfo.passFreeAlwaysConfirm));
+                    } else if (PayType.WECHAT_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.WECHAT_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.WECHAT_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.DXM_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.DXM_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.DXM_PAY_KJ.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_KJ.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.DXM_PAY_KJ, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.QQ_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.QQ_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.QQ_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.UNION_PAY.getChannel().equals(payWayInfo.payChannel) && PayType.UNION_PAY.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.UNION_PAY, payWayInfo.name, payWayInfo.tips));
+                    } else if (PayType.DXM_PAY_H5.getChannel().equals(payWayInfo.payChannel) && PayType.DXM_PAY_H5.getMethod().equals(payWayInfo.payMethod)) {
+                        arrayList.add(new tfc(PayType.DXM_PAY_H5, payWayInfo.name, payWayInfo.tips));
+                    }
+                }
+                return arrayList;
             }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
-            }
+            RLog.info("PayWayInfoUtils", "createRechargeWayList but mPayWayInfoList null");
+            return arrayList;
         }
-        return invokeL.doubleValue;
-    }
-
-    public static long d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0L;
-            }
-            try {
-                return Long.valueOf(str).longValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
+        return (List) invokeL.objValue;
     }
 }

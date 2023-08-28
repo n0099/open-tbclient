@@ -1,79 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalCronetEngine;
-import com.baidu.turbonet.net.ICronetEngineBuilder;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.channels.ReadableByteChannel;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class d7b extends t6b {
+public final class d7b implements ReadableByteChannel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final InputStream a;
+    public final AtomicBoolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d7b(Context context) {
-        super(context);
+    public d7b(@NonNull InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new AtomicBoolean(true);
+        this.a = inputStream;
     }
 
-    @Override // com.baidu.tieba.t6b, com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
-        super.g(str);
-        return this;
+    public static ReadableByteChannel a(@NonNull InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            if (inputStream instanceof FileInputStream) {
+                return ((FileInputStream) inputStream).getChannel();
+            }
+            return new d7b(inputStream);
+        }
+        return (ReadableByteChannel) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.t6b, com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
-        super.y(str);
-        return this;
+    @Override // java.nio.channels.Channel, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.compareAndSet(true, false)) {
+            this.a.close();
+        }
     }
 
-    @Override // com.baidu.tieba.t6b, com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
-        super.z(str);
-        return this;
-    }
-
-    @Override // com.baidu.tieba.t6b, com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
-        super.B(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
-    public ExperimentalCronetEngine b() {
+    @Override // java.nio.channels.Channel
+    public boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (r() == null) {
-                C(q());
-            }
-            return new c7b(this);
+            return this.b.get();
         }
-        return (ExperimentalCronetEngine) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t6b, com.baidu.turbonet.net.ICronetEngineBuilder
-    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
-        super.l(z, str);
-        return this;
+    @Override // java.nio.channels.ReadableByteChannel
+    public int read(ByteBuffer byteBuffer) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer)) == null) {
+            if (byteBuffer.hasArray()) {
+                int read = this.a.read(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), byteBuffer.remaining());
+                if (read > 0) {
+                    byteBuffer.position(byteBuffer.position() + read);
+                    return read;
+                }
+                return read;
+            }
+            byte[] bArr = new byte[Math.min(16384, Math.min(Math.max(this.a.available(), 4096), byteBuffer.remaining()))];
+            int read2 = this.a.read(bArr);
+            if (read2 > 0) {
+                byteBuffer.put(bArr, 0, read2);
+            }
+            return read2;
+        }
+        return invokeL.intValue;
     }
 }

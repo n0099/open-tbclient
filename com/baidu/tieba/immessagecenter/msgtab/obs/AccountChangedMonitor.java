@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.jcc;
+import com.baidu.tieba.lcc;
 import com.baidu.tieba.tt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -161,13 +161,13 @@ public final class AccountChangedMonitor implements tt8 {
         this.b = new b(this);
     }
 
-    public final jcc<Long> c() {
+    public final lcc<Long> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (jcc) this.a.getValue();
+            return (lcc) this.a.getValue();
         }
-        return (jcc) invokeV.objValue;
+        return (lcc) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.tt8

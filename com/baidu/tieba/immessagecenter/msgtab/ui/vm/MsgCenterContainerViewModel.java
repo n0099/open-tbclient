@@ -3,15 +3,15 @@ package com.baidu.tieba.immessagecenter.msgtab.ui.vm;
 import android.app.Activity;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b8c;
+import com.baidu.tieba.d8c;
 import com.baidu.tieba.hz4;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgCenterContainerModel;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgCenterContainerViewModel;
 import com.baidu.tieba.lw8;
 import com.baidu.tieba.mw8;
-import com.baidu.tieba.occ;
 import com.baidu.tieba.ot8;
+import com.baidu.tieba.qcc;
 import com.baidu.tieba.su8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,16 +48,16 @@ public final class MsgCenterContainerViewModel extends BaseViewModel<mw8, lw8> {
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public occ l() {
+    public qcc l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            occ occVar = new occ();
-            occVar.a(this.d.e().H(new b8c() { // from class: com.baidu.tieba.wv8
+            qcc qccVar = new qcc();
+            qccVar.a(this.d.e().H(new d8c() { // from class: com.baidu.tieba.wv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -65,9 +65,9 @@ public final class MsgCenterContainerViewModel extends BaseViewModel<mw8, lw8> {
                     }
                 }
             }));
-            return occVar;
+            return qccVar;
         }
-        return (occ) invokeV.objValue;
+        return (qcc) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

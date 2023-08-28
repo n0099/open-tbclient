@@ -122,7 +122,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements i18 {
     public final gt6<d18> S;
 
     /* renamed from: T  reason: collision with root package name */
-    public BdResourceCallback<BdImage> f1118T;
+    public BdResourceCallback<BdImage> f1117T;
     public q18 U;
     public l18 V;
     public k18 W;
@@ -1612,7 +1612,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements i18 {
         this.Q = new a(this, 2001371);
         this.R = new Object();
         this.S = new b(this, d18.class);
-        this.f1118T = new f(this);
+        this.f1117T = new f(this);
         this.U = new q18();
         this.V = new h(this);
         this.W = new i(this);
@@ -1653,7 +1653,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements i18 {
         this.Q = new a(this, 2001371);
         this.R = new Object();
         this.S = new b(this, d18.class);
-        this.f1118T = new f(this);
+        this.f1117T = new f(this);
         this.U = new q18();
         this.V = new h(this);
         this.W = new i(this);
@@ -2018,7 +2018,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements i18 {
                 } else {
                     this.N.setImageBackgroundVisibility(0);
                     q0();
-                    BdResourceLoader.getInstance().loadResource(str, 10, this.f1118T, this.b.getUniqueId());
+                    BdResourceLoader.getInstance().loadResource(str, 10, this.f1117T, this.b.getUniqueId());
                 }
                 s0(skinType, ng5Var.p());
                 return;

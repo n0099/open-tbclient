@@ -191,7 +191,7 @@ public class df8 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!sgb.a(str)) {
+            if (!ugb.a(str)) {
                 if (str.startsWith("{") && str.endsWith("}")) {
                     return true;
                 }

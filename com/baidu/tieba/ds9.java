@@ -43,14 +43,14 @@ public class ds9 implements bt9.g {
 
         /* renamed from: com.baidu.tieba.ds9$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0271a implements Runnable {
+        public class RunnableC0272a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ hs9 a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0271a(a aVar, hs9 hs9Var, String str) {
+            public RunnableC0272a(a aVar, hs9 hs9Var, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class ds9 implements bt9.g {
                         z = false;
                     }
                     if (z) {
-                        SafeHandler.getInst().postDelayed(new RunnableC0271a(this, v, str), 501L);
+                        SafeHandler.getInst().postDelayed(new RunnableC0272a(this, v, str), 501L);
                     }
                 }
             }

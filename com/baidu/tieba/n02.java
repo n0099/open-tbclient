@@ -36,12 +36,12 @@ public class n02 {
 
         /* renamed from: com.baidu.tieba.n02$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0414a implements Runnable {
+        public class RunnableC0415a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0414a(a aVar) {
+            public RunnableC0415a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class n02 {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0414a(this));
+                this.a.runOnJSThread(new RunnableC0415a(this));
             }
         }
     }

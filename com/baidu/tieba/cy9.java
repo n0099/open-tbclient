@@ -19,7 +19,7 @@ import okhttp3.OkHttpClient;
 public class cy9 {
     public static /* synthetic */ Interceptable $ic;
     public static OkHttpClient a;
-    public static o7b b;
+    public static q7b b;
     public static long c;
     public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,23 +44,23 @@ public class cy9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             b = g();
-            t7b t7bVar = new t7b(b);
+            v7b v7bVar = new v7b(b);
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(t7bVar);
+            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(v7bVar);
             return builder.build();
         }
         return (OkHttpClient) invokeV.objValue;
     }
 
-    public static o7b g() {
+    public static q7b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            o7b o7bVar = new o7b(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = o7bVar;
-            return o7bVar;
+            q7b q7bVar = new q7b(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
+            b = q7bVar;
+            return q7bVar;
         }
-        return (o7b) invokeV.objValue;
+        return (q7b) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
@@ -122,9 +122,9 @@ public class cy9 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            o7b o7bVar = b;
-            if (o7bVar != null && c == 0) {
-                c = o7bVar.c();
+            q7b q7bVar = b;
+            if (q7bVar != null && c == 0) {
+                c = q7bVar.c();
             }
             return c;
         }
@@ -145,22 +145,22 @@ public class cy9 {
         }
     }
 
-    public static n7b d() {
+    public static p7b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            n7b n7bVar = new n7b();
-            n7bVar.j(15);
-            n7bVar.c(true);
-            n7bVar.b(true);
-            n7bVar.e(true);
-            n7bVar.a("http://tb-video.bdstatic.com|2");
-            n7bVar.f(true);
-            n7bVar.i("bdns", "bce_http_dns_account_id", "119799");
-            n7bVar.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            n7bVar.i("bdns", "bce_http_dns_tag", "tieba");
-            n7bVar.i("bdbus", "min_trigger_interval", 180);
-            n7bVar.i("bdns", "dual_stack_bdns_cache_policy", 1);
+            p7b p7bVar = new p7b();
+            p7bVar.j(15);
+            p7bVar.c(true);
+            p7bVar.b(true);
+            p7bVar.e(true);
+            p7bVar.a("http://tb-video.bdstatic.com|2");
+            p7bVar.f(true);
+            p7bVar.i("bdns", "bce_http_dns_account_id", "119799");
+            p7bVar.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
+            p7bVar.i("bdns", "bce_http_dns_tag", "tieba");
+            p7bVar.i("bdbus", "min_trigger_interval", 180);
+            p7bVar.i("bdns", "dual_stack_bdns_cache_policy", 1);
             File file = new File(b(), "turbonetcache");
             if (file.exists()) {
                 if (file.isFile()) {
@@ -170,28 +170,28 @@ public class cy9 {
             } else {
                 file.mkdirs();
             }
-            n7bVar.k(file.getAbsolutePath());
-            n7bVar.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            n7bVar.i(LocalFilesFilterKt.FILTER_NAME_LOG, "lite_log_in_response_header", Boolean.TRUE);
-            n7bVar.i("app", "app_package_name", "com.baidu.tieba");
-            n7bVar.i("nq", "network_quality_enabled", Boolean.TRUE);
-            n7bVar.i("nq", "watch_all", Boolean.TRUE);
-            n7bVar.i("nq", "rejudge_interval_sec", 10);
-            n7bVar.i("nq", "weak_window_sec", 30);
-            n7bVar.i("nq", "weak_min_cnt", 10);
-            n7bVar.i("nq", "probe_enabled", Boolean.FALSE);
-            n7bVar.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            n7bVar.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            n7bVar.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            n7bVar.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            n7bVar.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            n7bVar.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            n7bVar.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            n7bVar.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            n7bVar.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            n7bVar.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return n7bVar;
+            p7bVar.k(file.getAbsolutePath());
+            p7bVar.d(3, Config.FULL_TRACE_LOG_LIMIT);
+            p7bVar.i(LocalFilesFilterKt.FILTER_NAME_LOG, "lite_log_in_response_header", Boolean.TRUE);
+            p7bVar.i("app", "app_package_name", "com.baidu.tieba");
+            p7bVar.i("nq", "network_quality_enabled", Boolean.TRUE);
+            p7bVar.i("nq", "watch_all", Boolean.TRUE);
+            p7bVar.i("nq", "rejudge_interval_sec", 10);
+            p7bVar.i("nq", "weak_window_sec", 30);
+            p7bVar.i("nq", "weak_min_cnt", 10);
+            p7bVar.i("nq", "probe_enabled", Boolean.FALSE);
+            p7bVar.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
+            p7bVar.i("nq", "weak_policy_tcp_retrans_percentage", 30);
+            p7bVar.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
+            p7bVar.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
+            p7bVar.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
+            p7bVar.i("nq", "weak_policy_http_ttfb_percentage", 30);
+            p7bVar.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
+            p7bVar.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
+            p7bVar.i("nq", "weak_policy_tcp_rtt_percentage", 30);
+            p7bVar.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
+            return p7bVar;
         }
-        return (n7b) invokeV.objValue;
+        return (p7b) invokeV.objValue;
     }
 }

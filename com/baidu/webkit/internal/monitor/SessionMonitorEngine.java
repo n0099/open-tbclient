@@ -345,30 +345,30 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0563a(aVar, (byte) 0);
+            aVar.a = new a.C0564a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
             aVar.a.f = true;
         }
-        a.C0563a c0563a = aVar.a;
-        if (c0563a.f) {
+        a.C0564a c0564a = aVar.a;
+        if (c0564a.f) {
             switch (i) {
                 case 7:
-                    c0563a.a = ((Boolean) obj).booleanValue();
+                    c0564a.a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    c0563a.b = ((Boolean) obj).booleanValue();
+                    c0564a.b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    c0563a.c = ((Long) obj).longValue();
+                    c0564a.c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    c0563a.d = ((Long) obj).longValue();
+                    c0564a.d = ((Long) obj).longValue();
                     aVar.a.f = true;
                     return;
                 case 11:
-                    c0563a.e = ((Boolean) obj).booleanValue();
+                    c0564a.e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -378,9 +378,9 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        a.C0563a c0563a = aVar.a;
-        if (c0563a != null) {
-            aVar.a.g.put(str, Long.valueOf(j + (c0563a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
+        a.C0564a c0564a = aVar.a;
+        if (c0564a != null) {
+            aVar.a.g.put(str, Long.valueOf(j + (c0564a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
         }
     }
 
@@ -495,17 +495,17 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0563a(aVar, (byte) 0);
+            aVar.a = new a.C0564a(aVar, (byte) 0);
         }
-        a.C0563a c0563a = aVar.a;
-        if (c0563a.c == -1) {
-            c0563a.a();
+        a.C0564a c0564a = aVar.a;
+        if (c0564a.c == -1) {
+            c0564a.a();
         }
-        a.C0563a c0563a2 = aVar.a;
-        if (c0563a2.f) {
+        a.C0564a c0564a2 = aVar.a;
+        if (c0564a2.f) {
             return;
         }
-        c0563a2.f = true;
+        c0564a2.f = true;
     }
 
     public void updateCuidIfNeeded() {

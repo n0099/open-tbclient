@@ -3,16 +3,16 @@ package com.baidu.tieba.immessagecenter.msgtab.ui.vm;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.g8c;
+import com.baidu.tieba.d8c;
+import com.baidu.tieba.i8c;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgTabNotifyModel;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel;
 import com.baidu.tieba.nt8;
 import com.baidu.tieba.nw8;
-import com.baidu.tieba.occ;
 import com.baidu.tieba.ow8;
+import com.baidu.tieba.qcc;
 import com.baidu.tieba.rw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -387,16 +387,16 @@ public final class NotifyTabViewModel extends BaseViewModel<ow8, nw8> {
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public occ l() {
+    public qcc l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            occ occVar = new occ();
-            occVar.a(this.d.l().H(new b8c() { // from class: com.baidu.tieba.xv8
+            qcc qccVar = new qcc();
+            qccVar.a(this.d.l().H(new d8c() { // from class: com.baidu.tieba.xv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -404,21 +404,21 @@ public final class NotifyTabViewModel extends BaseViewModel<ow8, nw8> {
                     }
                 }
             }));
-            occVar.a(this.d.n().p(new g8c() { // from class: com.baidu.tieba.yv8
+            qccVar.a(this.d.n().p(new i8c() { // from class: com.baidu.tieba.yv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.g8c
+                @Override // com.baidu.tieba.i8c
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? NotifyTabViewModel.p((List) obj) : invokeL.objValue;
                 }
-            }).H(new b8c() { // from class: com.baidu.tieba.fw8
+            }).H(new d8c() { // from class: com.baidu.tieba.fw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -426,11 +426,11 @@ public final class NotifyTabViewModel extends BaseViewModel<ow8, nw8> {
                     }
                 }
             }));
-            occVar.a(this.d.j().H(new b8c() { // from class: com.baidu.tieba.ew8
+            qccVar.a(this.d.j().H(new d8c() { // from class: com.baidu.tieba.ew8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -438,11 +438,11 @@ public final class NotifyTabViewModel extends BaseViewModel<ow8, nw8> {
                     }
                 }
             }));
-            occVar.a(NotificationChangedMonitor.c.a().f().H(new b8c() { // from class: com.baidu.tieba.cw8
+            qccVar.a(NotificationChangedMonitor.c.a().f().H(new d8c() { // from class: com.baidu.tieba.cw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -450,8 +450,8 @@ public final class NotifyTabViewModel extends BaseViewModel<ow8, nw8> {
                     }
                 }
             }));
-            return occVar;
+            return qccVar;
         }
-        return (occ) invokeV.objValue;
+        return (qcc) invokeV.objValue;
     }
 }

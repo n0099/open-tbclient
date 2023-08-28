@@ -54,14 +54,14 @@ public class xha implements NewWriteModel.d {
 
         /* renamed from: com.baidu.tieba.xha$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0529a implements Runnable {
+        public class RunnableC0530a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ WriteData a;
             public final /* synthetic */ PostWriteCallBackData b;
             public final /* synthetic */ a c;
 
-            public RunnableC0529a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
+            public RunnableC0530a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class xha implements NewWriteModel.d {
                 if (i2 > 0) {
                     i = i2;
                 }
-                SafeHandler.getInst().postDelayed(new RunnableC0529a(this, writeData, postWriteCallBackData), (i + 1) * 1000);
+                SafeHandler.getInst().postDelayed(new RunnableC0530a(this, writeData, postWriteCallBackData), (i + 1) * 1000);
                 WriteMsgHolder.setCurrentWriteActivityFromTag(null);
                 this.a.t();
             } else if (!VcodeTool.tryShowOnWriteScene(postWriteCallBackData, qd5Var, writeData, antiData)) {

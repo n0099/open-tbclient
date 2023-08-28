@@ -59,7 +59,7 @@ public class ox5 {
     public static void d(String str, String str2, String str3, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, context) == null) {
-            BrowserHelper.startWebActivity(context, null, lab.a(lab.a(lab.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
+            BrowserHelper.startWebActivity(context, null, nab.a(nab.a(nab.a(TbConfig.URL_FORUM_LEVEL_H5_PAGE, "portrait", str2), "forum_id", str), "obj_locate", str3), true, true, true);
         }
     }
 }

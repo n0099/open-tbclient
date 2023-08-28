@@ -2,15 +2,15 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.isb;
-import com.baidu.tieba.jsb;
-import com.baidu.tieba.nsb;
+import com.baidu.tieba.ksb;
+import com.baidu.tieba.lsb;
+import com.baidu.tieba.psb;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ nsb b;
+    public final /* synthetic */ psb b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -20,8 +20,8 @@ public final class x extends com.google.a.b.a.a.a.e {
     public final void b(Bundle bundle) {
     }
 
-    public x(nsb nsbVar, AtomicBoolean atomicBoolean) {
-        this.b = nsbVar;
+    public x(psb psbVar, AtomicBoolean atomicBoolean) {
+        this.b = psbVar;
         this.a = atomicBoolean;
     }
 
@@ -40,13 +40,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            nsb nsbVar = this.b;
-            isb isbVar = nsbVar.c;
-            isb.n(nsbVar.a, nsbVar.b);
+            psb psbVar = this.b;
+            ksb ksbVar = psbVar.c;
+            ksb.n(psbVar.a, psbVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            nsb nsbVar2 = this.b;
-            isb isbVar2 = nsbVar2.c;
-            isb.b(nsbVar2.a, bundle, nsbVar2.b);
+            psb psbVar2 = this.b;
+            ksb ksbVar2 = psbVar2.c;
+            ksb.b(psbVar2.a, bundle, psbVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -64,11 +64,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.CANCELLED);
                     return;
                 default:
-                    jsb jsbVar = this.b.b;
+                    lsb lsbVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    jsbVar.b(new FatalException(sb2.toString()));
+                    lsbVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

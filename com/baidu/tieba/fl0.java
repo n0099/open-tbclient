@@ -33,13 +33,13 @@ public class fl0 extends xk1<i81> {
 
         /* renamed from: com.baidu.tieba.fl0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0293a extends in0<ml0> {
+        public class C0290a extends in0<ml0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i81.c b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0293a(a aVar, Class cls, i81.c cVar) {
+            public C0290a(a aVar, Class cls, i81.c cVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -102,7 +102,7 @@ public class fl0 extends xk1<i81> {
         public void a(Object obj, i81.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, cVar) == null) {
-                en0.a().b(obj, new C0293a(this, ml0.class, cVar));
+                en0.a().b(obj, new C0290a(this, ml0.class, cVar));
             }
         }
 

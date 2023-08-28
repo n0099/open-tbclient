@@ -41,29 +41,29 @@ public class ot6 implements nt6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<String> a;
-        public xeb b;
+        public zeb b;
         public final /* synthetic */ ot6 c;
 
         /* loaded from: classes7.dex */
-        public class a implements xeb {
+        public class a implements zeb {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.xeb
+            @Override // com.baidu.tieba.zeb
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.xeb
+            @Override // com.baidu.tieba.zeb
             public void b(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.xeb
+            @Override // com.baidu.tieba.zeb
             public void c(long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
@@ -111,7 +111,7 @@ public class ot6 implements nt6 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:48:0x010d, code lost:
-            if (com.baidu.tieba.tgb.h(r6, r7[0], r1, r5.b) != false) goto L18;
+            if (com.baidu.tieba.vgb.h(r6, r7[0], r1, r5.b) != false) goto L18;
          */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
         /* JADX WARN: Removed duplicated region for block: B:54:0x011d A[LOOP:0: B:52:0x0117->B:54:0x011d, LOOP_END] */
@@ -257,7 +257,7 @@ public class ot6 implements nt6 {
                 this.a.addAll(listArr[0]);
                 Iterator<String> it = this.a.iterator();
                 while (it.hasNext()) {
-                    if (web.a(it.next()) <= 0) {
+                    if (yeb.a(it.next()) <= 0) {
                         return "";
                     }
                 }
@@ -272,9 +272,9 @@ public class ot6 implements nt6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 super.onPostExecute((b) str);
-                xeb xebVar = this.b;
-                if (xebVar != null) {
-                    xebVar.a();
+                zeb zebVar = this.b;
+                if (zebVar != null) {
+                    zebVar.a();
                 }
                 if (this.c.c != null) {
                     this.c.c.c(str);
@@ -348,7 +348,7 @@ public class ot6 implements nt6 {
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i);
                 if (!TextUtils.isEmpty(str)) {
-                    f += jgb.f(str);
+                    f += lgb.f(str);
                 }
             }
             if (f < 3000.0f) {

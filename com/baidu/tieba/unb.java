@@ -10,7 +10,6 @@ import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
 import java.lang.reflect.Field;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -43,27 +42,13 @@ public class unb extends BaseAdRipper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
             try {
-                A a = ((qob) obj).a;
-                if (!(a instanceof NativeUnifiedADDataAdapter)) {
-                    return null;
-                }
-                Object field = ReflectionUtils.getField((NativeUnifiedADDataAdapter) a, "a", "e");
-                Field declaredField = field.getClass().getSuperclass().getDeclaredField("M");
-                if (declaredField == null) {
-                    return null;
-                }
+                Object field = ReflectionUtils.getField(((sob) obj).a, "d", "a", "k");
+                Field declaredField = field.getClass().getDeclaredField("M");
                 declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(field);
-                if (!(obj2 instanceof JSONObject)) {
-                    return null;
-                }
-                return znb.a((JSONObject) obj2);
-            } catch (Exception e) {
-                LogPrinter.e(e);
+                return bob.a((JSONObject) declaredField.get(field));
+            } catch (Exception unused) {
+                LogPrinter.e();
                 return null;
             }
         }

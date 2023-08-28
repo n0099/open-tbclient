@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n4b;
+import com.baidu.tieba.p4b;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
 import com.baidu.tieba.write.write.relevance.list.ReleavanceItemListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +32,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class RelevanceItemListController implements BdRecyclerView.i, n4b.b, BdListView.p {
+public class RelevanceItemListController implements BdRecyclerView.i, p4b.b, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;
     public final RelevanceItemListFragment b;
-    public final n4b c;
+    public final p4b c;
     public BdRecyclerView d;
     public PbListView e;
     public List<ReleavanceItemListData.ItemListBean> f;
@@ -178,7 +178,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, n4b.b, BdL
         this.i = new a(this);
         this.a = view2;
         this.b = relevanceItemListFragment;
-        this.c = new n4b(bdUniqueId, str);
+        this.c = new p4b(bdUniqueId, str);
         j();
     }
 
@@ -193,7 +193,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, n4b.b, BdL
         }
     }
 
-    @Override // com.baidu.tieba.n4b.b
+    @Override // com.baidu.tieba.p4b.b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -281,7 +281,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, n4b.b, BdL
         }
     }
 
-    @Override // com.baidu.tieba.n4b.b
+    @Override // com.baidu.tieba.p4b.b
     public void c(RelevanceItemSearchData relevanceItemSearchData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, relevanceItemSearchData) == null) {
@@ -296,7 +296,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, n4b.b, BdL
         }
     }
 
-    @Override // com.baidu.tieba.n4b.b
+    @Override // com.baidu.tieba.p4b.b
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -340,7 +340,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, n4b.b, BdL
         }
     }
 
-    @Override // com.baidu.tieba.n4b.b
+    @Override // com.baidu.tieba.p4b.b
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {

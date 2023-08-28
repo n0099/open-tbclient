@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.dt5;
-import com.baidu.tieba.u4b;
+import com.baidu.tieba.w4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u4b k;
+    public w4b k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void C1() {
@@ -79,9 +79,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            u4b u4bVar = this.k;
-            if (u4bVar != null) {
-                u4bVar.onDestroy();
+            w4b w4bVar = this.k;
+            if (w4bVar != null) {
+                w4bVar.onDestroy();
             }
         }
     }
@@ -118,9 +118,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str3 != null) {
                     str4 = str3;
                 }
-                u4b u4bVar = new u4b(linearLayout, navigationBar, this, str4);
-                this.k = u4bVar;
-                u4bVar.H(str2);
+                w4b w4bVar = new w4b(linearLayout, navigationBar, this, str4);
+                this.k = w4bVar;
+                w4bVar.H(str2);
                 this.k.G(str);
             }
             return this.k;

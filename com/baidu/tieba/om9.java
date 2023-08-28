@@ -106,13 +106,13 @@ public class om9 extends vk9<zfa, PbCommenFloorItemViewHolder> implements View.O
 
         /* renamed from: com.baidu.tieba.om9$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0427a implements Runnable {
+        public class RunnableC0429a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zfa a;
             public final /* synthetic */ a b;
 
-            public RunnableC0427a(a aVar, zfa zfaVar) {
+            public RunnableC0429a(a aVar, zfa zfaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -170,7 +170,7 @@ public class om9 extends vk9<zfa, PbCommenFloorItemViewHolder> implements View.O
             }
             SparseArray sparseArray = (SparseArray) view2.getTag();
             if ((sparseArray.get(R.id.tag_load_sub_data) instanceof zfa) && (zfaVar = (zfa) sparseArray.get(R.id.tag_load_sub_data)) != null && this.a.c != null && this.b != null) {
-                SafeHandler.getInst().postDelayed(new RunnableC0427a(this, zfaVar), 100L);
+                SafeHandler.getInst().postDelayed(new RunnableC0429a(this, zfaVar), 100L);
                 String Q = this.c.l.Q();
                 if ((StringUtils.isNull(Q) || "0".equals(this.c.l.Q())) && this.c.l.O() != null) {
                     Q = this.c.l.O().getNid();

@@ -34,12 +34,12 @@ public class cp3 implements wp3<Exception> {
 
         /* renamed from: com.baidu.tieba.cp3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0266a implements Runnable {
+        public class RunnableC0265a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0266a(a aVar) {
+            public RunnableC0265a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class cp3 implements wp3<Exception> {
                     if (this.a.c != null) {
                         this.a.b.removeCallbacks(this.a.c);
                     }
-                    this.a.c = new RunnableC0266a(this);
+                    this.a.c = new RunnableC0265a(this);
                     long a = jn4.a(300) * 1000;
                     this.a.b.postDelayed(this.a.c, a);
                     if (cp3.e) {

@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.oab;
+import com.baidu.tieba.qab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,7 +156,7 @@ public class p46 {
             if (di.isEmpty(e)) {
                 return 0;
             }
-            SampleResult a = nab.a(e);
+            SampleResult a = pab.a(e);
             if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
                 return 0;
             }
@@ -173,7 +173,7 @@ public class p46 {
                 return false;
             }
             try {
-                oab.a aVar = new oab.a();
+                qab.a aVar = new qab.a();
                 aVar.e(TbadkCoreApplication.getInst());
                 aVar.j(false);
                 aVar.n(30L);
@@ -181,7 +181,7 @@ public class p46 {
                 aVar.l(false);
                 aVar.o(15L);
                 aVar.k(1000);
-                nab.b(aVar.c());
+                pab.b(aVar.c());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

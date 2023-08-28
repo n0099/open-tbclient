@@ -1,103 +1,176 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes8.dex */
 public final class xbb {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static File b;
+    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SampleResult a(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948296017, "Lcom/baidu/tieba/xbb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948296017, "Lcom/baidu/tieba/xbb;");
+                return;
+            }
+        }
+        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
+    }
+
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && !str.equals("")) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 79) {
-                    switch (hashCode) {
-                        case 2126:
-                            if (str.equals("C1")) {
-                                c = 5;
-                                break;
-                            }
-                            break;
-                        case 2127:
-                            if (str.equals("C2")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 2128:
-                            if (str.equals("C3")) {
-                                c = 7;
-                                break;
-                            }
-                            break;
-                        default:
-                            switch (hashCode) {
-                                case 2653:
-                                    if (str.equals("T1")) {
-                                        c = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 2654:
-                                    if (str.equals("T2")) {
-                                        c = 1;
-                                        break;
-                                    }
-                                    break;
-                                case 2655:
-                                    if (str.equals("T3")) {
-                                        c = 2;
-                                        break;
-                                    }
-                                    break;
-                                case 2656:
-                                    if (str.equals("T4")) {
-                                        c = 3;
-                                        break;
-                                    }
-                                    break;
-                                case 2657:
-                                    if (str.equals("T5")) {
-                                        c = 4;
-                                        break;
-                                    }
-                                    break;
-                            }
-                    }
-                } else if (str.equals("O")) {
-                    c = '\b';
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.exists()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            if (file.delete()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (rab.h().getContext().checkCallingOrSelfPermission(a[0]) != 0 || !externalStorageState.equals("mounted")) {
+                    return false;
                 }
-                switch (c) {
-                    case 0:
-                        return SampleResult.T1;
-                    case 1:
-                        return SampleResult.T2;
-                    case 2:
-                        return SampleResult.T3;
-                    case 3:
-                        return SampleResult.T4;
-                    case 4:
-                        return SampleResult.T5;
-                    case 5:
-                        return SampleResult.C1;
-                    case 6:
-                        return SampleResult.C2;
-                    case 7:
-                        return SampleResult.C3;
-                    case '\b':
-                        return SampleResult.OTHERE;
-                    default:
-                        return SampleResult.OTHERE;
+                return true;
+            }
+            return externalStorageState.equals("mounted");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized boolean d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            synchronized (xbb.class) {
+                if (!c() || !f(str2, str3)) {
+                    return false;
+                }
+                try {
+                    b = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
+                    c = randomAccessFile;
+                    randomAccessFile.seek(b.length());
+                    c.write((str + "\r\n").getBytes("UTF-8"));
+                    c.close();
+                    return true;
+                } catch (Exception e) {
+                    acb.e(e);
+                    return false;
                 }
             }
-            return SampleResult.OTHERE;
         }
-        return (SampleResult) invokeL.objValue;
+        return invokeLLL.booleanValue;
+    }
+
+    public static synchronized String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (xbb.class) {
+                if (c()) {
+                    if (a(str + str2)) {
+                        try {
+                            b = new File(str + str2);
+                            c = new RandomAccessFile(b, "r");
+                            StringBuffer stringBuffer = new StringBuffer();
+                            while (true) {
+                                String readLine = c.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), "utf-8"));
+                                stringBuffer.append(",");
+                            }
+                            String stringBuffer2 = stringBuffer.toString();
+                            try {
+                                c.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return stringBuffer2;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            try {
+                                c.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                b = new File(str);
+                if (!a(str)) {
+                    b.mkdirs();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                File file = new File(str + str2);
+                b = file;
+                if (file.exists()) {
+                    return true;
+                }
+                return b.createNewFile();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

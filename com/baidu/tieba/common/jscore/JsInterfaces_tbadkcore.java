@@ -33,9 +33,9 @@ public final class JsInterfaces_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            yl6.a().c("_TieBa_Native_Invoke", py4.class);
             yl6.a().c("local_obj", ny4.class);
             yl6.a().c(BaseWebView.TB_NA_CHANNEL, oy4.class);
+            yl6.a().c("_TieBa_Native_Invoke", py4.class);
         }
     }
 }

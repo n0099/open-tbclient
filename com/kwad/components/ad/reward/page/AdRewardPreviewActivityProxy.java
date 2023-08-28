@@ -133,7 +133,7 @@ public class AdRewardPreviewActivityProxy extends a {
         if (this.mUrl != null) {
             com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(this.mAdTemplate);
             if (com.kwad.sdk.core.response.a.a.am(bQ) && com.kwad.sdk.core.config.d.rT() && ae.isWifiConnected(getActivity())) {
-                cVar.m(new a.C0647a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
+                cVar.m(new a.C0648a(getActivity()).aj(false).ak(false).L(this.mAdTemplate).am(false));
             }
         }
         this.mAdWebView.loadUrl(!TextUtils.isEmpty(this.mUrl) ? this.mUrl : com.kwad.sdk.core.response.a.a.ar(d.bQ(this.mAdTemplate)));

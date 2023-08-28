@@ -117,12 +117,12 @@ public class n09 {
 
             /* renamed from: com.baidu.tieba.n09$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0415a implements xh0.d {
+            public class C0416a implements xh0.d {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0415a(a aVar) {
+                public C0416a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,7 +196,7 @@ public class n09 {
             public void b(@NonNull List<AdBaseModel> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                    xh0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0415a(this));
+                    xh0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0416a(this));
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST);
                     statisticItem.param("obj_type", "a002").param("obj_locate", 0).param("obj_source", 1);
                     TiebaStatic.log(statisticItem);

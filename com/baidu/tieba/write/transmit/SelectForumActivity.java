@@ -45,7 +45,6 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bya;
 import com.baidu.tieba.controller.TransmitShareController;
 import com.baidu.tieba.cya;
 import com.baidu.tieba.dya;
@@ -55,6 +54,7 @@ import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.fya;
 import com.baidu.tieba.gya;
 import com.baidu.tieba.hya;
+import com.baidu.tieba.iya;
 import com.baidu.tieba.write.share.ShareSdkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -78,7 +78,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public NavigationBar b;
     public View c;
     public TextView d;
-    public hya e;
+    public iya e;
     public List<TransmitForumData> f;
     public View g;
     public FrameLayout h;
@@ -94,10 +94,10 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public OriginalThreadInfo.ShareInfo r;
     public String s;
     public String t;
-    public cya u;
-    public bya v;
-    public dya w;
-    public gya x;
+    public dya u;
+    public cya v;
+    public eya w;
+    public hya x;
     public String y;
     public String z;
 
@@ -145,7 +145,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements bya {
+    public class b implements cya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -168,11 +168,11 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.bya
-        public void a(dya dyaVar, int i, String str) {
+        @Override // com.baidu.tieba.cya
+        public void a(eya eyaVar, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, dyaVar, i, str) == null) {
-                if (dyaVar == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, eyaVar, i, str) == null) {
+                if (eyaVar == null) {
                     SelectForumActivity selectForumActivity = this.a;
                     selectForumActivity.hideLoadingView(selectForumActivity.h);
                     this.a.showToast(str);
@@ -183,8 +183,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                     return;
                 }
                 if (this.a.w != null) {
-                    this.a.w.c = dyaVar.c;
-                    this.a.w.d = dyaVar.d;
+                    this.a.w.c = eyaVar.c;
+                    this.a.w.d = eyaVar.d;
                 }
                 TransmitShareController.getInstance().loadRepostForums();
             }
@@ -192,7 +192,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* loaded from: classes8.dex */
-    public class c implements fya {
+    public class c implements gya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -215,25 +215,25 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.fya
-        public void a(eya eyaVar) {
+        @Override // com.baidu.tieba.gya
+        public void a(fya fyaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, eyaVar) == null) {
-                if (eyaVar == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, fyaVar) == null) {
+                if (fyaVar == null) {
                     SelectForumActivity selectForumActivity = this.a;
                     selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f13bb));
                     Intent intent = new Intent();
                     intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                     this.a.setResult(1008, intent);
                 } else {
-                    ErrorData errorData = eyaVar.a;
+                    ErrorData errorData = fyaVar.a;
                     if (errorData != null && errorData.getError_code() != 0) {
-                        this.a.showToast(eyaVar.a.getError_msg());
+                        this.a.showToast(fyaVar.a.getError_msg());
                         Intent intent2 = new Intent();
-                        intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, eyaVar.a.getError_code());
+                        intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, fyaVar.a.getError_code());
                         this.a.setResult(1008, intent2);
                     } else {
-                        TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", eyaVar.b).param("tid", eyaVar.c));
+                        TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", fyaVar.b).param("tid", fyaVar.c));
                         this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(this.a.w.f, "")));
                     }
                 }
@@ -567,22 +567,22 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 } catch (Exception unused) {
                 }
                 this.m = 3;
-                dya dyaVar = new dya();
-                this.w = dyaVar;
-                dyaVar.a = intent.getStringExtra("appkey");
+                eya eyaVar = new eya();
+                this.w = eyaVar;
+                eyaVar.a = intent.getStringExtra("appkey");
                 this.w.b = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
                 this.w.i = intent.getStringExtra("image");
                 this.w.g = intent.getStringExtra("title");
                 this.w.h = intent.getStringExtra("desc");
                 this.w.k = intent.getStringExtra("link");
                 this.w.l = intent.getStringExtra(SelectForumActivityConfig.KEY_SHARE_APPLETS_LINK);
-                this.u = new cya(getUniqueId());
+                this.u = new dya(getUniqueId());
                 b bVar = new b(this);
                 this.v = bVar;
                 this.u.e(bVar);
-                gya gyaVar = new gya(getUniqueId());
-                this.x = gyaVar;
-                gyaVar.c(new c(this));
+                hya hyaVar = new hya(getUniqueId());
+                this.x = hyaVar;
+                hyaVar.c(new c(this));
                 return;
             }
             ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
@@ -630,9 +630,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f0926c2);
             this.a = bdListView;
             bdListView.setOnItemClickListener(this.F);
-            hya hyaVar = new hya(getActivity());
-            this.e = hyaVar;
-            this.a.setAdapter((ListAdapter) hyaVar);
+            iya iyaVar = new iya(getActivity());
+            this.e = iyaVar;
+            this.a.setAdapter((ListAdapter) iyaVar);
             this.e.b(this.f);
         }
     }
@@ -646,9 +646,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 setResult(-1, intent);
                 finish();
             } else if (i2 == -1 && i == 25019) {
-                dya dyaVar = this.w;
-                if (dyaVar != null && intent != null) {
-                    dyaVar.e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
+                eya eyaVar = this.w;
+                if (eyaVar != null && intent != null) {
+                    eyaVar.e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
                     this.w.f = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
                     U1("search");
                     return;
@@ -682,9 +682,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
             if (this.u != null && TbadkCoreApplication.isLogin() && ListUtils.isEmpty(this.f)) {
-                dya dyaVar = this.w;
-                if (dyaVar != null) {
-                    this.u.d(dyaVar.a, dyaVar.b);
+                eya eyaVar = this.w;
+                if (eyaVar != null) {
+                    this.u.d(eyaVar.a, eyaVar.b);
                     return;
                 }
                 return;

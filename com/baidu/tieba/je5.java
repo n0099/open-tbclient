@@ -25,7 +25,7 @@ import com.baidu.tieba.im.message.ResponsedGroupChatListCompleteMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.n7c;
+import com.baidu.tieba.p7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +117,7 @@ public class je5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements b8c<Triple<Integer, Integer, Boolean>> {
+    public class b implements d8c<Triple<Integer, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ je5 a;
@@ -141,7 +141,7 @@ public class je5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8c
+        @Override // com.baidu.tieba.d8c
         public void call(Triple<Integer, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, triple) == null) {
@@ -154,7 +154,7 @@ public class je5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements g8c<Triple<Integer, Integer, Boolean>, Boolean> {
+    public class c implements i8c<Triple<Integer, Integer, Boolean>, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,7 +175,7 @@ public class je5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g8c
+        @Override // com.baidu.tieba.i8c
         public Boolean call(Triple<Integer, Integer, Boolean> triple) {
             InterceptResult invokeL;
             boolean z;
@@ -193,7 +193,7 @@ public class je5 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements n7c.a<Triple<Integer, Integer, Boolean>> {
+    public class d implements p7c.a<Triple<Integer, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Map a;
@@ -217,12 +217,12 @@ public class je5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.n7c.a, com.baidu.tieba.b8c
-        public void call(t7c<? super Triple<Integer, Integer, Boolean>> t7cVar) {
+        @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+        public void call(v7c<? super Triple<Integer, Integer, Boolean>> v7cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t7cVar) == null) {
-                t7cVar.onNext(je5.p(this.a));
-                t7cVar.onCompleted();
+            if (interceptable == null || interceptable.invokeL(1048576, this, v7cVar) == null) {
+                v7cVar.onNext(je5.p(this.a));
+                v7cVar.onCompleted();
             }
         }
     }
@@ -476,11 +476,11 @@ public class je5 {
     public final void n(Map<String, ImMessageCenterPojo> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-            n7c.d(new d(this, new ConcurrentHashMap(map))).J(Schedulers.computation()).s(x7c.b()).k(new c(this)).x().I(new b(this), new b8c() { // from class: com.baidu.tieba.fe5
+            p7c.d(new d(this, new ConcurrentHashMap(map))).J(Schedulers.computation()).s(z7c.b()).k(new c(this)).x().I(new b(this), new d8c() { // from class: com.baidu.tieba.fe5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.b8c
+                @Override // com.baidu.tieba.d8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

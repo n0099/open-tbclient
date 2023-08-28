@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.view.MotionEvent;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,16 +13,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class q4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public Matrix a;
     public Bitmap b;
-    public Rect c;
 
-    public q4b(Context context) {
+    public q4b(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,47 +31,59 @@ public class q4b {
                 return;
             }
         }
-        this.a = context;
-        this.c = new Rect();
+        this.b = bitmap;
+        this.a = new Matrix();
     }
 
-    public boolean b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return false;
-            }
-            Rect rect = this.c;
-            int i = rect.left;
-            int i2 = rect.right;
-            int i3 = rect.top;
-            int i4 = rect.bottom;
-            if (motionEvent.getX(0) < i || motionEvent.getX(0) > i2 || motionEvent.getY(0) < i3 || motionEvent.getY(0) > i4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void a(Canvas canvas, float f, float f2) {
-        Bitmap bitmap;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) != null) || (bitmap = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
             return;
         }
-        this.c.left = (int) (f - (bitmap.getWidth() / 2));
-        this.c.right = (int) (f + (this.b.getWidth() / 2));
-        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
-        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
-        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
+        canvas.drawBitmap(this.b, this.a, null);
     }
 
-    public void c(int i) {
+    public Matrix b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = BitmapHelper.getResBitmap(this.a, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getWidth();
+        }
+        return invokeV.intValue;
     }
 }

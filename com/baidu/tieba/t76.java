@@ -26,7 +26,7 @@ public class t76 extends xk1<xj0> {
 
         /* renamed from: com.baidu.tieba.t76$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0482a implements zj0 {
+        public class C0484a implements zj0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
@@ -69,7 +69,7 @@ public class t76 extends xk1<xj0> {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "2" : (String) invokeV.objValue;
             }
 
-            public C0482a(a aVar) {
+            public C0484a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,7 +283,7 @@ public class t76 extends xk1<xj0> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new C0482a(this);
+                return new C0484a(this);
             }
             return (zj0) invokeV.objValue;
         }

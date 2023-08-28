@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class e9a implements v8b {
+public class e9a implements x8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class e9a implements v8b {
         }
     }
 
-    @Override // com.baidu.tieba.v8b
+    @Override // com.baidu.tieba.x8b
     public boolean isAgreePrivacy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

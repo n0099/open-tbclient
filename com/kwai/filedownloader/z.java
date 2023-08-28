@@ -15,7 +15,7 @@ import java.util.List;
 public final class z extends e implements v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<a.InterfaceC0698a> atJ;
+    public final ArrayList<a.InterfaceC0699a> atJ;
 
     public z() {
         Interceptable interceptable = $ic;
@@ -44,15 +44,15 @@ public final class z extends e implements v {
             synchronized (this.atJ) {
                 this.atJ.clear();
                 ArrayList arrayList = new ArrayList(Dc.Dg());
-                for (a.InterfaceC0698a interfaceC0698a : (List) this.atJ.clone()) {
-                    int Ck = interfaceC0698a.Ck();
+                for (a.InterfaceC0699a interfaceC0699a : (List) this.atJ.clone()) {
+                    int Ck = interfaceC0699a.Ck();
                     if (Dc.ca(Ck)) {
-                        interfaceC0698a.Ci().BR().Cq();
+                        interfaceC0699a.Ci().BR().Cq();
                         if (!arrayList.contains(Integer.valueOf(Ck))) {
                             arrayList.add(Integer.valueOf(Ck));
                         }
                     } else {
-                        interfaceC0698a.Co();
+                        interfaceC0699a.Co();
                     }
                 }
                 Dc.E(arrayList);
@@ -78,7 +78,7 @@ public final class z extends e implements v {
             if (h.CG().size() > 0) {
                 synchronized (this.atJ) {
                     h.CG().D(this.atJ);
-                    Iterator<a.InterfaceC0698a> it = this.atJ.iterator();
+                    Iterator<a.InterfaceC0699a> it = this.atJ.iterator();
                     while (it.hasNext()) {
                         it.next().free();
                     }
@@ -90,46 +90,46 @@ public final class z extends e implements v {
     }
 
     @Override // com.kwai.filedownloader.v
-    public final boolean d(a.InterfaceC0698a interfaceC0698a) {
+    public final boolean d(a.InterfaceC0699a interfaceC0699a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0698a)) == null) ? !this.atJ.isEmpty() && this.atJ.contains(interfaceC0698a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0699a)) == null) ? !this.atJ.isEmpty() && this.atJ.contains(interfaceC0699a) : invokeL.booleanValue;
     }
 
     @Override // com.kwai.filedownloader.v
-    public final void e(a.InterfaceC0698a interfaceC0698a) {
+    public final void e(a.InterfaceC0699a interfaceC0699a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, interfaceC0698a) == null) || this.atJ.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, interfaceC0699a) == null) || this.atJ.isEmpty()) {
             return;
         }
         synchronized (this.atJ) {
-            this.atJ.remove(interfaceC0698a);
+            this.atJ.remove(interfaceC0699a);
         }
     }
 
     @Override // com.kwai.filedownloader.v
-    public final boolean f(a.InterfaceC0698a interfaceC0698a) {
+    public final boolean f(a.InterfaceC0699a interfaceC0699a) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, interfaceC0698a)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, interfaceC0699a)) == null) {
             r.CZ();
             if (!r.Db()) {
                 synchronized (this.atJ) {
                     r.CZ();
                     if (!r.Db()) {
                         if (com.kwai.filedownloader.e.d.awL) {
-                            com.kwai.filedownloader.e.d.e(this, "Waiting for connecting with the downloader service... %d", Integer.valueOf(interfaceC0698a.Ci().getId()));
+                            com.kwai.filedownloader.e.d.e(this, "Waiting for connecting with the downloader service... %d", Integer.valueOf(interfaceC0699a.Ci().getId()));
                         }
                         n.CR().dC(com.kwai.filedownloader.e.c.EJ());
-                        if (!this.atJ.contains(interfaceC0698a)) {
-                            interfaceC0698a.free();
-                            this.atJ.add(interfaceC0698a);
+                        if (!this.atJ.contains(interfaceC0699a)) {
+                            interfaceC0699a.free();
+                            this.atJ.add(interfaceC0699a);
                         }
                         return true;
                     }
                 }
             }
-            e(interfaceC0698a);
+            e(interfaceC0699a);
             return false;
         }
         return invokeL.booleanValue;

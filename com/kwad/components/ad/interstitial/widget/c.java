@@ -253,8 +253,8 @@ public final class c extends b {
                 c.this.f9if.a(i, eVar);
             }
         });
-        this.ig.a(new a.InterfaceC0615a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
-            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0615a
+        this.ig.a(new a.InterfaceC0616a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0616a
             public final void dL() {
                 if (c.this.io) {
                     return;

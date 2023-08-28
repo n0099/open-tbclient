@@ -1,67 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.UnsupportedEncodingException;
-import java.util.Locale;
 /* loaded from: classes7.dex */
-public final class lwb {
-    public static /* synthetic */ Interceptable $ic;
+public class lwb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "BaseKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            }
-            return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947958706, "Lcom/baidu/tieba/lwb;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947958706, "Lcom/baidu/tieba/lwb;");
+        }
     }
 
-    public static byte[] b(String str) {
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
+            if (i2 < i) {
+                i = i2;
+            }
+            return i3 < i ? i3 : i;
+        }
+        return invokeIII.intValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
+    }
+
+    public static boolean c(int i, byte[] bArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+            return b(i) & d(bArr);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public static boolean d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr.length >= 16) {
+                return true;
             }
-            try {
-                String upperCase = str.toUpperCase(Locale.ENGLISH);
-                int length = upperCase.length() / 2;
-                byte[] bArr = new byte[length];
-                try {
-                    byte[] bytes = upperCase.getBytes("UTF-8");
-                    for (int i = 0; i < length; i++) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("0x");
-                        int i2 = i * 2;
-                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
-                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
-                    }
-                    return bArr;
-                } catch (UnsupportedEncodingException | NumberFormatException e) {
-                    owb.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
-                    return new byte[0];
-                }
-            } catch (Throwable th) {
-                owb.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
-                return new byte[0];
-            }
+            return false;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, nwb.b(str4), i, z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return f(str, str2, str3, bArr, 10000, i, z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            byte[] b = nwb.b(str);
+            byte[] b2 = nwb.b(str2);
+            byte[] b3 = nwb.b(str3);
+            int a2 = a(b.length, b2.length, b3.length);
+            if (c(a2, bArr)) {
+                char[] cArr = new char[a2];
+                for (int i3 = 0; i3 < a2; i3++) {
+                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+                }
+                if (!z) {
+                    qwb.d(a, "exportRootKey: sha1");
+                    return iwb.b(cArr, bArr, i, i2 * 8);
+                }
+                qwb.d(a, "exportRootKey: sha256");
+                return iwb.c(cArr, bArr, i, i2 * 8);
+            }
+            throw new IllegalArgumentException("key length must be more than 128bit.");
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, bArr, 16, z);
+        }
+        return (byte[]) invokeCommon.objValue;
     }
 }

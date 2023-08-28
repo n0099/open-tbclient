@@ -22,7 +22,7 @@ public class mh5 {
 
         /* renamed from: com.baidu.tieba.mh5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0409a implements nh5 {
+        public class C0410a implements nh5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ of0 a;
@@ -37,7 +37,7 @@ public class mh5 {
                 return invokeL.booleanValue;
             }
 
-            public C0409a(a aVar, of0 of0Var) {
+            public C0410a(a aVar, of0 of0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class mh5 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0409a(this, of0Var));
+                downloadData.setCallback(new C0410a(this, of0Var));
                 oh5.k().l(downloadData);
             }
         }

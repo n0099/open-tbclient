@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.magicmusic;
 
-import com.baidu.tieba.dgb;
+import com.baidu.tieba.fgb;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class EffectUtil {
     }
 
     public static BaseEffect getEffectInList(int i, List<BaseEffect> list) {
-        if (dgb.e(list)) {
+        if (fgb.e(list)) {
             return null;
         }
         for (int size = list.size() - 1; size >= 0; size--) {

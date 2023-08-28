@@ -29,12 +29,12 @@ public class nk8 implements yk1<vo5> {
 
         /* renamed from: com.baidu.tieba.nk8$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0422a implements pl8 {
+        public class C0425a implements pl8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0422a(a aVar) {
+            public C0425a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class nk8 implements yk1<vo5> {
                     GroupChatDialogFragment groupChatDialogFragment2 = new GroupChatDialogFragment(j, str, j2, list, z, str2, str3);
                     this.c = groupChatDialogFragment2;
                     groupChatDialogFragment2.show(fragmentManager, str3);
-                    this.c.k2(new C0422a(this));
+                    this.c.k2(new C0425a(this));
                     return;
                 }
                 groupChatDialogFragment.j2(j, str, j2, list, z, str2);

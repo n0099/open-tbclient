@@ -38,14 +38,14 @@ import java.util.HashMap;
 public final class a implements f {
     public static c Xd;
     public static HashMap<String, WeakReference<Bitmap>> Xc = new HashMap<>();
-    public static final Handler Xe = new HandlerC0682a();
+    public static final Handler Xe = new HandlerC0683a();
 
     /* renamed from: com.kwad.sdk.core.download.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class HandlerC0682a extends Handler {
+    public static class HandlerC0683a extends Handler {
         public final SparseArray<Long> Xf;
 
-        public HandlerC0682a() {
+        public HandlerC0683a() {
             super(Looper.getMainLooper());
             this.Xf = new SparseArray<>();
         }

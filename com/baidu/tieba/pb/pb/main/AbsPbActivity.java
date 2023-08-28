@@ -165,13 +165,13 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements qj9<
 
         /* renamed from: com.baidu.tieba.pb.pb.main.AbsPbActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0445a implements Runnable {
+        public class RunnableC0446a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0445a(a aVar, String str) {
+            public RunnableC0446a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -304,7 +304,7 @@ public abstract class AbsPbActivity extends BaseFragmentActivity implements qj9<
                 }
                 String stringExtra = this.a.getIntent().getStringExtra("key_open_editor_tips");
                 if (!TextUtils.isEmpty(stringExtra) && !this.a.o) {
-                    SafeHandler.getInst().postDelayed(new RunnableC0445a(this, stringExtra), 100L);
+                    SafeHandler.getInst().postDelayed(new RunnableC0446a(this, stringExtra), 100L);
                 }
             }
         }

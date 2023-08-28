@@ -10,8 +10,8 @@ import com.baidu.android.pushservice.e;
 import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.z.c;
-import com.baidu.tieba.wub;
-import com.baidu.tieba.zsb;
+import com.baidu.tieba.btb;
+import com.baidu.tieba.yub;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -262,7 +262,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             f.add(Long.valueOf(System.currentTimeMillis()));
             try {
-                zsb.a().b(this.c, true);
+                btb.a().b(this.c, true);
             } catch (Throwable unused) {
             }
             return this.a;
@@ -295,7 +295,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             e.add(Long.valueOf(System.currentTimeMillis()));
             try {
-                String token = HmsInstanceId.getInstance(this.c).getToken(wub.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+                String token = HmsInstanceId.getInstance(this.c).getToken(yub.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
                 this.b = token;
                 if (!TextUtils.isEmpty(token)) {
                     a(true);

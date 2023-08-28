@@ -298,22 +298,22 @@ public class at6 implements zs6 {
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements ccb {
+    public static class e implements ecb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
-        @Override // com.baidu.tieba.ccb
-        public jdb c() {
+        @Override // com.baidu.tieba.ecb
+        public ldb c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (jdb) invokeV.objValue;
+            return (ldb) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -338,7 +338,7 @@ public class at6 implements zs6 {
             this.a = z;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class at6 implements zs6 {
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ccb
+        @Override // com.baidu.tieba.ecb
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -657,9 +657,9 @@ public class at6 implements zs6 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            bcb.c().h(TbadkCoreApplication.getInst());
-            bcb.c().j(FileHelper.getCacheDir());
-            bcb.c().k(new e(this.f));
+            dcb.c().h(TbadkCoreApplication.getInst());
+            dcb.c().j(FileHelper.getCacheDir());
+            dcb.c().k(new e(this.f));
         }
     }
 

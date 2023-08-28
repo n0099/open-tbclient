@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface p0c {
-    void a(int i, long j, long j2, long j3, String str, Object obj);
+    void a(String str, boolean z, HashMap<String, String> hashMap);
 }

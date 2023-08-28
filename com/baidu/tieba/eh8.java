@@ -71,12 +71,12 @@ public class eh8 {
 
         /* renamed from: com.baidu.tieba.eh8$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0277a extends bx5<Boolean> {
+        public class C0276a extends bx5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatMessage a;
 
-            public C0277a(a aVar, PersonalChatMessage personalChatMessage) {
+            public C0276a(a aVar, PersonalChatMessage personalChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -285,7 +285,7 @@ public class eh8 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001215, chatMessage));
                     if (chatMessage instanceof PersonalChatMessage) {
                         PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
-                        fx5.c(new C0277a(this, personalChatMessage), new b(this, personalChatMessage));
+                        fx5.c(new C0276a(this, personalChatMessage), new b(this, personalChatMessage));
                     } else if (chatMessage instanceof OfficialChatMessage) {
                         OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
                         fx5.c(new c(this, officialChatMessage), new d(this, officialChatMessage));
@@ -412,12 +412,12 @@ public class eh8 {
 
         /* renamed from: com.baidu.tieba.eh8$d$d  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0278d implements gw5<Boolean> {
+        public class C0277d implements gw5<Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ OfficialChatMessage a;
 
-            public C0278d(d dVar, OfficialChatMessage officialChatMessage) {
+            public C0277d(d dVar, OfficialChatMessage officialChatMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -495,7 +495,7 @@ public class eh8 {
                         fx5.c(new a(this, personalChatMessage), new b(this, personalChatMessage));
                     } else if (chatMessage instanceof OfficialChatMessage) {
                         OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
-                        fx5.c(new c(this, officialChatMessage), new C0278d(this, officialChatMessage));
+                        fx5.c(new c(this, officialChatMessage), new C0277d(this, officialChatMessage));
                     }
                 }
             } catch (Exception unused) {

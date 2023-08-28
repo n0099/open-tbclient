@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import java.util.AbstractMap;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes5.dex */
 public interface ecb {
-    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
+    IMediaPlayer a();
 
-    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
+    String b();
+
+    ldb c();
+
+    String e();
 }

@@ -417,7 +417,7 @@ public class NewStyleStampDialogView extends LinearLayout {
         if ((interceptable == null || interceptable.invokeL(65549, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.l.setVisibility(0);
             this.l.setStampIconsList(list);
-            this.l.setSignStampIconClickListener(new cda() { // from class: com.baidu.tieba.fda
+            this.l.setSignStampIconClickListener(new cda() { // from class: com.baidu.tieba.gda
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -550,7 +550,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 i2 = 0;
             }
             tBLottieAnimationView.setRepeatCount(i2);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.gda
+            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.fda
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

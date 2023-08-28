@@ -2275,7 +2275,7 @@ public class FeedbackInputActivity extends Activity {
                 String str13 = "" + message.arg2;
                 String str14 = "Handler = 12 PluginInvoker  tempRobotSwitch = " + aVar2.b.C + "; id = " + aVar2.b.m;
                 if (aVar2.b.C && aVar2.b.m != null && aVar2.b.m.length() > 0) {
-                    aVar2.b.s.execute(new RunnableC0559a(aVar2, str13));
+                    aVar2.b.s.execute(new RunnableC0560a(aVar2, str13));
                 }
             } else if (i == 13) {
                 FeedbackInputActivity feedbackInputActivity4 = aVar2.b;
@@ -2951,13 +2951,13 @@ public class FeedbackInputActivity extends Activity {
 
         /* renamed from: com.baidu.ufosdk.ui.FeedbackInputActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0559a implements Runnable {
+        public class RunnableC0560a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0559a(a aVar, String str) {
+            public RunnableC0560a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

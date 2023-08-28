@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,6 +16,7 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -190,7 +192,7 @@ public class e89 extends pk5 {
                         return;
                     }
                 }
-                this.a.V();
+                this.a.V("getList");
                 this.a.h().b(this.a);
             }
         }
@@ -286,7 +288,7 @@ public class e89 extends pk5 {
                             }
                         }
                     }
-                    this.a.V();
+                    this.a.V("set");
                     this.a.h().b(this.a);
                     return;
                 }
@@ -544,9 +546,9 @@ public class e89 extends pk5 {
         }
     }
 
-    public final void V() {
+    public final void V(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             BubbleListData bubbleListData = this.n;
             boolean z = false;
             if (bubbleListData != null && bubbleListData.getB_info() != null && this.n.getB_info().size() > 0) {
@@ -562,11 +564,18 @@ public class e89 extends pk5 {
                         break;
                     } else if (this.n.getB_info().get(i).isDef()) {
                         this.p = i;
-                        this.q = this.n.getB_info().get(i).getBg_url();
+                        String bg_url = this.n.getB_info().get(i).getBg_url();
+                        if (bg_url != null && !bg_url.equals(this.q)) {
+                            this.s = null;
+                            this.t = null;
+                            TbadkCoreApplication.getInst().setDefaultIosBImgFormat(null);
+                            TbadkCoreApplication.getInst().setDefaultIosBUrl(null);
+                            DefaultLog.getInstance().e(FileHelper.FILE_CACHE_BUBBLE, "根据列表更新显示的气泡，显示了一个新的气泡，get接口没有IosBUrl！！！");
+                        }
+                        this.q = bg_url;
                         TbadkCoreApplication.getInst().setDefaultBubble(this.q);
                         this.r = this.n.getB_info().get(i).getDynamicUrl();
                         TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(this.r);
-                        break;
                     } else {
                         i++;
                     }
@@ -584,6 +593,7 @@ public class e89 extends pk5 {
             hashMap.put("dynamic_url", this.r);
             hashMap.put("ios_bimg_format", this.s);
             hashMap.put("ios_b_url", this.t);
+            hashMap.put("from", str);
             S(new zh5(25, -1, hashMap));
         }
     }
@@ -640,6 +650,8 @@ public class e89 extends pk5 {
             x(new a(this, context));
             this.q = TbadkCoreApplication.getInst().getDefaultBubble();
             this.r = TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes();
+            this.s = TbadkCoreApplication.getInst().getDefaultIosBImgFormat();
+            this.t = TbadkCoreApplication.getInst().getDefaultIosBUrl();
             if (this.m == null) {
                 Context context2 = this.o;
                 if (context2 instanceof TbPageContext) {

@@ -1,140 +1,101 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dhc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class ffc implements ydc {
+public class ffc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wdc a;
-    public PayFlowType b;
-    public qfc c;
-    public vdc d;
-    public PayUIKitConfig e;
-    public int f;
-    public int g;
+    public Handler a;
+    public boolean b;
+    public Runnable c;
 
-    public ffc(wdc wdcVar, PayFlowType payFlowType, vdc vdcVar, int i, int i2, PayUIKitConfig payUIKitConfig) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ffc a;
+
+        public a(ffc ffcVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ffcVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ffcVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
+                this.a.b = false;
+            }
+        }
+    }
+
+    public ffc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wdcVar, payFlowType, vdcVar, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = wdcVar;
-        this.b = payFlowType;
-        this.d = vdcVar;
-        this.f = i;
-        this.g = i2;
-        this.e = payUIKitConfig;
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = false;
+        this.c = new a(this);
     }
 
-    @Override // com.baidu.tieba.ydc
-    public void a(Activity activity, nfc nfcVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        WindowParams windowParams;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, nfcVar, list, str, paySplitOrderViewSource, viewParams, iPayCallback}) == null) {
-            if (agc.b(this.f, this.g) == null) {
-                RLog.error("PaySplitOrderManager", "prepareShowSplitOrderDialog error appPayService null", new Object[0]);
-                return;
-            }
-            dhc.b bVar = new dhc.b();
-            bVar.a = nfcVar;
-            bVar.h = paySplitOrderViewSource;
-            bVar.c = this.b;
-            AbsViewEventHandler absViewEventHandler = null;
-            if (viewParams != null) {
-                windowParams = viewParams.windowParams;
-            } else {
-                windowParams = null;
-            }
-            bVar.b = windowParams;
-            bVar.d = list;
-            bVar.e = str;
-            bVar.f = viewParams;
-            if (viewParams != null) {
-                absViewEventHandler = viewParams.viewEventListener;
-            }
-            bVar.g = absViewEventHandler;
-            e(activity, bVar, iPayCallback);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
+            this.b = false;
+            this.a.removeCallbacks(this.c);
         }
     }
 
-    @Override // com.baidu.tieba.ydc
-    public qfc b() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (qfc) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ydc
-    public void release() {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            RLog.info("PaySplitOrderManager", "release mPaySplitOrderInfo:" + this.c);
-            this.c = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.ydc
-    public void c(qfc qfcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qfcVar) == null) {
-            RLog.info("PaySplitOrderManager", "setPaySplitOrderInfo info:" + qfcVar);
-            this.c = qfcVar;
-        }
-    }
-
-    public Dialog d(Activity activity, dhc dhcVar, AbsViewEventHandler absViewEventHandler) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, activity, dhcVar, absViewEventHandler)) == null) {
-            RLog.info("PaySplitOrderManager", "createSplitOrderDialog");
-            this.d.m(absViewEventHandler, PayDialogType.PAY_SPLIT_ORDER_DIALOG);
-            return mhc.b.e(activity, activity.getString(R.string.pay_ui_pay_split_order_dialog_title), dhcVar.getContentView(), new uec(this.f, this.g, activity, absViewEventHandler, this.d, dhcVar), absViewEventHandler, PayDialogType.PAY_WAY_DIALOG, this.b, this.e, true);
-        }
-        return (Dialog) invokeLLL.objValue;
-    }
-
-    public final void e(Activity activity, dhc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, bVar, iPayCallback) == null) {
-            RLog.info("PaySplitOrderManager", "pay_dialog_show_flow:showSplitOrderDialog splitOrderViewParams:" + bVar);
-            dhc h = this.a.h(activity, this.e, bVar, this);
-            h.refreshView();
-            Dialog d = d(activity, h, bVar.g);
-            h.setCallback(new vec(activity, d, bVar, iPayCallback, this.d));
-            this.d.r(h, d);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
+            this.b = z;
+            this.a.removeCallbacks(this.c);
+            if (this.b) {
+                this.a.postDelayed(this.c, 3000L);
+            }
         }
     }
 }

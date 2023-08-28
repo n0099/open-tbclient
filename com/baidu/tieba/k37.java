@@ -46,12 +46,12 @@ public class k37 extends pi5 {
 
         /* renamed from: com.baidu.tieba.k37$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0365a implements Runnable {
+        public class RunnableC0368a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0365a(a aVar) {
+            public RunnableC0368a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class k37 extends pi5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                rt6.a(new RunnableC0365a(this), "FaceShop", 1);
+                rt6.a(new RunnableC0368a(this), "FaceShop", 1);
             }
         }
     }

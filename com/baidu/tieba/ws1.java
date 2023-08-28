@@ -20,11 +20,11 @@ public class ws1 implements pu1 {
 
         /* renamed from: com.baidu.tieba.ws1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0520a implements xp3<Bundle> {
+        public class C0522a implements xp3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0520a(a aVar) {
+            public C0522a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,7 +74,7 @@ public class ws1 implements pu1 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                return (Bundle) up3.b(new C0520a(this));
+                return (Bundle) up3.b(new C0522a(this));
             }
             return (Bundle) invokeL.objValue;
         }

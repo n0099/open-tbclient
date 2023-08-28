@@ -59,12 +59,12 @@ public class y59 implements PayChannelService {
 
         /* renamed from: com.baidu.tieba.y59$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0537a implements ITiebaPayCallback {
+        public class C0538a implements ITiebaPayCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ IPayCallback a;
 
-            public C0537a(a aVar, IPayCallback iPayCallback) {
+            public C0538a(a aVar, IPayCallback iPayCallback) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class y59 implements PayChannelService {
             if ((interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) && hashMap != null && !hashMap.isEmpty()) {
                 this.a.c();
                 if (this.a.a != null) {
-                    this.a.a.pay(hashMap.remove("channel"), hashMap, new C0537a(this, iPayCallback));
+                    this.a.a.pay(hashMap.remove("channel"), hashMap, new C0538a(this, iPayCallback));
                 } else if (iPayCallback != null) {
                     iPayCallback.onPayResult(2, null);
                 }

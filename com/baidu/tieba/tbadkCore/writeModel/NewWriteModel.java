@@ -135,13 +135,13 @@ public class NewWriteModel extends BdBaseModel {
 
             /* renamed from: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel$e$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0483a implements Runnable {
+            public class RunnableC0486a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ dia a;
                 public final /* synthetic */ a b;
 
-                public RunnableC0483a(a aVar, dia diaVar) {
+                public RunnableC0486a(a aVar, dia diaVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +191,7 @@ public class NewWriteModel extends BdBaseModel {
             public void a(dia diaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, diaVar) == null) {
-                    lg.g(new RunnableC0483a(this, diaVar));
+                    lg.g(new RunnableC0486a(this, diaVar));
                 }
             }
         }

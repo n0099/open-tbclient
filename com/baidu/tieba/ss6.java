@@ -48,13 +48,13 @@ public class ss6 extends us6 {
 
         /* renamed from: com.baidu.tieba.ss6$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class View$OnClickListenerC0480a implements View.OnClickListener {
+        public class View$OnClickListenerC0482a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0480a(a aVar, String str) {
+            public View$OnClickListenerC0482a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -252,7 +252,7 @@ public class ss6 extends us6 {
                 if (onClickListener != null) {
                     textView.setOnClickListener(onClickListener);
                 } else {
-                    textView.setOnClickListener(new View$OnClickListenerC0480a(this, ss6Var7.i.get("pop_params_key_link")));
+                    textView.setOnClickListener(new View$OnClickListenerC0482a(this, ss6Var7.i.get("pop_params_key_link")));
                 }
                 return inflate;
             }

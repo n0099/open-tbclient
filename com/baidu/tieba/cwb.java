@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class cwb<TResult> implements rvb<TResult> {
+public final class cwb<TResult> implements tvb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public uvb<TResult> a;
@@ -18,15 +18,15 @@ public final class cwb<TResult> implements rvb<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vvb a;
+        public final /* synthetic */ xvb a;
         public final /* synthetic */ cwb b;
 
-        public a(cwb cwbVar, vvb vvbVar) {
+        public a(cwb cwbVar, xvb xvbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cwbVar, vvbVar};
+                Object[] objArr = {cwbVar, xvbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,18 +37,16 @@ public final class cwb<TResult> implements rvb<TResult> {
                 }
             }
             this.b = cwbVar;
-            this.a = vvbVar;
+            this.a = xvbVar;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.uvb */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
+                        this.b.a.onComplete(this.a);
                     }
                 }
             }
@@ -75,7 +73,7 @@ public final class cwb<TResult> implements rvb<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.rvb
+    @Override // com.baidu.tieba.tvb
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -85,11 +83,11 @@ public final class cwb<TResult> implements rvb<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.rvb
-    public final void onComplete(vvb<TResult> vvbVar) {
+    @Override // com.baidu.tieba.tvb
+    public final void onComplete(xvb<TResult> xvbVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vvbVar) == null) && vvbVar.h() && !vvbVar.f()) {
-            this.b.execute(new a(this, vvbVar));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xvbVar) == null) {
+            this.b.execute(new a(this, xvbVar));
         }
     }
 }

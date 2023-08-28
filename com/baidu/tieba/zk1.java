@@ -218,9 +218,9 @@ public class zk1 {
             c("tbadkcore", "tbadkcore", k46.class);
             c("tieba.core", "eventbus", x09.class);
             c("tieba.core", "eventbus.autorelease", w09.class);
-            c("ubc", UBC.TAG, k9b.class);
-            c("voyager", "upload", gib.class);
-            c("yaLog", "yaLogConfig", fjb.class);
+            c("ubc", UBC.TAG, m9b.class);
+            c("voyager", "upload", iib.class);
+            c("yaLog", "yaLogConfig", hjb.class);
         }
     }
 }

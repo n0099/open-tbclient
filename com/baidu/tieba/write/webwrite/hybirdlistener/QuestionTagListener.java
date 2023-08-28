@@ -9,16 +9,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.a0b;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.hza;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.s4b;
-import com.baidu.tieba.v4b;
+import com.baidu.tieba.c0b;
+import com.baidu.tieba.jza;
+import com.baidu.tieba.kza;
+import com.baidu.tieba.u4b;
 import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.QuestionTagListener;
+import com.baidu.tieba.x4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,18 +35,18 @@ public final class QuestionTagListener extends BizBase {
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> g;
 
-    @Override // com.baidu.tieba.kza
-    public hza[] d() {
+    @Override // com.baidu.tieba.mza
+    public jza[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (hza[]) invokeV.objValue;
+        return (jza[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuestionTagListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, a0b writePageState) {
+    public QuestionTagListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, c0b writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,7 +58,7 @@ public final class QuestionTagListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (a0b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c0b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,11 +74,11 @@ public final class QuestionTagListener extends BizBase {
     public final void t(final String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            new v4b().u(this.g.getPageActivity(), str2, k().getForumId(), new s4b() { // from class: com.baidu.tieba.c0b
+            new x4b().u(this.g.getPageActivity(), str2, k().getForumId(), new u4b() { // from class: com.baidu.tieba.e0b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.s4b
+                @Override // com.baidu.tieba.u4b
                 public final void a(QuestionTagListData.QuestionTag questionTag) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, questionTag) == null) {
@@ -106,18 +106,18 @@ public final class QuestionTagListener extends BizBase {
         }
     }
 
-    @Override // com.baidu.tieba.kza
+    @Override // com.baidu.tieba.mza
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new WrapListener[]{h().invoke("writePage.selectQuestionTag", new QuestionTagListener$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kza
-    public iza[] f() {
+    @Override // com.baidu.tieba.mza
+    public kza[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new iza[]{p(25072, new QuestionTagListener$requestCodeHandlers$1(this))} : (iza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new kza[]{p(25072, new QuestionTagListener$requestCodeHandlers$1(this))} : (kza[]) invokeV.objValue;
     }
 
     public final TbPageContext<?> getContext() {

@@ -20,12 +20,12 @@ public class a {
 
     /* renamed from: com.kwad.components.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0639a extends SQLiteOpenHelper {
+    public static class C0640a extends SQLiteOpenHelper {
         public static int CU = 1;
         public String CV;
         public String CW;
 
-        public C0639a(@Nullable Context context) {
+        public C0640a(@Nullable Context context) {
             super(context, "ksadcache.db", (SQLiteDatabase.CursorFactory) null, CU);
             this.CV = "CREATE TABLE IF NOT EXISTS ksad_ad_cache (creativeId VARCHAR PRIMARY KEY NOT NULL, posId TEXT, adJson TEXT, ecpm INTEGER, playAgainJson TEXT, adSenseJson TEXT, createTime INTEGER, expireTime INTEGER)";
             this.CW = "CREATE TABLE IF NOT EXISTS ksad_ad_cache_strategy(posId VARCHAR PRIMARY KEY NOT NULL, cacheSize INTEGER, cacheSecond INTEGER, strategyCode INTEGER, enable INTEGER)";
@@ -43,7 +43,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.CR = new C0639a(context).getWritableDatabase();
+        this.CR = new C0640a(context).getWritableDatabase();
     }
 
     private <T extends h> void b(List<T> list, String str) {

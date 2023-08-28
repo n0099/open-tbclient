@@ -1450,7 +1450,7 @@ public class qk9 {
             this.f = new PbFirstFloorEnterForumAdapter(pbFragment, ai9.k);
             this.g = new PbFirstFloorItemAdapter(pbFragment.getContext(), bi9.c);
             this.h = new PbFirstFloorRecommendAdapter(pbFragment.getContext(), PbFirstFloorRecommendData.d);
-            this.i = new PbFirstFloorSimilarTitleAdapter(pbFragment.getPageContext(), di9.f1100T);
+            this.i = new PbFirstFloorSimilarTitleAdapter(pbFragment.getPageContext(), di9.f1098T);
             this.j = new wm9(pbFragment.getPageContext(), ci9.X0);
             this.k = new tm9(pbFragment, vh9.c);
             this.l = new zl9(pbFragment, ni9.g);

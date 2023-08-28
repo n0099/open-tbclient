@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.tieba.ah0;
-import com.baidu.tieba.dgb;
+import com.baidu.tieba.fgb;
 import com.baidu.tieba.sg0;
 /* loaded from: classes9.dex */
 public class MiniVideoEffectProcessor extends BaseEffectProcessor {
@@ -20,11 +20,11 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
         }
         int i3 = 1;
         while (true) {
-            if (i3 >= dgb.b(sg0Var.l())) {
+            if (i3 >= fgb.b(sg0Var.l())) {
                 i2 = i;
                 break;
             }
-            MediaTrack mediaTrack = (MediaTrack) dgb.c(sg0Var.l(), i3);
+            MediaTrack mediaTrack = (MediaTrack) fgb.c(sg0Var.l(), i3);
             if (mediaTrack != null && ah0.m(mediaTrack, "effect")) {
                 i2 = sg0Var.j(mediaTrack, i, null);
                 break;

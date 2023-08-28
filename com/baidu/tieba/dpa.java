@@ -64,7 +64,7 @@ public class dpa {
             return;
         }
         if (108 == i && TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", pgb.l(R.string.obfuscated_res_0x7f0f1772));
+            multiMediaData.setExt("text", rgb.l(R.string.obfuscated_res_0x7f0f1772));
         }
         if (this.g != -1 && !TextUtils.isEmpty(str)) {
             multiMediaData.setExt("text", str);
@@ -157,7 +157,7 @@ public class dpa {
             if (TextUtils.isEmpty(ext)) {
                 return false;
             }
-            return ext.equals(pgb.l(R.string.obfuscated_res_0x7f0f1772));
+            return ext.equals(rgb.l(R.string.obfuscated_res_0x7f0f1772));
         }
         return invokeL.booleanValue;
     }

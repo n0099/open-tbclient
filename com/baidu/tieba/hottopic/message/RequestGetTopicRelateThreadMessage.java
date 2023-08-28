@@ -20,7 +20,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1124common;
+    public CommonReq f1123common;
     public Long last_id;
     public Integer page_no;
     public Integer pmy_source;
@@ -90,7 +90,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1124common;
+            return this.f1123common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -206,7 +206,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, commonReq) == null) {
-            this.f1124common = commonReq;
+            this.f1123common = commonReq;
         }
     }
 

@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -13,6 +14,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.BearTimeoutTryShowSwitch;
 import com.baidu.tieba.advert.sdk.data.AdLoadState;
 import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -292,6 +294,7 @@ public class b86 {
 
     public synchronized void l(boolean z) {
         boolean z2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             synchronized (this) {
@@ -308,11 +311,13 @@ public class b86 {
                             z2 = next instanceof m76;
                         }
                         if (z2 && next.d() == AdLoadState.SUCCEED) {
-                            int i = 1;
+                            int i2 = 1;
                             this.b = true;
                             StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
                             if (this.c) {
                                 i = 2;
+                            } else {
+                                i = 1;
                             }
                             StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
                             if (!StringUtils.isNull(next.c())) {
@@ -331,6 +336,16 @@ public class b86 {
                                 this.f.c(str);
                             }
                             next.show();
+                            TbLog defaultLog = DefaultLog.getInstance();
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("开屏广告：showSplashAd, 广告渠道(5.序章GD; 6.小熊SDK): ");
+                            sb.append((int) e(next));
+                            sb.append(" ，启动类型(1=冷启动 2=热启动)：");
+                            if (this.c) {
+                                i2 = 2;
+                            }
+                            sb.append(i2);
+                            defaultLog.i("AdSdkStretagyManager", sb.toString());
                             if (this.f != null) {
                                 this.f.d(String.valueOf((int) e(next)));
                             }

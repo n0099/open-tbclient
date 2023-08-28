@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vdc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class qec implements ohc {
+public class qec implements qhc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsViewEventHandler a;
-    public vdc b;
-    public Activity c;
-    public IYYPayResultView d;
+    public vdc.b a;
 
-    @Override // com.baidu.tieba.ohc
+    @Override // com.baidu.tieba.qhc
     public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -31,12 +26,12 @@ public class qec implements ohc {
         return invokeLL.booleanValue;
     }
 
-    public qec(AbsViewEventHandler absViewEventHandler, vdc vdcVar, Activity activity, IYYPayResultView iYYPayResultView) {
+    public qec(vdc.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {absViewEventHandler, vdcVar, activity, iYYPayResultView};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,22 +41,18 @@ public class qec implements ohc {
                 return;
             }
         }
-        RLog.info("PayResultDialogListener", "create PayResultDialogListener");
-        this.a = absViewEventHandler;
-        this.b = vdcVar;
-        this.c = activity;
-        this.d = iYYPayResultView;
+        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.ohc
+    @Override // com.baidu.tieba.qhc
     public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
+            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
+            vdc.b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(cancelType);
             }
-            this.b.g(cancelType, this.a);
         }
     }
 }

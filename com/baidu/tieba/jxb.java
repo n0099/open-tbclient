@@ -1,371 +1,190 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObserver;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ListAdapter;
-import android.widget.WrapperListAdapter;
+import android.annotation.TargetApi;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huewu.pla.lib.internal.PLA_ListView;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.huawei.secure.android.common.util.LogsUtil;
+import java.net.MalformedURLException;
+import java.net.URL;
 /* loaded from: classes6.dex */
-public class jxb implements WrapperListAdapter, Filterable {
+public class jxb {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<PLA_ListView.a> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ListAdapter a;
-    public ArrayList<PLA_ListView.a> b;
-    public ArrayList<PLA_ListView.a> c;
-    public boolean d;
-    public final boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900085, "Lcom/baidu/tieba/jxb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947900085, "Lcom/baidu/tieba/jxb;");
-                return;
-            }
-        }
-        f = new ArrayList<>();
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null) {
-                return true;
-            }
-            if (this.d && listAdapter.areAllItemsEnabled()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        int c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a != null) {
-                b = b() + c();
-                c = this.a.getCount();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "whiteListUrl is null");
+                return null;
+            } else if (!URLUtil.isNetworkUrl(str)) {
+                return str;
             } else {
-                b = b();
-                c = c();
+                return b(str);
             }
-            return b + c;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.widget.Filterable
-    public Filter getFilter() {
-        InterceptResult invokeV;
+    @TargetApi(9)
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.e) {
-                return ((Filterable) this.a).getFilter();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                LogsUtil.f("UriUtil", "url is null");
+                return str;
             }
-            return null;
-        }
-        return (Filter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.getViewTypeCount();
+            try {
+                if (!URLUtil.isNetworkUrl(str)) {
+                    LogsUtil.d("UriUtil", "url don't starts with http or https");
+                    return "";
+                }
+                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
+            } catch (MalformedURLException e) {
+                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
+                return "";
             }
-            return 1;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.widget.WrapperListAdapter
-    public ListAdapter getWrappedAdapter() {
-        InterceptResult invokeV;
+    public static boolean c(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
-        }
-        return (ListAdapter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.hasStableIds();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && !listAdapter.isEmpty()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (d(str, str2)) {
+                        return true;
+                    }
+                }
                 return false;
             }
-            return true;
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public jxb(ArrayList<PLA_ListView.a> arrayList, ArrayList<PLA_ListView.a> arrayList2, ListAdapter listAdapter) {
-        boolean z;
+    public static boolean e(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, arrayList2, listAdapter};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = listAdapter;
-        this.e = listAdapter instanceof Filterable;
-        if (arrayList == null) {
-            this.b = f;
-        } else {
-            this.b = arrayList;
-        }
-        if (arrayList2 == null) {
-            this.c = f;
-        } else {
-            this.c = arrayList2;
-        }
-        if (a(this.b) && a(this.c)) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-    }
-
-    public final boolean a(ArrayList<PLA_ListView.a> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<PLA_ListView.a> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    if (!it.next().c) {
-                        return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (f(str, str2)) {
+                        return true;
                     }
                 }
-                return true;
+                return false;
             }
-            return true;
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        int i2;
+    public static boolean g(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i >= c && (i2 = i - c) < listAdapter.getCount()) {
-                return this.a.getItemId(i2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return TextUtils.equals(b(str), a(str2));
             }
-            return -1L;
+            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
+            return false;
         }
-        return invokeI.longValue;
+        return invokeLL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int i2;
+    public static boolean h(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i >= c && (i2 = i - c) < listAdapter.getCount()) {
-                return this.a.getItemViewType(i2);
-            }
-            return -2;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) && (listAdapter = this.a) != null) {
-            listAdapter.registerDataSetObserver(dataSetObserver);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) && (listAdapter = this.a) != null) {
-            listAdapter.unregisterDataSetObserver(dataSetObserver);
-        }
-    }
-
-    public boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).a == view2) {
-                    this.c.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                for (String str2 : strArr) {
+                    if (g(str, str2)) {
+                        return true;
                     }
-                    this.d = z;
+                }
+                return false;
+            }
+            LogsUtil.d("UriUtil", "whitelist is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
+                    if (!str2.equals(str)) {
+                        if (!str.startsWith(str2 + "?")) {
+                            if (!str.startsWith(str2 + "#")) {
+                                if (!str2.endsWith("/")) {
+                                    return false;
+                                }
+                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
+                                    return false;
+                                }
+                                return str.startsWith(str2);
+                            }
+                        }
+                    }
                     return true;
                 }
+                Log.e("UriUtil", "url contains unsafe char");
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public boolean e(View view2) {
-        InterceptResult invokeL;
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.b.size(); i++) {
-                if (this.b.get(i).a == view2) {
-                    this.b.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
-                    }
-                    this.d = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            String b = b(str);
+            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
+                String a = a(str2);
+                if (TextUtils.isEmpty(a)) {
+                    Log.e("UriUtil", "whitelist host is null");
+                    return false;
+                } else if (a.equals(b)) {
                     return true;
+                } else {
+                    if (b.endsWith(a)) {
+                        try {
+                            String substring = b.substring(0, b.length() - a.length());
+                            if (!substring.endsWith(".")) {
+                                return false;
+                            }
+                            return substring.matches("^[A-Za-z0-9.-]+$");
+                        } catch (IndexOutOfBoundsException e) {
+                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
+                        } catch (Exception e2) {
+                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
+                            return false;
+                        }
+                    }
+                    return false;
                 }
             }
+            LogsUtil.d("UriUtil", "url or whitelist is null");
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).b;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getItem(i2);
-            }
-            return this.c.get(i2 - i3).b;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).c;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.isEnabled(i2);
-            }
-            return this.c.get(i2 - i3).c;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).a;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getView(i2, view2, viewGroup);
-            }
-            return this.c.get(i2 - i3).a;
-        }
-        return (View) invokeILL.objValue;
+        return invokeLL.booleanValue;
     }
 }

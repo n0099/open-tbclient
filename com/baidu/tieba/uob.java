@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class uob extends qob<NativeUnifiedADData> {
+public class uob extends sob<UnifiedInterstitialAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uob(NativeUnifiedADData nativeUnifiedADData) {
-        super(nativeUnifiedADData);
+    public uob(UnifiedInterstitialAD unifiedInterstitialAD) {
+        super(unifiedInterstitialAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeUnifiedADData};
+            Object[] objArr = {unifiedInterstitialAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,35 +34,35 @@ public class uob extends qob<NativeUnifiedADData> {
         }
     }
 
-    @Override // com.baidu.tieba.qob
+    @Override // com.baidu.tieba.sob
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((NativeUnifiedADData) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((UnifiedInterstitialAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qob
+    @Override // com.baidu.tieba.sob
     public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((NativeUnifiedADData) this.a).sendLossNotification(map);
+            ((UnifiedInterstitialAD) this.a).sendLossNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.qob
+    @Override // com.baidu.tieba.sob
     public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((NativeUnifiedADData) this.a).sendWinNotification(map);
+            ((UnifiedInterstitialAD) this.a).sendWinNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.qob
+    @Override // com.baidu.tieba.sob
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((NativeUnifiedADData) this.a).getECPM();
+            return ((UnifiedInterstitialAD) this.a).getECPM();
         }
         return invokeV.intValue;
     }

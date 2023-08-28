@@ -11,14 +11,14 @@ import kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2;
 public final class CombineKt$combineInternal$2$1$1$emit$1 extends ContinuationImpl {
     public int label;
     public /* synthetic */ Object result;
-    public final /* synthetic */ CombineKt$combineInternal$2.AnonymousClass1.C07971<T> this$0;
+    public final /* synthetic */ CombineKt$combineInternal$2.AnonymousClass1.C07981<T> this$0;
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlinx.coroutines.flow.internal.CombineKt$combineInternal$2$1$1<? super T> */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public CombineKt$combineInternal$2$1$1$emit$1(CombineKt$combineInternal$2.AnonymousClass1.C07971<? super T> c07971, Continuation<? super CombineKt$combineInternal$2$1$1$emit$1> continuation) {
+    public CombineKt$combineInternal$2$1$1$emit$1(CombineKt$combineInternal$2.AnonymousClass1.C07981<? super T> c07981, Continuation<? super CombineKt$combineInternal$2$1$1$emit$1> continuation) {
         super(continuation);
-        this.this$0 = c07971;
+        this.this$0 = c07981;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

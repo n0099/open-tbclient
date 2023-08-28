@@ -1,225 +1,88 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Arrays;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class inb extends hmb<umb> {
+public class inb extends FunNativeAd2Bridger<vmb, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public final /* synthetic */ cnb c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public inb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+    public inb(cnb cnbVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {cnbVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = cnbVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void t(int i) {
-        onError(e(i));
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, vmb vmbVar, BaseNativeAd2<vmb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            umb umbVar = (umb) obj;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, vmbVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.hmb
-    public void f(Context context, FunAdSlot funAdSlot) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(vmb vmbVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
-            onLoadStart(funAdSlot, tid);
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            final int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                this.f.postAtTime(new Runnable() { // from class: com.baidu.tieba.olb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vmbVar)) == null) {
+            return ((TTNativeExpressAd) vmbVar.a).getExpressAdView();
+        }
+        return (View) invokeL.objValue;
+    }
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            inb.this.t(checkForbidStatus);
-                        }
-                    }
-                }, 50L);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, vmb vmbVar, BaseNativeAd2<vmb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, vmbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            vmb vmbVar2 = vmbVar;
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.g.get(vmbVar2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
             } else {
-                this.e.loadRewardVideoAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setUserID(FunAdSdk.getFunAdConfig().userId).setOrientation(this.mPid.isHorizontal ? 2 : 1).setMediaExtra(buildExtra).build(), new a(this, tid));
+                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
             }
+            this.c.onShowStart(vmbVar2, this.b);
+            expressInflater.inflate();
+            View expressView = expressInflater.getExpressView();
+            cnb cnbVar = this.c;
+            cnbVar.getClass();
+            ((TTNativeExpressAd) vmbVar2.a).setDislikeCallback(activity, new hnb(cnbVar, expressView, vmbVar2, funAdInteractionListener, str));
+            this.b = true;
         }
-    }
-
-    @Override // com.baidu.tieba.hmb, com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            f(context, funAdSlot);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements TTAdNative.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ inb c;
-
-        public a(inb inbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {inbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = inbVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
-                if (this.a) {
-                    return;
-                }
-                this.c.onError(i, str, this.b);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
-            Set<String> set;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
-                this.a = true;
-                LogPrinter.d();
-                umb umbVar = new umb(tTRewardVideoAd);
-                String c = umbVar.c();
-                synchronized (tlb.class) {
-                    set = tlb.b;
-                    if (set.isEmpty()) {
-                        String string = enb.a.getString("req_id", "");
-                        if (string.isEmpty()) {
-                            z = true;
-                        } else {
-                            set.addAll(Arrays.asList(string.split(ParamableElem.DIVIDE_PARAM)));
-                        }
-                    }
-                    z = !set.contains(c);
-                }
-                if (!z) {
-                    this.c.onError("repeat", this.b);
-                    this.c.getClass();
-                    return;
-                }
-                String c2 = umbVar.c();
-                synchronized (tlb.class) {
-                    if (set.add(c2)) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : set) {
-                            sb.append(str);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                        sb.deleteCharAt(sb.length() - 1);
-                        enb.a.edit().putString("req_id", sb.toString()).apply();
-                    }
-                }
-                inb inbVar = this.c;
-                String str2 = this.b;
-                inbVar.getClass();
-                ((TTRewardVideoAd) umbVar.a).setRewardPlayAgainInteractionListener(new jnb(inbVar, str2, umbVar));
-                inb inbVar2 = this.c;
-                String str3 = this.b;
-                inbVar2.getClass();
-                ((TTRewardVideoAd) umbVar.a).setRewardAdInteractionListener(new plb(inbVar2, str3, umbVar));
-                this.c.onAdLoaded(umbVar, this.b);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            umb umbVar = (umb) obj;
-            onShowStart(umbVar);
-            ((TTRewardVideoAd) umbVar.a).setDownloadListener(new xlb(null));
-            ((TTRewardVideoAd) umbVar.a).showRewardVideoAd(activity);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

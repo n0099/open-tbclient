@@ -6,22 +6,22 @@ public interface vdb extends Runnable {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void b(DownloadException downloadException);
+        void a(DownloadException downloadException);
 
-        void onConnectCanceled();
+        void onDownloadCanceled();
 
-        void onConnectPaused();
+        void onDownloadCompleted(String str);
 
-        void onConnected(long j, long j2, boolean z);
+        void onDownloadPaused();
 
-        void onConnecting();
+        void onDownloadProgress(long j, long j2);
     }
 
     void cancel();
 
-    boolean isCanceled();
+    boolean isComplete();
 
-    boolean isPaused();
+    boolean isDownloading();
 
     void pause();
 }

@@ -1,25 +1,25 @@
 package com.yy.transvod.preference;
 
-import com.baidu.tieba.b4c;
-import com.baidu.tieba.c4c;
+import com.baidu.tieba.b1c;
 import com.baidu.tieba.d4c;
-import com.baidu.tieba.g4c;
-import com.baidu.tieba.h4c;
-import com.baidu.tieba.k4c;
-import com.baidu.tieba.x3c;
-import com.baidu.tieba.z0c;
+import com.baidu.tieba.e4c;
+import com.baidu.tieba.f4c;
+import com.baidu.tieba.i4c;
+import com.baidu.tieba.j4c;
+import com.baidu.tieba.m4c;
+import com.baidu.tieba.z3c;
 import com.yy.transvod.net.NetRequestClientFactory;
 import com.yy.transvod.player.log.TLog;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public class Preference {
-    public static d4c a;
-    public static h4c b;
-    public static z0c c;
-    public static g4c d;
-    public static c4c e;
-    public static b4c f;
+    public static f4c a;
+    public static j4c b;
+    public static b1c c;
+    public static i4c d;
+    public static e4c e;
+    public static d4c f;
     public static boolean g;
     public static boolean h;
     public static AtomicInteger i = new AtomicInteger(0);
@@ -30,19 +30,19 @@ public class Preference {
 
     public static native void registerNetClientFactory(int i2, NetRequestClientFactory netRequestClientFactory);
 
-    public static b4c a() {
+    public static d4c a() {
         return f;
     }
 
-    public static d4c b() {
+    public static f4c b() {
         return a;
     }
 
-    public static z0c c() {
+    public static b1c c() {
         return c;
     }
 
-    public static g4c d() {
+    public static i4c d() {
         return d;
     }
 
@@ -59,28 +59,28 @@ public class Preference {
     }
 
     public static boolean h() {
-        return k4c.v.get();
+        return m4c.v.get();
     }
 
-    public static void i(b4c b4cVar) {
-        f = b4cVar;
+    public static void i(d4c d4cVar) {
+        f = d4cVar;
     }
 
-    public static void j(c4c c4cVar) {
-        e = c4cVar;
-        TLog.j(c4cVar);
+    public static void j(e4c e4cVar) {
+        e = e4cVar;
+        TLog.j(e4cVar);
     }
 
-    public static void l(h4c h4cVar) {
-        b = h4cVar;
-        x3c.a(h4cVar);
+    public static void l(j4c j4cVar) {
+        b = j4cVar;
+        z3c.a(j4cVar);
     }
 
     public static void k(HashMap<String, String> hashMap) {
         if (hashMap == null) {
             TLog.d("[vod-java]", "setMediaConfig fail, configs is null");
         }
-        k4c.n().u(hashMap);
+        m4c.n().u(hashMap);
         StringBuilder sb = new StringBuilder("mediaConfig:");
         for (String str : hashMap.keySet()) {
             sb.append(" ");

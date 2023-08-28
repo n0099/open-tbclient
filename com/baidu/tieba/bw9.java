@@ -78,7 +78,7 @@ public class bw9 {
     public ValueAnimator S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ObjectAnimator f1093T;
+    public ObjectAnimator f1092T;
     public ObjectAnimator U;
     public xu9 V;
     public boolean W;
@@ -658,16 +658,16 @@ public class bw9 {
             this.S.setDuration(260L);
             this.S.setInterpolator(new LinearInterpolator());
             ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.C, Key.ALPHA, 0.0f);
-            this.f1093T = ofFloat2;
+            this.f1092T = ofFloat2;
             ofFloat2.setDuration(240L);
-            this.f1093T.setInterpolator(new LinearInterpolator());
+            this.f1092T.setInterpolator(new LinearInterpolator());
             ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.w.getArrow(), "rotation", 0.0f);
             this.U = ofFloat3;
             ofFloat3.setDuration(100L);
             AnimatorSet animatorSet = new AnimatorSet();
             this.R = animatorSet;
             animatorSet.addListener(new e(this));
-            this.R.play(this.S).with(this.f1093T).with(this.U);
+            this.R.play(this.S).with(this.f1092T).with(this.U);
         }
     }
 
@@ -829,7 +829,7 @@ public class bw9 {
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ObjectAnimator objectAnimator = this.f1093T;
+            ObjectAnimator objectAnimator = this.f1092T;
             if (objectAnimator != null) {
                 if (this.Q) {
                     objectAnimator.setFloatValues(0.0f, 1.0f);

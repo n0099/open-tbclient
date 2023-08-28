@@ -1,105 +1,255 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes5.dex */
 public class a4c {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 1;
+    public static final char[] d;
+    public static a4c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String[] a;
-    public String[] b;
-    public int c;
-    public String d;
-    public boolean e;
+    public final HandlerThread a;
+    public final Handler b;
+
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String[] a;
+        public final /* synthetic */ a4c b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a4c a4cVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a4cVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a4cVar;
+            this.a = new String[]{"tinyvideoplayer", "lpfplayerfirstaccess", "lpfplayerdownload"};
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                Log.i("playStats", "handle msg " + message.what);
+                int i = message.what;
+                if (i < this.a.length && i >= 0) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    for (int i2 = 0; !this.b.h(this.a[message.what], (String) message.obj, currentTimeMillis, a4c.c) && i2 < 5; i2++) {
+                    }
+                    a4c.b();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566649, "Lcom/baidu/tieba/a4c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947566649, "Lcom/baidu/tieba/a4c;");
+                return;
+            }
+        }
+        d = "0123456789abcdef".toCharArray();
+        e = null;
+    }
+
+    public static /* synthetic */ int b() {
+        int i = c;
+        c = i + 1;
+        return i;
+    }
+
+    public static a4c f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            a4c a4cVar = e;
+            if (a4cVar != null) {
+                return a4cVar;
+            }
+            synchronized (a4c.class) {
+                if (e == null) {
+                    e = new a4c();
+                }
+            }
+            return e;
+        }
+        return (a4c) invokeV.objValue;
+    }
 
     public a4c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new String[0];
-        this.b = new String[0];
-        this.c = 0;
-        this.d = "";
-        this.e = false;
+        HandlerThread handlerThread = new HandlerThread("yy-vod-stats-report");
+        this.a = handlerThread;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    public static a4c a(String str) {
+    public static String d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            a4c a4cVar = new a4c();
-            if (str != null && !str.isEmpty()) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    JSONArray optJSONArray = jSONObject.optJSONArray("ipsV4");
-                    if (optJSONArray != null && optJSONArray.length() > 0) {
-                        a4cVar.a = new String[optJSONArray.length()];
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            a4cVar.a[i] = optJSONArray.getString(i);
-                        }
-                    }
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("ipsV6");
-                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        a4cVar.b = new String[optJSONArray2.length()];
-                        for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                            a4cVar.b[i2] = optJSONArray2.getString(i2);
-                        }
-                    }
-                    a4cVar.c = jSONObject.optInt("dnsResolveType");
-                    a4cVar.d = jSONObject.optString(StatConstants.KEY_EXT_ERR_MSG);
-                    a4cVar.e = jSONObject.optBoolean("success");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            char[] cArr = new char[bArr.length * 2];
+            for (int i = 0; i < bArr.length; i++) {
+                int i2 = bArr[i] & 255;
+                int i3 = i * 2;
+                char[] cArr2 = d;
+                cArr[i3] = cArr2[i2 >>> 4];
+                cArr[i3 + 1] = cArr2[i2 & 15];
             }
-            return a4cVar;
-        }
-        return (a4c) invokeL.objValue;
-    }
-
-    public static String b(a4c a4cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, a4cVar)) == null) {
-            if (a4cVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < a4cVar.a.length; i++) {
-                    jSONArray.put(a4cVar.a[i]);
-                }
-                JSONArray jSONArray2 = new JSONArray();
-                for (int i2 = 0; i2 < a4cVar.b.length; i2++) {
-                    jSONArray2.put(a4cVar.b[i2]);
-                }
-                jSONObject.put("ipsV4", jSONArray);
-                jSONObject.put("ipsV6", jSONArray2);
-                jSONObject.put("dnsResolveType", a4cVar.c);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, a4cVar.d);
-                jSONObject.put("success", a4cVar.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+            return new String(cArr);
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String g(String str) {
+        MessageDigest messageDigest;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            try {
+                messageDigest = MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e2) {
+                e2.printStackTrace();
+                messageDigest = null;
+            }
+            if (messageDigest == null) {
+                return "";
+            }
+            messageDigest.update(str.getBytes());
+            return d(messageDigest.digest());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            return ("&time=" + ("" + (j / 1000))) + "&key=" + g(str + str2 + "HiidoYYSystem");
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static void i(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, str) == null) {
+            Log.i("playStats", "tid:" + i + "type:" + i2 + ", stats:" + str);
+            try {
+                f().b.obtainMessage(i2, str).sendToTarget();
+            } catch (NullPointerException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean h(String str, String str2, long j, int i) {
+        InterceptResult invokeCommon;
+        URL url;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            boolean z = false;
+            if (str2 == null) {
+                return false;
+            }
+            String str3 = "https://mlog.bigda.com/c.gif?act=" + str + e(str, j) + str2 + "&seq=" + i;
+            HttpURLConnection httpURLConnection = null;
+            try {
+                url = new URL(str3);
+            } catch (MalformedURLException e2) {
+                e2.printStackTrace();
+                url = null;
+            }
+            if (url == null) {
+                Log.e("playStats", "report url failed!");
+                return false;
+            }
+            try {
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
+                try {
+                    if (Build.VERSION.SDK_INT < 21 && (httpURLConnection2 instanceof HttpsURLConnection)) {
+                        ((HttpsURLConnection) httpURLConnection2).setSSLSocketFactory(new b4c());
+                    }
+                    httpURLConnection2.setConnectTimeout(10000);
+                    httpURLConnection2.setReadTimeout(6000);
+                    httpURLConnection2.connect();
+                    int responseCode = httpURLConnection2.getResponseCode();
+                    Log.i("playStats", "url : " + str3);
+                    Log.i("playStats", "code : " + responseCode);
+                    if (responseCode == 200) {
+                        z = true;
+                    }
+                    if (httpURLConnection2 != null) {
+                        httpURLConnection2.disconnect();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    httpURLConnection = httpURLConnection2;
+                    try {
+                        th.printStackTrace();
+                        Log.e("playStats", "open connection except!");
+                        return z;
+                    } finally {
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
     }
 }

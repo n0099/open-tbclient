@@ -339,7 +339,7 @@ public class LocalInputContainer extends RelativeLayout implements mi5 {
                         this.c.setText((CharSequence) null);
                         return;
                     } else {
-                        b37.h(getContext(), str, new b37.i() { // from class: com.baidu.tieba.ij5
+                        b37.h(getContext(), str, new b37.i() { // from class: com.baidu.tieba.kj5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -426,7 +426,7 @@ public class LocalInputContainer extends RelativeLayout implements mi5 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kj5
+            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lj5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -455,7 +455,7 @@ public class LocalInputContainer extends RelativeLayout implements mi5 {
             }
             TBSpecificationBtn tBSpecificationBtn = this.e;
             if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lj5
+                tBSpecificationBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ij5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

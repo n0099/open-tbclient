@@ -194,7 +194,7 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
         if (activity == null) {
             context = view2.getContext();
         }
-        com.kwad.components.core.c.a.a.a(new a.C0647a(Wrapper.wrapContextIfNeed(context)).L(this.mAdTemplate).b(this.mApkDownloadHelper).af(i).aj(true).ap(z).a(new a.b() { // from class: com.kwad.components.ad.e.c.4
+        com.kwad.components.core.c.a.a.a(new a.C0648a(Wrapper.wrapContextIfNeed(context)).L(this.mAdTemplate).b(this.mApkDownloadHelper).af(i).aj(true).ap(z).a(new a.b() { // from class: com.kwad.components.ad.e.c.4
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(c.this.mAdTemplate, new f().b(aVar), (JSONObject) null);
@@ -246,8 +246,8 @@ public final class c extends AbstractKsNativeAd implements DialogInterface.OnDis
             c(viewGroup);
             com.kwad.components.core.widget.a aVar = new com.kwad.components.core.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(aVar);
-            aVar.setViewCallback(new a.InterfaceC0670a() { // from class: com.kwad.components.ad.e.c.5
-                @Override // com.kwad.components.core.widget.a.InterfaceC0670a
+            aVar.setViewCallback(new a.InterfaceC0671a() { // from class: com.kwad.components.ad.e.c.5
+                @Override // com.kwad.components.core.widget.a.InterfaceC0671a
                 public final void em() {
                     if (!c.this.mAdTemplate.mPvReported) {
                         c.this.jC.en();

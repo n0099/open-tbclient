@@ -15,6 +15,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.BdStatsItem;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.GlobalBuildConfig;
@@ -27,6 +28,7 @@ import com.baidu.tbadk.performanceLog.PerformanceLogger;
 import com.baidu.tbadk.switchs.CsjPrivacySwitch;
 import com.baidu.tbadk.switchs.GdtPrivacySwitch;
 import com.baidu.tbadk.switchs.KsPrivacySwitch;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.yw7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -282,28 +284,40 @@ public class hx7 implements yw7.e {
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClicked(String str, String str2, String str3) {
-            yw7.h hVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) && (hVar = this.a) != null) {
-                hVar.onAdClicked(str, str2, str3);
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("FunAdSdkImpl", "开屏广告：小熊广告onAdClicked， sid is：" + str + " ,sspType is: " + str2 + " ,pid is: " + str3);
+                yw7.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.onAdClicked(str, str2, str3);
+                }
             }
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onRewardedVideo(String str, String str2, String str3) {
-            yw7.h hVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) && (hVar = this.a) != null) {
-                hVar.a(str);
+            if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("FunAdSdkImpl", "开屏广告：小熊广告onRewardedVideo， sid is：" + str + " ,sspType is: " + str2 + " ,pid is: " + str3);
+                yw7.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.a(str);
+                }
             }
         }
 
         @Override // com.fun.ad.sdk.FunAdInteractionListener
         public void onAdClose(String str) {
-            yw7.h hVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && (hVar = this.a) != null) {
-                hVar.onAdClose(str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("FunAdSdkImpl", "开屏广告：小熊广告onAdClose， sid is：" + str);
+                yw7.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.onAdClose(str);
+                }
             }
         }
 
@@ -311,6 +325,8 @@ public class hx7 implements yw7.e {
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("FunAdSdkImpl", "开屏广告：小熊广告onAdError， sid is：" + str);
                 yw7.h hVar = this.a;
                 if (hVar != null) {
                     hVar.onAdError(str);
@@ -323,6 +339,8 @@ public class hx7 implements yw7.e {
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("FunAdSdkImpl", "开屏广告：小熊广告onAdShow， sid is：" + str + " ,sspType is: " + str2 + " ,pid is: " + str3);
                 yw7.h hVar = this.a;
                 if (hVar != null) {
                     hVar.onAdShow(str, str2, str3);
@@ -383,6 +401,8 @@ public class hx7 implements yw7.e {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     Log.d("IAdSdkSplash", "BEAR ad showSplash:" + this.e.a);
                 }
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("FunAdSdkImpl", "开屏广告：小熊广告initComplete， showSplash, mFunSplashAd is: " + this.e.a);
             }
         }
     }

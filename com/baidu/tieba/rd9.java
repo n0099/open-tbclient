@@ -103,12 +103,12 @@ public class rd9 {
 
             /* renamed from: com.baidu.tieba.rd9$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0468a implements GetEmotionInfosModel.b {
+            public class C0469a implements GetEmotionInfosModel.b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public C0468a(b bVar) {
+                public C0469a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public class rd9 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a.b.size() > 0) {
-                        new GetEmotionInfosModel().P(this.a.b, new C0468a(this));
+                        new GetEmotionInfosModel().P(this.a.b, new C0469a(this));
                         return;
                     }
                     UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
@@ -199,7 +199,7 @@ public class rd9 {
 
         /* renamed from: com.baidu.tieba.rd9$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0467a implements m {
+        public class C0468a implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ nd9 a;
@@ -207,7 +207,7 @@ public class rd9 {
             public final /* synthetic */ AtomicInteger c;
             public final /* synthetic */ a d;
 
-            public C0467a(a aVar, nd9 nd9Var, FaceData faceData, AtomicInteger atomicInteger) {
+            public C0468a(a aVar, nd9 nd9Var, FaceData faceData, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -324,7 +324,7 @@ public class rd9 {
                     }
                     for (int i4 = 0; i4 < this.d.size() && nd9Var.a(); i4++) {
                         FaceData faceData2 = this.d.get(i4);
-                        this.i.B(faceData2.imageFileInfo, new C0467a(this, nd9Var, faceData2, atomicInteger));
+                        this.i.B(faceData2.imageFileInfo, new C0468a(this, nd9Var, faceData2, atomicInteger));
                     }
                     return;
                 }

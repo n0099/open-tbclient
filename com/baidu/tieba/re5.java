@@ -51,7 +51,7 @@ public class re5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public YYLiveConfig A;
-    public q6b B;
+    public s6b B;
     public NewGodData C;
     public zc5 D;
     public dc5 E;
@@ -332,9 +332,9 @@ public class re5 {
             YYLiveConfig yYLiveConfig = new YYLiveConfig();
             this.A = yYLiveConfig;
             yYLiveConfig.parseJson(B(jSONObject, "yy_live_config"));
-            q6b q6bVar = new q6b();
-            this.B = q6bVar;
-            q6bVar.b(A(jSONObject, "yy_live_tab"));
+            s6b s6bVar = new s6b();
+            this.B = s6bVar;
+            s6bVar.b(A(jSONObject, "yy_live_tab"));
             this.n.c(jSONObject.optJSONObject("hot_notify_config"));
             TbSingleton.getInstance().setHotNotifyConfig(this.n);
             r05.b().f(this.y);
@@ -720,13 +720,13 @@ public class re5 {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public q6b y() {
+    public s6b y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.B;
         }
-        return (q6b) invokeV.objValue;
+        return (s6b) invokeV.objValue;
     }
 
     public String z() {

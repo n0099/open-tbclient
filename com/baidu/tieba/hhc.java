@@ -24,7 +24,7 @@ public class hhc extends BaseAdapter {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public List<rfc> c;
+    public List<tfc> c;
     public PayUIKitConfig d;
 
     @Override // android.widget.Adapter
@@ -40,7 +40,7 @@ public class hhc extends BaseAdapter {
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
         public ImageView b;
-        public ImageView c;
+        public View c;
         public TextView d;
 
         public a(hhc hhcVar) {
@@ -60,7 +60,7 @@ public class hhc extends BaseAdapter {
         }
     }
 
-    public hhc(Context context, PayUIKitConfig payUIKitConfig, List<rfc> list) {
+    public hhc(Context context, PayUIKitConfig payUIKitConfig, List<tfc> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,13 +84,13 @@ public class hhc extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public rfc getItem(int i) {
+    public tfc getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             return this.c.get(i);
         }
-        return (rfc) invokeI.objValue;
+        return (tfc) invokeI.objValue;
     }
 
     public void c(int i) {
@@ -127,17 +127,17 @@ public class hhc extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.pay_ui_item_pay_way_choose, viewGroup, false);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.pay_ui_item_pay_amount_way_choose, viewGroup, false);
                 aVar = new a(this);
                 aVar.a = (TextView) view2.findViewById(R.id.way_tv_title);
-                aVar.c = (ImageView) view2.findViewById(R.id.img_select);
                 aVar.b = (ImageView) view2.findViewById(R.id.recharge_way_bg);
                 aVar.d = (TextView) view2.findViewById(R.id.tv_tips);
+                aVar.c = view2.findViewById(R.id.amount_new_rl);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
             }
-            rfc item = getItem(i);
+            tfc item = getItem(i);
             aVar.a.setText(item.a());
             PayType payType = item.a;
             if (PayType.ALI_PAY.equals(payType)) {
@@ -156,18 +156,19 @@ public class hhc extends BaseAdapter {
                 aVar.b.setBackgroundResource(R.drawable.pay_ui_pay_channel_dxm_icon);
             }
             aVar.a.setTextColor(this.a.getResources().getColor(R.color.pay_ui_font_color_6));
-            if (this.b == i) {
-                if (tgc.a.b(this.d)) {
-                    i2 = R.drawable.pay_ui_pay_way_item_select;
-                } else {
-                    i2 = R.drawable.pay_ui_pay_way_item_select_y;
-                }
-                aVar.c.setBackgroundResource(i2);
+            if (vgc.a.b(this.d)) {
+                i2 = R.drawable.pay_ui_selector_amount_way_list_item_red;
             } else {
-                aVar.c.setBackgroundResource(R.drawable.pay_ui_pay_way_item_unselect);
+                i2 = R.drawable.pay_ui_selector_amount_way_list_item_yellow;
+            }
+            aVar.c.setBackgroundResource(i2);
+            if (this.b == i) {
+                aVar.c.setSelected(true);
+            } else {
+                aVar.c.setSelected(false);
             }
             if (TextUtils.isEmpty(item.c)) {
-                aVar.d.setVisibility(8);
+                aVar.d.setVisibility(4);
             } else {
                 aVar.d.setVisibility(0);
                 aVar.d.setText(item.c);

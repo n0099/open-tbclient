@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y9b implements t9b {
+public class y9b implements hk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,17 +24,10 @@ public class y9b implements t9b {
         }
     }
 
-    @Override // com.baidu.tieba.t9b
-    public boolean isAgreePrivacy() {
+    @Override // com.baidu.tieba.hk1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            v8b a = q9b.a();
-            if (a != null) {
-                return a.isAgreePrivacy();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new l9b() : invokeV.objValue;
     }
 }

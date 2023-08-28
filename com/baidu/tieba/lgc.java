@@ -1,26 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.searchbox.IntentConstants;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes7.dex */
 public class lgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) {
+    public static void a(int i, View view2, GridView gridView) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
-            if (context == null) {
-                RLog.error("PayOpenTaobaoUtils", "openWebTaobao error context null", new Object[0]);
-                return;
+        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
+            if (i >= 3) {
+                i2 = 82;
+            } else {
+                i2 = 110;
             }
-            context.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)));
-            RLog.info("PayOpenTaobaoUtils", "openTopenWebTaobaoaobao web success");
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            gridView.setNumColumns(3);
+                            layoutParams.width = dgc.a((i2 * 3) + 14);
+                        } else {
+                            gridView.setNumColumns(2);
+                            layoutParams.width = dgc.a((i2 * 2) + 7);
+                        }
+                    } else {
+                        gridView.setNumColumns(3);
+                        layoutParams.width = dgc.a((i2 * 3) + 14);
+                    }
+                } else {
+                    gridView.setNumColumns(2);
+                    layoutParams.width = dgc.a((i2 * 2) + 7);
+                }
+            } else {
+                gridView.setNumColumns(1);
+                layoutParams.width = dgc.a(i2);
+            }
+            view2.setLayoutParams(layoutParams);
         }
     }
 }

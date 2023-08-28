@@ -48,7 +48,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.AdMixFloor;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_MORE_COUNT = 30;
@@ -76,7 +76,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public fx7 o;
     public final NetMessageListener p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void l(ArrayList<bn> arrayList);
 
@@ -118,7 +118,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

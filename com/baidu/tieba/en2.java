@@ -40,13 +40,13 @@ public class en2 {
 
         /* renamed from: com.baidu.tieba.en2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0279a implements Runnable {
+        public class RunnableC0278a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ cn2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0279a(a aVar, cn2 cn2Var) {
+            public RunnableC0278a(a aVar, cn2 cn2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class en2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0279a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0278a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

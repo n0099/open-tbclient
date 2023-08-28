@@ -10,7 +10,7 @@ public interface jc8 extends gc8 {
 
     void m1();
 
-    void o1(d8c<PanelType, PanelType, Float, Float> d8cVar);
+    void o1(f8c<PanelType, PanelType, Float, Float> f8cVar);
 
     void w1(mc8 mc8Var);
 }

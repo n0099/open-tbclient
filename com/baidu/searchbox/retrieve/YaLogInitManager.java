@@ -10,7 +10,7 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
 import com.baidu.tieba.f10;
 import com.baidu.tieba.mk1;
-import com.baidu.tieba.nib;
+import com.baidu.tieba.pib;
 import com.baidu.tieba.qk1;
 import com.baidu.tieba.v80;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
@@ -43,9 +43,9 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        nib nibVar;
-        if (z && (nibVar = (nib) ServiceManager.getService(nib.a)) != null) {
-            nibVar.retry();
+        pib pibVar;
+        if (z && (pibVar = (pib) ServiceManager.getService(pib.a)) != null) {
+            pibVar.retry();
         }
     }
 

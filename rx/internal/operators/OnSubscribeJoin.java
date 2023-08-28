@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.g8c;
-import com.baidu.tieba.h8c;
-import com.baidu.tieba.n7c;
-import com.baidu.tieba.occ;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.i8c;
+import com.baidu.tieba.j8c;
+import com.baidu.tieba.p7c;
 import com.baidu.tieba.qcc;
-import com.baidu.tieba.t7c;
-import com.baidu.tieba.u7c;
-import com.baidu.tieba.xbc;
-import com.baidu.tieba.z7c;
+import com.baidu.tieba.scc;
+import com.baidu.tieba.v7c;
+import com.baidu.tieba.w7c;
+import com.baidu.tieba.zbc;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements n7c.a<R> {
-    public final n7c<TLeft> a;
-    public final n7c<TRight> b;
-    public final g8c<TLeft, n7c<TLeftDuration>> c;
-    public final g8c<TRight, n7c<TRightDuration>> d;
-    public final h8c<TLeft, TRight, R> e;
+public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration, R> implements p7c.a<R> {
+    public final p7c<TLeft> a;
+    public final p7c<TRight> b;
+    public final i8c<TLeft, p7c<TLeftDuration>> c;
+    public final i8c<TRight, p7c<TRightDuration>> d;
+    public final j8c<TLeft, TRight, R> e;
 
     /* loaded from: classes2.dex */
     public final class ResultSink extends HashMap<Integer, TLeft> {
@@ -27,8 +27,8 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         public int leftId;
         public boolean rightDone;
         public int rightId;
-        public final t7c<? super R> subscriber;
-        public final occ group = new occ();
+        public final v7c<? super R> subscriber;
+        public final qcc group = new qcc();
         public final Map<Integer, TRight> rightMap = new HashMap();
 
         public HashMap<Integer, TLeft> leftMap() {
@@ -36,19 +36,19 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         }
 
         /* loaded from: classes2.dex */
-        public final class a extends t7c<TLeft> {
+        public final class a extends v7c<TLeft> {
 
             /* renamed from: rx.internal.operators.OnSubscribeJoin$ResultSink$a$a  reason: collision with other inner class name */
             /* loaded from: classes2.dex */
-            public final class C0801a extends t7c<TLeftDuration> {
+            public final class C0802a extends v7c<TLeftDuration> {
                 public final int e;
                 public boolean f = true;
 
-                public C0801a(int i) {
+                public C0802a(int i) {
                     this.e = i;
                 }
 
-                @Override // com.baidu.tieba.o7c
+                @Override // com.baidu.tieba.q7c
                 public void onCompleted() {
                     if (this.f) {
                         this.f = false;
@@ -56,12 +56,12 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     }
                 }
 
-                @Override // com.baidu.tieba.o7c
+                @Override // com.baidu.tieba.q7c
                 public void onError(Throwable th) {
                     a.this.onError(th);
                 }
 
-                @Override // com.baidu.tieba.o7c
+                @Override // com.baidu.tieba.q7c
                 public void onNext(TLeftDuration tleftduration) {
                     onCompleted();
                 }
@@ -70,13 +70,13 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public a() {
             }
 
-            @Override // com.baidu.tieba.o7c
+            @Override // com.baidu.tieba.q7c
             public void onError(Throwable th) {
                 ResultSink.this.subscriber.onError(th);
                 ResultSink.this.subscriber.unsubscribe();
             }
 
-            public void g(int i, u7c u7cVar) {
+            public void g(int i, w7c w7cVar) {
                 boolean z;
                 synchronized (ResultSink.this) {
                     if (ResultSink.this.leftMap().remove(Integer.valueOf(i)) != null && ResultSink.this.leftMap().isEmpty() && ResultSink.this.leftDone) {
@@ -90,10 +90,10 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     ResultSink.this.subscriber.unsubscribe();
                     return;
                 }
-                ResultSink.this.group.d(u7cVar);
+                ResultSink.this.group.d(w7cVar);
             }
 
-            @Override // com.baidu.tieba.o7c
+            @Override // com.baidu.tieba.q7c
             public void onCompleted() {
                 boolean z;
                 synchronized (ResultSink.this) {
@@ -111,9 +111,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 ResultSink.this.group.d(this);
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.h8c<TLeft, TRight, R> */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.j8c<TLeft, TRight, R> */
             /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.baidu.tieba.o7c
+            @Override // com.baidu.tieba.q7c
             public void onNext(TLeft tleft) {
                 int i;
                 int i2;
@@ -125,9 +125,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     i2 = ResultSink.this.rightId;
                 }
                 try {
-                    C0801a c0801a = new C0801a(i);
-                    ResultSink.this.group.a(c0801a);
-                    OnSubscribeJoin.this.c.call(tleft).O(c0801a);
+                    C0802a c0802a = new C0802a(i);
+                    ResultSink.this.group.a(c0802a);
+                    OnSubscribeJoin.this.c.call(tleft).O(c0802a);
                     ArrayList<Object> arrayList = new ArrayList();
                     synchronized (ResultSink.this) {
                         for (Map.Entry<Integer, TRight> entry : ResultSink.this.rightMap.entrySet()) {
@@ -140,16 +140,16 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.e.call(tleft, obj));
                     }
                 } catch (Throwable th) {
-                    z7c.f(th, this);
+                    b8c.f(th, this);
                 }
             }
         }
 
         /* loaded from: classes2.dex */
-        public final class b extends t7c<TRight> {
+        public final class b extends v7c<TRight> {
 
             /* loaded from: classes2.dex */
-            public final class a extends t7c<TRightDuration> {
+            public final class a extends v7c<TRightDuration> {
                 public final int e;
                 public boolean f = true;
 
@@ -157,7 +157,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     this.e = i;
                 }
 
-                @Override // com.baidu.tieba.o7c
+                @Override // com.baidu.tieba.q7c
                 public void onCompleted() {
                     if (this.f) {
                         this.f = false;
@@ -165,12 +165,12 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     }
                 }
 
-                @Override // com.baidu.tieba.o7c
+                @Override // com.baidu.tieba.q7c
                 public void onError(Throwable th) {
                     b.this.onError(th);
                 }
 
-                @Override // com.baidu.tieba.o7c
+                @Override // com.baidu.tieba.q7c
                 public void onNext(TRightDuration trightduration) {
                     onCompleted();
                 }
@@ -179,13 +179,13 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
             public b() {
             }
 
-            @Override // com.baidu.tieba.o7c
+            @Override // com.baidu.tieba.q7c
             public void onError(Throwable th) {
                 ResultSink.this.subscriber.onError(th);
                 ResultSink.this.subscriber.unsubscribe();
             }
 
-            public void g(int i, u7c u7cVar) {
+            public void g(int i, w7c w7cVar) {
                 boolean z;
                 synchronized (ResultSink.this) {
                     if (ResultSink.this.rightMap.remove(Integer.valueOf(i)) != null && ResultSink.this.rightMap.isEmpty() && ResultSink.this.rightDone) {
@@ -199,10 +199,10 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     ResultSink.this.subscriber.unsubscribe();
                     return;
                 }
-                ResultSink.this.group.d(u7cVar);
+                ResultSink.this.group.d(w7cVar);
             }
 
-            @Override // com.baidu.tieba.o7c
+            @Override // com.baidu.tieba.q7c
             public void onCompleted() {
                 boolean z;
                 synchronized (ResultSink.this) {
@@ -220,9 +220,9 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                 ResultSink.this.group.d(this);
             }
 
-            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.h8c<TLeft, TRight, R> */
+            /* JADX DEBUG: Multi-variable search result rejected for r2v6, resolved type: com.baidu.tieba.j8c<TLeft, TRight, R> */
             /* JADX WARN: Multi-variable type inference failed */
-            @Override // com.baidu.tieba.o7c
+            @Override // com.baidu.tieba.q7c
             public void onNext(TRight tright) {
                 int i;
                 int i2;
@@ -233,7 +233,7 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                     ResultSink.this.rightMap.put(Integer.valueOf(i), tright);
                     i2 = ResultSink.this.leftId;
                 }
-                ResultSink.this.group.a(new qcc());
+                ResultSink.this.group.a(new scc());
                 try {
                     a aVar = new a(i);
                     ResultSink.this.group.a(aVar);
@@ -250,13 +250,13 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
                         ResultSink.this.subscriber.onNext(OnSubscribeJoin.this.e.call(obj, tright));
                     }
                 } catch (Throwable th) {
-                    z7c.f(th, this);
+                    b8c.f(th, this);
                 }
             }
         }
 
-        public ResultSink(t7c<? super R> t7cVar) {
-            this.subscriber = t7cVar;
+        public ResultSink(v7c<? super R> v7cVar) {
+            this.subscriber = v7cVar;
         }
 
         public void run() {
@@ -270,12 +270,12 @@ public final class OnSubscribeJoin<TLeft, TRight, TLeftDuration, TRightDuration,
         }
     }
 
-    public void call(t7c<? super R> t7cVar) {
-        new ResultSink(new xbc(t7cVar)).run();
+    public void call(v7c<? super R> v7cVar) {
+        new ResultSink(new zbc(v7cVar)).run();
     }
 
-    @Override // com.baidu.tieba.n7c.a, com.baidu.tieba.b8c
+    @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((t7c) ((t7c) obj));
+        call((v7c) ((v7c) obj));
     }
 }

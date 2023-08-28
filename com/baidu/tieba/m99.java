@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes7.dex */
-public final class m99 implements yxa {
+public final class m99 implements zxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public final class m99 implements yxa {
         }
     }
 
-    @Override // com.baidu.tieba.yxa
+    @Override // com.baidu.tieba.zxa
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

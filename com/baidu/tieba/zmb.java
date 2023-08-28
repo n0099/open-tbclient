@@ -11,7 +11,7 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes9.dex */
-public class zmb extends smb {
+public class zmb extends umb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +36,7 @@ public class zmb extends smb {
         }
     }
 
-    @Override // com.baidu.tieba.smb
+    @Override // com.baidu.tieba.umb
     public AdSlot i(FunAdSlot funAdSlot) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

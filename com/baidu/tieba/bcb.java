@@ -1,169 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bcb {
+public final class bcb {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bcb f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ecb a;
-    public Context b;
-    public String c;
-    public ccb d;
-    public dcb e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947641576, "Lcom/baidu/tieba/bcb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947641576, "Lcom/baidu/tieba/bcb;");
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends ubb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public bcb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public static bcb c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (bcb.class) {
-                    if (f == null) {
-                        f = new bcb();
+        @Override // com.baidu.tieba.ubb
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (xbb.a(com.baidu.ubs.analytics.d.a.b)) {
+                    for (File file : bcb.a(com.baidu.ubs.analytics.d.a.b)) {
+                        if (ebb.c(ebb.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
+                            xbb.b(file.getPath());
+                        }
+                    }
+                }
+                if (xbb.a(com.baidu.ubs.analytics.d.a.c)) {
+                    for (File file2 : bcb.a(com.baidu.ubs.analytics.d.a.c)) {
+                        if (!file2.getName().equals(sbb.e()) && ebb.c(ebb.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
+                            xbb.b(file2.getPath());
+                        }
                     }
                 }
             }
-            return f;
         }
-        return (bcb) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ccb ccbVar = this.d;
-            if (ccbVar != null) {
-                return ccbVar.e();
+    public static /* synthetic */ List a(String str) {
+        ArrayList arrayList = new ArrayList();
+        File[] listFiles = new File(str).listFiles();
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length; i++) {
+                String name = listFiles[i].getName();
+                if (name.endsWith("txt") || name.endsWith(LocalFilesFilterKt.FILTER_NAME_LOG)) {
+                    arrayList.add(listFiles[i]);
+                }
             }
-            return "";
         }
-        return (String) invokeV.objValue;
+        return arrayList;
     }
 
-    public ccb d() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (ccb) invokeV.objValue;
-    }
-
-    public dcb e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (dcb) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ccb ccbVar = this.d;
-            if (ccbVar != null) {
-                return ccbVar.b();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ecb g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (ecb) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public void h(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, context) == null) && context != null) {
-            this.b = context.getApplicationContext();
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(ccb ccbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ccbVar) == null) {
-            this.d = ccbVar;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            tbb.a(new a());
         }
     }
 }

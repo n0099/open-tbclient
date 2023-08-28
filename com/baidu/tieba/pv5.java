@@ -36,7 +36,7 @@ public class pv5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements b8c<String> {
+    public static class a implements d8c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -60,7 +60,7 @@ public class pv5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8c
+        @Override // com.baidu.tieba.d8c
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -82,7 +82,7 @@ public class pv5 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements b8c<String> {
+    public static class b implements d8c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -106,7 +106,7 @@ public class pv5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b8c
+        @Override // com.baidu.tieba.d8c
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -189,7 +189,7 @@ public class pv5 {
     public static void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            n7c.n("").s(Schedulers.io()).H(new a(str));
+            p7c.n("").s(Schedulers.io()).H(new a(str));
         }
     }
 
@@ -210,7 +210,7 @@ public class pv5 {
     public static void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
-            n7c.n("").s(Schedulers.io()).H(new b(z));
+            p7c.n("").s(Schedulers.io()).H(new b(z));
         }
     }
 

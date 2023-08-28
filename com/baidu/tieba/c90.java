@@ -55,7 +55,7 @@ public class c90 {
 
         /* renamed from: com.baidu.tieba.c90$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0260a extends TimerTask {
+        public class C0259a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicBoolean a;
@@ -63,7 +63,7 @@ public class c90 {
             public final /* synthetic */ d c;
             public final /* synthetic */ a d;
 
-            public C0260a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
+            public C0259a(a aVar, AtomicBoolean atomicBoolean, String str, d dVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class c90 {
                         z90.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + str);
                     }
                     AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    timer.schedule(new C0260a(this, atomicBoolean, str, dVar), 3000L);
+                    timer.schedule(new C0259a(this, atomicBoolean, str, dVar), 3000L);
                     DnsHelper dnsHelper = new DnsHelper(this.a);
                     dnsHelper.setHttpDnsState(false, null, false, true);
                     c90.h(dnsHelper.getIpList(str), this.a);

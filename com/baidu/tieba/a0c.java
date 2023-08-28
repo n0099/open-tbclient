@@ -1,73 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
 public class a0c {
     public static /* synthetic */ Interceptable $ic;
-    public static a0c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562805, "Lcom/baidu/tieba/a0c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947562805, "Lcom/baidu/tieba/a0c;");
-                return;
-            }
-        }
-        a = new a0c();
-    }
-
-    public a0c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static a0c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (a0c) invokeV.objValue;
-    }
-
-    public File a(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context == null) {
-                tzb.b(StorageUtils.TAG, "Context is null, need setting Context!");
-                return null;
-            } else if (context.getExternalCacheDir() != null && context.getExternalCacheDir().exists()) {
-                return context.getExternalCacheDir();
-            } else {
-                return context.getCacheDir();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return b(str, "1234567890abcdef");
+            } catch (Exception unused) {
+                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
+                if (str.isEmpty()) {
+                    return "";
+                }
+                return str;
             }
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return d(c(str, str2));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] c(String str, String str2) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
+            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            int length = bArr.length;
+            char[] cArr2 = new char[length << 1];
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i + 1;
+                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
+                i = i3 + 1;
+                cArr2[i3] = cArr[bArr[i2] & 15];
+            }
+            return new String(cArr2);
+        }
+        return (String) invokeL.objValue;
     }
 }

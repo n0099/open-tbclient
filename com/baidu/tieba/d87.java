@@ -27,11 +27,11 @@ public class d87 {
         }
         HashMap<String, z87> hashMap = new HashMap<>();
         a = hashMap;
-        hashMap.put("recommend_banner", new nr6());
-        a.put("browse_location", new kr6());
+        hashMap.put("feed", new mr6());
+        a.put("recommend_banner", new nr6());
         a.put("fake_wall", new lr6());
-        a.put("feed", new mr6());
         a.put("ala_live_attention", new jr6());
+        a.put("browse_location", new kr6());
         a.put("sideway", new or6());
     }
 

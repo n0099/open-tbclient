@@ -507,12 +507,12 @@ public class cm9 extends vk9<zfa, PbTopCommenFloorItemViewHolder> implements Vie
 
             /* renamed from: com.baidu.tieba.cm9$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0265a implements View.OnClickListener {
+            public class View$OnClickListenerC0264a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0265a(a aVar) {
+                public View$OnClickListenerC0264a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -615,7 +615,7 @@ public class cm9 extends vk9<zfa, PbTopCommenFloorItemViewHolder> implements Vie
                 this.a.b.W.setVisibility(8);
                 this.a.b.X.setVisibility(8);
                 this.a.b.k0.setVisibility(0);
-                this.a.b.k0.setOnClickListener(new View$OnClickListenerC0265a(this));
+                this.a.b.k0.setOnClickListener(new View$OnClickListenerC0264a(this));
                 this.a.b.k0.postDelayed(new b(this), 5000L);
             }
         }
@@ -675,13 +675,13 @@ public class cm9 extends vk9<zfa, PbTopCommenFloorItemViewHolder> implements Vie
 
         /* renamed from: com.baidu.tieba.cm9$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0264a implements Runnable {
+        public class RunnableC0263a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zfa a;
             public final /* synthetic */ a b;
 
-            public RunnableC0264a(a aVar, zfa zfaVar) {
+            public RunnableC0263a(a aVar, zfa zfaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -739,7 +739,7 @@ public class cm9 extends vk9<zfa, PbTopCommenFloorItemViewHolder> implements Vie
             }
             SparseArray sparseArray = (SparseArray) view2.getTag();
             if ((sparseArray.get(R.id.tag_load_sub_data) instanceof zfa) && (zfaVar = (zfa) sparseArray.get(R.id.tag_load_sub_data)) != null && this.a.c != null && this.b != null) {
-                SafeHandler.getInst().postDelayed(new RunnableC0264a(this, zfaVar), 100L);
+                SafeHandler.getInst().postDelayed(new RunnableC0263a(this, zfaVar), 100L);
                 String Q = this.c.k.Q();
                 if ((StringUtils.isNull(Q) || "0".equals(this.c.k.Q())) && this.c.k.O() != null) {
                     Q = this.c.k.O().getNid();

@@ -1,38 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes5.dex */
-public class afc {
+public class afc implements IH5PayActivityVisit {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2, CancelType cancelType) {
+    public afc() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                wfc.b(i, i2, PayUIEventType.purchaseclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                wfc.b(i, i2, PayUIEventType.purchaseclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(int i, int i2, CancelType cancelType) {
+    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
+    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                wfc.b(i, i2, PayUIEventType.paypageclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                wfc.b(i, i2, PayUIEventType.paypageclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
+            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
+            PayFlowType a = kgc.a(i3);
+            if (a == null) {
+                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
+                return;
             }
+            jfc.b(str, i, i2, a);
         }
     }
 }

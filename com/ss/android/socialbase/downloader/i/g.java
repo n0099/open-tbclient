@@ -918,7 +918,7 @@ public class g {
         if (downloadTask == null) {
             return null;
         }
-        return new a.AbstractBinderC0771a() { // from class: com.ss.android.socialbase.downloader.i.g.1
+        return new a.AbstractBinderC0772a() { // from class: com.ss.android.socialbase.downloader.i.g.1
             @Override // com.ss.android.socialbase.downloader.model.a
             public int a(int i) throws RemoteException {
                 return DownloadTask.this.getDownloadListenerSize(f.e(i));

@@ -76,7 +76,7 @@ public class e99 {
     public int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public Boolean f1101T;
+    public Boolean f1100T;
     public int U;
     public String V;
     public String W;
@@ -284,14 +284,14 @@ public class e99 {
             }
         }
         this.O = 2;
-        this.f1101T = Boolean.FALSE;
+        this.f1100T = Boolean.FALSE;
         this.Y = 0;
         this.Z = new b(this);
         this.a0 = new c(this);
         this.b = view2;
         this.a = tbPageContext;
         this.O = i;
-        this.f1101T = Boolean.valueOf(z);
+        this.f1100T = Boolean.valueOf(z);
         this.Q = str;
         this.R = str2;
         this.S = i2;
@@ -344,7 +344,7 @@ public class e99 {
     public final void A(long j, long j2, long j3, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
-            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.f1101T.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.Q, this.R);
+            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.f1100T.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.Q, this.R);
             String str = this.N + this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c6c, new Object[]{String.valueOf(j3)});
             payConfig.setAutoPay(i);
             payConfig.fromScene = this.U;

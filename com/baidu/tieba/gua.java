@@ -55,7 +55,7 @@ public class gua {
                 }
                 return i2;
             } catch (RuntimeException e) {
-                yfb.g(e);
+                agb.g(e);
                 return i3;
             }
         }
@@ -75,7 +75,7 @@ public class gua {
                 }
                 return Math.min(parameters.getMaxZoom(), 40);
             } catch (Exception e) {
-                yfb.g(e);
+                agb.g(e);
                 return -1;
             }
         }
@@ -117,8 +117,8 @@ public class gua {
         }
         matrix.setScale(f, 1.0f);
         matrix.postRotate(b(tbPageContext, i));
-        matrix.postScale(rgb.e() / 2000.0f, rgb.d() / 2000.0f);
-        matrix.postTranslate(rgb.e() / 2.0f, rgb.d() / 2.0f);
+        matrix.postScale(tgb.e() / 2000.0f, tgb.d() / 2000.0f);
+        matrix.postTranslate(tgb.e() / 2.0f, tgb.d() / 2.0f);
     }
 
     public static void g(int i, int i2, Camera camera) {

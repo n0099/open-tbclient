@@ -96,12 +96,12 @@ public class kqa extends BdBaseView {
 
         /* renamed from: com.baidu.tieba.kqa$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0384b implements MediaPlayer.OnInfoListener {
+        public class C0387b implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0384b(b bVar) {
+            public C0387b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -175,7 +175,7 @@ public class kqa extends BdBaseView {
                     SafeHandler.getInst().postDelayed(new a(this), 200L);
                     if (Build.VERSION.SDK_INT < 17) {
                         this.a.c.start();
-                        mediaPlayer.setOnInfoListener(new C0384b(this));
+                        mediaPlayer.setOnInfoListener(new C0387b(this));
                         return;
                     }
                     this.a.c.seekTo(this.a.g.getCurrentPosition());

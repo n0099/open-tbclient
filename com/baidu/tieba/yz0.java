@@ -36,13 +36,13 @@ public class yz0 extends xz0 {
 
         /* renamed from: com.baidu.tieba.yz0$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0545a implements Runnable {
+        public class RunnableC0546a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ sw0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0545a(a aVar, sw0 sw0Var) {
+            public RunnableC0546a(a aVar, sw0 sw0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class yz0 extends xz0 {
                 if (!(obj instanceof sw0)) {
                     return;
                 }
-                hk0.c(new RunnableC0545a(this, (sw0) obj));
+                hk0.c(new RunnableC0546a(this, (sw0) obj));
             }
         }
     }

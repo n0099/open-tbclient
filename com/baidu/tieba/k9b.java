@@ -1,16 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class k9b extends xk1<UBCManager> {
+public abstract class k9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a();
+
+    public abstract String b() throws IOException;
+
+    public abstract int c();
+
+    public abstract String d();
+
+    public abstract boolean e();
 
     public k9b() {
         Interceptable interceptable = $ic;
@@ -24,17 +32,5 @@ public class k9b extends xk1<UBCManager> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
-    /* renamed from: a */
-    public UBCManager createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new l9b();
-        }
-        return (UBCManager) invokeV.objValue;
     }
 }

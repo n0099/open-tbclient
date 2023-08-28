@@ -44,13 +44,13 @@ public class dp3 {
 
         /* renamed from: com.baidu.tieba.dp3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0270a implements Runnable {
+        public class RunnableC0271a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0270a(a aVar, Activity activity) {
+            public RunnableC0271a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class dp3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0270a runnableC0270a = new RunnableC0270a(this, activity);
+                RunnableC0271a runnableC0271a = new RunnableC0271a(this, activity);
                 if (kn3.a()) {
-                    runnableC0270a.run();
+                    runnableC0271a.run();
                 } else {
-                    xn3.j(runnableC0270a, "moveTaskToFront");
+                    xn3.j(runnableC0271a, "moveTaskToFront");
                 }
             }
         }

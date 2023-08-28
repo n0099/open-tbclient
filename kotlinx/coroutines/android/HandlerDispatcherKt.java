@@ -65,7 +65,7 @@ public final class HandlerDispatcherKt {
     }
 
     public static final void postFrameCallback(Choreographer choreographer2, final CancellableContinuation<? super Long> cancellableContinuation) {
-        choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: com.baidu.tieba.r4c
+        choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: com.baidu.tieba.t4c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

@@ -40,12 +40,12 @@ public final class ft4 implements co4 {
 
         /* renamed from: com.baidu.tieba.ft4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0304a implements Runnable {
+        public class RunnableC0301a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0304a(a aVar) {
+            public RunnableC0301a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class ft4 implements co4 {
                             z = false;
                         }
                     }
-                    if (z && cb3.M().postDelayed(new RunnableC0304a(this), 1000L)) {
+                    if (z && cb3.M().postDelayed(new RunnableC0301a(this), 1000L)) {
                         return;
                     }
                 }

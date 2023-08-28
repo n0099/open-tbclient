@@ -1033,7 +1033,7 @@ public class kk7 extends hw7 {
         BdUtilHelper.getDimens(frsFragment.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d5);
         BdUtilHelper.getDimens(frsFragment.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07026a);
         BdUtilHelper.getDimens(frsFragment.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070375);
-        this.f1129T = str;
+        this.f1128T = str;
         this.U = str2;
         View v1 = v1();
         this.d = v1;
@@ -1378,15 +1378,15 @@ public class kk7 extends hw7 {
         if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
             boolean E1 = E1();
             boolean F1 = F1();
-            if (!TextUtils.isEmpty(this.f1129T)) {
-                ju7 c2 = iu7.d().c(this.f1129T);
+            if (!TextUtils.isEmpty(this.f1128T)) {
+                ju7 c2 = iu7.d().c(this.f1128T);
                 if (c2 == null) {
                     c2 = new ju7(this.A0, E1);
                 } else {
                     c2.d(this.A0);
                     c2.e(E1);
                 }
-                iu7.d().e(this.f1129T, c2);
+                iu7.d().e(this.f1128T, c2);
             }
             o1(E1, F1);
             m1(E1, F1);
@@ -1966,7 +1966,7 @@ public class kk7 extends hw7 {
             if (!z && !TextUtils.isEmpty(d2)) {
                 this.x1.d(d2);
                 if (this.f0 != null) {
-                    TiebaStatic.log(new StatisticItem("c15205").param("obj_type", 1).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.U).param("fname", this.f1129T).param("room_id", this.f0.a()));
+                    TiebaStatic.log(new StatisticItem("c15205").param("obj_type", 1).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", this.U).param("fname", this.f1128T).param("room_id", this.f0.a()));
                     return;
                 }
                 return;
@@ -1986,7 +1986,7 @@ public class kk7 extends hw7 {
         if (kv7.m(this.v1)) {
             M1();
         }
-        this.f1129T = forumData.getName();
+        this.f1128T = forumData.getName();
         this.U = forumData.getId();
         this.Z = forumData.getMember_num();
         this.a0 = forumData.getPost_num();
@@ -2006,7 +2006,7 @@ public class kk7 extends hw7 {
         forumData.getAccelerateContent();
         this.k0 = forumData.isBrandForum;
         this.v1 = frsViewData;
-        if (!StringUtils.isNull(this.U) && !StringUtils.isNull(this.f1129T)) {
+        if (!StringUtils.isNull(this.U) && !StringUtils.isNull(this.f1128T)) {
             this.d.setVisibility(0);
         } else {
             this.d.setVisibility(8);
@@ -2191,11 +2191,11 @@ public class kk7 extends hw7 {
             this.e1.d(this.Y, this.V);
             ArrayList<i15> arrayList = this.P;
             if (arrayList != null && arrayList.size() > 0) {
-                this.f1129T = UtilHelper.getFixedText(this.f1129T, 7);
+                this.f1128T = UtilHelper.getFixedText(this.f1128T, 7);
             } else if (this.k0) {
-                this.f1129T = UtilHelper.getFixedText(this.f1129T, 6);
+                this.f1128T = UtilHelper.getFixedText(this.f1128T, 6);
             }
-            String f0 = eh7.f0(this.f1129T);
+            String f0 = eh7.f0(this.f1128T);
             TextView textView3 = this.g;
             if (textView3 != null) {
                 textView3.setText(f0);
@@ -2697,7 +2697,7 @@ public class kk7 extends hw7 {
             if (frsViewData6 != null) {
                 userData = frsViewData6.getUserData();
             }
-            this.B.setForum(this.U, this.f1129T, forumData, userData, this.b.getFrom());
+            this.B.setForum(this.U, this.f1128T, forumData, userData, this.b.getFrom());
             if (list.size() > 0 && (list.get(0) instanceof uea)) {
                 this.X0 = 0;
             } else if (list.size() > 1 && (list.get(1) instanceof uea)) {

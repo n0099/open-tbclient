@@ -71,14 +71,14 @@ public class PbFirstFloorCommentAndPraiseAdapter extends vk9<oi9, PbFirstFloorCo
 
         /* renamed from: com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0447a extends FastRequest.b<Void> {
+        public class C0448a extends FastRequest.b<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String b;
             public final /* synthetic */ String c;
             public final /* synthetic */ a d;
 
-            public C0447a(a aVar, String str, String str2) {
+            public C0448a(a aVar, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +188,7 @@ public class PbFirstFloorCommentAndPraiseAdapter extends vk9<oi9, PbFirstFloorCo
                 String c = go9.c(this.a.c().getFirstPostId(), TbadkCoreApplication.getCurrentPortrait(), System.currentTimeMillis());
                 TbPageContext<BaseFragmentActivity> pageContext = this.b.b.getPageContext();
                 AbilityConf abilityConf = callRobotEntrance.ability_conf;
-                go9.a(pageContext, abilityConf.bot_uk, abilityConf.skill_id.intValue(), this.a.c().tid, this.a.c().getFirstPostId(), c, new C0447a(this, str, c));
+                go9.a(pageContext, abilityConf.bot_uk, abilityConf.skill_id.intValue(), this.a.c().tid, this.a.c().getFirstPostId(), c, new C0448a(this, str, c));
             }
         }
     }

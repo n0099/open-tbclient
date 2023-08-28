@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kwa;
-import com.baidu.tieba.pgb;
+import com.baidu.tieba.rgb;
 import com.baidu.tieba.rva;
 import com.baidu.tieba.tva;
 import com.baidu.tieba.view.widget.mediaedit.VideoClipLayout;
@@ -203,26 +203,26 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             if (childAdapterPosition == 0) {
                 MultiMediaEditLayout multiMediaEditLayout = this.a;
                 if (!multiMediaEditLayout.D && !multiMediaEditLayout.C) {
-                    rect.left = (int) pgb.i(R.dimen.obfuscated_res_0x7f070207);
+                    rect.left = (int) rgb.i(R.dimen.obfuscated_res_0x7f070207);
                 } else {
                     MultiMediaEditLayout multiMediaEditLayout2 = this.a;
                     if (multiMediaEditLayout2.D || multiMediaEditLayout2.C) {
                         if (this.a.y == 0) {
-                            rect.left = ((int) pgb.i(R.dimen.obfuscated_res_0x7f070207)) + (this.a.z * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a)));
-                        } else if (this.a.A > this.a.y * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019c))) {
-                            rect.left = ((((int) pgb.i(R.dimen.obfuscated_res_0x7f070207)) + this.a.A) - (this.a.y * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019c)))) + (this.a.z * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a)));
+                            rect.left = ((int) rgb.i(R.dimen.obfuscated_res_0x7f070207)) + (this.a.z * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a)));
+                        } else if (this.a.A > this.a.y * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019c))) {
+                            rect.left = ((((int) rgb.i(R.dimen.obfuscated_res_0x7f070207)) + this.a.A) - (this.a.y * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019c)))) + (this.a.z * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a)));
                         }
                     }
                 }
             } else {
-                rect.left = -((int) pgb.i(R.dimen.obfuscated_res_0x7f0701f0));
+                rect.left = -((int) rgb.i(R.dimen.obfuscated_res_0x7f0701f0));
             }
             if (childAdapterPosition == i - 1) {
                 MultiMediaEditLayout multiMediaEditLayout3 = this.a;
-                if ((multiMediaEditLayout3.D || multiMediaEditLayout3.C) && this.a.y > 0 && BdUtilHelper.getEquipmentWidth(this.a.getContext()) - this.a.A >= (this.a.b.getItemCount() - this.a.y) * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019c))) {
-                    rect.right = (BdUtilHelper.getEquipmentWidth(this.a.getContext()) - this.a.A) - (((this.a.b.getItemCount() - this.a.y) + this.a.z) * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019c)));
+                if ((multiMediaEditLayout3.D || multiMediaEditLayout3.C) && this.a.y > 0 && BdUtilHelper.getEquipmentWidth(this.a.getContext()) - this.a.A >= (this.a.b.getItemCount() - this.a.y) * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019c))) {
+                    rect.right = (BdUtilHelper.getEquipmentWidth(this.a.getContext()) - this.a.A) - (((this.a.b.getItemCount() - this.a.y) + this.a.z) * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019c)));
                 } else {
-                    rect.right = (int) pgb.i(R.dimen.obfuscated_res_0x7f070207);
+                    rect.right = (int) rgb.i(R.dimen.obfuscated_res_0x7f070207);
                 }
             }
         }
@@ -911,16 +911,16 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
             try {
                 Field declaredField = this.B.getClass().getDeclaredField("mInitialTouchX");
                 declaredField.setAccessible(true);
-                this.z = ((((int) ((Float) declaredField.get(this.B)).floatValue()) - this.A) - ((int) pgb.i(R.dimen.obfuscated_res_0x7f070207))) / ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a));
+                this.z = ((((int) ((Float) declaredField.get(this.B)).floatValue()) - this.A) - ((int) rgb.i(R.dimen.obfuscated_res_0x7f070207))) / ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a));
                 this.b.notifyDataSetChanged();
                 int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
-                if (this.A + (this.z * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a))) > this.y * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019c))) {
+                if (this.A + (this.z * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a))) > this.y * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019c))) {
                     this.a.scrollToPosition(i);
-                    this.a.smoothScrollBy((-this.z) * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
+                    this.a.smoothScrollBy((-this.z) * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
                 }
-                if (this.A < this.y * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019c)) && equipmentWidth - this.A < (this.b.getItemCount() - this.y) * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a))) {
+                if (this.A < this.y * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019c)) && equipmentWidth - this.A < (this.b.getItemCount() - this.y) * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a))) {
                     this.a.scrollToPosition(i);
-                    this.a.smoothScrollBy((-this.z) * ((int) pgb.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
+                    this.a.smoothScrollBy((-this.z) * ((int) rgb.i(R.dimen.obfuscated_res_0x7f07019a)), 0);
                 }
                 if (this.E == null) {
                     this.E = new Timer();

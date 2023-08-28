@@ -69,13 +69,13 @@ public final class jg9 {
 
         /* renamed from: com.baidu.tieba.jg9$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0362a implements BotSkillMenuAdapter.a {
+        public static final class C0363a implements BotSkillMenuAdapter.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
             public final /* synthetic */ dh9 b;
 
-            public C0362a(b bVar, dh9 dh9Var) {
+            public C0363a(b bVar, dh9 dh9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,7 +155,7 @@ public final class jg9 {
                     aVar.h(eh9Var);
                     a(view2, aVar);
                     dh9 a = aVar.a();
-                    botSkillMenuView.setOnItemClickListener(new C0362a(listener, a));
+                    botSkillMenuView.setOnItemClickListener(new C0363a(listener, a));
                     a.b();
                     botSkillMenuView.setData(dataList);
                 }

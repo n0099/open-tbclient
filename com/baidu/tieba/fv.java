@@ -45,12 +45,12 @@ public class fv {
 
             /* renamed from: com.baidu.tieba.fv$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0305a implements Runnable {
+            public class RunnableC0302a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0305a(a aVar) {
+                public RunnableC0302a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class fv {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    ht.c(new RunnableC0305a(this));
+                    ht.c(new RunnableC0302a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;

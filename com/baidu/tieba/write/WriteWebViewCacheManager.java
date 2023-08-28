@@ -14,6 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.hxa;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.tieba.wl6;
 import com.baidu.tieba.write.WriteWebViewCacheManager$skinChangeListener$2;
@@ -323,7 +326,7 @@ public final class WriteWebViewCacheManager {
             this.a.remove(url);
             Context context2 = tbWebView.getContext();
             if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(context);
+                ((MutableContextWrapper) context2).setBaseContext(hxa.a.b(context));
             }
             return tbWebView;
         }
@@ -331,14 +334,20 @@ public final class WriteWebViewCacheManager {
     }
 
     public final void h(String str) {
+        MutableContextWrapper mutableContextWrapper;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.a.containsKey(str)) {
             return;
         }
-        TbWebView tbWebView = new TbWebView(new MutableContextWrapper(TbadkCoreApplication.getInst()));
-        tbWebView.loadUrl(str + "&page_lifecycle_type=preheat_enabled");
-        tbWebView.getPerfData().i = true;
-        this.a.put(str, tbWebView);
+        if (TbadkCoreApplication.getInst().getMainActivity() != null) {
+            mutableContextWrapper = new MutableContextWrapper(TbadkCoreApplication.getInst().getMainActivity());
+        } else {
+            mutableContextWrapper = new MutableContextWrapper(TbadkCoreApplication.getInst());
+        }
+        TbWebView a2 = hxa.a.a(mutableContextWrapper);
+        a2.loadUrl(str + "&page_lifecycle_type=preheat_enabled");
+        a2.getPerfData().i = true;
+        this.a.put(str, a2);
     }
 
     public final void j(String lastTab) {
@@ -347,8 +356,11 @@ public final class WriteWebViewCacheManager {
         if (interceptable == null || interceptable.invokeL(1048581, this, lastTab) == null) {
             Intrinsics.checkNotNullParameter(lastTab, "lastTab");
             if (WriteMsgHolder.isH5PageShowing) {
+                HybridLog.getInstance().i("preload", "发布器H5不进行预渲染 isH5PageShowing");
                 return;
             }
+            TbLog hybridLog = HybridLog.getInstance();
+            hybridLog.i("preload", "发布器H5尝试预渲染 " + lastTab);
             if (Intrinsics.areEqual(lastTab, "article")) {
                 str = e;
             } else if (Intrinsics.areEqual(lastTab, "help")) {

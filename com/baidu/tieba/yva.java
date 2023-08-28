@@ -90,11 +90,11 @@ public class yva {
                             arrayList2.add(bwaVar);
                         }
                     }
-                    if (!dgb.e(arrayList)) {
+                    if (!fgb.e(arrayList)) {
                         for (bwa bwaVar2 : arrayList) {
                             Bitmap d = cwa.f().d(bwaVar2.a);
                             if (d == null || d.isRecycled()) {
-                                d = zfb.e(bwaVar2.b, bwaVar2.h, bwaVar2.i, bwaVar2.c);
+                                d = bgb.e(bwaVar2.b, bwaVar2.h, bwaVar2.i, bwaVar2.c);
                                 cwa.f().g().b(bwaVar2.a, d);
                                 cwa.f().e().c(bwaVar2.a, d);
                             }
@@ -102,7 +102,7 @@ public class yva {
                             bwaVar2.a();
                         }
                     }
-                    if (!dgb.e(arrayList2)) {
+                    if (!fgb.e(arrayList2)) {
                         for (bwa bwaVar3 : arrayList2) {
                             Bitmap d2 = cwa.f().d(bwaVar3.a);
                             if (d2 != null && !d2.isRecycled()) {
@@ -113,7 +113,7 @@ public class yva {
                             }
                         }
                     }
-                    if (!dgb.e(arrayList3)) {
+                    if (!fgb.e(arrayList3)) {
                         this.a.e = arrayList3;
                         if (!this.c.g()) {
                             this.c.j(this.a);
@@ -130,13 +130,13 @@ public class yva {
 
         /* renamed from: com.baidu.tieba.yva$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0544b implements Runnable {
+        public class RunnableC0545b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ gwa a;
             public final /* synthetic */ b b;
 
-            public RunnableC0544b(b bVar, gwa gwaVar) {
+            public RunnableC0545b(b bVar, gwa gwaVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,7 +202,7 @@ public class yva {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.c && !sgb.a(this.b)) {
+                if (this.c && !ugb.a(this.b)) {
                     return true;
                 }
                 return false;
@@ -240,7 +240,7 @@ public class yva {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gwaVar) == null) {
                 this.d = false;
-                qgb.a().post(new RunnableC0544b(this, gwaVar));
+                sgb.a().post(new RunnableC0545b(this, gwaVar));
             }
         }
 
@@ -266,7 +266,7 @@ public class yva {
                     super.setDataSource(str);
                     this.b = str;
                 } catch (Exception e) {
-                    yfb.g(e);
+                    agb.g(e);
                 }
             }
         }
@@ -274,7 +274,7 @@ public class yva {
         public void h(hwa hwaVar, gwa gwaVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048581, this, hwaVar, gwaVar) == null) {
-                if (hwaVar != null && !dgb.e(hwaVar.e)) {
+                if (hwaVar != null && !fgb.e(hwaVar.e)) {
                     this.d = true;
                     ThreadPool.b().e(new a(this, hwaVar, gwaVar));
                     return;
@@ -298,8 +298,8 @@ public class yva {
                 MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
                 long j3 = 0;
                 int i4 = 0;
-                if (dgb.b(list) == 1) {
-                    bwa bwaVar = (bwa) dgb.c(list, 0);
+                if (fgb.b(list) == 1) {
+                    bwa bwaVar = (bwa) fgb.c(list, 0);
                     if (bwaVar != null) {
                         j2 = bwaVar.d;
                     } else {
@@ -335,7 +335,7 @@ public class yva {
                             i2 = i5;
                             j = j3;
                             if (mediaExtractor.getSampleTrackIndex() != i) {
-                                yfb.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
+                                agb.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
                             }
                             mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
                             mediaExtractor.advance();
@@ -347,7 +347,7 @@ public class yva {
                             if (dequeueOutputBuffer == -2) {
                                 mediaCodec.getOutputFormat();
                             } else if (dequeueOutputBuffer < 0) {
-                                yfb.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                                agb.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                             } else {
                                 if ((bufferInfo.flags & 4) != 0) {
                                     z = true;
@@ -362,7 +362,7 @@ public class yva {
                                 mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z2);
                                 if (z2) {
                                     i3 = i2;
-                                    bwa bwaVar2 = (bwa) dgb.c(list, i3);
+                                    bwa bwaVar2 = (bwa) fgb.c(list, i3);
                                     baseOutputSurface.awaitNewImage();
                                     baseOutputSurface.drawImage((int) (((float) bufferInfo.presentationTimeUs) / 1000.0f));
                                     if (bwaVar2 != null) {
@@ -479,7 +479,7 @@ public class yva {
                             e = e4;
                             wvaVar = wvaVar2;
                             try {
-                                yfb.g(e);
+                                agb.g(e);
                                 if (wvaVar != null) {
                                     wvaVar.release();
                                 }

@@ -35,7 +35,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.yeb;
+import com.baidu.tieba.afb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ public class aua extends zta {
     public MediaRecorder F;
     public File G;
     public boolean H;
-    public yeb.a I;
+    public afb.a I;
     public Rect J;
     public float K;
     public int L;
@@ -108,7 +108,7 @@ public class aua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,28 +118,28 @@ public class aua extends zta {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void d(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, bArr) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void h(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void u(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
@@ -161,7 +161,7 @@ public class aua extends zta {
 
         /* renamed from: com.baidu.tieba.aua$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0240a implements Runnable {
+        public class RunnableC0239a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -172,7 +172,7 @@ public class aua extends zta {
                 }
             }
 
-            public RunnableC0240a(a aVar) {
+            public RunnableC0239a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -217,7 +217,7 @@ public class aua extends zta {
             this.a.u = cameraCaptureSession;
             this.a.f1091T = (CameraConstrainedHighSpeedCaptureSession) cameraCaptureSession;
             this.a.N();
-            qgb.a().post(new RunnableC0240a(this));
+            sgb.a().post(new RunnableC0239a(this));
         }
     }
 
@@ -317,7 +317,7 @@ public class aua extends zta {
         public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cameraCaptureSession) == null) {
-                qgb.a().post(new b(this));
+                sgb.a().post(new b(this));
             }
         }
 
@@ -328,7 +328,7 @@ public class aua extends zta {
                 return;
             }
             this.a.u = cameraCaptureSession;
-            qgb.a().post(new a(this, this.a.N()));
+            sgb.a().post(new a(this, this.a.N()));
         }
     }
 
@@ -371,7 +371,7 @@ public class aua extends zta {
                     z2 = false;
                 }
                 sb.append(z2);
-                gcb.b("camera_hfps", sb.toString());
+                icb.b("camera_hfps", sb.toString());
             }
         }
     }
@@ -434,7 +434,7 @@ public class aua extends zta {
                 cameraDevice.close();
                 this.a.t = null;
                 if (this.a.I != null) {
-                    yeb.a aVar = this.a.I;
+                    afb.a aVar = this.a.I;
                     aVar.a("StateCallback onError error = " + i);
                 }
             }
@@ -552,8 +552,8 @@ public class aua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
-    public boolean k(SurfaceTexture surfaceTexture, yeb.f fVar) {
+    @Override // com.baidu.tieba.afb.b
+    public boolean k(SurfaceTexture surfaceTexture, afb.f fVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, surfaceTexture, fVar)) == null) {
@@ -628,7 +628,7 @@ public class aua extends zta {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void i(boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
@@ -673,8 +673,8 @@ public class aua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
-    public void s(yeb.a aVar) {
+    @Override // com.baidu.tieba.afb.b
+    public void s(afb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, aVar) == null) {
             this.I = aVar;
@@ -740,7 +740,7 @@ public class aua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -763,7 +763,7 @@ public class aua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -809,7 +809,7 @@ public class aua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -819,7 +819,7 @@ public class aua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void q() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048621, this) == null) && this.t != null) {
@@ -830,7 +830,7 @@ public class aua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public synchronized void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
@@ -1071,7 +1071,7 @@ public class aua extends zta {
                     }
                 }
             }
-            if (dgb.e(arrayList)) {
+            if (fgb.e(arrayList)) {
                 return null;
             }
             Collections.sort(arrayList);
@@ -1249,7 +1249,7 @@ public class aua extends zta {
         }
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void l(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048613, this, i) != null) || !c0() || !this.M) {
@@ -1346,7 +1346,7 @@ public class aua extends zta {
                 }
             }
             if (Z != null || Y != null) {
-                qgb.a().postDelayed(new b(this), 2000L);
+                sgb.a().postDelayed(new b(this), 2000L);
             }
         }
     }
@@ -1400,16 +1400,16 @@ public class aua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void c(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIIII(1048596, this, i, i2, i3, i4) != null) || !c0()) {
             return;
         }
-        O(new MeteringRectangle(I(i, i2, 1.0f, i3, i4, rgb.e(), rgb.d()), 1000), new MeteringRectangle(I(i, i2, 1.5f, i3, i4, rgb.e(), rgb.d()), 1000), false);
+        O(new MeteringRectangle(I(i, i2, 1.0f, i3, i4, tgb.e(), tgb.d()), 1000), new MeteringRectangle(I(i, i2, 1.5f, i3, i4, tgb.e(), tgb.d()), 1000), false);
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void g(int i, int i2, int i3, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
@@ -1469,7 +1469,7 @@ public class aua extends zta {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yeb.b
+    @Override // com.baidu.tieba.afb.b
     public void t(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIIII(1048624, this, i, i2, i3, i4) != null) || !c0()) {

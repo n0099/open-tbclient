@@ -60,13 +60,13 @@ public class gd9 {
 
         /* renamed from: com.baidu.tieba.gd9$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0313a extends BdAsyncTask<Void, Void, Boolean> {
+        public class C0314a extends BdAsyncTask<Void, Void, Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DownloadData a;
             public final /* synthetic */ a b;
 
-            public C0313a(a aVar, DownloadData downloadData) {
+            public C0314a(a aVar, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -156,7 +156,7 @@ public class gd9 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
                 fd9.a("【表情下载】 onFileDownloadSucceed = " + this.b);
-                new C0313a(this, downloadData).execute(new Void[0]);
+                new C0314a(this, downloadData).execute(new Void[0]);
             }
         }
 

@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.kfc;
+import com.baidu.tieba.mfc;
 @Keep
 /* loaded from: classes2.dex */
-public class PayStartInfo extends kfc {
+public class PayStartInfo extends mfc {
     public int code;
     public String message;
 

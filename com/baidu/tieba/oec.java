@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tdc;
+import com.baidu.tieba.vdc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes7.dex */
-public class oec implements ohc {
+public class oec implements qhc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tdc.b a;
+    public vdc.a a;
 
-    @Override // com.baidu.tieba.ohc
+    @Override // com.baidu.tieba.qhc
     public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -26,12 +26,12 @@ public class oec implements ohc {
         return invokeLL.booleanValue;
     }
 
-    public oec(tdc.b bVar) {
+    public oec(vdc.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,17 +41,17 @@ public class oec implements ohc {
                 return;
             }
         }
-        this.a = bVar;
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.ohc
+    @Override // com.baidu.tieba.qhc
     public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
-            tdc.b bVar = this.a;
-            if (bVar != null) {
-                bVar.a(cancelType);
+            RLog.info("PayConfirmDialogListener", "createConfirmFinishDialog cancel clickArea:" + cancelType);
+            vdc.a aVar = this.a;
+            if (aVar != null) {
+                aVar.a(cancelType);
             }
         }
     }

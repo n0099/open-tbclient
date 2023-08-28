@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,21 +10,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
 public final class zvb {
     public static /* synthetic */ Interceptable $ic;
-    public static final zvb b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
+    public static final zvb d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
+    public final ExecutorService b;
+    public final Executor c;
 
     /* loaded from: classes9.dex */
-    public static class a implements Executor {
+    public static final class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -43,15 +38,11 @@ public final class zvb {
             }
         }
 
-        public /* synthetic */ a(byte b) {
-            this();
-        }
-
         @Override // java.util.concurrent.Executor
         public final void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                new Handler(Looper.getMainLooper()).post(runnable);
+                runnable.run();
             }
         }
     }
@@ -69,11 +60,7 @@ public final class zvb {
                 return;
             }
         }
-        b = new zvb();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = availableProcessors + 1;
-        e = (availableProcessors * 2) + 1;
+        d = new zvb();
     }
 
     public zvb() {
@@ -89,23 +76,26 @@ public final class zvb {
                 return;
             }
         }
-        this.a = new a((byte) 0);
+        this.b = bwb.a();
+        this.a = new a();
+        this.c = bwb.b();
     }
 
     public static ExecutorService a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-            return threadPoolExecutor;
-        }
-        return (ExecutorService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
     }
 
     public static Executor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
+    }
+
+    public static Executor c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
     }
 }

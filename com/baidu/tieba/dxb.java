@@ -1,56 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public class dxb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "h";
+public abstract class dxb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947721339, "Lcom/baidu/tieba/dxb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947721339, "Lcom/baidu/tieba/dxb;");
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+                exb.d("IOUtil", "closeSecure IOException");
+            }
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void b(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Context a2 = zwb.a();
-            if (a2 == null) {
-                return "";
-            }
-            try {
-                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                String str2 = a;
-                cxb.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
-                return "";
-            } catch (Exception e2) {
-                String str3 = a;
-                cxb.d(str3, "getVersion: " + e2.getMessage());
-                return "";
-            } catch (Throwable unused) {
-                cxb.d(a, "throwable");
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
+            a(inputStream);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void c(OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
+            a(outputStream);
+        }
     }
 }

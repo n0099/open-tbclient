@@ -1,168 +1,295 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.os.Message;
-import android.view.Surface;
-import android.view.TextureView;
+import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
 /* loaded from: classes8.dex */
-public class t3c extends p3c implements TextureView.SurfaceTextureListener {
-    public static /* synthetic */ Interceptable $ic;
+public final class t3c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "t3c";
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface K;
-    public int L;
 
-    public t3c(Context context, h3c h3cVar, int i, int i2, z1c z1cVar) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948131717, "Lcom/baidu/tieba/t3c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, h3cVar, Integer.valueOf(i), Integer.valueOf(i2), z1cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948131717, "Lcom/baidu/tieba/t3c;");
+        }
+    }
+
+    public static int f(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65542, null, f)) == null) ? (int) (f + 0.5f) : invokeF.intValue;
+    }
+
+    public static float g(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65543, null, f)) == null) ? ((int) (f * 100.0f)) / 100.0f : invokeF.floatValue;
+    }
+
+    public static void a(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i5 = mediaInfo.b;
+            int i6 = mediaInfo.c;
+            float f = i5 / mediaInfo.d;
+            float f2 = i6 / mediaInfo.e;
+            if (i2 == 1 || i2 == 3) {
+                i5 = mediaInfo.c;
+                i6 = mediaInfo.b;
+                f = i5 / mediaInfo.e;
+                f2 = i6 / mediaInfo.d;
+            }
+            float g = g(f);
+            float g2 = g(f2);
+            fArr[2] = 0.0f;
+            fArr[3] = 0.0f;
+            fArr[6] = g;
+            fArr[7] = 0.0f;
+            fArr[10] = 0.0f;
+            fArr[11] = g2;
+            fArr[14] = g;
+            fArr[15] = g2;
+            if (i == 2) {
+                float f3 = i6 / i5;
+                int f4 = f(i3 * f3);
+                if (f4 > i4) {
+                    float f5 = ((f4 - i4) >> 1) / f4;
+                    if (i2 != 1 && i2 != 3) {
+                        fArr[3] = fArr[3] + f5;
+                        fArr[7] = fArr[7] + f5;
+                        fArr[11] = fArr[11] - f5;
+                        fArr[15] = fArr[15] - f5;
+                        return;
+                    }
+                    fArr[2] = fArr[2] + f5;
+                    fArr[6] = fArr[6] - f5;
+                    fArr[10] = fArr[10] + f5;
+                    fArr[14] = fArr[14] - f5;
+                    return;
+                }
+                int f6 = f(i4 / f3);
+                float f7 = ((f6 - i3) >> 1) / f6;
+                if (i2 != 1 && i2 != 3) {
+                    fArr[2] = fArr[2] + f7;
+                    fArr[6] = fArr[6] - f7;
+                    fArr[10] = fArr[10] + f7;
+                    fArr[14] = fArr[14] - f7;
+                    return;
+                }
+                fArr[3] = fArr[3] + f7;
+                fArr[7] = fArr[7] + f7;
+                fArr[11] = fArr[11] - f7;
+                fArr[15] = fArr[15] - f7;
+            }
+        }
+    }
+
+    public static void b(float[] fArr, int i, int i2, MediaInfo mediaInfo, int i3, int i4) {
+        int f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), mediaInfo, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            fArr[0] = -1.0f;
+            fArr[1] = 1.0f;
+            fArr[4] = 1.0f;
+            fArr[5] = 1.0f;
+            fArr[8] = -1.0f;
+            fArr[9] = -1.0f;
+            fArr[12] = 1.0f;
+            fArr[13] = -1.0f;
+            int i5 = mediaInfo.b;
+            int i6 = mediaInfo.c;
+            if (i2 == 1 || i2 == 3) {
+                i5 = mediaInfo.c;
+                i6 = mediaInfo.b;
+            }
+            if (i == 1) {
+                float f2 = i6 / i5;
+                float f3 = i3;
+                if (f(f3 * f2) <= i4) {
+                    float f4 = (i4 - f) / i4;
+                    if (i2 != 1 && i2 != 3) {
+                        fArr[1] = fArr[1] - f4;
+                        fArr[5] = fArr[5] - f4;
+                        fArr[9] = fArr[9] + f4;
+                        fArr[13] = fArr[13] + f4;
+                        return;
+                    }
+                    fArr[0] = fArr[0] + f4;
+                    fArr[4] = fArr[4] - f4;
+                    fArr[8] = fArr[8] + f4;
+                    fArr[12] = fArr[12] - f4;
+                    return;
+                }
+                float f5 = (i3 - f(i4 / f2)) / f3;
+                if (i2 != 1 && i2 != 3) {
+                    fArr[0] = fArr[0] + f5;
+                    fArr[4] = fArr[4] - f5;
+                    fArr[8] = fArr[8] + f5;
+                    fArr[12] = fArr[12] - f5;
+                    return;
+                }
+                fArr[1] = fArr[1] - f5;
+                fArr[5] = fArr[5] - f5;
+                fArr[9] = fArr[9] + f5;
+                fArr[13] = fArr[13] + f5;
+            }
+        }
+    }
+
+    public static void c(String str, s3c s3cVar) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65539, null, str, s3cVar) != null) {
+            return;
+        }
+        while (true) {
+            int glGetError = GLES20.glGetError();
+            if (glGetError != 0) {
+                String format = String.format("%s failed. glError() = 0x%04x", str, Integer.valueOf(glGetError));
+                if (glGetError == 1285 && s3cVar != null && (i = s3cVar.a) < 10000) {
+                    s3cVar.a = i + 1;
+                }
+                TLog.d(a, format);
+            } else {
                 return;
             }
         }
-        this.K = null;
-        this.L = 0;
-        A(context, h3cVar, i, i2, z1cVar);
     }
 
-    @Override // com.baidu.tieba.p3c
-    public void A(Context context, Object obj, int i, int i2, z1c z1cVar) {
+    public static int d(String str, String str2, s3c s3cVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), z1cVar}) == null) {
-            super.A(context, obj, i, i2, z1cVar);
-            if (obj != null && (obj instanceof h3c)) {
-                ((h3c) obj).a(this);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, s3cVar)) == null) {
+            int[] iArr = new int[1];
+            int h = h(str, 35633);
+            if (h <= 0) {
+                c("loadShader(GL_VERTEX_SHADER)", s3cVar);
+                return -1;
             }
-        }
-    }
-
-    public final void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(false);
-            if (this.d != null && this.a.available()) {
-                this.d.g(2402);
-                this.d.f(2402);
+            int h2 = h(str2, 35632);
+            if (h2 <= 0) {
+                c("loadShader(GL_FRAGMENT_SHADER)", s3cVar);
+                k(h, s3cVar);
+                return -1;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.m3c
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.c != null) {
-            TLog.g(this, "OutputExternalSurfaceRender destroyWindow");
-        }
-    }
-
-    @Override // com.baidu.tieba.m3c
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.K;
-        }
-        return invokeV.objValue;
-    }
-
-    public final void Z(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
-            X(true);
-            if (this.d != null) {
-                if (this.a.available()) {
-                    this.d.g(2402);
-                    this.d.f(2402);
-                }
-                TLog.g(this, "do send surfaceCreated, playerUID:" + this.r);
-                this.d.g(2401);
-                this.d.sendMessage(Message.obtain(null, 2401, surfaceTexture));
+            int glCreateProgram = GLES20.glCreateProgram();
+            c("glCreateProgram()", s3cVar);
+            GLES20.glAttachShader(glCreateProgram, h);
+            GLES20.glAttachShader(glCreateProgram, h2);
+            GLES20.glLinkProgram(glCreateProgram);
+            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
+            if (iArr[0] <= 0) {
+                String str3 = a;
+                TLog.d(str3, "glLinkProgram() failed.\n" + GLES20.glGetProgramInfoLog(glCreateProgram));
+                glCreateProgram = j(glCreateProgram, s3cVar);
             }
+            GLES20.glDeleteShader(h);
+            GLES20.glDeleteShader(h2);
+            return glCreateProgram;
         }
+        return invokeLLL.intValue;
     }
 
-    public final void a0(SurfaceTexture surfaceTexture, int i, int i2) {
-        h1c h1cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (h1cVar = this.d) != null) {
-            h1cVar.g(2404);
-            this.d.sendMessage(Message.obtain(null, 2404, i, i2, surfaceTexture));
-            TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
-            if (this.L % 100 == 0) {
-                TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            }
-            this.L++;
-            D();
-            this.I.set(true);
-            U();
-            a0(surfaceTexture, i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.m3c
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-            this.K = new Surface(surfaceTexture);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) && this.d != null && this.a.available()) {
-            this.d.g(2405);
-            this.d.f(2405);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i, i2) == null) {
-            TLog.g(this, "onSurfaceTextureAvailable() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            this.I.set(true);
-            Z(surfaceTexture);
-            if (i > 0 && i2 > 0) {
-                a0(surfaceTexture, i, i2);
-            }
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+    public static int e(s3c s3cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture)) == null) {
-            TLog.g(this, "onSurfaceTextureDestroyed playerUID:" + this.r);
-            D();
-            this.I.set(false);
-            U();
-            Y();
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, s3cVar)) == null) {
+            int[] iArr = new int[1];
+            GLES20.glGenTextures(1, iArr, 0);
+            c("glGenTextures()", s3cVar);
+            return iArr[0];
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
+            int[] iArr = new int[1];
+            int glCreateShader = GLES20.glCreateShader(i);
+            GLES20.glShaderSource(glCreateShader, str);
+            GLES20.glCompileShader(glCreateShader);
+            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
+            if (iArr[0] != 1) {
+                String str2 = a;
+                TLog.h(str2, "[seek] glCompileShader() failed." + GLES20.glGetShaderInfoLog(glCreateShader));
+                return -1;
+            }
+            return glCreateShader;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static int i(int i, s3c s3cVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65545, null, i, s3cVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteBuffers(1, new int[]{i}, 0);
+                c("glDeleteBuffers()", s3cVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int j(int i, s3c s3cVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i, s3cVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteProgram(i);
+                c("glDeleteProgram()", s3cVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int k(int i, s3c s3cVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, s3cVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteShader(i);
+                c("glDeleteShader()", s3cVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
+    }
+
+    public static int l(int i, s3c s3cVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, s3cVar)) == null) {
+            if (i > 0) {
+                GLES20.glDeleteTextures(1, new int[]{i}, 0);
+                c("glDeleteTextures()", s3cVar);
+                return -1;
+            }
+            return -1;
+        }
+        return invokeIL.intValue;
     }
 }
