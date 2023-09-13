@@ -1,34 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x5b {
+public class x5b implements z5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageView b;
-    public EMTextView c;
-    public View d;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final b5b b;
 
-    public x5b(Context context) {
+    public x5b(@NonNull TbPageContext<?> tbPageContext, @NonNull b5b b5bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, b5bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,50 +34,93 @@ public class x5b {
                 return;
             }
         }
-        this.a = context;
-        c();
+        this.a = tbPageContext;
+        this.b = b5bVar;
     }
 
-    public void d(int i) {
-        ImageView imageView;
+    @Override // com.baidu.tieba.ti5
+    public void G(si5 si5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (imageView = this.b) != null) {
-            imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
-        }
-    }
-
-    public void e(String str) {
-        EMTextView eMTextView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.c) != null) {
-            eMTextView.setText(str);
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
-            EMManager.from(this.c).setTextLinePadding(R.dimen.M_T_X001).setTextSize(R.dimen.T_X05);
-        }
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0a43, (ViewGroup) null);
-            this.d = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0911be);
-            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911ee);
-            a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, si5Var) == null) {
+            int i = si5Var.a;
+            if (i != 14 && i != 48) {
+                if (i == 60) {
+                    this.b.u();
+                    return;
+                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
+                    if (i == 21) {
+                        this.b.i();
+                        x3b.b(this.a.getPageActivity(), 5);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
+                        return;
+                    } else if (i == 24) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 3) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 16) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 43) {
+                        x3b.b(this.a.getPageActivity(), 4);
+                        SharedPrefHelper.getInstance().putBoolean("hot_topic_has_click", true);
+                        this.b.C(new si5(2, 26, null));
+                        this.b.p(true);
+                        this.b.m();
+                        return;
+                    } else if (i == 10) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 11) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 25) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 22) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 59) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 61) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 69) {
+                        this.b.v();
+                        return;
+                    } else if (i == 55) {
+                        Object obj = si5Var.c;
+                        if (obj instanceof Boolean) {
+                            this.b.k(((Boolean) obj).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 66) {
+                        Object obj2 = si5Var.c;
+                        if (obj2 instanceof Boolean) {
+                            this.b.y(((Boolean) obj2).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 74) {
+                        this.b.z(si5Var);
+                        return;
+                    } else if (i == 77) {
+                        this.b.z(si5Var);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    this.b.x(new int[]{10, 34});
+                    this.b.j();
+                    return;
+                }
+            }
+            x3b.b(this.a.getPageActivity(), 1);
+            this.b.r();
         }
     }
 }

@@ -1,53 +1,37 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class ozb {
+public class ozb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public abstract void a(String str);
-
-    public final boolean b(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public static String a(String str, nzb nzbVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                mzb.b.f("sendBitmap2MainProcess channelId is null");
-                return false;
-            }
-            ezb a = ezb.c.a();
-            String str = this.a;
-            if (str == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.g(str, bitmap);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, nzbVar)) == null) {
+            return gzb.g(str, nzbVar.c());
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final boolean c(String str) {
-        InterceptResult invokeL;
+    public static String b(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                mzb.b.f("sendData2MainProcess: error channelId is empty or null");
-                return false;
-            }
-            ezb a = ezb.c.a();
-            String str2 = this.a;
-            if (str2 == null) {
-                Intrinsics.throwNpe();
-            }
-            return a.h(str2, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bArr)) == null) {
+            return gzb.g(str, bArr);
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String c(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
+            return gzb.k(str, bArr);
+        }
+        return (String) invokeLL.objValue;
     }
 }

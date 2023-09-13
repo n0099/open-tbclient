@@ -5,12 +5,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag8;
-import com.baidu.tieba.b37;
-import com.baidu.tieba.bg8;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.if8;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.dh8;
+import com.baidu.tieba.f47;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.kg8;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +27,9 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.Regex;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\r\n\u0002\b\u0002\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\r\u0010\u000e\u001a\u00020\u0007H\u0007¢\u0006\u0002\b\u0014J\b\u0010\u0015\u001a\u00020\u0016H\u0016R\u0010\u0010\u0003\u001a\u00020\u00048\u0002X\u0083D¢\u0006\u0002\n\u0000R,\u0010\u0005\u001a\u0010\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\b\u0018\u00010\u00068\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u001e\u0010\r\u001a\u00020\u00078\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\u0014\u0010\u0012\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/TbTextMsg;", "Lcom/baidu/tieba/im/lib/socket/msg/TbNormalMsg;", "()V", "mIsRobotGuideMsg", "", "robotParams", "", "", "", "getRobotParams", "()Ljava/util/Map;", "setRobotParams", "(Ljava/util/Map;)V", "text", "getText", "()Ljava/lang/String;", "setText", "(Ljava/lang/String;)V", "thumbnailText", "Landroid/text/SpannableStringBuilder;", "getTextContent", "getThumbnailText", "", "Companion", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\r\n\u0002\b\u0002\b\u0016\u0018\u0000 \u00172\u00020\u0001:\u0001\u0017B\u0005¢\u0006\u0002\u0010\u0002J\r\u0010\u000e\u001a\u00020\u0007H\u0007¢\u0006\u0002\b\u0014J\b\u0010\u0015\u001a\u00020\u0016H\u0016R\u0010\u0010\u0003\u001a\u00020\u00048\u0002X\u0083D¢\u0006\u0002\n\u0000R,\u0010\u0005\u001a\u0010\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\b\u0018\u00010\u00068\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\fR\u001e\u0010\r\u001a\u00020\u00078\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\u0014\u0010\u0012\u001a\u0004\u0018\u00010\u00138\u0002@\u0002X\u0083\u000e¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/im/lib/socket/msg/TbTextMsg;", "Lcom/baidu/tieba/im/lib/socket/msg/TbNormalMsg;", "()V", "mIsRobotGuideMsg", "", "robotParams", "", "", "", "getRobotParams", "()Ljava/util/Map;", "setRobotParams", "(Ljava/util/Map;)V", "text", "getText", "()Ljava/lang/String;", "setText", "(Ljava/lang/String;)V", "thumbnailText", "Landroid/text/SpannableStringBuilder;", "getTextContent", "getThumbnailText", "", "Companion", "im-lib-socket_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class TbTextMsg extends TbNormalMsg {
+public class TbTextMsg extends TbNormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
     public static final int MSG_TYPE = 1;
@@ -37,12 +37,12 @@ public final class TbTextMsg extends TbNormalMsg {
     @SerializedName("is_robot_guide_msg")
     public final boolean mIsRobotGuideMsg;
     @SerializedName("robot_params")
-    @ag8
+    @ch8
     public Map<String, ? extends Object> robotParams;
-    @bg8
-    @ag8
+    @ch8
+    @dh8
     public String text;
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     static {
@@ -61,29 +61,25 @@ public final class TbTextMsg extends TbNormalMsg {
         Companion = new a(null);
     }
 
-    public /* synthetic */ TbTextMsg(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
     @JvmStatic
     public static final TbTextMsg create(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? Companion.a(str) : (TbTextMsg) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? Companion.a(str) : (TbTextMsg) invokeL.objValue;
     }
 
     @JvmStatic
     public static final TbTextMsg createRobotGuide(long j, String str, String str2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? Companion.b(j, str, str2, i, i2) : (TbTextMsg) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? Companion.b(j, str, str2, i, i2) : (TbTextMsg) invokeCommon.objValue;
     }
 
     @JvmStatic
     public static final SpannableStringBuilder processThumbnailText(SpannableStringBuilder spannableStringBuilder, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, spannableStringBuilder, str)) == null) ? Companion.c(spannableStringBuilder, str) : (SpannableStringBuilder) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, spannableStringBuilder, str)) == null) ? Companion.c(spannableStringBuilder, str) : (SpannableStringBuilder) invokeLL.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -97,12 +93,12 @@ public final class TbTextMsg extends TbNormalMsg {
 
         /* renamed from: com.baidu.tieba.im.lib.socket.msg.TbTextMsg$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0340a implements b37.i {
+        public static final class C0329a implements f47.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpannableStringBuilder a;
 
-            public C0340a(SpannableStringBuilder spannableStringBuilder) {
+            public C0329a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +116,7 @@ public final class TbTextMsg extends TbNormalMsg {
                 this.a = spannableStringBuilder;
             }
 
-            @Override // com.baidu.tieba.b37.i
+            @Override // com.baidu.tieba.f47.i
             public void a(SpannableStringBuilder spannableStringBuilder) {
                 boolean z;
                 Interceptable interceptable = $ic;
@@ -163,7 +159,7 @@ public final class TbTextMsg extends TbNormalMsg {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
                 Intrinsics.checkNotNullParameter(text, "text");
-                TbTextMsg tbTextMsg = new TbTextMsg(null);
+                TbTextMsg tbTextMsg = new TbTextMsg();
                 tbTextMsg.setText(text);
                 return tbTextMsg;
             }
@@ -177,7 +173,7 @@ public final class TbTextMsg extends TbNormalMsg {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), userName, portrait, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
                 Intrinsics.checkNotNullParameter(userName, "userName");
                 Intrinsics.checkNotNullParameter(portrait, "portrait");
-                TbTextMsg tbTextMsg = new TbTextMsg(null);
+                TbTextMsg tbTextMsg = new TbTextMsg();
                 tbTextMsg.setUserId(j);
                 tbTextMsg.setUserName(userName);
                 tbTextMsg.setPortrait(portrait);
@@ -205,7 +201,7 @@ public final class TbTextMsg extends TbNormalMsg {
                     return spannableStringBuilder;
                 }
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
-                b37.e(if8.a.getContext(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0340a(spannableStringBuilder2));
+                f47.e(kg8.a.getContext(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0329a(spannableStringBuilder2));
                 if (spannableStringBuilder2.length() == 0) {
                     z2 = true;
                 }

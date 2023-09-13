@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mc4 extends m54 {
+public class mc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lc4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public long currentSize;
-    @V8JavascriptField
-    public String[] keys;
-    @V8JavascriptField
-    public long limitSize;
 
-    public mc4() {
+    public static synchronized lc4 a() {
+        InterceptResult invokeV;
+        lc4 lc4Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (mc4.class) {
+                if (a == null) {
+                    a = new lc4();
+                }
+                lc4Var = a;
             }
+            return lc4Var;
         }
+        return (lc4) invokeV.objValue;
     }
 }

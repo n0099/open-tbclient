@@ -33,7 +33,7 @@ public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (GameRankHorizontalLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dfc);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09073e);
+        this.a = (GameRankHorizontalLayout) view2.findViewById(R.id.obfuscated_res_0x7f090df8);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090732);
     }
 }

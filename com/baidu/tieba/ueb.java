@@ -1,11 +1,14 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface ueb {
-    void onCancel();
-
-    void onExceptionThrown(String str);
-
-    void onProgressChanged(int i, double d, long j);
-
-    void onTrackEnd(int i);
+public class ueb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 }

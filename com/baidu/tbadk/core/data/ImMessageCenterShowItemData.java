@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.n25;
+import com.baidu.tieba.s25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public n25 atInfoData;
+    public s25 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -96,13 +96,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public n25 getAtInfoData() {
+    public s25 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (n25) invokeV.objValue;
+        return (s25) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -457,10 +457,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setAtInfoData(n25 n25Var) {
+    public void setAtInfoData(s25 s25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, n25Var) == null) {
-            this.atInfoData = n25Var;
+        if (interceptable == null || interceptable.invokeL(1048617, this, s25Var) == null) {
+            this.atInfoData = s25Var;
         }
     }
 

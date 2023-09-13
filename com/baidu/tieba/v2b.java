@@ -1,25 +1,70 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v2b {
+public final class v2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v2b() {
+    /* loaded from: classes8.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-394875066, "Lcom/baidu/tieba/v2b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-394875066, "Lcom/baidu/tieba/v2b$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EmotionGroupType.values().length];
+            iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
+            iArr[EmotionGroupType.BIG_EMOTION.ordinal()] = 2;
+            iArr[EmotionGroupType.PROMOTION.ordinal()] = 3;
+            iArr[EmotionGroupType.USER_COLLECT.ordinal()] = 4;
+            iArr[EmotionGroupType.SINGLE_FORUM.ordinal()] = 5;
+            iArr[EmotionGroupType.NET_SUG.ordinal()] = 6;
+            iArr[EmotionGroupType.USER_DIY.ordinal()] = 7;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
+
+    public static final String b(EmotionGroupType emotionGroupType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, emotionGroupType)) == null) {
+            switch (a.$EnumSwitchMapping$0[emotionGroupType.ordinal()]) {
+                case 1:
+                    return "LOCAL";
+                case 2:
+                    return "BIG_EMOTION";
+                case 3:
+                    return "PROMOTION";
+                case 4:
+                    return "USER_COLLECT";
+                case 5:
+                    return "SINGLE_FORUM";
+                case 6:
+                    return "NET_SUG";
+                case 7:
+                    return "USER_DIY";
+                default:
+                    return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 }

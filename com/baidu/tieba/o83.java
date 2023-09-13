@@ -1,147 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.publisher.draft.DraftData;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o83 {
+public final class o83 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File file = new File(b(), "publisher_draft");
-            if (file.exists()) {
-                file.delete();
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947986079, "Lcom/baidu/tieba/o83;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947986079, "Lcom/baidu/tieba/o83;");
         }
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o83(ec3 dispatcher) {
+        super(dispatcher, "/swanAPI/community/closeCommunityEditor");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            db3 M = db3.M();
-            if (M != null) {
-                str = M.b;
-            } else {
-                str = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dispatcher};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String v = li3.v(str);
-            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
-            return v;
         }
-        return (String) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final DraftData c() {
-        InterceptResult invokeV;
-        ObjectInputStream objectInputStream;
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b(), "publisher_draft");
-            ObjectInputStream objectInputStream2 = null;
-            try {
-                try {
-                    if (file.exists()) {
-                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
-                        try {
-                            Object readObject = objectInputStream.readObject();
-                            if (readObject != null) {
-                                DraftData draftData = (DraftData) readObject;
-                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
-                                    objectInputStream.close();
-                                    return null;
-                                }
-                                objectInputStream.close();
-                                return draftData;
-                            }
-                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (objectInputStream != null) {
-                                objectInputStream.close();
-                            }
-                            return null;
-                        }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, hb3Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            if (hb3Var != null) {
+                uw2 T2 = uw2.T();
+                Intrinsics.checkNotNullExpressionValue(T2, "SwanAppController.getInstance()");
+                qa2 U = T2.U();
+                if (U != null) {
+                    na2 m = U.m();
+                    if (m instanceof l83) {
+                        ((l83) m).s3();
+                        entity.result = UnitedSchemeUtility.wrapCallbackParams(0, "");
+                        return true;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    objectInputStream2 = "publisher_draft";
-                    if (objectInputStream2 != null) {
-                        objectInputStream2.close();
-                    }
-                    throw th;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                objectInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (objectInputStream2 != null) {
-                }
-                throw th;
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "top is not publisher");
+                return false;
             }
-            return null;
+            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+            return false;
         }
-        return (DraftData) invokeV.objValue;
-    }
-
-    public static final void d(DraftData draftData) {
-        ObjectOutputStream objectOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, draftData) == null) && draftData != null) {
-            File file = new File(b(), "publisher_draft");
-            try {
-                if (file.exists()) {
-                    file.delete();
-                    file.createNewFile();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                objectOutputStream.writeObject(draftData);
-                objectOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-                if (objectOutputStream2 != null) {
-                    objectOutputStream2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                if (objectOutputStream2 != null) {
-                    objectOutputStream2.close();
-                }
-                throw th;
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

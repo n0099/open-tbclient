@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 /* loaded from: classes6.dex */
-public class i65 extends x55 {
+public class i65 extends e65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,32 +33,31 @@ public class i65 extends x55 {
         }
     }
 
-    @Override // com.baidu.tieba.x55
-    public void a(@NonNull Context context, @NonNull p55 p55Var) {
+    @Override // com.baidu.tieba.e65
+    public void a(@NonNull Context context, @NonNull v55 v55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, p55Var) == null) {
-            String a = p55Var.a("yun_dialogName");
-            String a2 = p55Var.a("yun_dialogUrl");
-            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
-                b(context, a2, a);
-            }
-        }
-    }
-
-    public final void b(Context context, String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
-            if (str.indexOf("?") > 0) {
-                str3 = str + "&page_type=" + TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT;
-            } else {
-                str3 = str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
-            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
-            BrowserHelper.startWebActivity(context, "", str3, false, true, true, bundle);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, v55Var) == null) {
+            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
+            clientUpdateInfo.mIsForceUpdate = v55Var.a("is_force_update");
+            clientUpdateInfo.mStatus = v55Var.a("status");
+            clientUpdateInfo.mReverson = v55Var.a("reverson");
+            clientUpdateInfo.mContentUrl = v55Var.a("content_url");
+            clientUpdateInfo.mVercode = v55Var.a("version_code");
+            clientUpdateInfo.mVername = v55Var.a(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
+            clientUpdateInfo.mDownurl = v55Var.a("download_url");
+            clientUpdateInfo.mChangelog = v55Var.a("change_log");
+            clientUpdateInfo.mSize = v55Var.a("size");
+            clientUpdateInfo.mPackageName = v55Var.a("package_name");
+            clientUpdateInfo.mSign = v55Var.a("sign");
+            clientUpdateInfo.mProdline = v55Var.a("prod_line");
+            clientUpdateInfo.mSignMd5 = v55Var.a(FkApkInfoSearchRequestKt.PARAMS_KEY_SIGN_MD5);
+            clientUpdateInfo.mApkMd5 = v55Var.a("apk_md5");
+            clientUpdateInfo.mPatchDownUrl = v55Var.a("patch_download_url");
+            clientUpdateInfo.mPatchSize = v55Var.a("patch_size");
+            clientUpdateInfo.mIconUrl = v55Var.a("icon_url");
+            clientUpdateInfo.mSname = v55Var.a(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME);
+            clientUpdateInfo.mUpdateTime = v55Var.a("update_time");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, v55Var.a("apk_md5_rsa"))));
         }
     }
 }

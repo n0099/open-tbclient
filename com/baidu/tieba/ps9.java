@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ps9 extends BaseCardInfo {
+public class ps9 implements cn {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId p;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public UserData g;
-    public rs9 h;
-    public Bundle i;
-    public int j;
-    public String k;
-    public int l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +30,7 @@ public class ps9 extends BaseCardInfo {
                 return;
             }
         }
-        p = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public ps9() {
@@ -62,13 +47,32 @@ public class ps9 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.cn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return p;
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    public ps9(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = i;
+        this.a = i2;
     }
 }

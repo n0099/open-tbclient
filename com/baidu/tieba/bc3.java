@@ -1,120 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bc3 extends ad3 {
+public class bc3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bc3(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/abTestConfig");
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            switch (i) {
+                case 2001:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e6);
+                case 2002:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e8);
+                case 2003:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e5);
+                case 2004:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e9);
+                case 2005:
+                default:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e6);
+                case 2006:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e7);
+                case 2007:
+                    return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f01e4);
             }
         }
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File a = sn3.a();
-            if (a == null) {
-                return null;
-            }
-            String path = a.getPath();
-            if (TextUtils.isEmpty(path)) {
-                return null;
-            }
-            return path + "/debug_abtest_config.json";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
-        InterceptResult invokeLLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            if (!ad3.b) {
-                return false;
-            }
-            JSONObject a = ad3.a(unitedSchemeEntity, "params");
-            if (a != null && context != null) {
-                JSONObject optJSONObject = a.optJSONObject("abtest");
-                if (optJSONObject != null) {
-                    if (l(optJSONObject)) {
-                        i = R.string.obfuscated_res_0x7f0f151c;
-                    } else {
-                        i = R.string.obfuscated_res_0x7f0f151a;
-                    }
-                    Toast.makeText(context, i, 1).show();
-                } else {
-                    j();
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f151d, 1).show();
-                }
-                return true;
-            }
-            Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f151b, 1).show();
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return;
-            }
-            File file = new File(k);
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
-
-    public final boolean l(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return false;
-            }
-            return gu2.b(k, jSONObject.toString(), false);
-        }
-        return invokeL.booleanValue;
+        return (String) invokeI.objValue;
     }
 }

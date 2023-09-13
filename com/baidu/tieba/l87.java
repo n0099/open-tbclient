@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,47 +11,34 @@ import kotlin.jvm.internal.Intrinsics;
 public final class l87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public final String c;
+    public final String a;
+    public final String b;
+    public final int c;
     public final String d;
-    public r87 e;
-    public r87 f;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof l87) {
                 l87 l87Var = (l87) obj;
-                return this.a == l87Var.a && this.b == l87Var.b && Intrinsics.areEqual(this.c, l87Var.c) && Intrinsics.areEqual(this.d, l87Var.d) && Intrinsics.areEqual(this.e, l87Var.e) && Intrinsics.areEqual(this.f, l87Var.f);
+                return Intrinsics.areEqual(this.a, l87Var.a) && Intrinsics.areEqual(this.b, l87Var.b) && this.c == l87Var.c && Intrinsics.areEqual(this.d, l87Var.d);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            boolean z = this.a;
-            ?? r0 = z;
-            if (z) {
-                r0 = 1;
-            }
-            int hashCode = ((((((r0 * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
-            r87 r87Var = this.e;
-            int hashCode2 = (hashCode + (r87Var == null ? 0 : r87Var.hashCode())) * 31;
-            r87 r87Var2 = this.f;
-            return hashCode2 + (r87Var2 != null ? r87Var2.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31;
+            String str = this.d;
+            return hashCode + (str == null ? 0 : str.hashCode());
         }
         return invokeV.intValue;
     }
@@ -60,18 +46,18 @@ public final class l87 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PersonAttentionData(isLike=" + this.a + ", likeStatus=" + this.b + ", userId=" + this.c + ", portrait=" + this.d + ", followStatData=" + this.e + ", unfollowStatData=" + this.f + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CardVirtualHeadImageData(imgUrl=" + this.a + ", bgValue=" + this.b + ", bgType=" + this.c + ", cornerUrl=" + this.d + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public l87(boolean z, int i, String userId, String portrait, r87 r87Var, r87 r87Var2) {
+    public l87(String imgUrl, String bgValue, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), userId, portrait, r87Var, r87Var2};
+            Object[] objArr = {imgUrl, bgValue, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -81,32 +67,30 @@ public final class l87 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(userId, "userId");
-        Intrinsics.checkNotNullParameter(portrait, "portrait");
-        this.a = z;
-        this.b = i;
-        this.c = userId;
-        this.d = portrait;
-        this.e = r87Var;
-        this.f = r87Var2;
+        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
+        Intrinsics.checkNotNullParameter(bgValue, "bgValue");
+        this.a = imgUrl;
+        this.b = bgValue;
+        this.c = i;
+        this.d = str;
     }
 
-    public final r87 a() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.c;
         }
-        return (r87) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final int b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
     public final String c() {
@@ -118,44 +102,12 @@ public final class l87 {
         return (String) invokeV.objValue;
     }
 
-    public final r87 d() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (r87) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = i;
-        }
+        return (String) invokeV.objValue;
     }
 }

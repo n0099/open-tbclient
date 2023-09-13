@@ -176,7 +176,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     private void dn() {
-        if (this.f1035T) {
+        if (this.f1034T) {
             this.nx.dr();
             return;
         }

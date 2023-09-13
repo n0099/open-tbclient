@@ -37,7 +37,7 @@ public class SpecialLiveTabInfo implements Parcelable {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
+    public class a implements Parcelable.Creator<SpecialLiveTabInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.aoa;
-import com.baidu.tieba.ic5;
-import com.baidu.tieba.no;
-import com.baidu.tieba.oga;
-import com.baidu.tieba.or5;
-import com.baidu.tieba.sga;
+import com.baidu.tieba.iia;
+import com.baidu.tieba.is5;
+import com.baidu.tieba.mia;
+import com.baidu.tieba.oo;
+import com.baidu.tieba.sc5;
+import com.baidu.tieba.ypa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@no
+@oo
 /* loaded from: classes4.dex */
-public class UegTbJsBridge implements oga {
+public class UegTbJsBridge implements iia {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements oga {
         }
     }
 
-    public sga novelPayResultToClient(boolean z) {
+    public mia novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            sga sgaVar = new sga();
+            mia miaVar = new mia();
             if (z) {
-                or5.c();
+                is5.c();
             }
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeZ.objValue;
+        return (mia) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements oga {
         this.mTbPageContext = tbPageContext;
     }
 
-    public sga bindingMobileNumber() {
+    public mia bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            sga sgaVar = new sga();
+            mia miaVar = new mia();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, ic5.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, sc5.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeV.objValue;
+        return (mia) invokeV.objValue;
     }
 
-    public sga callNativeSMS(String str, String str2) {
+    public mia callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            sga sgaVar = new sga();
+            mia miaVar = new mia();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeLL.objValue;
+        return (mia) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.oga
+    @Override // com.baidu.tieba.iia
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements oga {
         return invokeLLLL.booleanValue;
     }
 
-    public sga recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public mia recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            sga sgaVar = new sga();
+            mia miaVar = new mia();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
-            readRecordsData.P(true);
-            or5.d(str2, readRecordsData);
-            return sgaVar;
+            readRecordsData.O(true);
+            is5.d(str2, readRecordsData);
+            return miaVar;
         }
-        return (sga) invokeLLLLL.objValue;
+        return (mia) invokeLLLLL.objValue;
     }
 
-    public sga setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public mia setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            sga sgaVar = new sga();
+            mia miaVar = new mia();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements oga {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                aoa.h(build);
-                aoa.g(build);
+                ypa.h(build);
+                ypa.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeCommon.objValue;
+        return (mia) invokeCommon.objValue;
     }
 }

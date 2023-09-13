@@ -64,7 +64,7 @@ public final class h extends com.kwad.sdk.mvp.a {
 
     public final void a(Context context, final int i, int i2, final a aVar) {
         final AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
-        com.kwad.components.core.c.a.a.a(new a.C0648a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.h.2
+        com.kwad.components.core.c.a.a.a(new a.C0643a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.h.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 String jC;
@@ -136,7 +136,7 @@ public final class h extends com.kwad.sdk.mvp.a {
             return null;
         }
         String jB = jB();
-        final ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091415);
+        final ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09141b);
         Bitmap createBitmap = Bitmap.createBitmap(this.mRootContainer.getWidth(), this.mRootContainer.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Bitmap bitmap = this.yc.ky().getBitmap();

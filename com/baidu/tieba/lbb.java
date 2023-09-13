@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Process;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.core.net.MailTo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tieba.ebb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,108 +11,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class lbb {
+/* loaded from: classes6.dex */
+public class lbb {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final boolean b;
+    public static volatile lbb c;
     public transient /* synthetic */ FieldHolder $fh;
+    public mbb a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947938525, "Lcom/baidu/tieba/lbb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947938525, "Lcom/baidu/tieba/lbb;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e extends ubb {
+    /* loaded from: classes6.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        /* loaded from: classes7.dex */
-        public class a implements ebb.a<JSONObject> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // com.baidu.tieba.ebb.a
-            public final void a(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                }
-            }
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.ebb.a
-            public final /* synthetic */ void a(JSONObject jSONObject) {
-                vbb.a("status_updated");
-            }
-        }
-
-        public e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.ubb
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || vbb.b("status_updated")) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.a);
-            ebb.c(ebb.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements ebb.a<JSONArray> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Map<String, JSONObject> b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -129,347 +41,177 @@ public final class lbb {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.ebb.a
-        public final /* synthetic */ void a(JSONArray jSONArray) {
-            JSONArray jSONArray2 = jSONArray;
-            StringBuffer stringBuffer = new StringBuffer();
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                JSONObject optJSONObject = jSONArray2.optJSONObject(i);
-                com.baidu.ubs.analytics.a.g gVar = new com.baidu.ubs.analytics.a.g();
-                gVar.setGroup(optJSONObject.optString("group"));
-                gVar.setId(optJSONObject.optString("id"));
-                gVar.y(optJSONObject.optString("sid"));
-                if (i > 0) {
-                    stringBuffer.append("_");
-                }
-                stringBuffer.append(gVar.getId());
-                arrayList.add(gVar);
-            }
-            rab.h().c(arrayList);
-            lbb.a(stringBuffer.toString());
-        }
-
-        @Override // com.baidu.tieba.ebb.a
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                while (lbb.a < 2) {
-                    synchronized (this) {
-                        lbb.f();
-                    }
-                    lbb.c();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends ubb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.ubb
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lbb.k(this.a);
-                if (rab.h().i() != null && !rab.h().i().equals("")) {
-                    acb.a("BaiDuAB sdk  init success");
-                } else {
-                    String h = lbb.h(rab.h().getContext());
-                    if (h == null || h.equals("")) {
-                        acb.b("SDK getToken Error do you have set correct  BAIDUAB_APPKEY in Manifest or network is available");
-                        return;
-                    }
-                }
-                lbb.d();
-                lbb.c();
-                tbb.b(new pbb(), kbb.e(), kbb.c());
-                bcb.b();
-            }
+            this.a = 0;
+            this.b = new HashMap();
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c implements ebb.a<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ Context b;
-
-        public c(long j, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938525, "Lcom/baidu/tieba/lbb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = j;
-            this.b = context;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.ebb.a
-        public final /* synthetic */ void a(JSONObject jSONObject) {
-            String optString = jSONObject.optString("token");
-            if (optString != null && !optString.isEmpty()) {
-                rab.h().b(optString);
-                vbb.f("token", optString);
-                vbb.g("token_update_time", this.a);
-                vbb.f("lastkey", lbb.i(this.b));
-            }
-        }
-
-        @Override // com.baidu.tieba.ebb.a
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                acb.b("SDK getToken Error do you have set correct  BAIDUAB_APPKEY  in Manifest   or network is available");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d implements ebb.a<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.baidu.tieba.ebb.a
-        public final /* synthetic */ void a(JSONObject jSONObject) {
-            String optString = jSONObject.optString("cuid");
-            if (TextUtils.isEmpty(optString)) {
-                rab.h().e("");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947938525, "Lcom/baidu/tieba/lbb;");
                 return;
             }
-            rab.h().e(optString);
-            vbb.f("cuid", optString);
         }
+        b = pbb.m();
+    }
 
-        @Override // com.baidu.tieba.ebb.a
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && str.equals("1")) {
-                rab.h().e("");
+    public lbb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static /* synthetic */ void a(String str) {
-        tbb.a(new e(str));
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00ba  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void b(qab qabVar) {
-        byte b2;
-        int i;
+    public static lbb f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, qabVar) == null) {
-            int g = qabVar.g();
-            if (g < 1000) {
-                String e2 = nbb.e(qabVar.a());
-                int length = e2.length();
-                int i2 = length << 1;
-                byte[] bArr = new byte[i2];
-                int i3 = 0;
-                for (int i4 = 0; i4 < length; i4++) {
-                    char charAt = e2.charAt(i4);
-                    int i5 = i3 + 1;
-                    bArr[i3] = (byte) (charAt & 255);
-                    i3 = i5 + 1;
-                    bArr[i5] = (byte) (charAt >> '\b');
-                }
-                int i6 = (-1756908916) ^ i2;
-                int i7 = i2 / 4;
-                for (int i8 = 0; i8 < i7; i8++) {
-                    int i9 = i8 * 4;
-                    int i10 = ((bArr[i9 + 0] & 255) + ((bArr[i9 + 1] & 255) << 8) + ((bArr[i9 + 2] & 255) << 16) + ((bArr[i9 + 3] & 255) << 24)) * 1540483477;
-                    i6 = (i6 * 1540483477) ^ (((i10 >>> 24) ^ i10) * 1540483477);
-                }
-                int i11 = i2 % 4;
-                if (i11 == 3) {
-                    int i12 = i2 & (-4);
-                    i6 = (i6 ^ ((bArr[i12 + 2] & 255) << 16)) ^ ((bArr[i12 + 1] & 255) << 8);
-                    b2 = bArr[i12];
-                } else if (i11 == 2) {
-                    int i13 = i2 & (-4);
-                    i6 ^= (bArr[i13 + 1] & 255) << 8;
-                    b2 = bArr[i13];
-                } else {
-                    if (i11 == 1) {
-                        b2 = bArr[i2 & (-4)];
-                    }
-                    i = (i6 ^ (i6 >>> 13)) * 1540483477;
-                    if (Math.abs((i ^ (i >>> 15)) % 1000) >= g) {
-                        pab.f(false);
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (lbb.class) {
+                    if (c == null) {
+                        c = new lbb();
                     }
                 }
-                i6 = (i6 ^ (b2 & 255)) * 1540483477;
-                i = (i6 ^ (i6 >>> 13)) * 1540483477;
-                if (Math.abs((i ^ (i >>> 15)) % 1000) >= g) {
+            }
+            return c;
+        }
+        return (lbb) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            uab o = uab.o();
+            if (o != null && !o.g("2980", 32)) {
+                return false;
+            }
+            if (o != null && o.d("2980")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            uab o = uab.o();
+            if (o != null && !o.g("2980", 32)) {
+                return false;
+            }
+            if (o != null && o.d("2980")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
+            return;
+        }
+        this.a.c(str, z);
+    }
+
+    public boolean d(zbb zbbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, zbbVar)) == null) {
+            if (zbbVar == null || zbbVar.w() || !c()) {
+                return false;
+            }
+            this.a.f();
+            Map<String, a> v = this.a.v(7);
+            if (v != null && v.size() != 0) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    boolean z = false;
+                    for (String str : v.keySet()) {
+                        a aVar = v.get(str);
+                        if (aVar != null && !TextUtils.isEmpty(str)) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            JSONArray jSONArray = new JSONArray();
+                            for (JSONObject jSONObject3 : aVar.b.values()) {
+                                jSONArray.put(jSONObject3);
+                            }
+                            jSONObject2.put("total", aVar.a);
+                            jSONObject2.put("data", jSONArray);
+                            jSONObject.put(str.replace("-", ""), jSONObject2);
+                            z = true;
+                        }
+                    }
+                    if (z) {
+                        bbb bbbVar = new bbb("2980");
+                        bbbVar.y(jSONObject);
+                        bbbVar.B(System.currentTimeMillis());
+                        zbbVar.c(bbbVar, bbbVar.g());
+                        zbbVar.a(v.keySet());
+                        return true;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            rab.h().a(qabVar.a());
-            pab.f(true);
-            acb.g(qabVar.b());
-            sbb.b(com.baidu.ubs.analytics.d.a.c() + "-进行一次 初始化   " + new Date().toLocaleString() + GlideException.IndentedAppendable.INDENT + j(qabVar.a()));
-            kbb.b(qabVar.c());
-            kbb.f(qabVar.d());
-            kbb.g(qabVar.f());
-            kbb.h(qabVar.e());
-            gbb.a(qabVar.a());
-            tbb.a(new b(qabVar.a()));
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void c() {
+    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (TextUtils.isEmpty(rab.h().j())) {
-                d();
-            }
-            if (TextUtils.isEmpty(rab.h().j())) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("package", rab.h().getContext().getPackageName());
-            hashMap.put("cuid", rab.h().j());
-            ebb.c(ebb.d("http://absample.baidu.com/appabapp/appapi/getgroup", hashMap), new a());
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
+            return;
+        }
+        if (map.containsKey(str)) {
+            aVar = map.get(str);
+        } else {
+            a aVar2 = new a();
+            map.put(str, aVar2);
+            aVar = aVar2;
+        }
+        Map<String, JSONObject> map2 = aVar.b;
+        if (map2.containsKey(str2) && b) {
+            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("id", str2);
+            jSONObject.put("c", i);
+            jSONObject.put(MailTo.CC, i2);
+            aVar.a += i;
+            map2.put(str2, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void d() {
+    public void g(mbb mbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            String e2 = vbb.e("cuid", "");
-            if (!TextUtils.isEmpty(e2)) {
-                sbb.b("本地 取得  cuid~~");
-                rab.h().e(e2);
-                return;
-            }
-            sbb.b("网络请求  cuid~~");
-            HashMap hashMap = new HashMap();
-            hashMap.put("imei", nbb.g(rab.h().getContext()));
-            hashMap.put("mac", nbb.h(rab.h().getContext()));
-            ebb.c(ebb.d("http://absample.baidu.com/appabapp/appapi/getcuid", hashMap), new d());
+        if (interceptable == null || interceptable.invokeL(1048581, this, mbbVar) == null) {
+            this.a = mbbVar;
         }
-    }
-
-    public static /* synthetic */ int f() {
-        int i = a;
-        a = i + 1;
-        return i;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String i = i(context);
-            HashMap hashMap = new HashMap();
-            hashMap.put("key", i);
-            hashMap.put("package", context.getPackageName());
-            ebb.c(ebb.d("http://absample.baidu.com/appabapp/appapi/gettoken", hashMap), new c(currentTimeMillis, context));
-            return rab.h().i();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).metaData.getString("BAIDUAB_APPKEY");
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            int myPid = Process.myPid();
-            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-            if (activityManager.getRunningAppProcesses() == null) {
-                return DownloadStatisticConstants.UBC_VALUE_UNKNOW;
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return DownloadStatisticConstants.UBC_VALUE_UNKNOW;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static /* synthetic */ String k(Context context) {
-        String e2 = vbb.e("lastkey", "");
-        long c2 = vbb.c("token_update_time");
-        if (e2.equals(i(context)) && c2 + 86400000 >= System.currentTimeMillis()) {
-            String e3 = vbb.e("token", "");
-            if (!e3.equals("")) {
-                rab.h().b(e3);
-                return e3;
-            }
-        }
-        return h(context);
     }
 }

@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.mutiprocess.live.ImageViewLiveEvent;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tbadk.mutiprocess.HybridNotify.HybridNotifyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dq5 implements lp5<ImageViewLiveEvent> {
+public class dq5 implements eq5<HybridNotifyEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,16 +26,16 @@ public class dq5 implements lp5<ImageViewLiveEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lp5
+    @Override // com.baidu.tieba.eq5
     /* renamed from: a */
-    public boolean onEvent(ImageViewLiveEvent imageViewLiveEvent) {
+    public boolean onEvent(HybridNotifyEvent hybridNotifyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageViewLiveEvent)) == null) {
-            if (imageViewLiveEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybridNotifyEvent)) == null) {
+            if (hybridNotifyEvent == null) {
                 return false;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921752, new YyLiveRoomConfig(TbadkApplication.getInst().getContext(), imageViewLiveEvent.sid, imageViewLiveEvent.ssid, imageViewLiveEvent.templateId, imageViewLiveEvent.roomId, imageViewLiveEvent.streamInfo, imageViewLiveEvent.from)));
+            hz4.a().b(null, hybridNotifyEvent.key, hybridNotifyEvent.data);
             return true;
         }
         return invokeL.booleanValue;

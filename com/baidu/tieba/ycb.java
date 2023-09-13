@@ -1,38 +1,40 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class ycb {
+public final class ycb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AudioPlayData> a;
-    public List<AudioPlayData> b;
-    public gdb c;
-    public int d;
-    public b e;
+    public Context a;
+    public boolean b;
+    public long c;
+    public long d;
+    public long e;
+    public boolean f;
+    public int g;
 
     /* loaded from: classes8.dex */
-    public class a extends veb {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ AudioPlayData b;
-        public final /* synthetic */ ycb c;
+        public Context a;
+        public boolean b;
+        public long c;
+        public long d;
+        public long e;
+        public boolean f;
+        public int g;
 
-        public a(ycb ycbVar, String str, AudioPlayData audioPlayData) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ycbVar, str, audioPlayData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,146 +44,192 @@ public class ycb {
                     return;
                 }
             }
-            this.c = ycbVar;
-            this.a = str;
-            this.b = audioPlayData;
+            this.b = true;
+            this.c = 30000L;
+            this.d = 60000L;
+            this.e = 10000L;
+            this.f = false;
+            this.g = 1000;
         }
 
-        @Override // com.baidu.tieba.veb, com.baidu.tieba.ueb
-        public void onExceptionThrown(String str) {
+        public a e(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                this.a = context;
+                return this;
             }
-            this.c.e.onFailed(str);
+            return (a) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.veb
-        public void onFinishedWriting(boolean z) {
+        public a j(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) vgb.b(this.a), this.b.volume);
-                if (this.c.b == null) {
-                    this.c.b = new ArrayList();
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.b = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
+
+        public a k(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                if (i <= 0) {
+                    i = 0;
                 }
-                this.c.b.add(audioPlayData);
-                ycb.c(this.c);
-                this.c.f();
+                if (i >= 1000) {
+                    i = 1000;
+                }
+                this.g = i;
+                return this;
             }
+            return (a) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.veb, com.baidu.tieba.ueb
-        public void onProgressChanged(int i, double d, long j) {
+        public a l(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.f = z;
+                return this;
             }
+            return (a) invokeZ.objValue;
         }
 
-        @Override // com.baidu.tieba.veb, com.baidu.tieba.ueb
-        public void onTrackEnd(int i) {
+        public a m(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.d = i * 60 * 1000;
+                return this;
             }
+            return (a) invokeI.objValue;
+        }
+
+        public a n(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.c = j * 1000;
+                return this;
+            }
+            return (a) invokeJ.objValue;
+        }
+
+        public a o(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+                this.e = j * 1000;
+                return this;
+            }
+            return (a) invokeJ.objValue;
+        }
+
+        public ycb c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a == null) {
+                    ieb.b("Context must be not empty!");
+                    return null;
+                }
+                return new ycb(this, (byte) 0);
+            }
+            return (ycb) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void onFailed(String str);
-
-        void onSuccess(List<AudioPlayData> list);
-    }
-
-    public ycb() {
+    public ycb(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static /* synthetic */ int c(ycb ycbVar) {
-        int i = ycbVar.d;
-        ycbVar.d = i + 1;
-        return i;
-    }
-
-    public final void f() {
-        AudioPlayData audioPlayData;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (fgb.c(this.a, this.d) == null) {
-                b bVar = this.e;
-                if (bVar != null) {
-                    bVar.onSuccess(this.b);
-                    return;
-                }
                 return;
             }
-            AudioPlayData audioPlayData2 = this.a.get(this.d);
-            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
-                String str = audioPlayData2.audioPath;
-                int i = audioPlayData2.start;
-                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
-                if (this.b == null) {
-                    arrayList = new ArrayList();
-                    this.b = arrayList;
-                }
-                this.b.add(audioPlayData);
-                this.d++;
-                f();
-            } else if (audioPlayData2.mSpeed == 1.0f) {
-                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
-                if (this.b == null) {
-                    arrayList = new ArrayList();
-                    this.b = arrayList;
-                }
-                this.b.add(audioPlayData);
-                this.d++;
-                f();
-            } else {
-                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
-                try {
-                    gdb gdbVar = new gdb(audioPlayData2.audioPath, str2, null);
-                    this.c = gdbVar;
-                    gdbVar.S(new a(this, str2, audioPlayData2));
-                    this.c.D(null);
-                    this.c.G(audioPlayData2.mSpeed);
-                    this.c.B(audioPlayData2.start);
-                    this.c.R(audioPlayData2.end);
-                    this.c.I();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
         }
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.f = aVar.f;
+        this.e = aVar.e;
+        this.g = aVar.g;
     }
 
-    public void g(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.e = bVar;
-        }
+    public /* synthetic */ ycb(a aVar, byte b) {
+        this(aVar);
     }
 
-    public void h(List<AudioPlayData> list) {
+    public final Context a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (Context) invokeV.objValue;
     }
 
-    public void i() {
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.booleanValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
     }
 }

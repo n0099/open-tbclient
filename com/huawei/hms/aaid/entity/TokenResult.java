@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.core.aidl.annotation.Packed;
 import com.huawei.hms.support.api.client.Result;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TokenResult extends Result {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -426,7 +426,7 @@ public class LoginActivity extends BaseActivity {
         this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
         this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
         this.B = getIntent().getStringExtra("extraJson");
-        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f0920d9);
+        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f092118);
         this.sapiWebView = sapiWebView;
         sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.4
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback

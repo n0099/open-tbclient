@@ -103,16 +103,16 @@ public class GalleryViewPager extends BaseViewPager {
             if (dragImageView == null) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (dragImageView.f0()) {
+            if (dragImageView.g0()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e != null && this.j.e0() && e[0] < 0.0f) {
+            if (e != null && this.j.f0() && e[0] < 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e != null && this.j.d0() && e[0] > 0.0f) {
+            if (e != null && this.j.e0() && e[0] > 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e != null || (!this.j.d0() && !this.j.e0())) {
+            if (e != null || (!this.j.e0() && !this.j.f0())) {
                 return false;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -129,23 +129,23 @@ public class GalleryViewPager extends BaseViewPager {
                 super.onTouchEvent(motionEvent);
                 DragImageView dragImageView = this.j;
                 if (dragImageView != null) {
-                    dragImageView.N();
+                    dragImageView.O();
                 }
             }
             if (this.j == null) {
                 return super.onTouchEvent(motionEvent);
             }
             float[] e = e(motionEvent);
-            if (this.j.f0()) {
+            if (this.j.g0()) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e != null && this.j.e0() && e[0] < 0.0f) {
+            if (e != null && this.j.f0() && e[0] < 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e != null && this.j.d0() && e[0] > 0.0f) {
+            if (e != null && this.j.e0() && e[0] > 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e != null || (!this.j.d0() && !this.j.e0())) {
+            if (e != null || (!this.j.e0() && !this.j.f0())) {
                 return false;
             }
             return super.onTouchEvent(motionEvent);

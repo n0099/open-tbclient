@@ -220,13 +220,13 @@ public class ListBtnDialog extends BoxAlertDialog {
                 }
                 Resources resources = textView.getContext().getResources();
                 if (this.this$0.mDayOrNight) {
-                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071f));
-                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080209);
+                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060721));
+                    textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020a);
                     if (listBtnData.getTextDayColor() != -1) {
                         textView.setTextColor(resources.getColor(listBtnData.getTextDayColor()));
                     }
                 } else {
-                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071e));
+                    textView.setTextColor(textView.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060720));
                     textView.setBackgroundResource(R.drawable.alertdialog_button_night_bg_all_selector);
                     if (listBtnData.getTextNightColor() != -1) {
                         textView.setTextColor(resources.getColor(listBtnData.getTextNightColor()));
@@ -333,7 +333,7 @@ public class ListBtnDialog extends BoxAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListBtnDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10014f);
+        super(context, R.style.obfuscated_res_0x7f100151);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -454,8 +454,8 @@ public class ListBtnDialog extends BoxAlertDialog {
                     }
                 }
             });
-            findViewById.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071c));
-            this.mListView.setDivider(new ColorDrawable(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071c)));
+            findViewById.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071e));
+            this.mListView.setDivider(new ColorDrawable(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071e)));
             this.mListView.setDividerHeight(1);
             View createContentView = createContentView();
             if (createContentView != null) {

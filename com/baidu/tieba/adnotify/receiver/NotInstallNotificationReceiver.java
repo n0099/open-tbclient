@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ql0;
-import com.baidu.tieba.rm0;
+import com.baidu.tieba.rl0;
+import com.baidu.tieba.sm0;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -164,7 +164,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
                 AdApkInstallHelper.a.c(str2, new DownloadData(str6));
                 str9 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
             } else {
-                rm0.h(str);
+                sm0.h(str);
                 str9 = ClogBuilder.LogType.OPEN_APP.type;
             }
             collapseStatusBar(context);
@@ -190,7 +190,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
             }
             installRemindNotificationClickStat(i, str10, str11, str12, str13);
             if (judgeIsFromBusiness(i)) {
-                ql0.f().h(str9, str5, str4, str3);
+                rl0.f().h(str9, str5, str4, str3);
             }
         }
     }
@@ -220,7 +220,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
                     if (hashCode != -474095210) {
                         if (hashCode == -373665438 && action.equals(RECEIVER_ACTION_REMOVE_ITEM)) {
                             if (judgeIsFromBusiness(intExtra2)) {
-                                ql0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                                rl0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
                             }
                         }
                     } else if (action.equals(RECEIVER_ACTION_CLICK_ITEM)) {
@@ -229,7 +229,7 @@ public final class NotInstallNotificationReceiver extends BroadcastReceiver {
                 } else if (action.equals(RECEIVER_ACTION_CLICK_BUTTON)) {
                     onNotificationClick(context, stringExtra, stringExtra2, stringExtra3, stringExtra4, intExtra2, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type, stringExtra5, stringExtra6, stringExtra7);
                     if (intExtra != -1) {
-                        ql0.f().a(intExtra);
+                        rl0.f().a(intExtra);
                     }
                 }
             }

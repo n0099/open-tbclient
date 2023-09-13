@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,13 +10,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ay2 implements c13 {
+public class ay2 implements g13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public double a;
+    public double b;
 
     public ay2() {
         Interceptable interceptable = $ic;
@@ -30,43 +29,42 @@ public class ay2 implements c13 {
                 return;
             }
         }
-        this.a = Integer.MIN_VALUE;
-        this.b = Integer.MIN_VALUE;
-        this.c = -1;
-        this.d = -1;
+        this.a = -200.0d;
+        this.b = -200.0d;
     }
 
-    @Override // com.baidu.tieba.c13
+    @Override // com.baidu.tieba.g13
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("longitude") && jSONObject.has("latitude")) {
+            this.a = jSONObject.optDouble("latitude", this.a);
+            this.b = jSONObject.optDouble("longitude", this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.g13
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != Integer.MIN_VALUE && this.b != Integer.MIN_VALUE) {
-                return true;
+            double d = this.a;
+            if (d >= -90.0d && d <= 90.0d) {
+                double d2 = this.b;
+                if (d2 >= -180.0d && d2 <= 180.0d) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c13
-    public void a(JSONObject jSONObject) throws JSONException {
-        int i;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
-            this.a = uo3.g(jSONObject.optInt("left"));
-            this.b = uo3.g(jSONObject.optInt("top"));
-            int i2 = -1;
-            if (jSONObject.has("width")) {
-                i = Math.abs(uo3.g(jSONObject.optInt("width")));
-            } else {
-                i = -1;
-            }
-            this.c = i;
-            if (jSONObject.has("height")) {
-                i2 = Math.abs(uo3.g(jSONObject.optInt("height")));
-            }
-            this.d = i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "[latitude：" + this.a + "longitude：" + this.b + PreferencesUtil.RIGHT_MOUNT;
         }
+        return (String) invokeV.objValue;
     }
 }

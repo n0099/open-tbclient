@@ -1,45 +1,67 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.view.menu.SwanContextMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class tq3 {
+public class tq3 extends ra3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull sq3 sq3Var, @NonNull j13 j13Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tq3(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, sq3Var, j13Var) == null) {
-            sq3Var.f(j13Var.d());
-            sq3Var.g(j13Var.e());
-            if (j13Var.g()) {
-                sq3Var.a(1);
-            } else {
-                sq3Var.e(1);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        s(yo3.f(view2.getContext(), 178.0f));
+        p(true);
+        q(true);
+    }
+
+    @Override // com.baidu.tieba.ra3
+    public void l(View view2, List<sa3> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
+            ((SwanContextMenuView) view2).c(list);
         }
     }
 
-    public static FrameLayout.LayoutParams b(@NonNull kx1 kx1Var, @NonNull j13 j13Var) {
-        InterceptResult invokeLL;
-        int i;
+    @Override // com.baidu.tieba.ra3
+    public View m(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, kx1Var, j13Var)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(j13Var.f(), j13Var.c());
-            int i2 = 0;
-            if (j13Var.g()) {
-                i2 = kx1Var.getWebViewScrollX();
-                i = kx1Var.getWebViewScrollY();
-            } else {
-                i = 0;
-            }
-            layoutParams.leftMargin = j13Var.d() + i2;
-            layoutParams.topMargin = j13Var.e() + i;
-            return layoutParams;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new SwanContextMenuView(context);
         }
-        return (FrameLayout.LayoutParams) invokeLL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ra3
+    public void u(PopupWindow popupWindow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
+            popupWindow.showAtLocation(this.a, 17, 0, 0);
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.apkabtest;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zb;
+import com.baidu.tieba.ac;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,11 +55,11 @@ public class ApkAbTestHelper {
         this.mIsTarget = false;
         this.mPubEnvValue = 0;
         try {
-            zb zbVar = new zb("", APK_AB_TEST_FILE_NAME, DiskFileOperate.Action.READ);
-            zbVar.setSdCard(true);
-            zbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (zbVar.call()) {
-                String a = zbVar.a();
+            ac acVar = new ac("", APK_AB_TEST_FILE_NAME, DiskFileOperate.Action.READ);
+            acVar.setSdCard(true);
+            acVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            if (acVar.call()) {
+                String a = acVar.a();
                 if (a != null) {
                     this.mPubEnvValue = Integer.parseInt(a);
                 }

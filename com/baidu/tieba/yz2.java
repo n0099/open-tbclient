@@ -1,442 +1,345 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaCodecList;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.FileUtils;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ig3;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.URI;
-import org.json.JSONObject;
-import rx.schedulers.Schedulers;
-/* loaded from: classes8.dex */
-public class yz2 extends ad3 {
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.nio.BufferOverflowException;
+import java.nio.BufferUnderflowException;
+import java.nio.ByteBuffer;
+/* loaded from: classes9.dex */
+public class yz2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
+    public MediaCodec a;
+    public ByteBuffer[] b;
+    public ByteBuffer[] c;
+    public MediaCodec.BufferInfo d;
+    public ByteArrayOutputStream e;
+    public long f;
+    public int g;
+    public int h;
+    public String i;
 
-    /* loaded from: classes8.dex */
-    public class a implements wp3<gg3<ig3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ File d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ yz2 f;
-
-        public a(yz2 yz2Var, CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz2Var, callbackHandler, str, context, file, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = yz2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = file;
-            this.e = unitedSchemeEntity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp3
-        /* renamed from: b */
-        public void a(gg3<ig3.e> gg3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
-                if (bg3.h(gg3Var)) {
-                    this.f.u(this.c, this.d, this.e, this.a, this.b);
-                } else {
-                    bg3.q(gg3Var, this.a, this.b);
-                }
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            switch (i) {
+                case 7350:
+                    return 12;
+                case 11025:
+                    return 10;
+                case 12000:
+                    return 9;
+                case 16000:
+                    return 8;
+                case 22050:
+                    return 7;
+                case 24000:
+                    return 6;
+                case 32000:
+                    return 5;
+                case 44100:
+                    return 4;
+                case OpusReader.SAMPLE_RATE /* 48000 */:
+                    return 3;
+                case 64000:
+                    return 2;
+                case 88200:
+                    return 1;
+                case 96000:
+                    return 0;
+                default:
+                    return 11;
             }
         }
+        return invokeI.intValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements g63 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ yz2 f;
-
-        public b(yz2 yz2Var, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz2Var, context, file, callbackHandler, str, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = yz2Var;
-            this.a = context;
-            this.b = file;
-            this.c = callbackHandler;
-            this.d = str;
-            this.e = unitedSchemeEntity;
-        }
-
-        @Override // com.baidu.tieba.g63
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (ad3.b) {
-                    Log.d("SwanAppAction", str + "");
-                }
-                this.f.x(this.a, this.b, this.c, this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.g63
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.d);
-            }
-        }
+    public final byte[] g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) ? bArr : (byte[]) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public class c implements d8c<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ yz2 d;
-
-        public c(yz2 yz2Var, CallbackHandler callbackHandler, String str, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347384, "Lcom/baidu/tieba/yz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz2Var, callbackHandler, str, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = yz2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.d8c
-        public void call(File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-                if (file == null) {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
-                    return;
-                }
-                Uri fromFile = Uri.fromFile(file);
-                this.d.w(this.c, file.getPath(), -1L);
-                this.c.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
-                if (ad3.b) {
-                    Log.i("SaveVideoAction", "saveToAlbum : file = " + file);
-                }
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948347384, "Lcom/baidu/tieba/yz2;");
+                return;
             }
         }
+        j = rr1.a;
     }
 
-    /* loaded from: classes8.dex */
-    public class d implements i8c<File, File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ yz2 b;
-
-        public d(yz2 yz2Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz2Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yz2Var;
-            this.a = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i8c
-        public File call(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                String x = li3.x(db3.g0());
-                if (TextUtils.isEmpty(x) || !file.getPath().startsWith(x)) {
-                    return null;
-                }
-                return this.b.q(this.a, file);
-            }
-            return (File) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz2(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/saveVideoToPhotosAlbum");
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0064 A[Catch: IOException -> 0x00b6, TryCatch #0 {IOException -> 0x00b6, blocks: (B:8:0x002c, B:27:0x0064, B:29:0x0068, B:30:0x006f, B:32:0x008b, B:15:0x0045, B:18:0x004f, B:21:0x0059), top: B:41:0x002c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public yz2(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public final String s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            String lowerCase = str.toLowerCase();
-            if (lowerCase.endsWith(DownloadStatisticConstants.UBC_TYPE_MP4) || lowerCase.endsWith("mpeg4") || !lowerCase.endsWith("3gp")) {
-                return "video/mp4";
-            }
-            return "video/3gp";
+        this.f = 0L;
+        char c = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = "aac";
+        this.g = i2;
+        this.h = i;
+        this.e = new ByteArrayOutputStream();
+        if (TextUtils.isEmpty(str)) {
+            this.i = "aac";
+        } else {
+            this.i = str;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final void u(@NonNull Context context, @NonNull File file, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048581, this, context, file, unitedSchemeEntity, callbackHandler, str) == null) {
-            f63.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new b(this, context, file, callbackHandler, str, unitedSchemeEntity));
-        }
-    }
-
-    public static File t(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath());
-            if (file.exists()) {
-                String str = "video";
-                File file2 = new File(file, (new File(file, "Video").exists() || !new File(file, "video").exists()) ? "Video" : "Video");
-                if ((file2.exists() || file2.mkdirs()) && file2.canWrite()) {
-                    return file2;
-                }
-            }
-            File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "baidu" + File.separator + FileUtils.SEARCHBOX_FOLDER + File.separator + "Video");
-            if (!file3.exists() && !file3.mkdirs()) {
-                File externalFilesDir = context.getExternalFilesDir(null);
-                if (externalFilesDir != null) {
-                    File file4 = new File(externalFilesDir.getPath() + File.separator + "Video");
-                    if (file4.exists() || file4.mkdirs()) {
-                        return file4;
+        try {
+            String str2 = this.i;
+            int hashCode = str2.hashCode();
+            if (hashCode != 96323) {
+                if (hashCode != 108272) {
+                    if (hashCode == 110810 && str2.equals("pcm")) {
+                        c = 2;
+                        if (c != 0) {
+                            if (j) {
+                                Log.d("AudioRecorderManager", "aac format init");
+                            }
+                            MediaCodecInfo d = d("audio/mp4a-latm");
+                            MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i2, i);
+                            createAudioFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, i3);
+                            createAudioFormat.setInteger("aac-profile", 2);
+                            createAudioFormat.setInteger("max-input-size", 102400);
+                            if (d != null) {
+                                MediaCodec createByCodecName = MediaCodec.createByCodecName(d.getName());
+                                this.a = createByCodecName;
+                                createByCodecName.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
+                                this.a.start();
+                                this.b = this.a.getInputBuffers();
+                                this.c = this.a.getOutputBuffers();
+                                this.d = new MediaCodec.BufferInfo();
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    c = 65535;
+                    if (c != 0) {
+                    }
+                } else {
+                    if (str2.equals("mp3")) {
+                        c = 1;
+                        if (c != 0) {
+                        }
+                    }
+                    c = 65535;
+                    if (c != 0) {
                     }
                 }
-                File file5 = new File(context.getFilesDir().getPath() + File.separator + "Video");
-                if (!file5.exists() && !file5.mkdirs()) {
-                    return null;
-                }
-                return file5;
-            }
-            return file3;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            if (db3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            } else if (db3Var.n0()) {
-                if (ad3.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
             } else {
-                JSONObject a2 = ad3.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
-                    return false;
+                if (str2.equals("aac")) {
+                    if (c != 0) {
+                    }
                 }
-                String optString = a2.optString("filePath");
-                try {
-                    File file = null;
-                    if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                        String M = li3.M(optString, db3Var.b);
-                        if (!TextUtils.isEmpty(M)) {
-                            file = new File(M);
-                        }
-                    } else {
-                        String L = li3.L(optString, db3Var, db3Var.k0());
-                        if (!TextUtils.isEmpty(L)) {
-                            file = new File(L);
-                        }
-                    }
-                    if (file != null && file.exists() && file.isFile()) {
-                        String optString2 = a2.optString("cb");
-                        if (TextUtils.isEmpty(optString2)) {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                            return false;
-                        }
-                        db3Var.e0().g(context, "mapp_images", new a(this, callbackHandler, optString2, context, file, unitedSchemeEntity));
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + file);
-                    return false;
-                } catch (Exception e) {
-                    if (ad3.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);
-                    return false;
+                c = 65535;
+                if (c != 0) {
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return invokeLLLL.booleanValue;
+        e.printStackTrace();
     }
 
-    public final boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return new File(str).exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final long r(long j) {
+    public final long b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            if (j <= 0) {
-                return System.currentTimeMillis();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+            int i = this.g;
+            if (i == 0) {
+                return 0L;
             }
-            return j;
+            return (((j2 * 1000) * 90) * 1024) / i;
         }
         return invokeJ.longValue;
     }
 
-    public final File q(Context context, @NonNull File file) {
-        InterceptResult invokeLL;
+    public final byte[] c(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, file)) == null) {
-            File t = t(context);
-            if (t == null) {
-                return null;
-            }
-            File file2 = new File(t, file.getName());
-            if (hr4.f(file, file2) <= 0) {
-                return null;
-            }
-            return file2;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            int i5 = i + 7;
+            byte[] bArr = new byte[i5];
+            int a = a(i3);
+            bArr[0] = -1;
+            bArr[1] = -15;
+            bArr[2] = (byte) (((i2 - 1) << 6) + (a << 2) + (i4 >> 2));
+            bArr[3] = (byte) (((i4 & 3) << 6) + (i5 >> 11));
+            bArr[4] = (byte) ((i5 & 2047) >> 3);
+            bArr[5] = (byte) (((i5 & 7) << 5) + 31);
+            bArr[6] = -4;
+            return bArr;
         }
-        return (File) invokeLL.objValue;
+        return (byte[]) invokeIIII.objValue;
     }
 
-    public final ContentValues v(String str, long j) {
-        InterceptResult invokeLJ;
+    public final MediaCodecInfo d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-            ContentValues contentValues = new ContentValues();
-            File file = new File(str);
-            long r = r(j);
-            contentValues.put("title", file.getName());
-            contentValues.put("_display_name", file.getName());
-            contentValues.put("date_modified", Long.valueOf(r));
-            contentValues.put("date_added", Long.valueOf(r));
-            contentValues.put("_data", file.getAbsolutePath());
-            contentValues.put("_size", Long.valueOf(file.length()));
-            return contentValues;
-        }
-        return (ContentValues) invokeLJ.objValue;
-    }
-
-    public final void w(Context context, String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{context, str, Long.valueOf(j)}) != null) || !p(str)) {
-            return;
-        }
-        long r = r(j);
-        ContentValues v = v(str, r);
-        v.put("datetaken", Long.valueOf(r));
-        v.put("mime_type", s(str));
-        context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, v);
-    }
-
-    public final void x(@NonNull Context context, @NonNull File file, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, file, callbackHandler, str) == null) {
-            if (file == null) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            int codecCount = MediaCodecList.getCodecCount();
+            for (int i = 0; i < codecCount; i++) {
+                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
+                if (codecInfoAt.isEncoder()) {
+                    for (String str2 : codecInfoAt.getSupportedTypes()) {
+                        if (str2.equalsIgnoreCase(str)) {
+                            return codecInfoAt;
+                        }
+                    }
+                    continue;
+                }
             }
-            p7c.n(file).p(new d(this, context)).J(Schedulers.io()).s(z7c.b()).H(new c(this, callbackHandler, str, context));
+            return null;
         }
+        return (MediaCodecInfo) invokeL.objValue;
+    }
+
+    public final byte[] e(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            if (this.a != null && bArr != null) {
+                if (j) {
+                    Log.d("AudioRecorderManager", "start AAC encode");
+                }
+                int dequeueInputBuffer = this.a.dequeueInputBuffer(-1L);
+                if (dequeueInputBuffer >= 0) {
+                    ByteBuffer byteBuffer = this.b[dequeueInputBuffer];
+                    byteBuffer.clear();
+                    try {
+                        byteBuffer.put(bArr);
+                        byteBuffer.limit(bArr.length);
+                        this.a.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, b(this.f), 0);
+                        this.f++;
+                    } catch (IllegalArgumentException | BufferOverflowException e) {
+                        if (j) {
+                            e.printStackTrace();
+                        }
+                        return bArr;
+                    }
+                }
+                int dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.d, 0L);
+                while (dequeueOutputBuffer >= 0) {
+                    MediaCodec.BufferInfo bufferInfo = this.d;
+                    int i = bufferInfo.size;
+                    ByteBuffer byteBuffer2 = this.c[dequeueOutputBuffer];
+                    try {
+                        byteBuffer2.position(bufferInfo.offset);
+                        byteBuffer2.limit(this.d.offset + i);
+                        byte[] c = c(i, 2, this.g, this.h);
+                        try {
+                            byteBuffer2.get(c, 7, i);
+                            byteBuffer2.position(this.d.offset);
+                            this.e.write(c);
+                            this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            dequeueOutputBuffer = this.a.dequeueOutputBuffer(this.d, 0L);
+                        } catch (IOException | IllegalArgumentException | BufferUnderflowException e2) {
+                            if (j) {
+                                e2.printStackTrace();
+                            }
+                            return bArr;
+                        }
+                    } catch (IllegalArgumentException e3) {
+                        if (j) {
+                            e3.printStackTrace();
+                        }
+                        return bArr;
+                    }
+                }
+                bArr = this.e.toByteArray();
+                try {
+                    this.e.flush();
+                } catch (IOException e4) {
+                    if (j) {
+                        e4.printStackTrace();
+                    }
+                }
+                this.e.reset();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public byte[] f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            if (this.a != null && bArr != null) {
+                String str = this.i;
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 96323) {
+                    if (hashCode != 108272) {
+                        if (hashCode == 110810 && str.equals("pcm")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("mp3")) {
+                        c = 1;
+                    }
+                } else if (str.equals("aac")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    g(bArr);
+                    return bArr;
+                }
+                return e(bArr);
+            }
+            if (j) {
+                Log.d("AudioRecorderManager", "wrong input or mediaCodec");
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

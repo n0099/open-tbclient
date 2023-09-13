@@ -150,7 +150,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0004\u0010\u0005R\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003¨\u0006\u0006"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController$Companion;", "", "KEY_PARAMS", "Ljava/lang/String;", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -228,7 +228,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             @Override // kotlin.jvm.functions.Function0
             public final AnonymousClass1 invoke() {
                 return new MixInvokeAbility() { // from class: com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2.1
-                    /* JADX WARN: Code restructure failed: missing block: B:34:0x006c, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:34:0x006d, code lost:
                         if (android.text.TextUtils.isEmpty(r4) != false) goto L32;
                      */
                     @Override // com.baidu.searchbox.live.interfaces.mix.MixInvokeAbility
@@ -722,11 +722,11 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             if (intentData3 != null) {
                                 intentData3.setModel(parseSchemeData);
                             }
-                            Result.m849constructorimpl(Unit.INSTANCE);
+                            Result.m850constructorimpl(Unit.INSTANCE);
                         } catch (Throwable th2) {
                             th = th2;
                             Result.Companion companion2 = Result.Companion;
-                            Result.m849constructorimpl(ResultKt.createFailure(th));
+                            Result.m850constructorimpl(ResultKt.createFailure(th));
                             str10 = str7;
                             str11 = str8;
                             str12 = str9;
@@ -750,7 +750,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         th = th3;
                         str9 = "";
                         Result.Companion companion22 = Result.Companion;
-                        Result.m849constructorimpl(ResultKt.createFailure(th));
+                        Result.m850constructorimpl(ResultKt.createFailure(th));
                         str10 = str7;
                         str11 = str8;
                         str12 = str9;
@@ -775,7 +775,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     str8 = "";
                     str9 = str8;
                     Result.Companion companion222 = Result.Companion;
-                    Result.m849constructorimpl(ResultKt.createFailure(th));
+                    Result.m850constructorimpl(ResultKt.createFailure(th));
                     str10 = str7;
                     str11 = str8;
                     str12 = str9;
@@ -955,7 +955,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         str7 = "";
         str8 = str7;
         str9 = str8;
-        Result.m849constructorimpl(Unit.INSTANCE);
+        Result.m850constructorimpl(Unit.INSTANCE);
         str10 = str7;
         str11 = str8;
         str12 = str9;

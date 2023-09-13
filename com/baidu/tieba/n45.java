@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.BirthdayInfo;
 /* loaded from: classes7.dex */
 public class n45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
     public String b;
-    public String c;
+    public int c;
+    public int d;
 
     public n45() {
         Interceptable interceptable = $ic;
@@ -31,58 +30,25 @@ public class n45 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optInt("activity_type");
-            this.a = jSONObject.optString("activity_url");
-            this.b = jSONObject.optString("activity_all_icon");
-            this.c = jSONObject.optString("activity_half_icon");
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        this.a = jSONObject.optLong("birthday_time", 0L);
+        this.d = jSONObject.optInt("birthday_show_status", 0);
+        this.b = jSONObject.optString("constellation", "");
+        this.c = jSONObject.optInt("age", 0);
     }
 
-    public void e(YuleActivity yuleActivity) {
+    public void b(BirthdayInfo birthdayInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, yuleActivity) != null) || yuleActivity == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) != null) || birthdayInfo == null) {
             return;
         }
-        yuleActivity.activity_id.longValue();
-        yuleActivity.activity_type.intValue();
-        this.a = yuleActivity.activity_url;
-        this.b = yuleActivity.activity_all_icon;
-        this.c = yuleActivity.activity_half_icon;
+        this.a = birthdayInfo.birthday_time.longValue();
+        this.d = birthdayInfo.birthday_show_status.intValue();
+        this.b = birthdayInfo.constellation;
+        this.c = birthdayInfo.age.intValue();
     }
 }

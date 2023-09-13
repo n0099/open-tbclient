@@ -1,100 +1,141 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n63 {
+public class n63 extends le2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public tc2<Boolean> c;
     public String d;
     public String e;
-    public String f;
-    public JSONObject g;
-    public String h;
-    public d32 i;
+    public long f;
+    public final yi4<ik4> g;
 
-    public n63() {
+    /* loaded from: classes7.dex */
+    public class a extends me2<n63> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n63 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(n63 n63Var, n63 n63Var2) {
+            super(n63Var2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n63Var, n63Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((le2) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = n63Var;
+        }
+
+        @Override // com.baidu.tieba.me2
+        public void r(@NonNull ik4 ik4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ik4Var) == null) {
+                this.b.c.a(Boolean.TRUE);
+            }
+        }
+
+        @Override // com.baidu.tieba.me2
+        public void u(ik4 ik4Var, an3 an3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ik4Var, an3Var) == null) {
+                this.b.c.a(Boolean.FALSE);
+            }
+        }
+    }
+
+    public n63(String str, String str2, long j, tc2<Boolean> tc2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), tc2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.g = new a(this, this);
+        this.c = tc2Var;
+        this.d = str;
+        this.e = str2;
+        this.f = j;
+    }
+
+    @Override // com.baidu.tieba.cj4
+    public void G(po4 po4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, po4Var) == null) {
+            super.G(po4Var);
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cj4
+    public void C(bk4 bk4Var) {
+        ik4 p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d32 d32Var = this.i;
-            if (d32Var != null && !d32Var.isSuccess()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("SwanPluginFunPageModel{providerAppKey='");
-            sb.append(this.a);
-            sb.append('\'');
-            sb.append(", providerRootPath='");
-            sb.append(this.c);
-            sb.append('\'');
-            sb.append(", providerVersion='");
-            sb.append(this.d);
-            sb.append('\'');
-            sb.append(", componentId='");
-            sb.append(this.f);
-            sb.append('\'');
-            sb.append(", cb='");
-            sb.append(this.h);
-            sb.append('\'');
-            sb.append(", pageParams=");
-            sb.append(this.g);
-            sb.append(", swanApiResult=");
-            d32 d32Var = this.i;
-            if (d32Var == null) {
-                a = null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bk4Var) == null) {
+            super.C(bk4Var);
+            if (bk4Var != null) {
+                if (bk4Var.a == 1010 && (p = o63.p(this.d, this.e, this.f)) != null) {
+                    p.d = p.b();
+                    ej4.i().x(p);
+                }
+                z63.b("fetch plugin error: " + bk4Var.toString());
             } else {
-                a = d32Var.a();
+                z63.b("fetch plugin error");
             }
-            sb.append(a);
-            sb.append('}');
-            return sb.toString();
+            this.c.a(Boolean.FALSE);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cj4
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E();
+            z63.b("fetch plugin success");
+        }
+    }
+
+    @Override // com.baidu.tieba.cj4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            z63.b("no package");
+            this.c.a(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.baidu.tieba.cj4
+    public yi4<ik4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (yi4) invokeV.objValue;
     }
 }

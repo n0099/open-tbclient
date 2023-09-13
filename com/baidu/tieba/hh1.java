@@ -1,65 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.jh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
-public final class hh1 {
+public class hh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
+    public jh1 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823608, "Lcom/baidu/tieba/hh1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947823608, "Lcom/baidu/tieba/hh1;");
+    public hh1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Charset.forName("US-ASCII");
-        Charset.forName("UTF-8");
-    }
-
-    public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (RuntimeException e) {
-                throw e;
-            } catch (Exception unused) {
-            }
+        File b = b(context, "bitmap");
+        if (!b.exists()) {
+            b.mkdirs();
+        }
+        try {
+            this.a = jh1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void b(File file) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        b(file2);
-                    }
-                    if (!file2.delete()) {
-                        throw new IOException("failed to delete file: " + file2);
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
+            return;
+        }
+        try {
+            jh1.c n = this.a.n(nh1.b(str));
+            if (n == null) {
                 return;
             }
-            throw new IOException("not a readable directory: " + file);
+            if (dh1.b(str, n.f(0))) {
+                n.e();
+            } else {
+                n.a();
+            }
+            this.a.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
+
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
+                path = context.getExternalCacheDir().getPath();
+            } else {
+                path = context.getCacheDir().getPath();
+            }
+            return new File(path + File.separator + str);
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public Bitmap c(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            if (this.a == null) {
+                return null;
+            }
+            jh1.e p = this.a.p(nh1.b(str));
+            if (p == null) {
+                return null;
+            }
+            FileInputStream fileInputStream = (FileInputStream) p.a(0);
+            if (i > 0 && i2 > 0) {
+                return mh1.b(fileInputStream.getFD(), i, i2);
+            }
+            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

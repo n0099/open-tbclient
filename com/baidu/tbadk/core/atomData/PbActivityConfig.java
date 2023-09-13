@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.e8a;
-import com.baidu.tieba.k35;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -189,7 +189,7 @@ public class PbActivityConfig extends IntentConfig {
         }
         this.key_video_source_value = "";
         this.mContext = context;
-        e8a.b("pb");
+        x9a.b("pb");
     }
 
     private void addMoreIntentExtraParam() {
@@ -490,11 +490,11 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(k35 k35Var) {
+    public void setRecomData(p35 p35Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, k35Var) == null) && (intent = getIntent()) != null && k35Var != null) {
-            k35Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048621, this, p35Var) == null) && (intent = getIntent()) != null && p35Var != null) {
+            p35Var.c(intent);
         }
     }
 
@@ -707,8 +707,8 @@ public class PbActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().S())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().S());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().U())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().U());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());

@@ -1,28 +1,35 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import com.baidu.adp.base.BdPageContextSupport;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class av6 extends xu6 {
+public class av6 extends MutableContextWrapper implements TbPageContextSupport, BdPageContextSupport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av6() {
-        super(4096);
+    public av6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -30,27 +37,34 @@ public final class av6 extends xu6 {
         }
     }
 
-    @Override // com.baidu.tieba.xu6
-    public boolean b(gu6 item, jw6 timer, au6 config) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.base.BdPageContextSupport
+    public TbPageContext<?> getPageContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            hu6 e = item.e();
-            if (e.i() == 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Context baseContext = getBaseContext();
+            if (baseContext instanceof TbPageContextSupport) {
+                return ((TbPageContextSupport) baseContext).getPageContext();
             }
-            if (this.b) {
-                if (e.i() != 1) {
-                    return false;
-                }
-            } else if (e.i() != 2) {
-                return false;
+            if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                return null;
             }
-            return true;
+            throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
         }
-        return invokeLLL.booleanValue;
+        return (TbPageContext) invokeV.objValue;
+    }
+
+    @Override // android.content.MutableContextWrapper
+    public void setBaseContext(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            if (context instanceof TbPageContextSupport) {
+                super.setBaseContext(context);
+            } else if (!TbadkCoreApplication.getInst().isDebugMode()) {
+            } else {
+                throw new IllegalArgumentException("base context is not TbPageContextSupport!!!");
+            }
+        }
     }
 }

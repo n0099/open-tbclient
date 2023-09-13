@@ -1,54 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Triple;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class fh8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fh8<TbMsg, SdkMsg> {
+    TbMsg a(gh8<SdkMsg> gh8Var, SdkMsg sdkmsg) throws Exception;
 
-    public fh8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    SdkMsg b(gh8<SdkMsg> gh8Var, TbMsg tbmsg) throws Exception;
 
-    public String a(String str) {
-        InterceptResult invokeL;
-        oc5 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                try {
-                    rb5 rb5Var = new rb5(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    String storeFile = FileHelper.getStoreFile(str, 1);
-                    rb5Var.a("type", 2);
-                    pc5 d = rb5Var.d(storeFile);
-                    if (d != null && d.d() && (a = d.a()) != null) {
-                        String b = a.b();
-                        ob5.b(str, b);
-                        return b;
-                    }
-                    return null;
-                } catch (Exception unused) {
-                    return null;
+    /* loaded from: classes5.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<Class<?>, fh8<?, ?>> a;
+        public final Map<Class<?>, fh8<?, ?>> b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return null;
+            this.a = new LinkedHashMap();
+            this.b = new LinkedHashMap();
         }
-        return (String) invokeL.objValue;
+
+        public final fh8<?, ?> a(Class<?> sdkMsgClass) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sdkMsgClass)) == null) {
+                Intrinsics.checkNotNullParameter(sdkMsgClass, "sdkMsgClass");
+                return this.b.get(sdkMsgClass);
+            }
+            return (fh8) invokeL.objValue;
+        }
+
+        public final void c(Triple<? extends Class<?>, ? extends Class<?>, ? extends fh8<?, ?>> triple) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, triple) == null) {
+                Intrinsics.checkNotNullParameter(triple, "triple");
+                this.a.put(triple.getFirst(), triple.getThird());
+                this.b.put(triple.getSecond(), triple.getThird());
+            }
+        }
+
+        public final fh8<?, ?> b(Class<?> tbMsgClass) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbMsgClass)) == null) {
+                Intrinsics.checkNotNullParameter(tbMsgClass, "tbMsgClass");
+                if (this.a.containsKey(tbMsgClass)) {
+                    return this.a.get(tbMsgClass);
+                }
+                Class<? super Object> superclass = tbMsgClass.getSuperclass();
+                if (superclass == null) {
+                    return null;
+                }
+                return b(superclass);
+            }
+            return (fh8) invokeL.objValue;
+        }
     }
 }

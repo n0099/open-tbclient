@@ -1,237 +1,226 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.wifi.WifiManager;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.invoicebuild.BoxInvoiceBuildResult;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wt3 extends ActivityDelegation {
+public class wt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public a b;
+    public c c;
+    public b d;
+    public JSONObject e;
 
     /* loaded from: classes8.dex */
-    public interface d {
-        void a(String str, String str2);
-
-        void failed();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements pr1 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt3 a;
+        public String a;
+        public String b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public int g;
+        public int h;
+        public String i;
 
-        public a(wt3 wt3Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = wt3Var;
-        }
-
-        @Override // com.baidu.tieba.pr1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    this.a.mResult.putString("errorMsg", "login failed");
-                    this.a.finish();
-                    return;
-                }
-                this.a.n();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements d {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt3 a;
+        public int a;
+        public int b;
 
-        public b(wt3 wt3Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = wt3Var;
-        }
-
-        @Override // com.baidu.tieba.wt3.d
-        public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    this.a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
-                    this.a.finish();
-                }
-                this.a.l(str, str2);
-            }
-        }
-
-        @Override // com.baidu.tieba.wt3.d
-        public void failed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("errorMsg", "choose invoiceId failed");
-                this.a.finish();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class c extends ResponseCallback<JSONObject> {
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wt3 a;
+        public int a;
+        public double b;
+        public double c;
 
-        public c(wt3 wt3Var) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = wt3Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.mResult.putString("errorMsg", exc.getMessage());
-                this.a.finish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (jSONObject == null) {
-                    this.a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
-                    this.a.finish();
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.a.mResult.putString("invoiceInfo", optJSONObject.toString());
-                    this.a.finish();
-                    return;
-                }
-                this.a.mResult.putString("errorMsg", "exchange plaintext from server, but response exception");
-                this.a.finish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return do3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
         }
     }
 
-    public wt3() {
+    public wt3(@NonNull Context context, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a aVar = new a();
+        c cVar = new c();
+        b bVar = new b();
+        String g0 = hb3.g0();
+        String str = "";
+        this.a = TextUtils.isEmpty(g0) ? "" : g0;
+        this.b = aVar;
+        this.c = cVar;
+        this.d = bVar;
+        this.e = jSONObject;
+        String r = bp3.r();
+        aVar.a = "0".equals(r) ? "" : r;
+        String a2 = a();
+        aVar.b = "0".equals(a2) ? "" : a2;
+        aVar.c = 2;
+        aVar.d = yt3.e(context) ? 3 : 2;
+        String i3 = d82.i();
+        aVar.e = "NUL".equals(i3) ? "" : i3;
+        String g = d82.g();
+        aVar.f = "NUL".equals(g) ? "" : g;
+        aVar.g = yo3.n(context);
+        aVar.h = yo3.o(context);
+        String b2 = b();
+        if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
+            str = b2;
+        }
+        aVar.i = str;
+        bVar.a = yt3.c();
+        bVar.b = yt3.d(context);
     }
 
-    public static String m() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return String.format("%s/ma/invoice/detail", "https://mbd.baidu.com");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String a2 = mw3.b.a(AppRuntime.getAppContext());
+            if (TextUtils.isEmpty(a2)) {
+                return "0";
+            }
+            return a2;
         }
         return (String) invokeV.objValue;
     }
 
-    public final void n() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            er3.f(getAgent(), new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c().toString();
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public String b() {
+        String str;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                str = ApiReplaceUtil.getMacAddress(((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
+            } catch (Exception unused) {
+                str = null;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!er3.E(getAgent())) {
-                er3.L(getAgent(), null, new a(this));
-                return false;
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject.put("app_id", this.a);
+                jSONObject2.put("deviceid", this.b.a);
+                jSONObject2.put("androidid", this.b.b);
+                jSONObject2.put("os_type", this.b.c);
+                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.b.d);
+                jSONObject2.put("device_vendor", this.b.e);
+                jSONObject2.put("device_model", this.b.f);
+                jSONObject2.put("screen_height", this.b.g);
+                jSONObject2.put("screen_width", this.b.h);
+                jSONObject2.put("mac", this.b.i);
+                jSONObject.put(Config.DEVICE_PART, jSONObject2);
+                jSONObject3.put("coord_type", this.c.a);
+                jSONObject3.put("latitude", this.c.b);
+                jSONObject3.put("longitude", this.c.c);
+                jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
+                jSONObject4.put("network", this.d.a);
+                jSONObject4.put("operator", this.d.b);
+                jSONObject.put("network", jSONObject4);
+                jSONObject.put("data", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            n();
-            return false;
+            return jSONObject;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (!SwanAppNetworkUtils.i(getAgent())) {
-                va3.f(getAgent(), R.string.obfuscated_res_0x7f0f0b19);
-            } else {
-                hi4.h(AppRuntime.getAppContext()).getRequest().url(z72.v(m())).addUrlParam("invoice_id", str).addUrlParam(BoxInvoiceBuildResult.KEY_INVOICE_TYPE, str2).cookieManager(ku2.q().a()).build().executeAsync(new c(this));
-            }
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

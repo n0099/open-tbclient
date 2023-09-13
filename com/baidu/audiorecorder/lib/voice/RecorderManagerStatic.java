@@ -6,12 +6,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.li5;
-import com.baidu.tieba.tha;
-import com.baidu.tieba.to;
-import com.baidu.tieba.vo;
+import com.baidu.tieba.ej5;
+import com.baidu.tieba.nja;
+import com.baidu.tieba.uo;
 import com.baidu.tieba.wo;
 import com.baidu.tieba.xo;
+import com.baidu.tieba.yo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class RecorderManagerStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<Activity> {
+    public class a implements CustomMessageTask.CustomRunnable<Activity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,18 +44,18 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<tha> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<nja> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001271, to.n());
+                return new CustomResponsedMessage<>(2001271, uo.n());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<Context> {
+    public class b implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,12 +74,12 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<li5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ej5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001272, new xo(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001272, new yo(customMessage.getData()));
                 }
                 return null;
             }
@@ -88,7 +88,7 @@ public class RecorderManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements CustomMessageTask.CustomRunnable<Boolean> {
+    public class c implements CustomMessageTask.CustomRunnable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,7 +118,7 @@ public class RecorderManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<Void> {
+    public class d implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -148,7 +148,7 @@ public class RecorderManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements CustomMessageTask.CustomRunnable<Context> {
+    public class e implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -167,12 +167,12 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<li5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ej5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001301, new vo(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001301, new wo(customMessage.getData()));
                 }
                 return null;
             }
@@ -181,7 +181,7 @@ public class RecorderManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class f implements CustomMessageTask.CustomRunnable<Context> {
+    public class f implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,12 +200,12 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<li5> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<ej5> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2001448, new wo(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2001448, new xo(customMessage.getData()));
                 }
                 return null;
             }

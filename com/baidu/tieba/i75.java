@@ -1,87 +1,81 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class i75 implements g75 {
+public final class i75 {
     public static /* synthetic */ Interceptable $ic;
+    public static final i75 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.g75
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806434, "Lcom/baidu/tieba/i75;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806434, "Lcom/baidu/tieba/i75;");
+                return;
+            }
         }
-        return (View) invokeV.objValue;
+        a = new i75();
     }
 
     public i75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.g75
-    public j75 a() {
-        InterceptResult invokeV;
+    public final void a(String json) {
+        boolean z;
+        List entityList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            j75 j75Var = new j75();
-            j75Var.c(R.drawable.icon_banner_n);
-            j75Var.g(R.drawable.icon_banner_s);
-            j75Var.h(R.dimen.obfuscated_res_0x7f070399);
-            j75Var.d(81);
-            j75Var.e(R.dimen.obfuscated_res_0x7f070399);
-            return j75Var;
-        }
-        return (j75) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g75
-    public m75 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            m75 m75Var = new m75();
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            if (resources != null) {
-                m75Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c0));
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            String k = YunDialogDataManager.k();
+            oe<String> n = x45.n("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
+            if (n != null) {
+                String str = n.get(k);
+                if (str != null) {
+                    if (str.length() > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
+                        str = null;
+                    }
+                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
+                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
+                        j75.a(entityList2);
+                        j75.b(entityList, entityList2);
+                    }
+                }
+                n.a(k, json);
             }
-            return m75Var;
         }
-        return (m75) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g75
-    public TbImageView d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            TbImageView tbImageView = new TbImageView(context);
-            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            tbImageView.setGifIconSupport(false);
-            return tbImageView;
-        }
-        return (TbImageView) invokeL.objValue;
     }
 }

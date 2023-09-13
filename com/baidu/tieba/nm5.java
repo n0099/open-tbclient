@@ -1,60 +1,111 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.FutureTask;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class nm5 {
+public class nm5 implements om5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FutureTask<Boolean>> a;
-    public List<mm5> b;
-    public ErrorData c;
+    public om5 a;
 
-    public nm5() {
+    public nm5(om5 om5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {om5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = om5Var;
     }
 
-    public void a(ErrorData errorData) {
+    @Override // com.baidu.tieba.om5
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            return this.a.skip(j);
         }
-        this.c = errorData;
-        for (FutureTask<Boolean> futureTask : this.a) {
-            futureTask.cancel(true);
+        return invokeJ.longValue;
+    }
+
+    @Override // com.baidu.tieba.om5
+    public InputStream a() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            reset();
+            return this.a.a();
         }
-        for (mm5 mm5Var : this.b) {
-            mm5Var.a();
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.om5
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.available();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.om5
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.close();
         }
     }
 
-    public void b(List<mm5> list) {
+    @Override // com.baidu.tieba.om5
+    public byte peek() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.peek();
+        }
+        return invokeV.byteValue;
+    }
+
+    @Override // com.baidu.tieba.om5
+    public int position() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.position();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.om5
+    public void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.reset();
         }
     }
 
-    public void c(List<FutureTask<Boolean>> list) {
+    @Override // com.baidu.tieba.om5
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
+            return this.a.read(bArr, i, i2);
         }
+        return invokeLII.intValue;
     }
 }

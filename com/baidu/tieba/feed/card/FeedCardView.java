@@ -13,31 +13,31 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b77;
-import com.baidu.tieba.cb7;
-import com.baidu.tieba.eb7;
-import com.baidu.tieba.fb7;
+import com.baidu.tieba.ae7;
+import com.baidu.tieba.dc7;
+import com.baidu.tieba.de7;
+import com.baidu.tieba.ec7;
+import com.baidu.tieba.fc7;
 import com.baidu.tieba.feed.list.TemplateAdapter;
-import com.baidu.tieba.i9;
-import com.baidu.tieba.ib7;
-import com.baidu.tieba.jb7;
-import com.baidu.tieba.tc7;
-import com.baidu.tieba.wc7;
-import com.baidu.tieba.xa7;
-import com.baidu.tieba.ya7;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.g87;
+import com.baidu.tieba.ic7;
+import com.baidu.tieba.j9;
+import com.baidu.tieba.kc7;
+import com.baidu.tieba.lc7;
+import com.baidu.tieba.oc7;
+import com.baidu.tieba.pc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
+public class FeedCardView extends FrameLayout implements kc7, ec7, ic7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
     public RelativeLayout b;
-    public za7 c;
-    public fb7 d;
+    public fc7 c;
+    public lc7 d;
     public boolean e;
 
     /* loaded from: classes5.dex */
@@ -68,24 +68,24 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.c();
+                this.a.c.b();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements xa7.a {
+    public class b implements dc7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b77 a;
+        public final /* synthetic */ g87 a;
         public final /* synthetic */ FeedCardView b;
 
-        public b(FeedCardView feedCardView, b77 b77Var) {
+        public b(FeedCardView feedCardView, g87 g87Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {feedCardView, b77Var};
+                Object[] objArr = {feedCardView, g87Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,13 +96,13 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
                 }
             }
             this.b = feedCardView;
-            this.a = b77Var;
+            this.a = g87Var;
         }
 
-        @Override // com.baidu.tieba.xa7.a
-        public void a(View view2, jb7<?> jb7Var, ib7<?, ?> ib7Var) {
+        @Override // com.baidu.tieba.dc7.a
+        public void a(View view2, pc7<?> pc7Var, oc7<?, ?> oc7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, jb7Var, ib7Var) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, pc7Var, oc7Var) == null) {
                 this.a.e().invoke(this.b.getContext(), this.a);
                 if (this.b.d != null) {
                     this.b.d.a();
@@ -112,7 +112,7 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements xa7.e {
+    public class c implements dc7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedCardView a;
@@ -135,7 +135,7 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
             this.a = feedCardView;
         }
 
-        @Override // com.baidu.tieba.xa7.e
+        @Override // com.baidu.tieba.dc7.e
         public void a(@NonNull Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -167,16 +167,16 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public void g(b77<?> b77Var) {
+    public void g(g87<?> g87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, b77Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, g87Var) == null) {
             this.e = false;
-            e(b77Var.i());
-            this.c.i(new b(this, b77Var));
+            e(g87Var.i());
+            this.c.i(new b(this, g87Var));
             setTag(null);
             this.c.k(new c(this));
-            this.c.setList(b77Var.b());
-            c();
+            this.c.setList(g87Var.b());
+            b();
         }
     }
 
@@ -230,23 +230,23 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                i9.b(this);
+                j9.b(this);
             } else {
-                i9.a(this);
+                j9.a(this);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ya7
-    public void setOnTemplateClickListener(@NonNull fb7 fb7Var) {
+    @Override // com.baidu.tieba.ec7
+    public void setOnTemplateClickListener(@NonNull lc7 lc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fb7Var) == null) {
-            this.d = fb7Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lc7Var) == null) {
+            this.d = lc7Var;
         }
     }
 
-    @Override // com.baidu.tieba.cb7
-    public void c() {
+    @Override // com.baidu.tieba.ic7
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             EMManager.from(this.a).setCorner(R.string.J_X06).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0206);
@@ -254,14 +254,14 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
         }
     }
 
-    @Override // com.baidu.tieba.eb7
-    public void d() {
+    @Override // com.baidu.tieba.kc7
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             for (int i = 0; i < this.a.getChildCount(); i++) {
                 View childAt = this.a.getChildAt(i);
-                if (childAt instanceof eb7) {
-                    ((eb7) childAt).d();
+                if (childAt instanceof kc7) {
+                    ((kc7) childAt).c();
                 }
             }
         }
@@ -275,7 +275,7 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
             super.onAttachedToWindow();
             if (this.e) {
                 this.c.notifyDataSetChanged();
-                c();
+                b();
             }
         }
     }
@@ -298,16 +298,16 @@ public class FeedCardView extends FrameLayout implements eb7, ya7, cb7 {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             linearLayoutManager.setRecycleChildrenOnDetach(true);
             this.a.setLayoutManager(linearLayoutManager);
-            this.a.setRecycledViewPool(wc7.f().g());
+            this.a.setRecycledViewPool(de7.f().g());
             TemplateAdapter templateAdapter = new TemplateAdapter();
             this.c = templateAdapter;
-            templateAdapter.j(new tc7());
+            templateAdapter.j(new ae7());
             this.c.d(this.a, true);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             this.b = relativeLayout;
             addView(relativeLayout, new FrameLayout.LayoutParams(-1, -2));
-            c();
+            b();
         }
     }
 }

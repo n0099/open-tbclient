@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface tw1 {
-    String[] a();
+    String a();
 
-    boolean b();
+    String b();
 
-    String c();
+    String getAppName();
+
+    String getSchemeHeader();
 }

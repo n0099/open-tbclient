@@ -1,29 +1,76 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetSugTopic.TopicList;
-import tbclient.GetSugTopic.TopicListModule;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class eb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<fb8> c;
-    public List<hb8> d;
+    public BaseActivity<?> a;
+    public SparseArray<String> b;
 
-    public eb8() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ eb8 b;
+
+        public a(eb8 eb8Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eb8Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = eb8Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                AndroidUtils.copyToClipboard(this.a.linkUrl);
+                BdUtilHelper.showToast(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    public eb8(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,81 +80,86 @@ public class eb8 {
                 return;
             }
         }
-        this.b = -1;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
+        this.b = null;
+        this.a = baseActivity;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void b(ShareItem shareItem, String str, long j, String str2) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
+                if (str.length() > 20) {
+                    sb.append(str.substring(0, 20));
+                    sb.append("...");
+                } else {
+                    sb.append(str);
+                }
+                sb.append(StringUtils.lineSeparator);
+            }
+            if (j > 0) {
+                sb.append(this.a.getActivity().getString(R.string.topic_temperature));
+                sb.append(StringHelper.numFormatOver10000(j));
+            }
+            shareItem.shareH5CardOptimizeContent = sb.toString();
+            if (StringUtils.isNull(str2)) {
+                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+            } else {
+                parse = Uri.parse(str2);
+            }
+            shareItem.shareH5CardOptimizeImageUri = parse;
         }
-        return (String) invokeV.objValue;
     }
 
-    public List<fb8> b() {
+    public final SparseArray<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<hb8> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.b == null) {
+                SparseArray<String> sparseArray = new SparseArray<>(8);
+                this.b = sparseArray;
+                sparseArray.put(2, "topic_wx_timeline");
+                this.b.put(3, "topic_wx_friend");
+                this.b.put(4, "topic_qq_zone");
+                this.b.put(5, "topic_tencent_weibo");
+                this.b.put(6, "topic_sina_weibo");
+            }
             return this.b;
         }
-        return invokeV.intValue;
+        return (SparseArray) invokeV.objValue;
     }
 
-    public void d(TopicListModule topicListModule) {
+    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) && topicListModule != null) {
-            this.a = topicListModule.module_title;
-            List<TopicList> list = topicListModule.topic_list;
-            if (list == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (TextUtils.isEmpty(str) && z) {
+                BaseActivity<?> baseActivity = this.a;
+                baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
                 return;
             }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                fb8 fb8Var = new fb8();
-                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
-                if (topicList != null) {
-                    fb8Var.c(topicList);
-                    if (!di.isEmptyStringAfterTrim(fb8Var.b())) {
-                        this.c.add(fb8Var);
-                        this.d.add(new hb8(topicList));
-                    }
-                }
+            if (StringUtils.isNull(str3)) {
+                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
             }
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
+            if (StringUtils.isNull(str4)) {
+                parse = null;
+            } else {
+                parse = Uri.parse(str4);
+            }
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = str2;
+            shareItem.content = str5;
+            shareItem.linkUrl = str3;
+            shareItem.isFromShareFrs = true;
+            shareItem.extData = str;
+            shareItem.imageUri = parse;
+            shareItem.isFromTopicDetail = true;
+            b(shareItem, str5, j, str6);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setIsCopyLink(true);
+            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.provider.Settings;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wr4 implements rr4<String> {
+public class wr4 implements vr4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -34,7 +34,7 @@ public class wr4 implements rr4<String> {
         this.a = context.getApplicationContext();
     }
 
-    @Override // com.baidu.tieba.rr4
+    @Override // com.baidu.tieba.vr4
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,51 +45,26 @@ public class wr4 implements rr4<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rr4
+    @Override // com.baidu.tieba.vr4
     /* renamed from: b */
     public String get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!zr4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-                return null;
-            }
-            try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
-            } catch (Exception unused) {
-                return null;
-            }
+            return PreferenceManager.getDefaultSharedPreferences(this.a).getString("uuid_identity", null);
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rr4
-    /* renamed from: d */
+    @Override // com.baidu.tieba.vr4
+    /* renamed from: c */
     public void put(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !zr4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-            return;
-        }
-        try {
-            Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
-        } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
+            edit.putString("uuid_identity", str);
+            edit.apply();
         }
     }
 }

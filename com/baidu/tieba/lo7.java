@@ -1,125 +1,76 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.us6;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class lo7 extends h55 {
+/* loaded from: classes6.dex */
+public class lo7 extends BaseCardInfo implements cn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ko7 c;
-    public final FrsSpriteGuideTipController d;
+    public ThreadData a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lo7(Activity activity, ko7 ko7Var, FrsSpriteGuideTipController frsSpriteGuideTipController) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, ko7Var, frsSpriteGuideTipController};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949685, "Lcom/baidu/tieba/lo7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947949685, "Lcom/baidu/tieba/lo7;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.c = ko7Var;
-        this.d = frsSpriteGuideTipController;
+        b = BdUniqueId.gen();
     }
 
-    public static final void g(lo7 this$0) {
+    public lo7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    public static final void h(lo7 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.h55
-    public void d(h55.a shouldShowCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shouldShowCallback) == null) {
-            Intrinsics.checkNotNullParameter(shouldShowCallback, "shouldShowCallback");
-            shouldShowCallback.callback(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.h55
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ko7 ko7Var = this.c;
-            if (ko7Var != null) {
-                ko7Var.o();
-            }
-            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
-            if (frsSpriteGuideTipController != null) {
-                frsSpriteGuideTipController.g();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.h55
-    public void e() {
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            DefaultLog.getInstance().i("FrsGuide", "开始显示frs吧引导");
-            ko7 ko7Var = this.c;
-            if (ko7Var != null) {
-                DefaultLog.getInstance().i("FrsGuide", "展示线上吧引导样式");
-                ko7Var.t(new us6.e() { // from class: com.baidu.tieba.fo7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
-                    @Override // com.baidu.tieba.us6.e
-                    public final void onDismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            lo7.g(lo7.this);
-                        }
-                    }
-                });
-                ko7Var.w();
-            }
-            FrsSpriteGuideTipController frsSpriteGuideTipController = this.d;
-            if (frsSpriteGuideTipController != null) {
-                DefaultLog.getInstance().i("FrsGuide", "展示精灵吧引导样式");
-                frsSpriteGuideTipController.j(new us6.e() { // from class: com.baidu.tieba.ho7
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 
-                    @Override // com.baidu.tieba.us6.e
-                    public final void onDismiss() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            lo7.h(lo7.this);
-                        }
-                    }
-                });
-                frsSpriteGuideTipController.l();
-            }
+    public void c(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a = threadData;
         }
     }
 }

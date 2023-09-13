@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.asb;
+import com.baidu.tieba.zub;
 /* loaded from: classes9.dex */
-public class TrackableBase implements asb {
+public class TrackableBase implements zub {
     public final long a;
     public final Session b;
 

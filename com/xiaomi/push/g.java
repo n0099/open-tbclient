@@ -26,7 +26,7 @@ public class g {
         Map<String, String> a(Context context, String str);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m521a(Context context, String str);
+        boolean m522a(Context context, String str);
 
         boolean b(Context context, String str);
     }
@@ -39,14 +39,14 @@ public class g {
         
 
         /* renamed from: a  reason: collision with other field name */
-        public final int f427a;
+        public final int f426a;
 
         b(int i) {
-            this.f427a = i;
+            this.f426a = i;
         }
 
         public int a() {
-            return this.f427a;
+            return this.f426a;
         }
     }
 
@@ -79,30 +79,30 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m513a(Context context, String str) {
+    public static ApplicationInfo m514a(Context context, String str) {
         if (str.equals(context.getPackageName())) {
             return context.getApplicationInfo();
         }
         try {
             return context.getPackageManager().getApplicationInfo(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("not found app info " + str);
+            com.xiaomi.channel.commonutils.logger.b.m181a("not found app info " + str);
             return null;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m514a(Context context, String str) {
-        ApplicationInfo m513a = m513a(context, str);
+    public static Drawable m515a(Context context, String str) {
+        ApplicationInfo m514a = m514a(context, str);
         Drawable drawable = null;
-        if (m513a != null) {
+        if (m514a != null) {
             try {
-                drawable = m513a.loadIcon(context.getPackageManager());
+                drawable = m514a.loadIcon(context.getPackageManager());
                 if (drawable == null) {
-                    drawable = m513a.loadLogo(context.getPackageManager());
+                    drawable = m514a.loadLogo(context.getPackageManager());
                 }
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m180a("get app icon drawable failed, " + e);
+                com.xiaomi.channel.commonutils.logger.b.m181a("get app icon drawable failed, " + e);
             }
         }
         return drawable != null ? drawable : new ColorDrawable(0);
@@ -127,7 +127,7 @@ public class g {
                 return bool.booleanValue() ? b.ALLOWED : b.NOT_ALLOWED;
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("are notifications enabled error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a("are notifications enabled error " + e);
         }
         return b.UNKNOWN;
     }
@@ -143,7 +143,7 @@ public class g {
             applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
             a2 = a(context, applicationInfo);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("get app op error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m181a("get app op error " + th);
         }
         if (a2 != b.UNKNOWN) {
             return a2;
@@ -174,7 +174,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m515a(Context context, String str) {
+    public static String m516a(Context context, String str) {
         PackageInfo packageInfo;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
@@ -185,7 +185,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Map<String, String> m516a(Context context, String str) {
+    public static Map<String, String> m517a(Context context, String str) {
         a aVar = a;
         if (aVar == null) {
             return null;
@@ -194,7 +194,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m517a(Context context) {
+    public static boolean m518a(Context context) {
         String a2 = a();
         if (TextUtils.isEmpty(a2) || context == null) {
             return false;
@@ -203,28 +203,28 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m518a(Context context, String str) {
+    public static boolean m519a(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (j.m710a()) {
+        if (j.m711a()) {
             a aVar = a;
-            return aVar != null && aVar.m521a(context, str);
+            return aVar != null && aVar.m522a(context, str);
         }
         return context.getPackageName().equals(str);
     }
 
     public static int b(Context context, String str) {
-        ApplicationInfo m513a = m513a(context, str);
-        if (m513a != null) {
-            int i = m513a.icon;
-            return i == 0 ? m513a.logo : i;
+        ApplicationInfo m514a = m514a(context, str);
+        if (m514a != null) {
+            int i = m514a.icon;
+            return i == 0 ? m514a.logo : i;
         }
         return 0;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m519b(Context context, String str) {
+    public static String m520b(Context context, String str) {
         ApplicationInfo applicationInfo;
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -236,7 +236,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m520b(Context context, String str) {
+    public static boolean m521b(Context context, String str) {
         a aVar = a;
         return aVar != null && aVar.b(context, str);
     }

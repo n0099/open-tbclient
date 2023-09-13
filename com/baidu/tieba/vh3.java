@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.aw2;
+import com.baidu.searchbox.downloads.DownloadConstants;
+import com.baidu.tieba.ew2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vh3 {
+public class vh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static volatile boolean c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,135 +33,184 @@ public final class vh3 {
                 return;
             }
         }
-        boolean z = nr1.a;
-        a = 0;
+        a = rr1.a;
+        b = false;
+        c = false;
+        ou2.g0().getSwitch("swan_app_use_route_statistic", false);
+        d = false;
     }
 
-    public static int c() {
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
+            }
+            boolean z = c;
+            k(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
+            }
+            boolean z = b;
+            l(false);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+            return b;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public static void a(JSONObject jSONObject) {
+    public static void d(h13 h13Var, String str, yx1 yx1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, h13Var, str, yx1Var) == null) {
+            e(h13Var, str, yx1Var, null);
+        }
+    }
+
+    public static void e(h13 h13Var, String str, yx1 yx1Var, String str2) {
+        hb3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65541, null, h13Var, str, yx1Var, str2) != null) || !d || (b0 = hb3.b0()) == null) {
             return;
         }
-        aw2.a W = cb3.K().q().W();
-        String i = ik3.i(W.j0(), W.G());
-        if (!jSONObject.has("appid")) {
-            do3.f(jSONObject, "appid", W.H());
+        ew2.a W = b0.W();
+        ki3 ki3Var = new ki3();
+        ki3Var.a = ai3.n(W.G());
+        ki3Var.f = W.H();
+        if (y82.d()) {
+            ki3Var.c = "remote-debug";
+        } else if (g73.D()) {
+            ki3Var.c = "local-debug";
+        } else {
+            ki3Var.c = W.T();
         }
-        if (!jSONObject.has("swan")) {
-            do3.f(jSONObject, "swan", i);
+        ki3Var.b = "pageshow";
+        if (!TextUtils.isEmpty(str)) {
+            ki3Var.e = str;
         }
-        if (!jSONObject.has("appversion")) {
-            do3.f(jSONObject, "appversion", W.v1());
+        if (h13Var != null) {
+            ki3Var.a("path", h13Var.a);
+            ki3Var.a("routeType", h13Var.e);
+            ki3Var.a("routeid", h13Var.f);
         }
-        if (!jSONObject.has("swanNativeVersion")) {
-            do3.f(jSONObject, "swanNativeVersion", or1.a());
+        if (!TextUtils.isEmpty(str2)) {
+            ki3Var.a(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, str2);
         }
-        if (!jSONObject.has("thirdversion")) {
-            do3.f(jSONObject, "thirdversion", W.w1());
+        if (yx1Var != null && yx1Var.c > 0) {
+            ki3Var.a("valuetype", yx1Var.g);
         }
-        if (cb3.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
-            do3.f(jSONObject, "isWebDowngrade", "1");
+        Bundle P = W.P();
+        if (P != null) {
+            ki3Var.d(P.getString("ubc"));
         }
+        ki3Var.b(ai3.k(W.W()));
+        if (a) {
+            Log.d("SwanAppRouteUbc", "onRouteEvent - " + ki3Var.f());
+        }
+        ai3.onEvent(ki3Var);
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static h13 f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
+            qa2 U = uw2.T().U();
+            h13 h13Var = null;
+            if (U == null) {
+                return null;
             }
-            String o = vo3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
+            na2 j = U.j((U.k() - i) - 1);
+            if (j instanceof pa2) {
+                h13Var = ((pa2) j).o3();
+                h13Var.e = "1";
+                h13Var.f = str;
             }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = vo3.i(o, hashSet);
-            String f = vo3.f(str);
-            return f + "?" + i;
+            g(h13Var);
+            return h13Var;
         }
-        return (String) invokeL.objValue;
+        return (h13) invokeLI.objValue;
     }
 
-    public static void d(int i) {
+    public static void g(h13 h13Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
-        }
-    }
-
-    public static <EvenT extends fi3> EvenT f(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(cb3.K().q().F0() ? 1 : 0));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends fi3> EvenT g(EvenT event) {
-        InterceptResult invokeL;
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            if (c() == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(65543, null, h13Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
             }
-            if (z) {
-                str = "2";
-            } else {
-                str = "1";
+            if (!c()) {
+                k(true);
+                d(h13Var, null, null);
             }
-            e(event, "launchType", str);
-            return event;
         }
-        return (EvenT) invokeL.objValue;
     }
 
-    public static <EvenT extends fi3> EvenT h(EvenT event) {
-        InterceptResult invokeL;
+    public static void h(h13 h13Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(cb3.K().q().E0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends fi3> EvenT i(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(xh2.B0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends fi3> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
+        if (interceptable == null || interceptable.invokeL(65544, null, h13Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
             }
-            return event;
+            d(h13Var, null, null);
         }
-        return (EvenT) invokeLLL.objValue;
+    }
+
+    public static void i(h13 h13Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, h13Var) == null) {
+            j(h13Var, null);
+        }
+    }
+
+    public static synchronized void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            synchronized (vh3.class) {
+                c = z;
+            }
+        }
+    }
+
+    public static synchronized void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
+            synchronized (vh3.class) {
+                b = z;
+            }
+        }
+    }
+
+    public static void j(h13 h13Var, an3 an3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, h13Var, an3Var) == null) {
+            if (a) {
+                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + h13Var + " errCode=" + an3Var);
+            }
+            if (c) {
+                if (an3Var == null) {
+                    an3Var = new an3();
+                    an3Var.k(5L);
+                    an3Var.i(58L);
+                    an3Var.d("route check fail");
+                }
+                e(h13Var, "fail", null, String.valueOf(an3Var.a()));
+            }
+        }
     }
 }

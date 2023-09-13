@@ -1,7 +1,6 @@
 package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.util.io.ZipUtils;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -51,9 +50,9 @@ public final class bk {
         BufferedInputStream bufferedInputStream;
         File[] listFiles;
         if (zipOutputStream == null || file == null) {
-            com.kwad.sdk.core.e.b.e(ZipUtils.TAG, "", new IOException("(dozip:179) I/O Object got NullPointerException"));
+            com.kwad.sdk.core.e.b.e("ZipUtils", "", new IOException("(dozip:179) I/O Object got NullPointerException"));
         } else if (!file.exists()) {
-            com.kwad.sdk.core.e.b.e(ZipUtils.TAG, file.toString(), new FileNotFoundException("(doZip:142)Target File is missing"));
+            com.kwad.sdk.core.e.b.e("ZipUtils", file.toString(), new FileNotFoundException("(doZip:142)Target File is missing"));
         } else {
             BufferedInputStream bufferedInputStream2 = null;
             String eb = TextUtils.isEmpty(str) ? eb(file.getName()) : str + File.separator + eb(file.getName());
@@ -84,7 +83,7 @@ public final class bk {
             } catch (IOException e2) {
                 e = e2;
                 bufferedInputStream2 = bufferedInputStream;
-                com.kwad.sdk.core.e.b.e(ZipUtils.TAG, "error doZip", e);
+                com.kwad.sdk.core.e.b.e("ZipUtils", "error doZip", e);
                 com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream2);
                 throw e;
             }
@@ -106,7 +105,7 @@ public final class bk {
                     } catch (IOException e) {
                         e = e;
                         aVar = aVar2;
-                        com.kwad.sdk.core.e.b.e(ZipUtils.TAG, "error zip", e);
+                        com.kwad.sdk.core.e.b.e("ZipUtils", "error zip", e);
                         com.kwad.sdk.crash.utils.b.closeQuietly(aVar);
                         return false;
                     } catch (Throwable th) {
@@ -201,7 +200,7 @@ public final class bk {
                                     }
                                 } catch (IOException e3) {
                                     e = e3;
-                                    com.kwad.sdk.core.e.b.e(ZipUtils.TAG, "error unZip when write", e);
+                                    com.kwad.sdk.core.e.b.e("ZipUtils", "error unZip when write", e);
                                     closeable = fileOutputStream;
                                     com.kwad.sdk.crash.utils.b.closeQuietly(closeable);
                                     zipInputStream.closeEntry();
@@ -224,7 +223,7 @@ public final class bk {
         } catch (IOException e5) {
             e = e5;
             zipInputStream2 = zipInputStream;
-            com.kwad.sdk.core.e.b.e(ZipUtils.TAG, "error unZip", e);
+            com.kwad.sdk.core.e.b.e("ZipUtils", "error unZip", e);
             com.kwad.sdk.crash.utils.b.closeQuietly(zipInputStream2);
             com.kwad.sdk.crash.utils.b.closeQuietly(bufferedInputStream);
             return false;

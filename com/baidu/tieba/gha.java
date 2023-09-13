@@ -1,236 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdPageContextSupport;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWorkErr;
-import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.ic5;
-import com.baidu.tieba.s45;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import tbclient.LinkInfo;
 /* loaded from: classes6.dex */
 public class gha {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static List<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements s45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s45 a;
-        public final /* synthetic */ ic5 b;
-
-        public a(s45 s45Var, ic5 ic5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s45Var, ic5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s45Var;
-            this.b = ic5Var;
-        }
-
-        @Override // com.baidu.tieba.s45.e
-        public void onClick(s45 s45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
-                this.a.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.b));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements s45.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s45 a;
-
-        public b(s45 s45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s45Var;
-        }
-
-        @Override // com.baidu.tieba.s45.e
-        public void onClick(s45 s45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void a(String str);
-
-        public abstract void c(String str);
-
-        public abstract void d();
-
-        public abstract void e();
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void b(ic5.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (cVar != null && cVar.a) {
-                    if (cVar instanceof ic5.a) {
-                        a(((ic5.a) cVar).b);
-                        return;
-                    } else if (cVar instanceof ic5.b) {
-                        c(((ic5.b) cVar).b);
-                        return;
-                    } else {
-                        e();
-                        return;
-                    }
-                }
-                d();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947795305, "Lcom/baidu/tieba/gha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947795305, "Lcom/baidu/tieba/gha;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-        b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
-    }
-
-    public static boolean a(int i, AuthTokenData authTokenData, c cVar) {
-        InterceptResult invokeILL;
+    public gha() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, authTokenData, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i != 3250020 && i != 3250021) || (authTokenData != null && !TextUtils.isEmpty(authTokenData.getAuthToken()))) {
-                    return c(i, authTokenData.getAuthToken(), cVar);
-                }
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeILL.booleanValue;
     }
 
-    public static boolean b(int i, String str, c cVar) {
-        InterceptResult invokeILL;
+    public String getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, str, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i != 3250020 && i != 3250021) || !TextUtils.isEmpty(str)) {
-                    return c(i, str, cVar);
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeILL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(int i, String str, c cVar) {
-        InterceptResult invokeILL;
-        ic5 a2;
+    public void a(LinkInfo linkInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, null, i, str, cVar)) == null) {
-            if (!a.compareAndSet(false, true)) {
-                return false;
-            }
-            String.valueOf(System.currentTimeMillis());
-            if (i == 3250022) {
-                ic5 d = ic5.d();
-                d.g(cVar);
-                if (cVar != null) {
-                    cVar.d();
-                }
-                if (TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                    s45 s45Var = new s45(TbadkCoreApplication.getInst().getCurrentActivity());
-                    s45Var.setMessageId(R.string.anti_account_modifypwd_tip);
-                    s45Var.setPositiveButton(R.string.modify_pwd, new a(s45Var, d));
-                    s45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new b(s45Var));
-                    if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof BdPageContextSupport) {
-                        s45Var.create(((BdPageContextSupport) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        s45Var.show();
-                    }
-                }
-            } else {
-                if (i == 3250017) {
-                    a2 = ic5.b();
-                } else if (i == 3250023) {
-                    a2 = ic5.c();
-                } else if (i == 3250024) {
-                    a2 = new ic5(4, null);
-                } else {
-                    a2 = ic5.a(str);
-                }
-                a2.g(cVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a2));
-            }
-            a.set(false);
-            return true;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, linkInfo) != null) || linkInfo == null) {
+            return;
         }
-        return invokeILL.booleanValue;
+        String str = linkInfo.desc;
+        String str2 = linkInfo.link;
+        this.a = linkInfo.type;
     }
 }

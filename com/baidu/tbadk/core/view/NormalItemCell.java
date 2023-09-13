@@ -128,7 +128,7 @@ public class NormalItemCell extends ConstraintLayout {
                 }
                 textView.setHint(charSequence);
             }
-            f();
+            e();
         }
     }
 
@@ -172,7 +172,7 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        b(context);
+        c(context);
     }
 
     private void setupDivider(int i2) {
@@ -198,35 +198,35 @@ public class NormalItemCell extends ConstraintLayout {
         }
     }
 
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e.setVisibility(0);
+        }
+    }
+
     public String getSubTitleContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.e.setVisibility(0);
-        }
-    }
-
-    public final void b(Context context) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.normal_item_cell_layout, this);
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922fc);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09233c);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902cd);
         }
     }
 
-    public void e() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
@@ -246,11 +246,11 @@ public class NormalItemCell extends ConstraintLayout {
             if (aVar2 != null && aVar2.a != -1) {
                 EMManager.from(this.d).setCorner(R.string.J_X06).setBackGroundColor(this.f.a);
             }
-            f();
+            e();
         }
     }
 
-    public final void f() {
+    public final void e() {
         int i2;
         Drawable pureDrawable;
         Interceptable interceptable = $ic;

@@ -1,26 +1,106 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.bdeventbus.Action;
+import com.baidu.searchbox.bdeventbus.BdEventBus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialConstants;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class z19 {
+import java.util.Objects;
+/* loaded from: classes9.dex */
+public class z19 extends bl1<ju6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Rect b;
-    public String c;
-    public Rect d;
+
+    /* loaded from: classes9.dex */
+    public static class a implements ju6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final BdEventBus b;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-282503414, "Lcom/baidu/tieba/z19$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-282503414, "Lcom/baidu/tieba/z19$a;");
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.b = BdEventBus.Companion.getDefault();
+        }
+
+        @Override // com.baidu.tieba.ju6
+        public <T extends iu6> void a(@NonNull Object obj, @NonNull final ku6<T> ku6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, ku6Var) == null) {
+                if (obj instanceof gu6) {
+                    y19.a((gu6) obj);
+                    this.b.unregister(obj);
+                }
+                BdEventBus bdEventBus = this.b;
+                Class<T> a = ku6Var.a();
+                Objects.requireNonNull(ku6Var);
+                bdEventBus.register(obj, a, new Action() { // from class: com.baidu.tieba.x19
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.searchbox.bdeventbus.Action
+                    public final void call(Object obj2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {
+                            ku6.this.onEvent((iu6) obj2);
+                        }
+                    }
+                });
+            }
+        }
+
+        @Override // com.baidu.tieba.ju6
+        public <T extends iu6> void b(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && t != null) {
+                this.b.post(t);
+            }
+        }
+
+        @Override // com.baidu.tieba.ju6
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                if (obj instanceof gu6) {
+                    y19.d((gu6) obj);
+                }
+                this.b.unregister(obj);
+            }
+        }
+    }
 
     public z19() {
         Interceptable interceptable = $ic;
@@ -32,119 +112,19 @@ public class z19 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = "";
-        this.b = new Rect(0, 0, 0, 0);
-        this.c = "";
-        this.d = new Rect(0, 0, 0, 0);
-    }
-
-    public z19(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("pic_url");
-        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
-            if (optJSONArray == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
-                if (jSONObject == null) {
-                    return;
-                }
-                this.c = jSONObject.optString("pic_url");
-                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 
-    public static z19 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new z19();
-            }
-            try {
-                return new z19(new JSONObject(str));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return new z19();
-            }
-        }
-        return (z19) invokeL.objValue;
-    }
-
-    public boolean b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl1
+    /* renamed from: a */
+    public ju6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !this.d.isEmpty()) {
-                return true;
-            }
-            return false;
+            return new a();
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !this.b.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!c()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("pic_url", this.a);
-                jSONObject.put("rect_left", this.b.left);
-                jSONObject.put("rect_top", this.b.top);
-                jSONObject.put("rect_right", this.b.right);
-                jSONObject.put("rect_bottom", this.b.bottom);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
+        return (ju6) invokeV.objValue;
     }
 }

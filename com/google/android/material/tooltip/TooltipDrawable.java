@@ -31,7 +31,7 @@ import com.google.android.material.shape.OffsetEdgeTreatment;
 /* loaded from: classes9.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     @StyleRes
-    public static final int DEFAULT_STYLE = 2131755951;
+    public static final int DEFAULT_STYLE = 2131755959;
     @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130970528;
     public int arrowSize;
@@ -261,7 +261,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
 
     private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, R.styleable.Tooltip, i, i2, new int[0]);
-        this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07063c);
+        this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070641);
         setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
         setText(obtainStyledAttributes.getText(5));
         setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));

@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.ie5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.push.PushGeneralData;
+import com.baidu.tieba.re5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -139,7 +139,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
                     MutiProcessManager.publishEvent(pushRecevierEvent);
-                } else if (!ie5.O()) {
+                } else if (!re5.O()) {
                     int i2 = JavaTypesHelper.toInt(str6, 2500);
                     if (i2 < 2500) {
                         i2 += 2500;

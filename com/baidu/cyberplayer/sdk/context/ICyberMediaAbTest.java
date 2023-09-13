@@ -7,6 +7,8 @@ import org.json.JSONObject;
 public interface ICyberMediaAbTest {
     JSONObject getRawSwitch();
 
+    String getSid();
+
     double getSwitch(String str, double d);
 
     int getSwitch(String str, int i);

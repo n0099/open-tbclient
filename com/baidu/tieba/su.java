@@ -1,132 +1,52 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.tieba.tu;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes8.dex */
-public final class su implements tu {
+public final class su implements os {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uu a;
-    public final com.baidu.bdtask.strategy.e b;
+    public final gp a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448317323, "Lcom/baidu/tieba/su;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448317323, "Lcom/baidu/tieba/su;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final su a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new su(null);
-            }
-            return (su) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    public su() {
+    public su(gp gpVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gpVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new uu();
-        this.b = new com.baidu.bdtask.strategy.e();
+        this.a = gpVar;
     }
 
-    public /* synthetic */ su(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.tu
-    public void a(SubTaskState subTaskState) {
+    @Override // com.baidu.tieba.os
+    public ms a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            tu.a.c(this, subTaskState);
-            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
-                this.a.a(subTaskState);
-            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.b.a(subTaskState);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.l();
         }
+        return (ms) invokeV.objValue;
     }
 
-    public void c(SubTaskState subTaskState) {
+    @Override // com.baidu.tieba.os
+    public ns b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
-                this.a.c(subTaskState);
-            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.b.c(subTaskState);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.s();
         }
-    }
-
-    @Override // com.baidu.tieba.tu
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
-            if (taskInfo.isInitiActiveTask()) {
-                return this.a.b(taskInfo, i);
-            }
-            if (taskInfo.isPassiveTask()) {
-                return this.b.b(taskInfo, i);
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
+        return (ns) invokeV.objValue;
     }
 }

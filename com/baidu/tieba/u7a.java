@@ -1,123 +1,191 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class u7a {
     public static /* synthetic */ Interceptable $ic;
+    public static u7a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, String> a;
 
-    public static void a(int i, ShareEntity shareEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
-            int i2 = 6;
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 6) {
-                            if (i != 8) {
-                                i2 = 0;
-                            } else {
-                                i2 = 5;
-                            }
-                        }
-                    } else {
-                        i2 = 4;
-                    }
-                } else {
-                    i2 = 2;
-                }
-            } else {
-                i2 = 3;
-            }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                statisticItem.param("tid", stats.getString("tid"));
-                statisticItem.param("uid", stats.getString("uid"));
-                statisticItem.param("fid", stats.getString("fid"));
-            }
-            TiebaStatic.log(statisticItem);
-        }
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a(HashMap<String, String> hashMap);
     }
 
-    public static void b(int i, ShareEntity shareEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, shareEntity) == null) {
-            if (shareEntity != null && GroupInfoData.isValidGroup(shareEntity.groupData)) {
-                mi8.c(shareEntity.groupData, null, shareEntity.shareMediaType);
-            }
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-            int i2 = 6;
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 6) {
-                            if (i != 8) {
-                                i2 = 0;
-                            } else {
-                                i2 = 5;
-                            }
-                        }
-                    } else {
-                        i2 = 4;
-                    }
-                } else {
-                    i2 = 2;
-                }
-            } else {
-                i2 = 3;
-            }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                int i3 = stats.getInt("obj_param1");
-                if (i3 != 0) {
-                    statisticItem.param("obj_param1", i3);
-                    if (i3 == 2) {
-                        statisticItem.param("fid", stats.getString("fid"));
-                    } else if (i3 == 3) {
-                        int i4 = stats.getInt("obj_type");
-                        if (i4 != 0) {
-                            statisticItem.param("obj_type", i4);
-                        }
-                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
-                    }
-                }
-                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
-                if (!di.isEmpty(string)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
-                }
-                int i5 = stats.getInt("obj_locate");
-                int i6 = stats.getInt("source", 0);
-                if (i6 == 10 || i6 == 16 || i6 == 3 || i6 == 14) {
-                    i5 = i6;
-                }
-                statisticItem.param("obj_locate", i5);
-                if (i6 == 15) {
+    /* loaded from: classes8.dex */
+    public class a extends xx5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u7a a;
+
+        public a(u7a u7aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u7aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            TiebaStatic.log(statisticItem);
+            this.a = u7aVar;
+        }
+
+        @Override // com.baidu.tieba.xx5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Reader reader;
+            Throwable th;
+            InputStream inputStream;
+            BufferedReader bufferedReader;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    try {
+                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                String[] split = readLine.split(",");
+                                if (split.length == 2 && split[0] != null && split[1] != null) {
+                                    this.a.a.put(split[0], split[1]);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                BdCloseHelper.close(inputStream);
+                                BdCloseHelper.close((Reader) bufferedReader);
+                                return null;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        reader = null;
+                        th = th3;
+                        BdCloseHelper.close(inputStream);
+                        BdCloseHelper.close(reader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    inputStream = null;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    reader = null;
+                    th = th4;
+                    inputStream = null;
+                }
+                BdCloseHelper.close(inputStream);
+                BdCloseHelper.close((Reader) bufferedReader);
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements cx5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ u7a b;
+
+        public b(u7a u7aVar, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u7aVar, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = u7aVar;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.cx5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.a(this.b.a);
+            }
+        }
+    }
+
+    public u7a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        new HashMap();
+    }
+
+    public static u7a c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (u7a.class) {
+                    if (b == null) {
+                        b = new u7a();
+                    }
+                }
+            }
+            return b;
+        }
+        return (u7a) invokeV.objValue;
+    }
+
+    public void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (!this.a.isEmpty()) {
+                cVar.a(this.a);
+            } else {
+                by5.b(new a(this), new b(this, cVar));
+            }
         }
     }
 }

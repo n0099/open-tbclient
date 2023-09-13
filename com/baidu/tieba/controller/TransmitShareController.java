@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bw5;
-import com.baidu.tieba.ps6;
+import com.baidu.tieba.tt6;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class TransmitShareController implements ps6.a {
+public class TransmitShareController implements tt6.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_ENTERFORUM = 1;
     public static final int FROM_SELECTFORUM = 2;
@@ -34,9 +34,9 @@ public class TransmitShareController implements ps6.a {
     public boolean isSelectForumDataLoaded;
     public ArrayList<TransmitForumData> mEnterForumData;
     public ArrayList<TransmitForumData> mForumList;
-    public ps6 mGetEnterForumDataController;
+    public tt6 mGetEnterForumDataController;
     public int mPrivateThread;
-    public ps6 mSelectForumController;
+    public tt6 mSelectForumController;
     public ArrayList<TransmitForumData> mSelectForumData;
 
     static {
@@ -86,13 +86,13 @@ public class TransmitShareController implements ps6.a {
     private void initGetEnterForumController() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), ps6.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), tt6.class);
             if (runTask != null) {
-                this.mGetEnterForumDataController = (ps6) runTask.getData();
+                this.mGetEnterForumDataController = (tt6) runTask.getData();
             }
-            ps6 ps6Var = this.mGetEnterForumDataController;
-            if (ps6Var != null) {
-                ps6Var.a(this);
+            tt6 tt6Var = this.mGetEnterForumDataController;
+            if (tt6Var != null) {
+                tt6Var.a(this);
             }
         }
     }
@@ -100,13 +100,13 @@ public class TransmitShareController implements ps6.a {
     private void initSelectForumController() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), ps6.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), tt6.class);
             if (runTask != null) {
-                this.mSelectForumController = (ps6) runTask.getData();
+                this.mSelectForumController = (tt6) runTask.getData();
             }
-            ps6 ps6Var = this.mSelectForumController;
-            if (ps6Var != null) {
-                ps6Var.a(this);
+            tt6 tt6Var = this.mSelectForumController;
+            if (tt6Var != null) {
+                tt6Var.a(this);
             }
         }
     }
@@ -156,13 +156,13 @@ public class TransmitShareController implements ps6.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.isLoading = true;
-            ps6 ps6Var = this.mSelectForumController;
-            if (ps6Var != null) {
-                ps6Var.b();
+            tt6 tt6Var = this.mSelectForumController;
+            if (tt6Var != null) {
+                tt6Var.b();
             }
-            ps6 ps6Var2 = this.mGetEnterForumDataController;
-            if (ps6Var2 != null) {
-                ps6Var2.b();
+            tt6 tt6Var2 = this.mGetEnterForumDataController;
+            if (tt6Var2 != null) {
+                tt6Var2.b();
             }
         }
     }
@@ -222,7 +222,7 @@ public class TransmitShareController implements ps6.a {
         }
     }
 
-    @Override // com.baidu.tieba.ps6.a
+    @Override // com.baidu.tieba.tt6.a
     public void callback(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
@@ -244,7 +244,7 @@ public class TransmitShareController implements ps6.a {
 
     public void showShareDialog(ShareDialogConfig shareDialogConfig) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareDialogConfig) != null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || bw5.a()) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareDialogConfig) != null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || xw5.a()) {
             return;
         }
         if (shareDialogConfig.showLocation) {

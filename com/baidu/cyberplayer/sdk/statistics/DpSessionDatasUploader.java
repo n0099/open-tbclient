@@ -3,11 +3,12 @@ package com.baidu.cyberplayer.sdk.statistics;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.cyberplayer.sdk.CyberGlobalSetting;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
+import com.baidu.cyberplayer.sdk.RC4;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.o;
 import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -16,97 +17,64 @@ import java.net.URL;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class DpSessionDatasUploader {
+    public static final int MAX_FILE_LENGTH = 10485760;
+    public static final int PLAY_SESSION_STAGE_TYPE_LIVE_SHOW = 24;
+    public static final int PLAY_SESSION_STAGE_TYPE_NORMAL = 1;
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
-    public static volatile DpSessionDatasUploader a;
-    public d b = new d();
-    public d c = new d("live_show_session");
+    public static final String T7_INIT = "t7_init";
+    public static final String TAG = "SessionDatasUploader";
+    public static final String UPLOAD_TYPE_LIVE_SHOW_STR = "&upload_type=tieba_live";
+    public static volatile DpSessionDatasUploader sInstance;
+    public DpStatFileWriter mPlaySessionFileWriter = new DpStatFileWriter();
+    public DpStatFileWriter mLiveSessionFileWriter = new DpStatFileWriter(DpStatFileWriter.PLAY_VIDEO_LIVE_SHOW_SESSION);
 
-    private void a() {
-        d dVar = this.b;
-        if (dVar != null) {
-            dVar.a();
+    private void checkAndUploadLogFile() {
+        DpStatFileWriter dpStatFileWriter = this.mPlaySessionFileWriter;
+        if (dpStatFileWriter != null) {
+            dpStatFileWriter.checkAndUploadLogFile();
         }
-        d dVar2 = this.c;
-        if (dVar2 != null) {
-            dVar2.a();
+        DpStatFileWriter dpStatFileWriter2 = this.mLiveSessionFileWriter;
+        if (dpStatFileWriter2 != null) {
+            dpStatFileWriter2.checkAndUploadLogFile();
         }
     }
 
     @Keep
     public static DpSessionDatasUploader getInstance() {
-        if (a == null) {
+        if (sInstance == null) {
             synchronized (DpSessionDatasUploader.class) {
-                if (a == null) {
-                    a = new DpSessionDatasUploader();
+                if (sInstance == null) {
+                    sInstance = new DpSessionDatasUploader();
                 }
             }
         }
-        return a;
+        return sInstance;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, String str2, int i) {
-        String a2 = a(str2, i);
-        if (TextUtils.isEmpty(a2)) {
+    public void doUpload(String str, String str2, int i) {
+        String uploadUrl = getUploadUrl(str2, i);
+        if (TextUtils.isEmpty(uploadUrl)) {
             return;
         }
-        boolean cfgBoolValue = CyberCfgManager.getInstance().getCfgBoolValue("enable_session_gzip", true);
-        byte[] a3 = a(str.getBytes(), cfgBoolValue);
-        if (a3 == null && cfgBoolValue) {
-            a3 = a(str.getBytes(), false);
+        boolean cfgBoolValue = CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_SESSION_GZIP, true);
+        byte[] encodeUpdataDatas = encodeUpdataDatas(str.getBytes(), cfgBoolValue);
+        if (encodeUpdataDatas == null && cfgBoolValue) {
+            encodeUpdataDatas = encodeUpdataDatas(str.getBytes(), false);
             cfgBoolValue = false;
         }
-        if (!a(o.a(a3), a2, cfgBoolValue)) {
-            a(Base64.encode(o.a(a(str.getBytes(), false)), 2), i);
+        if (!sendStatisticsDataToServer(RC4.kernelEncrypt(encodeUpdataDatas), uploadUrl, cfgBoolValue)) {
+            writeStatisticsDataToFile(Base64.encode(RC4.kernelEncrypt(encodeUpdataDatas(str.getBytes(), false)), 2), i);
         } else {
-            a();
+            checkAndUploadLogFile();
         }
     }
 
-    private void a(byte[] bArr, int i) {
-        if (i == 24) {
-            d dVar = this.c;
-            if (dVar != null) {
-                dVar.a(bArr);
-                return;
-            }
-            return;
-        }
-        d dVar2 = this.b;
-        if (dVar2 != null) {
-            dVar2.a(bArr);
-        }
-    }
-
-    @Keep
-    public void upload(final String str, final String str2) {
-        if (com.baidu.cyberplayer.sdk.e.a().b()) {
-            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    DpSessionDatasUploader.this.a(str, str2, 1);
-                }
-            });
-        }
-    }
-
-    @Keep
-    public void uploadLibInitSession(final String str, final String str2) {
-        if (com.baidu.cyberplayer.sdk.e.a().c()) {
-            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    DpSessionDatasUploader.this.a(str, str2, 1);
-                }
-            });
-        }
-    }
-
-    public static byte[] a(byte[] bArr, boolean z) {
+    public static byte[] encodeUpdataDatas(byte[] bArr, boolean z) {
         if (z) {
             try {
-                return o.b(bArr);
+                return RC4.kernelGzipCompress(bArr);
             } catch (IOException e) {
                 e.printStackTrace();
                 return null;
@@ -115,23 +83,62 @@ public final class DpSessionDatasUploader {
         return Base64.encode(bArr, 2);
     }
 
-    public String a(String str, int i) {
-        String f = com.baidu.cyberplayer.sdk.e.a().f();
-        if (TextUtils.isEmpty(f)) {
+    private void writeStatisticsDataToFile(byte[] bArr, int i) {
+        if (i == 24) {
+            DpStatFileWriter dpStatFileWriter = this.mLiveSessionFileWriter;
+            if (dpStatFileWriter != null) {
+                dpStatFileWriter.writeStatisticsDataToFile(bArr);
+                return;
+            }
+            return;
+        }
+        DpStatFileWriter dpStatFileWriter2 = this.mPlaySessionFileWriter;
+        if (dpStatFileWriter2 != null) {
+            dpStatFileWriter2.writeStatisticsDataToFile(bArr);
+        }
+    }
+
+    @Keep
+    public void upload(final String str, final String str2) {
+        if (CyberGlobalSetting.getInstance().isStatisticsUploadEnable()) {
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    DpSessionDatasUploader.this.doUpload(str, str2, 1);
+                }
+            });
+        }
+    }
+
+    @Keep
+    public void uploadLibInitSession(final String str, final String str2) {
+        if (CyberGlobalSetting.getInstance().isLibInitSessionUploadEnable()) {
+            CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    DpSessionDatasUploader.this.doUpload(str, str2, 1);
+                }
+            });
+        }
+    }
+
+    public String getUploadUrl(String str, int i) {
+        String statisticsUploadServerUrl = CyberGlobalSetting.getInstance().getStatisticsUploadServerUrl();
+        if (TextUtils.isEmpty(statisticsUploadServerUrl)) {
             return null;
         }
-        String str2 = f + str;
+        String str2 = statisticsUploadServerUrl + str;
         if (i == 24) {
-            return str2 + "&upload_type=tieba_live";
+            return str2 + UPLOAD_TYPE_LIVE_SHOW_STR;
         }
         return str2;
     }
 
-    public void a(Context context) {
-        d dVar;
-        if (context != null && (dVar = this.b) != null && this.c != null) {
-            dVar.a(context);
-            this.c.a(context);
+    public void init(Context context) {
+        DpStatFileWriter dpStatFileWriter;
+        if (context != null && (dpStatFileWriter = this.mPlaySessionFileWriter) != null && this.mLiveSessionFileWriter != null) {
+            dpStatFileWriter.init(context);
+            this.mLiveSessionFileWriter.init(context);
         }
     }
 
@@ -157,13 +164,13 @@ public final class DpSessionDatasUploader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean a(byte[] bArr, String str, boolean z) {
+    public boolean sendStatisticsDataToServer(byte[] bArr, String str, boolean z) {
         int i;
         HttpURLConnection httpURLConnection;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        CyberLog.d("SessionDatasUploader", "sendStatisticsDataToServer called uploadUrl:" + ((String) str) + " isGzipCompressed:" + z);
+        CyberLog.d(TAG, "sendStatisticsDataToServer called uploadUrl:" + ((String) str) + " isGzipCompressed:" + z);
         OutputStream outputStream = null;
         i = -1;
         try {
@@ -182,7 +189,7 @@ public final class DpSessionDatasUploader {
                     outputStream.write(bArr);
                     outputStream.flush();
                     i = httpURLConnection.getResponseCode();
-                    CyberLog.d("SessionDatasUploader", "upload response : " + i);
+                    CyberLog.d(TAG, "upload response : " + i);
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -192,7 +199,7 @@ public final class DpSessionDatasUploader {
                     }
                 } catch (Error e2) {
                     e = e2;
-                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    CyberLog.e(TAG, "upload error " + e);
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -202,7 +209,7 @@ public final class DpSessionDatasUploader {
                     }
                 } catch (Exception e4) {
                     e = e4;
-                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    CyberLog.e(TAG, "upload error " + e);
                     if (outputStream != null) {
                         try {
                             outputStream.close();
@@ -251,16 +258,16 @@ public final class DpSessionDatasUploader {
 
     @Keep
     public void upload(final String str, final String str2, final int i) {
-        if (com.baidu.cyberplayer.sdk.e.a().b()) {
+        if (CyberGlobalSetting.getInstance().isStatisticsUploadEnable()) {
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!com.baidu.cyberplayer.sdk.e.a().d() || i != 24) {
-                        DpSessionDatasUploader.this.a(str, str2, 1);
+                    if (!CyberGlobalSetting.getInstance().isLiveUploadDoubleEnable() || i != 24) {
+                        DpSessionDatasUploader.this.doUpload(str, str2, 1);
                         return;
                     }
-                    DpSessionDatasUploader.this.a(str, str2, 24);
-                    DpSessionDatasUploader.this.a(str, str2, 1);
+                    DpSessionDatasUploader.this.doUpload(str, str2, 24);
+                    DpSessionDatasUploader.this.doUpload(str, str2, 1);
                 }
             });
         }

@@ -1,144 +1,153 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.TextureMapView;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class ng4 extends s62<TextureMapView, px2> {
+public class ng4 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
-    public String j;
-    public boolean k;
-    @NonNull
-    public TextureMapView l;
-    public Context m;
-    public List<mg4> n;
-    public List<lg4> o;
+    public int a;
+    public rg4 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ng4(@NonNull Context context, @NonNull px2 px2Var) {
-        super(context, px2Var);
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
+    public boolean onMyLocationClick() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001486, "Lcom/baidu/tieba/ng4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948001486, "Lcom/baidu/tieba/ng4;");
+                return;
+            }
+        }
+        boolean z = rr1.a;
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
+    public void onMapLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h82.i("map", "onMapLoaded");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
+    public void onMapRenderFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            mg4.d(this.b);
+            h82.i("map", "onMapRenderFinished");
+        }
+    }
+
+    public ng4(@NonNull rg4 rg4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, px2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {rg4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (t62) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.i = px2Var.c;
-        this.j = px2Var.b;
-        String str = px2Var.d;
-        this.m = context;
-        this.l = new TextureMapView(context);
-        this.k = px2Var.r;
+        this.a = 0;
+        this.b = rg4Var;
     }
 
-    public static ng4 K(Context context, px2 px2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, px2Var)) == null) {
-            if (context != null && px2Var != null && px2Var.isValid()) {
-                return new ng4(context, px2Var);
-            }
-            return null;
-        }
-        return (ng4) invokeLL.objValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (mg4 mg4Var : this.n) {
-                this.l.removeView(mg4Var.e);
-            }
-            this.n.clear();
-            for (lg4 lg4Var : this.o) {
-                this.l.removeView(lg4Var.b);
-            }
-            this.o.clear();
-            this.l.getMap().clear();
-        }
-    }
-
-    public lg4 G(View view2) {
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
+    public boolean onMarkerClick(Marker marker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            for (lg4 lg4Var : this.o) {
-                if (lg4Var.b == view2) {
-                    return lg4Var;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, marker)) == null) {
+            qg4 H = this.b.H(marker);
+            if (H != null) {
+                mg4.e(marker, this.b);
+                H.b(this.b);
+                h82.i("map", "onMarkerClick marker id " + marker.getId());
+                return true;
             }
-            return null;
+            return false;
         }
-        return (lg4) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Nullable
-    public mg4 H(Marker marker) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
-            for (mg4 mg4Var : this.n) {
-                if (marker == mg4Var.b) {
-                    return mg4Var;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            mg4.b(view2, this.b);
+            h82.i("map", "Control View click");
         }
-        return (mg4) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.s62
-    @NonNull
-    /* renamed from: J */
-    public TextureMapView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
+    public void onMapClick(LatLng latLng) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return this.l;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
+            mg4.c(this.b, latLng);
+            h82.i("map", "onMapClick LatLng " + latLng);
         }
-        return (TextureMapView) invokeL.objValue;
     }
 
-    public List<mg4> I(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChange(MapStatus mapStatus) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            for (mg4 mg4Var : this.n) {
-                xx2 xx2Var = mg4Var.a;
-                if (xx2Var != null && TextUtils.equals(str, xx2Var.a)) {
-                    arrayList.add(mg4Var);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mapStatus) == null) {
+            h82.i("map", "onMapStatusChange");
         }
-        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeFinish(MapStatus mapStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
+            mg4.f(this.b, mapStatus, this.a);
+            h82.i("map", "onMapStatusChangeFinish");
+        }
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, mapStatus, i) == null) {
+            this.a = i;
+        }
     }
 }

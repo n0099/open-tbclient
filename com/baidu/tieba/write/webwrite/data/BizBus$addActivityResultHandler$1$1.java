@@ -2,7 +2,7 @@ package com.baidu.tieba.write.webwrite.data;
 
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kza;
+import com.baidu.tieba.q1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public /* synthetic */ class BizBus$addActivityResultHandler$1$1 extends Functio
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BizBus$addActivityResultHandler$1$1(Object obj) {
-        super(2, obj, kza.class, "onResult", "onResult(ILandroid/content/Intent;)V", 0);
+        super(2, obj, q1b.class, "onResult", "onResult(ILandroid/content/Intent;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,7 +49,7 @@ public /* synthetic */ class BizBus$addActivityResultHandler$1$1 extends Functio
     public final void invoke(int i, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, intent) == null) {
-            ((kza) this.receiver).a(i, intent);
+            ((q1b) this.receiver).a(i, intent);
         }
     }
 }

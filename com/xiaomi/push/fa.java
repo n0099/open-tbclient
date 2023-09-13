@@ -10,16 +10,16 @@ import java.util.List;
 public class fa implements is<fa, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public String f353a;
+    public String f352a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<ez> f354a;
+    public List<ez> f353a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f355b;
+    public String f354b;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final ji f352a = new ji("StatsEvents");
+    public static final ji f351a = new ji("StatsEvents");
     public static final ja a = new ja("", Constants.GZIP_CAST_TYPE, 1);
     public static final ja b = new ja("", Constants.GZIP_CAST_TYPE, 2);
     public static final ja c = new ja("", (byte) 15, 3);
@@ -29,8 +29,8 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
 
     public fa(String str, List<ez> list) {
         this();
-        this.f353a = str;
-        this.f354a = list;
+        this.f352a = str;
+        this.f353a = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,21 +41,21 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (fa.class.equals(faVar.getClass())) {
-            int compareTo = Boolean.valueOf(m470a()).compareTo(Boolean.valueOf(faVar.m470a()));
+            int compareTo = Boolean.valueOf(m471a()).compareTo(Boolean.valueOf(faVar.m471a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m470a() || (a4 = it.a(this.f353a, faVar.f353a)) == 0) {
+            if (!m471a() || (a4 = it.a(this.f352a, faVar.f352a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(faVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
                 }
-                if (!b() || (a3 = it.a(this.f355b, faVar.f355b)) == 0) {
+                if (!b() || (a3 = it.a(this.f354b, faVar.f354b)) == 0) {
                     int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(faVar.c()));
                     if (compareTo3 != 0) {
                         return compareTo3;
                     }
-                    if (!c() || (a2 = it.a(this.f354a, faVar.f354a)) == 0) {
+                    if (!c() || (a2 = it.a(this.f353a, faVar.f353a)) == 0) {
                         return 0;
                     }
                     return a2;
@@ -68,14 +68,14 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
     }
 
     public fa a(String str) {
-        this.f355b = str;
+        this.f354b = str;
         return this;
     }
 
     public void a() {
-        if (this.f353a == null) {
+        if (this.f352a == null) {
             throw new je("Required field 'uuid' was not present! Struct: " + toString());
-        } else if (this.f354a != null) {
+        } else if (this.f353a != null) {
         } else {
             throw new je("Required field 'events' was not present! Struct: " + toString());
         }
@@ -83,31 +83,31 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo700a();
+        jdVar.mo701a();
         while (true) {
-            ja mo696a = jdVar.mo696a();
-            byte b2 = mo696a.a;
+            ja mo697a = jdVar.mo697a();
+            byte b2 = mo697a.a;
             if (b2 == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            short s = mo696a.f814a;
+            short s = mo697a.f813a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f353a = jdVar.mo701a();
+                    this.f352a = jdVar.mo702a();
                     jdVar.g();
                 }
                 jg.a(jdVar, b2);
                 jdVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    jb mo697a = jdVar.mo697a();
-                    this.f354a = new ArrayList(mo697a.f815a);
-                    for (int i = 0; i < mo697a.f815a; i++) {
+                    jb mo698a = jdVar.mo698a();
+                    this.f353a = new ArrayList(mo698a.f814a);
+                    for (int i = 0; i < mo698a.f814a; i++) {
                         ez ezVar = new ez();
                         ezVar.a(jdVar);
-                        this.f354a.add(ezVar);
+                        this.f353a.add(ezVar);
                     }
                     jdVar.i();
                     jdVar.g();
@@ -116,7 +116,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
                 jdVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f355b = jdVar.mo701a();
+                    this.f354b = jdVar.mo702a();
                     jdVar.g();
                 }
                 jg.a(jdVar, b2);
@@ -126,29 +126,29 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m470a() {
-        return this.f353a != null;
+    public boolean m471a() {
+        return this.f352a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m471a(fa faVar) {
+    public boolean m472a(fa faVar) {
         if (faVar == null) {
             return false;
         }
-        boolean m470a = m470a();
-        boolean m470a2 = faVar.m470a();
-        if ((m470a || m470a2) && !(m470a && m470a2 && this.f353a.equals(faVar.f353a))) {
+        boolean m471a = m471a();
+        boolean m471a2 = faVar.m471a();
+        if ((m471a || m471a2) && !(m471a && m471a2 && this.f352a.equals(faVar.f352a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = faVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f355b.equals(faVar.f355b))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f354b.equals(faVar.f354b))) {
             return false;
         }
         boolean c2 = c();
         boolean c3 = faVar.c();
         if (c2 || c3) {
-            return c2 && c3 && this.f354a.equals(faVar.f354a);
+            return c2 && c3 && this.f353a.equals(faVar.f353a);
         }
         return true;
     }
@@ -156,41 +156,41 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
         a();
-        jdVar.a(f352a);
-        if (this.f353a != null) {
+        jdVar.a(f351a);
+        if (this.f352a != null) {
             jdVar.a(a);
-            jdVar.a(this.f353a);
+            jdVar.a(this.f352a);
             jdVar.b();
         }
-        if (this.f355b != null && b()) {
+        if (this.f354b != null && b()) {
             jdVar.a(b);
-            jdVar.a(this.f355b);
+            jdVar.a(this.f354b);
             jdVar.b();
         }
-        if (this.f354a != null) {
+        if (this.f353a != null) {
             jdVar.a(c);
-            jdVar.a(new jb((byte) 12, this.f354a.size()));
-            for (ez ezVar : this.f354a) {
+            jdVar.a(new jb((byte) 12, this.f353a.size()));
+            for (ez ezVar : this.f353a) {
                 ezVar.b(jdVar);
             }
             jdVar.e();
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo704a();
+        jdVar.mo705a();
     }
 
     public boolean b() {
-        return this.f355b != null;
+        return this.f354b != null;
     }
 
     public boolean c() {
-        return this.f354a != null;
+        return this.f353a != null;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof fa)) {
-            return m471a((fa) obj);
+            return m472a((fa) obj);
         }
         return false;
     }
@@ -202,7 +202,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("StatsEvents(");
         sb.append("uuid:");
-        String str = this.f353a;
+        String str = this.f352a;
         if (str == null) {
             sb.append(StringUtil.NULL_STRING);
         } else {
@@ -211,7 +211,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
         if (b()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("operator:");
-            String str2 = this.f355b;
+            String str2 = this.f354b;
             if (str2 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -220,7 +220,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
         }
         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         sb.append("events:");
-        List<ez> list = this.f354a;
+        List<ez> list = this.f353a;
         if (list == null) {
             sb.append(StringUtil.NULL_STRING);
         } else {

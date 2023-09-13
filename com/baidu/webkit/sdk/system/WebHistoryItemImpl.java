@@ -30,7 +30,7 @@ public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneabl
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     /* renamed from: clone */
-    public final WebHistoryItem mo161clone() {
+    public final WebHistoryItem mo162clone() {
         try {
             if (cloneMethod != null && this.mItem != null) {
                 return from((android.webkit.WebHistoryItem) cloneMethod.invoke(this.mItem, null));

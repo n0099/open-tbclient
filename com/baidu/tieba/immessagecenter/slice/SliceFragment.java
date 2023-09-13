@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tieba.ax8;
+import com.baidu.tieba.cy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000|\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\b\t\b\u0016\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003:\u0001<B\u000f\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0019\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u0005H\u0096\u0001J\u0011\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0010\u001a\u00020\u0005H\u0096\u0001J\u0011\u0010\u0013\u001a\u00020\r2\u0006\u0010\u0010\u001a\u00020\u0005H\u0096\u0001J\u0011\u0010\u0014\u001a\u00020\u00122\u0006\u0010\u0010\u001a\u00020\u0005H\u0096\u0001J\u0012\u0010\u0015\u001a\u00020\r2\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0016J\b\u0010\u0018\u001a\u00020\rH\u0016J\"\u0010\u0019\u001a\u00020\r2\u0006\u0010\u001a\u001a\u00020\n2\u0006\u0010\u001b\u001a\u00020\n2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001dH\u0016J\u0010\u0010\u001e\u001a\u00020\r2\u0006\u0010\u001f\u001a\u00020\u0012H\u0016J\u0010\u0010 \u001a\u00020\r2\u0006\u0010!\u001a\u00020\nH\u0016J\u0010\u0010\"\u001a\u00020\r2\u0006\u0010#\u001a\u00020$H\u0016J$\u0010%\u001a\u00020&2\u0006\u0010'\u001a\u00020(2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000f2\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0016J\u0018\u0010)\u001a\u00020\u00122\u0006\u0010*\u001a\u00020\n2\u0006\u0010+\u001a\u00020,H\u0016J\u0010\u0010-\u001a\u00020\r2\u0006\u0010.\u001a\u00020\u0012H\u0016J+\u0010/\u001a\u00020\r2\u0006\u0010\u001a\u001a\u00020\n2\f\u00100\u001a\b\u0012\u0004\u0012\u000202012\u0006\u00103\u001a\u000204H\u0016¢\u0006\u0002\u00105J\u0010\u00106\u001a\u00020\r2\u0006\u00107\u001a\u00020\u0017H\u0016J\u0010\u00108\u001a\u00020\r2\u0006\u00109\u001a\u00020\u0012H\u0016J\u0011\u0010:\u001a\u00020\r2\u0006\u0010\u0010\u001a\u00020\u0005H\u0096\u0001J\u0011\u0010;\u001a\u00020\r2\u0006\u0010\u0010\u001a\u00020\u0005H\u0096\u0001R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006="}, d2 = {"Lcom/baidu/tieba/immessagecenter/slice/SliceFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/immessagecenter/slice/ability/OpAbility;", "Lcom/baidu/tieba/immessagecenter/slice/ability/SysEventAbility;", "rootSlice", "Lcom/baidu/tieba/immessagecenter/slice/Slice;", "(Lcom/baidu/tieba/immessagecenter/slice/Slice;)V", "backGroundListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "lastSkinType", "", "lockScreenListener", "addChild", "", "container", "Landroid/view/ViewGroup;", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "contains", "", "hideChild", "isShowing", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onActivityFinish", "onActivityResult", "requestCode", "resultCode", "data", "Landroid/content/Intent;", "onBackgroundSwitched", NotificationCompat.WearableExtender.KEY_BACKGROUND, "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "onKeyDown", "keyCode", "event", "Landroid/view/KeyEvent;", "onKeyboardVisibilityChanged", "isVisible", "onRequestPermissionsResult", "permissions", "", "", "grantResults", "", "(I[Ljava/lang/String;[I)V", "onSaveInstanceState", "outState", "onScreenLocked", "locked", "removeChild", "showChild", "RootSlice", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public class SliceFragment extends BaseFragment implements ax8 {
+public class SliceFragment extends BaseFragment implements cy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Slice a;
@@ -54,12 +54,12 @@ public class SliceFragment extends BaseFragment implements ax8 {
         }
     }
 
-    public void U1(ViewGroup container, Slice child) {
+    public void W1(ViewGroup container, Slice child) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, container, child) == null) {
             Intrinsics.checkNotNullParameter(container, "container");
             Intrinsics.checkNotNullParameter(child, "child");
-            this.a.D(container, child);
+            this.a.G(container, child);
         }
     }
 
@@ -84,14 +84,14 @@ public class SliceFragment extends BaseFragment implements ax8 {
         }
 
         @Override // com.baidu.tieba.immessagecenter.slice.Slice
-        public View P(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+        public View R(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
                 Intrinsics.checkNotNullParameter(inflater, "inflater");
                 Intrinsics.checkNotNullParameter(container, "container");
-                X(container);
-                return G();
+                Z(container);
+                return K();
             }
             return (View) invokeLLL.objValue;
         }
@@ -135,7 +135,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
                 }
                 Object data = response.getData();
                 if (data instanceof Boolean) {
-                    this.a.V1(((Boolean) data).booleanValue());
+                    this.a.X1(((Boolean) data).booleanValue());
                 }
             }
         }
@@ -179,7 +179,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
                 }
                 Object data = response.getData();
                 if (data instanceof Boolean) {
-                    this.a.W1(((Boolean) data).booleanValue());
+                    this.a.Y1(((Boolean) data).booleanValue());
                 }
             }
         }
@@ -216,7 +216,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            this.a.M(i, i2, intent);
+            this.a.O(i, i2, intent);
         }
     }
 
@@ -238,23 +238,23 @@ public class SliceFragment extends BaseFragment implements ax8 {
             Intrinsics.checkNotNullParameter(permissions, "permissions");
             Intrinsics.checkNotNullParameter(grantResults, "grantResults");
             super.onRequestPermissionsResult(i, permissions, grantResults);
-            this.a.S(i, permissions, grantResults);
+            this.a.U(i, permissions, grantResults);
         }
     }
 
-    public void V1(boolean z) {
+    public void X1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ax8.a.c(this, z);
-            this.a.N(z);
+            cy8.a.c(this, z);
+            this.a.P(z);
         }
     }
 
-    public void W1(boolean z) {
+    public void Y1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            ax8.a.i(this, z);
-            this.a.U(z);
+            cy8.a.i(this, z);
+            this.a.W(z);
         }
     }
 
@@ -263,7 +263,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.a.E(this, null, (ViewGroup) requireView(), bundle);
+            this.a.H(this, null, (ViewGroup) requireView(), bundle);
             registerListener(this.c);
             registerListener(this.d);
         }
@@ -286,7 +286,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
         if (interceptable == null || interceptable.invokeL(1048583, this, newConfig) == null) {
             Intrinsics.checkNotNullParameter(newConfig, "newConfig");
             super.onConfigurationChanged(newConfig);
-            this.a.O(newConfig);
+            this.a.Q(newConfig);
         }
     }
 
@@ -295,7 +295,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            this.a.R(z);
+            this.a.T(z);
         }
     }
 
@@ -305,7 +305,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
         if (interceptable == null || interceptable.invokeL(1048588, this, outState) == null) {
             Intrinsics.checkNotNullParameter(outState, "outState");
             super.onSaveInstanceState(outState);
-            this.a.T(outState);
+            this.a.V(outState);
         }
     }
 
@@ -314,7 +314,7 @@ public class SliceFragment extends BaseFragment implements ax8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onActivityFinish();
-            this.a.L();
+            this.a.N();
         }
     }
 

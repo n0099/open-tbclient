@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class i3c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y3c a;
+    public String a;
+    public HashMap<String, Object> b;
 
     public i3c() {
         Interceptable interceptable = $ic;
@@ -25,22 +26,15 @@ public class i3c {
                 return;
             }
         }
-        this.a = null;
+        this.b = new HashMap<>();
     }
 
-    public y3c a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return "SubProcessData{cmd='" + this.a + "', data=" + this.b + '}';
         }
-        return (y3c) invokeV.objValue;
-    }
-
-    public void b(y3c y3cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y3cVar) == null) {
-            this.a = y3cVar;
-        }
+        return (String) invokeV.objValue;
     }
 }

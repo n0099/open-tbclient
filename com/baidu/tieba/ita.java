@@ -1,36 +1,170 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tieba.video.LiveConfig;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.video.record.GLVideoPreviewView;
+import com.baidu.tieba.video.record.ProgressView;
+import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.TextureMovieEncoder;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ita {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final VideoItemData a;
-    @Nullable
-    public final LiveConfig b;
+    public int a;
+    public int b;
+    public RecordVideoActivity c;
+    public ProgressView d;
+    public List<b> e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    public ita(@Nullable VideoItemData videoItemData, @Nullable LiveConfig liveConfig) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ProgressView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ita a;
+
+        /* renamed from: com.baidu.tieba.ita$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0349a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ gta a;
+            public final /* synthetic */ a b;
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStartSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.ita$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0350a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0349a a;
+
+                public RunnableC0350a(C0349a c0349a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0349a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = c0349a;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a.c != null) {
+                        this.a.b.a.c.n0();
+                    }
+                }
+            }
+
+            public C0349a(a aVar, gta gtaVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, gtaVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = gtaVar;
+            }
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStopSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    SafeHandler.getInst().post(new RunnableC0350a(this));
+                    this.a.setOnEncoderStatusUpdateListener(null);
+                }
+            }
+        }
+
+        public a(ita itaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {itaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = itaVar;
+        }
+
+        @Override // com.baidu.tieba.video.record.ProgressView.a
+        public void a(int i) {
+            hta htaVar;
+            gta q;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.h = i;
+                if (i != 100 || this.a.c == null || (htaVar = this.a.c.k) == null || (q = htaVar.q()) == null) {
+                    return;
+                }
+                if (q instanceof GLVideoPreviewView) {
+                    q.setOnEncoderStatusUpdateListener(new C0349a(this, q));
+                    this.a.o();
+                    return;
+                }
+                this.a.o();
+                if (this.a.c != null) {
+                    this.a.c.n0();
+                }
+            }
+        }
+    }
+
+    public ita(RecordVideoActivity recordVideoActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {videoItemData, liveConfig};
+            Object[] objArr = {recordVideoActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,34 +174,108 @@ public class ita {
                 return;
             }
         }
-        this.a = videoItemData;
-        this.b = liveConfig;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if ("index".equals(str)) {
-                return "index";
-            }
-            if ("concern_tab".equals(str)) {
-                return "concern_tab";
-            }
-            if ("frs".equals(str)) {
-                return "FRS";
-            }
-            return AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS;
+        this.a = 1;
+        this.c = recordVideoActivity;
+        if (recordVideoActivity == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f09053f);
+        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090b4e);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092952);
+        this.d = progressView;
+        progressView.setListener(new a(this));
+        if (!bta.f(true)) {
+            imageView2.setVisibility(4);
+        }
+        if (!bta.g(recordVideoActivity.getPackageManager())) {
+            imageView.setVisibility(8);
+        }
     }
 
-    public final boolean b() {
+    public void m(int i) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
+            if (i == 1) {
+                this.d.setVisibility(4);
+                this.d.d();
+                this.b = 0;
+                File file = new File(kra.f);
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        if (file2.getPath().startsWith("rec_tmp_")) {
+                            file2.delete();
+                        }
+                    }
+                }
+            }
+            List<b> list = this.e;
+            if (list != null) {
+                for (b bVar : list) {
+                    bVar.a(this.a);
+                }
+            }
+        }
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            if (this.e == null) {
+                this.e = new ArrayList();
+            }
+            this.e.add(bVar);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ProgressView progressView = this.d;
+            if (progressView != null) {
+                progressView.setCurrentState(ProgressView.State.DELETE);
+            }
+            this.b = this.d.getLastProgress();
+            hta htaVar = this.c.k;
+            if (htaVar != null) {
+                htaVar.h();
+            }
+        }
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            VideoItemData videoItemData = this.a;
-            if (videoItemData != null && videoItemData.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null && !StringUtils.isNull(this.a.getLivePageData().mYyExtData.mSid)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == 6) {
                 return true;
             }
             return false;
@@ -75,150 +283,100 @@ public class ita {
         return invokeV.booleanValue;
     }
 
-    public void c(int i, String str, int i2) {
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_AUTO_JUMP);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam("hdid", TbadkCoreApplication.getInst().getHdid());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-                statisticItem.addParam("template_id", this.a.getLivePageData().mYyExtData.mTemplateId);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            jta jtaVar = this.c.I;
+            if (jtaVar != null) {
+                return jtaVar.i();
             }
-            if (b()) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "1");
-                statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, TiebaStatic.YYValues.YY_LIVE);
-            } else {
-                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "");
-                if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
-                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.a.getLivePageData().appId);
-                } else {
-                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, "");
-                }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int f = f();
+            if (f != 2 && f != 7) {
+                return false;
             }
-            TiebaStatic.log(statisticItem);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.d.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        ProgressView progressView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f && (progressView = this.d) != null) {
+            progressView.setCurrentState(ProgressView.State.ROLLBACK);
         }
     }
 
-    public void e(int i, String str, int i2) {
+    public void n() {
+        hta htaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_SHOW);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam("hdid", TbadkCoreApplication.getInst().getHdid());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-                statisticItem.addParam("template_id", this.a.getLivePageData().mYyExtData.mTemplateId);
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setVisibility(0);
+            this.d.setCurrentState(ProgressView.State.START);
+        }
+        if (!this.f) {
+            this.f = true;
+            this.g = System.currentTimeMillis();
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (htaVar = recordVideoActivity.k) != null) {
+            htaVar.L();
+            jta jtaVar = this.c.I;
+            if (jtaVar != null) {
+                jtaVar.n(this.b);
             }
-            if (b()) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "1");
-                statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, TiebaStatic.YYValues.YY_LIVE);
-            } else {
-                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "");
-                if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
-                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.a.getLivePageData().appId);
-                } else {
-                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, "");
-                }
-            }
-            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void d(int i, String str, int i2, int i3) {
+    public void o() {
+        hta htaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && this.a != null && this.b != null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.VIDEO_LIVE_PAGE_CLICK);
-            statisticItem.addParam("tid", this.a.thread_id);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_source", this.a.mRecomSource);
-            statisticItem.addParam("obj_name", i2);
-            statisticItem.addParam("obj_type", str);
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, this.b.getCurrentRealHitStrategy());
-            statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM3, this.b.getWaitSecond());
-            statisticItem.addParam("obj_param1", YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-            statisticItem.addParam("hdid", TbadkCoreApplication.getInst().getHdid());
-            if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYSID, this.a.getLivePageData().mYyExtData.mSid);
-                statisticItem.addParam(TiebaStatic.YYParams.YYSSID, this.a.getLivePageData().mYyExtData.mSsid);
-                statisticItem.addParam("yyuid", this.a.getLivePageData().mYyExtData.mYyUid);
-                statisticItem.addParam("template_id", this.a.getLivePageData().mYyExtData.mTemplateId);
-            }
-            if (b()) {
-                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "1");
-                statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, TiebaStatic.YYValues.YY_LIVE);
-            } else {
-                statisticItem.addParam(TiebaStatic.YYParams.YYLIVEID, "");
-                if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
-                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, this.a.getLivePageData().appId);
-                } else {
-                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, "");
-                }
-            }
-            TiebaStatic.log(statisticItem);
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.f) {
+            return;
         }
-    }
-
-    @Nullable
-    public yx9 f(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, str)) == null) {
-            if (this.a != null && this.b != null) {
-                yx9 yx9Var = new yx9();
-                yx9Var.e = TbadkCoreApplication.getCurrentAccount();
-                yx9Var.c = this.a.thread_id;
-                yx9Var.a = String.valueOf(i);
-                yx9Var.f = this.a.mRecomSource;
-                yx9Var.A = str;
-                yx9Var.B = String.valueOf(this.b.getCurrentRealHitStrategy());
-                yx9Var.i = String.valueOf(this.b.getWaitSecond());
-                yx9Var.H = TbadkCoreApplication.getInst().getHdid();
-                yx9Var.g = String.valueOf(YYLiveUtil.calculateLiveType(this.a.getLivePageData()));
-                if (this.a.getLivePageData() != null && this.a.getLivePageData().mYyExtData != null) {
-                    yx9Var.C = this.a.getLivePageData().mYyExtData.mSid;
-                    yx9Var.D = this.a.getLivePageData().mYyExtData.mSsid;
-                    yx9Var.E = this.a.getLivePageData().mYyExtData.mYyUid;
-                    yx9Var.G = this.a.getLivePageData().mYyExtData.mTemplateId;
-                }
-                if (b()) {
-                    yx9Var.h = TiebaStatic.YYValues.YY_LIVE;
-                    yx9Var.F = "1";
-                } else {
-                    yx9Var.h = "";
-                    yx9Var.F = "";
-                    if (this.a.getLivePageData() != null && !StringUtils.isNull(this.a.getLivePageData().appId)) {
-                        yx9Var.h = this.a.getLivePageData().appId;
-                    } else {
-                        yx9Var.h = "";
-                    }
-                }
-                return yx9Var;
-            }
-            return null;
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setCurrentState(ProgressView.State.PAUSE);
         }
-        return (yx9) invokeIL.objValue;
+        this.f = false;
+        this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
+        ProgressView progressView2 = this.d;
+        if (progressView2 != null) {
+            int lastProgress = progressView2.getLastProgress();
+            int i = this.b;
+            if (lastProgress != i) {
+                this.d.c(i);
+            }
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (htaVar = recordVideoActivity.k) != null) {
+            htaVar.M();
+        }
     }
 }

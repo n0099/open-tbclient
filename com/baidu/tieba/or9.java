@@ -1,93 +1,93 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class or9 {
+public class or9 extends lm9<pr9, GodReplyMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pr9 a;
-    public TbPageContext b;
-    public List<bn> c;
-    public PersonMoreData d;
+    public View.OnClickListener g;
 
-    public or9(TbPageContext tbPageContext, Bundle bundle, jo6<ps9> jo6Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public or9(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, jo6Var};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((rr9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        pr9 pr9Var = new pr9(tbPageContext);
-        this.a = pr9Var;
-        pr9Var.f(jo6Var);
-        a(bundle);
     }
 
-    public final void a(Bundle bundle) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pm
+    /* renamed from: u */
+    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
-            this.d = new PersonMoreData();
-            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07a9, viewGroup, false));
+        }
+        return (GodReplyMoreViewHolder) invokeL.objValue;
+    }
+
+    public void y(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.lm9, com.baidu.tieba.pm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (pr9) obj, (GodReplyMoreViewHolder) viewHolder);
+        return view2;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, pr9 pr9Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
+        InterceptResult invokeCommon;
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                        ps9 ps9Var = new ps9();
-                        ps9Var.e = personMoreItemData.mName;
-                        ps9Var.a = 36;
-                        ps9Var.f = personMoreItemData.mUrl;
-                        ps9Var.j = personMoreItemData.mId;
-                        this.c.add(ps9Var);
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pr9Var, godReplyMoreViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) pr9Var, (pr9) godReplyMoreViewHolder);
+            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
+                View.OnClickListener onClickListener = this.g;
+                if (onClickListener != null) {
+                    textView.setOnClickListener(onClickListener);
+                }
+                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
+                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
+                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
                 }
             }
+            return view2;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d07ca);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c41));
-            b();
-            this.a.e(this.c);
-        }
-    }
-
-    public void d() {
-        pr9 pr9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pr9Var = this.a) != null) {
-            pr9Var.d();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

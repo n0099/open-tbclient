@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.c8c;
-import com.baidu.tieba.d8c;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.q7c;
-import com.baidu.tieba.tcc;
-import com.baidu.tieba.v7c;
+import com.baidu.tieba.fbc;
+import com.baidu.tieba.gbc;
+import com.baidu.tieba.sac;
+import com.baidu.tieba.tac;
+import com.baidu.tieba.wfc;
+import com.baidu.tieba.yac;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements p7c.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements sac.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public d8c<c<T>> onAdded;
-    public d8c<c<T>> onStart;
-    public d8c<c<T>> onTerminated;
+    public gbc<c<T>> onAdded;
+    public gbc<c<T>> onStart;
+    public gbc<c<T>> onTerminated;
 
     /* loaded from: classes2.dex */
-    public class a implements c8c {
+    public class a implements fbc {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.c8c
+        @Override // com.baidu.tieba.fbc
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements q7c<T> {
-        public final v7c<? super T> a;
+    public static final class c<T> implements tac<T> {
+        public final yac<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(v7c<? super T> v7cVar) {
-            this.a = v7cVar;
+        public c(yac<? super T> yacVar) {
+            this.a = yacVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.q7c
+        @Override // com.baidu.tieba.tac
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.q7c
+        @Override // com.baidu.tieba.tac
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.q7c
+        @Override // com.baidu.tieba.tac
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(v7c<? super T> v7cVar) {
-        c<T> cVar = new c<>(v7cVar);
-        addUnsubscriber(v7cVar, cVar);
+    public void call(yac<? super T> yacVar) {
+        c<T> cVar = new c<>(yacVar);
+        addUnsubscriber(yacVar, cVar);
         this.onStart.call(cVar);
-        if (!v7cVar.isUnsubscribed() && add(cVar) && v7cVar.isUnsubscribed()) {
+        if (!yacVar.isUnsubscribed() && add(cVar) && yacVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(v7c<? super T> v7cVar, c<T> cVar) {
-        v7cVar.b(tcc.a(new a(cVar)));
+    public void addUnsubscriber(yac<? super T> yacVar, c<T> cVar) {
+        yacVar.b(wfc.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+    @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((v7c) ((v7c) obj));
+        call((yac) ((yac) obj));
     }
 }

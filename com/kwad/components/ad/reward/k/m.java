@@ -43,7 +43,7 @@ public final class m extends d implements View.OnClickListener {
     }
 
     public static View a(Context context, CouponInfo couponInfo, ViewGroup viewGroup) {
-        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d9, viewGroup, false);
+        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e0, viewGroup, false);
         kSCouponLabelTextView.setText(couponInfo.getDisplayName());
         return kSCouponLabelTextView;
     }
@@ -100,14 +100,14 @@ public final class m extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f0913ce);
-        this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913cb);
-        this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d0);
-        this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f0913bd);
-        this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f0913cd);
-        this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913ba);
-        this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f0913cf);
-        this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913cc);
+        this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f0913d4);
+        this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d1);
+        this.li = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d6);
+        this.vC = (LinearLayout) this.es.findViewById(R.id.obfuscated_res_0x7f0913c3);
+        this.vD = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d3);
+        this.vE = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0913c0);
+        this.vF = this.es.findViewById(R.id.obfuscated_res_0x7f0913d5);
+        this.vG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f0913d2);
         this.vE.setText(com.kwad.components.ad.c.b.ai());
         this.vE.setOnClickListener(this);
         this.nG.setOnClickListener(this);
@@ -119,7 +119,7 @@ public final class m extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.es.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050b);
+            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070510);
             this.es.setLayoutParams(layoutParams2);
         }
     }

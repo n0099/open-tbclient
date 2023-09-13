@@ -29,7 +29,7 @@ public class RecordTabLayout extends LinearLayout {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void t(int i, boolean z);
+        void s(int i, boolean z);
     }
 
     /* loaded from: classes8.dex */
@@ -71,7 +71,7 @@ public class RecordTabLayout extends LinearLayout {
             }
             this.b.setCurrentTab(i2, true);
             if (this.b.e != null) {
-                this.b.e.t(this.a, true);
+                this.b.e.s(this.a, true);
             }
         }
     }
@@ -217,7 +217,7 @@ public class RecordTabLayout extends LinearLayout {
             textView.setOnClickListener(new a(this, i));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             if (this.a.getChildCount() != 0) {
-                layoutParams.leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703dd);
+                layoutParams.leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e1);
             }
             this.a.addView(textView, layoutParams);
         }
@@ -260,8 +260,8 @@ public class RecordTabLayout extends LinearLayout {
             View view2 = new View(getContext());
             this.b = view2;
             view2.setBackgroundColor(getResources().getColor(R.color.CAM_X0101));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703dd), BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070224));
-            layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070385);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e1), BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070224));
+            layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070389);
             addView(this.b, layoutParams);
         }
     }

@@ -1,58 +1,77 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public class hz6 {
+public final class hz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public final boolean b;
 
-    public static void a(View view2, w05 w05Var, String str) {
+    public hz6() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, view2, w05Var, str) == null) && w05Var != null && w05Var.getThreadData() != null) {
-            ThreadData threadData = w05Var.getThreadData();
-            if (threadData.isVideoThreadType()) {
-                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            int id = view2.getId();
-            if (view2.getId() != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
-                if (id == R.id.user_avatar) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.user_name) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.forum_name_text) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.thread_info_commont_container) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-                    return;
-                } else if (view2 instanceof TbImageView) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
-                    return;
+        }
+        this.b = UbsABTestHelper.isAddExtraDuration();
+    }
+
+    public final void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
+                return;
+            }
+            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+                if (!(activity instanceof BaseActivity) && !(activity instanceof BaseFragmentActivity)) {
+                    String localClassName = activity.getLocalClassName();
+                    Intrinsics.checkNotNullExpressionValue(localClassName, "activity.localClassName");
+                    if (StringsKt__StringsKt.contains$default((CharSequence) localClassName, (CharSequence) "FlutterPageActivity", false, 2, (Object) null)) {
+                        return;
+                    }
                 } else {
                     return;
                 }
             }
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+            long currentTimeMillis = (System.currentTimeMillis() - this.a) / 1000;
+            if (PermissionUtil.isAgreePrivacyPolicy() && currentTimeMillis > 0) {
+                PvThread pvThread = new PvThread("use", String.valueOf(currentTimeMillis));
+                pvThread.setPageName(activity.getLocalClassName());
+                pvThread.start();
+            }
         }
     }
 
-    public static void b(w05 w05Var, String str) {
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, w05Var, str) == null) && w05Var != null && w05Var.getThreadData() != null) {
-            if (w05Var.getThreadData().isVideoThreadType()) {
-                co6.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(w05Var.getThreadData(), str));
-            } else {
-                co6.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(w05Var.getThreadData(), str));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!this.b) {
+                return;
             }
+            this.a = System.currentTimeMillis();
         }
     }
 }

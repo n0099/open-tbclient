@@ -1,44 +1,22 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class tr4 implements rr4<String> {
+public class tr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tr4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final sr4<String> a;
+    public String b;
 
-    @Override // com.baidu.tieba.rr4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rr4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
+    @SuppressLint({"BDThrowableCheck"})
     public tr4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,42 +32,49 @@ public class tr4 implements rr4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rr4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d();
+        sr4<String> sr4Var = new sr4<>();
+        this.a = sr4Var;
+        if (context == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        sr4Var.a(new wr4(context));
+        this.a.a(new yr4(context));
+        this.a.a(new xr4(context));
+        this.a.a(new as4(context));
+        this.a.a(new ur4(context));
+        this.a.a(new zr4(context));
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public static tr4 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<ResolveInfo> queryBroadcastReceivers = this.a.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
-            String str = null;
-            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null && !this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, NetDiskFileMsg.JSON_KEY_FILES), "libuuid.so");
-                        if (file.exists()) {
-                            str = xr4.c(file);
-                        }
-                        if (!TextUtils.isEmpty(str)) {
-                            break;
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (tr4.class) {
+                    if (c == null) {
+                        c = new tr4(context);
                     }
                 }
             }
-            return str;
+            return c;
+        }
+        return (tr4) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                synchronized (this) {
+                    if (TextUtils.isEmpty(this.b)) {
+                        String b = this.a.b();
+                        this.b = b;
+                        this.a.d(b);
+                    }
+                }
+            }
+            return this.b;
         }
         return (String) invokeV.objValue;
     }

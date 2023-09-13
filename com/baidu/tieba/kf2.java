@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import java.io.File;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
 public interface kf2 {
-    String a(@NonNull String str);
+    void a(String str, File file, lf2 lf2Var);
+
+    InputStream get(String str);
+
+    boolean isClosed();
 }

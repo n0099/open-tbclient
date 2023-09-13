@@ -1,25 +1,25 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.n7c;
-import com.baidu.tieba.o7c;
-import com.baidu.tieba.scc;
-import com.baidu.tieba.tcc;
-import com.baidu.tieba.w7c;
+import com.baidu.tieba.qac;
+import com.baidu.tieba.rac;
+import com.baidu.tieba.vfc;
+import com.baidu.tieba.wfc;
+import com.baidu.tieba.zac;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class CompletableOnSubscribeConcatIterable implements n7c.f {
-    public final Iterable<? extends n7c> a;
+public final class CompletableOnSubscribeConcatIterable implements qac.f {
+    public final Iterable<? extends qac> a;
 
     /* loaded from: classes2.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements o7c {
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements rac {
         public static final long serialVersionUID = -7965400327305809232L;
-        public final o7c actual;
-        public final scc sd = new scc();
-        public final Iterator<? extends n7c> sources;
+        public final rac actual;
+        public final vfc sd = new vfc();
+        public final Iterator<? extends qac> sources;
 
-        public ConcatInnerSubscriber(o7c o7cVar, Iterator<? extends n7c> it) {
-            this.actual = o7cVar;
+        public ConcatInnerSubscriber(rac racVar, Iterator<? extends qac> it) {
+            this.actual = racVar;
             this.sources = it;
         }
 
@@ -27,7 +27,7 @@ public final class CompletableOnSubscribeConcatIterable implements n7c.f {
             if (this.sd.isUnsubscribed() || getAndIncrement() != 0) {
                 return;
             }
-            Iterator<? extends n7c> it = this.sources;
+            Iterator<? extends qac> it = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 try {
                     if (!it.hasNext()) {
@@ -35,7 +35,7 @@ public final class CompletableOnSubscribeConcatIterable implements n7c.f {
                         return;
                     }
                     try {
-                        n7c next = it.next();
+                        qac next = it.next();
                         if (next == null) {
                             this.actual.onError(new NullPointerException("The completable returned is null"));
                             return;
@@ -55,42 +55,42 @@ public final class CompletableOnSubscribeConcatIterable implements n7c.f {
             }
         }
 
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.rac
         public void onCompleted() {
             next();
         }
 
-        @Override // com.baidu.tieba.o7c
+        @Override // com.baidu.tieba.rac
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // com.baidu.tieba.o7c
-        public void onSubscribe(w7c w7cVar) {
-            this.sd.a(w7cVar);
+        @Override // com.baidu.tieba.rac
+        public void onSubscribe(zac zacVar) {
+            this.sd.a(zacVar);
         }
     }
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends n7c> iterable) {
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends qac> iterable) {
         this.a = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n7c.f, com.baidu.tieba.d8c
-    public void call(o7c o7cVar) {
+    @Override // com.baidu.tieba.qac.f, com.baidu.tieba.gbc
+    public void call(rac racVar) {
         try {
-            Iterator<? extends n7c> it = this.a.iterator();
+            Iterator<? extends qac> it = this.a.iterator();
             if (it == null) {
-                o7cVar.onSubscribe(tcc.c());
-                o7cVar.onError(new NullPointerException("The iterator returned is null"));
+                racVar.onSubscribe(wfc.c());
+                racVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
-            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(o7cVar, it);
-            o7cVar.onSubscribe(concatInnerSubscriber.sd);
+            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(racVar, it);
+            racVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            o7cVar.onSubscribe(tcc.c());
-            o7cVar.onError(th);
+            racVar.onSubscribe(wfc.c());
+            racVar.onError(th);
         }
     }
 }

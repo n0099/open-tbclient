@@ -5,12 +5,12 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CencSampleAuxiliaryDataFormat {
     public byte[] iv;
     public List<Pair> pairs = new LinkedList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Pair {
         public int clear;
         public long encrypted;

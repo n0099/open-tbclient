@@ -1,19 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyListListener;
+import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public interface vo5 extends ap5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+public interface vo5 {
+    void onFailure(int i, String str);
 
-    boolean isEnable();
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    void onSuccess(Map<Long, ? extends ArrayList<IMEmojiReplyListListener.IMEmojiItem>> map);
 }

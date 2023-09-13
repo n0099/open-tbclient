@@ -1,111 +1,158 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zo1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class np1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile np1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
+
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i == 1) {
+                return 2010;
+            }
+            if (i == 2) {
+                return IMConstants.IM_MSG_TYPE_SHIELD;
+            }
+            if (i == 3) {
+                return 2012;
+            }
+            if (i == 4) {
+                return 2013;
+            }
+            if (i == 5) {
+                return 2014;
+            }
+            return i == 6 ? 2015 : 2009;
+        }
+        return invokeI.intValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a extends Handler {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zo1.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ ArrayList d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(np1 np1Var, Looper looper) {
-            super(looper);
+        /* renamed from: com.baidu.tieba.np1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0417a extends lq1 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ zo1.a b;
+            public final /* synthetic */ a c;
+
+            public C0417a(a aVar, zo1.a aVar2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, aVar2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.b = aVar2;
+            }
+
+            @Override // com.baidu.tieba.lq1
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.onFinish(this.c.b);
+                }
+            }
+        }
+
+        public a(zo1.a aVar, String str, int i, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {np1Var, looper};
+                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = aVar;
+            this.b = str;
+            this.c = i;
+            this.d = arrayList;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                kp1 kp1Var = new kp1();
-                kp1Var.a = message.arg2;
-                int i = message.arg1;
-                if (i == -1) {
-                    i = lp1.m().a();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zo1.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onFinish(this.b);
                 }
-                lp1.m().d(message.what, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, i, "out time.", kp1Var, true);
-            }
-        }
-    }
-
-    public np1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        HandlerThread handlerThread = new HandlerThread("callback-handler");
-        this.a = handlerThread;
-        this.b = null;
-        handlerThread.start();
-        this.b = new a(this, this.a.getLooper());
-    }
-
-    public static np1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (np1.class) {
-                    if (c == null) {
-                        c = new np1();
+                if (this.c == 1 && this.d != null) {
+                    for (int i = 0; i < this.d.size(); i++) {
+                        zo1.a aVar2 = (zo1.a) this.d.get(i);
+                        if (aVar2 != null) {
+                            nq1.c().b(new C0417a(this, aVar2));
+                        }
                     }
                 }
             }
-            return c;
-        }
-        return (np1) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.removeMessages(i);
         }
     }
 
-    public void c(Message message, long j) {
+    public static void b(zo1.a aVar, kp1 kp1Var, int i, ArrayList<zo1.a> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
-            this.b.sendMessageDelayed(message, j);
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, kp1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) && kp1Var != null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", kp1Var.a);
+                jSONObject.put("1", kp1Var.b);
+                jSONObject.put("2", String.valueOf(kp1Var.c));
+                jSONObject.put("3", kp1Var.d);
+                String jSONObject2 = jSONObject.toString();
+                if (i == 1) {
+                    if (z) {
+                        fp1.j().f(false);
+                    }
+                } else if (i == 2) {
+                    if (z) {
+                        fp1.j().c(false);
+                    }
+                } else if (i == 3) {
+                    if (z) {
+                        fp1.j().k(false);
+                    }
+                } else if (z) {
+                    fp1.j().n(false);
+                }
+                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
+            } catch (Throwable th) {
+                qq1.d(th);
+            }
         }
     }
 }

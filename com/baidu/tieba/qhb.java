@@ -1,37 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.lhb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 /* loaded from: classes7.dex */
-public class qhb {
+public class qhb implements IDataSourceView.IPlayerDataSourceView, lhb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(File file, Object obj) {
-        InterceptResult invokeLL;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
-            synchronized (obj) {
-                b = rhb.b(file);
-            }
-            return b;
-        }
-        return (String) invokeLL.objValue;
-    }
+    public abstract void c();
 
-    public static boolean b(String str, File file, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
-            synchronized (obj) {
-                e = rhb.e(str, file, z);
-            }
-            return e;
-        }
-        return invokeCommon.booleanValue;
-    }
+    public abstract void d(float f);
+
+    public abstract void e(int i);
+
+    public abstract void f();
 }

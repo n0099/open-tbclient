@@ -35,7 +35,7 @@ public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
         this.a = view2;
     }
 
-    public void b(int i) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i == 0) {
             return;
@@ -43,7 +43,7 @@ public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
         SkinManager.setBackgroundResource(this.a, i);
     }
 
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i < 0) {

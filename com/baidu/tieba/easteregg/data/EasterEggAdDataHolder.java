@@ -2,7 +2,7 @@ package com.baidu.tieba.easteregg.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gy6;
+import com.baidu.tieba.kz6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,7 +102,7 @@ public final class EasterEggAdDataHolder {
             EasterEggAdData easterEggAdData = this.a;
             boolean z = true;
             if ((easterEggAdData == null || easterEggAdData.getResType() != 1) ? false : false) {
-                gy6.a aVar = gy6.d;
+                kz6.a aVar = kz6.d;
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
                 EasterEggAdData easterEggAdData2 = this.a;

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.fa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class SpecHotTopicHelper {
                 if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, bdImage, str, i) == null) {
                     super.onLoaded((AnonymousClass2) bdImage, str, i);
                     if (bdImage != null) {
-                        TbImageMemoryCache.B().i(str, bdImage.getRawBitmap());
+                        TbImageMemoryCache.A().g(str, bdImage.getRawBitmap());
                     }
                 }
             }
@@ -102,15 +102,15 @@ public class SpecHotTopicHelper {
             String leftHotIconUrl = threadData.getLeftHotIconUrl();
             String rightHotIconUrl = threadData.getRightHotIconUrl();
             if (!StringUtils.isNull(leftHotIconUrl) && !StringUtils.isNull(rightHotIconUrl)) {
-                Bitmap w = TbImageMemoryCache.B().w(leftHotIconUrl);
+                Bitmap w = TbImageMemoryCache.A().w(leftHotIconUrl);
                 if ((w == null || !AbstractImageLoaderProc.isImageFileExist(leftHotIconUrl, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(leftHotIconUrl, 10)) != null) {
                     w = loadBdImageFromLocal.getRawBitmap();
-                    TbImageMemoryCache.B().i(leftHotIconUrl, w);
+                    TbImageMemoryCache.A().g(leftHotIconUrl, w);
                 }
-                Bitmap w2 = TbImageMemoryCache.B().w(rightHotIconUrl);
+                Bitmap w2 = TbImageMemoryCache.A().w(rightHotIconUrl);
                 if ((w2 == null || !AbstractImageLoaderProc.isImageFileExist(rightHotIconUrl, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(rightHotIconUrl, 10)) != null) {
                     w2 = loadBdImageFromLocal2.getRawBitmap();
-                    TbImageMemoryCache.B().i(rightHotIconUrl, w2);
+                    TbImageMemoryCache.A().g(rightHotIconUrl, w2);
                 }
                 if (w != null && !w.isRecycled() && w2 != null && !w2.isRecycled()) {
                     int i2 = 0;
@@ -123,10 +123,10 @@ public class SpecHotTopicHelper {
                                 bitmapDrawable = new BitmapDrawable(w2);
                                 bitmapDrawable.setBounds(0, 0, w2.getWidth(), w2.getHeight());
                             }
-                            v95 v95Var = new v95(bitmapDrawable);
-                            v95Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
+                            fa5 fa5Var = new fa5(bitmapDrawable);
+                            fa5Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
                             int i4 = i + i3;
-                            spannableString.setSpan(v95Var, i4, i4 + 1, 33);
+                            spannableString.setSpan(fa5Var, i4, i4 + 1, 33);
                             i2++;
                         }
                     }
@@ -140,8 +140,8 @@ public class SpecHotTopicHelper {
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Bitmap w = TbImageMemoryCache.B().w(str);
-            Bitmap w2 = TbImageMemoryCache.B().w(str2);
+            Bitmap w = TbImageMemoryCache.A().w(str);
+            Bitmap w2 = TbImageMemoryCache.A().w(str2);
             if (w != null && w2 != null) {
                 return;
             }

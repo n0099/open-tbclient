@@ -23,46 +23,46 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ka9;
+import com.baidu.tieba.fj5;
+import com.baidu.tieba.mb9;
 import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.oa9;
-import com.baidu.tieba.pa9;
-import com.baidu.tieba.qa9;
-import com.baidu.tieba.r99;
-import com.baidu.tieba.zh5;
+import com.baidu.tieba.qb9;
+import com.baidu.tieba.rb9;
+import com.baidu.tieba.sb9;
+import com.baidu.tieba.si5;
+import com.baidu.tieba.ta9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class TailToolController extends NoPressedLinearLayout implements mi5 {
+public class TailToolController extends NoPressedLinearLayout implements fj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public pa9 b;
-    public oa9 c;
-    public ka9 d;
+    public rb9 b;
+    public qb9 c;
+    public mb9 d;
     public Context e;
     public EditorTools f;
-    public qa9<r99> g;
-    public qa9<Integer> h;
+    public sb9<ta9> g;
+    public sb9<Integer> h;
     public CustomMessageListener i;
     public CustomMessageListener j;
     public CustomMessageListener k;
     public View.OnClickListener l;
 
-    @Override // com.baidu.tieba.ai5
-    public void E(zh5 zh5Var) {
+    @Override // com.baidu.tieba.ti5
+    public void G(si5 si5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zh5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, si5Var) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements qa9<r99> {
+    public class a implements sb9<ta9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailToolController a;
@@ -86,11 +86,11 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qa9
+        @Override // com.baidu.tieba.sb9
         /* renamed from: b */
-        public void a(boolean z, String str, r99 r99Var) {
+        public void a(boolean z, String str, ta9 ta9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, r99Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, ta9Var}) == null) {
                 if (z) {
                     BdUtilHelper.showToast(this.a.e, str);
                     return;
@@ -98,15 +98,15 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
                 if (this.a.d != null) {
                     this.a.d.notifyDataSetChanged();
                 }
-                if (this.a.b != null && r99Var != null) {
-                    this.a.b.e(r99Var.b());
+                if (this.a.b != null && ta9Var != null) {
+                    this.a.b.e(ta9Var.b());
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements qa9<Integer> {
+    public class b implements sb9<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailToolController a;
@@ -130,7 +130,7 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qa9
+        @Override // com.baidu.tieba.sb9
         /* renamed from: b */
         public void a(boolean z, String str, Integer num) {
             Interceptable interceptable = $ic;
@@ -365,12 +365,12 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         j(context);
     }
 
-    @Override // com.baidu.tieba.mi5
-    public void S(zh5 zh5Var) {
+    @Override // com.baidu.tieba.fj5
+    public void U(si5 si5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zh5Var) == null) && (editorTools = this.f) != null) {
-            editorTools.D(zh5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, si5Var) == null) && (editorTools = this.f) != null) {
+            editorTools.D(si5Var);
         }
     }
 
@@ -378,9 +378,9 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                S(new zh5(2, 16, " "));
+                U(new si5(2, 16, " "));
             } else {
-                S(new zh5(2, 16, null));
+                U(new si5(2, 16, null));
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
@@ -389,16 +389,16 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public void onChangeSkinType(int i) {
-        pa9 pa9Var;
+        rb9 rb9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (pa9Var = this.b) != null) {
-            pa9Var.c(i);
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (rb9Var = this.b) != null) {
+            rb9Var.c(i);
         }
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
@@ -406,7 +406,7 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -414,7 +414,7 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -432,7 +432,7 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -442,7 +442,7 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -450,7 +450,7 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         }
     }
 
-    @Override // com.baidu.tieba.mi5
+    @Override // com.baidu.tieba.fj5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -485,14 +485,14 @@ public class TailToolController extends NoPressedLinearLayout implements mi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.e = context;
-            this.b = new pa9((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0967, (ViewGroup) this, true));
-            oa9 oa9Var = new oa9(context);
-            this.c = oa9Var;
-            oa9Var.n(this.h);
+            this.b = new rb9((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d097c, (ViewGroup) this, true));
+            qb9 qb9Var = new qb9(context);
+            this.c = qb9Var;
+            qb9Var.n(this.h);
             this.c.p(this.g);
-            ka9 ka9Var = new ka9(context, this.c, this.l);
-            this.d = ka9Var;
-            this.b.d(ka9Var);
+            mb9 mb9Var = new mb9(context, this.c, this.l);
+            this.d = mb9Var;
+            this.b.d(mb9Var);
         }
     }
 

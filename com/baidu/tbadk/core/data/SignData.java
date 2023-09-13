@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
+import com.baidu.tieba.c45;
 import com.baidu.tieba.pb.data.ContriInfo;
-import com.baidu.tieba.t15;
-import com.baidu.tieba.x35;
+import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public class SignData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public BlockPopInfoData blockPopInfoData;
     public int cashBalance;
-    public t15 chatRoomGuideData;
+    public y15 chatRoomGuideData;
     public int contDays;
     public int count_sign_num;
     public int count_total_sign_num;
@@ -29,10 +29,11 @@ public class SignData implements Serializable {
     public String forumName;
     public int forum_rank;
     public int getCash;
+    public boolean isShowSignToast;
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
-    public x35 mSignStampInfoData;
+    public c45 mSignStampInfoData;
     public int miss_sign_num;
     public boolean showGuideToChatRoom;
     public int sign_bonus_point;
@@ -53,6 +54,7 @@ public class SignData implements Serializable {
                 return;
             }
         }
+        this.isShowSignToast = true;
         this.is_signed = 0;
         this.user_sign_rank = 0;
         this.count_sign_num = 0;
@@ -64,7 +66,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
-        this.mSignStampInfoData = new x35();
+        this.mSignStampInfoData = new c45();
     }
 
     public void parserJson(String str) {
@@ -106,6 +108,9 @@ public class SignData implements Serializable {
             }
             this.mContriInfo.parseJson(jSONObject.optJSONObject("contri_info"));
             this.mSignStampInfoData.c(jSONObject.optJSONObject("icon_toast"));
+            if (jSONObject.optInt("not_show_sign_toast") == 1) {
+                this.isShowSignToast = false;
+            }
         }
     }
 }

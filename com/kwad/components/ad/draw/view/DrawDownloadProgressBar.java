@@ -32,9 +32,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
 
     private void E(Context context) {
         this.mContext = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0498, this);
-        this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0912c3);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0912c4);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d049f, this);
+        this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0912c9);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0912ca);
         this.ca = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener

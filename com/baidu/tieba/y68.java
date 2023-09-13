@@ -1,24 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import tbclient.App;
 /* loaded from: classes8.dex */
-public final class y68 extends nz9 {
+public class y68 extends wp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.rz9
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE : (String) invokeV.objValue;
-    }
 
     public y68() {
         Interceptable interceptable = $ic;
@@ -32,5 +23,17 @@ public final class y68 extends nz9 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void d(App app) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, app) != null) || app == null) {
+            return;
+        }
+        if (this.a == null) {
+            this.a = new AdvertAppInfo();
+        }
+        this.a.l(app);
+        this.position = this.a.position;
     }
 }

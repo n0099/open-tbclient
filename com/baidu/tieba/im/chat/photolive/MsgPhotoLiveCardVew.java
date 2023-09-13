@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cha;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.rd8;
-import com.baidu.tieba.uc8;
+import com.baidu.tieba.te8;
+import com.baidu.tieba.wd8;
+import com.baidu.tieba.wia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,24 +33,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes6.dex */
-public class MsgPhotoLiveCardVew extends uc8 {
+public class MsgPhotoLiveCardVew extends wd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long H;
     public long I;
-    public int J;
-    public LinearLayout K;
-    public ClickableHeaderImageView L;
-    public TextView M;
+    public long J;
+    public int K;
+    public LinearLayout L;
+    public ClickableHeaderImageView M;
     public TextView N;
     public TextView O;
     public TextView P;
     public TextView Q;
-    public LinearLayout R;
-    public TextView S;
+    public TextView R;
+    public LinearLayout S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1129T;
+    public TextView f1116T;
+    public int U;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -79,23 +79,23 @@ public class MsgPhotoLiveCardVew extends uc8 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.H > 0) {
-                cha photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
-                if (this.a.J == 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.I > 0) {
+                wia photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+                if (this.a.K == 1) {
                     TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                    if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.H)) > 0) {
+                    if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.I)) > 0) {
                         MsgPhotoLiveCardVew msgPhotoLiveCardVew = this.a;
-                        msgPhotoLiveCardVew.I = photoLiveReadThreadHistory.f(String.valueOf(msgPhotoLiveCardVew.H));
+                        msgPhotoLiveCardVew.J = photoLiveReadThreadHistory.f(String.valueOf(msgPhotoLiveCardVew.I));
                     }
-                } else if (this.a.J == 3) {
+                } else if (this.a.K == 3) {
                     TiebaStatic.log(TbadkCoreStatisticKey.FANS_REMIND_CLICK);
-                } else if (this.a.J == 4) {
+                } else if (this.a.K == 4) {
                     TiebaStatic.log(TbadkCoreStatisticKey.UPGRADE_SUCCESS);
-                } else if (this.a.J == 5) {
+                } else if (this.a.K == 5) {
                     TiebaStatic.log(TbadkCoreStatisticKey.CHANDE_OLD_SUCCESS);
                 }
                 MsgPhotoLiveCardVew msgPhotoLiveCardVew2 = this.a;
-                msgPhotoLiveCardVew2.v0(msgPhotoLiveCardVew2.J);
+                msgPhotoLiveCardVew2.w0(msgPhotoLiveCardVew2.K);
             }
         }
     }
@@ -130,13 +130,13 @@ public class MsgPhotoLiveCardVew extends uc8 {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.u0(view2);
+            this.a.v0(view2);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgPhotoLiveCardVew(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0639);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d064a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,14 +153,14 @@ public class MsgPhotoLiveCardVew extends uc8 {
                 return;
             }
         }
-        this.H = 0L;
-        this.J = 0;
-        this.f1129T = 0;
-        this.f1129T = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
-        w0();
+        this.I = 0L;
+        this.K = 0;
+        this.U = 0;
+        this.U = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+        x0();
     }
 
-    public final int t0(int i) {
+    public final int u0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
@@ -174,15 +174,15 @@ public class MsgPhotoLiveCardVew extends uc8 {
         return invokeI.intValue;
     }
 
-    public final SpannableStringBuilder r0(String str, int i) {
+    public final SpannableStringBuilder s0(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
             if (str != null && !"".equals(str)) {
                 int indexOf = str.indexOf(String.valueOf(i));
-                int t0 = t0(i);
+                int u0 = u0(i);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), indexOf, t0 + indexOf, 33);
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), indexOf, u0 + indexOf, 33);
                 return spannableStringBuilder;
             }
             return null;
@@ -190,7 +190,7 @@ public class MsgPhotoLiveCardVew extends uc8 {
         return (SpannableStringBuilder) invokeLI.objValue;
     }
 
-    public final void u0(View view2) {
+    public final void v0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             Object tag = view2.getTag();
@@ -200,84 +200,84 @@ public class MsgPhotoLiveCardVew extends uc8 {
         }
     }
 
-    public final void v0(int i) {
+    public final void w0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i == 5 || i == 6) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(String.valueOf(this.H), null, "message_tab")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(String.valueOf(this.I), null, "message_tab")));
             }
         }
     }
 
-    public final void w0() {
+    public final void x0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.K = (LinearLayout) u(R.id.obfuscated_res_0x7f0917ff);
-            this.L = (ClickableHeaderImageView) u(R.id.obfuscated_res_0x7f090306);
-            this.M = (TextView) u(R.id.author_name);
-            this.N = (TextView) u(R.id.obfuscated_res_0x7f090536);
-            this.O = (TextView) u(R.id.obfuscated_res_0x7f090533);
-            this.P = (TextView) u(R.id.obfuscated_res_0x7f090535);
-            this.R = (LinearLayout) u(R.id.obfuscated_res_0x7f0902fa);
-            this.Q = (TextView) u(R.id.obfuscated_res_0x7f091ec8);
-            this.S = (TextView) u(R.id.obfuscated_res_0x7f09057b);
-            this.K.setOnClickListener(new a(this));
+            this.L = (LinearLayout) t(R.id.obfuscated_res_0x7f091809);
+            this.M = (ClickableHeaderImageView) t(R.id.obfuscated_res_0x7f09030a);
+            this.N = (TextView) t(R.id.author_name);
+            this.O = (TextView) t(R.id.obfuscated_res_0x7f09053b);
+            this.P = (TextView) t(R.id.obfuscated_res_0x7f090538);
+            this.Q = (TextView) t(R.id.obfuscated_res_0x7f09053a);
+            this.S = (LinearLayout) t(R.id.obfuscated_res_0x7f0902fe);
+            this.R = (TextView) t(R.id.obfuscated_res_0x7f091ef1);
+            this.f1116T = (TextView) t(R.id.obfuscated_res_0x7f090580);
+            this.L.setOnClickListener(new a(this));
         }
     }
 
-    public void x0(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
+    public void y0(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
         String decode;
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        rd8.a a2 = rd8.a(chatMessage.getContent());
+        te8.a a2 = te8.a(chatMessage.getContent());
         if (a2 == null) {
-            this.H = 0L;
+            this.I = 0L;
             return;
         }
-        this.H = a2.f;
+        this.I = a2.f;
         long j = a2.h;
-        this.J = a2.i;
+        this.K = a2.i;
         int i2 = a2.j;
-        ViewGroup.LayoutParams layoutParams = this.R.getLayoutParams();
-        int i3 = this.J;
+        ViewGroup.LayoutParams layoutParams = this.S.getLayoutParams();
+        int i3 = this.K;
         int i4 = -1;
         if (i3 != 1 && i3 != 6) {
             if (i3 == 3) {
-                this.P.setText(a2.g);
+                this.Q.setText(a2.g);
                 layoutParams.height = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070275);
-                this.R.setPadding(0, 0, 0, 0);
-                this.L.setVisibility(8);
-                this.Q.setVisibility(0);
+                this.S.setPadding(0, 0, 0, 0);
                 this.M.setVisibility(8);
-                this.Q.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
+                this.R.setVisibility(0);
+                this.N.setVisibility(8);
+                this.R.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
                 String str = a2.e;
                 if (str != null && str.indexOf(String.valueOf(i2)) != -1) {
-                    this.O.setText(r0(a2.e, i2));
+                    this.P.setText(s0(a2.e, i2));
                 } else {
-                    this.O.setText(a2.e);
+                    this.P.setText(a2.e);
                 }
             } else {
                 layoutParams.height = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070275);
-                this.R.setPadding(0, 0, 0, 0);
-                this.L.setVisibility(8);
-                this.Q.setVisibility(0);
+                this.S.setPadding(0, 0, 0, 0);
                 this.M.setVisibility(8);
-                this.O.setText(a2.e);
-                int i5 = this.J;
+                this.R.setVisibility(0);
+                this.N.setVisibility(8);
+                this.P.setText(a2.e);
+                int i5 = this.K;
                 if (i5 == 4) {
-                    this.P.setText(a2.g);
-                    this.Q.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
+                    this.Q.setText(a2.g);
+                    this.R.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
                 } else if (i5 == 5) {
-                    this.P.setText(a2.g);
-                    this.S.setText(R.string.look_normal_thread);
-                    this.Q.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
+                    this.Q.setText(a2.g);
+                    this.f1116T.setText(R.string.look_normal_thread);
+                    this.R.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
                 }
             }
         } else {
-            if (this.J == 1) {
+            if (this.K == 1) {
                 decode = a2.g;
                 i = R.string.look_live_thread;
             } else {
@@ -285,25 +285,25 @@ public class MsgPhotoLiveCardVew extends uc8 {
                 i = R.string.look_god_thread;
                 i4 = 0;
             }
-            this.P.setText(decode);
+            this.Q.setText(decode);
             layoutParams.height = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07026a);
-            this.R.setPadding(this.f1129T, 0, 0, 0);
-            this.L.setVisibility(0);
-            this.L.setOnClickListener(new b(this));
-            this.L.setTag(a2.b);
-            this.L.setGodIconMargin(i4);
-            this.Q.setVisibility(8);
+            this.S.setPadding(this.U, 0, 0, 0);
             this.M.setVisibility(0);
-            this.M.setText(a2.c);
-            this.O.setText(a2.e);
-            this.M.setTextSize(0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702b5));
-            this.S.setText(i);
+            this.M.setOnClickListener(new b(this));
+            this.M.setTag(a2.b);
+            this.M.setGodIconMargin(i4);
+            this.R.setVisibility(8);
+            this.N.setVisibility(0);
+            this.N.setText(a2.c);
+            this.P.setText(a2.e);
+            this.N.setTextSize(0, BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702b5));
+            this.f1116T.setText(i);
         }
         if (!TextUtils.isEmpty(a2.a)) {
-            this.L.startLoad(a2.a, 12, false);
+            this.M.startLoad(a2.a, 12, false);
         } else {
-            this.L.startLoad(null, 12, false);
+            this.M.startLoad(null, 12, false);
         }
-        this.N.setText(StringHelper.getFormatTime(a2.d));
+        this.O.setText(StringHelper.getFormatTime(a2.d));
     }
 }

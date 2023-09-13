@@ -176,7 +176,7 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
                 if (itemViewType != 3) {
                     if (itemViewType == 4) {
                         LiveSearchDeleteStatusViewHolder liveSearchDeleteStatusViewHolder = (LiveSearchDeleteStatusViewHolder) viewHolder;
-                        liveSearchDeleteStatusViewHolder.b(i);
+                        liveSearchDeleteStatusViewHolder.a(i);
                         TextView textView = liveSearchDeleteStatusViewHolder.c;
                         List<String> list = this.recordList;
                         if (list != null) {
@@ -206,7 +206,7 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
                     return;
                 }
                 LiveSearchHistoryRecordViewHolder liveSearchHistoryRecordViewHolder = (LiveSearchHistoryRecordViewHolder) viewHolder;
-                liveSearchHistoryRecordViewHolder.b(i);
+                liveSearchHistoryRecordViewHolder.a(i);
                 TextView textView2 = liveSearchHistoryRecordViewHolder.b;
                 List<String> list2 = this.recordList;
                 if (list2 != null) {
@@ -299,7 +299,7 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
             return;
         }
         LiveSearchDeleteEntranceViewHolder liveSearchDeleteEntranceViewHolder = (LiveSearchDeleteEntranceViewHolder) viewHolder;
-        liveSearchDeleteEntranceViewHolder.b(i);
+        liveSearchDeleteEntranceViewHolder.a(i);
         liveSearchDeleteEntranceViewHolder.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.live.feed.search.adapter.LiveSearchHistoryRecordAdapter$onBindViewHolder$1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
@@ -342,14 +342,14 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i == 1) {
-            return new LiveSearchDeleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d052d, null));
+            return new LiveSearchDeleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0534, null));
         }
         if (i == 2) {
-            return new LiveSearchCompleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0530, null));
+            return new LiveSearchCompleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0537, null));
         }
         if (i == 3) {
-            return new LiveSearchHistoryRecordViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d052e, null));
+            return new LiveSearchHistoryRecordViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0535, null));
         }
-        return new LiveSearchDeleteStatusViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d052f, null));
+        return new LiveSearchDeleteStatusViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0536, null));
     }
 }

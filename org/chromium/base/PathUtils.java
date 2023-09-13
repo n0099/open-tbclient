@@ -119,7 +119,7 @@ public abstract class PathUtils {
         if (!sInitializationStarted.getAndSet(true)) {
             sDataDirectorySuffix = str;
             sCacheSubDirectory = str2;
-            sDirPathFetchTask = new FutureTask<>(new Callable() { // from class: com.baidu.tieba.s5c
+            sDirPathFetchTask = new FutureTask<>(new Callable() { // from class: com.baidu.tieba.v8c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -62,13 +62,13 @@ public class FrsH5ItemView extends FrameLayout {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
-        public void d(WebView webView, String str) {
+        public void c(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 if (!this.a.a) {
                     this.a.j();
                     ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                    layoutParams.height = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422);
+                    layoutParams.height = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070426);
                     this.a.setLayoutParams(layoutParams);
                 }
                 this.a.i = false;
@@ -174,7 +174,7 @@ public class FrsH5ItemView extends FrameLayout {
         this.d = new b(this);
         this.e = new c(this);
         this.i = false;
-        setLayoutParams(new ViewGroup.LayoutParams(-1, (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422)));
+        setLayoutParams(new ViewGroup.LayoutParams(-1, (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070426)));
         BaseWebView baseWebView = new BaseWebView(TbadkCoreApplication.getInst());
         this.f = baseWebView;
         baseWebView.setOnPageStartedListener(this.c);
@@ -186,9 +186,9 @@ public class FrsH5ItemView extends FrameLayout {
         inflate.setVisibility(8);
         addView(this.h);
         this.g = (LinearLayout) FrameLayout.inflate(getContext(), R.layout.custom_loading_toast, null);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07039a), -2);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07039e), -2);
         layoutParams.gravity = 1;
-        layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036f);
+        layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070373);
         addView(this.g, layoutParams);
     }
 
@@ -222,7 +222,7 @@ public class FrsH5ItemView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.height = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070422);
+            layoutParams.height = (BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070426);
             setLayoutParams(layoutParams);
             this.f.setVisibility(8);
             this.g.setVisibility(8);

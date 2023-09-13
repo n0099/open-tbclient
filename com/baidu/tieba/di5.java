@@ -1,41 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.editortools.EditorTools;
+import android.app.Activity;
+import android.view.ViewGroup;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class di5 {
+public class di5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditorTools a;
 
-    public di5(EditorTools editorTools) {
+    public static void a(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            new BdTopToast(currentActivity, 2000).setIcon(false).setContent(currentActivity.getString(R.string.item_download_fail)).show((ViewGroup) currentActivity.findViewById(16908290));
         }
-        this.a = editorTools;
     }
 
-    public EditorTools a() {
-        InterceptResult invokeV;
+    public static void b(DownloadData downloadData) {
+        Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            new BdTopToast(currentActivity, 2000).setIcon(false).setContent(currentActivity.getString(R.string.item_download_no_net)).show((ViewGroup) currentActivity.findViewById(16908290));
         }
-        return (EditorTools) invokeV.objValue;
+    }
+
+    public static void c(DownloadData downloadData) {
+        Activity currentActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) && (currentActivity = TbadkApplication.getInst().getCurrentActivity()) != null && !currentActivity.isDestroyed()) {
+            new BdTopToast(currentActivity, 2000).setIcon(true).setContent(currentActivity.getString(R.string.item_download_success)).show((ViewGroup) currentActivity.findViewById(16908290));
+        }
     }
 }

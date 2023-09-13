@@ -1,80 +1,46 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
+import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
-public class kj1 implements rl1, tl1 {
+public class kj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final sl1 a;
-    @NonNull
-    public ViewGroup b;
-    @NonNull
-    public final tj1 c;
-    @NonNull
-    public final BaseVM d;
-    @Nullable
-    public jj1 e;
-    public long f;
-    public long g;
-    public final long h;
-    public long i;
-    public boolean j;
-    public oj1 k;
 
-    @Override // com.baidu.tieba.rl1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(LottieComposition lottieComposition);
 
-    @Override // com.baidu.tieba.rl1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.rl1
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
+        void b();
     }
 
     /* loaded from: classes6.dex */
-    public class a implements xj1 {
+    public class a implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kj1 a;
+        public final /* synthetic */ f a;
 
-        @Override // com.baidu.tieba.xj1
-        public void handleSchemeDispatchCallback(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            }
-        }
-
-        public a(kj1 kj1Var) {
+        public a(kj1 kj1Var, f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj1Var};
+                Object[] objArr = {kj1Var, fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,35 +50,33 @@ public class kj1 implements rl1, tl1 {
                     return;
                 }
             }
-            this.a = kj1Var;
+            this.a = fVar;
         }
 
-        @Override // com.baidu.tieba.xj1
-        public boolean c(String str) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.a.e != null) {
-                    return this.a.e.c(str);
-                }
-                return false;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
+                fVar.b();
             }
-            return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class b implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kj1 a;
+        public final /* synthetic */ f a;
 
-        public b(kj1 kj1Var) {
+        public b(kj1 kj1Var, f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kj1Var};
+                Object[] objArr = {kj1Var, fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -122,190 +86,205 @@ public class kj1 implements rl1, tl1 {
                     return;
                 }
             }
-            this.a = kj1Var;
+            this.a = fVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.d();
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
             }
         }
     }
 
-    public kj1(@NonNull sl1 sl1Var, @NonNull ViewGroup viewGroup, @NonNull tj1 tj1Var) {
+    /* loaded from: classes6.dex */
+    public class c implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public c(kj1 kj1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
+                fVar.b();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public d(kj1 kj1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static kj1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-659538186, "Lcom/baidu/tieba/kj1$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-659538186, "Lcom/baidu/tieba/kj1$e;");
+                    return;
+                }
+            }
+            a = new kj1(null);
+        }
+    }
+
+    public kj1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sl1Var, viewGroup, tj1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.j = true;
-        this.h = System.currentTimeMillis();
-        this.a = sl1Var;
-        this.b = viewGroup;
-        this.c = tj1Var;
-        this.d = new BaseVM(tj1Var);
-        nj1.b(tj1Var);
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            p8.f().e();
-            if (!this.j) {
-                return;
-            }
-            this.j = false;
-            this.d.e(str, this.i);
-        }
-    }
-
-    public void l(oj1 oj1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, oj1Var) == null) {
-            this.k = oj1Var;
-            sl1 sl1Var = this.a;
-            if (sl1Var != null) {
-                oj1Var.l(sl1Var);
             }
         }
     }
 
-    public void m(@NonNull jj1 jj1Var) {
+    public static kj1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jj1Var) == null) {
-            this.e = jj1Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return e.a;
         }
+        return (kj1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tl1
-    public void onAdError(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            jj1 jj1Var = this.e;
-            if (jj1Var != null) {
-                jj1Var.f();
-            }
-        }
+    public /* synthetic */ kj1(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.rl1
-    public void a() {
+    public void a(File file, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (sj1.s() && !TextUtils.isEmpty(this.c.p)) {
-                bj0.b(this.c.p);
-                if (bh0.a) {
-                    o51.a().showToast(this.a.getAdView().getContext(), "执行nad统一新协议跳转");
-                }
-            } else {
-                ak1.a(sj0.b(), this.c.o, new a(this));
-                if (bh0.a) {
-                    o51.a().showToast(this.a.getAdView().getContext(), "执行splash旧协议跳转");
-                }
-            }
-            j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            this.d.b("");
-            jj1 jj1Var = this.e;
-            if (jj1Var != null) {
-                jj1Var.a();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tl1
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f = System.currentTimeMillis();
-            JSONObject jSONObject = new JSONObject();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
             try {
-                jSONObject.put("adShowScene", this.c.D);
-                jSONObject.put("adSplashType", this.c.e);
-                if (this.c.D == 1) {
-                    long j = this.g - this.h;
-                    if (j > 0) {
-                        jSONObject.put("adLoadCostTime", j);
-                    }
+                b(new FileInputStream(file), fVar);
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+                if (fVar != null) {
+                    fVar.b();
                 }
-                jSONObject.put("adRenderCostTime", this.f - this.h);
-                long currentTimeMillis = System.currentTimeMillis();
-                jSONObject.put("show_time", currentTimeMillis);
-                k(currentTimeMillis);
-            } catch (JSONException unused) {
-            }
-            this.d.c(jSONObject);
-            rj1.D(this.c);
-            vj1.e(this.c);
-            jj1 jj1Var = this.e;
-            if (jj1Var != null) {
-                jj1Var.onAdShow();
             }
         }
     }
 
-    @Override // com.baidu.tieba.tl1
-    public void d() {
+    public void b(InputStream inputStream, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = System.currentTimeMillis();
-        }
-    }
-
-    @Override // com.baidu.tieba.rl1
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            jj1 jj1Var = this.e;
-            if (jj1Var != null) {
-                jj1Var.onSkip();
-            }
-            j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
-        }
-    }
-
-    @Override // com.baidu.tieba.tl1
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            if ("time_end".equals(str)) {
-                j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
-            } else if ("click_skip_button".equals(str)) {
-                j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
-            } else if ("click_ad_area".equals(str)) {
-                j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            } else {
-                j(BaseVM.CloseType.OTHER.value);
-            }
-            if (this.e != null) {
-                hk0.c(new b(this));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, fVar) == null) {
+            try {
+                LottieCompositionFactory.fromZipStream(new ZipInputStream(inputStream), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
+            } catch (Exception unused) {
+                if (fVar != null) {
+                    fVar.b();
+                }
             }
         }
     }
 
-    public final void k(long j) {
+    public void c(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            String str = this.c.p;
-            if (!TextUtils.isEmpty(str)) {
-                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
-            }
-            String str2 = this.c.O;
-            if (!TextUtils.isEmpty(str2)) {
-                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, fVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File r = vj1.r(str);
+        if (r != null && r.exists()) {
+            a(r, fVar);
+            return;
+        }
+        try {
+            LottieCompositionFactory.fromUrl(tj0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
+        } catch (Exception unused) {
+            if (fVar != null) {
+                fVar.b();
             }
         }
     }

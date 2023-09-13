@@ -1,233 +1,342 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
+import android.content.Context;
 import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.AdSdkSwitch;
-import com.baidu.tieba.log.TbLog;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.IClientIPProvider;
+import com.baidu.searchbox.http.IHttpContext;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.model.MultipleConnectParams;
+import com.baidu.searchbox.http.model.PreConnectParams;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStat;
+import com.baidu.tbadk.TbDomainConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.UbcAddCookieSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import okhttp3.EventListener;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.internal.WrappedEventListener;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class kaa implements baa {
+public class kaa implements IHttpContext {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final caa a;
-    public final daa b;
-    public kw4 c;
-    public ViewGroup d;
-    public boolean e;
-    public long f;
-    public boolean g;
-    public final Runnable h;
+    public volatile boolean a;
+    public Context b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kaa a;
-
-        public a(kaa kaaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kaaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kaaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("ThirdPartySplashController", "开屏广告：mTimeOutRunnable, hasLoadBesFinish is: " + this.a.e + " ,besSplashHolder is: " + this.a.d);
-                if (!this.a.e && this.a.d != null) {
-                    SpeedStatsManager.getInstance().setIsTimeout(true);
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
-                    if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
-                        return;
-                    }
-                    kia.a("ThirdPartySplashController mTimeOutRunnable");
-                    TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
-                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
-                    if (this.a.a.h()) {
-                        i = 2;
-                    } else {
-                        i = 1;
-                    }
-                    param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
-                    if (TbadkCoreApplication.getInst().isDebugMode()) {
-                        Log.d("IAdSdkSplash", "兜底time out and jump maintab");
-                    }
-                    this.a.a.getRootView().removeView(this.a.d);
-                    this.a.b.a();
-                    DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：mTimeOutRunnable, closeSplash");
-                    BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", YYOption.IsLive.VALUE_TRUE);
-                }
-            }
-        }
-    }
-
-    public kaa(caa caaVar, daa daaVar) {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {caaVar, daaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpRequest)) == null) {
+            return false;
         }
-        this.e = false;
-        this.f = -1L;
-        this.g = false;
-        this.h = new a(this);
-        this.a = caaVar;
-        this.b = daaVar;
+        return invokeL.booleanValue;
     }
 
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.baa
-    public void onConfigurationChanged(Configuration configuration) {
-        kw4 kw4Var;
-        iw4 iw4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) && (kw4Var = this.c) != null && (iw4Var = kw4Var.c) != null) {
-            iw4Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.baa
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j();
-            kw4 kw4Var = this.c;
-            if (kw4Var != null) {
-                kw4Var.f(null);
-                this.c.e(null);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.baa
-    public boolean b() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public List<HttpUrl> getBrAllowlist() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            l();
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IClientIPProvider getClientIPProvider() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IClientIPProvider) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public EventListener getEventListener() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (EventListener) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public int getFallbackConnectDelayMs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public MultipleConnectParams getMultipleConnectParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return null;
+        }
+        return (MultipleConnectParams) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public NetworkStat<Request> getNewNetworkStat() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (NetworkStat) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public String getSimOperator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isBrAllowlistEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isNeedAuthenticateHeader4Tunnel(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isOldHttpUseTurbonet(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, str, i)) == null) {
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean isRttLogEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean ok4URLConnectionEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public boolean okHttpPreConnectEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public long g() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947907742, "Lcom/baidu/tieba/kaa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947907742, "Lcom/baidu/tieba/kaa;");
+                return;
+            }
+        }
+        c = AppConfig.isDebug();
+        d = kaa.class.getSimpleName();
+    }
+
+    @DebugTrace
+    public kaa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = AppRuntime.getAppContext();
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public CookieManager getCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (UbcAddCookieSwitch.Companion.isOn()) {
+                return new zaa();
+            }
+            return null;
+        }
+        return (CookieManager) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, httpRequest)) == null) {
+            if (c) {
+                String str = d;
+                Log.i(str, "baidunetwork HttpContext getNewCloneHttpDns httpRequest:" + httpRequest);
+            }
+            if (httpRequest == null) {
+                return null;
+            }
+            IHttpDns httpDns = HttpManager.getDefault(this.b).getHttpDns();
+            if (!(httpDns instanceof haa)) {
+                return null;
+            }
+            return new haa(((haa) httpDns).a(), true);
+        }
+        return (IHttpDns) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public IHttpDns getNewHttpDns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (c) {
+                Log.i(d, "baidunetwork HttpContext getNewHttpDns!");
+            }
+            DnsHelper dnsHelper = new DnsHelper(this.b, true);
+            dnsHelper.setHttpDnsConfig(new DnsHelper.DnsConfig(true, true, true, null));
+            return new haa(dnsHelper, false);
         }
-        return invokeV.longValue;
+        return (IHttpDns) invokeV.objValue;
     }
 
-    public ViewGroup h() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void init() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                if (this.a) {
+                    return;
+                }
+                this.a = true;
+                if (c) {
+                    Log.i(d, "baidunetwork HttpContext init!");
+                }
+                WrappedEventListener.setGlobalEventListener(aba.f());
+                DnsUtil.initNetworkStackType();
+                OkHttpClient.setDefaultFallbackConnectDealyMs(300);
+                raa.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public PreConnectParams getPreConnectParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new PreConnectParams.Builder().setPreConnectEnabled(true).setPreConnectUrlsAllowlist(Collections.singletonList(TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS)).setMaxPreConnectNum(20).setMaxSingleHostPreConnectNum(3).setPreConnectDelayTimeMs(5000).setPreConnectPeriodTimeMs(31000).setPreConnectDelayUrlsWithNum(new ArrayList()).setPreConnectNoDelayUrlsWithNum(new ArrayList()).build();
         }
-        return (ViewGroup) invokeV.objValue;
+        return (PreConnectParams) invokeV.objValue;
     }
 
-    public void i() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void prefetchDnsResult(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：invokeTimeoutTask, postDelayed mTimeOutRunnable");
-            SafeHandler.getInst().postDelayed(this.h, 500L);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：releaseTimeout");
-            this.g = true;
-            SafeHandler.getInst().removeCallbacks(this.h);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
-                this.b.a();
-            } else if (MessageManager.getInstance().findTask(2016555) == null) {
-                DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showADView, bes is null, closeSplash");
-                this.b.a();
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                paa.a = true;
             } else {
-                m();
+                ((haa) HttpManager.getDefault(this.b).getHttpDns()).a().forceUpdateDomain(str);
             }
         }
     }
 
-    public final void m() {
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void uploadIllegalUrlBy850(JSONObject jSONObject) {
+        UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showBesAdView");
-            this.g = false;
-            long currentTimeMillis = System.currentTimeMillis();
-            this.f = System.currentTimeMillis();
-            this.c = new kw4(this.a.h(), this.a.i());
-            this.d = new RelativeLayout(this.a.getActivity());
-            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a.getRootView().addView(this.d);
-            this.c.f(this.d);
-            this.c.e(new jaa(this.a, this.b, this));
-            MessageManager.getInstance().runTask(2016555, Long.class, this.c);
-            if (!this.g) {
-                DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showBesAdView, postDelayed mTimeOutRunnable");
-                ns5.a().i(System.currentTimeMillis() - currentTimeMillis);
-                SafeHandler.getInst().postDelayed(this.h, lv5.l() + 500);
+        if ((interceptable == null || interceptable.invokeL(1048597, this, jSONObject) == null) && jSONObject != null && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+            uBCManager.onEvent("850", jSONObject);
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpContext
+    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, networkInfoRecord) == null) {
+            if (c) {
+                String str = d;
+                Log.i(str, "baidu_networksetNetworkInfoRecord networkInfoRecord:" + networkInfoRecord);
             }
+            HttpManager.getDefault(this.b).setNetworkStat(null);
         }
     }
 }

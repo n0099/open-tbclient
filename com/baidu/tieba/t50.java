@@ -1,155 +1,281 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.pm.Signature;
-import android.os.IBinder;
-import android.os.Parcel;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s50;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.openid.IOpenID;
-import java.security.MessageDigest;
+import com.google.android.material.internal.ManufacturerUtils;
 /* loaded from: classes8.dex */
 public class t50 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile t50 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ s50.a b;
+    public interface a {
+        void a(boolean z, String str);
+    }
 
-        public a(Context context, s50.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948132058, "Lcom/baidu/tieba/t50;")) == null) {
+            return;
         }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Signature[] signatureArr;
-            String str;
-            Parcel obtain;
-            Parcel obtain2;
-            MessageDigest messageDigest;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
-                return;
-            }
-            iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-            String packageName = this.a.getPackageName();
-            try {
-                signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
-            } catch (Exception e) {
-                this.b.a(false, null);
-                e.printStackTrace();
-                signatureArr = null;
-            }
-            try {
-                try {
-                    if (signatureArr != null && signatureArr.length > 0) {
-                        byte[] byteArray = signatureArr[0].toByteArray();
-                        try {
-                            messageDigest = MessageDigest.getInstance("SHA1");
-                        } catch (Exception e2) {
-                            this.b.a(false, null);
-                            e2.printStackTrace();
-                        }
-                        if (messageDigest != null) {
-                            byte[] digest = messageDigest.digest(byteArray);
-                            StringBuilder sb = new StringBuilder();
-                            for (byte b : digest) {
-                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                            }
-                            str = sb.toString();
-                            obtain = Parcel.obtain();
-                            obtain2 = Parcel.obtain();
-                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                            obtain.writeString(packageName);
-                            obtain.writeString(str);
-                            obtain.writeString("OUID");
-                            iBinder.transact(1, obtain, obtain2, 0);
-                            obtain2.readException();
-                            String readString = obtain2.readString();
-                            obtain.recycle();
-                            obtain2.recycle();
-                            this.b.a(true, readString);
-                            return;
-                        }
-                    }
-                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                    obtain.writeString(packageName);
-                    obtain.writeString(str);
-                    obtain.writeString("OUID");
-                    iBinder.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
-                    String readString2 = obtain2.readString();
-                    obtain.recycle();
-                    obtain2.recycle();
-                    this.b.a(true, readString2);
-                    return;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                    this.b.a(false, null);
-                    obtain.recycle();
-                    obtain2.recycle();
-                    return;
-                }
-            } catch (Throwable th) {
-                obtain.recycle();
-                obtain2.recycle();
-                throw th;
-            }
-            str = null;
-            obtain = Parcel.obtain();
-            obtain2 = Parcel.obtain();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948132058, "Lcom/baidu/tieba/t50;");
+        }
+    }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+    public t50() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(Context context, s50.a aVar) {
+    public static t50 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (t50.class) {
+                    if (a == null) {
+                        a = new t50();
+                        return a;
+                    }
+                    return null;
+                }
             }
+            return null;
+        }
+        return (t50) invokeV.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
-                a aVar2 = new a(context, aVar);
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                context.bindService(intent, aVar2, 1);
+                return context.getPackageManager().getPackageInfo("com.huawei.hwid", 0) != null;
             } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                String str = Build.BRAND;
+                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase("vivo") : false;
+                try {
+                    if (Build.VERSION.SDK_INT < 28) {
+                        return false;
+                    }
+                } catch (Throwable unused) {
+                }
+                return equalsIgnoreCase;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.meizu.flyme.openidsdk", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            try {
+                String str = Build.BRAND;
+                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG) : false;
+                try {
+                    if (Build.VERSION.SDK_INT < 29) {
+                        return false;
+                    }
+                } catch (Throwable unused) {
+                }
+                return equalsIgnoreCase;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.zui.deviceidservice", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                String str = Build.BRAND;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                return str.equalsIgnoreCase(RomUtils.MANUFACTURER_NUBIA);
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.asus.msa.SupplementaryDID", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(Context context, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            if (k()) {
+                u50.a(context, aVar);
+            } else if (d()) {
+                w50.a(context, aVar);
+            } else if (c(context)) {
+                o50.a(context, aVar);
+            } else if (j()) {
+                r50.a(context, aVar);
+            } else if (f()) {
+                v50.a(context, aVar);
+            } else if (e(context)) {
+                q50.a(context, aVar);
+            } else if (h()) {
+                s50.a(context, aVar);
+            } else if (g(context)) {
+                p50.a(context, aVar);
+            } else if (i(context)) {
+                n50.a(context, aVar);
+            } else {
                 aVar.a(false, null);
             }
         }
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                String str = Build.BRAND;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                if (!str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) && !str.equalsIgnoreCase("redmi")) {
+                    if (!str.equalsIgnoreCase("blackshark")) {
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(11:3|4|5|(9:7|(1:11)|14|15|16|17|(1:22)|19|20)|25|15|16|17|(0)|19|20) */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0023, code lost:
+        if (r1.equalsIgnoreCase("oneplus") != false) goto L14;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean k() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                String str = Build.BRAND;
+                if (!TextUtils.isEmpty(str)) {
+                    if (!str.equalsIgnoreCase("oppo") && !str.equalsIgnoreCase("realme")) {
+                    }
+                    z = true;
+                    if (Build.VERSION.SDK_INT < 28) {
+                        return false;
+                    }
+                    return z;
+                }
+                z = false;
+                if (Build.VERSION.SDK_INT < 28) {
+                }
+                return z;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -9,14 +9,14 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.bl8;
+import com.baidu.tieba.dm8;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.chatdialog.GroupChatDialogFragment;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.ChatTabFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
-import com.baidu.tieba.ot8;
+import com.baidu.tieba.qu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,8 +39,8 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
     public final BaseFragment a;
     public final Set<Integer> b;
     public final HashSet<Long> c;
-    public final List<ot8> d;
-    public final List<ot8> e;
+    public final List<qu8> d;
+    public final List<qu8> e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgTabViewPagerAdapter(BaseFragment fragment) {
@@ -87,7 +87,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                         msgTabNotifyFragment = new Fragment();
                     } else {
                         MsgTabForumData d = ForumChannelDataObs.b.a().d(itemId);
-                        msgTabNotifyFragment = new GroupChatDialogFragment(itemId, (d == null || (r0 = d.getForumName()) == null) ? "" : "", 0L, null, false, bl8.c, "message_tab");
+                        msgTabNotifyFragment = new GroupChatDialogFragment(itemId, (d == null || (r0 = d.getForumName()) == null) ? "" : "", 0L, null, false, dm8.c, "message_tab");
                     }
                 } else {
                     msgTabNotifyFragment = new ChatTabFragment();
@@ -117,7 +117,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return invokeJ.booleanValue;
     }
 
-    public final void o(List<ot8> list) {
+    public final void o(List<qu8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
@@ -127,7 +127,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         }
     }
 
-    public final void p(List<ot8> list) {
+    public final void p(List<qu8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
@@ -147,7 +147,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return invokeV.intValue;
     }
 
-    public final List<ot8> l() {
+    public final List<qu8> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -200,7 +200,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return (Fragment) invokeI.objValue;
     }
 
-    public final Pair<Integer, ot8> n(long j) {
+    public final Pair<Integer, qu8> n(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
@@ -210,9 +210,9 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                 if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                ot8 ot8Var = (ot8) obj;
-                if (ot8Var.a() == j) {
-                    return new Pair<>(Integer.valueOf(i), ot8Var);
+                qu8 qu8Var = (qu8) obj;
+                if (qu8Var.a() == j) {
+                    return new Pair<>(Integer.valueOf(i), qu8Var);
                 }
                 i = i2;
             }

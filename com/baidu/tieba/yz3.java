@@ -1,33 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public interface yz3 {
-    void a(FrameLayout frameLayout);
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    void d(boolean z);
+    void b(String str, JSONObject jSONObject, ResponseCallback<qz3> responseCallback);
 
-    yz3 e(Context context, @NonNull uy3 uy3Var);
+    void c(String str, ResponseCallback<zy3> responseCallback);
 
-    void g(sz3 sz3Var);
+    void d(String str);
 
-    int getCurrentPosition();
+    void e(String str);
 
-    int getDuration();
-
-    void h(uy3 uy3Var);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void mute(boolean z);
-
-    void pause();
-
-    void resume();
-
-    void stop();
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

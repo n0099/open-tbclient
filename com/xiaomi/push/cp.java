@@ -6,10 +6,10 @@ public class cp {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f182a;
+    public long f181a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f183a;
+    public String f182a;
     public long b;
     public long c;
 
@@ -19,11 +19,11 @@ public class cp {
 
     public cp(int i, long j, long j2, Exception exc) {
         this.a = i;
-        this.f182a = j;
+        this.f181a = j;
         this.c = j2;
         this.b = System.currentTimeMillis();
         if (exc != null) {
-            this.f183a = exc.getClass().getSimpleName();
+            this.f182a = exc.getClass().getSimpleName();
         }
     }
 
@@ -32,22 +32,22 @@ public class cp {
     }
 
     public cp a(JSONObject jSONObject) {
-        this.f182a = jSONObject.getLong("cost");
+        this.f181a = jSONObject.getLong("cost");
         this.c = jSONObject.getLong("size");
         this.b = jSONObject.getLong("ts");
         this.a = jSONObject.getInt("wt");
-        this.f183a = jSONObject.optString("expt");
+        this.f182a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m334a() {
+    public JSONObject m335a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("cost", this.f182a);
+        jSONObject.put("cost", this.f181a);
         jSONObject.put("size", this.c);
         jSONObject.put("ts", this.b);
         jSONObject.put("wt", this.a);
-        jSONObject.put("expt", this.f183a);
+        jSONObject.put("expt", this.f182a);
         return jSONObject;
     }
 }

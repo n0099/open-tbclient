@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,15 +9,16 @@ public class n36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static h36 a(i36 i36Var) {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, i36Var)) == null) {
-            if (i36Var != null && (i36Var.a() instanceof TbPageContext) && (((TbPageContext) i36Var.a()).getPageActivity() instanceof h36)) {
-                return (h36) ((TbPageContext) i36Var.a()).getPageActivity();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long j = SharedPrefHelper.getInstance().getLong("key_youngster_use_time_dialog_show_time", 0L);
+            if (j > System.currentTimeMillis() || System.currentTimeMillis() - j <= 600000) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (h36) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

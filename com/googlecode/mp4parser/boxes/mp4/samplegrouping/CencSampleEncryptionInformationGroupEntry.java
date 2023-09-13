@@ -5,7 +5,7 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "seig";

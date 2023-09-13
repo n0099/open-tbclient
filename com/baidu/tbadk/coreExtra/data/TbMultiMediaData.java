@@ -44,7 +44,7 @@ public class TbMultiMediaData extends MultiMediaData implements Parcelable, Seri
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements Parcelable.Creator<TbMultiMediaData> {
+    public class a implements Parcelable.Creator<TbMultiMediaData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

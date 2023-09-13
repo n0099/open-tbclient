@@ -1,10 +1,27 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.security.WarmTipsManager;
+import android.os.HandlerThread;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.IMManager;
+import com.baidu.android.imsdk.account.LoginManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.MessageFactory;
+import com.baidu.android.imsdk.internal.NotifyMessageHandler;
+import com.baidu.android.imsdk.request.Message;
+import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.ubc.CaseUbc;
+import com.baidu.android.imsdk.ubc.UBCConstants;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.tieba.a90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +29,193 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class z70 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static Handler c;
+    public static final HandlerThread d;
+    public static volatile LinkedHashMap<Long, Message> e;
+    public static volatile z70 f;
+    public static Context g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public final Map<String, String> b;
+    public AtomicInteger a;
+    public a90 b;
+
+    /* loaded from: classes9.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Intent a;
+        public final /* synthetic */ z70 b;
+
+        public a(z70 z70Var, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z70Var, intent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = z70Var;
+            this.a = intent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.g(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements a90 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.c90
+        public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
+            }
+        }
+
+        public b(z70 z70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.a90
+        public void onResponse(int i, String str, @NonNull a90.a aVar) {
+            Message message;
+            JSONArray optJSONArray;
+            Message message2;
+            Message message3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
+                LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + aVar.a + ", data :" + aVar.c.length + ", Response :" + new String(aVar.c));
+                long j = aVar.b;
+                long j2 = aVar.a;
+                String str2 = "";
+                JSONArray jSONArray = new JSONArray();
+                try {
+                    for (z80 z80Var : aVar.d) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("event", z80Var.a);
+                        jSONObject.put("timestamp_ms", z80Var.b);
+                        jSONArray.put(jSONObject);
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("event_list", jSONArray);
+                    str2 = jSONObject2.toString();
+                } catch (JSONException e) {
+                    LogUtils.i("IMServiceImpl", "event_list JSONException:" + e.getMessage());
+                }
+                if (i == 0) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject(new String(aVar.c));
+                        int optInt = jSONObject3.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
+                        String optString = jSONObject3.optString("msg", "server msg is null");
+                        if (optInt == 4001) {
+                            LoginManager.getInstance(z70.g).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
+                        }
+                        if (jSONObject3.has(Constants.EXTRA_NOTIFY_ID)) {
+                            try {
+                                if (jSONObject3.has("event_list") && (optJSONArray = jSONObject3.optJSONArray("event_list")) != null) {
+                                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                        jSONArray.put(optJSONArray.get(i2));
+                                    }
+                                }
+                                JSONObject jSONObject4 = new JSONObject();
+                                jSONObject4.put("event", "CIMNotify");
+                                jSONObject4.put("timestamp_ms", System.currentTimeMillis());
+                                jSONArray.put(jSONObject4);
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("event_list", jSONArray);
+                                str2 = jSONObject5.toString();
+                                LogUtils.d("IMServiceImpl", "Notify eventList :" + str2);
+                            } catch (JSONException e2) {
+                                LogUtils.i("IMServiceImpl", "event_list JSONException:" + e2.getMessage());
+                            }
+                        }
+                        if (j2 == 96) {
+                            NotifyMessageHandler.handleDeliverMessage(z70.g.getApplicationContext(), jSONObject3, str2);
+                            return;
+                        } else if (j2 == 196) {
+                            NotifyMessageHandler.handleMcastMessage(z70.g.getApplicationContext(), jSONObject3, str2);
+                            return;
+                        } else if (j2 == 197) {
+                            NotifyMessageHandler.handleConfigMessage(z70.g.getApplicationContext(), jSONObject3);
+                            return;
+                        } else if (j2 == 226) {
+                            NotifyMessageHandler.handleMediaNotifyMessage(z70.g.getApplicationContext(), jSONObject3);
+                            return;
+                        } else if (j2 == 231) {
+                            NotifyMessageHandler.handleRtcNotifyMessage(z70.g, jSONObject3);
+                            return;
+                        } else {
+                            if (j2 != 236 && j2 != 238) {
+                                LogUtils.d("IMServiceImpl", "key :" + j + "，response :" + jSONObject3.toString() + ", eventList :" + str2);
+                                synchronized (z70.e) {
+                                    if (z70.e.containsKey(Long.valueOf(j)) && (message2 = (Message) z70.e.remove(Long.valueOf(j))) != null) {
+                                        message2.setEventList(str2);
+                                        message2.handleMessageResult(z70.g, jSONObject3, optInt, optString);
+                                    }
+                                }
+                                return;
+                            }
+                            NotifyMessageHandler.handleBusinessCustomizeNotify(z70.g.getApplicationContext(), (int) j2, jSONObject3);
+                            return;
+                        }
+                    } catch (Throwable th) {
+                        LogUtils.e("IMServiceImpl", "handle response e :", th);
+                        synchronized (z70.e) {
+                            if (z70.e.containsKey(Long.valueOf(j)) && (message = (Message) z70.e.remove(Long.valueOf(j))) != null) {
+                                message.setEventList(str2);
+                                message.handleMessageResult(z70.g, null, 1010, th.getMessage());
+                            }
+                            return;
+                        }
+                    }
+                }
+                synchronized (z70.e) {
+                    if (z70.e.containsKey(Long.valueOf(j)) && (message3 = (Message) z70.e.remove(Long.valueOf(j))) != null) {
+                        message3.setEventList(str2);
+                        Context context = z70.g;
+                        if (TextUtils.isEmpty(str)) {
+                            str = "lcp error";
+                        }
+                        message3.handleMessageResult(context, null, i, str);
+                    }
+                }
+                LoginManager.getInstance(z70.g).setCurrentState(LoginManager.LoginState.NOT_LOGIN);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +230,11 @@ public class z70 {
                 return;
             }
         }
-        c = AppConfig.isDebug();
+        HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
+        d = handlerThread;
+        handlerThread.start();
+        c = new Handler(d.getLooper());
+        e = new LinkedHashMap<>();
     }
 
     public z70() {
@@ -51,15 +250,136 @@ public class z70 {
                 return;
             }
         }
-        new Handler(Looper.getMainLooper());
-        HashMap hashMap = new HashMap(2);
-        this.a = hashMap;
-        hashMap.put("click_searchbox", WarmTipsManager.WIDGET_HISSUG_EXT_VALUE);
-        this.a.put("click_feed_video", "video");
-        HashMap hashMap2 = new HashMap(2);
-        this.b = hashMap2;
-        hashMap2.put("click_searchbox", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        this.b.put("click_feed_video", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        new HashMap(2);
+        this.a = new AtomicInteger();
+        this.b = new b(this);
+        f();
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int[] iArr = {96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231, Constants.METHOD_IM_CONSULT_NOTIFY_MSG, 238};
+            for (int i = 0; i < 7; i++) {
+                i(2, Integer.valueOf(iArr[i]).intValue());
+            }
+            i(3, 196);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            IMManager.init(g.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(g.getApplicationContext()));
+            h();
+        }
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            synchronized (e) {
+                for (Message message : e.values()) {
+                    if (message != null) {
+                        message.handleMessageResult(context, null, -1, "");
+                    }
+                }
+                e.clear();
+            }
+        }
+    }
+
+    public static z70 e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (f == null) {
+                synchronized (z70.class) {
+                    if (f == null) {
+                        g = context.getApplicationContext();
+                        f = new z70();
+                    }
+                }
+            }
+            return f;
+        }
+        return (z70) invokeL.objValue;
+    }
+
+    public void d(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
+            TaskManager.getInstance(context).submitForNetWork(new a(this, intent));
+        }
+    }
+
+    public final void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            b90 b90Var = new b90();
+            b90Var.a = i;
+            b90Var.b = i2;
+            w80.d(b90Var, this.b);
+        }
+    }
+
+    public void g(@NonNull Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent);
+            try {
+                int intExtra = intent.getIntExtra("method", -1);
+                int intExtra2 = intent.getIntExtra("service_id", -1);
+                LogUtils.d("IMServiceImpl", "-- onHandleWork methodId : " + intExtra);
+                if (intExtra != -1 && intExtra2 != -1) {
+                    if (intExtra == 50 || intExtra == 201) {
+                        h();
+                    }
+                    Message createNewMessage = MessageFactory.getInstance().createNewMessage(g, intExtra, intent);
+                    if (createNewMessage != null) {
+                        LogUtils.d("IMServiceImpl", "IMLoginState = " + LoginManager.getInstance(g).getCurrentState() + ", methodId :" + intExtra);
+                        createNewMessage.isSending(true);
+                        BLCPRequest bLCPRequest = new BLCPRequest();
+                        bLCPRequest.a = (long) intExtra2;
+                        long type = (long) createNewMessage.getType();
+                        bLCPRequest.b = type;
+                        if (intExtra2 == 3 && type == 55) {
+                            bLCPRequest.b = 185L;
+                        }
+                        bLCPRequest.c = createNewMessage.getBody().getBytes();
+                        bLCPRequest.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                        String str = System.currentTimeMillis() + "";
+                        long j = (bLCPRequest.a * 1000000000000000L) + bLCPRequest.b;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append((System.currentTimeMillis() + "").substring(str.length() - 6));
+                        sb.append(this.a.incrementAndGet());
+                        bLCPRequest.d = j + (Long.parseLong(sb.toString()) * 1000);
+                        synchronized (e) {
+                            if (intExtra == 50) {
+                                if (BIMManager.isIMLogined(g)) {
+                                    LogUtils.d("IMServiceImpl", "cur state is loggined, abandon other 50");
+                                    CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
+                                    debugInfo.curClassName = "onHandleWork IM logined";
+                                    debugInfo.extInfo = e.keySet().toString();
+                                    CaseUbc.caseType = "imcase_login";
+                                    n70.d().f(CaseUbc.generateUBCData(g, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                                    return;
+                                }
+                                e.clear();
+                                e.put(Long.valueOf(bLCPRequest.d), createNewMessage);
+                                e.putAll((LinkedHashMap) e.clone());
+                                LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + e.keySet());
+                            } else {
+                                e.put(Long.valueOf(bLCPRequest.d), createNewMessage);
+                            }
+                            LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.d + ". msg :" + e.keySet().toString());
+                            w80.d(bLCPRequest, this.b);
+                        }
+                    }
+                }
+            } catch (Exception e2) {
+                LogUtils.e("IMServiceImpl", "onStartCommand isSmallFlow Exception", e2);
+            }
+        }
     }
 }

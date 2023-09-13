@@ -1,210 +1,149 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tieba.ph8;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sh8<T> {
+public class sh8 {
     public static /* synthetic */ Interceptable $ic;
+    public static Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
-    public yh8<T> a;
-    public ph8 b;
-    public qh8 c;
-    public T d;
-    public b e;
 
     /* loaded from: classes8.dex */
-    public interface b {
-        void b();
-
-        void onCancel();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements qh8 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ sh8 b;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public int g;
+        public long h;
+        public String i;
+        public int j;
+        public long k;
+        public long l;
+        public long m;
+        public String n;
+        public int o;
 
-        public a(sh8 sh8Var, Context context) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sh8Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sh8Var;
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.qh8
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
-                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.onCancel();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.qh8
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
-                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
-                if (this.b.a != null) {
-                    this.b.a.h();
-                }
-                this.b.b.dismiss();
-                if (this.b.e != null) {
-                    this.b.e.b();
                 }
             }
         }
     }
 
-    public sh8(Context context, yh8<T> yh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, yh8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948151526, "Lcom/baidu/tieba/sh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948151526, "Lcom/baidu/tieba/sh8;");
                 return;
             }
         }
-        e(context);
-        f(context, yh8Var);
+        a = Pattern.compile(UrlSchemaHelper.PB_URL);
     }
 
-    public final void e(Context context) {
+    public static List<a> a(String str, String str2, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = new a(this, context);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return b(str, str2, null, 0L, j, j2);
         }
+        return (List) invokeCommon.objValue;
     }
 
-    public /* synthetic */ void h(Context context) {
-        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
-            BdUtilHelper.hideSoftKeyPad(context, this.a.j());
-            return;
-        }
-        yh8<T> yh8Var = this.a;
-        if (yh8Var != null) {
-            yh8Var.h();
-        }
-        this.b.dismiss();
-    }
-
-    public void i(b bVar) {
+    public static List<a> b(String str, String str2, UserData userData, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d != null) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, userData, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
-            this.b.show();
-        }
-    }
-
-    public final void f(final Context context, yh8<T> yh8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, yh8Var) == null) {
-            this.a = yh8Var;
-            yh8Var.n(this.c);
-            ph8 ph8Var = new ph8(context, R.style.obfuscated_res_0x7f10010d);
-            this.b = ph8Var;
-            ph8Var.setContentView(this.a.j());
-            this.b.a(new ph8.a() { // from class: com.baidu.tieba.oh8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ph8.a
-                public final void onClick() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        sh8.this.h(context);
+            int i2 = -1;
+            if (userData != null) {
+                i = userData.getUserType();
+            } else {
+                i = -1;
+            }
+            LinkedList linkedList = new LinkedList();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                int i3 = 0;
+                while (i3 < length) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                    String optString = optJSONObject.optString("title");
+                    String optString2 = optJSONObject.optString("url");
+                    String optString3 = optJSONObject.optString("src");
+                    String optString4 = optJSONObject.optString("text");
+                    optJSONObject.optLong("picId");
+                    String optString5 = optJSONObject.optString("msg_src");
+                    a aVar = new a();
+                    if (!TextUtils.isEmpty(optString2)) {
+                        optString2 = optString2.trim();
+                        Matcher matcher = a.matcher(optString2);
+                        if (matcher.find()) {
+                            aVar.n = matcher.group(1);
+                        }
                     }
+                    aVar.d = optString2;
+                    aVar.a = optString;
+                    aVar.b = optString4;
+                    aVar.c = optString3;
+                    aVar.e = str2;
+                    aVar.k = j2;
+                    aVar.l = j3;
+                    aVar.f = optString5;
+                    if (i > i2) {
+                        aVar.g = i;
+                    }
+                    if (userData != null) {
+                        aVar.h = j;
+                        aVar.i = userData.getUserId();
+                        aVar.j = userData.getUserType();
+                    }
+                    linkedList.add(aVar);
+                    i3++;
+                    i2 = -1;
                 }
-            });
-            Window window = this.b.getWindow();
-            window.addFlags(512);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-            window.setAttributes(attributes);
-            window.setWindowAnimations(R.style.obfuscated_res_0x7f10041b);
-            window.setGravity(80);
-            window.setLayout(-1, -2);
-        }
-    }
-
-    public final boolean g(Context context, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
-            if (view2 == null) {
-                return false;
+                return linkedList;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
-                return false;
-            }
-            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public void j(T t, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
-            this.d = t;
-            this.a.o(t, metaData);
-        }
+        return (List) invokeCommon.objValue;
     }
 }

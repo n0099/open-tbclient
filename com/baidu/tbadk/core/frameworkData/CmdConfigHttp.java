@@ -205,11 +205,13 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_TOPIC_TAB = 1003463;
     public static final int CMD_HOT_USER_RANK = 1003455;
     public static final int CMD_HTTP_AIBOT_CHAT_DETAIL = 1003573;
+    public static final int CMD_HTTP_APPLY_INNTERNAL = 1003576;
     public static final int CMD_HTTP_CHAT_GROUP_ROOM_LIST = 1003552;
     public static final int CMD_HTTP_CHAT_ROOM_DETAIL = 1003550;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_DEL_TOKEN_INFO = 1003558;
     public static final int CMD_HTTP_ET_VIDEO = 1003519;
+    public static final int CMD_HTTP_EXCEPTION_REPORT = 1003574;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_HOTFORUM = 1001534;
     public static final int CMD_HTTP_GET_HOTTOPIC_SELECT = 1003186;
@@ -220,6 +222,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_RELATIVE_MEME_LIST = 1003561;
     public static final int CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP = 1003553;
     public static final int CMD_HTTP_SMART_APP = 1003420;
+    public static final int CMD_HTTP_STATISTICS_REPORT = 1003575;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
     public static final int CMD_HTTP_VIDEO_ATTENTION_FEED = 1003501;
     public static final int CMD_HTTP_VIDEO_CHANNEL_FEED = 1003498;
@@ -313,7 +316,6 @@ public class CmdConfigHttp {
     public static final int CMD_TOPIC_DETAIL = 1003424;
     public static final int CMD_TOPIC_LIST = 1003423;
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
-    public static final int CMD_TOPIC_THREAD = 1003425;
     public static final int CMD_TRACK_CONFIG = 1003452;
     public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;

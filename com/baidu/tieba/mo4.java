@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes7.dex */
 public class mo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SharedPreferences a() {
-        InterceptResult invokeV;
+    public static void a(@Nullable Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new nr4("key_pms_sp_name");
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception unused) {
+            }
         }
-        return (SharedPreferences) invokeV.objValue;
     }
 }

@@ -1,154 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
+import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.HotThreadList.DataRes;
-import tbclient.HotThreadList.HotThreadListResIdl;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j28 {
+public class j28 extends ax<RecommendBarCardModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecommendBarLayout f;
+    public int g;
+    public int h;
 
-    public static List<bn> a(List<ThreadData> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j28(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            int i = 0;
-            for (ThreadData threadData : list) {
-                int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                    threadData.position = i;
-                    c45 c45Var = new c45();
-                    c45Var.t = threadData;
-                    c45Var.position = i;
-                    c45Var.r = true;
-                    c45Var.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(c45Var);
-                    c45 c45Var2 = new c45();
-                    c45Var2.t = threadData;
-                    c45Var2.position = i;
-                    if (threadData.isBJHNormalThreadType()) {
-                        c45Var2.f = true;
-                    } else if (threadData.picCount() == 1) {
-                        c45Var2.d = true;
-                        c45Var2.u = imageWidthAndHeight[0];
-                        c45Var2.v = imageWidthAndHeight[1];
-                    } else if (threadData.picCount() >= 2) {
-                        c45Var2.e = true;
-                    } else {
-                        c45Var2.b = true;
-                    }
-                    c45Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(c45Var2);
-                    d(threadData, arrayList, i);
-                    c45 c45Var3 = new c45();
-                    c45Var3.g = true;
-                    c45Var3.t = threadData;
-                    c45Var3.position = i;
-                    c45Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(c45Var3);
-                } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
-                    threadData.position = i;
-                    c45 c45Var4 = new c45();
-                    c45Var4.t = threadData;
-                    c45Var4.position = i;
-                    c45Var4.r = true;
-                    c45Var4.setSupportType(BaseCardInfo.SupportType.TOP);
-                    arrayList.add(c45Var4);
-                    c45 c45Var5 = new c45();
-                    c45Var5.t = threadData;
-                    c45Var5.position = i;
-                    c45Var5.i = true;
-                    c45Var5.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    arrayList.add(c45Var5);
-                    d(threadData, arrayList, i);
-                    c45 c45Var6 = new c45();
-                    c45Var6.g = true;
-                    c45Var6.t = threadData;
-                    c45Var6.position = i;
-                    c45Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-                    arrayList.add(c45Var6);
-                } else {
-                    threadData.setSupportType(BaseCardInfo.SupportType.TOP);
-                }
-                i++;
-                threadData.setSupportType(BaseCardInfo.SupportType.TOP);
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        this.g = 3;
+        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
     }
 
-    public static List<bn> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ax
+    public View j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.isFromHotRankTab = true;
-                threadData.parserProtobuf(threadInfo);
-                e(threadData);
-                arrayList.add(threadData);
-            }
-            return a(arrayList);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (List) invokeL.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public static List<bn> c(HotThreadListResIdl hotThreadListResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
+    @Override // com.baidu.tieba.ax
+    public void p(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hotThreadListResIdl)) == null) {
-            if (hotThreadListResIdl != null && (dataRes = hotThreadListResIdl.data) != null && !ListUtils.isEmpty(dataRes.thread_info)) {
-                return b(hotThreadListResIdl.data.thread_info);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void d(ThreadData threadData, ArrayList<bn> arrayList, int i) {
-        ThreadRecommendInfoData threadRecommendInfoData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65539, null, threadData, arrayList, i) == null) && threadData != null && arrayList != null && (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0)) != null && !TextUtils.isEmpty(threadRecommendInfoData.recommendReason)) {
-            c45 c45Var = new c45();
-            c45Var.s = true;
-            c45Var.t = threadData;
-            c45Var.position = i;
-            c45Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
-            arrayList.add(c45Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.f.setPageId(bdUniqueId);
         }
     }
 
-    public static void e(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ux
+    /* renamed from: s */
+    public void onBindDataToView(RecommendBarCardModel recommendBarCardModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) {
-            String lengthLimitName = threadData.getLengthLimitName();
-            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
-            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
-                lengthLimitName = lengthLimitName + "   " + formatTimeForHomeC;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, recommendBarCardModel) == null) && recommendBarCardModel != null && this.h != recommendBarCardModel.hashCode()) {
+            this.h = recommendBarCardModel.hashCode();
+            this.f.setData(recommendBarCardModel);
+        }
+    }
+
+    @Override // com.baidu.tieba.vx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                q(this.f, 3);
             }
-            threadData.setThreadExtendInfo(lengthLimitName);
+            this.g = i;
         }
     }
 }

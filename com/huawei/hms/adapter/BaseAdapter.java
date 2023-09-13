@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +43,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HMS_SESSION_INVALID = "com.huawei.hms.core.action.SESSION_INVALID";
@@ -61,14 +62,14 @@ public class BaseAdapter {
     public ResponseHeader responseHeader;
     public String transactionId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface BaseCallBack {
         void onComplete(String str, String str2, Parcelable parcelable);
 
         void onError(String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class BaseRequestResultCallback implements ResultCallback<ResolveResult<CoreBaseResponse>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +258,7 @@ public class BaseAdapter {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MPendingResultImpl extends PendingResultImpl<ResolveResult<CoreBaseResponse>, CoreBaseResponse> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -581,7 +582,7 @@ public class BaseAdapter {
         if (interceptable == null || (invokeI = interceptable.invokeI(65558, this, i)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errorCode", i);
+                jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, i);
             } catch (JSONException e) {
                 HMSLog.e(TAG, "buildBodyStr failed: " + e.getMessage());
             }

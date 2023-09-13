@@ -1,122 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class f32 {
+public class f32 implements d32 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile f32 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<d32> a;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713124, "Lcom/baidu/tieba/f32;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int indexOf = str.indexOf("_dev");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713124, "Lcom/baidu/tieba/f32;");
+                return;
             }
-            int indexOf2 = str.indexOf("_trial");
-            if (indexOf2 > 0) {
-                return str.substring(0, indexOf2);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+        b = rr1.a;
     }
 
-    public static int b(String str) {
-        InterceptResult invokeL;
+    public f32() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (str.contains("_dev")) {
-                return 1;
-            }
-            if (str.endsWith("_trial")) {
-                return 3;
-            }
-            if (!str.contains("_trial")) {
-                return 0;
-            }
-            return 2;
         }
-        return invokeL.intValue;
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add(new e32());
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static f32 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (f32.class) {
+                    if (c == null) {
+                        c = new f32();
+                    }
+                }
             }
-            int lastIndexOf = str.lastIndexOf("_dev");
-            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
-                return str.substring(lastIndexOf);
-            }
-            int lastIndexOf2 = str.lastIndexOf("_trial");
-            if (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) {
-                return "";
-            }
-            return str.substring(lastIndexOf2);
+            return c;
         }
-        return (String) invokeL.objValue;
+        return (f32) invokeV.objValue;
     }
 
-    public static boolean d(aw2 aw2Var) {
-        InterceptResult invokeL;
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aw2Var)) == null) {
-            if (aw2Var != null && aw2Var.getType() == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.d("Api-Marker", "release: ");
+                }
+                if (c == null) {
+                    return;
+                }
+                c = null;
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean e(aw2 aw2Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d32
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aw2Var)) == null) {
-            if (aw2Var == null || aw2Var.getType() != 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markStart: " + str);
             }
-            return true;
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).a(str);
+            }
         }
-        return invokeL.booleanValue;
     }
 
-    @Deprecated
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d32
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.contains("_")) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markEnd: " + str);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(aw2 aw2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, aw2Var)) == null) {
-            if (aw2Var != null && aw2Var.getType() == 2) {
-                return true;
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).b(str);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

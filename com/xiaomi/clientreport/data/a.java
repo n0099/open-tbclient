@@ -1,5 +1,6 @@
 package com.xiaomi.clientreport.data;
 
+import com.baidu.tts.jni.TtsLogLoad;
 import com.xiaomi.push.bs;
 import com.xiaomi.push.j;
 import org.json.JSONException;
@@ -12,7 +13,7 @@ public class a {
     public int reportType;
     public String sdkVersion;
     public String os = bs.a();
-    public String miuiVersion = j.m707a();
+    public String miuiVersion = j.m708a();
 
     public String getPackageName() {
         return this.pkgName;
@@ -32,7 +33,7 @@ public class a {
             jSONObject.put("production", this.production);
             jSONObject.put("reportType", this.reportType);
             jSONObject.put("clientInterfaceId", this.clientInterfaceId);
-            jSONObject.put("os", this.os);
+            jSONObject.put(TtsLogLoad.KEY_OS, this.os);
             jSONObject.put("miuiVersion", this.miuiVersion);
             jSONObject.put("pkgName", this.pkgName);
             jSONObject.put(com.heytap.mcssdk.constant.b.C, this.sdkVersion);

@@ -166,10 +166,10 @@ public class LoadingView extends FrameLayout implements LoadingViewHolder<Loadin
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0741, (ViewGroup) this, true);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f9e);
-            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091648);
-            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f091757);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0754, (ViewGroup) this, true);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091fde);
+            this.mProgressBar = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091651);
+            this.mMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f091760);
             setPageResources();
         }
     }
@@ -179,15 +179,15 @@ public class LoadingView extends FrameLayout implements LoadingViewHolder<Loadin
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             View view2 = this.mRootView;
             if (view2 != null) {
-                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081102));
+                view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081121));
             }
             SmoothProgressBar smoothProgressBar = this.mProgressBar;
             if (smoothProgressBar != null) {
-                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f79));
+                smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f94));
             }
             TextView textView = this.mMsg;
             if (textView != null) {
-                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0607c7));
+                textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f0607ca));
             }
         }
     }

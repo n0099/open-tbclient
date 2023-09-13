@@ -1,104 +1,54 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
-import com.baidu.tbadk.core.atomData.CreateForumActivityConfig;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.home.CreateBarGuideActivity;
+import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
+import com.baidu.tieba.funad.adapter.FunAdNativeViewHolder;
+import com.baidu.tieba.funad.view.FunAbsAdView;
+import com.baidu.tieba.funad.view.FunAdNativeCommentView;
+import com.baidu.tieba.funad.view.FunAdNativeFrsView;
+import com.baidu.tieba.funad.view.FunAdNativePbView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UserBfbInfo;
 /* loaded from: classes8.dex */
-public class sy7 {
+public class sy7 implements ly7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CreateBarGuideActivity a;
-    public View b;
-    public View c;
-    public NoNetworkView d;
-    public NoDataView e;
-    public NavigationBar f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public LinearLayout j;
-    public TbImageView k;
-    public UserBfbInfo l;
-    public String m;
-    public CustomMessageListener n;
 
     /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy7 a;
+        public final /* synthetic */ rha a;
+        public final /* synthetic */ FunAdNativeViewHolder b;
+        public final /* synthetic */ BdUniqueId c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ View.OnClickListener e;
+        public final /* synthetic */ sy7 f;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(sy7 sy7Var, int i) {
-            super(i);
+        public a(sy7 sy7Var, rha rhaVar, FunAdNativeViewHolder funAdNativeViewHolder, BdUniqueId bdUniqueId, String str, View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sy7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sy7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.l != null) {
-                if (this.a.l.res_no.intValue() == 9528) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.a.a.getActivity(), this.a.m, true)));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy7 a;
-
-        public b(sy7 sy7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy7Var};
+                Object[] objArr = {sy7Var, rhaVar, funAdNativeViewHolder, bdUniqueId, str, onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -108,139 +58,274 @@ public class sy7 {
                     return;
                 }
             }
-            this.a = sy7Var;
+            this.f = sy7Var;
+            this.a = rhaVar;
+            this.b = funAdNativeViewHolder;
+            this.c = bdUniqueId;
+            this.d = str;
+            this.e = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.l != null) {
-                    if (this.a.l.res_no.intValue() == 9528) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateForumActivityConfig(this.a.a.getActivity(), this.a.m, true)));
-                    } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
-                    }
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.a.a.getActivity(), this.a.m, true)));
+                this.a.p(true);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016331, "delFunAd"));
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FEEDBACK).param("obj_source", 6).param("obj_type", this.b.e()).param("resource_id", this.f.i(this.c, this.d)).param("obj_locate", 0);
+                if ("a006".equals(this.b.e())) {
+                    param.param(TiebaStatic.Params.OBJ_TO, this.b.c());
+                    param.param(TiebaStatic.Params.OBJ_PARAM2, this.b.b());
                 }
-                TiebaStatic.log("c11223");
-                this.a.a.finish();
+                TiebaStatic.log(param);
+                View.OnClickListener onClickListener = this.e;
+                if (onClickListener != null) {
+                    onClickListener.onClick(view2);
+                }
             }
         }
     }
 
-    public sy7(CreateBarGuideActivity createBarGuideActivity) {
+    public sy7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {createBarGuideActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ly7
+    public pm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.G) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(oy7.e().d("pb_banner"));
+                funAdNativeNewAdapter.setPageType("pb");
+                funAdNativeNewAdapter.setSceneKey("pb_banner");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.J) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter2.setSid(iy7.f());
+                funAdNativeNewAdapter2.setPageType("pb");
+                return funAdNativeNewAdapter2;
+            } else if (bdUniqueId != AdvertAppInfo.H) {
+                return null;
+            } else {
+                return new ty7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (pm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ly7
+    public View b(@NonNull Context context, @NonNull BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bdUniqueId)) == null) {
+            if (bdUniqueId == AdvertAppInfo.H) {
+                return new View(context);
+            }
+            if (bdUniqueId == AdvertAppInfo.J) {
+                return new FunAdNativeCommentView(context);
+            }
+            if (bdUniqueId == AdvertAppInfo.I) {
+                return new FunAdNativeFrsView(context);
+            }
+            return new FunAdNativePbView(context);
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ly7
+    public pm<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(iy7.g());
+                funAdNativeNewAdapter.setPageType("personalize");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.H) {
+                return null;
+            } else {
+                return new ty7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (pm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ly7
+    public pm<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(oy7.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.H) {
+                return null;
+            } else {
+                return new ty7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (pm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ly7
+    public void e(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (view2 instanceof FunAbsAdView)) {
+            ((FunAbsAdView) view2).h();
+        }
+    }
+
+    @Override // com.baidu.tieba.ly7
+    public void f(@NonNull View view2, @Nullable rha rhaVar, @NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener) {
+        Activity activity;
+        FunAdNativeViewHolder funAdNativeViewHolder;
+        String str5;
+        FunAdNativeViewHolder funAdNativeViewHolder2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, rhaVar, bdUniqueId, str, str2, str3, str4, Integer.valueOf(i), onClickListener}) == null) {
+            Context context = view2.getContext();
+            if (context instanceof Activity) {
+                activity = (Activity) context;
+            } else {
+                if (context instanceof av6) {
+                    av6 av6Var = (av6) context;
+                    if (av6Var.getPageContext() != null && av6Var.getPageContext().getPageActivity() != null) {
+                        activity = av6Var.getPageContext().getPageActivity();
+                    }
+                }
+                activity = null;
+            }
+            Activity activity2 = activity;
+            if (rhaVar != null && !rhaVar.i() && activity2 != null) {
+                j(view2, 0);
+                FunAbsAdView funAbsAdView = (FunAbsAdView) view2;
+                Object tag = funAbsAdView.getTag(R.id.obfuscated_res_0x7f090dc2);
+                if (tag instanceof FunAdNativeViewHolder) {
+                    funAdNativeViewHolder = (FunAdNativeViewHolder) tag;
+                } else {
+                    funAdNativeViewHolder = new FunAdNativeViewHolder(funAbsAdView, activity2, bdUniqueId);
+                    funAbsAdView.setTag(R.id.obfuscated_res_0x7f090dc2, funAdNativeViewHolder);
+                }
+                String str6 = str;
+                FunAdNativeViewHolder funAdNativeViewHolder3 = funAdNativeViewHolder;
+                funAdNativeViewHolder3.l(str6);
+                funAdNativeViewHolder3.k(str3);
+                if (!"personalize".equals(str2) && !AdvertAppInfo.J.equals(bdUniqueId)) {
+                    str6 = oy7.e().d(str3);
+                }
+                String str7 = str6;
+                String str8 = "1";
+                if (bdUniqueId == AdvertAppInfo.I) {
+                    if ("frs".equals(str2)) {
+                        if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
+                            str8 = "0";
+                        }
+                        iy7.m().J(activity2, str7, iy7.b(str2, str8), String.valueOf(rhaVar.d()), hw5.f());
+                    } else if ("personalize".equals(str2)) {
+                        if (!UbsABTestHelper.isPersonalizeFunAdABTest()) {
+                            str8 = "0";
+                        }
+                        iy7.m().I(activity2, str7, iy7.b(str2, str8));
+                    }
+                } else if (bdUniqueId == AdvertAppInfo.J) {
+                    iy7 m = iy7.m();
+                    if (!UbsABTestHelper.isPbCommentFunAdABTest()) {
+                        str8 = "0";
+                    }
+                    m.K(activity2, str7, iy7.b(str2, str8), rhaVar.g(), rhaVar.d());
+                }
+                if (funAbsAdView.getFeedBackView() != null) {
+                    str5 = str7;
+                    funAdNativeViewHolder2 = funAdNativeViewHolder3;
+                    a aVar = new a(this, rhaVar, funAdNativeViewHolder3, bdUniqueId, str2, onClickListener);
+                    funAbsAdView.getFeedBackView().setOnClickListener(aVar);
+                    funAbsAdView.setFeedBackListener(aVar);
+                } else {
+                    str5 = str7;
+                    funAdNativeViewHolder2 = funAdNativeViewHolder3;
+                }
+                funAdNativeViewHolder2.d().h();
+                funAdNativeViewHolder2.j(str2);
+                funAdNativeViewHolder2.d().setCurpage(str2);
+                funAdNativeViewHolder2.l(str5);
+                funAdNativeViewHolder2.m(rhaVar, i);
                 return;
             }
-        }
-        this.n = new a(this, 2016458);
-        this.a = createBarGuideActivity;
-        View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0237, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090415);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.f = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f.setTitleText(R.string.create_bar);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a7);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a6);
-        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0922e0);
-        this.g.setOnClickListener(new b(this));
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a1);
-        this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091911);
-        MessageManager.getInstance().registerListener(this.n);
-    }
-
-    public View d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setVisibility(8);
+            j(view2, 8);
         }
     }
 
-    public void g() {
+    @Override // com.baidu.tieba.ly7
+    public pm<?, ?> g(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.n);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setVisibility(0);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            bt5.a(this.a.getPageContext(), this.b);
-            NavigationBar navigationBar = this.f;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
             }
-            NoNetworkView noNetworkView = this.d;
-            if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            }
-            NoDataView noDataView = this.e;
-            if (noDataView != null) {
-                noDataView.f(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            }
-        }
-    }
-
-    public void i(String str, UserBfbInfo userBfbInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, userBfbInfo) == null) {
-            this.m = str;
-            this.l = userBfbInfo;
-            if (this.e == null) {
-                int dimens = BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909cb), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, dimens), null, null);
-                this.e = a2;
-                a2.setVisibility(0);
-                f();
-            }
-            TextView textView = this.h;
-            textView.setText(this.m + "吧");
-            UserBfbInfo userBfbInfo2 = this.l;
-            if (userBfbInfo2 != null && userBfbInfo2.res_no.intValue() == 9528) {
-                if (this.l.activity_status.intValue() == 0) {
-                    this.k.setImageResource(R.drawable.icon_create_attention_n);
-                } else {
-                    this.k.setImageResource(R.drawable.icon_create_complete_n);
-                }
+            if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(oy7.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setPageTab(str);
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.H) {
+                return null;
             } else {
-                this.i.setVisibility(4);
-                this.j.setVisibility(4);
+                return new ty7(baseFragmentActivity, bdUniqueId);
             }
-            this.i.setVisibility(8);
-            this.j.setVisibility(8);
+        }
+        return (pm) invokeLLL.objValue;
+    }
+
+    public final String i(@NonNull BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bdUniqueId, str)) == null) {
+            if ("pb".equals(str)) {
+                if (bdUniqueId == AdvertAppInfo.J) {
+                    return "2";
+                }
+                return "1";
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void j(@NonNull View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) == null) {
+            if (view2 instanceof FunAbsAdView) {
+                ((FunAbsAdView) view2).d(i);
+            }
+            view2.setVisibility(i);
         }
     }
 }

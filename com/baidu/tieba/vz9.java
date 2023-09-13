@@ -1,207 +1,224 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Ref;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class vz9 {
+public class vz9 extends xz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final List<String> c;
-    public final int d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948258228, "Lcom/baidu/tieba/vz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948258228, "Lcom/baidu/tieba/vz9;");
-                return;
-            }
-        }
-        e = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof vz9) {
-                vz9 vz9Var = (vz9) obj;
-                return Intrinsics.areEqual(this.a, vz9Var.a) && this.b == vz9Var.b && Intrinsics.areEqual(this.c, vz9Var.c) && this.d == vz9Var.d;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((((this.a.hashCode() * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "PushSceneGroup(groupName=" + this.a + ", groupNo=" + this.b + ", groupList=" + this.c + ", limit=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
+    public VideoItemData U0;
+    public VideoSerializeVideoThreadInfo V0;
+    public ThreadData W0;
+    public a X0;
 
     /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface a {
+        void a();
+    }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final vz9 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                List<String> b = b(jSONObject.optJSONArray("group"));
-                String optString = jSONObject.optString("group_name");
-                Intrinsics.checkNotNullExpressionValue(optString, "json.optString(\"group_name\")");
-                return new vz9(optString, jSONObject.optInt("group_no"), b, jSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT));
-            }
-            return (vz9) invokeL.objValue;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x002f, code lost:
-            if (r5 == true) goto L13;
-         */
-        /* JADX WARN: Type inference failed for: r1v2, types: [T, java.util.ArrayList] */
-        /* JADX WARN: Type inference failed for: r1v3, types: [java.util.List, T, java.util.ArrayList] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final List<String> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                objectRef.element = new ArrayList();
-                if (jSONArray != null) {
-                    ?? arrayList = new ArrayList();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        String optString = jSONArray.optString(i);
-                        boolean z2 = true;
-                        if (optString != null) {
-                            if (optString.length() > 0) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                        }
-                        z2 = false;
-                        if (z2) {
-                            String optString2 = jSONArray.optString(i);
-                            Intrinsics.checkNotNullExpressionValue(optString2, "array.optString(i)");
-                            arrayList.add(optString2);
-                        }
-                    }
-                    objectRef.element = arrayList;
-                }
-                return (List) objectRef.element;
-            }
-            return (List) invokeL.objValue;
+    @Override // com.baidu.tieba.xz9
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    public vz9(String groupName, int i, List<String> groupList, int i2) {
+    @Override // com.baidu.tieba.xz9, com.baidu.tieba.uz9
+    public boolean onBackPress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vz9(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {groupName, Integer.valueOf(i), groupList, Integer.valueOf(i2)};
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 5000;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public vz9(Context context, View view2, boolean z) {
+        this(context, view2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(groupName, "groupName");
-        Intrinsics.checkNotNullParameter(groupList, "groupList");
-        this.a = groupName;
-        this.b = i;
-        this.c = groupList;
-        this.d = i2;
+        u0(z);
     }
 
-    public final List<String> a() {
-        InterceptResult invokeV;
+    public final void H0(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, rect) != null) || this.W0 == null) {
+            return;
         }
-        return (List) invokeV.objValue;
+        if (this.U0 == null) {
+            this.U0 = new VideoItemData();
+        }
+        ArrayList arrayList = new ArrayList();
+        this.U0.buildWithThreadData(this.W0);
+        arrayList.add(this.U0);
+        String str = null;
+        ThreadData threadData = this.W0;
+        if (threadData != null && threadData.getBaijiahaoData() != null) {
+            str = this.W0.getBaijiahaoData().oriUgcNid;
+        }
+        String str2 = str;
+        Context context = this.S;
+        boolean z = this.X;
+        String str3 = this.f0;
+        ThreadData threadData2 = this.W0;
+        ix5.e(context, arrayList, str2, z, 0, rect, "from_nani_video", "personalize_page", "", str3, str3, false, threadData2.isJumpToFrsVideoTabPlay, true, threadData2.getFid());
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xz9, android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+            return;
         }
-        return invokeV.intValue;
+        int id = view2.getId();
+        if (id == R.id.video_mute) {
+            c0();
+        } else if (id == R.id.obfuscated_res_0x7f091f3a) {
+            x0(this.b);
+            startPlay();
+        } else {
+            a aVar = this.X0;
+            if (aVar != null) {
+                aVar.a();
+                return;
+            }
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                BdUtilHelper.showToast(this.S, (int) R.string.no_network_guide);
+            } else {
+                H0(ThreadCardUtils.computeViewArea(this.U));
+                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(isPlaying());
+            }
+            View.OnClickListener onClickListener = this.F0;
+            if (onClickListener != null) {
+                onClickListener.onClick(getMainView());
+            }
+        }
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public void I0(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.X0 = aVar;
         }
-        return invokeV.intValue;
+    }
+
+    public void J0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            x0(this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.xz9
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int i = this.p;
+            if (i == this.e || i == this.n) {
+                J0();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xz9
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = 32;
+        }
+    }
+
+    @Override // com.baidu.tieba.xz9
+    public void i0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.i0();
+            this.U.setOnTouchListener(null);
+            this.U.setOnClickListener(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.xz9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.xz9, com.baidu.tieba.uz9
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
+            super.setData(threadData);
+            this.W0 = threadData;
+            if (this.X) {
+                VideoItemData videoItemData = new VideoItemData();
+                this.U0 = videoItemData;
+                videoItemData.buildWithThreadData(threadData);
+                return;
+            }
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
+            this.V0 = videoSerializeVideoThreadInfo;
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.V0;
+            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
+            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
+            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
+            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
+        }
     }
 }

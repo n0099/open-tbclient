@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import java.util.List;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public interface no5 {
-    List<LaunchTask> asyncList();
+    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
 }

@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import bolts.UnobservedTaskException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v {
+public class v<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t<?> a;
+    public final u<TResult> a;
 
-    public v(t<?> tVar) {
+    public v() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,28 +25,66 @@ public class v {
                 return;
             }
         }
-        this.a = tVar;
+        this.a = new u<>();
     }
 
-    public void a() {
+    public u<TResult> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (u) invokeV.objValue;
     }
 
-    public void finalize() throws Throwable {
-        t.f m;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                t<?> tVar = this.a;
-                if (tVar != null && (m = t.m()) != null) {
-                    m.a(tVar, new UnobservedTaskException(tVar.k()));
-                }
-            } finally {
-                super.finalize();
-            }
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || d()) {
+            return;
         }
+        throw new IllegalStateException("Cannot cancel a completed task.");
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.r();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) != null) || e(exc)) {
+            return;
+        }
+        throw new IllegalStateException("Cannot set the error on a completed task.");
+    }
+
+    public boolean e(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, exc)) == null) {
+            return this.a.s(exc);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean f(TResult tresult) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tresult)) == null) {
+            return this.a.t(tresult);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void setResult(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, tresult) != null) || f(tresult)) {
+            return;
+        }
+        throw new IllegalStateException("Cannot set the result of a completed task.");
     }
 }

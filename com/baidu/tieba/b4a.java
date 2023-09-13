@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.widget.RemoteViews;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.List;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.LayoutFactory;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.PageData;
 /* loaded from: classes5.dex */
-public final class b4a {
+public class b4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public final RemoteViews a;
 
     /* loaded from: classes5.dex */
-    public static final class a extends bx5<DataRes> {
+    public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b4a a;
@@ -48,207 +48,85 @@ public final class b4a {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bx5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            byte[] bArr;
-            PageData pageData;
-            List<LayoutFactory> list;
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                v77.a.b("tb.feed_home_reco_user_state", new u77("tb.feed_home_reco_user_state", currentAccount));
-                boolean z = true;
-                DataRes build = new DataRes.Builder().build(true);
-                Intrinsics.checkNotNullExpressionValue(build, "Builder().build(true)");
-                if (!this.a.b()) {
-                    return build;
-                }
-                ne<byte[]> j = r45.j("tb.reco_feed_space", TbadkCoreApplication.getCurrentAccount());
-                if (j != null && (bArr = j.get("0")) != null && bArr.length != 0) {
-                    try {
-                        DataRes res = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                        if (res == null || (pageData = res.page_data) == null || (list = pageData.feed_list) == null || !(!list.isEmpty())) {
-                            z = false;
-                        }
-                        if (z) {
-                            Intrinsics.checkNotNullExpressionValue(res, "res");
-                            return res;
-                        }
-                        return build;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return build;
-                    }
-                }
-                return build;
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) && this.a.a != null && bdImage != null && bdImage.getRawBitmap() != null) {
+                this.a.a.setImageViewBitmap(R.id.app_icon, bdImage.getRawBitmap());
             }
-            return (DataRes) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b extends bx5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                r45.h("tb.feed_home_reco_user_state", currentAccount);
-                v77.a.b("tb.feed_home_reco_user_state", new u77("tb.feed_home_reco_user_state", currentAccount));
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.bx5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class c extends bx5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DataRes.Builder a;
-
-        public c(DataRes.Builder builder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = builder;
-        }
-
-        @Override // com.baidu.tieba.bx5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    r45.j("tb.reco_feed_space", TbadkCoreApplication.getCurrentAccount()).g("0", new DataRes.Builder(this.a.build(true)).build(true).toByteArray());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    public b4a() {
+    public b4a(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {downloadData, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = SharedPrefHelper.getInstance().getLong("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
+        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
+        c(i);
+        this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
+        this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+        this.a.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
+        this.a.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
+        BdResourceLoader.getInstance().loadResource(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
+        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
+        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        this.a.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
+        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        this.a.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
     }
 
-    public final boolean b() {
+    public RemoteViews b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            long j = sharedPrefHelper.getLong("key_recommend_cache_update_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            if (j > 0 && System.currentTimeMillis() - j > this.a) {
-                return false;
-            }
-            return true;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (RemoteViews) invokeV.objValue;
     }
 
-    public final void c(final a4a recoFeedCacheListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recoFeedCacheListener) == null) {
-            Intrinsics.checkNotNullParameter(recoFeedCacheListener, "recoFeedCacheListener");
-            fx5.b(new a(this), new gw5() { // from class: com.baidu.tieba.y3a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.gw5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        b4a.d(a4a.this, (DataRes) obj);
-                    }
-                }
-            });
-        }
-    }
-
-    public final void g(DataRes.Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            fx5.b(new c(builder), null);
-        }
-    }
-
-    public static final void d(a4a recoFeedCacheListener, DataRes result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, recoFeedCacheListener, result) == null) {
-            Intrinsics.checkNotNullParameter(recoFeedCacheListener, "$recoFeedCacheListener");
-            Intrinsics.checkNotNullExpressionValue(result, "result");
-            recoFeedCacheListener.a(result);
-        }
-    }
-
-    public final void e() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fx5.b(new b(), null);
+            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
+            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
         }
     }
 
-    public final void f() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putLong("key_recommend_cache_update_time" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
+            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+        }
+    }
+
+    public void c(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i > 0) {
+                str = i + "%";
+            } else {
+                str = "0%";
+            }
+            this.a.setProgressBar(R.id.download_progress, 100, i, false);
+            this.a.setTextViewText(R.id.download_progress_text, str);
         }
     }
 }

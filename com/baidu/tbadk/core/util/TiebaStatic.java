@@ -23,16 +23,16 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.di;
-import com.baidu.tieba.dw5;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.kv5;
-import com.baidu.tieba.ms5;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.ur5;
-import com.baidu.tieba.uv5;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.ah;
+import com.baidu.tieba.dg;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.gt5;
+import com.baidu.tieba.gw5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.og;
+import com.baidu.tieba.os5;
+import com.baidu.tieba.qw5;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,6 @@ public class TiebaStatic {
     public static final String ALL_COST = "all_cost";
     public static final String CON_COST = "con_cost";
     public static final String INTENT_KEY_START_TIME = "TibaStatic.StartTime";
-    public static final int MAX_COST_VALUE = 180000;
     public static final String PRE_COST = "pre_cost";
     public static final String PRODUCTNAME = "tieba";
     public static final String SHOW_COST = "show_cost";
@@ -123,52 +122,9 @@ public class TiebaStatic {
     public static class CardImgClickValues {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int JUMP_TO_IMAGE_VIEWER = 2;
-        public static final int JUMP_TO_PB = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public CardImgClickValues() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class DQPay extends LogFields {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String TYPE_VALUE = "pay";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public DQPay() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class ErrorKey {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String OP_ALADIN_PORT_ERROR = "op_aladin_port_error";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public ErrorKey() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,49 +162,14 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class IM extends LogFields {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String TYPE_VALUE = "im";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public IM() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
     public static class LogFields {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ACTION = "action";
-        public static final String CMD = "cmd";
-        public static final String CMD_REMARK = "cmdRemark";
-        public static final String COMMENT = "comment";
         public static final String COST_TIME = "costTime";
         public static final String CUID = "cuid";
-        public static final String ERROR_CODE = "errorCode";
-        public static final String ERROR_MESSAGE = "errorMsg";
-        public static final String IM_UID = "uid";
-        public static final String LOG_TYPE = "logtype";
-        public static final String MODEL = "model";
-        public static final String NETWORK = "network";
         public static final String REASON = "reason";
         public static final String RESULT = "result";
-        public static final String SIZE = "size";
-        public static final String SQUENCE_ID = "seqID";
-        public static final String TIME = "time";
-        public static final String TYPE_VALUE = "";
         public static final String URL = "url";
-        public static final String VERSON = "version";
         public transient /* synthetic */ FieldHolder $fh;
 
         public LogFields() {
@@ -267,56 +188,8 @@ public class TiebaStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class NetApiName {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public NetApiName() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class NetKey {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static final String NET_IMG = "img";
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public NetKey() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
     public static class OpKey {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final String OP_FORUM_ENTER = "op_forum_enter";
-        public static final String OP_FRS_ENTER = "op_frs_enter";
-        public static final String OP_IMG = "op_img";
-        public static final String OP_LIVE = "op_live";
-        public static final String OP_NEWS_ENTER = "op_news_enter";
-        public static final String OP_PB_ENTER = "op_pb_enter";
-        public static final String OP_SQUARE_ENTER = "op_square_enter";
         public static final String OP_VOICE = "op_voice";
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,7 +240,6 @@ public class TiebaStatic {
         public static final String FID_2 = "fid_2";
         public static final String FIRST_DIR = "first_dir";
         public static final String FORUM_ID = "fid";
-        public static final String FORUM_ID_MERGE = "fids";
         public static final String FORUM_NAME = "fname";
         public static final String FRIEND_UID = "friend_uid";
         public static final String FROM_SOURCE = "from_source";
@@ -377,7 +249,6 @@ public class TiebaStatic {
         public static final String IS_FOLLOW = "is_follow";
         public static final String IS_FULL = "is_full";
         public static final String IS_OFFICIAL = "obj_isofficial";
-        public static final String IS_OFFICIAL_MERGE = "obj_isofficials";
         public static final String IS_REC = "is_rec";
         public static final String IS_SPECIAL_THREAD = "is_special_thread";
         public static final String IS_UP = "is_up";
@@ -390,17 +261,13 @@ public class TiebaStatic {
         public static final String MID_PAGE_FLAG = "midpageflag";
         public static final String NID = "nid";
         public static final String OBJ_AD_LOCATE = "obj_adlocate";
-        public static final String OBJ_AD_LOCATE_MERGE = "obj_adlocates";
         public static final String OBJ_CUR_PAGE = "obj_cur_page";
         public static final String OBJ_DURATION = "obj_duration";
         public static final String OBJ_EXTRA = "extra";
         public static final String OBJ_FEED_TYPE = "obj_feed_type";
         public static final String OBJ_FLOOR = "obj_floor";
-        public static final String OBJ_FLOOR_MERGE = "obj_floors";
         public static final String OBJ_ID = "obj_id";
-        public static final String OBJ_ID_MERGE = "obj_ids";
         public static final String OBJ_ISAD = "obj_isad";
-        public static final String OBJ_ISAD_MERGE = "obj_isads";
         public static final String OBJ_ISHOST = "obj_ishost";
         public static final String OBJ_LOCATE = "obj_locate";
         public static final String OBJ_NAME = "obj_name";
@@ -421,12 +288,10 @@ public class TiebaStatic {
         public static final String OBJ_TYPE = "obj_type";
         public static final String OBJ_URL = "obj_url";
         public static final String PID = "pid";
-        public static final String PID_MERGE = "pids";
         public static final String PLG_CONFIG = "plg_config";
         public static final String POST_CONTENT = "post_content";
         public static final String POST_ID = "post_id";
         public static final String POST_TYPE = "post_type";
-        public static final String POST_TYPE_MERGE = "post_types";
         public static final String PURE_BROWSING = "pure_browsing";
         public static final String QD = "qd";
         public static final String QUERY = "query";
@@ -445,23 +310,17 @@ public class TiebaStatic {
         public static final String SECOND_DIR = "second_dir";
         public static final String SERVICE_ID = "service_id";
         public static final String SESSION_ID = "session_id";
-        public static final String SORT_TYPE = "sort_type";
         public static final String SOURCE_FROM = "source_from";
         public static final String SPLASH_UNI = "splash_uni";
         public static final String STAR_ID = "star_id";
         public static final String TAB_ID = "tab_id";
-        public static final String TAG_ID = "tag_id";
         public static final String TASK_ID = "task_id";
         public static final String TEMPLATE_ID = "template_id";
         public static final String THREAD_TYPE = "thread_type";
-        public static final String THREAD_TYPE_MERGE = "thread_types";
         public static final String TID = "tid";
-        public static final String TID_MERGE = "tids";
-        public static final String TID_TYPE = "tid_type";
         public static final String TIEBA_PARAMS = "tieba_params";
         public static final String TOPIC_ID = "topic_id";
         public static final String TOPIC_TYPE = "topic_type";
-        public static final String T_PLUS_AD_SOURCE = "ad_source";
         public static final String UGC_NID = "ugc_nid";
         public static final String UGC_TYPE = "ori_ugc_type";
         public static final String UGC_VID = "ugc_vid";
@@ -493,9 +352,7 @@ public class TiebaStatic {
         public static final int AGREE_FUNNER = 5;
         public static final int CRASH_ONLINE = 6;
         public static final int FRS_WHITE_TIME = 4;
-        public static final int NAS_REDIRECT = 1;
         public static final int REPLY_FUNNER = 3;
-        public static final int SCHEME_FIRST_SPLASH_TIMES = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
         public RDValues() {
@@ -529,9 +386,6 @@ public class TiebaStatic {
         public static final int LOC_NO_LOGIN = 2;
         public static final int LOC_POST_FAIL = 19;
         public static final int LOC_POST_SUC = 18;
-        public static final int LOC_REQ_PROPER = 4;
-        public static final int LOC_REQ_PROPER_FAIL = 6;
-        public static final int LOC_REQ_PROPER_SUC = 5;
         public static final int LOC_SENSITIVE_OR_HOST_ANTI = 13;
         public static final int LOC_SHOW_INPUT = 9;
         public static final int LOC_START_SEND = 14;
@@ -724,8 +578,8 @@ public class TiebaStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             try {
-                cg.g();
-                ms5.c();
+                dg.g();
+                gt5.c();
                 BdStatisticsManager.getInstance().save();
                 sendMultiProcessBroadcast();
             } catch (Exception e) {
@@ -752,12 +606,12 @@ public class TiebaStatic {
         if (!StringUtils.isNull(sampleId)) {
             statisticItem.param(Params.SAMPLE_ID, sampleId);
         }
-        String c = kv5.d().c();
+        String c = gw5.d().c();
         if (!StringUtils.isNull(c)) {
             statisticItem.param(Params.ABTEST_RESULT, c);
         }
-        ur5.f().e(statisticItem);
-        statisticItem.addParam("session_id", dw5.g().i());
+        os5.f().e(statisticItem);
+        statisticItem.addParam("session_id", zw5.g().i());
     }
 
     public static String getCua(Context context) {
@@ -932,7 +786,7 @@ public class TiebaStatic {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
             if (stackTrace.length >= 5) {
                 StackTraceElement stackTraceElement = stackTrace[4];
-                str = di.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
+                str = ei.join(stackTraceElement.getClassName(), ".", stackTraceElement.getMethodName());
             } else {
                 str = null;
             }
@@ -992,32 +846,32 @@ public class TiebaStatic {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    ng ngVar = new ng();
-                    ngVar.a = "tieba";
-                    ngVar.b = SUB_PRODUCT;
-                    ngVar.c = TbConfig.getVersion();
-                    ngVar.d = TbConfig.getFrom();
-                    ngVar.e = TbConfig.getCurrentFrom();
-                    ngVar.f = TbadkCoreApplication.getClientId();
+                    og ogVar = new og();
+                    ogVar.a = "tieba";
+                    ogVar.b = SUB_PRODUCT;
+                    ogVar.c = TbConfig.getVersion();
+                    ogVar.d = TbConfig.getFrom();
+                    ogVar.e = TbConfig.getCurrentFrom();
+                    ogVar.f = TbadkCoreApplication.getClientId();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        ngVar.g = TbadkCoreApplication.getInst().getCuid();
-                        ngVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                        ogVar.g = TbadkCoreApplication.getInst().getCuid();
+                        ogVar.h = TbadkCoreApplication.getInst().getCuidGalaxy2();
                     }
                     TbadkCoreApplication.getInst().getCuidGid();
-                    ngVar.i = TbadkCoreApplication.getInst().getImei();
-                    ngVar.j = TbConfig.getSubappType();
-                    ngVar.r = uv5.c().f(context) + "_" + uv5.c().e(context);
-                    ngVar.v = TbadkCoreApplication.getInst().getAndroidId();
-                    ngVar.s = getCua(context);
-                    ngVar.t = PermissionUtil.getLastCachedOid(context);
-                    ngVar.u = PermissionUtil.getLocalMacAddress(context);
-                    ngVar.w = uv5.c().a();
-                    ngVar.x = uv5.c().g() + "_" + uv5.c().h();
-                    ngVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
-                    ngVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-                    ngVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-                    ngVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-                    ngVar.D = TbSingleton.getInstance().getData();
+                    ogVar.i = TbadkCoreApplication.getInst().getImei();
+                    ogVar.j = TbConfig.getSubappType();
+                    ogVar.r = qw5.c().f(context) + "_" + qw5.c().e(context);
+                    ogVar.v = TbadkCoreApplication.getInst().getAndroidId();
+                    ogVar.s = getCua(context);
+                    ogVar.t = PermissionUtil.getLastCachedOid(context);
+                    ogVar.u = PermissionUtil.getLocalMacAddress(context);
+                    ogVar.w = qw5.c().a();
+                    ogVar.x = qw5.c().g() + "_" + qw5.c().h();
+                    ogVar.z = TbSingleton.getInstance().getBaiduIdForAnti();
+                    ogVar.A = String.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+                    ogVar.B = String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+                    ogVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+                    ogVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
                     if (SharedPrefHelper.getInstance().getInt("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
@@ -1028,7 +882,7 @@ public class TiebaStatic {
                         j = 3600000;
                     }
                     long j2 = j;
-                    hi hiVar = new hi() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
+                    ii iiVar = new ii() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1046,7 +900,7 @@ public class TiebaStatic {
                             }
                         }
 
-                        @Override // com.baidu.tieba.hi
+                        @Override // com.baidu.tieba.ii
                         public boolean isAgreePrivacyPolicy() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
@@ -1056,7 +910,7 @@ public class TiebaStatic {
                             return invokeV.booleanValue;
                         }
 
-                        @Override // com.baidu.tieba.hi
+                        @Override // com.baidu.tieba.ii
                         public boolean isBrowseMode() {
                             InterceptResult invokeV;
                             Interceptable interceptable2 = $ic;
@@ -1066,11 +920,11 @@ public class TiebaStatic {
                             return invokeV.booleanValue;
                         }
                     };
-                    BdStatisticsManager.getInstance().setPermissionUtil(hiVar);
-                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, ngVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
-                    BdLog.setPermissionUtil(hiVar);
-                    zg.o().A(hiVar);
-                    zg.o().p();
+                    BdStatisticsManager.getInstance().setPermissionUtil(iiVar);
+                    BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, ogVar, BdLogSetting.getInstance(), j2, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
+                    BdLog.setPermissionUtil(iiVar);
+                    ah.o().A(iiVar);
+                    ah.o().p();
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }

@@ -64,7 +64,7 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
         if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, relationBarHolder, i) != null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
-        RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.b();
+        RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.a();
         relationBarCellView.setData(oriForumInfo);
         relationBarCellView.b();
     }

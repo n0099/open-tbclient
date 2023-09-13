@@ -12,7 +12,7 @@ import java.util.List;
 public class e {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final int[] f981a = {1, 2, 4, 8, 16};
+    public static final int[] f980a = {1, 2, 4, 8, 16};
     public static final SparseArray<ay.a<String, String, String>> a = new f(5);
     public static final SparseArray<Integer> b = new g(5);
 
@@ -35,14 +35,14 @@ public class e {
     }
 
     public static void a(Context context, String str) {
-        List<NotificationChannel> m785a;
-        if (!com.xiaomi.push.j.m711a(context) || TextUtils.isEmpty(str) || (m785a = ax.a(context, str).m785a()) == null) {
+        List<NotificationChannel> m786a;
+        if (!com.xiaomi.push.j.m712a(context) || TextUtils.isEmpty(str) || (m786a = ax.a(context, str).m786a()) == null) {
             return;
         }
         synchronized (e.class) {
             SharedPreferences a2 = a(context);
             ArrayList arrayList = new ArrayList();
-            for (NotificationChannel notificationChannel : m785a) {
+            for (NotificationChannel notificationChannel : m786a) {
                 String str2 = (String) com.xiaomi.push.bj.a(notificationChannel, "mId");
                 if (!TextUtils.isEmpty(str2) && a2.contains(str2)) {
                     arrayList.add(str2);
@@ -55,9 +55,9 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, int i, String str3, boolean z, int i2) {
-        if (!com.xiaomi.push.j.m711a(context) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            if (com.xiaomi.push.j.m711a(context)) {
-                com.xiaomi.channel.commonutils.logger.b.m180a("ChannelPC: can`t setup permission with permissionCode:" + String.valueOf(str3) + " channelId:" + String.valueOf(str2) + " targetPkg:" + str);
+        if (!com.xiaomi.push.j.m712a(context) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
+            if (com.xiaomi.push.j.m712a(context)) {
+                com.xiaomi.channel.commonutils.logger.b.m181a("ChannelPC: can`t setup permission with permissionCode:" + String.valueOf(str3) + " channelId:" + String.valueOf(str2) + " targetPkg:" + str);
                 return;
             }
             return;
@@ -111,18 +111,18 @@ public class e {
 
     public static void a(String str, String str2, int i, int i2) {
         int[] iArr;
-        for (int i3 : f981a) {
+        for (int i3 : f980a) {
             if ((b.get(i3).intValue() & i2) == 0) {
                 a(str, str2, i3, (i & i3) > 0);
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m180a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i3 + "> :stoped by userLock");
+                com.xiaomi.channel.commonutils.logger.b.m181a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i3 + "> :stoped by userLock");
             }
         }
     }
 
     public static void a(String str, String str2, int i, boolean z) {
-        boolean a2 = ay.a(com.xiaomi.push.s.m722a(), str, str2, a.get(i), z);
-        com.xiaomi.channel.commonutils.logger.b.m180a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i + "=" + z + "> :" + a2);
+        boolean a2 = ay.a(com.xiaomi.push.s.m723a(), str, str2, a.get(i), z);
+        com.xiaomi.channel.commonutils.logger.b.m181a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i + "=" + z + "> :" + a2);
     }
 
     public static boolean a(int i, int i2) {
@@ -130,8 +130,8 @@ public class e {
     }
 
     public static boolean a(String str, String str2, int i) {
-        boolean z = ay.a(com.xiaomi.push.s.m722a(), str, str2, a.get(i)) == 1;
-        com.xiaomi.channel.commonutils.logger.b.m180a("ChannelPermissions.checkPermission:" + str + ":" + str2 + ": <" + i + "=" + z + ">");
+        boolean z = ay.a(com.xiaomi.push.s.m723a(), str, str2, a.get(i)) == 1;
+        com.xiaomi.channel.commonutils.logger.b.m181a("ChannelPermissions.checkPermission:" + str + ":" + str2 + ": <" + i + "=" + z + ">");
         return z;
     }
 }

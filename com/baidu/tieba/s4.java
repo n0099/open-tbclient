@@ -6,14 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public t6<t4<Vector3>> b;
-    public t6<t4<Quaternion>> c;
-    public t6<t4<Vector3>> d;
+    public Vector3 b;
+    public Quaternion c;
+    public Vector3 d;
+    public v4[] e;
+    public s4[] f;
 
     public s4() {
         Interceptable interceptable = $ic;

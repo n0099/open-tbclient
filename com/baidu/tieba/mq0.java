@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.MotionEvent;
+import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class mq0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mq0 extends sj0 {
+    WebViewContainer b();
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-    }
+    void f(boolean z, boolean z2, boolean z3, int i);
+
+    boolean g();
+
+    void h(MotionEvent motionEvent);
+
+    void i(boolean z, boolean z2, boolean z3);
 }

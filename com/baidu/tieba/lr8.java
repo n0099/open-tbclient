@@ -1,115 +1,246 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public class lr8 extends CustomMessageListener {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class lr8 extends hs8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<a> a;
+    public boolean a;
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b;
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO c;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(CustomResponsedMessage<?> customResponsedMessage);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public lr8(int i, a callback) {
-        this(i, false, callback, 2, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), callback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (a) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952599, "Lcom/baidu/tieba/lr8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952599, "Lcom/baidu/tieba/lr8;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(callback, "callback");
+        d = BdUniqueId.gen().getId();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public lr8(int i, boolean z, a callback) {
-        super(i, z);
+    @Override // com.baidu.tieba.hs8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.getName() + "：" + h();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public List<AtSelectData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO != null && optsDTO.getExt() != null) {
+                return this.c.getExt().getAtUserInfos();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
+    }
+
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null) {
+                return itemsDTO.getOpts();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b.getItemType();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null && itemsDTO.getOpts() != null && this.b.getOpts().size() > 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = this.b;
+            if (itemsDTO != null) {
+                return itemsDTO.isOptional();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public lr8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), callback};
+            Object[] objArr = {itemsDTO};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(callback, "callback");
-        this.a = new WeakReference<>(callback);
+        this.b = itemsDTO;
+        this.c = e();
     }
 
-    public /* synthetic */ lr8(int i, boolean z, a aVar, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z, aVar);
-    }
-
-    public static final void g(lr8 this$0) {
+    public final BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            MessageManager.getInstance().unRegisterListener(this$0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.getOpts() != null && !this.b.getOpts().isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO : this.b.getOpts()) {
+                    if (optsDTO.getDefaultX() == 1) {
+                        return optsDTO;
+                    }
+                }
+                return this.b.getOpts().get(0);
+            }
+            return null;
+        }
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = "";
+            if (this.b.getItemType() == 2 && (optsDTO = this.c) != null && optsDTO.getExt() != null) {
+                List<AtSelectData> atUserInfos = this.c.getExt().getAtUserInfos();
+                if (!ListUtils.isEmpty(atUserInfos)) {
+                    int size = atUserInfos.size();
+                    AtSelectData atSelectData = atUserInfos.get(0);
+                    if (atSelectData != null) {
+                        str = atSelectData.getNameShow();
+                    }
+                    int chineseAndEnglishLength = StringHelper.getChineseAndEnglishLength(str);
+                    if (chineseAndEnglishLength > 8) {
+                        str = StringHelper.subString(str, 8) + "...";
+                    }
+                    if (size == 1) {
+                        return str;
+                    }
+                    if (chineseAndEnglishLength <= 8) {
+                        return str + "...等" + size + "人";
+                    }
+                    return str + "等" + size + "人";
+                }
+            }
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO2 = this.c;
+            if (optsDTO2 == null) {
+                return "";
+            }
+            return optsDTO2.getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void m(BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, optsDTO) == null) {
+            this.c = optsDTO;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> responsedMessage) {
-        Unit unit;
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-            Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
-            a aVar = this.a.get();
-            if (aVar != null) {
-                aVar.a(responsedMessage);
-                unit = Unit.INSTANCE;
-            } else {
-                unit = null;
-            }
-            if (unit == null) {
-                lg.c(new Runnable() { // from class: com.baidu.tieba.kr8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.a = z;
+        }
+    }
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            lr8.g(lr8.this);
-                        }
-                    }
-                });
-            }
+    public void o(List<AtSelectData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, list) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setAtUserInfos(list);
+            this.c.setExt(ext);
         }
     }
 }

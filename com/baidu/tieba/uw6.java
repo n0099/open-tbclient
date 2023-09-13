@@ -1,79 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class uw6 implements bn {
+public final class uw6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardGame a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948225461, "Lcom/baidu/tieba/uw6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final zv6 a(i0 i0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, i0Var)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            return (zv6) i0Var.d(zv6.class);
+        }
+        return (zv6) invokeL.objValue;
+    }
+
+    public static final wv6 b(i0 i0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, i0Var)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            return (wv6) i0Var.d(wv6.class);
+        }
+        return (wv6) invokeL.objValue;
+    }
+
+    public static final long c(i0 i0Var) {
+        InterceptResult invokeL;
+        kv6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, i0Var)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            wv6 b = b(i0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.g();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948225461, "Lcom/baidu/tieba/uw6;");
-                return;
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static final vv6 d(i0 i0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, i0Var)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            return (vv6) i0Var.d(vv6.class);
+        }
+        return (vv6) invokeL.objValue;
+    }
+
+    public static final xv6 e(i0 i0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, i0Var)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            return (xv6) i0Var.d(xv6.class);
+        }
+        return (xv6) invokeL.objValue;
+    }
+
+    public static final long f(i0 i0Var) {
+        InterceptResult invokeL;
+        kv6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, i0Var)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            wv6 b = b(i0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.j();
             }
+            return 0L;
         }
-        b = BdUniqueId.gen();
+        return invokeL.longValue;
     }
 
-    public uw6() {
+    public static final boolean g(i0 i0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, i0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            if (j - f(i0Var) < 0) {
+                return true;
             }
+            return false;
         }
+        return invokeLJ.booleanValue;
     }
 
-    public FeatureCardGame a() {
-        InterceptResult invokeV;
+    public static final boolean h(i0 i0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, i0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(i0Var, "<this>");
+            if (j - f(i0Var) > c(i0Var)) {
+                return true;
+            }
+            return false;
         }
-        return (FeatureCardGame) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void b(FeatureCardGame featureCardGame) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardGame) != null) || featureCardGame == null) {
-            return;
-        }
-        this.a = featureCardGame;
-        String str = featureCardGame.title;
-        Integer num = featureCardGame.floor;
-        Integer num2 = featureCardGame.type;
+        return invokeLJ.booleanValue;
     }
 }

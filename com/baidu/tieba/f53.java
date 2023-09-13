@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class f53 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final boolean b;
-    public static final boolean c;
+    public static boolean b;
+    public static final int c;
+    public static int d;
+    public static int e;
+    public static final boolean f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,46 +32,83 @@ public class f53 {
                 return;
             }
         }
-        a = nr1.a;
-        b = c("swan_perf_stat_rectify", 0);
-        c = c("swan_perf_stat_overlay_rectify", 0);
-        if (a) {
-            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
-            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
-        }
+        a = rr1.a;
+        d = -1;
+        e = -1;
+        b = f("swan_get_swan_id_cache");
+        ou2.g0().getSwitch("swan_pms_use_outback_switch", 0);
+        ou2.g0().getSwitch("swan_preload_game_strategy", 0);
+        c = 0;
+        f = f("swan_670_append_request_info");
+        ou2.g0().getSwitch("swan_description_online_control", 0);
+        on4.a = 0;
+        ou2.g0().getSwitch("swan_bdtls_use_cache", false);
+        g = false;
     }
 
-    public static boolean a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c;
+            if (e == -1) {
+                ou2.g0().getSwitch("swan_use_extra_connect_pool", 0);
+                e = 0;
+            }
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == -1) {
+                ou2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
+                d = 0;
+            }
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return g;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean b() {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             return b;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
+    public static boolean f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            ku2.g0().getSwitch(str, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            ou2.g0().getSwitch(str, 0);
             if (a) {
-                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
-            }
-            if (i == 1) {
-                return true;
+                Log.d("SwanApiCostOpt", str + " value : 0");
             }
             return false;
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 }

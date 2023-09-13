@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.ItemQuickChatReplyBinding;
-import com.baidu.tieba.jx8;
+import com.baidu.tieba.ly8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,10 +73,10 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             GradientDrawable gradientDrawable = new GradientDrawable();
             this.c = gradientDrawable;
             gradientDrawable.setCornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds47));
-            c();
+            b();
         }
 
-        public final float b(String str) {
+        public final float a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -87,7 +87,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             return invokeL.floatValue;
         }
 
-        public final void c() {
+        public final void b() {
             int skinType;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
@@ -97,7 +97,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
         }
 
-        public final void d(QuickReplyData.QuestionData data) {
+        public final void c(QuickReplyData.QuestionData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -107,7 +107,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (!StringUtils.isNull(data.getQuestionBg())) {
                     Glide.with(this.d.getMContext()).load(data.getQuestionBg()).into(this.a.c);
                 } else {
-                    SkinManager.setImageResource(this.a.c, R.drawable.obfuscated_res_0x7f0804db);
+                    SkinManager.setImageResource(this.a.c, R.drawable.obfuscated_res_0x7f0804e3);
                 }
                 if (!StringUtils.isNull(data.getTextColor())) {
                     this.a.b.setTextColor(Color.parseColor(data.getTextColor()));
@@ -116,7 +116,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                     this.a.b.setTextColor(SkinManager.getColor(0, (int) R.color.CAM_X0119));
                 }
                 ViewGroup.LayoutParams layoutParams = this.a.c.getLayoutParams();
-                layoutParams.width = ((int) b(String.valueOf(data.getQuestion()))) + (UtilHelper.getDimenPixelSize(R.dimen.M_W_X009) * 2);
+                layoutParams.width = ((int) a(String.valueOf(data.getQuestion()))) + (UtilHelper.getDimenPixelSize(R.dimen.M_W_X009) * 2);
                 this.a.c.setLayoutParams(layoutParams);
             }
         }
@@ -192,14 +192,14 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             Object item = ListUtils.getItem(this.b, i);
             Intrinsics.checkNotNullExpressionValue(item, "getItem(mDataList, position)");
             QuickReplyData.QuestionData questionData = (QuickReplyData.QuestionData) item;
-            holder.d(questionData);
+            holder.c(questionData);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null) {
                 currentAccount = "";
             }
             Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-            jx8.a("c15229", currentAccount, questionData.getQuestion());
-            holder.c();
+            ly8.a("c15229", currentAccount, questionData.getQuestion());
+            holder.b();
         }
     }
 

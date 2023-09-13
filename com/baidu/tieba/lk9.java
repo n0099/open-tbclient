@@ -1,25 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class lk9 extends Thread {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class lk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public final mk9 a;
+    public final mk9 b;
+    public final mk9 c;
+    public final mk9 d;
+    public final mk9 e;
 
-    public lk9(String str, String str2, String str3) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof lk9) {
+                lk9 lk9Var = (lk9) obj;
+                return Intrinsics.areEqual(this.a, lk9Var.a) && Intrinsics.areEqual(this.b, lk9Var.b) && Intrinsics.areEqual(this.c, lk9Var.c) && Intrinsics.areEqual(this.d, lk9Var.d) && Intrinsics.areEqual(this.e, lk9Var.e);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "AigcFeedbackTypesState(selectPositive=" + this.a + ", selectingPositive=" + this.b + ", selectNegative=" + this.c + ", unselectPositive=" + this.d + ", unselectNegative=" + this.e + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public lk9(mk9 selectPositive, mk9 selectingPositive, mk9 selectNegative, mk9 unselectPositive, mk9 unselectNegative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {selectPositive, selectingPositive, selectNegative, unselectPositive, unselectNegative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,21 +63,60 @@ public class lk9 extends Thread {
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        Intrinsics.checkNotNullParameter(selectPositive, "selectPositive");
+        Intrinsics.checkNotNullParameter(selectingPositive, "selectingPositive");
+        Intrinsics.checkNotNullParameter(selectNegative, "selectNegative");
+        Intrinsics.checkNotNullParameter(unselectPositive, "unselectPositive");
+        Intrinsics.checkNotNullParameter(unselectNegative, "unselectNegative");
+        this.a = selectPositive;
+        this.b = selectingPositive;
+        this.c = selectNegative;
+        this.d = unselectPositive;
+        this.e = unselectNegative;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public final mk9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.a);
-            netWork.addPostData("phonenum", this.b);
-            netWork.addPostData("optype", this.c);
-            netWork.postNetData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (mk9) invokeV.objValue;
+    }
+
+    public final mk9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (mk9) invokeV.objValue;
+    }
+
+    public final mk9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (mk9) invokeV.objValue;
+    }
+
+    public final mk9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (mk9) invokeV.objValue;
+    }
+
+    public final mk9 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (mk9) invokeV.objValue;
     }
 }

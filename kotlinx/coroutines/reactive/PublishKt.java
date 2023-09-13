@@ -76,7 +76,7 @@ public final class PublishKt {
 
     @InternalCoroutinesApi
     public static final <T> Publisher<T> publishInternal(final CoroutineScope coroutineScope, final CoroutineContext coroutineContext, final Function2<? super Throwable, ? super CoroutineContext, Unit> function2, final Function2<? super ProducerScope<? super T>, ? super Continuation<? super Unit>, ? extends Object> function22) {
-        return new Publisher() { // from class: com.baidu.tieba.v4c
+        return new Publisher() { // from class: com.baidu.tieba.y7c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -84,7 +84,7 @@ public final class PublishKt {
             public final void subscribe(Subscriber subscriber) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-                    PublishKt.m2356publishInternal$lambda1(CoroutineScope.this, coroutineContext, function2, function22, subscriber);
+                    PublishKt.m2357publishInternal$lambda1(CoroutineScope.this, coroutineContext, function2, function22, subscriber);
                 }
             }
         };
@@ -98,7 +98,7 @@ public final class PublishKt {
     }
 
     /* renamed from: publishInternal$lambda-1  reason: not valid java name */
-    public static final void m2356publishInternal$lambda1(CoroutineScope coroutineScope, CoroutineContext coroutineContext, Function2 function2, Function2 function22, Subscriber subscriber) {
+    public static final void m2357publishInternal$lambda1(CoroutineScope coroutineScope, CoroutineContext coroutineContext, Function2 function2, Function2 function22, Subscriber subscriber) {
         if (subscriber != null) {
             PublisherCoroutine publisherCoroutine = new PublisherCoroutine(CoroutineContextKt.newCoroutineContext(coroutineScope, coroutineContext), subscriber, function2);
             subscriber.onSubscribe(publisherCoroutine);

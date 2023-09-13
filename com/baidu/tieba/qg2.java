@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.tieba.lg2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,48 +14,77 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class qg2 implements og2 {
+public class qg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static final yg2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qj3 a;
 
     /* loaded from: classes7.dex */
-    public static class a extends ProviderDelegation {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static boolean a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
 
-        public a() {
+        public a(String str, boolean z, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z), str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = z;
+            this.c = str2;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
+            long j;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                if (!a && ProcessUtils.isMainProcess()) {
-                    a = true;
-                    new qj3("swan_prelink_by_preload_recorder").clear().apply();
-                    if (qg2.b) {
-                        Log.d("SwanPrelinkGlobalRecorder", "clean old data in main process");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (qg2.a) {
+                    j = System.currentTimeMillis();
+                } else {
+                    j = 0;
+                }
+                Set<String> m = rg2.k().m(this.a, true);
+                if (m != null && m.size() > 0) {
+                    if (qg2.a) {
+                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
+                    }
+                    for (String str : m) {
+                        boolean b = qg2.b(this.c, this.a, str);
+                        kg2 d = kg2.d();
+                        String str2 = this.c;
+                        lg2.b a = lg2.a();
+                        a.h(RecordType.PREFETCH_PRELINK);
+                        a.f(str);
+                        a.g(b);
+                        d.f(str2, a.e());
+                        if (b) {
+                            rg2.k().s(this.a, str);
+                            qg2.d(this.a, str);
+                        }
+                    }
+                    if (qg2.a) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
                     }
                 }
-                return null;
             }
-            return (Bundle) invokeL.objValue;
         }
     }
 
@@ -72,130 +101,57 @@ public class qg2 implements og2 {
                 return;
             }
         }
-        b = nr1.a;
+        a = rr1.a;
+        b = ah2.a();
     }
 
-    public qg2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new qj3("swan_prelink_by_preload_recorder");
-        d();
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            q73.c(a.class, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.og2
-    public pg2 a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "get record : appId-" + str + ", url-" + str2);
-            }
-            String string = this.a.getString(e(str, str2), "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            pg2 g = g(string, str, str2);
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "find record - " + string);
-            }
-            return g;
-        }
-        return (pg2) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.og2
-    public void b(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "record : appId-" + str + ", url-" + str2);
-            }
-            String e = e(str, str2);
-            String f = f(str, str2);
-            if (TextUtils.isEmpty(this.a.getString(e, "")) || z) {
-                this.a.putString(e, f);
-            }
-        }
-    }
-
-    public final String e(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = str + "_##_" + str2.hashCode();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateKey - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final String f(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            String str3 = ProcessUtils.getCurProcessName() + "_##_" + System.currentTimeMillis();
-            if (b) {
-                Log.d("SwanPrelinkGlobalRecorder", "generateValue - " + str3);
-            }
-            return str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final pg2 g(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+    public static boolean b(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, str2, str3)) == null) {
-            String[] split = str.split("_##_");
-            if (split != null && split.length >= 2) {
-                pg2 pg2Var = new pg2();
-                pg2Var.a = split[0];
-                pg2Var.b = h(split[1]);
-                return pg2Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return false;
             }
-            return null;
+            return b.c(str, str2, str3);
         }
-        return (pg2) invokeLLL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final long h(String str) {
-        InterceptResult invokeL;
+    public static void e(String str, @NonNull String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
+            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            if (!b.b()) {
+                if (a) {
+                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
                 }
-                return 0L;
+            } else if (TextUtils.isEmpty(str2)) {
+                if (a) {
+                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
+                }
+            } else {
+                hb3 q = gb3.K().q();
+                if (q == null) {
+                    if (a) {
+                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
+                    }
+                } else if (TextUtils.equals(q.b, str2)) {
+                    e(str, str2, q.I());
+                }
             }
         }
-        return invokeL.longValue;
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
+            b.a().b(str, str2, true);
+        }
     }
 }

@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Cloneable;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
+import com.baidu.tieba.z95;
 /* loaded from: classes9.dex */
-public interface zf8<T> extends Cloneable {
+public interface zf8 extends z95.g {
+    void T0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData);
 
-    /* loaded from: classes9.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void b();
 
-        public static <T> Object a(zf8<T> zf8Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zf8Var)) == null) {
-                return Cloneable.DefaultImpls.clone(zf8Var);
-            }
-            return invokeL.objValue;
-        }
-    }
+    void f(ErrorData errorData);
+
+    void refresh();
+
+    void t0(ag8 ag8Var);
 }

@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dg;
-import com.baidu.tieba.ub;
-import com.baidu.tieba.yb;
+import com.baidu.tieba.eg;
+import com.baidu.tieba.vb;
+import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i == 15) {
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070387);
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07038b);
             this.mSuggestHeight = dimensionPixelSize;
             this.mSuggestWidth = dimensionPixelSize;
         } else if (i == 16) {
-            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070383);
+            int dimensionPixelSize2 = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070387);
             this.mSuggestHeight = dimensionPixelSize2;
             this.mSuggestWidth = dimensionPixelSize2;
         } else if (i == 21) {
@@ -131,7 +131,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.eg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.fg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,20 +166,20 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             boolean booleanValue2 = ((Boolean) objArr[1]).booleanValue();
             if (booleanValue && !booleanValue2) {
                 boolean booleanValue3 = ((Boolean) objArr[2]).booleanValue();
-                yb ybVar = new yb("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
-                ybVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                ybVar.setSubFolder(true);
-                ybVar.setData(bArr);
-                ybVar.setSdCard(false);
-                ybVar.setSavedCache(true);
-                ybVar.setGif(booleanValue3);
-                ybVar.f(this.mIsNeedFormat);
-                ub.f().a(ybVar);
-                dg dgVar = (dg) objArr[3];
-                if (dgVar != null) {
+                zb zbVar = new zb("images", TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE);
+                zbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                zbVar.setSubFolder(true);
+                zbVar.setData(bArr);
+                zbVar.setSdCard(false);
+                zbVar.setSavedCache(true);
+                zbVar.setGif(booleanValue3);
+                zbVar.f(this.mIsNeedFormat);
+                vb.f().a(zbVar);
+                eg egVar = (eg) objArr[3];
+                if (egVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                    diskCancelWorker.setOperate(ybVar);
-                    dgVar.a = diskCancelWorker;
+                    diskCancelWorker.setOperate(zbVar);
+                    egVar.a = diskCancelWorker;
                 }
             }
         }

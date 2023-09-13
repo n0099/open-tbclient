@@ -151,7 +151,7 @@ public final class h extends d implements View.OnClickListener {
         if (view2 == null || view2.getWidth() <= 0) {
             return null;
         }
-        ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c6) + f).setDuration(1000L);
+        ObjectAnimator duration = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_X, view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704cb) + f).setDuration(1000L);
         duration.setInterpolator(PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f));
         ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f, 1.0f).setDuration(1000L);
         AnimatorSet animatorSet = new AnimatorSet();
@@ -167,7 +167,7 @@ public final class h extends d implements View.OnClickListener {
             return null;
         }
         Interpolator create = PathInterpolatorCompat.create(0.51f, 0.0f, 0.67f, 1.0f);
-        ValueAnimator duration = ValueAnimator.ofInt(height, view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070518)).setDuration(500L);
+        ValueAnimator duration = ValueAnimator.ofInt(height, view2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07051d)).setDuration(500L);
         duration.setInterpolator(create);
         if (ag.cB(view2.getContext()) && view4 != null && (view4.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             final ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view4.getLayoutParams();
@@ -219,8 +219,8 @@ public final class h extends d implements View.OnClickListener {
         }
         KsPriceView ksPriceView = this.nI;
         if (ksPriceView != null) {
-            int dimensionPixelSize = ksPriceView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070525);
-            this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.nI.getResources().getColor(R.color.obfuscated_res_0x7f06079a));
+            int dimensionPixelSize = ksPriceView.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052a);
+            this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.nI.getResources().getColor(R.color.obfuscated_res_0x7f06079c));
             this.nI.d(aVar.iS(), aVar.dB(), true);
         }
         if (this.uM != null) {
@@ -253,17 +253,17 @@ public final class h extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a3);
-        this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f09139e);
-        this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a5);
-        this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09138d);
-        this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a0);
-        this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a2);
-        this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f091388);
-        this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f09139f);
-        this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f09138b);
-        this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09138a);
-        this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f09138c);
+        this.pV = (ViewGroup) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a9);
+        this.it = (KSCornerImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a4);
+        this.eQ = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913ab);
+        this.iu = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091393);
+        this.nI = (KsPriceView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a6);
+        this.uM = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a8);
+        this.uN = (KsStyledTextButton) this.uL.findViewById(R.id.obfuscated_res_0x7f09138e);
+        this.uR = (ImageView) this.uL.findViewById(R.id.obfuscated_res_0x7f0913a5);
+        this.uQ = this.uL.findViewById(R.id.obfuscated_res_0x7f091391);
+        this.uO = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091390);
+        this.uP = (TextView) this.uL.findViewById(R.id.obfuscated_res_0x7f091392);
         ViewGroup viewGroup = this.pV;
         if (viewGroup != null) {
             viewGroup.setOnClickListener(this);
@@ -279,7 +279,7 @@ public final class h extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.pV.getLayoutParams();
         if (layoutParams instanceof FrameLayout.LayoutParams) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07050b);
+            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070510);
             this.pV.setLayoutParams(layoutParams2);
         }
     }

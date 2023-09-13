@@ -1,29 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface wz3 {
-    long a();
+    void onCompletion();
 
-    void b(boolean z);
+    boolean onError();
 
-    boolean c();
+    void onPause();
 
-    boolean d();
+    void onPrepared();
 
-    String e();
+    void onResume();
 
-    long f();
-
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    void onStart();
 }

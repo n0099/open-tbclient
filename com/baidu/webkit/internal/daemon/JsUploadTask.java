@@ -170,7 +170,7 @@ public class JsUploadTask implements INoProGuard {
             }
             addRawLogItem(sb2, "net_type", mNetType);
             addRawLogItem(sb2, ETAG.KEY_ZEUS_STATE, WebKitFactory.getCurEngine());
-            addRawLogItem(sb2, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
+            addRawLogItem(sb2, "dev_ver", Build.VERSION.SDK_INT);
             if (WebKitFactory.getCurEngine() == 1) {
                 addRawLogItem(sb2, ETAG.KEY_BROWSER_VERSION, WebSettingsGlobalBlink.getBrowserVersion());
             }
@@ -291,7 +291,7 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_CPU_TYPE, mCpuType);
             addRawLogItem(sb2, "net_type", mNetType);
             addRawLogItem(sb2, ETAG.KEY_ZEUS_STATE, WebKitFactory.getCurEngine());
-            addRawLogItem(sb2, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
+            addRawLogItem(sb2, "dev_ver", Build.VERSION.SDK_INT);
             addRawLogItem(sb2, "model", Build.MODEL);
             addRawLogItem(sb2, "sdk_ver", WebKitFactory.getSdkVersionName());
             addRawLogItem(sb2, ETAG.KEY_PAGE_START, mPageStartTime);

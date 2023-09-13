@@ -51,6 +51,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.FeedbackManager;
 import com.baidu.ufosdk.IFeedbackMethodCallback;
 import com.baidu.ufosdk.a1;
@@ -104,7 +105,7 @@ public class FeedbackReportActivity extends Activity {
     public h0 S;
 
     /* renamed from: T  reason: collision with root package name */
-    public byte[] f1197T;
+    public byte[] f1193T;
     public e0 U;
     public SharedPreferences.Editor a;
     public SharedPreferences b;
@@ -1398,7 +1399,7 @@ public class FeedbackReportActivity extends Activity {
             hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("sdkvn", "4.1.9.1");
-            hashMap.put("os", "android");
+            hashMap.put(TtsLogLoad.KEY_OS, "android");
             hashMap.put("appvn", com.baidu.ufosdk.c.b());
             hashMap.put("uid", com.baidu.ufosdk.b.c());
             hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.c());
@@ -1733,7 +1734,7 @@ public class FeedbackReportActivity extends Activity {
             this.d = getIntent().getStringExtra("faq_id");
             this.y = getIntent().getStringExtra("msgid");
             getIntent().getIntExtra("product_type", -1);
-            this.f1197T = getIntent().getByteArrayExtra("shot");
+            this.f1193T = getIntent().getByteArrayExtra("shot");
             if (TextUtils.isEmpty(this.y)) {
                 this.y = "newMessage";
             }
@@ -1918,7 +1919,7 @@ public class FeedbackReportActivity extends Activity {
             this.F = new j1(this, this.e);
             ArrayList arrayList = new ArrayList();
             this.w = arrayList;
-            byte[] bArr = this.f1197T;
+            byte[] bArr = this.f1193T;
             if (bArr != null && bArr.length > 0) {
                 arrayList.add(bArr);
             }

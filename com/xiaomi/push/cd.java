@@ -10,12 +10,12 @@ public class cd extends ci.b<Long> {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f165a;
+    public String f164a;
 
     public cd(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
         super(str, list, str2, strArr, str3, str4, str5, i);
         this.a = 0L;
-        this.f165a = str6;
+        this.f164a = str6;
     }
 
     public static cd a(String str) {
@@ -33,7 +33,7 @@ public class cd extends ci.b<Long> {
 
     @Override // com.xiaomi.push.ci.a
     /* renamed from: a */
-    public Object mo331a() {
+    public Object mo332a() {
         return Long.valueOf(this.a);
     }
 

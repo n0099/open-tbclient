@@ -201,6 +201,7 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_COMMON_SHARE_CARD = 38;
         public static final short MSG_CONTENT_TYPE_EXTRA = 9;
         public static final short MSG_CONTENT_TYPE_GAMEPLAY_ORDER = 34;
+        public static final short MSG_CONTENT_TYPE_GAMEPLAY_SEND_CARD = 40;
         public static final short MSG_CONTENT_TYPE_INVITE_2_GROUP = 5;
         public static final short MSG_CONTENT_TYPE_NOTIFY = 10;
         public static final int MSG_CONTENT_TYPE_ONE_KEY_CONVERSATION = 7019;
@@ -242,6 +243,7 @@ public abstract class TbEnum {
         public static final int MSG_SUBSCRIBE_TIPS = -7015;
         public static final short MSG_SYSTEM = 11;
         public static final short MSG_TOPIC_UPDATE = 12;
+        public static final int MSG_TYPE_SYSTEM_ACTIVITY = 7022;
         public static final int MSG_TYPE_SYSTEM_EMOJI_REPLY = 20000;
         public static final int MSG_TYPE_SYSTEM_EXCELLENT = 7018;
         public static final short MSG_UEG_ILLEGAL = 31;

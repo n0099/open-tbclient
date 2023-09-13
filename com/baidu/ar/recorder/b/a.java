@@ -5,6 +5,7 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a extends b {
@@ -25,7 +26,7 @@ public class a extends b {
             mediaFormat.setInteger("aac-profile", 2);
             mediaFormat.setInteger("sample-rate", encoderParams.getAudioSampleRate());
             mediaFormat.setInteger("channel-count", encoderParams.getAudioChannel());
-            mediaFormat.setInteger("bitrate", encoderParams.getAudioBitrate());
+            mediaFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, encoderParams.getAudioBitrate());
             mediaFormat.setInteger("max-input-size", encoderParams.getAudioFrameSize());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(encoderParams.getAudioCodec());

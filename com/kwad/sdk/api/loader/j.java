@@ -51,8 +51,8 @@ public final class j {
         }
     }
 
-    public static void a(int i, a.C0675a c0675a, long j, int i2, String str) {
-        if (c0675a == null) {
+    public static void a(int i, a.C0670a c0670a, long j, int i2, String str) {
+        if (c0670a == null) {
             return;
         }
         a aVar = new a((byte) 0);
@@ -61,8 +61,8 @@ public final class j {
         aVar.c = i;
         aVar.d = a;
         aVar.e = Loader.get().getKsAdSDKImpl().getSDKVersion();
-        aVar.f = c0675a.e;
-        aVar.g = c0675a.b;
+        aVar.f = c0670a.e;
+        aVar.g = c0670a.b;
         aVar.h = j;
         aVar.i = i2;
         aVar.j = str;
@@ -74,33 +74,33 @@ public final class j {
         com.kwad.sdk.api.b.a("reportDynamicUpdate", a2);
     }
 
-    public static void a(a.C0675a c0675a) {
+    public static void a(a.C0670a c0670a) {
         a++;
-        a(1, c0675a, 0L, 0, "");
+        a(1, c0670a, 0L, 0, "");
     }
 
-    public static void a(a.C0675a c0675a, int i, String str) {
-        a(4, c0675a, 0L, i, str);
+    public static void a(a.C0670a c0670a, int i, String str) {
+        a(4, c0670a, 0L, i, str);
     }
 
-    public static void a(a.C0675a c0675a, long j) {
-        a(2, c0675a, j, 0, "");
+    public static void a(a.C0670a c0670a, long j) {
+        a(2, c0670a, j, 0, "");
     }
 
-    public static void a(a.C0675a c0675a, long j, String str) {
-        a(3, c0675a, j, 0, str);
+    public static void a(a.C0670a c0670a, long j, String str) {
+        a(3, c0670a, j, 0, str);
     }
 
-    public static void b(a.C0675a c0675a) {
-        a(5, c0675a, 0L, 0, "");
+    public static void b(a.C0670a c0670a) {
+        a(5, c0670a, 0L, 0, "");
     }
 
-    public static void b(a.C0675a c0675a, int i, String str) {
-        a(7, c0675a, 0L, i, str);
+    public static void b(a.C0670a c0670a, int i, String str) {
+        a(7, c0670a, 0L, i, str);
     }
 
-    public static void b(a.C0675a c0675a, long j) {
-        a(6, c0675a, j, 0, "");
+    public static void b(a.C0670a c0670a, long j) {
+        a(6, c0670a, j, 0, "");
     }
 
     public static double rl() {

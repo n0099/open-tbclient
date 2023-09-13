@@ -1,7 +1,14 @@
 package com.baidu.tieba;
 
-import java.util.Map;
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes8.dex */
 public interface ta1 {
-    void loadUrl(String str, Map<String, String> map);
+    boolean F();
+
+    Activity getActivity();
+
+    Intent getIntent();
+
+    void l();
 }

@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.m7;
+import com.baidu.tieba.n7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,7 +139,7 @@ public class Vector2 implements Serializable, e<Vector2> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return ((m7.a(this.x) + 31) * 31) + m7.a(this.y);
+            return ((n7.a(this.x) + 31) * 31) + n7.a(this.y);
         }
         return invokeV.intValue;
     }
@@ -923,7 +923,7 @@ public class Vector2 implements Serializable, e<Vector2> {
                 return false;
             }
             Vector2 vector2 = (Vector2) obj;
-            if (m7.a(this.x) == m7.a(vector2.x) && m7.a(this.y) == m7.a(vector2.y)) {
+            if (n7.a(this.x) == n7.a(vector2.x) && n7.a(this.y) == n7.a(vector2.y)) {
                 return true;
             }
             return false;

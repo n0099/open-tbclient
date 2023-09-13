@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes6.dex */
-public interface jz3<VIEW extends View> {
-    void a(String str);
+public interface jz3 {
+    void a(DownloadInfo downloadInfo);
 
-    void b(DownloadState downloadState);
+    void b();
 
-    jz3 c(Context context, DownloadParams downloadParams, ez3 ez3Var);
+    DownloadInfo c(String str);
 
-    void d(int i);
+    void close();
 
-    void e(Object obj);
-
-    void f();
-
-    VIEW getRealView();
+    void delete(DownloadInfo downloadInfo);
 }

@@ -1,112 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetMemberTaskList.ImgInfo;
 /* loaded from: classes5.dex */
-public class c99 {
+public class c99 implements ToastService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImgInfo> a;
-    public long b;
-    public List<y89> c;
-    public b d;
-    public NetMessageListener e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i, String str);
-
-        void b(List<ImgInfo> list, List<y89> list2, long j);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c99 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c99 c99Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c99Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c99Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
-            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
-                return;
-            }
-            if (z) {
-                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
-                if (memberTaskCenterHttpResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterHttpResMessage.getImageList();
-                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
-                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
-            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
-                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
-                if (memberTaskCenterSocketResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterSocketResMessage.getImageList();
-                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
-                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
         }
     }
 
@@ -120,58 +34,31 @@ public class c99 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        ifa.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        ifa.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public void l(long j) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
         }
     }
 
-    public void m(b bVar) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showNormal(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
         }
     }
 
-    public long h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastBottom(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<y89> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), str);
         }
     }
 }

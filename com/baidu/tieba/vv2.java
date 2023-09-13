@@ -1,108 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.ro3;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class vv2 implements hw2 {
+public class vv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final wv2[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SwanAppConfigData a(File file) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                SwanAppConfigData b = pb3.b(file.getAbsolutePath());
-                if (hw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("buildAppJsonConfig cost = ");
-                    sb.append(currentTimeMillis2 - currentTimeMillis);
-                    sb.append("ms ; current thread is main = ");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    sb.append(" ; path = ");
-                    sb.append(file);
-                    Log.d("SwanPerformance", sb.toString());
-                }
-                return b;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948254167, "Lcom/baidu/tieba/vv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948254167, "Lcom/baidu/tieba/vv2;");
+                return;
+            }
         }
-        return (SwanAppConfigData) invokeL.objValue;
+        a = new wv2[]{new tv2(), new uv2()};
     }
 
-    public static SwanAppConfigData b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file != null && file.exists()) {
-                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) wv2.c().b(file.getAbsolutePath());
-                if (swanAppConfigData == null) {
-                    swanAppConfigData = g53.e().j(file);
-                    if (swanAppConfigData == null) {
-                        swanAppConfigData = a(file);
-                    }
-                    wv2.c().d(file.getAbsolutePath(), swanAppConfigData);
-                } else if (hw2.a) {
-                    Log.d("SwanPerformance", "adopt cached app.json");
-                }
-                return swanAppConfigData;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
-
-    public static Boolean c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            Boolean bool = (Boolean) wv2.c().b("getNightModeStateCache");
-            if (bool == null) {
-                return Boolean.valueOf(ku2.M().a());
-            }
-            if (z) {
-                wv2.c().e("getNightModeStateCache");
-            }
-            return bool;
-        }
-        return (Boolean) invokeZ.objValue;
-    }
-
-    public static List<ro3.a> d() {
+    public static String a() {
         InterceptResult invokeV;
+        wv2[] wv2VarArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            List<ro3.a> list = (List) wv2.c().b("getStorageListCache");
-            if (list == null) {
-                List<ro3.a> d = ro3.d();
-                wv2.c().d("getStorageListCache", d);
-                return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (wv2 wv2Var : a) {
+                sb.append(wv2Var.b());
+                sb.append(wv2Var.enable() ? 1 : 0);
             }
-            return list;
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static List<wv2> b() {
+        InterceptResult invokeV;
+        wv2[] wv2VarArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (wv2 wv2Var : a) {
+                if (wv2Var.enable()) {
+                    arrayList.add(wv2Var);
+                }
+            }
+            return arrayList;
         }
         return (List) invokeV.objValue;
-    }
-
-    public static void e(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
-            wv2.c().d("getNightModeStateCache", bool);
-        }
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.f3a;
+import com.baidu.tieba.aj9;
+import com.baidu.tieba.im9;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.sk9;
-import com.baidu.tieba.xh9;
-import com.baidu.tieba.yh9;
+import com.baidu.tieba.w4a;
+import com.baidu.tieba.zi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +26,8 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public xh9 mAppealInfo;
-    public yh9 pbData;
+    public zi9 mAppealInfo;
+    public aj9 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,12 +72,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             int i2 = this.updateType;
             if (i2 != 3) {
                 if (i2 == 4) {
-                    sk9.b().f(this.cacheKey, bArr);
+                    im9.b().f(this.cacheKey, bArr);
                     return;
                 }
                 return;
             }
-            sk9.b().e(this.cacheKey, this.isFromMark, bArr);
+            im9.b().e(this.cacheKey, this.isFromMark, bArr);
         }
     }
 
@@ -94,12 +94,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return;
                 }
-                xh9 xh9Var = new xh9();
-                this.mAppealInfo = xh9Var;
+                zi9 zi9Var = new zi9();
+                this.mAppealInfo = zi9Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    xh9Var.a = appealInfo.source;
-                    xh9Var.c = appealInfo.appeal_url;
+                    zi9Var.a = appealInfo.source;
+                    zi9Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -108,10 +108,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 }
                 return;
             }
-            yh9 yh9Var = new yh9();
-            this.pbData = yh9Var;
-            yh9Var.E0(2);
-            this.pbData.D0(pbPageResIdl.data);
+            aj9 aj9Var = new aj9();
+            this.pbData = aj9Var;
+            aj9Var.F0(2);
+            this.pbData.E0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
                 SimpleForum simpleForum2 = dataRes.forum;
@@ -120,33 +120,33 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 } else {
                     str = "";
                 }
-                JSONObject c = f3a.c(pbPageResIdl.data.thread, str);
+                JSONObject c = w4a.c(pbPageResIdl.data.thread, str);
                 ArrayList arrayList = new ArrayList();
                 if (c != null) {
                     arrayList.add(c);
                 }
-                f3a.f().h("PB", arrayList);
+                w4a.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
         }
     }
 
-    public xh9 getAppealInfo() {
+    public zi9 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mAppealInfo;
         }
-        return (xh9) invokeV.objValue;
+        return (zi9) invokeV.objValue;
     }
 
-    public yh9 getPbData() {
+    public aj9 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.pbData;
         }
-        return (yh9) invokeV.objValue;
+        return (aj9) invokeV.objValue;
     }
 
     public int getUpdateType() {

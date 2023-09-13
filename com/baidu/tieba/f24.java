@@ -1,18 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,190 +12,81 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class f24 extends j34 {
+public final class f24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static ExecutorService d;
+    public static boolean a;
+    public static long b;
+    public static Handler c;
+    public static long d;
+    public static final Handler.Callback e;
+    public static final f24 f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements DelegateListener {
+    public static final class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ho2 c;
 
-        public a(f24 f24Var, String str, String str2, ho2 ho2Var) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-854311868, "Lcom/baidu/tieba/f24$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-854311868, "Lcom/baidu/tieba/f24$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f24Var, str, str2, ho2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = ho2Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                if (f24.c) {
-                    Log.d("appManagerAction", "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.a + ",result:" + delegateResult.mResult);
-                }
-                String string = delegateResult.mResult.getString("packageName");
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.equals(this.a, string)) {
-                    if (s24.h(AppRuntime.getAppContext(), this.a)) {
-                        if (!TextUtils.isEmpty(this.b)) {
-                            e34.a(this.a, this.b, "success", "", null);
-                        }
-                        this.c.onSuccess(new JSONObject());
-                        return;
-                    }
-                    if (!TextUtils.isEmpty(this.b)) {
-                        e34.a(this.a, this.b, "fail", "", null);
-                    }
-                    this.c.onFail(31003, "apk install cancel");
-                } else if (!delegateResult.isOk()) {
-                    if (!TextUtils.isEmpty(this.b)) {
-                        e34.a(this.a, this.b, "fail", "", null);
-                    }
-                    this.c.onFail(31003, "apk install cancel");
-                } else {
-                    c24.n().t(this.a);
-                    f24.g(delegateResult.mResult, this.c);
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public static class b extends k73 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String c;
-        public String d;
-        public ho2 e;
-
-        @Override // com.baidu.tieba.i73
-        public long a() {
-            InterceptResult invokeV;
+        @Override // android.os.Handler.Callback
+        public final boolean handleMessage(Message msg) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.tieba.i73
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if (msg.what == 0 && f24.f.g() && f24.a(f24.f) < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime();
+                    f24.b = (f24.a(f24.f) + elapsedRealtime) - f24.c(f24.f);
+                    f24 f24Var = f24.f;
+                    f24.d = elapsedRealtime;
+                    Handler b = f24.b(f24.f);
+                    if (b != null) {
+                        b.sendEmptyMessageDelayed(0, 1000L);
+                    }
+                    if ((f24.a(f24.f) / 1000) % 15 == 0) {
+                        g14.o.U(f24.a(f24.f));
+                        return true;
+                    }
+                    return true;
+                }
+                f24 f24Var2 = f24.f;
+                f24.d = 0L;
+                f24.f.i(false);
                 return true;
             }
-            return invokeV.booleanValue;
-        }
-
-        public b(String str, String str2, ho2 ho2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, ho2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = str;
-            this.c = str2;
-            this.e = ho2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.k73, com.baidu.tieba.i73
-        public void onEvent(@NonNull g73 g73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, g73Var) == null) {
-                Bundle a = g73Var.a();
-                ho2 ho2Var = this.e;
-                if (ho2Var == null) {
-                    return;
-                }
-                if (a != null) {
-                    f24.g(a, ho2Var);
-                } else {
-                    ho2Var.onFail(1001, "");
-                }
-            }
-        }
-
-        public final void e() {
-            ho2 ho2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ho2Var = this.e) != null) {
-                ho2Var.onFail(31018, "download process is killed");
-                f24.e(this.d, this.c, 31018);
-                this.e = null;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<b> a;
-
-        public c(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(bVar);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (f24.c) {
-                    Log.d("appManagerAction", "onConnectionDown");
-                }
-                if (this.a.get() != null) {
-                    this.a.get().e();
-                }
-            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -220,13 +103,11 @@ public class f24 extends j34 {
                 return;
             }
         }
-        c = nr1.a;
-        d = Executors.newSingleThreadExecutor();
+        f = new f24();
+        e = a.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f24() {
-        super("appDownloadManager");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -234,115 +115,91 @@ public class f24 extends j34 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long j = b;
+            if (j < 30000) {
                 return;
             }
+            b = j % 30000;
+            g14.o.M();
         }
     }
 
-    public static void e(String str, String str2, int i) {
+    public static final /* synthetic */ long a(f24 f24Var) {
+        return b;
+    }
+
+    public static final /* synthetic */ Handler b(f24 f24Var) {
+        return c;
+    }
+
+    public static final /* synthetic */ long c(f24 f24Var) {
+        return d;
+    }
+
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
-            e34.a(str, str2, "fail", String.valueOf(i), null);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            a = z;
         }
     }
 
-    public static void g(@NonNull Bundle bundle, @NonNull ho2 ho2Var) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, bundle, ho2Var) == null) {
-            String string = bundle.getString("functionType");
-            if (string == null) {
-                ho2Var.onFail(1001, "");
-                return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (c == null) {
+                c = new Handler(e);
             }
-            String string2 = bundle.getString("resultData", "");
-            int i = bundle.getInt("resultStatus", 1001);
-            if (c) {
-                Log.d("appManagerAction", "handleResult:function = " + string + ",result = " + string2);
+            b = g14.o.A();
+            a = true;
+            d = SystemClock.elapsedRealtime();
+            Handler handler = c;
+            if (handler != null) {
+                handler.sendEmptyMessageDelayed(0, 1000L);
             }
-            char c2 = 65535;
-            int hashCode = string.hashCode();
-            if (hashCode != -1013362275) {
-                if (hashCode == -530890460 && string.equals("onSuccess")) {
-                    c2 = 0;
-                }
-            } else if (string.equals("onFail")) {
-                c2 = 1;
-            }
-            if (c2 != 0) {
-                if (c2 == 1) {
-                    ho2Var.onFail(i, string2);
-                    return;
-                }
-                return;
-            }
-            ho2Var.onSuccess(do3.d(string2));
         }
     }
 
-    @Override // com.baidu.tieba.j34
-    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
-        InterceptResult invokeLL;
-        String str;
-        String str2;
-        String jSONObject2;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
-            if (c) {
-                Log.d("appManagerAction", "handle: " + jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a = false;
+            Handler handler = c;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
             }
-            String optString = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("packageName");
-                str2 = optJSONObject.optString("installSource");
-            } else {
-                str = null;
-                str2 = null;
+            if (d > 0) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                b = (b + elapsedRealtime) - d;
+                d = elapsedRealtime;
             }
-            Bundle bundle = new Bundle();
-            bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, optString);
-            if (optJSONObject == null) {
-                jSONObject2 = "";
-            } else {
-                jSONObject2 = optJSONObject.toString();
-            }
-            bundle.putString("data", jSONObject2);
-            bundle.putString("ubc_params", new c34().a());
-            if (TextUtils.equals(optString, "installApp")) {
-                if (!TextUtils.isEmpty(str2)) {
-                    e34.a(str, str2, "start", "", null);
-                }
-                f(bundle, str, str2, ho2Var);
-                return null;
-            }
-            y73 y = cb3.K().y();
-            if (y != null) {
-                b bVar = new b(str, optString, ho2Var);
-                y.X(bundle, q24.class, bVar);
-                y.V(new c(bVar));
-            }
-            return null;
-        }
-        return (d32) invokeLL.objValue;
-    }
-
-    public final void f(@NonNull Bundle bundle, @Nullable String str, String str2, @NonNull ho2 ho2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, str, str2, ho2Var) == null) {
-            SwanAppActivity w = cb3.K().w();
-            if (w == null) {
-                ho2Var.onFail(1001, "");
-            } else if (s24.h(AppRuntime.getAppContext(), str)) {
-                ho2Var.onSuccess(new JSONObject());
-            } else {
-                if (c) {
-                    Log.d("appManagerAction", "InstallAppDelegation handleInstall");
-                }
-                DelegateUtils.callOnMainWithActivity(w, InstallPluginDelegateActivity.class, t24.class, bundle, new a(this, str, str2, ho2Var));
-            }
+            g14.o.U(b);
         }
     }
 }

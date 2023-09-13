@@ -1,185 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q74 {
+public final class q74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public JSONObject c;
-    public String d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948044731, "Lcom/baidu/tieba/q74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948044731, "Lcom/baidu/tieba/q74;");
-                return;
-            }
-        }
-        e = nr1.a;
-    }
+    public pi2 a;
 
     public q74() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (db3.M() != null && TextUtils.equals(db3.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public q74 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.d = null;
-            this.c = c();
-            boolean b = b();
-            this.a = b;
-            if (b) {
-                return this;
-            }
-            this.b = a();
-            return this;
-        }
-        return (q74) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.a && !this.b) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            pi2 pi2Var = this.a;
+            boolean z = false;
+            if (pi2Var == null) {
                 return false;
             }
-            return true;
+            boolean f = r74.f(pi2Var.m());
+            boolean f2 = r74.f(this.a.v());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = r74.j(motionEvent);
+            }
+            if (f) {
+                z = this.a.dispatchEvent(jSEvent);
+            }
+            if (f2 && this.a.t0()) {
+                this.a.v().dispatchEvent(jSEvent);
+            }
+            r74.g(true);
+            return z;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
-        boolean z2;
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = this.c;
-            boolean z3 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
-            int optInt2 = this.c.optInt("bbaspg_guide_interval", 72);
-            long optLong = this.c.optLong("bbaspg_guide_last_time", 0L);
-            int optInt3 = this.c.optInt("bbaspg_guide_shown_count", 0);
-            int optInt4 = this.c.optInt("bbaspg_guide_image_index", 0);
-            if (System.currentTimeMillis() - optLong > optInt2 * 3600000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            String optString = this.c.optString("filter_channelid");
-            if (!TextUtils.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                String T2 = cb3.K().q().W().T();
-                z2 = true;
-                for (String str : split) {
-                    if (TextUtils.equals(T2, str)) {
-                        z2 = false;
-                    }
-                }
-            } else {
-                z2 = true;
-            }
-            if (optInt3 < optInt && z && z2) {
-                z3 = true;
-            }
-            if (e) {
-                Log.i("SwanGameGuideDialogChecker", "isShow:" + z3 + " maxCount" + optInt + " isOverInterval" + z + "imageUrl " + this.d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z3);
-            }
-            if (z3) {
-                d(this.c, optInt4, "bbaspg_guide_images");
-            }
-            return z3;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            r74.m(i, i2);
         }
-        return invokeV.booleanValue;
     }
 
-    public final JSONObject c() {
-        InterceptResult invokeV;
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = rj3.a().getString("swan_game_guide_toast", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    return new JSONObject(string);
-                } catch (JSONException e2) {
-                    if (nr1.a) {
-                        e2.printStackTrace();
-                        return null;
-                    }
-                    return null;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            r74.l(i, i2);
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public final int d(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
+    public void c(pi2 pi2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.d = optJSONArray.optString(i);
-            return i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pi2Var) == null) {
+            this.a = pi2Var;
         }
-        return invokeLIL.intValue;
     }
 }

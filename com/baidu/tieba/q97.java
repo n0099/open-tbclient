@@ -1,142 +1,161 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.view.View;
-import com.baidu.tbadk.core.util.ListUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.DownloadBar;
-import tbclient.FeedMaskLayer;
-import tbclient.FeedVideoAdComponent;
-import tbclient.MaskLayerText;
-import tbclient.VideoField;
 /* loaded from: classes7.dex */
 public final class q97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public final String c;
+    public final String d;
+    public w97 e;
+    public w97 f;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends v97 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MaskLayerText a;
-
-        public a(MaskLayerText maskLayerText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {maskLayerText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = maskLayerText;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                ra7.c(widget.getContext(), this.a.schema);
-            }
-        }
-    }
-
-    public static final SpannableString a(List<MaskLayerText> textList) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textList)) == null) {
-            Intrinsics.checkNotNullParameter(textList, "textList");
-            if (ListUtils.isEmpty(textList)) {
-                return new SpannableString("");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            for (MaskLayerText maskLayerText : textList) {
-                if (maskLayerText != null) {
-                    String str = maskLayerText.text;
-                    boolean z2 = true;
-                    if (str != null && str.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        String str2 = maskLayerText.schema;
-                        if (str2 != null && str2.length() != 0) {
-                            z2 = false;
-                        }
-                        if (z2) {
-                            spannableStringBuilder.append((CharSequence) maskLayerText.text);
-                        } else {
-                            SpannableString spannableString = new SpannableString(maskLayerText.text);
-                            spannableString.setSpan(new a(maskLayerText), 0, maskLayerText.text.length(), 17);
-                            spannableStringBuilder.append((CharSequence) spannableString);
-                        }
-                    }
-                }
+            if (obj instanceof q97) {
+                q97 q97Var = (q97) obj;
+                return this.a == q97Var.a && this.b == q97Var.b && Intrinsics.areEqual(this.c, q97Var.c) && Intrinsics.areEqual(this.d, q97Var.d) && Intrinsics.areEqual(this.e, q97Var.e) && Intrinsics.areEqual(this.f, q97Var.f);
             }
-            return new SpannableString(spannableStringBuilder);
+            return false;
         }
-        return (SpannableString) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final void b(FeedVideoAdComponent feedVideoAdComponent, List<jb7<?>> dataList, v87 videoSchemaData, p77 feedExtraData) {
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, feedVideoAdComponent, dataList, videoSchemaData, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedVideoAdComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            VideoField videoField = feedVideoAdComponent.video_info;
-            if (videoField != null) {
-                l67 b = r97.b(videoField, videoSchemaData, feedExtraData);
-                String str = "";
-                SpannableString spannableString = new SpannableString("");
-                FeedMaskLayer mask_layer = feedVideoAdComponent.mask_layer;
-                if (mask_layer != null) {
-                    Intrinsics.checkNotNullExpressionValue(mask_layer, "mask_layer");
-                    String str2 = mask_layer.topright_text;
-                    if (str2 != null) {
-                        Intrinsics.checkNotNullExpressionValue(str2, "mask.topright_text ?: \"\"");
-                        str = str2;
-                    }
-                    List<MaskLayerText> list = mask_layer.button_texts;
-                    Intrinsics.checkNotNullExpressionValue(list, "mask.button_texts");
-                    spannableString = a(list);
-                }
-                b.m(spannableString);
-                j77 j77Var = new j77(null, null, null, null, null, null, 63, null);
-                DownloadBar download_bar = feedVideoAdComponent.download_bar;
-                if (download_bar != null) {
-                    Intrinsics.checkNotNullExpressionValue(download_bar, "download_bar");
-                    String str3 = download_bar.type;
-                    Intrinsics.checkNotNullExpressionValue(str3, "bar.type");
-                    String str4 = download_bar.icon;
-                    Intrinsics.checkNotNullExpressionValue(str4, "bar.icon");
-                    String str5 = download_bar.guide_text;
-                    Intrinsics.checkNotNullExpressionValue(str5, "bar.guide_text");
-                    String str6 = download_bar.button_text;
-                    Intrinsics.checkNotNullExpressionValue(str6, "bar.button_text");
-                    String str7 = download_bar.schema;
-                    Intrinsics.checkNotNullExpressionValue(str7, "bar.schema");
-                    j77Var = new j77(str3, str4, str5, str6, str7, feedExtraData.a());
-                }
-                dataList.add(new kb7(new k67(b, str, spannableString, j77Var), "video_ad"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            boolean z = this.a;
+            ?? r0 = z;
+            if (z) {
+                r0 = 1;
             }
+            int hashCode = ((((((r0 * 31) + this.b) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
+            w97 w97Var = this.e;
+            int hashCode2 = (hashCode + (w97Var == null ? 0 : w97Var.hashCode())) * 31;
+            w97 w97Var2 = this.f;
+            return hashCode2 + (w97Var2 != null ? w97Var2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "PersonAttentionData(isLike=" + this.a + ", likeStatus=" + this.b + ", userId=" + this.c + ", portrait=" + this.d + ", followStatData=" + this.e + ", unfollowStatData=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public q97(boolean z, int i, String userId, String portrait, w97 w97Var, w97 w97Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), userId, portrait, w97Var, w97Var2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(userId, "userId");
+        Intrinsics.checkNotNullParameter(portrait, "portrait");
+        this.a = z;
+        this.b = i;
+        this.c = userId;
+        this.d = portrait;
+        this.e = w97Var;
+        this.f = w97Var2;
+    }
+
+    public final w97 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (w97) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final w97 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (w97) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b = i;
         }
     }
 }

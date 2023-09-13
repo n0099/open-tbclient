@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -378,7 +379,7 @@ public class h1 {
                     return "";
                 }
                 JSONObject jSONObject = new JSONObject(str);
-                int i = jSONObject.getInt("errorCode");
+                int i = jSONObject.getInt(CloudStabilityUBCUtils.KEY_ERROR_CODE);
                 return i == 0 ? jSONObject.getString("value") : i == 3 ? i1.c : i == 1 ? i1.a : i1.d;
             } catch (Throwable unused) {
                 return "";

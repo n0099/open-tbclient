@@ -15,13 +15,13 @@ public class bh implements bg.b.a {
         XMPushService.c cVar3;
         XMPushService.c cVar4;
         if (cVar2 == bg.c.binding) {
-            XMPushService xMPushService = this.a.f932a;
-            cVar4 = this.a.f931a;
+            XMPushService xMPushService = this.a.f931a;
+            cVar4 = this.a.f930a;
             xMPushService.a(cVar4, 60000L);
             return;
         }
-        XMPushService xMPushService2 = this.a.f932a;
-        cVar3 = this.a.f931a;
+        XMPushService xMPushService2 = this.a.f931a;
+        cVar3 = this.a.f930a;
         xMPushService2.b(cVar3);
     }
 }

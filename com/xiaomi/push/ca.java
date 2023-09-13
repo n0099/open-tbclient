@@ -4,8 +4,8 @@ public class ca {
     public static int a = 200;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f162a = 52428800;
+    public static long f161a = 52428800;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f163a = "MessageInfo.db";
+    public static String f162a = "MessageInfo.db";
 }

@@ -1,61 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ol4 extends gk4 {
+public class ol4 extends tk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jl4 a;
+    public boolean b;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, kk4<String> kk4Var) {
+    public ol4(jl4 jl4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, kk4Var) != null) || d(str, kk4Var)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jl4Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        c(hi4.g().getRequest(), str, map, map2, kk4Var);
+        this.a = jl4Var;
+        this.b = z;
     }
 
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, kk4<String> kk4Var) {
+    @Override // com.baidu.tieba.tk4
+    public jl4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, kk4Var) != null) || d(str, kk4Var)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        di4 postStringRequest = hi4.g().postStringRequest();
-        pi4.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, kk4Var);
+        return (jl4) invokeV.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, kk4<String> kk4Var) {
+    @Override // com.baidu.tieba.tk4
+    public boolean b(jl4 jl4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, kk4Var) == null) {
-            httpRequestBuilder.url(lk4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(gk4.b).cookieManager(gk4.a).enableStat(true).build().executeStat(kk4Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, kk4<String> kk4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, kk4Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jl4Var)) == null) {
+            jl4 jl4Var2 = this.a;
+            if (jl4Var2 == jl4Var) {
                 return true;
             }
-            if (kk4Var != null) {
-                kk4Var.onStart();
-                return false;
-            }
-            return false;
+            return jl4Var2.d(jl4Var);
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tk4
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
+            return;
+        }
+        if (z) {
+            jl4 jl4Var = this.a;
+            jl4Var.a.b.b = 0L;
+            jl4Var.b(0);
+        }
+        hl4.b().f(this.a);
+    }
+
+    @Override // com.baidu.tieba.tk4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "isAttached=" + this.b + " " + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

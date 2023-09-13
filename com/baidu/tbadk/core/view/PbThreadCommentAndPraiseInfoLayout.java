@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.FriendBotView;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c15;
+import com.baidu.tieba.h15;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -126,12 +126,12 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void W(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.F != null && !TextUtils.isEmpty(str) && str.equals(this.F.getTid())) {
-            c15 c15Var = new c15();
-            c15Var.b = 4;
-            c15Var.d = 2;
-            c15Var.j = str2;
-            this.e.setStatisticData(c15Var);
-            this.e.O();
+            h15 h15Var = new h15();
+            h15Var.b = 4;
+            h15Var.d = 2;
+            h15Var.j = str2;
+            this.e.setStatisticData(h15Var);
+            this.e.N();
         }
     }
 
@@ -311,7 +311,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             this.E0.setLayoutParams(layoutParams4);
             float f3 = dimens2;
             this.E0.setTextSize(0, f3);
-            this.E0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f1387));
+            this.E0.setText(this.G.getString(R.string.obfuscated_res_0x7f0f13a0));
             if (a0()) {
                 this.M = true;
                 setNeedAddReplyIcon(true);
@@ -442,7 +442,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 this.e.setDisagreeShow(true);
             }
             if (threadData != null && threadData.getCallRobotEntrance() != null && threadData.getCallRobotEntrance().style_conf != null && !TextUtils.isEmpty(threadData.getCallRobotEntrance().style_conf.day.icon) && !TextUtils.isEmpty(threadData.getCallRobotEntrance().style_conf.dark.icon)) {
-                this.e.b0(threadData);
+                this.e.a0(threadData);
                 AbilityConf abilityConf = threadData.getCallRobotEntrance().ability_conf;
                 String str3 = "";
                 if (abilityConf == null) {
@@ -461,7 +461,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 }
                 CommonStatisticUtils.statisticFriendBotView(1, str, 1, o, str2, str3);
             } else if (threadData != null && threadData.getCustomFigure() != null) {
-                this.e.a0(threadData.getCustomFigure(), threadData.getAuthor());
+                this.e.Z(threadData.getCustomFigure(), threadData.getAuthor());
             } else {
                 this.e.setDisagreeShow(true);
             }

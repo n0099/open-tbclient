@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.splashad.SplashAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class qs6 {
+public class qs6 extends da7 {
     public static /* synthetic */ Interceptable $ic;
-    public static qs6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
 
     public qs6() {
         Interceptable interceptable = $ic;
@@ -32,58 +27,38 @@ public class qs6 {
         }
     }
 
-    public static qs6 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.da7
+    @Nullable
+    public Object e(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new qs6();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.hashCode() == 155229553 && str.equals("click_back_card")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
-            return b;
-        }
-        return (qs6) invokeV.objValue;
-    }
-
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
-        }
-    }
-
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
-        }
-    }
-
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
-        }
-    }
-
-    public void e(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, baseFragmentActivity) == null) && baseFragmentActivity != null) {
-            try {
-                SplashAdView splashAdView = new SplashAdView(baseFragmentActivity, 1);
-                this.a = new WeakReference<>(splashAdView);
-                ViewGroup viewGroup = (ViewGroup) baseFragmentActivity.findViewById(R.id.layout_root);
-                if (viewGroup != null) {
-                    viewGroup.addView(splashAdView);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (c != 0) {
+                return super.e(str, str2);
             }
+            return v45.b(str2);
         }
+        return invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.da7
+    @NonNull
+    public pc7<?> h(@NonNull g87<?> g87Var, @NonNull u87 u87Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g87Var, u87Var)) == null) {
+            n87 n87Var = new n87();
+            n87Var.c = g87Var;
+            n87Var.b = u87Var.a();
+            n87Var.a = u87Var.c();
+            return n87Var;
+        }
+        return (pc7) invokeLL.objValue;
     }
 }

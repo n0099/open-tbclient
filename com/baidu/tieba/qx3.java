@@ -1,6 +1,14 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qx3 implements rq4 {
+public class qx3 extends nx3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +38,7 @@ public class qx3 implements rq4 {
                 return;
             }
         }
-        a = nr1.a;
+        a = rr1.a;
     }
 
     public qx3() {
@@ -47,30 +55,67 @@ public class qx3 implements rq4 {
         }
     }
 
-    @Override // com.baidu.tieba.rq4
-    public boolean a(JSONArray jSONArray) {
+    public final Cursor a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (a) {
-                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
-            }
-            vx3 vx3Var = new vx3();
-            HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", jq4.g().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", jq4.g().o(AppRuntime.getApplication()));
-            ux3.d().g(hashMap, jSONArray.toString().getBytes(), null, vx3Var);
-            if (a) {
-                Log.d("OpenBehaviorUploader", "errorCode : " + vx3Var.a);
-                Log.d("OpenBehaviorUploader", "errorMsg : " + vx3Var.b);
-            }
-            int i = vx3Var.a;
-            if (i != 1 && i != 2 && i != 4) {
-                return true;
-            }
-            cr4.a();
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
+            matrixCursor.newRow().add("params", str);
+            return matrixCursor;
         }
-        return invokeL.booleanValue;
+        return (Cursor) invokeL.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return Base64.encodeToString(sx3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("swan_sdk_version", sr1.a());
+                jSONObject.put("swan_core_version", mk3.h(0));
+                jSONObject.put("game_core_version", mk3.h(1));
+                jSONObject.put("uid", ou2.h0().i(AppRuntime.getAppContext()));
+                jSONObject.put("puid", ou2.h0().h(AppRuntime.getAppContext()));
+                jSONObject.put("ua", d82.s());
+                jSONObject.put("ut", d82.f());
+                jSONObject.put("timestamp", System.currentTimeMillis());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nx3
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
+            String b = b();
+            if (a) {
+                Log.i("ParamsProcessor", "params: " + b);
+            }
+            String c = c(b);
+            if (a) {
+                Log.i("ParamsProcessor", "encryption params: " + c);
+            }
+            return a(c);
+        }
+        return (Cursor) invokeLLLLL.objValue;
     }
 }

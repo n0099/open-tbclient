@@ -13,16 +13,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.w05;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.nx5;
+import com.baidu.tieba.sfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,15 +41,15 @@ public class RecommendInfoLayout extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
-        public final /* synthetic */ StatisticItem b;
+        public final /* synthetic */ ThreadData b;
         public final /* synthetic */ RecommendInfoLayout c;
 
-        public a(RecommendInfoLayout recommendInfoLayout, long j, StatisticItem statisticItem) {
+        public a(RecommendInfoLayout recommendInfoLayout, long j, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendInfoLayout, Long.valueOf(j), statisticItem};
+                Object[] objArr = {recommendInfoLayout, Long.valueOf(j), threadData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,7 +61,7 @@ public class RecommendInfoLayout extends RelativeLayout {
             }
             this.c = recommendInfoLayout;
             this.a = j;
-            this.b = statisticItem;
+            this.b = threadData;
         }
 
         @Override // android.view.View.OnClickListener
@@ -71,18 +70,12 @@ public class RecommendInfoLayout extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a == 0) {
                 return;
             }
-            if (NewWebHotTopicPageSwitch.isOn()) {
-                if (view2.getContext() instanceof BaseActivity) {
-                    rw5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
-                } else {
-                    new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
-                }
+            if (view2.getContext() instanceof BaseActivity) {
+                nx5.f(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
             } else {
                 new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
             }
-            this.b.param("obj_type", 2);
-            this.b.param("obj_locate", 1);
-            TiebaStatic.log(this.b);
+            sfa.t(this.b, 2, 1);
         }
     }
 
@@ -167,28 +160,30 @@ public class RecommendInfoLayout extends RelativeLayout {
         a(context);
     }
 
-    public void setData(w05 w05Var) {
-        ThreadRecommendInfoData threadRecommendInfoData;
+    public void setData(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) != null) || w05Var == null || w05Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(w05Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b15Var) == null) && b15Var != null && b15Var.getThreadData() != null) {
+            ThreadData threadData = b15Var.getThreadData();
+            ThreadRecommendInfoData threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(threadData.getThreadRecommendInfoDataList(), 0);
+            if (threadRecommendInfoData == null) {
+                return;
+            }
+            String str = threadRecommendInfoData.forumAvatar;
+            if (!TextUtils.isEmpty(str)) {
+                this.b.setVisibility(0);
+                this.b.startLoad(str, 10, false);
+            } else {
+                this.b.setVisibility(8);
+            }
+            String str2 = threadRecommendInfoData.forumName;
+            String str3 = threadRecommendInfoData.recommendReason;
+            long j = threadRecommendInfoData.recommendTopicId;
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, this.e, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f077f) + StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
+            } else if (!TextUtils.isEmpty(str3)) {
+                this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
+            }
+            this.a.setOnClickListener(new a(this, j, threadData));
         }
-        String str = threadRecommendInfoData.forumAvatar;
-        if (!TextUtils.isEmpty(str)) {
-            this.b.setVisibility(0);
-            this.b.startLoad(str, 10, false);
-        } else {
-            this.b.setVisibility(8);
-        }
-        String str2 = threadRecommendInfoData.forumName;
-        String str3 = threadRecommendInfoData.recommendReason;
-        long j = threadRecommendInfoData.recommendTopicId;
-        StatisticItem statisticItem = new StatisticItem("c14686");
-        if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, this.e, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f077c) + StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
-        } else if (!TextUtils.isEmpty(str3)) {
-            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str3, this.d, "..."));
-        }
-        this.a.setOnClickListener(new a(this, j, statisticItem));
     }
 }

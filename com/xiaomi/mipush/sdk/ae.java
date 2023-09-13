@@ -21,7 +21,7 @@ public class ae extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo300a() {
+    public String mo301a() {
         return "2";
     }
 
@@ -32,7 +32,7 @@ public class ae extends aj.a {
         hzVar.a(bb.a(a, hn.MISC_CONFIG));
         hzVar.b(bb.a(a, hn.PLUGIN_CONFIG));
         ig igVar = new ig("-1", false);
-        igVar.c(hr.DailyCheckClientConfig.f509a);
+        igVar.c(hr.DailyCheckClientConfig.f508a);
         igVar.a(ir.a(hzVar));
         ao.a(this.a).a((ao) igVar, hh.Notification, (hu) null);
     }

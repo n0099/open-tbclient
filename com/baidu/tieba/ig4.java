@@ -1,39 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.l63;
+import com.baidu.tieba.mg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ig4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public interface c {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements aq3<kg3<mg3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public JSONObject a;
+        public final /* synthetic */ c a;
 
-        public a() {
+        public a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,213 +43,90 @@ public class ig4 {
                     return;
                 }
             }
-            this.a = new JSONObject();
+            this.a = cVar;
         }
 
-        public static a a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(kg3<mg3.e> kg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return new a();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                if (fg3.h(kg3Var)) {
+                    ig4.c(this.a);
+                } else {
+                    this.a.onFail();
+                }
             }
-            return (a) invokeV.objValue;
         }
+    }
 
-        public JSONObject b() {
-            InterceptResult invokeV;
+    /* loaded from: classes6.dex */
+    public static class b implements l63.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return (JSONObject) invokeV.objValue;
+            this.a = cVar;
         }
 
-        public a c(String str, Object obj) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.l63.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        this.a.put(str, obj);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+                if (i != 0) {
+                    this.a.onFail();
+                    return;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        this.a.onFail();
+                        return;
                     }
                 }
-                return this;
+                this.a.onSuccess();
             }
-            return (a) invokeLL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852531, "Lcom/baidu/tieba/ig4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947852531, "Lcom/baidu/tieba/ig4;");
+    public static void b(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
+            if (!(context instanceof Activity)) {
+                cVar.onFail();
                 return;
             }
-        }
-        a = nr1.a;
-    }
-
-    public static void a(ng4 ng4Var, xx2 xx2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ng4Var, xx2Var) == null) {
-            a a2 = a.a();
-            a2.c("mapId", ng4Var.j);
-            a2.c("markerId", xx2Var.a);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "callouttap");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ng4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+            hb3 M = hb3.M();
+            if (M != null) {
+                M.e0().g((Activity) context, "mapp_location", new a(cVar));
             }
-            kq3.d(ng4Var.i, ng4Var.j, "map", "callouttap", jSONObject);
         }
     }
 
-    public static void b(View view2, ng4 ng4Var) {
-        String str;
-        vx2 vx2Var;
+    public static void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, view2, ng4Var) == null) {
-            lg4 G = ng4Var.G(view2);
-            if (G != null && (vx2Var = G.a) != null) {
-                str = vx2Var.a;
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            hb3 b0 = hb3.b0();
+            if (bp3.M() && b0 != null) {
+                cVar.onSuccess();
             } else {
-                str = "";
+                b0.w().z(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
             }
-            a a2 = a.a();
-            a2.c("mapId", ng4Var.j);
-            a2.c("controlId", str);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "controltap");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ng4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            kq3.d(ng4Var.i, ng4Var.j, "map", "controltap", jSONObject);
-        }
-    }
-
-    public static void e(Marker marker, ng4 ng4Var) {
-        String str;
-        xx2 xx2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, marker, ng4Var) == null) {
-            mg4 H = ng4Var.H(marker);
-            if (H != null && (xx2Var = H.a) != null) {
-                str = xx2Var.a;
-            } else {
-                str = "";
-            }
-            a a2 = a.a();
-            a2.c("mapId", ng4Var.j);
-            a2.c("markerId", str);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "markertap");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ng4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            kq3.d(ng4Var.i, ng4Var.j, "map", "markertap", jSONObject);
-        }
-    }
-
-    public static void c(ng4 ng4Var, LatLng latLng) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, ng4Var, latLng) == null) {
-            a a2 = a.a();
-            a2.c("latitude", Double.valueOf(latLng.latitude));
-            a2.c("longitude", Double.valueOf(latLng.longitude));
-            JSONObject b = a2.b();
-            a a3 = a.a();
-            a3.c("mapId", ng4Var.j);
-            a3.c(CriusAttrConstants.POSITION, b);
-            JSONObject b2 = a3.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "tap");
-                jSONObject.put("data", b2.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ng4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            kq3.d(ng4Var.i, ng4Var.j, "map", "tap", jSONObject);
-        }
-    }
-
-    public static void d(ng4 ng4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ng4Var) == null) {
-            a a2 = a.a();
-            a2.c("mapId", ng4Var.j);
-            JSONObject b = a2.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "updated");
-                jSONObject.put("data", b.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ng4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            kq3.d(ng4Var.i, ng4Var.j, "map", "updated", jSONObject);
-        }
-    }
-
-    public static void f(ng4 ng4Var, MapStatus mapStatus, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, ng4Var, mapStatus, i) == null) {
-            a a2 = a.a();
-            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
-            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
-            JSONObject b = a2.b();
-            a a3 = a.a();
-            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
-            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
-            JSONObject b2 = a3.b();
-            a a4 = a.a();
-            a4.c("mapId", ng4Var.j);
-            a4.c("northeast", b);
-            a4.c("southwest", b2);
-            a4.c("scale", Float.valueOf(mapStatus.zoom));
-            a4.c("reason", Integer.valueOf(i));
-            JSONObject b3 = a4.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("vtype", "regionchange");
-                jSONObject.put("data", b3.toString());
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, ng4Var.i);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            kq3.d(ng4Var.i, ng4Var.j, "map", "regionchange", jSONObject);
         }
     }
 }

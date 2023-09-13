@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.mfc;
+import com.baidu.tieba.pic;
 @Keep
 /* loaded from: classes2.dex */
-public class PayFinishInfo extends mfc {
+public class PayFinishInfo extends pic {
     public int code;
     public String message;
     public int step;

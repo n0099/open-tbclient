@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.v7c;
+import com.baidu.tieba.sac;
+import com.baidu.tieba.yac;
 /* loaded from: classes2.dex */
-public enum NeverObservableHolder implements p7c.a<Object> {
+public enum NeverObservableHolder implements sac.a<Object> {
     INSTANCE;
     
-    public static final p7c<Object> NEVER = p7c.d(INSTANCE);
+    public static final sac<Object> NEVER = sac.d(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
-    public void call(v7c<? super Object> v7cVar) {
+    @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
+    public void call(yac<? super Object> yacVar) {
     }
 
-    public static <T> p7c<T> instance() {
-        return (p7c<T>) NEVER;
+    public static <T> sac<T> instance() {
+        return (sac<T>) NEVER;
     }
 }

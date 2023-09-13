@@ -1,68 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ClickBackCard;
-import tbclient.ClickBackCardItem;
-@JvmName(name = "ClickBackCardBuilder")
+import tbclient.VideoInfo;
 /* loaded from: classes7.dex */
-public final class q45 {
+public class q45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ClickBackCard a(JSONObject jSONObject) {
+    public static VideoInfo a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
             if (jSONObject != null) {
-                ClickBackCard.Builder builder = new ClickBackCard.Builder();
-                builder.card_name = jSONObject.optString("card_name");
-                JSONArray optJSONArray = jSONObject.optJSONArray("card_list");
-                ArrayList arrayList = new ArrayList();
+                VideoInfo.Builder builder = new VideoInfo.Builder();
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_duration = Integer.valueOf(jSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION));
+                builder.video_width = Integer.valueOf(jSONObject.optInt("video_width"));
+                builder.video_height = Integer.valueOf(jSONObject.optInt("video_height"));
+                builder.thumbnail_url = jSONObject.optString("thumbnail_url");
+                builder.thumbnail_width = Integer.valueOf(jSONObject.optInt("thumbnail_width"));
+                builder.thumbnail_height = Integer.valueOf(jSONObject.optInt("thumbnail_height"));
+                builder.video_length = Integer.valueOf(jSONObject.optInt("video_length"));
+                builder.play_count = Integer.valueOf(jSONObject.optInt("play_count"));
+                builder.media_subtitle = jSONObject.optString("media_subtitle");
+                builder.video_desc = new ArrayList();
+                JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
                 if (optJSONArray != null) {
-                    int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        ClickBackCardItem.Builder builder2 = new ClickBackCardItem.Builder();
-                        builder2.text = optJSONObject.optString("text");
-                        builder2.jump_url = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                        builder2.business_id = Long.valueOf(optJSONObject.optLong("business_id"));
-                        builder2.business_type = optJSONObject.optString("business_type");
-                        ClickBackCardItem build = builder2.build(true);
-                        Intrinsics.checkNotNullExpressionValue(build, "builder1.build(true)");
-                        arrayList.add(build);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        builder.video_desc.add(p45.a(optJSONArray.optJSONObject(i)));
                     }
-                    builder.card_list = arrayList;
                 }
+                builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
+                builder.video_type = Integer.valueOf(jSONObject.optInt("video_type"));
+                builder.is_vertical = Integer.valueOf(jSONObject.optInt(TiebaStatic.Params.IS_VERTICAL));
+                builder.video_h265 = p45.a(jSONObject.optJSONObject("video_h265"));
+                builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
+                builder.mcn_ad_card = a35.a(jSONObject.optJSONObject("mcn_ad_card"));
+                builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
+                builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
                 return builder.build(true);
             }
             return null;
         }
-        return (ClickBackCard) invokeL.objValue;
-    }
-
-    public static final ClickBackCard b(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return a(new JSONObject(str));
-        }
-        return (ClickBackCard) invokeL.objValue;
+        return (VideoInfo) invokeL.objValue;
     }
 }

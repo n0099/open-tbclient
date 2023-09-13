@@ -2,105 +2,88 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.google.gson.annotations.SerializedName;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class gd5 {
+public final class gd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    @SerializedName("funny_sprite_support_text")
+    public final String a;
+    @SerializedName("funny_sprite_loop_time")
+    public final Integer b;
+    @SerializedName("funny_sprite_bubble_text_length")
+    public final Integer c;
+    @SerializedName("funny_sprite_bubble_text_line_number")
+    public final Integer d;
 
-    public gd5() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            if (obj instanceof gd5) {
+                gd5 gd5Var = (gd5) obj;
+                return Intrinsics.areEqual(this.a, gd5Var.a) && Intrinsics.areEqual(this.b, gd5Var.b) && Intrinsics.areEqual(this.c, gd5Var.c) && Intrinsics.areEqual(this.d, gd5Var.d);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public String a() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            Integer num = this.b;
+            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
+            Integer num2 = this.c;
+            int hashCode3 = (hashCode2 + (num2 == null ? 0 : num2.hashCode())) * 31;
+            Integer num3 = this.d;
+            return hashCode3 + (num3 != null ? num3.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "FunnySpriteConfig(funnySpriteSupportText=" + this.a + ", funnySpriteLoopTime=" + this.b + ", funnySpriteBubbleTextLength=" + this.c + ", funnySpriteBubbleTextLineLimit=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Integer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.d;
         }
-        return (String) invokeV.objValue;
+        return (Integer) invokeV.objValue;
     }
 
-    public String b() {
+    public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (Integer) invokeV.objValue;
     }
 
-    public String c() {
+    public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
-    }
-
-    public static gd5 g(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            gd5 gd5Var = new gd5();
-            if (jSONObject != null) {
-                gd5Var.a = jSONObject.optString("source");
-                gd5Var.b = jSONObject.optString("show_text");
-                gd5Var.c = jSONObject.optString("show_link");
-                gd5Var.d = jSONObject.optString("show_image");
-                gd5Var.e = jSONObject.optString("show_time");
-                gd5Var.f = jSONObject.optString("show_max");
-            }
-            return gd5Var;
-        }
-        return (gd5) invokeL.objValue;
     }
 }

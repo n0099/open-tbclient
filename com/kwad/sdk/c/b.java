@@ -1,5 +1,6 @@
 package com.kwad.sdk.c;
 
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -11,7 +12,7 @@ public class b implements a {
         HashMap hashMap = new HashMap();
         hashMap.put("userSet", String.valueOf(z));
         hashMap.put("value", obj);
-        hashMap.put("errorCode", String.valueOf(i));
+        hashMap.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, String.valueOf(i));
         return new JSONObject(hashMap).toString();
     }
 

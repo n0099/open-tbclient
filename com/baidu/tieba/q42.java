@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class q42 extends j42 {
+public class q42 extends n42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.j42
+    @Override // com.baidu.tieba.n42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
@@ -33,11 +33,11 @@ public class q42 extends j42 {
         }
     }
 
-    @Override // com.baidu.tieba.j42
-    public void a(k42 k42Var, Canvas canvas) {
+    @Override // com.baidu.tieba.n42
+    public void a(o42 o42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) {
-            k42Var.f.close();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, o42Var, canvas) == null) {
+            o42Var.f.reset();
         }
     }
 }

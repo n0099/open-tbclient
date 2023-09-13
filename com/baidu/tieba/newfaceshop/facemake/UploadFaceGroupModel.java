@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.rd9;
+import com.baidu.tieba.te9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            rd9.l lVar;
+            te9.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
@@ -86,8 +86,8 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof HashMap)) {
                     HashMap hashMap = (HashMap) extra;
                     Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                    if (obj != null && (obj instanceof rd9.l)) {
-                        lVar = (rd9.l) obj;
+                    if (obj != null && (obj instanceof te9.l)) {
+                        lVar = (te9.l) obj;
                     } else {
                         lVar = null;
                     }
@@ -101,24 +101,24 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                     if (obj3 != null && (obj3 instanceof Boolean)) {
                         z = ((Boolean) obj3).booleanValue();
                         if (arrayList != null) {
-                            this.a.O(lVar, null);
+                            this.a.N(lVar, null);
                             BdLog.e("msg extra empty");
                             return;
                         } else if (httpResponsedMessage.getError() != 0) {
-                            this.a.O(lVar, httpResponsedMessage.getErrorString());
+                            this.a.N(lVar, httpResponsedMessage.getErrorString());
                             return;
                         } else {
                             String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                             if (TextUtils.isEmpty(groupId)) {
-                                this.a.O(lVar, httpResponsedMessage.getErrorString());
+                                this.a.N(lVar, httpResponsedMessage.getErrorString());
                                 return;
                             }
                             if (lVar != null) {
                                 lVar.a(groupId, arrayList);
                             }
-                            rd9.l().u(true, httpResponsedMessage.getErrorString());
+                            te9.l().u(true, httpResponsedMessage.getErrorString());
                             if (z) {
-                                rd9.l().p(groupId, arrayList, null);
+                                te9.l().p(groupId, arrayList, null);
                                 return;
                             }
                             HashMap hashMap2 = new HashMap();
@@ -159,17 +159,17 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public final void O(rd9.l lVar, String str) {
+    public final void N(te9.l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lVar, str) == null) {
             if (lVar != null) {
                 lVar.onFail(str);
             }
-            rd9.l().u(false, str);
+            te9.l().u(false, str);
         }
     }
 
-    public void P(String str, List<FaceData> list, rd9.l lVar, int i) {
+    public void O(String str, List<FaceData> list, te9.l lVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {
@@ -203,7 +203,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 sendMessage(httpMessage);
                 return;
             }
-            O(lVar, "empty list");
+            N(lVar, "empty list");
         }
     }
 

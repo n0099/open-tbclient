@@ -26,7 +26,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.c05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class BDLayoutMode {
     public boolean isForceDayMode;
     public boolean isNightMode;
     public Resources pluginRes;
-    public Map<String, xz4> viewModeInfos;
+    public Map<String, c05> viewModeInfos;
 
     static {
         InterceptResult invokeClinit;
@@ -94,7 +94,7 @@ public class BDLayoutMode {
     }
 
     public void destroy() {
-        Map<String, xz4> map;
+        Map<String, c05> map;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (map = this.viewModeInfos) != null) {
             map.clear();
@@ -121,56 +121,56 @@ public class BDLayoutMode {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, view2) == null) {
             String str = "@" + view2.getId();
-            Map<String, xz4> map = this.viewModeInfos;
+            Map<String, c05> map = this.viewModeInfos;
             if (map != null && map.containsKey(str)) {
-                xz4 xz4Var = this.viewModeInfos.get(str);
+                c05 c05Var = this.viewModeInfos.get(str);
                 if (view2 instanceof TextView) {
-                    if (xz4Var.v() != 0 && (colorListSafe2 = getColorListSafe(this.isNightMode, xz4Var.u(), xz4Var.v())) != null) {
+                    if (c05Var.v() != 0 && (colorListSafe2 = getColorListSafe(this.isNightMode, c05Var.u(), c05Var.v())) != null) {
                         ((TextView) view2).setTextColor(colorListSafe2);
                     }
-                    if (xz4Var.t() != 0 && (colorListSafe = getColorListSafe(this.isNightMode, xz4Var.s(), xz4Var.t())) != null) {
+                    if (c05Var.t() != 0 && (colorListSafe = getColorListSafe(this.isNightMode, c05Var.s(), c05Var.t())) != null) {
                         ((TextView) view2).setHintTextColor(colorListSafe);
                     }
-                    if (xz4Var.r() != 0) {
+                    if (c05Var.r() != 0) {
                         TextView textView = (TextView) view2;
                         Context context = view2.getContext();
                         if (this.isNightMode) {
-                            q = xz4Var.r();
+                            q = c05Var.r();
                         } else {
-                            q = xz4Var.q();
+                            q = c05Var.q();
                         }
                         textView.setTextAppearance(context, q);
                     }
-                    if (xz4Var.k() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getDrawable(this.isNightMode, xz4Var.j(), xz4Var.k()), (Drawable) null, (Drawable) null);
+                    if (c05Var.k() != 0) {
+                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getDrawable(this.isNightMode, c05Var.j(), c05Var.k()), (Drawable) null, (Drawable) null);
                     }
-                    if (xz4Var.g() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(getDrawable(this.isNightMode, xz4Var.f(), xz4Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
+                    if (c05Var.g() != 0) {
+                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds(getDrawable(this.isNightMode, c05Var.f(), c05Var.g()), (Drawable) null, (Drawable) null, (Drawable) null);
                     }
-                    if (xz4Var.i() != 0) {
-                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getDrawable(this.isNightMode, xz4Var.h(), xz4Var.i()), (Drawable) null);
+                    if (c05Var.i() != 0) {
+                        ((TextView) view2).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getDrawable(this.isNightMode, c05Var.h(), c05Var.i()), (Drawable) null);
                     }
                 } else if (view2 instanceof ImageButton) {
-                    if (xz4Var.n() != 0 && (drawable3 = getDrawable(this.isNightMode, xz4Var.m(), xz4Var.n())) != null) {
+                    if (c05Var.n() != 0 && (drawable3 = getDrawable(this.isNightMode, c05Var.m(), c05Var.n())) != null) {
                         ((ImageView) view2).setImageDrawable(drawable3);
                     }
                 } else if (view2 instanceof ImageView) {
-                    if (xz4Var.n() != 0 && (drawable2 = getDrawable(this.isNightMode, xz4Var.m(), xz4Var.n())) != null) {
+                    if (c05Var.n() != 0 && (drawable2 = getDrawable(this.isNightMode, c05Var.m(), c05Var.n())) != null) {
                         ((ImageView) view2).setImageDrawable(drawable2);
                     }
-                } else if ((view2 instanceof ProgressBar) && xz4Var.p() != 0 && (drawable = getDrawable(this.isNightMode, xz4Var.o(), xz4Var.p())) != null) {
+                } else if ((view2 instanceof ProgressBar) && c05Var.p() != 0 && (drawable = getDrawable(this.isNightMode, c05Var.o(), c05Var.p())) != null) {
                     ((ProgressBar) view2).setProgressDrawable(drawable);
                 }
-                if (xz4Var.c() != 0) {
+                if (c05Var.c() != 0) {
                     int paddingLeft = view2.getPaddingLeft();
                     int paddingTop = view2.getPaddingTop();
                     int paddingRight = view2.getPaddingRight();
                     int paddingBottom = view2.getPaddingBottom();
-                    String resourceTypeName = this.contextRes.getResourceTypeName(xz4Var.b());
+                    String resourceTypeName = this.contextRes.getResourceTypeName(c05Var.b());
                     if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        view2.setBackgroundColor(getColor(this.isNightMode, xz4Var.b(), xz4Var.c()));
+                        view2.setBackgroundColor(getColor(this.isNightMode, c05Var.b(), c05Var.c()));
                     } else {
-                        view2.setBackgroundDrawable(getDrawable(this.isNightMode, xz4Var.b(), xz4Var.c()));
+                        view2.setBackgroundDrawable(getDrawable(this.isNightMode, c05Var.b(), c05Var.c()));
                     }
                     view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
                 }
@@ -182,14 +182,14 @@ public class BDLayoutMode {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, viewGroup) == null) {
             String str = "@" + viewGroup.getId();
-            Map<String, xz4> map = this.viewModeInfos;
+            Map<String, c05> map = this.viewModeInfos;
             if (map != null && map.containsKey(str)) {
-                xz4 xz4Var = this.viewModeInfos.get(str);
+                c05 c05Var = this.viewModeInfos.get(str);
                 if (viewGroup instanceof AdapterView) {
-                    if ((viewGroup instanceof ListView) && xz4Var.e() != 0) {
+                    if ((viewGroup instanceof ListView) && c05Var.e() != 0) {
                         ListView listView = (ListView) viewGroup;
                         int dividerHeight = listView.getDividerHeight();
-                        listView.setDivider(getDrawable(this.isNightMode, xz4Var.d(), xz4Var.e()));
+                        listView.setDivider(getDrawable(this.isNightMode, c05Var.d(), c05Var.e()));
                         listView.setDividerHeight(dividerHeight);
                     }
                     Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -197,16 +197,16 @@ public class BDLayoutMode {
                         ((BaseAdapter) adapter).notifyDataSetChanged();
                     }
                 }
-                if (xz4Var.c() != 0) {
+                if (c05Var.c() != 0) {
                     int paddingLeft = viewGroup.getPaddingLeft();
                     int paddingTop = viewGroup.getPaddingTop();
                     int paddingRight = viewGroup.getPaddingRight();
                     int paddingBottom = viewGroup.getPaddingBottom();
-                    String resourceTypeName = this.contextRes.getResourceTypeName(xz4Var.b());
+                    String resourceTypeName = this.contextRes.getResourceTypeName(c05Var.b());
                     if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                        viewGroup.setBackgroundColor(getColor(this.isNightMode, xz4Var.b(), xz4Var.c()));
+                        viewGroup.setBackgroundColor(getColor(this.isNightMode, c05Var.b(), c05Var.c()));
                     } else {
-                        viewGroup.setBackgroundDrawable(getDrawable(this.isNightMode, xz4Var.b(), xz4Var.c()));
+                        viewGroup.setBackgroundDrawable(getDrawable(this.isNightMode, c05Var.b(), c05Var.c()));
                     }
                     viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
                 }
@@ -389,89 +389,89 @@ public class BDLayoutMode {
                 this.contextRes = resources;
                 this.pluginRes = resources;
                 int attributeCount = attributeSet.getAttributeCount();
-                xz4 xz4Var = new xz4();
-                xz4Var.R(str);
+                c05 c05Var = new c05();
+                c05Var.R(str);
                 boolean z = false;
                 for (int i2 = 0; i2 < attributeCount; i2++) {
                     String attributeName = attributeSet.getAttributeName(i2);
                     String attributeValue = attributeSet.getAttributeValue(i2);
                     if (attributeName.equals("id")) {
-                        xz4Var.G(attributeValue);
+                        c05Var.G(attributeValue);
                     } else if (attributeName.equals(ATTR_NAME_BACKGROUND)) {
                         int[] resID2 = getResID(attributeValue);
                         if (resID2 != null) {
-                            xz4Var.w(resID2[0]);
-                            xz4Var.x(resID2[1]);
+                            c05Var.w(resID2[0]);
+                            c05Var.x(resID2[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_IMAGE_SRC)) {
                         int[] resID3 = getResID(attributeValue);
                         if (resID3 != null) {
-                            xz4Var.H(resID3[0]);
-                            xz4Var.I(resID3[1]);
+                            c05Var.H(resID3[0]);
+                            c05Var.I(resID3[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_TEXT_COLOR)) {
                         int[] resID4 = getResID(attributeValue);
                         if (resID4 != null) {
-                            xz4Var.P(resID4[0]);
-                            xz4Var.Q(resID4[1]);
+                            c05Var.P(resID4[0]);
+                            c05Var.Q(resID4[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_STYLE)) {
                         int[] resID5 = getResID(attributeValue);
                         if (resID5 != null) {
-                            xz4Var.L(resID5[0]);
-                            xz4Var.M(resID5[1]);
+                            c05Var.L(resID5[0]);
+                            c05Var.M(resID5[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_DIVIDER)) {
                         int[] resID6 = getResID(attributeValue);
                         if (resID6 != null) {
-                            xz4Var.y(resID6[0]);
-                            xz4Var.z(resID6[1]);
+                            c05Var.y(resID6[0]);
+                            c05Var.z(resID6[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_DRAWABLE_TOP)) {
                         int[] resID7 = getResID(attributeValue);
                         if (resID7 != null) {
-                            xz4Var.E(resID7[0]);
-                            xz4Var.F(resID7[1]);
+                            c05Var.E(resID7[0]);
+                            c05Var.F(resID7[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_DRAWABLE_Left)) {
                         int[] resID8 = getResID(attributeValue);
                         if (resID8 != null) {
-                            xz4Var.A(resID8[0]);
-                            xz4Var.B(resID8[1]);
+                            c05Var.A(resID8[0]);
+                            c05Var.B(resID8[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_DRAWABLE_Right)) {
                         int[] resID9 = getResID(attributeValue);
                         if (resID9 != null) {
-                            xz4Var.C(resID9[0]);
-                            xz4Var.D(resID9[1]);
+                            c05Var.C(resID9[0]);
+                            c05Var.D(resID9[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_PROGRESS_DRAWABLE)) {
                         int[] resID10 = getResID(attributeValue);
                         if (resID10 != null) {
-                            xz4Var.J(resID10[0]);
-                            xz4Var.K(resID10[1]);
+                            c05Var.J(resID10[0]);
+                            c05Var.K(resID10[1]);
                             z = true;
                         }
                     } else if (attributeName.equals(ATTR_NAME_TEXT_COLOR_HINT) && (resID = getResID(attributeValue)) != null) {
-                        xz4Var.N(resID[0]);
-                        xz4Var.O(resID[1]);
+                        c05Var.N(resID[0]);
+                        c05Var.O(resID[1]);
                         z = true;
                     }
                     if (z && TbConfig.getDebugSwitch() && (i = JavaTypesHelper.toInt(attributeValue.substring(1), 0)) != 0) {
                         String resourceName = this.contextRes.getResourceName(i);
-                        xz4Var.a(attributeName + "=" + resourceName);
+                        c05Var.a(attributeName + "=" + resourceName);
                     }
                 }
-                if (z && !TextUtils.isEmpty(xz4Var.l()) && this.viewModeInfos != null && !this.viewModeInfos.containsKey(xz4Var.l())) {
-                    this.viewModeInfos.put(xz4Var.l(), xz4Var);
+                if (z && !TextUtils.isEmpty(c05Var.l()) && this.viewModeInfos != null && !this.viewModeInfos.containsKey(c05Var.l())) {
+                    this.viewModeInfos.put(c05Var.l(), c05Var);
                 }
             } catch (Resources.NotFoundException unused) {
             } catch (Exception e) {

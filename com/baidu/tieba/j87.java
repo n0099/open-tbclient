@@ -10,8 +10,7 @@ import java.util.List;
 public class j87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jb7<?>> a;
-    public r87 b;
+    public List<r97> a;
 
     public j87() {
         Interceptable interceptable = $ic;

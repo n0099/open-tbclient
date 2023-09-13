@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,40 +24,30 @@ public class xj2 {
                 return;
             }
         }
-        a = nr1.a;
+        boolean z = rr1.a;
+        a = b("swan_clean_pkg_opt", 0);
     }
 
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            return "frame_type_" + i + "_" + str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return (String) invokeIL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    public static boolean b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            long j = rj3.a().getLong(a(i, "launch_time"), 0L);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            ou2.g0().getSwitch(str, i);
+            h82.k("CleanPkgSwitcher", str + " value from AB : " + i);
+            if (i == 1) {
+                return true;
             }
-            return j;
+            return false;
         }
-        return invokeI.longValue;
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            String a2 = a(i, "launch_time");
-            long currentTimeMillis = System.currentTimeMillis();
-            rj3.a().putLong(a2, currentTimeMillis);
-            if (a) {
-                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
-            }
-        }
+        return invokeLI.booleanValue;
     }
 }

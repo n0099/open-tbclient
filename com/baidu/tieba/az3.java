@@ -1,38 +1,118 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tieba.bz3;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class az3 implements bz3.a {
+public class az3 implements iz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
-    public final iz3 b;
-    public final DownloadInfo c;
-    public final a d;
-    public long e;
-    public volatile AtomicBoolean f;
+    public Context a;
+    public String b;
+    public AdElementInfo c;
+    public DownloadState d;
+    public yz3 e;
+    public b f;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void e(DownloadInfo downloadInfo);
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public az3(ExecutorService executorService, iz3 iz3Var, DownloadInfo downloadInfo, a aVar) {
+    @Override // com.baidu.tieba.iz3
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iz3
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iz3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iz3
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ az3 this$0;
+        public long time;
+
+        public b(az3 az3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = az3Var;
+            this.time = 0L;
+        }
+
+        public /* synthetic */ b(az3 az3Var, a aVar) {
+            this(az3Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getData() != null && PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
+                if (!TextUtils.equals(this.this$0.c.getPackageName(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
+                    return;
+                }
+                this.time = System.currentTimeMillis();
+                this.this$0.j("3");
+            }
+        }
+    }
+
+    public az3(Context context, AdElementInfo adElementInfo, yz3 yz3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executorService, iz3Var, downloadInfo, aVar};
+            Object[] objArr = {context, adElementInfo, yz3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,50 +122,68 @@ public class az3 implements bz3.a {
                 return;
             }
         }
-        this.e = System.currentTimeMillis();
-        this.f = new AtomicBoolean(false);
-        this.a = executorService;
-        this.b = iz3Var;
-        this.c = downloadInfo;
-        this.d = aVar;
+        this.d = DownloadState.NOT_START;
+        this.a = context;
+        this.c = adElementInfo;
+        this.e = yz3Var;
     }
 
-    @Override // com.baidu.tieba.bz3.a
-    public void a() {
+    @Override // com.baidu.tieba.iz3
+    public void c(DownloadState downloadState, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
-            this.c.setPackageName(v04.d(AppRuntime.getAppContext(), this.c.getPath()));
-            this.c.setStatus(DownloadState.DOWNLOADED.value());
-            this.b.b(this.c);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.e(this.c);
-            }
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) != null) || this.d == downloadState) {
+            return;
         }
+        if (downloadState == DownloadState.DOWNLOADED) {
+            j("2");
+            h();
+        }
+        this.d = downloadState;
     }
 
-    @Override // com.baidu.tieba.bz3.a
+    @Override // com.baidu.tieba.iz3
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.get()) {
-            synchronized (this) {
-                if (!this.f.get()) {
-                    this.f.set(true);
-                    long currentTimeMillis = System.currentTimeMillis();
-                    if (currentTimeMillis - this.e > 1000) {
-                        this.b.b(this.c);
-                        this.e = currentTimeMillis;
-                    }
-                    this.f.set(false);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
         }
     }
 
-    public void c() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.submit(new bz3(this.b, this.c, this));
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f == null) {
+            this.f = new b(this, null);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
+            intentFilter.addDataScheme("package");
+            this.a.registerReceiver(this.f, intentFilter);
+        }
+    }
+
+    public void i() {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bVar = this.f) != null) {
+            this.a.unregisterReceiver(bVar);
+            this.f = null;
+        }
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            p04 p04Var = new p04();
+            p04Var.s = this.b;
+            p04Var.r = str;
+            s04.e(p04Var, this.c, this.e);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
+            j("1");
         }
     }
 }

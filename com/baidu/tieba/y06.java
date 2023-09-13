@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface y06 {
-    void setLastUpdatedLabel(CharSequence charSequence);
-
-    void setLoadingDrawable(Drawable drawable);
-
-    void setPullLabel(CharSequence charSequence);
-
-    void setRefreshingLabel(CharSequence charSequence);
-
-    void setReleaseLabel(CharSequence charSequence);
+    void a(View view2, int i, int i2, int i3, int i4);
 }

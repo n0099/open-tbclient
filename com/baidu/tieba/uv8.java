@@ -1,324 +1,132 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tbadk.data.JSONLikeSerializable;
+import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabNavTextView;
+import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public final class uv8 extends hk8 {
+public final class uv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity f;
-    public BarImageView g;
-    public MsgTabNavTextView h;
-    public ImageView i;
-    public Long j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uv8(BaseFragmentActivity context) {
-        super(R.layout.obfuscated_res_0x7f0d0642);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948224562, "Lcom/baidu/tieba/uv8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948224562, "Lcom/baidu/tieba/uv8;");
+        }
+    }
+
+    public uv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.f = context;
-    }
-
-    public final void Q(ot8 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Long valueOf = Long.valueOf(data.a());
-            this.j = valueOf;
-            if (valueOf != null) {
-                m().setTag(Long.valueOf(valueOf.longValue()));
-            }
-            J(data.b());
         }
     }
 
-    public static final Boolean S(uv8 this$0, Map map) {
-        InterceptResult invokeLL;
-        boolean z;
+    public final HashMap<String, Serializable> a(List<qu8> list) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, this$0, map)) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (this$0.j != null) {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            TbLog iMLog = IMLog.getInstance();
+            StringBuilder sb = new StringBuilder();
+            sb.append("NavigationData Size = ");
+            if (list != null) {
+                i = list.size();
             } else {
-                z = false;
+                i = 0;
             }
-            return Boolean.valueOf(z);
-        }
-        return (Boolean) invokeLL.objValue;
-    }
-
-    public static final MsgTabForumData T(uv8 this$0, Map it) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, this$0, it)) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullExpressionValue(it, "it");
-            return (MsgTabForumData) it.get(this$0.j);
-        }
-        return (MsgTabForumData) invokeLL.objValue;
-    }
-
-    public static final void U(uv8 this$0, MsgTabForumData msgTabForumData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, msgTabForumData) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.W(msgTabForumData);
-        }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = (BarImageView) j(R.id.iv_icon);
-            this.h = (MsgTabNavTextView) j(R.id.obfuscated_res_0x7f0927af);
-            this.i = (ImageView) j(R.id.obfuscated_res_0x7f091244);
-        }
-    }
-
-    public final BaseFragmentActivity getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (BaseFragmentActivity) invokeV.objValue;
-    }
-
-    public final void R(float f, float f2) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            ImageView imageView = this.i;
-            ImageView imageView2 = null;
-            if (imageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
-                imageView = null;
-            }
-            if (f2 == imageView.getAlpha()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return;
-            }
-            PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(Key.ALPHA, f, f2);
-            ImageView imageView3 = this.i;
-            if (imageView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
-            } else {
-                imageView2 = imageView3;
-            }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(imageView2, ofFloat);
-            Intrinsics.checkNotNullExpressionValue(ofPropertyValuesHolder, "ofPropertyValuesHolder(m…kgroundView, alphaProper)");
-            ofPropertyValuesHolder.setDuration(200L);
-            ofPropertyValuesHolder.start();
-        }
-    }
-
-    public final void W(MsgTabForumData msgTabForumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, msgTabForumData) == null) && msgTabForumData != null) {
-            BarImageView barImageView = this.g;
-            MsgTabNavTextView msgTabNavTextView = null;
-            if (barImageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
-                barImageView = null;
-            }
-            if (!(!Intrinsics.areEqual(barImageView.getTag(), msgTabForumData.getIcon()))) {
-                barImageView = null;
-            }
-            if (barImageView != null) {
-                barImageView.setTag(msgTabForumData.getIcon());
-                barImageView.setImageDrawable(null);
-                barImageView.setDefaultBgResource(R.drawable.pic_use_header_28_n);
-                barImageView.startLoad(msgTabForumData.getIcon(), 10, false);
-            }
-            if (TextUtils.isEmpty(msgTabForumData.getHotNumsText())) {
-                MsgTabNavTextView msgTabNavTextView2 = this.h;
-                if (msgTabNavTextView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-                } else {
-                    msgTabNavTextView = msgTabNavTextView2;
+            sb.append(i);
+            iMLog.i("im", sb.toString());
+            List<MsgTabForumData> b = b(list);
+            TbLog iMLog2 = IMLog.getInstance();
+            iMLog2.i("im", "ForumListData Size = " + b.size());
+            HashMap<String, Serializable> hashMap = new HashMap<>();
+            ArrayList arrayList = new ArrayList();
+            for (MsgTabForumData msgTabForumData : b) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("forum_id", String.valueOf(msgTabForumData.getForumId()));
+                linkedHashMap.put("forum_name", msgTabForumData.getForumName());
+                linkedHashMap.put("avatar", msgTabForumData.getIcon());
+                String hotNumsText = msgTabForumData.getHotNumsText();
+                if (hotNumsText == null) {
+                    hotNumsText = "";
                 }
-                msgTabNavTextView.setVisibility(8);
-                return;
+                linkedHashMap.put("hot_num_value", hotNumsText);
+                arrayList.add(linkedHashMap);
             }
-            MsgTabNavTextView msgTabNavTextView3 = this.h;
-            if (msgTabNavTextView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-                msgTabNavTextView3 = null;
-            }
-            msgTabNavTextView3.setText(msgTabForumData.getHotNumsText());
-            MsgTabNavTextView msgTabNavTextView4 = this.h;
-            if (msgTabNavTextView4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-            } else {
-                msgTabNavTextView = msgTabNavTextView4;
-            }
-            msgTabNavTextView.setVisibility(0);
+            JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
+            jSONLikeSerializable.parseJsonArray(new JSONArray((Collection) arrayList));
+            hashMap.put("often_forum_list", jSONLikeSerializable);
+            hashMap.put("checkLength", Integer.valueOf(b.size()));
+            TbLog iMLog3 = IMLog.getInstance();
+            iMLog3.i("im", "OftenForumListString = " + jSONLikeSerializable.getJsonString());
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gk8
-    public void onChangeSkinType(int i) {
+    public final List<MsgTabForumData> b(List<qu8> list) {
+        InterceptResult invokeL;
+        MsgTabForumData d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            ImageView imageView = null;
-            if (s()) {
-                MsgTabNavTextView msgTabNavTextView = this.h;
-                if (msgTabNavTextView == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-                    msgTabNavTextView = null;
-                }
-                EMManager.from(msgTabNavTextView).setTextColor(R.color.CAM_X0622).setBorderColor(R.color.CAM_X0201).setBorderWidth(R.dimen.tbds6).setBackGroundColor(R.color.CAM_X0341);
-            } else {
-                MsgTabNavTextView msgTabNavTextView2 = this.h;
-                if (msgTabNavTextView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-                    msgTabNavTextView2 = null;
-                }
-                EMManager.from(msgTabNavTextView2).setTextColor(R.color.CAM_X0622).setBorderColor(R.color.CAM_X0202).setBorderWidth(R.dimen.tbds6).setBackGroundColorString("#FFA1B2E6");
-            }
-            ImageView imageView2 = this.i;
-            if (imageView2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mBackgroundView");
-            } else {
-                imageView = imageView2;
-            }
-            imageView.setColorFilter(SkinManager.getColor(R.color.CAM_X0201));
-        }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    public void q(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            MsgTabNavTextView msgTabNavTextView = null;
-            Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), R.drawable.obfuscated_res_0x7f080a74, null);
-            if (drawable != null) {
-                DrawableCompat.setTint(drawable, ResourcesCompat.getColor(context.getResources(), R.color.CAM_X0622, null));
-                MsgTabNavTextView msgTabNavTextView2 = this.h;
-                if (msgTabNavTextView2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-                    msgTabNavTextView2 = null;
-                }
-                msgTabNavTextView2.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            }
-            BarImageView barImageView = this.g;
-            if (barImageView == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mIconImageView");
-                barImageView = null;
-            }
-            barImageView.setShowOval(true);
-            barImageView.setShowOuterBorder(true);
-            barImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            MsgTabNavTextView msgTabNavTextView3 = this.h;
-            if (msgTabNavTextView3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("mStatusTextView");
-            } else {
-                msgTabNavTextView = msgTabNavTextView3;
-            }
-            EMManager.from(msgTabNavTextView).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X07).setTextColor(R.color.CAM_X0622).setBorderWidth(R.dimen.tbds6).setBorderColor(R.color.CAM_X0202);
-        }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView, com.baidu.tieba.yj8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.c();
-            qcc k = k();
-            if (k != null) {
-                k.a(ForumChannelDataObs.b.a().b().k(new i8c() { // from class: com.baidu.tieba.mv8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.i8c
-                    public final Object call(Object obj) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? uv8.S(uv8.this, (Map) obj) : invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null) {
+                for (qu8 qu8Var : list) {
+                    if (qu8Var.getType() == 3 && (d = ForumChannelDataObs.b.a().d(qu8Var.a())) != null) {
+                        arrayList.add(d);
                     }
-                }).x().p(new i8c() { // from class: com.baidu.tieba.hv8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.i8c
-                    public final Object call(Object obj) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? uv8.T(uv8.this, (Map) obj) : invokeL.objValue;
-                    }
-                }).s(z7c.b()).H(new d8c() { // from class: com.baidu.tieba.xu8
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.d8c
-                    public final void call(Object obj) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            uv8.U(uv8.this, (MsgTabForumData) obj);
-                        }
-                    }
-                }));
+                }
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView, com.baidu.tieba.gk8
-    public void d(boolean z) {
+    public final long c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            super.d(z);
-            if (z) {
-                R(0.0f, 1.0f);
-            } else {
-                R(1.0f, 0.0f);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            if (m.getNotificationCount() + m.getMsgCount() > 0) {
+                return -1L;
             }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            return j;
         }
+        return invokeJ.longValue;
     }
 }

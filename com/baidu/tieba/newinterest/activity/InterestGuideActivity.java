@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.df9;
+import com.baidu.tieba.fg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public df9 a;
+    public fg9 a;
     public int b;
     public String[] c;
     public boolean d;
@@ -62,15 +62,15 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            r1();
-            df9 df9Var = new df9(this, this.b, this.c, this.d);
-            this.a = df9Var;
-            setContentView(df9Var.d());
             s1();
+            fg9 fg9Var = new fg9(this, this.b, this.c, this.d);
+            this.a = fg9Var;
+            setContentView(fg9Var.d());
+            t1();
         }
     }
 
-    public final void r1() {
+    public final void s1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getIntent() != null) {
             this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
@@ -79,7 +79,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void s1() {
+    public final void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);

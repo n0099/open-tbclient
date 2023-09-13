@@ -1,30 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes5.dex */
-public interface fr4 extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public final class fr4 extends rr4 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile fr4 d;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fr4() {
+        super("aiapp_open_stat");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
-
-    long getContentSize();
-
-    @NonNull
-    File getFile();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    public static fr4 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (fr4.class) {
+                    if (d == null) {
+                        d = new fr4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (fr4) invokeV.objValue;
+    }
 }

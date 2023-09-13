@@ -5,17 +5,17 @@ import java.util.HashMap;
 @Keep
 /* loaded from: classes3.dex */
 public abstract class Task {
-    public final String a;
-    public final HashMap<String, String> b;
+    public final String mName;
+    public final HashMap<String, String> mParams;
 
     public abstract void run() throws Exception;
 
     public Task(String str, HashMap<String, String> hashMap) {
-        this.a = str;
-        this.b = hashMap;
+        this.mName = str;
+        this.mParams = hashMap;
     }
 
     public String getName() {
-        return this.a;
+        return this.mName;
     }
 }

@@ -2,11 +2,16 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.chromium.base.UserData;
+/* compiled from: UserData.java */
 /* loaded from: classes5.dex */
-public final class a9c<T, K, V> extends v7c<T> {
+public final /* synthetic */ class a9c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p9c e;
 
-    public abstract void g(K k);
+    public static void $default$destroy(UserData userData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, userData) == null) {
+        }
+    }
 }

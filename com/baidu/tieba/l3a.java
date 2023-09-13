@@ -1,91 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.CardAdvertAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class l3a {
+public class l3a extends pm<wp6, CardAdvertAppEmptyHolder> implements d3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
+    public TbPageContext<?> a;
 
-    public l3a(Context context, ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.d3a
+    public void setIsFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l3a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
+            Object[] objArr = {tbPageContext, bdUniqueId, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        this.a = tbPageContext;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pm
+    /* renamed from: s */
+    public CardAdvertAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.a.getPageActivity());
+            view2.setVisibility(8);
+            return new CardAdvertAppEmptyHolder(view2);
         }
-        return invokeLL.booleanValue;
+        return (CardAdvertAppEmptyHolder) invokeL.objValue;
     }
 
-    public m3a b(x2a x2aVar, m3a m3aVar) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wp6 wp6Var, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x2aVar, m3aVar)) == null) {
-            if (x2aVar == null) {
-                return m3aVar;
-            }
-            String str = x2aVar.a;
-            if (str == null) {
-                return m3aVar;
-            }
-            if (m3aVar != null && a(str, m3aVar.a)) {
-                return m3aVar;
-            }
-            ViewGroup viewGroup = this.c;
-            if (viewGroup == null) {
-                return null;
-            }
-            viewGroup.removeAllViews();
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(x2aVar.a)) {
-                if (this.a == 2) {
-                    return new k3a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09de, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wp6Var, cardAdvertAppEmptyHolder})) == null) {
+            AdvertAppInfo c = wp6Var.c();
+            if (c != null) {
+                g15 g15Var = c.i;
+                if (c.c == -1001) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return new i3a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0963, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-            } else if (!"apk_download".equals(x2aVar.a)) {
-                return null;
-            } else {
-                if (this.a == 2) {
-                    return new j3a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09dd, this.c, true), "apk_download");
-                }
-                return new h3a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0962, this.c, true), "apk_download");
+                g15.f(g15Var, wp6Var.position, z);
             }
+            return cardAdvertAppEmptyHolder.getView();
         }
-        return (m3a) invokeLL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

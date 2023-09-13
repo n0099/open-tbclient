@@ -82,11 +82,11 @@ public class c extends a {
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, motionEvent) == null) {
-            a.C0133a c0133a = bVar.b;
-            a.C0133a c0133a2 = bVar.c;
+            a.C0122a c0122a = bVar.b;
+            a.C0122a c0122a2 = bVar.c;
             MapStatus mapStatus = this.d.getMapStatus();
-            double d = c0133a2.a.b - c0133a.a.b;
-            double d2 = c0133a2.b.b - c0133a.b.b;
+            double d = c0122a2.a.b - c0122a.a.b;
+            double d2 = c0122a2.b.b - c0122a.b.b;
             int i = ((d * d2) > 0.0d ? 1 : ((d * d2) == 0.0d ? 0 : -1));
             if (i > 0) {
                 a(d, mapStatus);

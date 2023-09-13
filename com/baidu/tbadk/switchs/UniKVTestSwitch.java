@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 @ModifyClass
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UniKVTestSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_DOUBLE_KV = "swankv_double_kv2.txt";
@@ -42,7 +42,7 @@ public class UniKVTestSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ve
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

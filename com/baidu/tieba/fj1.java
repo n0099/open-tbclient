@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class fj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static dj1 a;
-    public static ej1 b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://afd.baidu.com/afd/entry";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,41 +27,18 @@ public class fj1 {
         }
     }
 
-    public static dj1 a() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (tn0.class) {
-                    if (a == null) {
-                        a = (dj1) ServiceManager.getService(dj1.a);
-                    }
-                    if (a == null) {
-                        a = dj1.b;
-                    }
-                }
+            if (ch0.a && !TextUtils.isEmpty(tj0.d().j())) {
+                return tj0.d().j();
+            }
+            if (TextUtils.isEmpty(a)) {
+                return "https://afd.baidu.com/afd/entry";
             }
             return a;
         }
-        return (dj1) invokeV.objValue;
-    }
-
-    public static ej1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (tn0.class) {
-                    if (b == null) {
-                        b = (ej1) ServiceManager.getService(ej1.a);
-                    }
-                    if (b == null) {
-                        b = ej1.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (ej1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

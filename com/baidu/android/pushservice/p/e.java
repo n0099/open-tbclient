@@ -12,6 +12,7 @@ import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -125,7 +126,7 @@ public class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hashMap) == null) {
             super.b(hashMap);
-            hashMap.put("method", "bind");
+            hashMap.put("method", UbcRemoteStat.BIND_SERVICE);
             hashMap.put("bind_status", this.g + "");
             hashMap.put("push_sdk_version", this.h + "");
             if (com.baidu.android.pushservice.l.d.o(this.c)) {

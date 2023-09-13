@@ -1,181 +1,113 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes8.dex */
-public class x54 implements ms1 {
+public class x54 extends il2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public String f;
 
-    /* loaded from: classes8.dex */
-    public class a extends b64 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(x54 x54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.b64
-        @NonNull
-        public File a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return e82.a();
-            }
-            return (File) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.b64
-        public void b(@NonNull String str, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-                e82.e(str, j);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements s54 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(x54 x54Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x54Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.s54
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && x54.a) {
-                String str = x54.b;
-                Log.d(str, "download sConsole result: " + z);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251346, "Lcom/baidu/tieba/x54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251346, "Lcom/baidu/tieba/x54;");
-                return;
-            }
-        }
-        a = nr1.a;
-        b = x54.class.getSimpleName();
-    }
-
-    public x54() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x54(@NonNull String str, String str2, String str3, String str4) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
     }
 
-    @Override // com.baidu.tieba.ms1
-    public String b() {
-        InterceptResult invokeV;
+    public static il2 t(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return u54.m().e();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return new x54("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
         }
-        return (String) invokeV.objValue;
+        return (il2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ms1
-    public yi4 d() {
-        InterceptResult invokeV;
+    public static il2 v(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new a64(new a(this), new b(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return new x54("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
         }
-        return (yi4) invokeV.objValue;
+        return (il2) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ms1
-    public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
+    public static il2 u(boolean z) {
+        InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, onClickListener) == null) {
-            u54.m().p(activity, onClickListener);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                str = "show";
+            } else {
+                str = "hide";
+            }
+            return new x54("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
         }
+        return (il2) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.ms1
-    public void e(int i, String str) {
+    @Override // com.baidu.tieba.hl2
+    public String o(String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-            z54.d(i, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.d;
+            int hashCode = str2.hashCode();
+            if (hashCode != -2011830027) {
+                if (hashCode != -774049378) {
+                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return "";
+                    }
+                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
+                }
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
+            }
+            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(vn3.b(vn3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
         }
-    }
-
-    @Override // com.baidu.tieba.ms1
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            w54.h(jSONObject);
-        }
-    }
-
-    @Override // com.baidu.tieba.ms1
-    public void f(wp3<Boolean> wp3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wp3Var) == null) {
-            u54.m().o(wp3Var);
-        }
+        return (String) invokeL.objValue;
     }
 }

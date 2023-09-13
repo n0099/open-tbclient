@@ -297,7 +297,7 @@ public class JsonTransHelper {
             builder.video_info = parseVideoInfoFromJson(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
             builder.tag_name = jSONObject.optString(PushConstants.SUB_TAGS_STATUS_NAME);
             builder.button_url = jSONObject.optString("button_url");
-            builder.ad_source = jSONObject.optString(TiebaStatic.Params.T_PLUS_AD_SOURCE);
+            builder.ad_source = jSONObject.optString("ad_source");
             builder.tag_name_url = jSONObject.optString("tag_name_url");
             builder.tag_name_wh = jSONObject.optString("tag_name_wh");
             builder.brand_icon = jSONObject.optString("brand_icon");
@@ -470,7 +470,7 @@ public class JsonTransHelper {
                 jSONObject.put(WriteActivityConfig.VIDEO_INFO, toVideoInfoJson(goodsInfo.video_info));
                 jSONObject.put(PushConstants.SUB_TAGS_STATUS_NAME, goodsInfo.tag_name);
                 jSONObject.put("button_url", goodsInfo.button_url);
-                jSONObject.put(TiebaStatic.Params.T_PLUS_AD_SOURCE, goodsInfo.ad_source);
+                jSONObject.put("ad_source", goodsInfo.ad_source);
                 jSONObject.put("tag_name_url", goodsInfo.tag_name_url);
                 jSONObject.put("tag_name_wh", goodsInfo.tag_name_wh);
                 jSONObject.put("brand_icon", goodsInfo.brand_icon);

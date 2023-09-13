@@ -8,30 +8,30 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.ParamsUtil;
-import com.baidu.tieba.vyb;
-import com.baidu.tieba.wyb;
-import com.baidu.tieba.xyb;
+import com.baidu.tieba.a2c;
+import com.baidu.tieba.y1c;
+import com.baidu.tieba.z1c;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String q = "YYSSOLoginActivity";
-    public xyb n;
+    public a2c n;
     public String o;
-    public vyb p = new a();
+    public y1c p = new a();
 
     /* loaded from: classes3.dex */
-    public class a implements vyb {
+    public class a implements y1c {
         public a() {
         }
 
-        @Override // com.baidu.tieba.vyb
+        @Override // com.baidu.tieba.y1c
         public void onCancel() {
             Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
             yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
         }
 
-        @Override // com.baidu.tieba.vyb
+        @Override // com.baidu.tieba.y1c
         public void onComplete(JSONObject jSONObject) {
             Log.d(YYSSOLoginActivity.q, "onComplete " + jSONObject.toString());
             if (jSONObject != null) {
@@ -50,11 +50,11 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, -1, "未知错误");
         }
 
-        @Override // com.baidu.tieba.vyb
-        public void onError(wyb wybVar) {
-            Log.d(YYSSOLoginActivity.q, "onError " + wybVar.a + " " + wybVar.b);
+        @Override // com.baidu.tieba.y1c
+        public void onError(z1c z1cVar) {
+            Log.d(YYSSOLoginActivity.q, "onError " + z1cVar.a + " " + z1cVar.b);
             YYSSOLoginActivity yYSSOLoginActivity = YYSSOLoginActivity.this;
-            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, wybVar.a, wybVar.b);
+            yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).g, z1cVar.a, z1cVar.b);
         }
     }
 
@@ -82,7 +82,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
         if (confignation != null && !TextUtils.isEmpty(confignation.yyAppId)) {
             try {
-                xyb b = xyb.b(getApplicationContext(), confignation.yyAppId);
+                a2c b = a2c.b(getApplicationContext(), confignation.yyAppId);
                 this.n = b;
                 b.a(this, this.p);
                 return;

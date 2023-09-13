@@ -49,8 +49,8 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         this.xV = i;
         ViewGroup jt = jt();
         this.iB = jt;
-        this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f091419);
-        DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f091422);
+        this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f09141f);
+        DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f091428);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
         this.mDetailVideoView.setVisibility(8);
@@ -145,7 +145,7 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
 
     private int getSplashLayoutId() {
         int i = this.xV;
-        return i == 1 ? R.layout.obfuscated_res_0x7f0d04ec : i == 0 ? R.layout.obfuscated_res_0x7f0d04ed : i == 2 ? R.layout.obfuscated_res_0x7f0d04ea : i == 3 ? R.layout.obfuscated_res_0x7f0d04eb : R.layout.obfuscated_res_0x7f0d04ed;
+        return i == 1 ? R.layout.obfuscated_res_0x7f0d04f3 : i == 0 ? R.layout.obfuscated_res_0x7f0d04f4 : i == 2 ? R.layout.obfuscated_res_0x7f0d04f1 : i == 3 ? R.layout.obfuscated_res_0x7f0d04f2 : R.layout.obfuscated_res_0x7f0d04f4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -182,9 +182,9 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
     public void ju() {
         if (com.kwad.components.ad.splashscreen.d.c.d(getContext(), getWidth(), getHeight()) && this.xV != 0) {
             if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 2) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091417), -1, 16, 16, -1);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09141d), -1, 16, 16, -1);
             } else if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 3) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091417), -1, 16, -1, 16);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09141d), -1, 16, -1, 16);
             }
         }
     }

@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.h16;
+import com.baidu.tieba.e26;
+import com.baidu.tieba.gf5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.ne5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.we5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -292,7 +292,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new h16(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new e26(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -549,7 +549,7 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            ne5 a = new we5().a(str2);
+            we5 a = new gf5().a(str2);
             if (a.b() && StringUtils.isNotNull(a.a())) {
                 str2 = a.a();
                 strArr[0] = str2;

@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import tbclient.AwardUser;
 /* loaded from: classes7.dex */
-public abstract class m15 {
+public class m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void parserJson(JSONObject jSONObject);
 
     public m15() {
         Interceptable interceptable = $ic;
@@ -27,14 +24,14 @@ public abstract class m15 {
         }
     }
 
-    public void parserJson(String str) {
+    public void a(AwardUser awardUser) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                parserJson(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, awardUser) != null) || awardUser == null) {
+            return;
         }
+        awardUser.user_id.longValue();
+        String str = awardUser.user_name;
+        String str2 = awardUser.award_name;
+        awardUser.award_time.intValue();
     }
 }

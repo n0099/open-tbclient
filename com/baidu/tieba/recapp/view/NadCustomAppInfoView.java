@@ -17,11 +17,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d15;
+import com.baidu.tieba.j3a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.NadCustomAppInfoView;
-import com.baidu.tieba.s1a;
-import com.baidu.tieba.t31;
-import com.baidu.tieba.y05;
+import com.baidu.tieba.x31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
     public final Lazy c;
     public final Lazy d;
     public AdvertAppInfo e;
-    public y05 f;
+    public d15 f;
     public View.OnClickListener g;
     public Map<Integer, View> h;
 
@@ -295,7 +295,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 return (TextView) invokeV.objValue;
             }
         });
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.q3a
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.h5a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -307,7 +307,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 }
             }
         };
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0685, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0696, this);
         getPrivacyTagView().setOnClickListener(this.g);
         getPermissionTagView().setOnClickListener(this.g);
     }
@@ -321,11 +321,11 @@ public final class NadCustomAppInfoView extends RelativeLayout {
         String str2;
         String str3;
         String str4;
-        y05.b bVar;
-        y05.b bVar2;
+        d15.b bVar;
+        d15.b bVar2;
         String str5;
-        y05.c cVar;
-        y05.c cVar2;
+        d15.c cVar;
+        d15.c cVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, context, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -336,8 +336,8 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             String str6 = null;
             String str7 = "";
             if (id == R.id.ad_privacy) {
-                y05 y05Var = this$0.f;
-                if (y05Var != null && (cVar2 = y05Var.g) != null) {
+                d15 d15Var = this$0.f;
+                if (d15Var != null && (cVar2 = d15Var.g) != null) {
                     str3 = cVar2.b;
                 } else {
                     str3 = null;
@@ -345,8 +345,8 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 if (str3 == null) {
                     str3 = "";
                 }
-                y05 y05Var2 = this$0.f;
-                if (y05Var2 != null && (cVar = y05Var2.g) != null) {
+                d15 d15Var2 = this$0.f;
+                if (d15Var2 != null && (cVar = d15Var2.g) != null) {
                     str5 = cVar.c;
                 } else {
                     str5 = null;
@@ -356,8 +356,8 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 }
                 str2 = "app_privacy";
             } else if (id == R.id.ad_permission) {
-                y05 y05Var3 = this$0.f;
-                if (y05Var3 != null && (bVar2 = y05Var3.h) != null) {
+                d15 d15Var3 = this$0.f;
+                if (d15Var3 != null && (bVar2 = d15Var3.h) != null) {
                     str3 = bVar2.b;
                 } else {
                     str3 = null;
@@ -365,8 +365,8 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 if (str3 == null) {
                     str3 = "";
                 }
-                y05 y05Var4 = this$0.f;
-                if (y05Var4 != null && (bVar = y05Var4.h) != null) {
+                d15 d15Var4 = this$0.f;
+                if (d15Var4 != null && (bVar = d15Var4.h) != null) {
                     str4 = bVar.c;
                 } else {
                     str4 = null;
@@ -378,12 +378,12 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             } else if (id != R.id.ad_author_full_name) {
                 str = "";
                 str2 = str;
-                s1a.a(context, str7, null, null, str);
+                j3a.a(context, str7, null, null, str);
                 this$0.c(str2);
             } else {
-                y05 y05Var5 = this$0.f;
-                if (y05Var5 != null) {
-                    str6 = y05Var5.d;
+                d15 d15Var5 = this$0.f;
+                if (d15Var5 != null) {
+                    str6 = d15Var5.d;
                 }
                 BdUtilHelper.showToast(context, str6);
                 return;
@@ -391,7 +391,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             String str8 = str7;
             str7 = str3;
             str = str8;
-            s1a.a(context, str7, null, null, str);
+            j3a.a(context, str7, null, null, str);
             this$0.c(str2);
         }
     }
@@ -445,13 +445,13 @@ public final class NadCustomAppInfoView extends RelativeLayout {
         });
     }
 
-    public final y05 getAdAppInfoModel() {
+    public final d15 getAdAppInfoModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.f;
         }
-        return (y05) invokeV.objValue;
+        return (d15) invokeV.objValue;
     }
 
     public final TextView getAuthorNameView() {
@@ -544,14 +544,14 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 str3 = advertAppInfo3.g;
             }
             j.p(str3);
-            t31.e(clogBuilder);
+            x31.e(clogBuilder);
         }
     }
 
-    public final void setAdAppInfoModel(y05 y05Var) {
+    public final void setAdAppInfoModel(d15 d15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, y05Var) == null) {
-            this.f = y05Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, d15Var) == null) {
+            this.f = d15Var;
         }
     }
 
@@ -574,7 +574,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
         boolean z2;
         String str;
         boolean z3;
-        y05.b bVar;
+        d15.b bVar;
         String str2;
         boolean z4;
         String str3;
@@ -584,9 +584,9 @@ public final class NadCustomAppInfoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, adCard) == null) {
             Intrinsics.checkNotNullParameter(adCard, "adCard");
-            y05 appInfoModel = adCard.getAppInfoModel();
+            d15 appInfoModel = adCard.getAppInfoModel();
             String str6 = null;
-            if (appInfoModel != null && y05.c(appInfoModel)) {
+            if (appInfoModel != null && d15.c(appInfoModel)) {
                 this.f = appInfoModel;
                 this.e = adCard.getAdvertAppInfo();
                 String str7 = appInfoModel.f;
@@ -609,13 +609,13 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                     z2 = true;
                 }
                 if (!z2) {
-                    getAuthorNameView().setText(getResources().getString(R.string.obfuscated_res_0x7f0f0d38) + appInfoModel.d);
+                    getAuthorNameView().setText(getResources().getString(R.string.obfuscated_res_0x7f0f0d4f) + appInfoModel.d);
                     getAuthorNameView().setVisibility(0);
                     a();
                 } else {
                     getAuthorNameView().setVisibility(8);
                 }
-                y05.c cVar = appInfoModel.g;
+                d15.c cVar = appInfoModel.g;
                 if (cVar != null) {
                     str = cVar.b;
                 } else {
@@ -627,7 +627,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                     z3 = true;
                 }
                 if (!z3) {
-                    y05.c cVar2 = appInfoModel.g;
+                    d15.c cVar2 = appInfoModel.g;
                     if (cVar2 != null) {
                         str4 = cVar2.a;
                     } else {
@@ -641,8 +641,8 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                     if (!z5) {
                         TextView privacyTagView = getPrivacyTagView();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d38));
-                        y05.c cVar3 = appInfoModel.g;
+                        sb.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d4f));
+                        d15.c cVar3 = appInfoModel.g;
                         if (cVar3 != null) {
                             str5 = cVar3.a;
                         } else {
@@ -663,7 +663,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                             z4 = true;
                         }
                         if (!z4) {
-                            y05.b bVar2 = appInfoModel.h;
+                            d15.b bVar2 = appInfoModel.h;
                             if (bVar2 != null) {
                                 str3 = bVar2.a;
                             } else {
@@ -675,8 +675,8 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                             if (!z6) {
                                 TextView permissionTagView = getPermissionTagView();
                                 StringBuilder sb2 = new StringBuilder();
-                                sb2.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d38));
-                                y05.b bVar3 = appInfoModel.h;
+                                sb2.append(getResources().getString(R.string.obfuscated_res_0x7f0f0d4f));
+                                d15.b bVar3 = appInfoModel.h;
                                 if (bVar3 != null) {
                                     str6 = bVar3.a;
                                 }

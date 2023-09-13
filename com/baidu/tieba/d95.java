@@ -1,182 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.LinkedList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d95<T> extends Thread implements h95 {
+public class d95 {
     public static /* synthetic */ Interceptable $ic;
+    public static final LinkedList<String> a;
+    public static final LinkedList<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final List<c95<T>> a;
-    @Nullable
-    public f95<T> b;
-    @NonNull
-    public final g95<T> c;
-    public volatile boolean d;
-    public volatile boolean e;
-    @Nullable
-    public e95<T> f;
 
-    public d95(@NonNull g95<T> g95Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g95Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659401, "Lcom/baidu/tieba/d95;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659401, "Lcom/baidu/tieba/d95;");
                 return;
             }
         }
-        this.a = Collections.synchronizedList(new ArrayList());
-        this.d = false;
-        this.e = false;
-        this.c = g95Var;
-        e();
+        a = new LinkedList<>();
+        b = new LinkedList<>();
     }
 
-    @Override // com.baidu.tieba.h95
-    public void a(@Nullable Object... objArr) {
+    public static JSONObject a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objArr) == null) {
-            synchronized (this.a) {
-                for (c95<T> c95Var : this.a) {
-                    c95Var.a(objArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
+            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
+            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
+            b(jSONObject, "continuous_crash_times", String.valueOf(i95.q().o()));
+            b(jSONObject, "trigger_safe_mode_status", String.valueOf(i95.q().s()));
+            b(jSONObject, "fid_info", String.valueOf(a));
+            b(jSONObject, "tid_info", String.valueOf(b));
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            if (str != null && str2 != null) {
+                try {
+                    jSONObject.put(str, str2);
+                } catch (JSONException e) {
+                    BdLog.e(e);
                 }
-                this.e = false;
-                this.d = true;
-                this.a.notifyAll();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.offer(str);
+            if (a.size() > 10) {
+                a.poll();
             }
         }
     }
 
-    public final void b(@NonNull c95<T> c95Var) {
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c95Var) == null) {
-            synchronized (this.a) {
-                Collections.addAll(this.a, c95Var);
-            }
-        }
-    }
-
-    public void d(T t) {
-        e95<T> e95Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && (e95Var = this.f) != null) {
-            e95Var.a(t);
-        }
-    }
-
-    public void f(@NonNull f95<T> f95Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f95Var) == null) {
-            synchronized (this.a) {
-                this.b = f95Var;
-                this.a.notifyAll();
-            }
-        }
-    }
-
-    public void g(@NonNull e95<T> e95Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, e95Var) == null) {
-            this.f = e95Var;
-        }
-    }
-
-    @WorkerThread
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (c95<T> c95Var : this.a) {
-                c95Var.onDestroy();
-            }
-            this.a.clear();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            start();
-        }
-    }
-
-    @Override // com.baidu.tieba.h95
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d = false;
-            this.e = true;
-            interrupt();
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0051, code lost:
-        r4 = false;
-     */
-    @Override // java.lang.Thread, java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.a) {
-                while (true) {
-                    if (isInterrupted()) {
-                        c();
-                        break;
-                    } else if (this.e) {
-                        c();
-                        break;
-                    } else {
-                        if (this.a.size() == 0 || !this.d) {
-                            try {
-                                this.a.wait();
-                            } catch (InterruptedException unused) {
-                                c();
-                            }
-                        }
-                        int i = 0;
-                        while (true) {
-                            z = true;
-                            if (i >= this.a.size() || this.a.get(i).a == null) {
-                                break;
-                            } else if (i == this.a.size() - 1) {
-                                break;
-                            } else {
-                                i++;
-                            }
-                        }
-                        if (z) {
-                            if (this.b != null) {
-                                this.b.a(this.c.a(this.a));
-                            }
-                            for (c95<T> c95Var : this.a) {
-                                c95Var.a = null;
-                                c95Var.onDestroy();
-                            }
-                            this.a.clear();
-                            this.d = false;
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b.offer(str);
+            if (b.size() > 10) {
+                b.poll();
             }
         }
     }

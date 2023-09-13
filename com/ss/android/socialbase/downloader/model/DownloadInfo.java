@@ -14,7 +14,6 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
 import com.ss.android.socialbase.downloader.constants.EnqueueType;
 import com.ss.android.socialbase.downloader.constants.g;
@@ -178,7 +177,7 @@ public class DownloadInfo implements Parcelable {
         public int[] S;
 
         /* renamed from: T  reason: collision with root package name */
-        public int f1228T;
+        public int f1224T;
         public boolean U;
         public boolean V;
         public long W;
@@ -393,7 +392,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a f(int i) {
-            this.f1228T = i;
+            this.f1224T = i;
             return this;
         }
 
@@ -611,7 +610,7 @@ public class DownloadInfo implements Parcelable {
             if (columnIndex12 != -1) {
                 this.onlyWifi = cursor.getInt(columnIndex12) != 0;
             }
-            int columnIndex13 = cursor.getColumnIndex(TTDownloadField.TT_FORCE);
+            int columnIndex13 = cursor.getColumnIndex("force");
             if (columnIndex13 != -1) {
                 this.force = cursor.getInt(columnIndex13) != 0;
             }
@@ -837,7 +836,7 @@ public class DownloadInfo implements Parcelable {
             safePutToDBJsonData("download_setting", jSONObject.toString());
         }
         safePutToDBJsonData("dbjson_key_expect_file_length", Long.valueOf(aVar.C));
-        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.f1228T));
+        safePutToDBJsonData("executor_group", Integer.valueOf(aVar.f1224T));
         safePutToDBJsonData("auto_install", Integer.valueOf(aVar.t ? 1 : 0));
         this.needSDKMonitor = aVar.Q;
         this.monitorScene = aVar.R;
@@ -2738,7 +2737,7 @@ public class DownloadInfo implements Parcelable {
         contentValues.put("totalBytes", Long.valueOf(this.totalBytes));
         contentValues.put("eTag", this.eTag);
         contentValues.put("onlyWifi", Integer.valueOf(this.onlyWifi ? 1 : 0));
-        contentValues.put(TTDownloadField.TT_FORCE, Integer.valueOf(this.force ? 1 : 0));
+        contentValues.put("force", Integer.valueOf(this.force ? 1 : 0));
         contentValues.put("retryCount", Integer.valueOf(this.retryCount));
         contentValues.put("extra", this.extra);
         contentValues.put(DownloadCenterFunConstants.MIME_TYPE, this.mimeType);

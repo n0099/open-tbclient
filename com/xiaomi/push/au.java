@@ -12,17 +12,17 @@ public class au implements at, InvocationHandler {
     public static final String[][] a = {new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f119a;
+    public Context f118a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f121a = null;
+    public Class f120a = null;
     public Class b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public Method f123a = null;
+    public Method f122a = null;
 
     /* renamed from: b  reason: collision with other field name */
-    public Method f124b = null;
+    public Method f123b = null;
     public Method c = null;
     public Method d = null;
     public Method e = null;
@@ -30,47 +30,47 @@ public class au implements at, InvocationHandler {
     public Method g = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f122a = new Object();
+    public final Object f121a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f117a = 0;
+    public volatile int f116a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile long f118a = 0;
+    public volatile long f117a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f120a = null;
+    public volatile a f119a = null;
 
     /* loaded from: classes10.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
-        public Boolean f125a;
+        public Boolean f124a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f126a;
+        public String f125a;
         public String b;
         public String c;
         public String d;
 
         public a() {
+            this.f124a = null;
             this.f125a = null;
-            this.f126a = null;
             this.b = null;
             this.c = null;
             this.d = null;
         }
 
         public boolean a() {
-            if (!TextUtils.isEmpty(this.f126a) || !TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c) || !TextUtils.isEmpty(this.d)) {
-                this.f125a = Boolean.TRUE;
+            if (!TextUtils.isEmpty(this.f125a) || !TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c) || !TextUtils.isEmpty(this.d)) {
+                this.f124a = Boolean.TRUE;
             }
-            return this.f125a != null;
+            return this.f124a != null;
         }
     }
 
     public au(Context context) {
-        this.f119a = context.getApplicationContext();
+        this.f118a = context.getApplicationContext();
         a(context);
         b(context);
     }
@@ -110,9 +110,9 @@ public class au implements at, InvocationHandler {
     }
 
     private void a() {
-        synchronized (this.f122a) {
+        synchronized (this.f121a) {
             try {
-                this.f122a.notifyAll();
+                this.f121a.notifyAll();
             } catch (Exception unused) {
             }
         }
@@ -141,8 +141,8 @@ public class au implements at, InvocationHandler {
             cls2 = a4;
             cls = a3;
         }
-        this.f121a = a2;
-        this.f123a = a(a2, "InitSdk", Context.class, cls);
+        this.f120a = a2;
+        this.f122a = a(a2, "InitSdk", Context.class, cls);
         this.b = cls;
         this.c = a(cls2, "getOAID", new Class[0]);
         this.f = a(cls2, "isSupported", new Class[0]);
@@ -150,31 +150,31 @@ public class au implements at, InvocationHandler {
     }
 
     private void a(String str) {
-        if (this.f120a != null) {
+        if (this.f119a != null) {
             return;
         }
-        long j = this.f118a;
+        long j = this.f117a;
         long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
-        int i = this.f117a;
+        int i = this.f116a;
         if (elapsedRealtime > 3000 && i < 3) {
-            synchronized (this.f122a) {
-                if (this.f118a == j && this.f117a == i) {
+            synchronized (this.f121a) {
+                if (this.f117a == j && this.f116a == i) {
                     b("retry, current count is " + i);
-                    this.f117a = this.f117a + 1;
-                    b(this.f119a);
-                    j = this.f118a;
+                    this.f116a = this.f116a + 1;
+                    b(this.f118a);
+                    j = this.f117a;
                     elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
                 }
             }
         }
-        if (this.f120a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
+        if (this.f119a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
-        synchronized (this.f122a) {
-            if (this.f120a == null) {
+        synchronized (this.f121a) {
+            if (this.f119a == null) {
                 try {
                     b(str + " wait...");
-                    this.f122a.wait(3000L);
+                    this.f121a.wait(3000L);
                 } catch (Exception unused) {
                 }
             }
@@ -195,40 +195,40 @@ public class au implements at, InvocationHandler {
                 if (classLoader == null) {
                     classLoader = context.getClassLoader();
                 }
-                a(this.f123a, this.f121a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.b}, this));
+                a(this.f122a, this.f120a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.b}, this));
             } catch (Throwable th) {
                 b("call init sdk error:" + th);
             }
-            this.f118a = elapsedRealtime;
+            this.f117a = elapsedRealtime;
         }
         elapsedRealtime = j;
-        this.f118a = elapsedRealtime;
+        this.f117a = elapsedRealtime;
     }
 
     public static void b(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m180a("mdid:" + str);
+        com.xiaomi.channel.commonutils.logger.b.m181a("mdid:" + str);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo265a() {
+    public String mo266a() {
         a("getOAID");
-        if (this.f120a == null) {
+        if (this.f119a == null) {
             return null;
         }
-        return this.f120a.b;
+        return this.f119a.b;
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo266a() {
+    public boolean mo267a() {
         a("isSupported");
-        return this.f120a != null && Boolean.TRUE.equals(this.f120a.f125a);
+        return this.f119a != null && Boolean.TRUE.equals(this.f119a.f124a);
     }
 
     @Override // java.lang.reflect.InvocationHandler
     public Object invoke(Object obj, Method method, Object[] objArr) {
-        this.f118a = SystemClock.elapsedRealtime();
+        this.f117a = SystemClock.elapsedRealtime();
         if (objArr != null) {
             a aVar = new a();
             int length = objArr.length;
@@ -240,16 +240,16 @@ public class au implements at, InvocationHandler {
                 Object obj2 = objArr[i];
                 if (obj2 != null && !a(obj2)) {
                     aVar.b = (String) a(this.c, obj2, new Object[0]);
-                    aVar.f125a = (Boolean) a(this.f, obj2, new Object[0]);
+                    aVar.f124a = (Boolean) a(this.f, obj2, new Object[0]);
                     a(this.g, obj2, new Object[0]);
                     if (aVar.a()) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("has get succ, check duplicate:");
-                        sb.append(this.f120a != null);
+                        sb.append(this.f119a != null);
                         b(sb.toString());
                         synchronized (au.class) {
-                            if (this.f120a == null) {
-                                this.f120a = aVar;
+                            if (this.f119a == null) {
+                                this.f119a = aVar;
                             }
                         }
                     }

@@ -3,12 +3,12 @@ package com.baidu.tieba.impersonal.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,16 +24,16 @@ public final class SliceInputBinding implements ViewBinding {
     @NonNull
     public final RelativeLayout b;
     @NonNull
-    public final EditText c;
+    public final SpanGroupEditText c;
     @NonNull
     public final ImageView d;
 
-    public SliceInputBinding(@NonNull RelativeLayout relativeLayout, @NonNull RelativeLayout relativeLayout2, @NonNull EditText editText, @NonNull ImageView imageView) {
+    public SliceInputBinding(@NonNull RelativeLayout relativeLayout, @NonNull RelativeLayout relativeLayout2, @NonNull SpanGroupEditText spanGroupEditText, @NonNull ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {relativeLayout, relativeLayout2, editText, imageView};
+            Object[] objArr = {relativeLayout, relativeLayout2, spanGroupEditText, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,7 +45,7 @@ public final class SliceInputBinding implements ViewBinding {
         }
         this.a = relativeLayout;
         this.b = relativeLayout2;
-        this.c = editText;
+        this.c = spanGroupEditText;
         this.d = imageView;
     }
 
@@ -54,16 +54,16 @@ public final class SliceInputBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f09113c;
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09113c);
+            int i = R.id.obfuscated_res_0x7f09113e;
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09113e);
             if (relativeLayout != null) {
-                i = R.id.obfuscated_res_0x7f09114a;
-                EditText editText = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09114a);
-                if (editText != null) {
-                    i = R.id.obfuscated_res_0x7f09218f;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09218f);
+                i = R.id.obfuscated_res_0x7f09114c;
+                SpanGroupEditText spanGroupEditText = (SpanGroupEditText) view2.findViewById(R.id.obfuscated_res_0x7f09114c);
+                if (spanGroupEditText != null) {
+                    i = R.id.obfuscated_res_0x7f0921cf;
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921cf);
                     if (imageView != null) {
-                        return new SliceInputBinding((RelativeLayout) view2, relativeLayout, editText, imageView);
+                        return new SliceInputBinding((RelativeLayout) view2, relativeLayout, spanGroupEditText, imageView);
                     }
                 }
             }
@@ -77,7 +77,7 @@ public final class SliceInputBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08cb, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08e0, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

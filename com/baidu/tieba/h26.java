@@ -1,45 +1,51 @@
 package com.baidu.tieba;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
+import com.baidu.tieba.view.festivalview.FestivalTipView;
 /* loaded from: classes6.dex */
-public final class h26 extends GestureDetector.SimpleOnGestureListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+public interface h26 {
+    bg<GifView> A();
 
-    public h26(WheelView wheelView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = wheelView;
-    }
+    bg<LinearLayout> D();
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.a.q(f2);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
+    int H();
+
+    void M(Context context, String str);
+
+    void P(Context context, String str);
+
+    bg<TiebaPlusRecommendCard> V1();
+
+    bg<RelativeLayout> Y();
+
+    bg<FestivalTipView> b0();
+
+    bg<ImageView> c0();
+
+    bg<View> d0();
+
+    void f0(Context context, String str);
+
+    ListView getListView();
+
+    void h0(Context context, String str, boolean z);
+
+    bg<TextView> j1();
+
+    void m0(Context context, String str, String str2);
+
+    void p0(Context context, String str);
+
+    void u1(Context context, String str);
+
+    bg<ItemCardView> v0();
 }

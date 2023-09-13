@@ -4,45 +4,27 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import com.baidu.tieba.pz1;
 /* loaded from: classes5.dex */
 public interface av1 {
+    @NonNull
+    lg3 a(Activity activity, boolean z, String str, String str2);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onFinish();
-    }
+    @NonNull
+    qg3 b(Activity activity, pz1.d dVar, Bundle bundle);
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
+    @NonNull
+    rg3 c(Activity activity, String str, String str2, boolean z, boolean z2);
 
-        void b(Exception exc);
-    }
+    @NonNull
+    mg3 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(boolean z);
+    @NonNull
+    pg3 e(Context context);
 
-        void b();
-    }
+    @NonNull
+    og3 f(Context context);
 
-    void a(a aVar);
-
-    void b(Activity activity, Bundle bundle, pr1 pr1Var);
-
-    void c(rr1 rr1Var);
-
-    String d(@NonNull Context context);
-
-    boolean e(Context context);
-
-    String f(@NonNull Context context);
-
-    void g(c cVar);
-
-    String h(Context context);
-
-    String i(@NonNull Context context);
-
-    void j(pr1 pr1Var);
+    @NonNull
+    ng3 g(Context context, String str);
 }

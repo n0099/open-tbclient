@@ -2,6 +2,7 @@ package com.vivo.push.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +63,7 @@ public final class n extends s {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.c(aVar);
             aVar.a("content", this.a);
-            aVar.a("log_level", this.b);
+            aVar.a(CyberCfgManager.KEY_INT_LOG_LEVEL, this.b);
             aVar.a("is_server_log", this.c);
         }
     }
@@ -73,7 +74,7 @@ public final class n extends s {
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("content");
-            this.b = aVar.b("log_level", 0);
+            this.b = aVar.b(CyberCfgManager.KEY_INT_LOG_LEVEL, 0);
             this.c = aVar.e("is_server_log");
         }
     }

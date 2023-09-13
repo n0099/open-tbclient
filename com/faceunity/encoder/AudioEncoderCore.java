@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,7 +46,7 @@ public class AudioEncoderCore {
         MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", OpusReader.SAMPLE_RATE, 1);
         createAudioFormat.setInteger("aac-profile", 2);
         createAudioFormat.setInteger("channel-mask", 16);
-        createAudioFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+        createAudioFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, EncoderParams.AUDIO_BIT_RATE);
         try {
             this.mEncoder = MediaCodec.createEncoderByType("audio/mp4a-latm");
         } catch (Exception e) {

@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +12,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class gl4 implements Runnable {
+public class gl4<T> implements yi4<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final fo4 d;
+    public static final jo4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public bl4 a;
-    public AtomicBoolean b;
-    public al4 c;
+    public yi4<T> a;
+    public int b;
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,15 +47,25 @@ public class gl4 implements Runnable {
                 return;
             }
         }
-        d = fo4.e();
+        c = jo4.e();
     }
 
-    public gl4(AtomicBoolean atomicBoolean, bl4 bl4Var, al4 al4Var) {
+    @Override // com.baidu.tieba.yi4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.k();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public gl4(yi4<T> yi4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, bl4Var, al4Var};
+            Object[] objArr = {yi4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,43 +75,139 @@ public class gl4 implements Runnable {
                 return;
             }
         }
-        this.b = atomicBoolean;
-        this.a = bl4Var;
-        this.c = al4Var;
+        this.b = 0;
+        this.a = yi4Var;
     }
 
-    public final <T> void a(fl4<T> fl4Var) {
+    @Override // com.baidu.tieba.yi4
+    public String d(T t) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fl4Var) == null) {
-            this.a.a(fl4Var);
-            try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            yi4<T> yi4Var = this.a;
+            if (yi4Var != null) {
+                str = yi4Var.d(t);
+            } else {
+                str = null;
+            }
+            if (str == null) {
                 try {
-                    fl4Var.run();
+                    return no4.d(AppRuntime.getAppContext()).getAbsolutePath();
                 } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
+                    c.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e);
+                    return str;
                 }
-            } finally {
-                this.a.b(fl4Var);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void a(T t) {
+        yi4<T> yi4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && (yi4Var = this.a) != null) {
+            try {
+                yi4Var.a(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e);
             }
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tieba.yi4
+    public void c(T t) {
+        yi4<T> yi4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (a instanceof fl4) {
-                    try {
-                        a((fl4) a);
-                    } catch (Throwable th) {
-                        d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
-                    }
-                } else {
-                    return;
-                }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (yi4Var = this.a) != null) {
+            try {
+                yi4Var.c(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void f(T t) {
+        yi4<T> yi4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (yi4Var = this.a) != null) {
+            try {
+                yi4Var.f(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void i(T t) {
+        yi4<T> yi4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && (yi4Var = this.a) != null) {
+            try {
+                yi4Var.i(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void j(T t) {
+        yi4<T> yi4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) && (yi4Var = this.a) != null) {
+            try {
+                yi4Var.j(t);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void e(T t, bk4 bk4Var) {
+        yi4<T> yi4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, t, bk4Var) == null) && (yi4Var = this.a) != null) {
+            try {
+                yi4Var.e(t, bk4Var);
+            } catch (Exception e) {
+                c.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.aj4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            yi4<T> yi4Var = this.a;
+            if (yi4Var == null) {
+                return new Bundle();
+            }
+            return yi4Var.m(bundle, set);
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public bk4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            yi4<T> yi4Var = this.a;
+            if (yi4Var != null) {
+                return yi4Var.h(t, file, j, readableByteChannel);
+            }
+            return new bk4(2302, "业务层默认不处理下载流");
+        }
+        return (bk4) invokeCommon.objValue;
     }
 }

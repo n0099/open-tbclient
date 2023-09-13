@@ -18,12 +18,12 @@ public class g extends ba.a {
         Context context;
         boolean z;
         Context context2;
-        context = this.a.f81a;
+        context = this.a.f80a;
         boolean a = ba.a(context).a(hm.AggregatePushSwitch.a(), true);
-        z = this.a.f84a;
+        z = this.a.f83a;
         if (z != a) {
-            this.a.f84a = a;
-            context2 = this.a.f81a;
+            this.a.f83a = a;
+            context2 = this.a.f80a;
             i.b(context2);
         }
     }

@@ -1,71 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class ja6 extends BaseCardInfo {
+public class ja6 implements xw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public SdkLiveInfoData a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947876618, "Lcom/baidu/tieba/ja6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947876618, "Lcom/baidu/tieba/ja6;");
-                return;
-            }
-        }
-        i = BdUniqueId.gen();
-    }
 
     public ja6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = false;
-        this.f = false;
-        this.g = false;
-        this.h = false;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zw3
+    public void a(ec3 ec3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return i;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ec3Var) == null) && ec3Var != null) {
+            ec3Var.b(new la6(ec3Var));
+            ec3Var.b(new ea6(ec3Var));
+            ec3Var.b(new xs3(ec3Var));
+            ec3Var.b(new zs3(ec3Var));
+            ec3Var.b(new bt3(ec3Var));
+            ec3Var.b(new vd3(ec3Var));
+            ec3Var.b(new wd3(ec3Var));
+            ec3Var.b(new wf3(ec3Var));
+            ec3Var.b(new ct3(ec3Var));
+            ec3Var.b(new zx1(ec3Var));
+            ec3Var.b(new ia6(ec3Var));
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw3
+    @Nullable
+    public Map<String, Object> b(@NonNull iz1 iz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(iz1Var);
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw3
+    @Nullable
+    public Map<String, Object> c(@NonNull iz1 iz1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iz1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(iz1Var);
+        }
+        return (Map) invokeL.objValue;
     }
 }

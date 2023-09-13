@@ -202,24 +202,24 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         this.mSecondDrawDispatchedTimeStamp = -1L;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:210:0x0388 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x006a  */
+    /* JADX WARN: Removed duplicated region for block: B:210:0x0390 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0068  */
     /* JADX WARN: Removed duplicated region for block: B:36:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0088  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0088  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x008a  */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0092  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x0096  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00eb  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x00ee  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x00f6  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00fe  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x010a  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x010f  */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0117  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x011c  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0126  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x012b  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x0147  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0098  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x00ef  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00f2  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00fa  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0102  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x010e  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0113  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x011b  */
+    /* JADX WARN: Removed duplicated region for block: B:72:0x0120  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x012a  */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x012f  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x014b  */
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -249,6 +249,8 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         long j22;
         long j23;
         long j24;
+        long j25;
+        long j26;
         int i;
         int i2;
         int i3;
@@ -262,127 +264,130 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         if (jSONObject == null) {
             return false;
         }
-        long j25 = this.mAdShowEndTimeStamp;
-        if (j25 < 0) {
-            j25 = this.mAdViewEndTimeStamp;
+        long j27 = this.mAdShowEndTimeStamp;
+        if (j27 < 0) {
+            j27 = this.mAdViewEndTimeStamp;
         }
-        long j26 = this.mAdLoadMethodEndTimeStamp - this.mAdLoadMethodStartTimeStamp;
+        long j28 = this.mAdLoadMethodEndTimeStamp - this.mAdLoadMethodStartTimeStamp;
         if (this.mAdShowStartTimeStamp > 0) {
             j = this.mAdShowMethodStartTimeStamp;
         } else {
-            j = j25;
+            j = j27;
         }
-        long j27 = j - this.mAdLoadMethodEndTimeStamp;
-        if (j27 < 0) {
-            j27 = 0;
+        long j29 = j - this.mAdLoadMethodEndTimeStamp;
+        if (j29 < 0) {
+            j29 = 0;
         }
-        long j28 = this.mAdLoadIdleEndTimeStamp;
-        if (j28 > 0 && j28 < j) {
-            j3 = j - j28;
-            j2 = j25;
+        long j30 = this.mAdLoadIdleEndTimeStamp;
+        if (j30 > 0 && j30 < j) {
+            j3 = j - j30;
+            j2 = j27;
         } else {
-            j2 = j25;
+            j2 = j27;
             j3 = 0;
         }
-        long j29 = this.mAdLoadHandlerEndTimeStamp;
-        if (j29 < j && j29 > 0) {
-            j4 = j - j29;
+        long j31 = this.mAdLoadHandlerEndTimeStamp;
+        if (j31 < j && j31 > 0) {
+            j4 = j - j31;
         } else {
             j4 = 0;
         }
-        long j30 = this.mAdLoadHandlerEndTimeStamp;
-        long j31 = j4;
-        if (j30 < j) {
-            long j32 = this.mAdLoadMethodEndTimeStamp;
-            if (j30 > j32) {
-                j5 = j30 - j32;
+        long j32 = this.mAdLoadHandlerEndTimeStamp;
+        long j33 = j4;
+        if (j32 < j) {
+            long j34 = this.mAdLoadMethodEndTimeStamp;
+            if (j32 > j34) {
+                j5 = j32 - j34;
                 j6 = this.mLoadBearEndTimeStamp;
-                long j33 = j5;
                 if (j6 <= 0) {
-                    j7 = j6 - this.mAdPreLoadBearStartTimeStamp;
+                    j7 = j5;
+                    j8 = j6 - this.mAdPreLoadBearStartTimeStamp;
                 } else {
-                    j7 = 0;
+                    j7 = j5;
+                    j8 = 0;
                 }
-                long j34 = this.mAdLoadMethodStartTimeStamp;
-                long j35 = j7;
-                long j36 = this.mAdPreLoadBearStartTimeStamp;
-                long j37 = j34 - j36;
-                long j38 = j27;
-                long j39 = this.mAdViewEndTimeStamp - j36;
-                j8 = this.mLoadPrologueEndTimeStamp;
-                if (j8 <= 0) {
-                    j9 = j8 - j34;
+                long j35 = this.mAdLoadMethodStartTimeStamp;
+                long j36 = j8;
+                long j37 = this.mAdPreLoadBearStartTimeStamp;
+                long j38 = j35 - j37;
+                long j39 = j29;
+                long j40 = this.mAdViewEndTimeStamp - j37;
+                j9 = this.mLoadPrologueEndTimeStamp;
+                if (j9 <= 0) {
+                    j10 = j9 - j35;
                 } else {
-                    j9 = 0;
+                    j10 = 0;
                 }
-                j10 = this.mLoadBearEndTimeStamp;
-                if (j10 <= 0) {
-                    j11 = j10 - this.mAdLoadMethodStartTimeStamp;
+                j11 = this.mLoadBearEndTimeStamp;
+                if (j11 <= 0) {
+                    j12 = j40;
+                    j13 = j11 - this.mAdLoadMethodStartTimeStamp;
                 } else {
-                    j11 = 0;
+                    j12 = j40;
+                    j13 = 0;
                 }
                 if (this.mAdShowStartTimeStamp <= 0 && this.mAdShowPolicySoEndStamp > 0) {
                     if ("5".equals(this.adSource)) {
-                        long j40 = this.mAdShowPolicySoEndStamp;
-                        j12 = j11;
-                        long j41 = this.mLoadPrologueEndTimeStamp;
-                        j14 = j40 - j41;
-                        j13 = this.mAdShowMethodStartTimeStamp - j41;
+                        long j41 = this.mAdShowPolicySoEndStamp;
+                        j14 = j13;
+                        long j42 = this.mLoadPrologueEndTimeStamp;
+                        j16 = j41 - j42;
+                        j15 = this.mAdShowMethodStartTimeStamp - j42;
                     } else {
-                        j12 = j11;
+                        j14 = j13;
                         if ("6".equals(this.adSource)) {
-                            long j42 = this.mAdShowPolicySoEndStamp;
-                            long j43 = this.mLoadBearEndTimeStamp;
-                            j14 = j42 - j43;
-                            j13 = this.mAdShowMethodStartTimeStamp - j43;
+                            long j43 = this.mAdShowPolicySoEndStamp;
+                            long j44 = this.mLoadBearEndTimeStamp;
+                            j16 = j43 - j44;
+                            j15 = this.mAdShowMethodStartTimeStamp - j44;
                         }
                     }
-                    long j44 = j - this.mAdLoadMethodStartTimeStamp;
-                    long j45 = j;
-                    long j46 = j13;
+                    long j45 = j - this.mAdLoadMethodStartTimeStamp;
+                    long j46 = j;
+                    long j47 = j15;
                     if (this.mAdShowStartTimeStamp > 0) {
-                        j15 = 1;
+                        j17 = 1;
                     } else {
-                        j15 = 0;
-                    }
-                    if (this.mAdShowStartTimeStamp > 0) {
-                        j16 = j15;
-                        j17 = this.mAdShowMethodEndTimeStamp - this.mAdShowMethodStartTimeStamp;
-                    } else {
-                        j16 = j15;
                         j17 = 0;
                     }
-                    j18 = this.mAdShowStartTimeStamp;
-                    long j47 = j9;
-                    if (j18 > 0) {
-                        j19 = j18 - this.mAdShowMethodEndTimeStamp;
+                    if (this.mAdShowStartTimeStamp > 0) {
+                        j18 = j17;
+                        j19 = this.mAdShowMethodEndTimeStamp - this.mAdShowMethodStartTimeStamp;
                     } else {
+                        j18 = j17;
                         j19 = 0;
                     }
                     j20 = this.mAdShowStartTimeStamp;
+                    long j48 = j10;
                     if (j20 > 0) {
-                        j21 = j2 - j20;
+                        j21 = j20 - this.mAdShowMethodEndTimeStamp;
                     } else {
                         j21 = 0;
                     }
                     j22 = this.mAdShowStartTimeStamp;
-                    long j48 = j19;
                     if (j22 > 0) {
-                        j23 = j22 - this.mAdShowMethodStartTimeStamp;
+                        j23 = j2 - j22;
                     } else {
                         j23 = 0;
                     }
-                    j24 = j2 - this.mAdLoadMethodStartTimeStamp;
-                    long j49 = j44 + j23;
-                    long j50 = j23;
-                    this.mAdLoadCostPure = j26 + j3 + j17 + j48 + j21;
-                    if (j24 >= 0 && j24 <= 60000 && j49 >= 0 && j49 <= 60000 && j26 >= 0 && j26 <= 60000 && j3 >= 0 && j3 <= 60000 && j47 >= 0 && j47 <= 60000 && j12 >= 0 && j12 <= 60000 && j44 >= 0 && j44 <= 60000 && j17 >= 0 && j17 <= 60000 && j48 >= 0 && j48 <= 60000 && j21 >= 0 && j21 <= 60000 && j50 >= 0 && j50 <= 60000) {
+                    j24 = this.mAdShowStartTimeStamp;
+                    long j49 = j21;
+                    if (j24 > 0) {
+                        j25 = j24 - this.mAdShowMethodStartTimeStamp;
+                    } else {
+                        j25 = 0;
+                    }
+                    j26 = j2 - this.mAdLoadMethodStartTimeStamp;
+                    long j50 = j45 + j25;
+                    long j51 = j25;
+                    this.mAdLoadCostPure = j28 + j3 + j19 + j49 + j23;
+                    if (j26 >= 0 && j26 <= 60000 && j50 >= 0 && j50 <= 60000 && j28 >= 0 && j28 <= 60000 && j3 >= 0 && j3 <= 60000 && j48 >= 0 && j48 <= 60000 && j14 >= 0 && j14 <= 60000 && j45 >= 0 && j45 <= 60000 && j19 >= 0 && j19 <= 60000 && j49 >= 0 && j49 <= 60000 && j23 >= 0 && j23 <= 60000 && j51 >= 0 && j51 <= 60000) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put(AD_WITH_SHOW_DURATION, String.valueOf(j24));
-                        hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j49));
+                        hashMap.put(AD_WITH_SHOW_DURATION, String.valueOf(j26));
+                        hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j50));
                         hashMap.put(AD_SHOW_SOURCE, String.valueOf(this.adSource));
                         hashMap.put(AD_LOAD_RESULT, String.valueOf(this.mAdLoadResult));
-                        hashMap.put(IS_AD_SHOW_SOURCE, String.valueOf(j16));
+                        hashMap.put(IS_AD_SHOW_SOURCE, String.valueOf(j18));
                         if (this.isTimeout) {
                             str = "1";
                         } else {
@@ -419,43 +424,43 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                         if (str6 != null) {
                             hashMap.put(AD_PLG_AD_TYPE, str6);
                         }
-                        hashMap.put(AD_LOAD_METHOD_DURATION, String.valueOf(j26));
-                        hashMap.put(AD_WAIT_LOAD_DURATION, String.valueOf(j38));
-                        hashMap.put(AD_LOAD_TOTAL_DURATION, String.valueOf(j44));
-                        if (j16 == 1) {
-                            hashMap.put(AD_SHOW_METHOD_DURATION, String.valueOf(j17));
-                            hashMap.put(AD_WAIT_SHOW_DURATION, String.valueOf(j48));
-                            hashMap.put(AD_SHOW_VIEW_DURATION, String.valueOf(j21));
-                            hashMap.put(AD_SHOW_TOTAL_DURATION, String.valueOf(j50));
-                        } else if (j39 > 0 && j39 < 60000) {
-                            hashMap.put(AD_BEAR_REAL_TIMEOUT_DURATION, String.valueOf(j39));
+                        hashMap.put(AD_LOAD_METHOD_DURATION, String.valueOf(j28));
+                        hashMap.put(AD_WAIT_LOAD_DURATION, String.valueOf(j39));
+                        hashMap.put(AD_LOAD_TOTAL_DURATION, String.valueOf(j45));
+                        if (j18 == 1) {
+                            hashMap.put(AD_SHOW_METHOD_DURATION, String.valueOf(j19));
+                            hashMap.put(AD_WAIT_SHOW_DURATION, String.valueOf(j49));
+                            hashMap.put(AD_SHOW_VIEW_DURATION, String.valueOf(j23));
+                            hashMap.put(AD_SHOW_TOTAL_DURATION, String.valueOf(j51));
+                        } else if (j12 > 0 && j12 < 60000) {
+                            hashMap.put(AD_BEAR_REAL_TIMEOUT_DURATION, String.valueOf(j12));
                         }
                         hashMap.put(AD_LOAD_IDLE_DURATION, String.valueOf(j3));
-                        hashMap.put(AD_LOAD_HANDLER_B_DURATION, String.valueOf(j31));
-                        hashMap.put(AD_LOAD_HANDLER_A_DURATION, String.valueOf(j33));
+                        hashMap.put(AD_LOAD_HANDLER_B_DURATION, String.valueOf(j33));
+                        hashMap.put(AD_LOAD_HANDLER_A_DURATION, String.valueOf(j7));
                         if (i > 0 && i2 < 0) {
-                            hashMap.put(AD_PROLOGUE_LOAD_DURATION, String.valueOf(j47));
+                            hashMap.put(AD_PROLOGUE_LOAD_DURATION, String.valueOf(j48));
                         }
                         if (i3 > 0 && i4 < 0) {
-                            hashMap.put(AD_BEAR_LOAD_DURATION, String.valueOf(j12));
+                            hashMap.put(AD_BEAR_LOAD_DURATION, String.valueOf(j14));
                         }
-                        if (j14 > 0 && j14 < 60000) {
-                            hashMap.put(AD_POLICY_SO_DURATION, String.valueOf(j14));
+                        if (j16 > 0 && j16 < 60000) {
+                            hashMap.put(AD_POLICY_SO_DURATION, String.valueOf(j16));
                         }
-                        if (j46 > 0 && j46 < 60000) {
-                            hashMap.put(AD_POST_SHOW_GAP_DURATION, String.valueOf(j46));
+                        if (j47 > 0 && j47 < 60000) {
+                            hashMap.put(AD_POST_SHOW_GAP_DURATION, String.valueOf(j47));
                         }
-                        long j51 = this.mAdShowMethodStartTimeStamp - this.mSecondDrawDispatchedTimeStamp;
-                        if (j51 > 0 && j51 < 60000) {
-                            hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j51));
+                        long j52 = this.mAdShowMethodStartTimeStamp - this.mSecondDrawDispatchedTimeStamp;
+                        if (j52 > 0 && j52 < 60000) {
+                            hashMap.put(DRAW_DONE_2_AD_SHOW_GAP, String.valueOf(j52));
                         }
-                        if (j35 > 0 && j35 < 60000) {
-                            hashMap.put(AD_BEAR_REAL_LOAD_DURATION, String.valueOf(j35));
+                        if (j36 > 0 && j36 < 60000) {
+                            hashMap.put(AD_BEAR_REAL_LOAD_DURATION, String.valueOf(j36));
                         }
-                        if (j37 > 0 && j37 < 60000) {
-                            hashMap.put(AD_BEAR_PRE_LOAD_DURATION, String.valueOf(j37));
+                        if (j38 > 0 && j38 < 60000) {
+                            hashMap.put(AD_BEAR_PRE_LOAD_DURATION, String.valueOf(j38));
                         }
-                        long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - j45;
+                        long appLaunchEndTimeStamp = SpeedStatsManager.getInstance().getAppLaunchEndTimeStamp() - j46;
                         if (appLaunchEndTimeStamp > 0 && appLaunchEndTimeStamp < 60000) {
                             hashMap.put(AD_TO_END_DURATION, String.valueOf(appLaunchEndTimeStamp));
                         }
@@ -464,7 +469,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                                 hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
                             }
                         }
-                        JSONObject jsonData = SpeedStatsUtils.getJsonData(j49, hashMap);
+                        JSONObject jsonData = SpeedStatsUtils.getJsonData(j50, hashMap);
                         if (jsonData != null) {
                             try {
                                 jSONObject.put(SpeedStatsMainTable.AD_SHOW, jsonData);
@@ -481,79 +486,78 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                     }
                     return false;
                 }
-                j12 = j11;
-                j13 = 0;
-                j14 = 0;
-                long j442 = j - this.mAdLoadMethodStartTimeStamp;
-                long j452 = j;
-                long j462 = j13;
+                j14 = j13;
+                j15 = 0;
+                j16 = 0;
+                long j452 = j - this.mAdLoadMethodStartTimeStamp;
+                long j462 = j;
+                long j472 = j15;
                 if (this.mAdShowStartTimeStamp > 0) {
                 }
                 if (this.mAdShowStartTimeStamp > 0) {
-                }
-                j18 = this.mAdShowStartTimeStamp;
-                long j472 = j9;
-                if (j18 > 0) {
                 }
                 j20 = this.mAdShowStartTimeStamp;
+                long j482 = j10;
                 if (j20 > 0) {
                 }
                 j22 = this.mAdShowStartTimeStamp;
-                long j482 = j19;
                 if (j22 > 0) {
                 }
-                j24 = j2 - this.mAdLoadMethodStartTimeStamp;
-                long j492 = j442 + j23;
-                long j502 = j23;
-                this.mAdLoadCostPure = j26 + j3 + j17 + j482 + j21;
-                return j24 >= 0 ? false : false;
+                j24 = this.mAdShowStartTimeStamp;
+                long j492 = j21;
+                if (j24 > 0) {
+                }
+                j26 = j2 - this.mAdLoadMethodStartTimeStamp;
+                long j502 = j452 + j25;
+                long j512 = j25;
+                this.mAdLoadCostPure = j28 + j3 + j19 + j492 + j23;
+                return j26 >= 0 ? false : false;
             }
         }
         j5 = 0;
         j6 = this.mLoadBearEndTimeStamp;
-        long j332 = j5;
         if (j6 <= 0) {
         }
-        long j342 = this.mAdLoadMethodStartTimeStamp;
-        long j352 = j7;
-        long j362 = this.mAdPreLoadBearStartTimeStamp;
-        long j372 = j342 - j362;
-        long j382 = j27;
-        long j392 = this.mAdViewEndTimeStamp - j362;
-        j8 = this.mLoadPrologueEndTimeStamp;
-        if (j8 <= 0) {
+        long j352 = this.mAdLoadMethodStartTimeStamp;
+        long j362 = j8;
+        long j372 = this.mAdPreLoadBearStartTimeStamp;
+        long j382 = j352 - j372;
+        long j392 = j29;
+        long j402 = this.mAdViewEndTimeStamp - j372;
+        j9 = this.mLoadPrologueEndTimeStamp;
+        if (j9 <= 0) {
         }
-        j10 = this.mLoadBearEndTimeStamp;
-        if (j10 <= 0) {
+        j11 = this.mLoadBearEndTimeStamp;
+        if (j11 <= 0) {
         }
         if (this.mAdShowStartTimeStamp <= 0) {
         }
-        j12 = j11;
-        j13 = 0;
-        j14 = 0;
-        long j4422 = j - this.mAdLoadMethodStartTimeStamp;
-        long j4522 = j;
-        long j4622 = j13;
+        j14 = j13;
+        j15 = 0;
+        j16 = 0;
+        long j4522 = j - this.mAdLoadMethodStartTimeStamp;
+        long j4622 = j;
+        long j4722 = j15;
         if (this.mAdShowStartTimeStamp > 0) {
         }
         if (this.mAdShowStartTimeStamp > 0) {
-        }
-        j18 = this.mAdShowStartTimeStamp;
-        long j4722 = j9;
-        if (j18 > 0) {
         }
         j20 = this.mAdShowStartTimeStamp;
+        long j4822 = j10;
         if (j20 > 0) {
         }
         j22 = this.mAdShowStartTimeStamp;
-        long j4822 = j19;
         if (j22 > 0) {
         }
-        j24 = j2 - this.mAdLoadMethodStartTimeStamp;
-        long j4922 = j4422 + j23;
-        long j5022 = j23;
-        this.mAdLoadCostPure = j26 + j3 + j17 + j4822 + j21;
-        if (j24 >= 0) {
+        j24 = this.mAdShowStartTimeStamp;
+        long j4922 = j21;
+        if (j24 > 0) {
+        }
+        j26 = j2 - this.mAdLoadMethodStartTimeStamp;
+        long j5022 = j4522 + j25;
+        long j5122 = j25;
+        this.mAdLoadCostPure = j28 + j3 + j19 + j4922 + j23;
+        if (j26 >= 0) {
         }
     }
 

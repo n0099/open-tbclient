@@ -12,9 +12,9 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int emui_color_gray_1 = 0x7f060741;
-        public static final int emui_color_gray_10 = 0x7f060742;
-        public static final int emui_color_gray_7 = 0x7f060743;
+        public static final int emui_color_gray_1 = 0x7f060743;
+        public static final int emui_color_gray_10 = 0x7f060744;
+        public static final int emui_color_gray_7 = 0x7f060745;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f090a17;
+        public static final int enable_service_text = 0x7f090a0f;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -77,12 +77,12 @@ public final class R {
     /* loaded from: classes10.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int hms_apk_not_installed_hints = 0x7f0f09d3;
-        public static final int hms_bindfaildlg_message = 0x7f0f09d4;
-        public static final int hms_bindfaildlg_title = 0x7f0f09d5;
-        public static final int hms_confirm = 0x7f0f09d6;
-        public static final int hms_is_spoof = 0x7f0f09d7;
-        public static final int hms_spoof_hints = 0x7f0f09db;
+        public static final int hms_apk_not_installed_hints = 0x7f0f09d9;
+        public static final int hms_bindfaildlg_message = 0x7f0f09da;
+        public static final int hms_bindfaildlg_title = 0x7f0f09db;
+        public static final int hms_confirm = 0x7f0f09dc;
+        public static final int hms_is_spoof = 0x7f0f09dd;
+        public static final int hms_spoof_hints = 0x7f0f09e1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

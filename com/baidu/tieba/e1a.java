@@ -1,33 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public interface e1a {
+public abstract class e1a implements i1a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        int a(Context context, String[] strArr);
+    public e1a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        int a(Context context, Map<String, String> map);
+    @Override // com.baidu.tieba.i1a
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            p1a g = q1a.d.a().g(name());
+            if (g == null) {
+                return false;
+            }
+            long f = q1a.d.a().f(name());
+            if (f > 0 && System.currentTimeMillis() - f < TimeUnit.HOURS.toMillis(g.a())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-    }
-
-    boolean a(String str);
-
-    void b(Context context, String[] strArr, boolean z, Bundle bundle);
-
-    boolean c(Context context, String[] strArr, Bundle bundle);
 }

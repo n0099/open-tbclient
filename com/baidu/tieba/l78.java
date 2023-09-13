@@ -1,84 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.HomeLocalCompleteInfoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Personalized.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class l78 extends om<b88, AdapterViewHolder<HomeLocalCompleteInfoLayout>> implements e78 {
+public final class l78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View.OnClickListener b;
 
-    @Override // com.baidu.tieba.e78
-    public void h(String str) {
+    public static final k78 a(DataRes.Builder builderData, ThreadInfo threadInfo) {
+        InterceptResult invokeLL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l78(TbPageContext tbPageContext, @Nullable View.OnClickListener onClickListener) {
-        super(tbPageContext.getPageActivity(), b88.a);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, builderData, threadInfo)) == null) {
+            Intrinsics.checkNotNullParameter(builderData, "builderData");
+            Intrinsics.checkNotNullParameter(threadInfo, "threadInfo");
+            Long l = threadInfo.tid;
+            Intrinsics.checkNotNullExpressionValue(l, "threadInfo.tid");
+            k78 k78Var = new k78(l.longValue(), false, 2, null);
+            Integer num2 = builderData.is_need_live_ununiq;
+            if (num2 != null && num2.intValue() == 1 && (num = threadInfo.thread_type) != null && num.intValue() == 69) {
+                k78Var.b(false);
             }
+            return k78Var;
         }
-        this.a = tbPageContext;
-        this.b = onClickListener;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: s */
-    public AdapterViewHolder<HomeLocalCompleteInfoLayout> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new AdapterViewHolder<>(new HomeLocalCompleteInfoLayout(viewGroup.getContext()));
-        }
-        return (AdapterViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b88 b88Var, AdapterViewHolder<HomeLocalCompleteInfoLayout> adapterViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b88Var, adapterViewHolder})) == null) {
-            if (b88Var != null && adapterViewHolder != null) {
-                HomeLocalCompleteInfoLayout b = adapterViewHolder.b();
-                b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-                b.setCloseClickListener(this.b);
-                d78.o();
-                return adapterViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (k78) invokeLL.objValue;
     }
 }

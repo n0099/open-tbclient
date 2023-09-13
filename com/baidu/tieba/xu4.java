@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class xu4 extends su4 {
+public class xu4 extends wu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ru4
+    @Override // com.baidu.tieba.vu4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "t" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "d" : (String) invokeV.objValue;
     }
 
     public xu4() {
@@ -33,7 +33,7 @@ public class xu4 extends su4 {
         }
     }
 
-    @Override // com.baidu.tieba.ru4
+    @Override // com.baidu.tieba.vu4
     public String a(String[] strArr, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class xu4 extends su4 {
             if (strArr != null && strArr.length != 0) {
                 String substring = strArr[0].substring(1);
                 StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
-                sb.append("?tid=");
+                sb.append("?ori_ugc_tid=");
                 sb.append(substring);
                 c(strArr, sb, map, 1);
                 return sb.toString();

@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nm;
+import com.baidu.tieba.om;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,33 +148,33 @@ public class BdRoundedImageView extends AppCompatImageView {
         }
     }
 
-    public final void a(Drawable drawable, boolean z) {
+    public final void b(Drawable drawable, boolean z) {
         float f;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, drawable, z) != null) || drawable == null) {
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, z) != null) || drawable == null) {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof nm) {
-            nm nmVar = (nm) drawable;
-            nmVar.g(this.h);
+        if (drawable instanceof om) {
+            om omVar = (om) drawable;
+            omVar.g(this.h);
             if (!this.d && z) {
                 f = 0.0f;
             } else {
                 f = this.a;
             }
-            nmVar.e(f);
+            omVar.e(f);
             if (this.d || !z) {
                 i2 = this.b;
             }
-            nmVar.d(i2);
-            nmVar.c(this.c);
-            nmVar.f(this.e);
+            omVar.d(i2);
+            omVar.c(this.c);
+            omVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
             while (i2 < numberOfLayers) {
-                a(layerDrawable.getDrawable(i2), z);
+                b(layerDrawable.getDrawable(i2), z);
                 i2++;
             }
         }
@@ -224,15 +224,15 @@ public class BdRoundedImageView extends AppCompatImageView {
         }
         this.d = obtainStyledAttributes.getBoolean(5, false);
         this.e = obtainStyledAttributes.getBoolean(4, false);
-        k();
-        b();
+        A();
+        r();
         obtainStyledAttributes.recycle();
     }
 
-    public final void b() {
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.g, true);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(this.f, false);
         }
     }
 
@@ -282,10 +282,10 @@ public class BdRoundedImageView extends AppCompatImageView {
         return (ImageView.ScaleType) invokeV.objValue;
     }
 
-    public final void k() {
+    public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            a(this.f, false);
+            b(this.g, true);
         }
     }
 
@@ -293,8 +293,8 @@ public class BdRoundedImageView extends AppCompatImageView {
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            this.g = nm.b(drawable);
-            b();
+            this.g = om.b(drawable);
+            r();
             super.setBackgroundDrawable(this.g);
         }
     }
@@ -315,8 +315,8 @@ public class BdRoundedImageView extends AppCompatImageView {
             colorStateList = ColorStateList.valueOf(0);
         }
         this.c = colorStateList;
-        k();
-        b();
+        A();
+        r();
         if (this.b > 0) {
             invalidate();
         }
@@ -328,8 +328,8 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         this.b = i2;
-        k();
-        b();
+        A();
+        r();
         invalidate();
     }
 
@@ -339,8 +339,8 @@ public class BdRoundedImageView extends AppCompatImageView {
             return;
         }
         this.a = i2;
-        k();
-        b();
+        A();
+        r();
     }
 
     @Override // androidx.appcompat.widget.AppCompatImageView, android.widget.ImageView
@@ -348,8 +348,8 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f = new nm(bitmap);
-                k();
+                this.f = new om(bitmap);
+                A();
             } else {
                 this.f = null;
             }
@@ -362,8 +362,8 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
             if (drawable != null) {
-                this.f = nm.b(drawable);
-                k();
+                this.f = om.b(drawable);
+                A();
             } else {
                 this.f = null;
             }
@@ -384,8 +384,8 @@ public class BdRoundedImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.e = z;
-            k();
-            b();
+            A();
+            r();
             invalidate();
         }
     }
@@ -411,8 +411,8 @@ public class BdRoundedImageView extends AppCompatImageView {
                             super.setScaleType(scaleType);
                             break;
                     }
-                    k();
-                    b();
+                    A();
+                    r();
                     invalidate();
                     return;
                 }

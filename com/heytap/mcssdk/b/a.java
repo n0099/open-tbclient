@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.utils.e;
 import com.heytap.mcssdk.utils.f;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "Heytap PUSH";
@@ -88,7 +88,7 @@ public class a {
                 if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || e.f().a()) {
                     return;
                 }
-                String string = this.a.getString(R.string.obfuscated_res_0x7f0f15b5);
+                String string = this.a.getString(R.string.obfuscated_res_0x7f0f15ce);
                 if (TextUtils.isEmpty(string)) {
                     string = a.b;
                 }

@@ -101,7 +101,7 @@ public abstract class AbsEventNode implements IEventNode, Serializable {
     @Override // com.baidu.tieba.tracker.core.data.IEventNode
     public void setNext(IEventNode iEventNode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, iEventNode) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, iEventNode) == null) {
             this.next = iEventNode;
         }
     }
@@ -118,7 +118,7 @@ public abstract class AbsEventNode implements IEventNode, Serializable {
 
     public final void set(String key, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, key, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, key, obj) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
             getParams().set(key, obj);
         }
@@ -126,17 +126,27 @@ public abstract class AbsEventNode implements IEventNode, Serializable {
 
     public final void setIfNull(String key, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, key, obj) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, key, obj) == null) {
             Intrinsics.checkNotNullParameter(key, "key");
             getParams().setIfNull(key, obj);
         }
     }
 
     @Override // com.baidu.tieba.tracker.core.data.IEventNode
-    public IEventNode getNext() {
+    public IEventNode getEndNode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return IEventNode.a.b(this);
+        }
+        return (IEventNode) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tracker.core.data.IEventNode
+    public IEventNode getNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.next;
         }
         return (IEventNode) invokeV.objValue;
@@ -145,7 +155,7 @@ public abstract class AbsEventNode implements IEventNode, Serializable {
     public final EventParams getParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return (EventParams) this.params$delegate.getValue();
         }
         return (EventParams) invokeV.objValue;
@@ -155,7 +165,7 @@ public abstract class AbsEventNode implements IEventNode, Serializable {
     public IEventNode getParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.parent;
         }
         return (IEventNode) invokeV.objValue;
@@ -165,7 +175,7 @@ public abstract class AbsEventNode implements IEventNode, Serializable {
     public EventParams getTrackParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return getParams();
         }
         return (EventParams) invokeV.objValue;

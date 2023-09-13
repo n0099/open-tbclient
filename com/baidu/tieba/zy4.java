@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestConst;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,67 +21,78 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
 public class zy4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zy4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final View b;
+    public final ThreadAchievementShareInfo.ParamBean c;
+    public TbImageView d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
 
-    public zy4() {
+    public zy4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
+        this.c = threadAchievementShareInfo.getParams();
+        c();
+        b();
     }
 
-    public static zy4 b() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (zy4.class) {
-                    if (a == null) {
-                        a = new zy4();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (zy4) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void a(String str, String str2, String str3, String str4, int i) {
+    public final void b() {
+        ThreadAchievementShareInfo.ParamBean paramBean;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
-            if (i > 0) {
-                statisticItem.param("obj_param1", i);
-            }
-            if (StringUtils.isNotNull(str4)) {
-                statisticItem.param(TiebaStatic.Params.OBJ_URL, str4);
-            }
-            if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_A);
-            } else if (UbsABTestHelper.isNonEcomAdDownloaderTestB()) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_B);
-            }
-            TiebaStatic.log(statisticItem);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (paramBean = this.c) != null && paramBean.getVideo_info() != null && !TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
+            this.d.startLoad(this.c.getVideo_info().getThumbnail_url(), 10, false);
+            this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+            this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
         }
     }
 
-    public void c(boolean z, DownloadData downloadData, int i) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), downloadData, Integer.valueOf(i)}) == null) {
-            if (z) {
-                a(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl(), i);
-            } else {
-                a(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl(), i);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = (TextView) this.b.findViewById(R.id.comment_num);
+            this.g = (TextView) this.b.findViewById(R.id.comment_desc);
+            this.h = (TextView) this.b.findViewById(R.id.praise_desc);
+            TextView textView = (TextView) this.b.findViewById(R.id.praise_num);
+            this.i = textView;
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.video_img);
+            this.d = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.transparent);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.play_icon);
+            this.e = imageView;
+            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
     }
 }

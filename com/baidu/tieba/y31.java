@@ -1,112 +1,107 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class y31 extends w31 {
+public class y31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    public y31() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public class a extends nt0<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z31 a;
+
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a(z31 z31Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z31Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z31Var;
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
+                x31.e(this.a.a(i, exc.getMessage()));
             }
         }
-        this.b = null;
+
+        @Override // com.baidu.tieba.mt0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mt0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
+                x31.e(this.a.a(i, "success"));
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.z31
-    public boolean isValid() {
-        InterceptResult invokeV;
+    public static void a(@Nullable z31 z31Var) {
+        b61 b61Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return f();
+        if ((interceptable == null || interceptable.invokeL(65536, null, z31Var) == null) && z31Var != null && !TextUtils.isEmpty(z31Var.d())) {
+            ut0 ut0Var = new ut0();
+            ut0Var.l(z31Var.d());
+            ut0Var.g(3000);
+            ut0Var.c();
+            if (!TextUtils.isEmpty(z31Var.e)) {
+                ut0Var.d("User-Agent", z31Var.e);
+            } else {
+                ut0Var.d("User-Agent", tj0.e());
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(StringBuilder sb, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
-            if (sb.length() > 0) {
-                sb.append('&');
+            bt0.b().a().a(ut0Var, new a(z31Var));
+            if (u51.a && (b61Var = (b61) t51.a().a(b61.class)) != null) {
+                b61Var.b(new v51("计费", "", "并行计费"));
             }
-            sb.append(str);
-            sb.append('=');
-            sb.append(str2);
         }
     }
 
-    public final boolean f() {
-        InterceptResult invokeV;
+    public static void b(@Nullable String str) {
+        b61 b61Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ak0 d = sj0.d();
-            StringBuilder sb = new StringBuilder();
-            e(sb, "productId", d.s());
-            e(sb, HttpRequest.CLIENT_TYPE, "2");
-            e(sb, "_os_type", "2");
-            String h = kk0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                e(sb, HttpRequest.OS_VERSION, h);
-            }
-            e(sb, "_client_version", d.w());
-            e(sb, "_sdk_version", "5.12.0.98");
-            String e = kk0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                e(sb, "model", e);
-            }
-            e(sb, "cuid", d.g());
-            e(sb, "net_type", String.valueOf(new ft0().c()));
-            if (bh0.a) {
-                e(sb, "rd", d.x());
-                e(sb, "qa", d.y());
-                e(sb, "story_id", d.u());
-            }
-            String sb2 = sb.toString();
-            this.b = sb2;
-            return !TextUtils.isEmpty(sb2);
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.w31, com.baidu.tieba.z31
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                f();
-            }
-            if (this.a.toString().contains(this.b)) {
-                return this.a.toString();
-            }
-            if (this.a.length() > 0) {
-                this.a.append('&');
-            }
-            this.a.append(this.b);
-            return this.a.toString();
+        ut0 ut0Var = new ut0();
+        ut0Var.l(str);
+        ut0Var.g(3000);
+        ut0Var.d("User-Agent", tj0.e());
+        ut0Var.c();
+        bt0.b().a().a(ut0Var, null);
+        if (u51.a && (b61Var = (b61) t51.a().a(b61.class)) != null) {
+            b61Var.b(new v51("计费", "", "并行计费"));
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.ResponsedEventListener;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.qd8;
-import com.baidu.tieba.rg8;
-import com.baidu.tieba.ze8;
+import com.baidu.tieba.bg8;
+import com.baidu.tieba.se8;
+import com.baidu.tieba.th8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +24,12 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qd8 a;
+    public se8 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
     public ResponsedEventListener e;
-    public qd8.d f;
+    public se8.d f;
 
     /* loaded from: classes6.dex */
     public class a extends ResponsedEventListener<TopToastEvent> {
@@ -56,14 +56,14 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.lp5
+        @Override // com.baidu.tbadk.mutiprocess.ResponsedEventListener, com.baidu.tieba.eq5
         /* renamed from: g */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
                 if (this.a.b != null) {
-                    this.a.b.J(topToastEvent.isSuccess(), topToastEvent.getContent());
+                    this.a.b.I(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -73,7 +73,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements qd8.d {
+    public class b implements se8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -96,19 +96,19 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.qd8.d
-        public void a(List<rg8> list) {
+        @Override // com.baidu.tieba.se8.d
+        public void a(List<th8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.b.G(list, null);
+                this.a.b.F(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.qd8.d
-        public void onReadCountLoad(LongSparseArray<ze8> longSparseArray) {
+        @Override // com.baidu.tieba.se8.d
+        public void onReadCountLoad(LongSparseArray<bg8> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.a.b.H(longSparseArray);
+                this.a.b.G(longSparseArray);
             }
         }
     }
@@ -135,9 +135,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            qd8 qd8Var = this.a;
-            if (qd8Var != null) {
-                qd8Var.e();
+            se8 se8Var = this.a;
+            if (se8Var != null) {
+                se8Var.e();
             }
             unRegisterResponsedEventListener();
         }
@@ -157,15 +157,15 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            qd8 qd8Var = new qd8(getPageContext());
-            this.a = qd8Var;
-            qd8Var.i(this.f);
+            se8 se8Var = new se8(getPageContext());
+            this.a = se8Var;
+            se8Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");
                 this.d = getIntent().getByteExtra("key_source", (byte) 3);
                 this.a.f(this.c);
-                this.b.K(this.c, System.currentTimeMillis());
+                this.b.J(this.c, System.currentTimeMillis());
             }
             registerResponsedEventListener(TopToastEvent.class, this.e);
         }

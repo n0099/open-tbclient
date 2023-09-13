@@ -25,9 +25,9 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hn5;
-import com.baidu.tieba.ifa;
-import com.baidu.tieba.in5;
+import com.baidu.tieba.ao5;
+import com.baidu.tieba.bha;
+import com.baidu.tieba.bo5;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
@@ -49,7 +49,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     public CustomMessageListener c;
 
     /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements in5.b {
+    public class b implements bo5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -114,7 +114,7 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.in5.b
+        @Override // com.baidu.tieba.bo5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -156,8 +156,8 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof hn5)) {
-                this.a.b = Boolean.valueOf(((hn5) customResponsedMessage.getData()).a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ao5)) {
+                this.a.b = Boolean.valueOf(((ao5) customResponsedMessage.getData()).a);
                 if (this.a.b.booleanValue()) {
                     this.a.a.refresh(0);
                     this.a.a.setVisibility(0);
@@ -243,8 +243,8 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ifa.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, ifa.a("c/u/user/profile", 303012));
+            bha.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, bha.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -276,12 +276,12 @@ public class PersonInfoDelegateStatic extends FragmentDelegate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.mIndicator = (MaintabBottomIndicator) in5.e().d(1005, new b(this, context));
+            this.mIndicator = (MaintabBottomIndicator) bo5.e().d(1005, new b(this, context));
             this.a = new MessageRedDotView(context);
             TbFragmentTabIndicator.FragmentTapTip fragmentTapTip = new TbFragmentTabIndicator.FragmentTapTip();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.mIndicator;
             fragmentTapTip.indicator = tbFragmentTabIndicator;
-            fragmentTapTip.f1084view = this.a;
+            fragmentTapTip.f1082view = this.a;
             tbFragmentTabIndicator.addTipWrapContent(FileHelper.FILE_CACHE_EMOTION_PACKAGE, fragmentTapTip);
             boolean z = SharedPrefHelper.getInstance().getBoolean("key_feedback_tip_tab_show", false);
             if (!this.b.booleanValue() && !z) {

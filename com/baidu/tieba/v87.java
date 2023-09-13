@@ -1,150 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedLayout;
 /* loaded from: classes8.dex */
-public final class v87 implements ja7 {
+public final class v87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public long c;
-    public String d;
-    public String e;
 
-    public v87() {
+    public static final void a(u87 u87Var, FeedLayout feedLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, u87Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(u87Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            u87Var.a().b(ub7.a.a(feedLayout.business_info));
+            u87Var.c().b(ub7.a.a(feedLayout.log_info));
+        }
+    }
+
+    public static final Map<String, String> c(u87 u87Var, String statStrategyKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, u87Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(u87Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            HashMap hashMap = new HashMap();
+            tc7 tc7Var = u87Var.e().get(statStrategyKey);
+            if (tc7Var != null) {
+                hashMap.putAll(tc7Var.a(u87Var.a()));
             }
+            return hashMap;
         }
-        this.a = "";
-        this.c = -1L;
-        this.d = "";
-        this.e = "";
+        return (Map) invokeLL.objValue;
     }
 
-    public final long a() {
-        InterceptResult invokeV;
+    public static final w97 b(u87 u87Var, String statStrategyKey) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String str = this.a;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, u87Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(u87Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            tc7 tc7Var = u87Var.e().get(statStrategyKey);
+            if (tc7Var instanceof uc7) {
+                statStrategyKey = ((uc7) tc7Var).c(u87Var.a());
             }
-            return !z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ja7
-    public void d(Object event) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (event instanceof UpdateAttentionMessage.UpdateAttentionData) {
-                UpdateAttentionMessage.UpdateAttentionData updateAttentionData = (UpdateAttentionMessage.UpdateAttentionData) event;
-                if (Intrinsics.areEqual(this.d, updateAttentionData.toUid)) {
-                    if (updateAttentionData.isAttention) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    this.e = str;
+            w97 w97Var = new w97(null, null, null, null, null, 31, null);
+            tc7 tc7Var2 = u87Var.e().get(statStrategyKey);
+            if (tc7Var2 != null) {
+                w97Var = new w97(tc7Var2.getKey(), tc7Var2.a(u87Var.a()), u87Var.c().a(), null, null, 24, null);
+                if (tc7Var2 instanceof rc7) {
+                    w97Var.g(((rc7) tc7Var2).b());
+                }
+                if (tc7Var2 instanceof e97) {
+                    w97Var.f(((e97) tc7Var2).d());
                 }
             }
+            return w97Var;
         }
-    }
-
-    public final void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.e = str;
-        }
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
-    }
-
-    public final void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
-        }
+        return (w97) invokeLL.objValue;
     }
 }

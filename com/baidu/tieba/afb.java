@@ -1,123 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLSurfaceView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixCallback;
-import com.baidu.ar.capture.ICaptureResult;
-import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.minivideo.arface.bean.Sticker;
-import com.baidu.tieba.lfb;
+import com.baidu.tieba.cfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class afb {
+public class afb implements cfb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jfb a;
+    public zeb a;
+    public b b;
+    public Thread c;
+    public List<cfb> d;
+    public int e;
+    public int f;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void a(Object obj);
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ afb a;
+
+        public a(afb afbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {afbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = afbVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                afb afbVar = this.a;
+                if (afbVar.j(afbVar.a)) {
+                    if (nib.e(this.a.d)) {
+                        this.a.m(" start mix chains error:mMixtureChains empty ");
+                        return;
+                    } else {
+                        ((cfb) this.a.d.get(0)).d(this.a.a);
+                        return;
+                    }
+                }
+                afb afbVar2 = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(" start mix chains error:initChainConfig ");
+                sb.append(this.a.a == null);
+                afbVar2.m(sb.toString());
+            }
+        }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        boolean a();
+        void onAudioMixtureCancel();
 
-        int b();
+        void onAudioMixtureFail(String str);
 
-        void c(int i, int i2, int i3, int i4);
+        void onAudioMixtureProgress(int i);
 
-        void d(byte[] bArr);
-
-        String e();
-
-        boolean f();
-
-        void g(int i, int i2, int i3, boolean z);
-
-        void h(boolean z);
-
-        void i(boolean z);
-
-        void j(boolean z);
-
-        boolean k(SurfaceTexture surfaceTexture, f fVar);
-
-        void l(int i);
-
-        void m(boolean z);
-
-        void n();
-
-        boolean o();
-
-        boolean p();
-
-        void q();
-
-        int r();
-
-        void release();
-
-        void s(a aVar);
-
-        void t(int i, int i2, int i3, int i4);
-
-        void u(int i);
-
-        int v();
+        void onAudioMixtureSuccess(yeb yebVar);
     }
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void onBeautyEnableChanged(mf0 mf0Var);
-
-        void onChangeGender(boolean z);
-
-        void onLuaMessage(HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e extends lfb.b {
-        void a();
-
-        void b(ICaptureResult iCaptureResult);
-
-        void c();
-
-        void d(int i);
-
-        void e();
-
-        void f(int i, int i2);
-
-        void g(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(byte[] bArr, int i);
-    }
-
-    public afb(Context context) {
+    public afb(zeb zebVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {zebVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,233 +95,231 @@ public class afb {
                 return;
             }
         }
-        this.a = new jfb(context);
+        this.a = zebVar;
+        this.d = new ArrayList();
     }
 
-    public boolean A() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.cfb.a
+    public void a(cfb cfbVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a0() : invokeV.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c0() : invokeV.booleanValue;
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.X();
+        if (interceptable == null || interceptable.invokeL(1048576, this, cfbVar) == null) {
+            l();
         }
     }
 
-    public void D(int i) {
-        jfb jfbVar;
+    @Override // com.baidu.tieba.cfb.a
+    public void b(cfb cfbVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (jfbVar = this.a) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cfbVar) == null) {
+            int k = this.e + cfbVar.k();
+            this.e = k;
+            n(k);
+            if (cfbVar == null || !cfbVar.m()) {
+                return;
+            }
+            yeb k2 = k(cfbVar.n());
+            if (k2 != null) {
+                o(k2);
+            } else {
+                m("onChainFinished result error");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cfb.a
+    public void c(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (i3 = (int) (this.e + (((i * 1.0f) / 100.0f) * i2))) <= this.f) {
             return;
         }
-        jfbVar.r(i);
+        n(i3);
+        this.f = i3;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.cfb.a
+    public void d(String str, cfb cfbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cfbVar) == null) {
+            m(str);
+        }
+    }
+
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.onDestroy();
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.q0() : (String) invokeV.objValue;
-    }
-
-    public void c(b bVar, int i, int i2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            this.a.A(bVar, i, i2, z, str);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            jfb jfbVar = this.a;
-            if (jfbVar != null) {
-                return jfbVar.p0();
+            if (!nib.e(this.d)) {
+                for (cfb cfbVar : this.d) {
+                    cfbVar.b();
+                }
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.a.B(cVar);
-            this.a.e0();
+            Thread thread = this.c;
+            if (thread != null) {
+                thread.interrupt();
+            }
         }
     }
 
-    public void f() {
+    public final boolean j(zeb zebVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onPause();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zebVar)) == null) {
+            if (zebVar == null || nib.e(zebVar.c())) {
+                return false;
+            }
+            List<bfb> c = zebVar.c();
+            yeb yebVar = null;
+            boolean z = false;
+            boolean z2 = false;
+            boolean z3 = false;
+            int i = 0;
+            for (int i2 = 0; i2 < c.size(); i2++) {
+                if (hfb.o(c.get(i2).b())) {
+                    z = true;
+                }
+                if (!nib.e(c.get(i2).a())) {
+                    for (xeb xebVar : c.get(i2).a()) {
+                        if (xebVar != null) {
+                            if (xebVar.c()) {
+                                if (yebVar == null) {
+                                    yebVar = xebVar.a();
+                                }
+                                if (yebVar != null) {
+                                    int k = yebVar.k(xebVar.a());
+                                    z2 = ((yeb.g & k) == 0 && (yeb.i & k) == 0 && (k & yeb.h) == 0) ? false : true;
+                                }
+                                if (xebVar.b().mSpeed != 1.0f) {
+                                    z = true;
+                                }
+                                if (MimeTypes.AUDIO_RAW.equals(xebVar.a().f())) {
+                                    z = true;
+                                }
+                                z3 = true;
+                            }
+                            i++;
+                            if (i > 1) {
+                                z2 = true;
+                            }
+                            if (z2 && z && z3) {
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (z2 && z && z3) {
+                    break;
+                }
+            }
+            if (z) {
+                efb efbVar = new efb();
+                efbVar.c(z2 ? 50 : 90);
+                efbVar.e(this);
+                this.d.add(efbVar);
+                dfb dfbVar = new dfb();
+                dfbVar.c(z2 ? 50 : 10);
+                dfbVar.e(this);
+                this.d.add(dfbVar);
+                efbVar.f(dfbVar);
+            } else {
+                dfb dfbVar2 = new dfb();
+                dfbVar2.c(100);
+                dfbVar2.e(this);
+                this.d.add(dfbVar2);
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void g() {
+    public final yeb k(zeb zebVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a.onResume();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, zebVar)) == null) {
+            if (zebVar != null && nib.b(zebVar.c()) == 1 && nib.b(zebVar.c().get(0).a()) == 1) {
+                xeb xebVar = zebVar.c().get(0).a().get(0);
+                if (xebVar.b() == null || xebVar.b().isNeedEdit() || !xebVar.c()) {
+                    return null;
+                }
+                return xebVar.a();
+            }
+            return null;
         }
+        return (yeb) invokeL.objValue;
     }
 
-    public void h() {
-        jfb jfbVar;
+    public final void l() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (jfbVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.b) == null) {
             return;
         }
-        jfbVar.k0();
+        bVar.onAudioMixtureCancel();
     }
 
-    public void i(int i, int i2) {
+    public final void m(String str) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            this.a.s(i, i2);
-        }
-    }
-
-    public void j() {
-        jfb jfbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (jfbVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.b) == null) {
             return;
         }
-        jfbVar.c();
+        bVar.onAudioMixtureFail(str);
     }
 
-    public void k(DuMixCallback duMixCallback) {
+    public final void n(int i) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, duMixCallback) == null) {
-            this.a.x(duMixCallback);
-        }
-    }
-
-    public void l(Filter filter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, filter) == null) {
-            this.a.y(filter);
-        }
-    }
-
-    public void m(GLSurfaceView gLSurfaceView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, gLSurfaceView) == null) {
-            this.a.w(gLSurfaceView);
-        }
-    }
-
-    public void n() {
-        jfb jfbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (jfbVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (bVar = this.b) == null) {
             return;
         }
-        jfbVar.d();
+        bVar.onAudioMixtureProgress(i);
     }
 
-    public void o(boolean z) {
-        jfb jfbVar;
+    public final void o(yeb yebVar) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (jfbVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, yebVar) == null) || (bVar = this.b) == null) {
             return;
         }
-        jfbVar.f0(z);
+        bVar.onAudioMixtureProgress(100);
+        this.b.onAudioMixtureSuccess(yebVar);
     }
 
-    public void p(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onFrameAvailableListener) == null) {
-            this.a.u(onFrameAvailableListener);
-        }
-    }
-
-    public void q(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.a.C(dVar);
-        }
-    }
-
-    public void r(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
-            this.a.D(eVar);
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-        }
-    }
-
-    public void t(boolean z) {
-        jfb jfbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (jfbVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || nib.e(this.d)) {
             return;
         }
-        jfbVar.G(z);
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        for (cfb cfbVar : this.d) {
+            cfbVar.h();
         }
     }
 
-    public void v(boolean z) {
+    public void q(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.a.T(z);
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
-    public void w(boolean z) {
-        jfb jfbVar;
+    public void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (jfbVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.clear();
+            this.e = 0;
+            this.f = 0;
+            yeb k = k(this.a);
+            if (k != null && k.i()) {
+                o(k);
+                return;
+            }
+            Thread thread = this.c;
+            if (thread != null) {
+                thread.interrupt();
+                this.c = null;
+            }
+            Thread thread2 = new Thread(new a(this));
+            this.c = thread2;
+            thread2.start();
         }
-        jfbVar.Y(z);
-    }
-
-    public void x(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-            this.a.setSpeed(f2);
-        }
-    }
-
-    public boolean y(Sticker sticker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, sticker, str)) == null) ? this.a.H(sticker, str) : invokeLL.booleanValue;
-    }
-
-    public void z(float f2) {
-        jfb jfbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || (jfbVar = this.a) == null) {
-            return;
-        }
-        jfbVar.q(f2);
     }
 }

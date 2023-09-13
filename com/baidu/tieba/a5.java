@@ -1,144 +1,132 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.searchbox.download.lightdownload.LightFileUtils;
-import com.baidu.tieba.h7;
-import com.baidu.tieba.p7;
-import com.baidu.tieba.t6;
+import com.baidu.tieba.b5;
+import com.baidu.tieba.q7;
+import com.baidu.tieba.u6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a5<T> implements h7.c {
+public class a5 extends i1<z4, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p7<String, b> a;
-    public t6<b> b;
-    public t6<a> c;
-    public T d;
+    public u6<q7.b<String, b5<z4>>> b;
 
     /* loaded from: classes5.dex */
-    public static class a<T> implements h7.c {
+    public static class a extends e1<z4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Class<T> b;
+        public u6<c5<?>> b;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.h7.c
-        public void a(h7 h7Var, JsonValue jsonValue) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, h7Var, jsonValue) == null) {
-                this.a = (String) h7Var.l(BreakpointSQLiteKey.FILENAME, String.class, jsonValue);
-                String str = (String) h7Var.l("type", String.class, jsonValue);
-                try {
-                    this.b = m8.a(str);
-                } catch (ReflectionException e) {
-                    throw new GdxRuntimeException("Class not found: " + str, e);
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i1
+    /* renamed from: g */
+    public void c(g1 g1Var, String str, d3 d3Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, g1Var, str, d3Var, aVar) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements h7.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public e7 a;
-        public a5 b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            new p7();
-            this.a = new e7();
-        }
-
-        @Override // com.baidu.tieba.h7.c
-        public void a(h7 h7Var, JsonValue jsonValue) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, h7Var, jsonValue) == null) {
-                p7 p7Var = (p7) h7Var.l("data", p7.class, jsonValue);
-                this.a.b((int[]) h7Var.l("indices", int[].class, jsonValue));
-            }
-        }
-    }
-
-    public a5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a5(l1 l1Var) {
+        super(l1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {l1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((l1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new p7<>();
-        this.b = new t6<>(true, 3, b.class);
-        this.c = new t6<>();
+        this.b = new u6<>();
     }
 
-    @Override // com.baidu.tieba.h7.c
-    public void a(h7 h7Var, JsonValue jsonValue) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v4, types: [V, com.baidu.tieba.b5] */
+    @Override // com.baidu.tieba.h1
+    /* renamed from: f */
+    public u6<c1> a(String str, d3 d3Var, a aVar) {
+        InterceptResult invokeLLL;
+        u6<b5.a> b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, h7Var, jsonValue) == null) {
-            p7<String, b> p7Var = (p7) h7Var.l("unique", p7.class, jsonValue);
-            this.a = p7Var;
-            p7.a<String, b> b2 = p7Var.b();
-            b2.c();
-            while (b2.hasNext()) {
-                ((b) b2.next().b).b = this;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, d3Var, aVar)) == null) {
+            ?? r0 = (b5) new i7().d(b5.class, d3Var);
+            synchronized (this.b) {
+                q7.b<String, b5<z4>> bVar = new q7.b<>();
+                bVar.a = str;
+                bVar.b = r0;
+                this.b.a(bVar);
+                b = r0.b();
             }
-            t6<b> t6Var = (t6) h7Var.m("data", t6.class, b.class, jsonValue);
-            this.b = t6Var;
-            t6.b<b> it = t6Var.iterator();
+            u6<c1> u6Var = new u6<>();
+            u6.b<b5.a> it = b.iterator();
             while (it.hasNext()) {
-                it.next().b = this;
+                b5.a next = it.next();
+                if (!b(next.a).c()) {
+                    next.a = d3Var.i().a(y0.d.a(next.a).g()).j();
+                }
+                Class<T> cls = next.b;
+                if (cls == z4.class) {
+                    u6Var.a(new c1(next.a, cls, aVar));
+                } else {
+                    u6Var.a(new c1(next.a, cls));
+                }
             }
-            this.c.b((t6) h7Var.m("assets", t6.class, a.class, jsonValue));
-            this.d = (T) h7Var.l(LightFileUtils.DIRCTORY_DOWNLOAD_RESOURCE, null, jsonValue);
+            return u6Var;
         }
+        return (u6) invokeLLL.objValue;
     }
 
-    public t6<a> b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i1
+    /* renamed from: h */
+    public z4 d(g1 g1Var, String str, d3 d3Var, a aVar) {
+        InterceptResult invokeLLLL;
+        b5<z4> b5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, g1Var, str, d3Var, aVar)) == null) {
+            synchronized (this.b) {
+                int i = 0;
+                while (true) {
+                    if (i < this.b.b) {
+                        q7.b<String, b5<z4>> bVar = this.b.get(i);
+                        if (bVar.a.equals(str)) {
+                            b5Var = bVar.b;
+                            this.b.h(i);
+                            break;
+                        }
+                        i++;
+                    } else {
+                        b5Var = null;
+                        break;
+                    }
+                }
+            }
+            b5Var.d.a(g1Var, b5Var);
+            if (aVar != null) {
+                u6<c5<?>> u6Var = aVar.b;
+                if (u6Var != null) {
+                    u6.b<c5<?>> it = u6Var.iterator();
+                    while (it.hasNext()) {
+                        it.next().b(g1Var, b5Var);
+                    }
+                }
+                b5Var.d.f(aVar.b);
+            }
+            return b5Var.d;
         }
-        return (t6) invokeV.objValue;
+        return (z4) invokeLLLL.objValue;
     }
 }

@@ -1,70 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class kk2 implements lk2, ck2 {
+public class kk2 implements gk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qj2 a;
-    public ss1 b;
-    public volatile ck2[] c;
-    public jk2 d;
+    public final String[] a;
+    public final Pair<String, String>[] b;
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kk2 a;
-
-        public a(kk2 kk2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kk2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kk2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
-            }
-        }
-    }
-
-    public kk2(@NonNull jk2 jk2Var) {
+    public kk2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jk2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,66 +33,78 @@ public class kk2 implements lk2, ck2 {
                 return;
             }
         }
-        this.a = new qj2();
-        this.b = lu2.m();
-        this.c = new ck2[]{new gk2(), new ek2(), new dk2(), new fk2()};
-        this.d = jk2Var;
+        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
+        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
-    @Override // com.baidu.tieba.ck2
-    public synchronized ArraySet<String> a() {
+    @Override // com.baidu.tieba.gk2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
-        ArraySet<String> arraySet;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                d82.k("RecoveryPolicy", "renameAllPlatformFiles start");
-                arraySet = new ArraySet<>();
-                for (ck2 ck2Var : this.c) {
-                    arraySet.addAll((ArraySet<? extends String>) ck2Var.a());
-                }
-                d82.k("RecoveryPolicy", "renameAllPlatformFiles end");
-            }
+            ArraySet<String> arraySet = new ArraySet<>();
+            arraySet.addAll((ArraySet<? extends String>) d());
+            arraySet.addAll((ArraySet<? extends String>) c());
+            arraySet.addAll((ArraySet<? extends String>) b());
             return arraySet;
         }
         return (ArraySet) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lk2
-    public void b() {
+    public final ArraySet<String> b() {
+        InterceptResult invokeV;
+        Pair<String, String>[] pairArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            xn3.k(new a(this), "performRecovery");
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            t73 e = t73.e();
-            v73 v73Var = new v73(132);
-            v73Var.d();
-            e.h(v73Var);
-        }
-    }
-
-    public void c(ArraySet<String> arraySet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arraySet) == null) && arraySet != null && !arraySet.isEmpty()) {
-            d82.k("RecoveryPolicy", "deleteFiles start");
-            Iterator<String> it = arraySet.iterator();
-            while (it.hasNext()) {
-                hr4.k(it.next());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            File file2 = new File(rr4.c());
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (Pair<String, String> pair : this.b) {
+                arraySet.addAll((ArraySet<? extends String>) sj2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
+                arraySet.addAll((ArraySet<? extends String>) sj2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
             }
-            d82.k("RecoveryPolicy", "deleteFiles end");
+            h82.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
+            return arraySet;
         }
+        return (ArraySet) invokeV.objValue;
     }
 
-    public void f(Collection<String> collection) {
+    public final ArraySet<String> c() {
+        InterceptResult invokeV;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, collection) == null) && collection != null && !collection.isEmpty()) {
-            d82.k("RecoveryPolicy", "resetAccredit appIds=" + collection);
-            this.a.g(new ArrayList(collection));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            String c = rr4.c();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String J = lr4.J(new File(c, str + SwanKV.PREFS_SUFFIX));
+                if (!TextUtils.isEmpty(J)) {
+                    arraySet.add(J);
+                }
+                String J2 = lr4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                if (!TextUtils.isEmpty(J2)) {
+                    arraySet.add(J2);
+                }
+            }
+            h82.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
+            return arraySet;
         }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            String J = lr4.J(new File(yj3.c()));
+            if (!TextUtils.isEmpty(J)) {
+                arraySet.add(J);
+            }
+            h82.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
     }
 }

@@ -1,78 +1,100 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class u01 {
     public static /* synthetic */ Interceptable $ic;
+    public static final u01 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<s01> a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public final boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                return (obj instanceof u01) && Intrinsics.areEqual(this.a, ((u01) obj).a);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157075, "Lcom/baidu/tieba/u01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<s01> arrayList = this.a;
-            if (arrayList != null) {
-                return arrayList.hashCode();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948157075, "Lcom/baidu/tieba/u01;");
+                return;
             }
-            return 0;
         }
-        return invokeV.intValue;
+        a = new u01();
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Interact(adaptationSetList=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public u01(ArrayList<s01> arrayList) {
+    public u01() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = arrayList;
     }
 
-    public final ArrayList<s01> a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final JSONArray b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            a11 c = a.c(str);
+            if (c != null) {
+                JSONArray jSONArray = new JSONArray();
+                v01.a(c, jSONArray);
+                t01.a(c, jSONArray);
+                return jSONArray;
+            }
+            return null;
         }
-        return (ArrayList) invokeV.objValue;
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public final a11 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("version", -1);
+                if (!a.a(optInt)) {
+                    return null;
+                }
+                a11 a11Var = new a11();
+                a11Var.e(optInt);
+                a11Var.d(jSONObject.optString("mode"));
+                v01.b(a11Var, jSONObject);
+                t01.b(a11Var, jSONObject);
+                Unit unit = Unit.INSTANCE;
+                return a11Var;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (a11) invokeL.objValue;
     }
 }

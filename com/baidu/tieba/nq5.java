@@ -1,58 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import com.baidu.tbadk.mutiprocess.aiApply.AICapacityMainProcessToastEvent;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class nq5 extends xk1<ll> {
+public final class nq5 implements eq5<AICapacityMainProcessToastEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements ll {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.ll
-        public void a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
-                soLoaderEvent.name = str;
-                MutiProcessManager.publishEvent(soLoaderEvent);
-            }
-        }
-    }
 
     public nq5() {
         Interceptable interceptable = $ic;
@@ -69,14 +27,18 @@ public class nq5 extends xk1<ll> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
+    @Override // com.baidu.tieba.eq5
     /* renamed from: a */
-    public ll createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public boolean onEvent(AICapacityMainProcessToastEvent aICapacityMainProcessToastEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aICapacityMainProcessToastEvent)) == null) {
+            if (aICapacityMainProcessToastEvent == null) {
+                return false;
+            }
+            AICapacityApplyHelper.e.a().j(aICapacityMainProcessToastEvent.getToastString());
+            return true;
         }
-        return (ll) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

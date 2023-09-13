@@ -15,20 +15,20 @@ import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.tieba.c2;
-import com.baidu.tieba.c7;
-import com.baidu.tieba.e2;
-import com.baidu.tieba.g2;
-import com.baidu.tieba.j2;
-import com.baidu.tieba.l2;
-import com.baidu.tieba.p2;
-import com.baidu.tieba.t6;
-import com.baidu.tieba.u0;
-import com.baidu.tieba.w0;
+import com.baidu.tieba.a1;
+import com.baidu.tieba.a2;
+import com.baidu.tieba.a8;
+import com.baidu.tieba.d2;
+import com.baidu.tieba.d7;
+import com.baidu.tieba.f2;
+import com.baidu.tieba.h2;
+import com.baidu.tieba.k2;
+import com.baidu.tieba.m2;
+import com.baidu.tieba.q2;
+import com.baidu.tieba.u6;
+import com.baidu.tieba.v0;
 import com.baidu.tieba.x0;
-import com.baidu.tieba.z0;
-import com.baidu.tieba.z1;
-import com.baidu.tieba.z7;
+import com.baidu.tieba.y0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,20 +37,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AndroidFragmentApplication extends Fragment implements z1 {
+public class AndroidFragmentApplication extends Fragment implements a2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j2 a;
-    public l2 b;
-    public c2 c;
-    public g2 d;
-    public p2 e;
-    public u0 f;
+    public k2 a;
+    public m2 b;
+    public d2 c;
+    public h2 d;
+    public q2 e;
+    public v0 f;
     public boolean g;
-    public final t6<Runnable> h;
-    public final t6<Runnable> i;
-    public final z7<z0> j;
-    public final t6<e2> k;
+    public final u6<Runnable> h;
+    public final u6<Runnable> i;
+    public final a8<a1> j;
+    public final u6<f2> k;
     public int l;
 
     /* loaded from: classes.dex */
@@ -70,19 +70,19 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
                 return;
             }
         }
-        c7.a();
+        d7.a();
     }
 
-    public w0 U1() {
+    public x0 W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (w0) invokeV.objValue;
+        return (x0) invokeV.objValue;
     }
 
-    public Files V1() {
+    public Files X1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -91,7 +91,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Files) invokeV.objValue;
     }
 
-    public Net W1() {
+    public Net Y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -100,7 +100,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Net) invokeV.objValue;
     }
 
-    public final boolean X1() {
+    public final boolean Z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -115,16 +115,16 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
     }
 
     @Override // com.badlogic.gdx.Application
-    public u0 getApplicationListener() {
+    public v0 getApplicationListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.f;
         }
-        return (u0) invokeV.objValue;
+        return (v0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z1
+    @Override // com.baidu.tieba.a2
     public Window getApplicationWindow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Window) invokeV.objValue;
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.z1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.a2
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -144,14 +144,14 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z1
-    public t6<Runnable> getExecutedRunnables() {
+    @Override // com.baidu.tieba.a2
+    public u6<Runnable> getExecutedRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.i;
         }
-        return (t6) invokeV.objValue;
+        return (u6) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -164,35 +164,35 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Graphics) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z1
+    @Override // com.baidu.tieba.a2
     /* renamed from: getInput */
-    public l2 mo6getInput() {
+    public m2 mo6getInput() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.b;
         }
-        return (l2) invokeV.objValue;
+        return (m2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z1
-    public z7<z0> getLifecycleListeners() {
+    @Override // com.baidu.tieba.a2
+    public a8<a1> getLifecycleListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.j;
         }
-        return (z7) invokeV.objValue;
+        return (a8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z1
-    public t6<Runnable> getRunnables() {
+    @Override // com.baidu.tieba.a2
+    public u6<Runnable> getRunnables() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.h;
         }
-        return (t6) invokeV.objValue;
+        return (u6) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Application
@@ -205,7 +205,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Application.ApplicationType) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z1
+    @Override // com.baidu.tieba.a2
     public WindowManager getWindowManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -237,10 +237,10 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
             }
         }
         this.g = true;
-        this.h = new t6<>();
-        this.i = new t6<>();
-        this.j = new z7<>(z0.class);
-        this.k = new t6<>();
+        this.h = new u6<>();
+        this.i = new u6<>();
+        this.j = new a8<>(a1.class);
+        this.k = new u6<>();
         this.l = 2;
     }
 
@@ -249,16 +249,16 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             boolean d = this.a.d();
-            boolean z = j2.w;
-            j2.w = true;
+            boolean z = k2.w;
+            k2.w = true;
             this.a.u(true);
             this.a.r();
             this.b.onPause();
-            if (isRemoving() || X1() || getActivity().isFinishing()) {
+            if (isRemoving() || Z1() || getActivity().isFinishing()) {
                 this.a.h();
                 this.a.j();
             }
-            j2.w = z;
+            k2.w = z;
             this.a.u(d);
             this.a.p();
             super.onPause();
@@ -346,7 +346,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         if (interceptable == null || interceptable.invokeL(1048600, this, runnable) == null) {
             synchronized (this.h) {
                 this.h.a(runnable);
-                x0.b.c();
+                y0.b.c();
             }
         }
     }
@@ -355,16 +355,16 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            x0.a = this;
+            y0.a = this;
             mo6getInput();
-            x0.c = U1();
-            x0.d = V1();
-            x0.b = getGraphics();
-            W1();
+            y0.c = W1();
+            y0.d = X1();
+            y0.b = getGraphics();
+            Y1();
             this.b.onResume();
-            j2 j2Var = this.a;
-            if (j2Var != null) {
-                j2Var.q();
+            k2 k2Var = this.a;
+            if (k2Var != null) {
+                k2Var.q();
             }
             if (!this.g) {
                 this.a.t();

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,9 +9,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class p4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l3[] a;
-    public float[] b;
-    public q4[] c;
+    public final short[] a;
+    public final u6<q4> b;
+    public final u6<ModelMaterial> c;
+    public final u6<s4> d;
+    public final u6<o4> e;
 
     public p4() {
         Interceptable interceptable = $ic;
@@ -22,7 +25,13 @@ public class p4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new short[2];
+        this.b = new u6<>();
+        this.c = new u6<>();
+        this.d = new u6<>();
+        this.e = new u6<>();
     }
 }

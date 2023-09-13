@@ -12,6 +12,7 @@ import android.os.Build;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -262,7 +263,7 @@ public class b {
             h = new d("errorMsg", 7);
             i = new d("requestId", 8);
             j = new d("stableHeartInterval", 9);
-            k = new d("errorCode", 10);
+            k = new d(CloudStabilityUBCUtils.KEY_ERROR_CODE, 10);
             l = new d("appid", 11);
             m = new d("channel", 12);
             n = new d("openByPackageName", 13);

@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
+import com.baidu.swan.gamecenter.network.models.ReservationGameResultData;
+import com.baidu.swan.gamecenter.network.models.ResultData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,97 +15,222 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class t34 extends j34 {
+public class t34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Gson a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130260, "Lcom/baidu/tieba/t34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948130260, "Lcom/baidu/tieba/t34;");
-                return;
+    /* loaded from: classes8.dex */
+    public class a extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u34 a;
+        public final /* synthetic */ t34 b;
+
+        /* renamed from: com.baidu.tieba.t34$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0483a extends TypeToken<ResultData<ReservationGameResultData>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0483a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
         }
-        c = nr1.a;
+
+        public a(t34 t34Var, u34 u34Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t34Var, u34Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t34Var;
+            this.a = u34Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            u34 u34Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && (u34Var = this.a) != null) {
+                u34Var.onFail(exc.toString());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && !TextUtils.isEmpty(str) && this.a != null) {
+                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0483a(this).getType());
+                if (resultData == null) {
+                    this.a.onFail("result is null");
+                } else if (resultData.errno == 0) {
+                    T t = resultData.data;
+                    if (t != 0 && ((ReservationGameResultData) t).apps != null) {
+                        this.a.onSuccess(((ReservationGameResultData) t).apps);
+                        return;
+                    }
+                    this.a.onFail("result data is null");
+                } else {
+                    u34 u34Var = this.a;
+                    if (u34Var != null) {
+                        u34Var.onFail(resultData.errmsg);
+                    }
+                }
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes8.dex */
+    public class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            }
+        }
+
+        public b(t34 t34Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t34Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final t34 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-452580171, "Lcom/baidu/tieba/t34$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-452580171, "Lcom/baidu/tieba/t34$c;");
+                    return;
+                }
+            }
+            a = new t34(null);
+        }
+    }
+
     public t34() {
-        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new Gson();
     }
 
-    public static boolean b(Long l, Long l2) {
-        InterceptResult invokeLL;
+    public static final t34 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c.a;
         }
-        return invokeLL.booleanValue;
+        return (t34) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j34
-    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
-        InterceptResult invokeLL;
+    public /* synthetic */ t34(a aVar) {
+        this();
+    }
+
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
-            if (jSONObject == null) {
-                ho2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("swanGameId");
-            if (TextUtils.isEmpty(optString)) {
-                ho2Var.onFail(202, "params may be error");
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
+                za3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f01cd).G();
+            } else if (TextUtils.isEmpty(str)) {
             } else {
-                lj3 a = rj3.a();
-                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                    lj3 a2 = rj3.a();
-                    a2.putLong(optString + "_Duration", 0L);
-                }
-                lj3 a3 = rj3.a();
-                long j = a3.getLong(optString + "_Duration", 0L);
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
+                String n = y74.b().n();
+                jg3 a2 = ou2.q().a();
                 try {
-                    jSONObject3.put("swanGameDuration", j);
-                    jSONObject2.put("data", jSONObject3);
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("app_id", Long.valueOf(str));
+                    li4.g().getRequest().cookieManager(a2).url(n).addUrlParam("data", jSONObject.toString()).build().executeAsync(new b(this));
                 } catch (JSONException e) {
-                    if (c) {
-                        e.printStackTrace();
-                    }
+                    e.printStackTrace();
                 }
-                ho2Var.onSuccess(jSONObject2);
             }
-            return null;
         }
-        return (d32) invokeLL.objValue;
+    }
+
+    public void d(u34<List<ReservationGameInfo>> u34Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u34Var) != null) || !SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
+            return;
+        }
+        String c2 = y74.b().c();
+        jg3 a2 = ou2.q().a();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("status", 2);
+            li4.g().getRequest().cookieManager(a2).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new a(this, u34Var));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

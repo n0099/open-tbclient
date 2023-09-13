@@ -6,10 +6,10 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.dt5;
+import com.baidu.tieba.ba8;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel;
-import com.baidu.tieba.k88;
-import com.baidu.tieba.n88;
+import com.baidu.tieba.xt5;
+import com.baidu.tieba.y98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,10 +20,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel k;
-    public k88 l;
+    public y98 l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void C1() {
+    public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -54,10 +54,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(n88 n88Var) {
+        public void a(ba8 ba8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, n88Var) == null) && this.a.l != null) {
-                this.a.l.p(n88Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ba8Var) == null) && this.a.l != null) {
+                this.a.l.p(ba8Var);
             }
         }
 
@@ -122,9 +122,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            k88 k88Var = this.l;
-            if (k88Var != null) {
-                k88Var.onDestroy();
+            y98 y98Var = this.l;
+            if (y98Var != null) {
+                y98Var.onDestroy();
             }
         }
     }
@@ -134,9 +134,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            k88 k88Var = this.l;
-            if (k88Var != null) {
-                k88Var.r(i);
+            y98 y98Var = this.l;
+            if (y98Var != null) {
+                y98Var.r(i);
             }
         }
     }
@@ -149,20 +149,20 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
             this.l.k(getIntent());
             LocalChannelTopicListModel localChannelTopicListModel = new LocalChannelTopicListModel(getPageContext());
             this.k = localChannelTopicListModel;
-            localChannelTopicListModel.O(new a(this));
+            localChannelTopicListModel.N(new a(this));
             this.k.loadData();
         }
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public dt5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public xt5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
-            k88 k88Var = new k88(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.l = k88Var;
-            return k88Var;
+            y98 y98Var = new y98(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = y98Var;
+            return y98Var;
         }
-        return (dt5) invokeLL.objValue;
+        return (xt5) invokeLL.objValue;
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.is5;
-import com.baidu.tieba.ms5;
-import com.baidu.tieba.ns5;
-import com.baidu.tieba.os5;
+import com.baidu.tieba.ct5;
+import com.baidu.tieba.gt5;
+import com.baidu.tieba.ht5;
+import com.baidu.tieba.it5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -369,54 +369,54 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    os5 os5Var = new os5();
-                    os5Var.subType = "frs";
-                    return os5Var;
+                    it5 it5Var = new it5();
+                    it5Var.subType = "frs";
+                    return it5Var;
                 case 1001:
-                    os5 os5Var2 = new os5();
-                    os5Var2.subType = "pb";
-                    return os5Var2;
+                    it5 it5Var2 = new it5();
+                    it5Var2.subType = "pb";
+                    return it5Var2;
                 case 1002:
-                    ms5 ms5Var = new ms5();
-                    ms5Var.subType = "im";
-                    return ms5Var;
+                    gt5 gt5Var = new gt5();
+                    gt5Var.subType = "im";
+                    return gt5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    os5 os5Var3 = new os5();
-                    os5Var3.subType = "photo_live";
-                    return os5Var3;
+                    it5 it5Var3 = new it5();
+                    it5Var3.subType = "photo_live";
+                    return it5Var3;
                 case 1005:
-                    is5 is5Var = new is5();
-                    is5Var.subType = "home_page";
-                    return is5Var;
+                    ct5 ct5Var = new ct5();
+                    ct5Var.subType = "home_page";
+                    return ct5Var;
                 case 1008:
-                    os5 os5Var4 = new os5();
-                    os5Var4.subType = "user_center";
-                    return os5Var4;
+                    it5 it5Var4 = new it5();
+                    it5Var4.subType = "user_center";
+                    return it5Var4;
                 case 1009:
-                    os5 os5Var5 = new os5();
-                    os5Var5.subType = Logger.SIGN_ALL;
-                    return os5Var5;
+                    it5 it5Var5 = new it5();
+                    it5Var5.subType = Logger.SIGN_ALL;
+                    return it5Var5;
                 case 1010:
-                    os5 os5Var6 = new os5();
-                    os5Var6.subType = "person_center";
-                    return os5Var6;
+                    it5 it5Var6 = new it5();
+                    it5Var6.subType = "person_center";
+                    return it5Var6;
                 case 1011:
-                    os5 os5Var7 = new os5();
-                    os5Var7.subType = "person_center_home";
-                    return os5Var7;
+                    it5 it5Var7 = new it5();
+                    it5Var7.subType = "person_center_home";
+                    return it5Var7;
                 case 1012:
-                    os5 os5Var8 = new os5();
-                    os5Var8.subType = "person_center_post";
-                    return os5Var8;
+                    it5 it5Var8 = new it5();
+                    it5Var8.subType = "person_center_post";
+                    return it5Var8;
                 case 1013:
-                    os5 os5Var9 = new os5();
-                    os5Var9.subType = "person_center_dynamic";
-                    return os5Var9;
+                    it5 it5Var9 = new it5();
+                    it5Var9.subType = "person_center_dynamic";
+                    return it5Var9;
             }
         }
         return (PerformanceLogger) invokeI.objValue;
@@ -465,7 +465,7 @@ public class PerformanceLoggerHelper {
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                ns5.a().e();
+                ht5.a().e();
             }
         }
     }

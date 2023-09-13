@@ -68,15 +68,15 @@ public final class PermissionInAppWindow extends PopupWindow {
             return;
         }
         this.mContext = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07c1, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d5, (ViewGroup) null);
         setContentView(inflate);
         setWidth(-1);
         setHeight(-2);
         setBackgroundDrawable(new ColorDrawable(0));
-        setAnimationStyle(R.style.obfuscated_res_0x7f1003f4);
-        this.mTitleView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b94);
-        this.mContentView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b8c);
-        this.mPermissionRootView = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b93);
+        setAnimationStyle(R.style.obfuscated_res_0x7f1003fd);
+        this.mTitleView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bad);
+        this.mContentView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba5);
+        this.mPermissionRootView = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091bac);
         updateUI(context);
     }
 
@@ -96,15 +96,15 @@ public final class PermissionInAppWindow extends PopupWindow {
         }
         TextView textView = this.mTitleView;
         if (textView != null) {
-            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f0601fd, null));
+            textView.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f0601ff, null));
         }
         TextView textView2 = this.mContentView;
         if (textView2 != null) {
-            textView2.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f0601fd, null));
+            textView2.setTextColor(ResourcesCompat.getColor(resources, R.color.obfuscated_res_0x7f0601ff, null));
         }
         LinearLayout linearLayout = this.mPermissionRootView;
         if (linearLayout != null) {
-            linearLayout.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f0813b7, null));
+            linearLayout.setBackground(ResourcesCompat.getDrawable(resources, R.drawable.obfuscated_res_0x7f0813dc, null));
         }
     }
 

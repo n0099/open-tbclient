@@ -35,14 +35,14 @@ public class r {
 
         /* renamed from: com.kuaishou.weapon.p0.r$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C0597a extends TimerTask {
+        public class C0592a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ s a;
             public final /* synthetic */ t b;
             public final /* synthetic */ a c;
 
-            public C0597a(a aVar, s sVar, t tVar) {
+            public C0592a(a aVar, s sVar, t tVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class r {
                         }
                         return;
                     }
-                    new Timer().schedule(new C0597a(this, a, a2), 600000L);
+                    new Timer().schedule(new C0592a(this, a, a2), 600000L);
                     a.c(this.a);
                     this.b.d.a(this.a);
                     File file = new File(a2.e);

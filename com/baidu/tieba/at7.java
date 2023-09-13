@@ -1,69 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class at7 implements l65 {
+public class at7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public at7() {
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
     }
 
-    @Override // com.baidu.tieba.l65
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public static void b(Context context, zga zgaVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsGuide");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, zgaVar) != null) || zgaVar == null) {
+            return;
         }
-        return (Map) invokeLLL.objValue;
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        aha ahaVar = zgaVar.f;
+        if (ahaVar != null) {
+            TbAiappsLaunchUtil.launch(ahaVar.b, ahaVar.c, "1191003700000000", ahaVar.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(zgaVar.d)) {
+                str = zgaVar.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = zgaVar.d;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        }
+        lw7.a(tbPageContext, zgaVar.e);
     }
 
-    @Override // com.baidu.tieba.l65
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
+    public static void c(zga zgaVar) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (!(TbadkCoreApplication.getInst().getCurrentActivity() instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧主弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            boolean z = !SharedPrefHelper.getInstance().getBoolean("has_guide_popup_window_been_shown", false);
-            if (!z) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧主弹窗策略校验失败：已经显示过");
-            }
-            return z;
+        if ((interceptable != null && interceptable.invokeL(65538, null, zgaVar) != null) || zgaVar == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", zgaVar.g);
+        if (zgaVar.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", zgaVar.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        aha ahaVar = zgaVar.f;
+        if (ahaVar != null) {
+            str = ahaVar.c;
+        } else {
+            str = zgaVar.d;
+        }
+        aha ahaVar2 = zgaVar.f;
+        if (ahaVar2 != null) {
+            String str2 = ahaVar2.a;
+        } else {
+            String str3 = zgaVar.c;
+        }
+        statisticItem.param("obj_name", zgaVar.c);
+        statisticItem.param("obj_param1", zgaVar.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(zgaVar.i, 1));
+    }
+
+    public static void d(zga zgaVar) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, zgaVar) != null) || zgaVar == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", zgaVar.g);
+        if (zgaVar.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", zgaVar.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        aha ahaVar = zgaVar.f;
+        if (ahaVar != null) {
+            str = ahaVar.c;
+        } else {
+            str = zgaVar.d;
+        }
+        aha ahaVar2 = zgaVar.f;
+        if (ahaVar2 != null) {
+            String str2 = ahaVar2.a;
+        } else {
+            String str3 = zgaVar.c;
+        }
+        statisticItem.param("obj_name", zgaVar.c);
+        statisticItem.param("obj_param1", zgaVar.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(zgaVar.i, 0));
     }
 }

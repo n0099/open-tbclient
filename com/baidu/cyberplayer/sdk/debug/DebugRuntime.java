@@ -11,10 +11,10 @@ import java.util.Map;
 @Autowired
 /* loaded from: classes3.dex */
 public class DebugRuntime {
-    public static IDebugConfig a = new a();
+    public static IDebugConfig defaultConfig = new DefaultDebugConfigImpl();
 
     /* loaded from: classes3.dex */
-    public static class a implements IDebugConfig {
+    public static class DefaultDebugConfigImpl implements IDebugConfig {
         @Override // com.baidu.cyberplayer.sdk.debug.IDebugConfig
         public Map<String, String> parseConfig(Context context) {
             return null;
@@ -27,6 +27,6 @@ public class DebugRuntime {
 
     @Inject(force = false)
     public static IDebugConfig getDebugConfig() {
-        return a;
+        return defaultConfig;
     }
 }

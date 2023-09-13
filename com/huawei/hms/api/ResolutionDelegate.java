@@ -16,7 +16,7 @@ import com.huawei.hms.activity.internal.ForegroundBusResponseMgr;
 import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.support.log.HMSLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResolutionDelegate implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALLBACK_METHOD = "CALLBACK_METHOD";

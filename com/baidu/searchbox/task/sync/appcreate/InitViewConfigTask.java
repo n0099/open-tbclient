@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.ns5;
-import com.baidu.tieba.rpa;
+import com.baidu.tieba.ht5;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.pra;
 /* loaded from: classes4.dex */
 public class InitViewConfigTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -55,25 +55,25 @@ public class InitViewConfigTask extends LaunchTask {
                 }
             };
             BdUtilHelper.setToastView(TbadkCoreApplication.getInst().mToast);
-            ns5.a().G(System.currentTimeMillis() - currentTimeMillis);
+            ht5.a().G(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-        h05.c().f();
+        m05.c().f();
         TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
         TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbImageMemoryCache.B().I(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+            TbImageMemoryCache.A().H(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
         } else {
-            TbImageMemoryCache.B().I(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+            TbImageMemoryCache.A().H(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
         }
         TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
         TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
         TbDimenManager.getInstance().init(AppRuntime.getApplication());
-        rpa.c();
+        pra.c();
         initCustomToastView();
     }
 }

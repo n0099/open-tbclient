@@ -1,114 +1,185 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u74 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public JSONObject c;
+    public String d;
 
-    @Inject(force = false)
-    public static k84 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return y86.a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163895, "Lcom/baidu/tieba/u74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163895, "Lcom/baidu/tieba/u74;");
+                return;
+            }
         }
-        return (k84) invokeV.objValue;
+        e = rr1.a;
     }
 
-    @Inject(force = false)
-    public static p84 b() {
-        InterceptResult invokeV;
+    public u74() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new y74();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (p84) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static o84 c() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new x74();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (hb3.M() != null && TextUtils.equals(hb3.g0(), "7TxyeScrKPj02EATE68RBG5Z8f46a8So")) {
+                return true;
+            }
+            return false;
         }
-        return (o84) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Inject(force = false)
-    public static l84 d() {
+    public u74 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e14.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.a = false;
+            this.b = false;
+            this.d = null;
+            this.c = c();
+            boolean b = b();
+            this.a = b;
+            if (b) {
+                return this;
+            }
+            this.b = a();
+            return this;
         }
-        return (l84) invokeV.objValue;
+        return (u74) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static n84 e() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return j14.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.a && !this.b) {
+                return false;
+            }
+            return true;
         }
-        return (n84) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Inject(force = false)
-    public static m84 f() {
+    public final boolean a() {
         InterceptResult invokeV;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return g14.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = this.c;
+            boolean z3 = false;
+            if (jSONObject == null) {
+                return false;
+            }
+            int optInt = jSONObject.optInt("bbaspg_guide_count", 3);
+            int optInt2 = this.c.optInt("bbaspg_guide_interval", 72);
+            long optLong = this.c.optLong("bbaspg_guide_last_time", 0L);
+            int optInt3 = this.c.optInt("bbaspg_guide_shown_count", 0);
+            int optInt4 = this.c.optInt("bbaspg_guide_image_index", 0);
+            if (System.currentTimeMillis() - optLong > optInt2 * 3600000) {
+                z = true;
+            } else {
+                z = false;
+            }
+            String optString = this.c.optString("filter_channelid");
+            if (!TextUtils.isEmpty(optString)) {
+                String[] split = optString.split(",");
+                String T2 = gb3.K().q().W().T();
+                z2 = true;
+                for (String str : split) {
+                    if (TextUtils.equals(T2, str)) {
+                        z2 = false;
+                    }
+                }
+            } else {
+                z2 = true;
+            }
+            if (optInt3 < optInt && z && z2) {
+                z3 = true;
+            }
+            if (e) {
+                Log.i("SwanGameGuideDialogChecker", "isShow:" + z3 + " maxCount" + optInt + " isOverInterval" + z + "imageUrl " + this.d + UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY + z3);
+            }
+            if (z3) {
+                d(this.c, optInt4, "bbaspg_guide_images");
+            }
+            return z3;
         }
-        return (m84) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Inject(force = false)
-    public static q84 g() {
+    public final JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return new z74();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String string = vj3.a().getString("swan_game_guide_toast", "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    return new JSONObject(string);
+                } catch (JSONException e2) {
+                    if (rr1.a) {
+                        e2.printStackTrace();
+                        return null;
+                    }
+                    return null;
+                }
+            }
+            return null;
         }
-        return (q84) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Inject(force = false)
-    public static r84 h() {
-        InterceptResult invokeV;
+    public final int d(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new a84();
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, jSONObject, i, str)) == null) {
+            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
+                return 0;
+            }
+            if (i >= optJSONArray.length()) {
+                i = 0;
+            }
+            this.d = optJSONArray.optString(i);
+            return i;
         }
-        return (r84) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static s84 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new b84();
-        }
-        return (s84) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static t84 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new c84();
-        }
-        return (t84) invokeV.objValue;
+        return invokeLIL.intValue;
     }
 }

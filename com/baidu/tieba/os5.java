@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.tbadk.performanceLog.PerformanceLogger;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
+import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
+import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class os5 extends PerformanceLogger {
+public class os5 {
     public static /* synthetic */ Interceptable $ic;
+    public static os5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public List<String> b;
 
     public os5() {
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,168 +38,171 @@ public class os5 extends PerformanceLogger {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(ls5 ls5Var) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ls5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time");
-        String str2 = "0";
-        if (!ls5Var.s) {
-            str = "0";
-        } else {
-            str = "1";
-        }
-        logItem.append("ishttp", str);
-        if (ls5Var.b) {
-            str2 = "1";
-        }
-        logItem.append("issuccess", str2);
-        logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        logItem.append("wt", String.valueOf(ls5Var.p));
-        logItem.append("qt", String.valueOf(ls5Var.f));
-        logItem.append("connt", String.valueOf(ls5Var.g));
-        logItem.append("rwt", String.valueOf(ls5Var.h));
-        logItem.append("fbt", String.valueOf(ls5Var.i));
-        logItem.append("abt", String.valueOf(ls5Var.j));
-        logItem.append("dect", String.valueOf(ls5Var.k));
-        logItem.append("parset", String.valueOf(ls5Var.l));
-        logItem.append("tqt", String.valueOf(ls5Var.n));
-        logItem.append("rendert", String.valueOf(ls5Var.o));
-        logItem.append("ss", String.valueOf(ls5Var.q));
-        logItem.append("hs", String.valueOf(ls5Var.r));
-        if (ls5Var.s && (i = ls5Var.t) != 0) {
-            logItem.append("salno", String.valueOf(i));
-            long j = ls5Var.u;
-            if (j != 0) {
-                logItem.append("scosttime", String.valueOf(j));
-            }
-        }
-        if (ls5Var.s) {
-            logItem.append("hrtn", String.valueOf(ls5Var.w));
-            logItem.append("hrtt", String.valueOf(ls5Var.x));
-        }
-        int i2 = ls5Var.v;
-        if (i2 != 0) {
-            logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-        }
-        if (ls5Var.y) {
-            logItem.append("pt", "1");
-        } else {
-            logItem.append("sysct", String.valueOf(ls5Var.c));
-            logItem.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(ls5Var.e));
-            logItem.append("lt", String.valueOf(ls5Var.d));
-            logItem.append("df", String.valueOf(ls5Var.m));
-        }
-        if (ls5Var.s) {
-            logItem.append("c_logid", String.valueOf(ls5Var.A));
-            long j2 = ls5Var.z;
-            if (j2 != 0) {
-                logItem.append(PushConstants.SEQ_ID, String.valueOf(j2 & 4294967295L));
-            }
-        } else {
-            logItem.append(PushConstants.SEQ_ID, String.valueOf(ls5Var.z & 4294967295L));
-        }
-        HashMap<String, String> hashMap = ls5Var.E;
-        if (hashMap != null && !hashMap.isEmpty()) {
-            for (Map.Entry<String, String> entry : ls5Var.E.entrySet()) {
-                logItem.append(entry.getKey(), entry.getValue());
-            }
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    public void b(ls5 ls5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ls5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || ls5Var.D <= 0) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time");
-        logItem.append("pct", String.valueOf(ls5Var.D));
-        if (i != 0) {
-            if (i != 40) {
                 return;
             }
-            logItem.append("pct_type", String.valueOf(101));
-        } else {
-            logItem.append("pct_type", String.valueOf(100));
         }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
+        this.a = i(SharedPrefHelper.getInstance().getString("key_need_add_source_stat_list", ""));
+        if (zoa.a(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED3")) {
+            str = zoa.c(BdBaseApplication.getInst(), "CHANGE_DOT_REFINED3_CORE_KEYS");
+        } else {
+            str = "c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384";
+        }
+        this.b = i(str);
     }
 
-    public void c(ls5 ls5Var, boolean z) {
-        String str;
-        int i;
+    public static void b(Context context, StatisticItem statisticItem, PageStayDurationItem pageStayDurationItem) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, ls5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, pageStayDurationItem) == null) && pageStayDurationItem != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            ms5 tbPageExtra = pageStayDurationItem.getTbPageExtra();
+            if (tbPageExtra == null || tbPageExtra.f()) {
+                tbPageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            }
+            if (tbPageExtra != null && !tbPageExtra.f()) {
+                c(statisticItem, tbPageExtra);
+            }
+            TbPageExtraHelper.printLog(statisticItem.toString());
         }
-        if (!z || ls5Var.B > 0) {
-            if (!z && ls5Var.C <= 0) {
-                return;
+    }
+
+    public static void c(StatisticItem statisticItem, ms5 ms5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, ms5Var) == null) && statisticItem != null && ms5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            String a = ms5Var.a();
+            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+                statisticItem.param("page_key", a);
             }
-            BdStatsItem logItem = PerformanceLogger.getLogItem();
-            logItem.append("action", "time");
-            if (z) {
-                logItem.append("put", String.valueOf(ls5Var.B));
-            } else {
-                logItem.append("pdt", String.valueOf(ls5Var.C));
+            String a2 = ns5.a(ms5Var.d(), a, 6);
+            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+                statisticItem.param("page_source", a2);
             }
-            String str2 = "1";
-            if (ls5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            logItem.append("ishttp", str);
-            if (!ls5Var.b) {
-                str2 = "0";
-            }
-            logItem.append("issuccess", str2);
-            logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            logItem.append("qt", String.valueOf(ls5Var.f));
-            logItem.append("connt", String.valueOf(ls5Var.g));
-            logItem.append("rwt", String.valueOf(ls5Var.h));
-            logItem.append("dect", String.valueOf(ls5Var.k));
-            logItem.append("parset", String.valueOf(ls5Var.l));
-            logItem.append("rendert", String.valueOf(ls5Var.o));
-            logItem.append("ss", String.valueOf(ls5Var.q));
-            logItem.append("hs", String.valueOf(ls5Var.r));
-            if (ls5Var.s && (i = ls5Var.t) != 0) {
-                logItem.append("salno", String.valueOf(i));
-                long j = ls5Var.u;
-                if (j != 0) {
-                    logItem.append("scosttime", String.valueOf(j));
+        }
+    }
+
+    public static os5 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (os5.class) {
+                    if (c == null) {
+                        c = new os5();
+                    }
                 }
             }
-            int i2 = ls5Var.v;
-            if (i2 != 0) {
-                logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
+            return c;
+        }
+        return (os5) invokeV.objValue;
+    }
+
+    public final void a(StatisticItem statisticItem) {
+        Activity currentActivity;
+        ms5 currentVisiblePageExtra;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
+            return;
+        }
+        String a = currentVisiblePageExtra.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
+        }
+        String b = currentVisiblePageExtra.b();
+        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
+            statisticItem.param("page_tag", b);
+        }
+        ArrayList<String> d = currentVisiblePageExtra.d();
+        String a2 = ns5.a(d, a, 6);
+        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof IPageStayDuration)) {
+            List<String> currentPageSourceKeyList = ((IPageStayDuration) currentActivity).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList instanceof ArrayList) {
+                a2 = ns5.a((ArrayList) currentPageSourceKeyList, a, 6);
+                statisticItem.delete("common_exp_source_pb_comment");
             }
-            BdStatisticsManager.getInstance().performance(this.subType, logItem);
+        }
+        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+            statisticItem.param("page_source", a2);
+        }
+        TbPageExtraHelper.printLog(statisticItem.toString());
+    }
+
+    public final <T> List<T> d(T[] tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
+                ArrayList arrayList = new ArrayList(tArr.length);
+                for (T t : tArr) {
+                    if (t != null && !TextUtils.isEmpty(t.toString())) {
+                        arrayList.add(t);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.b) && !ei.isEmpty(str)) {
+                for (String str2 : this.b) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.a) && !ei.isEmpty(str)) {
+                for (String str2 : this.a) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
+            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
+                a(statisticItem);
+            }
         }
     }
 
-    public void d(fs5 fs5Var) {
+    public final List<String> i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, fs5Var) != null) || fs5Var == null || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (ei.isEmpty(str)) {
+                return null;
+            }
+            return d(str.split(","));
         }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", FpsTracer.UBC_KEY_FLUENCY);
-        logItem.append(FpsConstants.REPORT_FPS, String.valueOf(fs5Var.b()));
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-        BdStatsItem logItem2 = PerformanceLogger.getLogItem();
-        logItem2.append("action", "mem");
-        logItem2.append("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-        BdStatisticsManager.getInstance().performance(this.subType, logItem2);
+        return (List) invokeL.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = i(str);
+            if (str == null) {
+                str = "";
+            }
+            SharedPrefHelper.getInstance().putString("key_need_add_source_stat_list", str);
+        }
     }
 }

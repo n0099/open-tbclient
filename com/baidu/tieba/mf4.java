@@ -1,9 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.hv2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +20,263 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.TimeUnit;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class mf4 {
+public class mf4 implements hv2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
-    public static volatile mf4 d;
+    public static final boolean c;
+    public static final long d;
+    public static final c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<jx1, lf4> a;
+    public LocationClient a;
+    public LocationClientOption b;
+
+    public static boolean q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 65 || i == 61 || i == 161 || i == 66 || i == 68 : invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hv2
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hv2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hv2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.hv2
+    public void f(hv2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mf4 a;
+
+        public a(mf4 mf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mf4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mf4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.requestLocation();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements hv2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(mf4 mf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mf4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hv2.a
+        public void a(ge3 ge3Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ge3Var) == null) && mf4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + ge3Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.hv2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && mf4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public BDLocation b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0L;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized void update(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDLocation) == null) {
+                synchronized (this) {
+                    this.b = bDLocation;
+                    this.a = System.currentTimeMillis();
+                }
+            }
+        }
+
+        public synchronized BDLocation c(long j) {
+            InterceptResult invokeJ;
+            BDLocation bDLocation;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                synchronized (this) {
+                    if (d(j)) {
+                        bDLocation = this.b;
+                    } else {
+                        bDLocation = null;
+                    }
+                }
+                return bDLocation;
+            }
+            return (BDLocation) invokeJ.objValue;
+        }
+
+        public synchronized boolean d(long j) {
+            InterceptResult invokeJ;
+            boolean z;
+            boolean z2;
+            boolean z3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                synchronized (this) {
+                    long currentTimeMillis = System.currentTimeMillis() - this.a;
+                    if (this.b != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (currentTimeMillis < j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z && z2) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (mf4.c) {
+                        Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z3), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
+                    }
+                }
+                return z3;
+            }
+            return invokeJ.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d extends BDAbstractLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LocationClient a;
+        public hv2.a b;
+        public String c;
+        public boolean d;
+
+        public d(LocationClient locationClient, hv2.a aVar, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locationClient, aVar, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = locationClient;
+            this.b = aVar;
+            this.c = str;
+            this.d = z;
+        }
+
+        @Override // com.baidu.location.BDAbstractLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                this.a.unRegisterLocationListener(this);
+                int locType = bDLocation.getLocType();
+                if (!mf4.q(locType)) {
+                    if (!this.d) {
+                        this.b.onFailed(locType);
+                        return;
+                    }
+                    return;
+                }
+                mf4.e.update(bDLocation);
+                if (!this.d) {
+                    this.b.a(mf4.o(bDLocation, this.c));
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,8 +291,23 @@ public class mf4 {
                 return;
             }
         }
-        b = nr1.a;
-        c = mf4.class.getSimpleName();
+        c = rr1.a;
+        d = TimeUnit.MINUTES.toMillis(3L);
+        e = new c(null);
+    }
+
+    @Override // com.baidu.tieba.hv2
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long p = p();
+            if (e.b == null || (p > 0 && !e.d(p))) {
+                if (c) {
+                    Log.i("SwanAppLocationImpl", "onWarmUp");
+                }
+                b("gcj02", false, true, new b(this));
+            }
+        }
     }
 
     public mf4() {
@@ -49,211 +320,137 @@ public class mf4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        kf4.a();
-        this.a = new HashMap();
     }
 
-    public static mf4 b() {
+    @Override // com.baidu.tieba.hv2
+    public ge3 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (mf4.class) {
-                    if (d == null) {
-                        d = new mf4();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BDLocation bDLocation = e.b;
+            if (bDLocation == null) {
+                return null;
             }
+            return o(bDLocation, bDLocation.getCoorType());
+        }
+        return (ge3) invokeV.objValue;
+    }
+
+    public final long p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return d;
         }
-        return (mf4) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public static void d(jx1 jx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, jx1Var) == null) {
-            synchronized (mf4.class) {
-                if (d != null) {
-                    d.c(jx1Var).h();
-                }
-            }
-        }
-    }
-
-    public static void e(jx1 jx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jx1Var) == null) {
-            synchronized (mf4.class) {
-                if (d != null) {
-                    d.f(jx1Var);
-                } else if (b) {
-                    Log.v(c, "未初始化，无需执行release");
-                }
-            }
-        }
-    }
-
-    public static void h(jx1 jx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, jx1Var) == null) {
-            synchronized (mf4.class) {
-                if (d != null) {
-                    d.c(jx1Var).k();
-                }
-            }
-        }
-    }
-
-    public synchronized lf4 c(jx1 jx1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jx1Var)) == null) {
-            synchronized (this) {
-                if (jx1Var == null) {
-                    return null;
-                }
-                lf4 lf4Var = this.a.get(jx1Var);
-                if (lf4Var == null) {
-                    lf4Var = new lf4();
-                    this.a.put(jx1Var, lf4Var);
-                }
-                return lf4Var;
-            }
-        }
-        return (lf4) invokeL.objValue;
-    }
-
-    public final synchronized void f(jx1 jx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jx1Var) == null) {
-            synchronized (this) {
-                if (jx1Var == null) {
-                    return;
-                }
-                lf4 remove = this.a.remove(jx1Var);
-                if (remove != null) {
-                    remove.i();
-                }
-            }
-        }
-    }
-
-    public boolean a(Context context, px2 px2Var) {
+    @Override // com.baidu.tieba.hv2
+    public double[] g(@NonNull ge3 ge3Var, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, px2Var)) == null) {
-            d82.i("map", "map create start");
-            if (xo3.m(px2Var.c) != null && px2Var.isValid()) {
-                lx1 A = qw2.T().A(px2Var.c);
-                if (!(A instanceof jx1)) {
-                    d82.c("map", "WebViewManager is null");
-                    return false;
-                }
-                lf4 c2 = c((jx1) A);
-                if (c2.d(px2Var.b) != null) {
-                    d82.c("map", "map with id " + px2Var.b + " exist");
-                    return false;
-                }
-                ng4 K = ng4.K(context, px2Var);
-                if (K == null) {
-                    d82.c("map", "map with id " + px2Var.b + " model is invalid");
-                    return false;
-                }
-                u62 insert = K.insert();
-                if (!insert.a()) {
-                    d82.c("map", "map with id " + px2Var.b + " create fail: " + insert.b);
-                    return false;
-                } else if (!c2.insert(K)) {
-                    return false;
-                } else {
-                    d82.i("map", "map with id " + px2Var.b + " init start");
-                    gg4.a(context, K, px2Var, c2);
-                    d82.i("map", "map with id " + px2Var.b + " init end");
-                    d82.i("map", "map create end");
-                    return true;
-                }
-            }
-            d82.c("map", "model data is invalid");
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, ge3Var, str)) == null) {
+            return n(ge3Var.b, ge3Var.c, ge3Var.a, str);
         }
-        return invokeLL.booleanValue;
+        return (double[]) invokeLL.objValue;
     }
 
-    public boolean g(px2 px2Var) {
-        InterceptResult invokeL;
+    public static BDLocation m(double d2, double d3, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, px2Var)) == null) {
-            d82.i("map", "map remove start");
-            if (xo3.m(px2Var.c) == null) {
-                d82.c("map", "webView is null or mapModel is null");
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d3);
+            bDLocation.setLatitude(d2);
+            if (TextUtils.equals(str, "gcj02")) {
+                return bDLocation;
             }
-            lx1 A = qw2.T().A(px2Var.c);
-            if (!(A instanceof jx1)) {
-                d82.c("map", "WebViewManager is null");
-                return false;
+            if (TextUtils.equals(str, "bd09")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
             }
-            lf4 c2 = c((jx1) A);
-            ng4 d2 = c2.d(px2Var.b);
-            if (d2 == null) {
-                d82.c("map", "remove map with id " + px2Var.b + " not exist");
-                return false;
-            } else if (!c2.j(px2Var.b)) {
-                return false;
+            if (TextUtils.equals(str, "bd09ll")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            }
+            if (TextUtils.equals(str, "wgs84")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            return bDLocation;
+        }
+        return (BDLocation) invokeCommon.objValue;
+    }
+
+    public static ge3 o(BDLocation bDLocation, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bDLocation, str)) == null) {
+            double longitude = bDLocation.getLongitude();
+            double latitude = bDLocation.getLatitude();
+            if (!TextUtils.equals(str, bDLocation.getCoorType())) {
+                BDLocation m = m(latitude, longitude, str);
+                longitude = m.getLongitude();
+                latitude = m.getLatitude();
+            }
+            return new ge3(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
+        }
+        return (ge3) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hv2
+    public void b(String str, boolean z, boolean z2, hv2.a aVar) {
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
+            BDLocation c2 = e.c(p());
+            if (c2 != null) {
+                z3 = true;
             } else {
-                d82.i("map", "map remove end");
-                if (q72.a(px2Var) == null) {
-                    w72.a("map", "remove with a null map component");
-                }
-                u62 B = d2.B();
-                boolean a = B.a();
-                if (!a) {
-                    String str = c;
-                    d82.c(str, "map remove fail: " + B.b);
-                }
-                return a;
+                z3 = false;
             }
+            if (z3) {
+                aVar.a(o(c2, str));
+            }
+            if (this.a == null) {
+                this.a = new LocationClient(AppRuntime.getAppContext());
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setCoorType("gcj02");
+                locationClientOption.setScanSpan(0);
+                locationClientOption.setIgnoreKillProcess(true);
+                locationClientOption.setIsNeedAddress(true);
+                this.a.setLocOption(locationClientOption);
+                this.b = locationClientOption;
+                this.a.start();
+            }
+            this.a.registerLocationListener(new d(this.a, aVar, str, z3));
+            this.b.setIsNeedAltitude(z2);
+            this.a.setLocOption(this.b);
+            bp3.a0(new a(this));
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean update(Context context, px2 px2Var) {
-        InterceptResult invokeLL;
+    public final double[] n(double d2, double d3, String str, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, px2Var)) == null) {
-            d82.i("map", "map update start");
-            if (xo3.m(px2Var.c) == null) {
-                d82.c("map", "webView is null or mapModel is null");
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str, str2})) == null) {
+            double[] dArr = new double[2];
+            if (TextUtils.equals(str2, "gcj02")) {
+                return dArr;
             }
-            lx1 A = qw2.T().A(px2Var.c);
-            if (A != null && (A instanceof jx1)) {
-                lf4 c2 = c((jx1) A);
-                ng4 d2 = c2.d(px2Var.b);
-                if (d2 == null) {
-                    d82.c("map", "remove map with id " + px2Var.b + " not exist");
-                    return false;
-                }
-                d2.F();
-                gg4.b(context, d2, px2Var, c2, true);
-                d82.i("map", "map update end");
-                if (q72.a(px2Var) == null) {
-                    w72.a("map", "update with a null map component");
-                }
-                u62 update = d2.update((ng4) px2Var);
-                boolean a = update.a();
-                if (!a) {
-                    String str = c;
-                    d82.c(str, "map update fail: " + update.b);
-                }
-                return a;
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d2);
+            bDLocation.setLatitude(d3);
+            if (TextUtils.equals(str2, "bd09")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
+            } else if (TextUtils.equals(str2, "bd09ll")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            } else if (TextUtils.equals(str2, "wgs84")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
             }
-            d82.c("map", "WebViewManager is null");
-            return false;
+            dArr[0] = bDLocation.getLongitude();
+            dArr[1] = bDLocation.getLatitude();
+            return dArr;
         }
-        return invokeLL.booleanValue;
+        return (double[]) invokeCommon.objValue;
     }
 }

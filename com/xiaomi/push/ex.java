@@ -17,10 +17,10 @@ public enum ex {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f337a;
+    public final String f336a;
 
     ex(String str) {
-        this.f337a = str;
+        this.f336a = str;
     }
 
     public static int a(String str) {
@@ -30,7 +30,7 @@ public enum ex {
             return -1;
         }
         for (ex exVar : values()) {
-            if (exVar.f337a.equals(str)) {
+            if (exVar.f336a.equals(str)) {
                 i = em.a(exVar);
             }
         }

@@ -62,7 +62,7 @@ public final class d extends b {
     public boolean dR;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f7do;
+    public ImageView f6do;
     public com.kwad.sdk.core.video.videoview.a dp;
     public com.kwad.sdk.core.g.d eN;
     public Vibrator eO;
@@ -235,7 +235,7 @@ public final class d extends b {
         }
         com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "cardParams width: " + marginLayoutParams.width + ", height: " + marginLayoutParams.height);
         kSFrameLayout.setLayoutParams(marginLayoutParams);
-        float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c2);
+        float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c7);
         WebCardVideoPositionHandler.VideoPosition.KSAdJSCornerModel kSAdJSCornerModel = videoPosition.cornerRadius;
         if (kSAdJSCornerModel != null) {
             kSFrameLayout.setRadius((float) kSAdJSCornerModel.topLeft, (float) kSAdJSCornerModel.topRight, (float) kSAdJSCornerModel.bottomRight, (float) kSAdJSCornerModel.bottomLeft);
@@ -300,7 +300,7 @@ public final class d extends b {
         float a = a(cB, av);
         com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
         this.gh.gj.setRatio(a);
-        final ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0912f8);
+        final ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0912fe);
         viewGroup.setVisibility(0);
         viewGroup.post(new Runnable() { // from class: com.kwad.components.ad.interstitial.b.d.22
             @Override // java.lang.Runnable
@@ -358,8 +358,8 @@ public final class d extends b {
         com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
         this.gY = j;
         if (j != null) {
-            j.a(new b.InterfaceC0603b() { // from class: com.kwad.components.ad.interstitial.b.d.2
-                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0603b
+            j.a(new b.InterfaceC0598b() { // from class: com.kwad.components.ad.interstitial.b.d.2
+                @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0598b
                 public final void C(int i) {
                     if (i == com.kwad.components.ad.f.kwai.kwai.b.kt) {
                         d.this.gh.b(d.this.getContext(), d.this.mAdTemplate);
@@ -374,8 +374,8 @@ public final class d extends b {
 
     private com.kwad.components.ad.f.kwai.kwai.a cP() {
         final com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-        this.gh.gs.add(new c.InterfaceC0612c() { // from class: com.kwad.components.ad.interstitial.b.d.3
-            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0612c
+        this.gh.gs.add(new c.InterfaceC0607c() { // from class: com.kwad.components.ad.interstitial.b.d.3
+            @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0607c
             public final void cH() {
                 aVar.ey();
             }
@@ -448,8 +448,8 @@ public final class d extends b {
 
             @Override // com.kwad.components.core.video.a.b
             public final void onVideoPlaying() {
-                if (d.this.f7do.getVisibility() == 0) {
-                    d.this.f7do.setVisibility(8);
+                if (d.this.f6do.getVisibility() == 0) {
+                    d.this.f6do.setVisibility(8);
                 }
                 com.kwad.components.core.webview.b.a.s sVar2 = sVar;
                 sVar2.NZ = false;
@@ -672,7 +672,7 @@ public final class d extends b {
         return new w.a() { // from class: com.kwad.components.ad.interstitial.b.d.10
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(d.this.mContext, new AdWebViewActivityProxy.a.C0655a().ao(bVar.title).ap(bVar.url).N(d.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(d.this.mContext, new AdWebViewActivityProxy.a.C0650a().ao(bVar.title).ap(bVar.url).N(d.this.mAdTemplate).nx());
             }
         };
     }
@@ -801,15 +801,15 @@ public final class d extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09145c);
+        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091462);
         this.gT = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.gT.setVisibility(4);
         this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912a9);
-        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091433);
-        this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091443);
-        this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091300);
+        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912af);
+        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091439);
+        this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091449);
+        this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091306);
         Context context = getContext();
         this.mContext = context;
         if (context != null) {

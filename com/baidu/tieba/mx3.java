@@ -1,121 +1,27 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mx3 extends jx3 {
+public class mx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile lx3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947988001, "Lcom/baidu/tieba/mx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947988001, "Lcom/baidu/tieba/mx3;");
-                return;
-            }
-        }
-        a = nr1.a;
-    }
-
-    public mx3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final Cursor a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
-            matrixCursor.newRow().add("params", str);
-            return matrixCursor;
-        }
-        return (Cursor) invokeL.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return Base64.encodeToString(ox3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String b() {
+    public static synchronized lx3 a() {
         InterceptResult invokeV;
+        lx3 lx3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("swan_sdk_version", or1.a());
-                jSONObject.put("swan_core_version", ik3.h(0));
-                jSONObject.put("game_core_version", ik3.h(1));
-                jSONObject.put("uid", ku2.h0().i(AppRuntime.getAppContext()));
-                jSONObject.put("puid", ku2.h0().h(AppRuntime.getAppContext()));
-                jSONObject.put("ua", z72.s());
-                jSONObject.put("ut", z72.f());
-                jSONObject.put("timestamp", System.currentTimeMillis());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (mx3.class) {
+                if (a == null) {
+                    a = new lx3();
+                }
+                lx3Var = a;
             }
-            return jSONObject.toString();
+            return lx3Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jx3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
-            String b = b();
-            if (a) {
-                Log.i("ParamsProcessor", "params: " + b);
-            }
-            String c = c(b);
-            if (a) {
-                Log.i("ParamsProcessor", "encryption params: " + c);
-            }
-            return a(c);
-        }
-        return (Cursor) invokeLLLLL.objValue;
+        return (lx3) invokeV.objValue;
     }
 }

@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao8;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.on8;
-import com.baidu.tieba.xm8;
-import com.baidu.tieba.xn8;
+import com.baidu.tieba.qo8;
+import com.baidu.tieba.wb5;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,15 +66,15 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void b(@Nullable View.OnClickListener onClickListener) {
+        public void a(@Nullable View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                super.b(onClickListener);
+                super.a(onClickListener);
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void c(@Nullable View.OnLongClickListener onLongClickListener) {
+        public void b(@Nullable View.OnLongClickListener onLongClickListener) {
             ChatVoiceView chatVoiceView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onLongClickListener) == null) && (chatVoiceView = this.a) != null) {
@@ -83,16 +83,16 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void e(@NonNull on8 on8Var) {
+        public void d(@NonNull qo8 qo8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on8Var) == null) {
-                super.e(on8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qo8Var) == null) {
+                super.d(qo8Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements xm8 {
+    public class a implements ao8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -123,7 +123,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.xm8
+        @Override // com.baidu.tieba.ao8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -132,7 +132,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.xm8
+        @Override // com.baidu.tieba.ao8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -171,7 +171,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             chatVoiceView.setLayoutParams(layoutParams);
-            chatVoiceView.setId(R.id.obfuscated_res_0x7f090ec4);
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090ec3);
             chatVoiceView.setVoiceManager(this.l);
             chatVoiceView.setOnClickListener(chatVoiceView);
             chatVoiceView.d();
@@ -216,7 +216,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     public final void d0(ChatVoiceView chatVoiceView, VoiceMsg voiceMsg, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{chatVoiceView, voiceMsg, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            int u = xn8.u(voiceMsg, i);
+            int u = zo8.u(voiceMsg, i);
             if (u != 0 && !z) {
                 chatVoiceView.setVoicePureColor(u);
             } else if (voiceMsg.isLeft()) {
@@ -240,13 +240,13 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             voiceMsg.setVoiceModel(voiceModel);
             voiceModel.setDuration(JavaTypesHelper.toInt(voiceMsg.getDuring(), 0));
-            if (mb5.b(voiceMsg.getVid()) == null && voiceMsg.getVoiceUrl() != null && (parse = Uri.parse(voiceMsg.getVoiceUrl())) != null) {
+            if (wb5.b(voiceMsg.getVid()) == null && voiceMsg.getVoiceUrl() != null && (parse = Uri.parse(voiceMsg.getVoiceUrl())) != null) {
                 voiceMsg.setVid(parse.getLastPathSegment());
             }
             voiceModel.setVoiceId(voiceMsg.getVid());
             voiceModel.voice_status = Integer.valueOf(voiceMsg.getVoiceStatus());
             voiceModel.isLocal = voiceMsg.isLocal();
-            voiceModel.isGroupChat = true;
+            voiceModel.isUseUrl = true;
             voiceModel.setVoiceUrl(voiceMsg.getVoiceUrl());
             return voiceModel;
         }
@@ -260,7 +260,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), viewGroup, voiceMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {
             ChatVoiceView chatVoiceView = (ChatVoiceView) viewHolder.getView();
-            xn8.t(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, chatVoiceView, voiceMsg, i2));
+            zo8.t(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, chatVoiceView, voiceMsg, i2));
             chatVoiceView.setData(f0(voiceMsg));
         }
     }

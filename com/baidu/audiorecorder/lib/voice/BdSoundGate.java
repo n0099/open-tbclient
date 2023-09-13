@@ -1,7 +1,7 @@
 package com.baidu.audiorecorder.lib.voice;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.so;
+import com.baidu.tieba.to;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,7 +98,7 @@ public class BdSoundGate {
     public void d(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            b().c(i, 0.0f, so.a(i2), 0.0f);
+            b().c(i, 0.0f, to.a(i2), 0.0f);
         }
     }
 

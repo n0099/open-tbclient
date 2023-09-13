@@ -40,7 +40,7 @@ public class SmartBubbleAnimatedView extends View {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
-            layoutParams.height = SmartBubbleAnimatedView.this.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070792);
+            layoutParams.height = SmartBubbleAnimatedView.this.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070798);
             SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             SmartBubbleAnimatedView.this.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             if (SmartBubbleAnimatedView.this.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -159,8 +159,8 @@ public class SmartBubbleAnimatedView extends View {
     public final void d() {
         this.f.setColor(-16711681);
         this.g.setColor(-7829368);
-        this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070793));
-        this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070792);
+        this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070799));
+        this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070798);
     }
 
     public int getTipViewHeight() {

@@ -145,7 +145,7 @@ public class PicManager {
     public static void addPicMemoryCache(String str, BdImage bdImage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bdImage) == null) {
-            TbImageMemoryCache.B().m(str, bdImage);
+            TbImageMemoryCache.A().l(str, bdImage);
         }
     }
 
@@ -311,7 +311,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    TbImageMemoryCache.B().v(imageSize);
+                    TbImageMemoryCache.A().v(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

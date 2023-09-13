@@ -1,38 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes7.dex */
-public class m64 implements ti2 {
+public class m64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static String a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (TextUtils.isEmpty(a)) {
-                    a = dn3.b();
-                }
-                return a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    @V8JavascriptField
+    public String packageName;
+    @V8JavascriptField
+    public int statusCode;
 
     public m64() {
         Interceptable interceptable = $ic;
@@ -48,23 +29,12 @@ public class m64 implements ti2 {
         }
     }
 
-    @Override // com.baidu.tieba.ti2
-    public String getUserAgent() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "DownloadResponseData{statusCode=" + this.statusCode + ", packageName='" + this.packageName + "'}";
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ti2
-    public li2 a(String str, ij2 ij2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, ij2Var, v8ThreadDelegatePolicy)) == null) {
-            return new n64(str, ij2Var, v8ThreadDelegatePolicy);
-        }
-        return (li2) invokeLLL.objValue;
     }
 }

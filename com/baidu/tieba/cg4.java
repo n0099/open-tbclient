@@ -1,94 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.widget.ImageView;
-import com.baidu.mapapi.map.MapViewLayoutParams;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.ao3;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cg4 {
+public class cg4 extends tf4<vx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements ao3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vx2 a;
-        public final /* synthetic */ ng4 b;
-        public final /* synthetic */ jg4 c;
-
-        public a(vx2 vx2Var, ng4 ng4Var, jg4 jg4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947673785, "Lcom/baidu/tieba/cg4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vx2Var, ng4Var, jg4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = vx2Var;
-            this.b = ng4Var;
-            this.c = jg4Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947673785, "Lcom/baidu/tieba/cg4;");
+                return;
+            }
         }
+        boolean z = rr1.a;
+    }
 
-        @Override // com.baidu.tieba.ao3.b
-        public void a(String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (bitmap == null) {
-                    d82.o("map", " icon is null ");
-                }
-                if (bitmap != null) {
-                    int i = this.a.d.c;
-                    if (i == -1) {
-                        i = bitmap.getWidth();
-                    }
-                    int i2 = this.a.d.d;
-                    if (i2 == -1) {
-                        i2 = bitmap.getHeight();
-                    }
-                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
-                    builder.width(i);
-                    builder.height(i2);
-                    builder.align(1, 8);
-                    ay2 ay2Var = this.a.d;
-                    builder.point(new Point(ay2Var.a, ay2Var.b));
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setImageBitmap(bitmap);
-                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    this.b.l.addView(imageView, builder.build());
-                    imageView.setOnClickListener(this.c);
-                    imageView.setClickable(this.a.c);
-                    lg4 lg4Var = new lg4();
-                    lg4Var.a = this.a;
-                    lg4Var.b = imageView;
-                    this.b.o.add(lg4Var);
-                }
+    public cg4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(ng4 ng4Var, vx2 vx2Var, jg4 jg4Var) {
+    public static cg4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, ng4Var, vx2Var, jg4Var) == null) {
-            d82.i("map", "createControl start");
-            if (vx2Var != null && vx2Var.isValid()) {
-                ao3.e(vx2Var.b, new a(vx2Var, ng4Var, jg4Var));
-            }
-            d82.i("map", "createControl end");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new cg4();
         }
+        return (cg4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tf4
+    /* renamed from: d */
+    public boolean b(Context context, vx2 vx2Var, qx2 qx2Var, hb3 hb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vx2Var, qx2Var, hb3Var, jSONObject)) == null) {
+            return g(context, vx2Var, qx2Var, hb3Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final Bundle f(vx2 vx2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vx2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", vx2Var.c);
+            bundle.putDouble("latitude", vx2Var.j.a);
+            bundle.putDouble("longitude", vx2Var.j.b);
+            bundle.putDouble("scale", vx2Var.k);
+            bundle.putString("name", vx2Var.z);
+            bundle.putString("address", vx2Var.A);
+            bundle.putStringArrayList("ignoredApps", vx2Var.B);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public final boolean g(Context context, vx2 vx2Var, qx2 qx2Var, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, vx2Var, qx2Var, hb3Var)) == null) {
+            h82.i("map", "OpenLocationAction start");
+            if (!vx2Var.isValid()) {
+                h82.c("map", "model is invalid");
+                return false;
+            }
+            og4.t3(f(vx2Var)).x3();
+            h82.i("map", "OpenLocationAction end");
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

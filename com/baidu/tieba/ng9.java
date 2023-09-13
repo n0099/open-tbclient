@@ -1,42 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.view.FriendBotView;
-import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.shell.listener.WebAuthListener;
+import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkillInfo;
+import com.google.gson.Gson;
 /* loaded from: classes7.dex */
-public final class ng9 extends x55 {
+public class ng9 extends ig9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ShareStorage.StorageModel i;
 
     /* loaded from: classes7.dex */
-    public static final class a implements eh9 {
+    public class a extends WebAuthListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ ng9 a;
 
-        public a(Context context, String str) {
+        public a(ng9 ng9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str};
+                Object[] objArr = {ng9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,100 +41,76 @@ public final class ng9 extends x55 {
                     return;
                 }
             }
-            this.a = context;
-            this.b = str;
+            this.a = ng9Var;
         }
 
-        @Override // com.baidu.tieba.eh9
-        public void onDismiss() {
-            hm9 Y5;
-            FriendBotView V0;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PbFragment Y1 = ((PbActivity) this.a).Y1();
-                if (Y1 != null && (Y5 = Y1.Y5()) != null && (V0 = Y5.V0()) != null) {
-                    V0.x();
-                }
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewSkill");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f13b5), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
-        @Override // com.baidu.tieba.eh9
-        public void onShow() {
-            hm9 Y5;
-            FriendBotView V0;
-            hm9 Y52;
-            FriendBotView V02;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                PbFragment Y1 = ((PbActivity) this.a).Y1();
-                if (Y1 != null && (Y52 = Y1.Y5()) != null && (V02 = Y52.V0()) != null) {
-                    V02.setDynamicLooping(true);
-                }
-                PbFragment Y12 = ((PbActivity) this.a).Y1();
-                if (Y12 != null && (Y5 = Y12.Y5()) != null && (V0 = Y5.V0()) != null) {
-                    V0.r();
-                }
-                SharedPrefHelper.getInstance().putString("pb_friend_bot_bottom_new_skill_text", this.b);
-                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_click_last_time", System.currentTimeMillis());
+            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
+                this.a.f();
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
             }
         }
     }
 
-    public ng9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ng9(TbPageContext tbPageContext, jg9 jg9Var) {
+        super(tbPageContext, jg9Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, jg9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (jg9) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.x55
-    public void a(Context context, p55 data) {
-        List<RobotSkillInfo> list;
-        boolean z;
-        hm9 Y5;
-        yh9 s1;
-        RobotEntrance K;
+    @Override // com.baidu.tieba.ig9
+    public void j(kg9 kg9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!(context instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导失败：当前Activity非PbActivity");
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewSkill");
-                return;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, kg9Var) != null) || kg9Var == null) {
+            return;
+        }
+        this.e = kg9Var;
+        this.i = (ShareStorage.StorageModel) new Gson().fromJson(kg9Var.d, (Class<Object>) ShareStorage.StorageModel.class);
+    }
+
+    @Override // com.baidu.tieba.ig9
+    public void n(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f09167e) {
+                r();
             }
-            BotEntranceManager c = BotEntranceManager.c.c();
-            PbActivity pbActivity = (PbActivity) context;
-            PbModel I1 = pbActivity.I1();
-            FriendBotView friendBotView = null;
-            if (I1 != null && (s1 = I1.s1()) != null && (K = s1.K()) != null) {
-                list = K.robot_skill_info;
-            } else {
-                list = null;
-            }
-            String j = c.j(list);
-            if (j.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewSkill");
-                return;
-            }
-            PbFragment Y1 = pbActivity.Y1();
-            if (Y1 != null && (Y5 = Y1.Y5()) != null) {
-                friendBotView = Y5.V0();
-            }
-            hh9.e(j, friendBotView, (BaseFragmentActivity) context, new a(context, j));
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.i != null) {
+            PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
         }
     }
 }

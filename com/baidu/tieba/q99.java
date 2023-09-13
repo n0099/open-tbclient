@@ -1,47 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DeleteTail.ResData;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes7.dex */
 public class q99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public q99() {
+    public q99(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(ResData resData) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
-            return;
-        }
-        this.a = l.intValue();
+        String str = vipThemeItem.img_url;
+        String str2 = vipThemeItem.title;
+        vipThemeItem.props_id.intValue();
+        vipThemeItem.props_category.intValue();
+        String str3 = vipThemeItem.props_category_name;
+        String str4 = vipThemeItem.desc;
+        String str5 = vipThemeItem.link;
+        String str6 = vipThemeItem.tag_img_url;
+        String str7 = vipThemeItem.update_time;
+        vipThemeItem.id.intValue();
+        vipThemeItem.type.intValue();
     }
 }

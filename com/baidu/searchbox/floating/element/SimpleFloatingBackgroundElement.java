@@ -67,7 +67,7 @@ public class SimpleFloatingBackgroundElement extends AbsElement {
     public void initElement() {
         getView().setId(ViewCompat.generateViewId());
         getView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        getView().setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060953));
+        getView().setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060956));
         getView().setVisibility(8);
     }
 

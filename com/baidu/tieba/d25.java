@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.MultiForumPerm;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes5.dex */
 public class d25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
     public int b;
-    public boolean c;
 
     public d25() {
         Interceptable interceptable = $ic;
@@ -30,59 +28,43 @@ public class d25 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        int i;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        boolean z2 = false;
-        if (jSONObject.optInt("is_bawu") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if ("manager".equals(jSONObject.optString("bawu_type"))) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (jSONObject.optInt("is_deleted") == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        return (String) invokeV.objValue;
     }
 
-    public void b(MultiForumPerm multiForumPerm) {
-        boolean z;
-        int i;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(ForumBookInfo forumBookInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
             return;
         }
-        boolean z2 = false;
-        if (multiForumPerm.is_bawu.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if ("manager".equals(multiForumPerm.bawu_type)) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (multiForumPerm.is_deleted.intValue() == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        this.a = forumBookInfo.book_id;
+        this.b = forumBookInfo.book_type.intValue();
+        String str = forumBookInfo.book_title;
+        String str2 = forumBookInfo.book_cover;
+        String str3 = forumBookInfo.author;
+        String str4 = forumBookInfo.forum_pic;
+        String str5 = forumBookInfo.show_chapter_id;
+        String str6 = forumBookInfo.show_chapter_no;
+        String str7 = forumBookInfo.show_chapter_title;
+        forumBookInfo.history_page_id.longValue();
+        forumBookInfo.history_paragraph_id.longValue();
+        forumBookInfo.history_word_id.longValue();
+        forumBookInfo.history_percent.longValue();
+        forumBookInfo.show_page_id.longValue();
+        forumBookInfo.show_paragraph_id.longValue();
     }
 }

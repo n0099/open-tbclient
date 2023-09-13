@@ -1166,13 +1166,13 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static String getRc4SecrectKey() {
         try {
             String rc4SecrectKey = WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getRc4SecrectKey() : null;
-            return (rc4SecrectKey == null || rc4SecrectKey.length() <= 0) ? new String(Base64.decode(DEFAULT_SECRECT_KEY.getBytes(), 0)) : new String(Base64.decode(rc4SecrectKey.getBytes(), 0));
+            return (rc4SecrectKey == null || rc4SecrectKey.length() <= 0) ? new String(Base64.decode("SFIyRVI=".getBytes(), 0)) : new String(Base64.decode(rc4SecrectKey.getBytes(), 0));
         } catch (UnsatisfiedLinkError e) {
             e.printStackTrace();
-            return new String(Base64.decode(DEFAULT_SECRECT_KEY.getBytes(), 0));
+            return new String(Base64.decode("SFIyRVI=".getBytes(), 0));
         } catch (Throwable th) {
             th.printStackTrace();
-            return new String(Base64.decode(DEFAULT_SECRECT_KEY.getBytes(), 0));
+            return new String(Base64.decode("SFIyRVI=".getBytes(), 0));
         }
     }
 
@@ -1273,7 +1273,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         } catch (Throwable th) {
             Log.printStackTrace(th);
         }
-        return !TextUtils.isEmpty(r0) ? r0 : SESSION_UPLOAD_URL;
+        return !TextUtils.isEmpty(r0) ? r0 : "https://browserkernel.baidu.com/kw?r_en=true&type=";
     }
 
     public static int getSiteTypeInfo(String str) {

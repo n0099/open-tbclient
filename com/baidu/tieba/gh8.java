@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 /* loaded from: classes6.dex */
-public interface gh8 {
-    void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap);
+public interface gh8<SdkMsg> {
+    void a(SdkMsg sdkmsg, TbBaseMsg tbBaseMsg, String str);
+
+    int b(SdkMsg sdkmsg);
+
+    String c(SdkMsg sdkmsg);
 }

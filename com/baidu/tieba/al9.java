@@ -1,377 +1,159 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.ch9;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class al9 {
+public class al9 extends xk9<CustomDialogData> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b a;
-    public boolean b;
-    public boolean c;
-    public String d;
-    public int e;
-    public int f;
-    public boolean g;
-    public int h;
-    public boolean i;
-    public int j;
-    public int k;
-    public final Handler l;
-    public boolean m;
-    public final Runnable n;
-    public long o;
-    public long p;
-    public long q;
-    public boolean r;
-    public int s;
-    public final int t;
-    public final BdTypeListView u;
-    public int v;
-    public int w;
-    public boolean x;
+    public CustomDialogData c;
+    public bl9 d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public View j;
+    public View k;
+    public LinearLayout l;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ al9 a;
-
-        public a(al9 al9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {al9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = al9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.r = true;
-            if (al9.y) {
-                Log.d("PbEnterFrsTipShowRule-C", "completeStayPageTime = true");
-            }
-            this.a.o();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947619163, "Lcom/baidu/tieba/al9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947619163, "Lcom/baidu/tieba/al9;");
-                return;
-            }
-        }
-        y = GlobalBuildConfig.isDebug();
-    }
-
-    public final boolean h() {
+    @Override // com.baidu.tieba.cl9
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.r || !this.x) {
-                return true;
-            }
-            if (this.c) {
-                return g();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.custom_dailog_view : invokeV.intValue;
     }
 
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.m = false;
-            this.l.removeCallbacks(this.n);
-            this.p += System.currentTimeMillis() - this.q;
-        }
-    }
-
-    public al9(BdTypeListView bdTypeListView, b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public al9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = 0;
-        this.t = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.v = -1;
-        this.w = -1;
-        this.u = bdTypeListView;
-        this.a = bVar;
-        this.l = new Handler(Looper.getMainLooper());
-        this.n = new a(this);
     }
 
-    public final int c(List<bn> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return -1;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if ((list.get(i2) instanceof zfa) && list.get(i2).getType() == zfa.W0 && (i = i + 1) == this.s) {
-                    return i2;
-                }
-            }
-            if (z) {
-                return -1;
-            }
-            return list.size() - 1;
-        }
-        return invokeLZ.intValue;
-    }
-
-    public void i(boolean z, int i) {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || !this.i || i == 3 || (bdTypeListView = this.u) == null) {
-            return;
-        }
-        this.w = c(bdTypeListView.getData(), z);
-        if (y) {
-            Log.d("PbEnterFrsTipShowRule-C", "onDataSet mTargetIndex = " + this.w);
-        }
-    }
-
-    public void m(@Nullable ForumData forumData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, forumData) == null) && forumData != null && !TextUtils.isEmpty(forumData.getId())) {
-            e(forumData);
-            f();
-            d();
-        }
-    }
-
-    public final void d() {
-        int b2;
+    @Override // com.baidu.tieba.cl9
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = true;
-            this.h = 0;
-            this.f = this.e;
-            VisitedForumData p = a07.n().p(this.d);
-            if (p != null) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule-C", "lastVisitedTime = " + p.getVisitedTime());
-                    Log.d("PbEnterFrsTipShowRule-C", "lastPostNum = " + p.getPostNum());
-                }
-                b2 = p.getPostNum();
-                this.h = JavaTypesHelper.toInt(p.getVisitedTime(), 0);
-            } else {
-                b2 = zk9.a().b(this.d);
-            }
-            if (b2 < 0) {
-                b2 = 0;
-            }
-            int i = this.e - b2;
-            this.f = i;
-            if (i <= 0) {
-                this.f = 0;
-            }
-            if (this.f < this.k) {
-                this.g = false;
-            }
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "满足新贴数条件 = " + this.g);
-            }
+            this.e = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0908c0);
+            this.g = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092ad6);
+            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091989);
+            this.j = getViewGroup().findViewById(R.id.bdDialog_divider_line);
+            this.k = getViewGroup().findViewById(R.id.divider_yes_no_button);
+            this.l = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
+            this.h.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
         }
     }
 
-    public final void e(@Nullable ForumData forumData) {
+    public void f(bl9 bl9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumData) == null) {
-            boolean z = true;
-            if (forumData.isLike() != 1) {
-                z = false;
-            }
-            this.c = z;
-            this.d = forumData.getId();
-            this.e = forumData.getPost_num();
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "newForumPostNum" + this.e);
-            }
-            if (this.c && zk9.a().b(this.d) < 0) {
-                zk9.a().e(forumData.getId(), forumData.getPost_num());
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, bl9Var) == null) {
+            this.d = bl9Var;
         }
     }
 
-    public final void f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cl9
+    /* renamed from: e */
+    public void c(CustomDialogData customDialogData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.o = mo9.h(this.c) * 1000;
-            this.s = mo9.e(this.c);
-            this.j = mo9.d();
-            this.k = mo9.b();
-            this.i = true;
-            n();
-        }
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.g) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule-C", "新贴数 拦截");
-                }
-                return true;
-            } else if (((int) (System.currentTimeMillis() / 1000)) - this.h < this.j * 86400) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule-C", "距离上次浏览时间 拦截");
-                }
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.m = true;
-            d();
-            this.l.removeCallbacks(this.n);
-            this.q = System.currentTimeMillis();
-            if (!this.r) {
-                if (this.o > 0) {
-                    n();
-                    return;
-                }
-                return;
-            }
-            o();
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.b && this.i) {
-            if (h()) {
-                if (y) {
-                    Log.d("PbEnterFrsTipShowRule", "tryToShowTip = false");
-                    return;
-                }
-                return;
-            }
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "tryToShowTip = hasShown");
-            }
-            this.b = true;
-            b bVar = this.a;
-            if (bVar != null) {
-                bVar.a(this.f);
-            }
-        }
-    }
-
-    public void l(int i, int i2) {
-        BdTypeListView bdTypeListView;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(1048585, this, i, i2) != null) || (bdTypeListView = this.u) == null || this.b || !this.i || this.w < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, customDialogData) != null) || customDialogData == null) {
             return;
         }
-        if (this.v <= 0) {
-            this.v = this.u.getHeight() - this.t;
+        this.c = customDialogData;
+        CustomDialogData.Head head = customDialogData.head;
+        if (!TextUtils.isEmpty(head.imageUrl)) {
+            this.e.startLoad(head.imageUrl, 10, false);
         }
-        if (this.v <= 0) {
-            return;
+        if (!TextUtils.isEmpty(head.text)) {
+            this.f.setText(head.text);
         }
-        if (this.x) {
-            o();
-            return;
+        if (!TextUtils.isEmpty(customDialogData.body)) {
+            this.g.setText(customDialogData.body);
         }
-        int headerViewsCount = this.w + this.u.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.v) {
-                return;
-            }
-            this.x = true;
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule-C", "completeGuideFloor = true");
-            }
-            o();
+        CustomDialogData.Button button = customDialogData.leftButton;
+        if (button != null && !StringUtils.isNull(button.text)) {
+            this.i.setText(customDialogData.leftButton.text);
+        }
+        CustomDialogData.Button button2 = customDialogData.rightButton;
+        if (button2 != null && !StringUtils.isNull(button2.text)) {
+            this.h.setText(customDialogData.rightButton.text);
         }
     }
 
-    public final void n() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        CustomDialogData.Button button;
+        CustomDialogData.Button button2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.b && this.i && this.m) {
-            this.l.removeCallbacks(this.n);
-            long j = this.o - this.p;
-            if (y) {
-                Log.d("PbEnterFrsTipShowRule", "remainTime = " + j);
-            }
-            if (j <= 0) {
-                this.l.post(this.n);
-            } else {
-                this.l.postDelayed(this.n, j);
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            if (view2 == this.h) {
+                CustomDialogData customDialogData = this.c;
+                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
+                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
+                }
+                bl9 bl9Var = this.d;
+                if (bl9Var != null) {
+                    bl9Var.dismiss();
+                }
+                StatisticItem statisticItem = new StatisticItem(ch9.a.b);
+                statisticItem.param("obj_locate", 2);
+                TiebaStatic.log(statisticItem);
+            } else if (view2 == this.i) {
+                CustomDialogData customDialogData2 = this.c;
+                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
+                    BrowserHelper.startWebActivity((Context) this.a.getPageActivity(), (String) null, this.c.leftButton.action, true);
+                }
+                bl9 bl9Var2 = this.d;
+                if (bl9Var2 != null) {
+                    bl9Var2.dismiss();
+                }
+                StatisticItem statisticItem2 = new StatisticItem(ch9.a.b);
+                statisticItem2.param("obj_locate", 1);
+                TiebaStatic.log(statisticItem2);
             }
         }
     }

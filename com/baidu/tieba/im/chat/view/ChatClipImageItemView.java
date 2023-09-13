@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.jk;
-import com.baidu.tieba.mk;
-import com.baidu.tieba.pk;
+import com.baidu.tieba.kk;
+import com.baidu.tieba.nk;
+import com.baidu.tieba.qk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class ChatClipImageItemView extends GifView implements mk.a {
+public class ChatClipImageItemView extends GifView implements nk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean M;
-    public mk N;
+    public nk N;
     public final Path O;
     public boolean P;
     public a Q;
@@ -41,7 +41,7 @@ public class ChatClipImageItemView extends GifView implements mk.a {
         void a(Canvas canvas);
     }
 
-    @Override // com.baidu.tieba.mk.a
+    @Override // com.baidu.tieba.nk.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -51,7 +51,7 @@ public class ChatClipImageItemView extends GifView implements mk.a {
     @Override // com.baidu.tbadk.widget.TbClipImageView, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
     public void setDrawerType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
         }
     }
 
@@ -150,19 +150,19 @@ public class ChatClipImageItemView extends GifView implements mk.a {
                 }
             }
             if (!z) {
-                this.N = new pk();
+                this.N = new qk();
             } else {
-                this.N = new jk();
+                this.N = new kk();
             }
             this.mArgs.n = true;
             this.N.t(this);
-            mk mkVar = this.N;
-            this.mDrawer = mkVar;
-            mkVar.r(this.mArgs);
+            nk nkVar = this.N;
+            this.mDrawer = nkVar;
+            nkVar.r(this.mArgs);
         }
     }
 
-    @Override // com.baidu.tieba.mk.a
+    @Override // com.baidu.tieba.nk.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class ChatClipImageItemView extends GifView implements mk.a {
             float width = rectF.width();
             float height = rectF.height();
             this.O.reset();
-            this.O.set(y(width, height, 1.0f));
+            this.O.set(r(width, height, 1.0f));
             return this.O;
         }
         return (Path) invokeL.objValue;
@@ -210,7 +210,7 @@ public class ChatClipImageItemView extends GifView implements mk.a {
 
     public void setLeft(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.M = z;
         }
     }
@@ -234,11 +234,11 @@ public class ChatClipImageItemView extends GifView implements mk.a {
             } else {
                 z2 = false;
             }
-            mk mkVar = this.N;
+            nk nkVar = this.N;
             if (!z2 && !z) {
                 z3 = false;
             }
-            mkVar.u(z3);
+            nkVar.u(z3);
             return bdImage;
         }
         return (BdImage) invokeV.objValue;
@@ -263,10 +263,10 @@ public class ChatClipImageItemView extends GifView implements mk.a {
         }
     }
 
-    public final Path y(float f, float f2, float f3) {
+    public final Path r(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             int dip2px = BdUtilHelper.dip2px(getContext(), 4.0f);
             int dip2px2 = BdUtilHelper.dip2px(getContext(), 12.0f);
             int dip2px3 = BdUtilHelper.dip2px(getContext(), 6.0f);

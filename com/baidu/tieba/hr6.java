@@ -1,116 +1,93 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.AgreeView;
+import com.baidu.tieba.c67;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hr6 implements a87 {
+public final class hr6 implements c67.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xfa a;
-    public final View.OnClickListener b;
-    public int c;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof hr6) {
-                hr6 hr6Var = (hr6) obj;
-                return Intrinsics.areEqual(this.a, hr6Var.a) && Intrinsics.areEqual(this.b, hr6Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            View.OnClickListener onClickListener = this.b;
-            return hashCode + (onClickListener == null ? 0 : onClickListener.hashCode());
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "DelegateFunAdUiState(funAdData=" + this.a + ", feedbackClickListener=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public hr6(xfa funAdData, View.OnClickListener onClickListener) {
+    public hr6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdData, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(funAdData, "funAdData");
-        this.a = funAdData;
-        this.b = onClickListener;
     }
 
-    public /* synthetic */ hr6(xfa xfaVar, View.OnClickListener onClickListener, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(xfaVar, (i & 2) != 0 ? ir6.a : onClickListener);
-    }
-
-    public final int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c67.s
+    public void a(ViewGroup view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof AgreeView) {
+                ((AgreeView) view2).P(TbadkCoreApplication.getInst().getSkinType());
+            }
         }
-        return invokeV.intValue;
     }
 
-    public final View.OnClickListener b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c67.e
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new AgreeView(context);
         }
-        return (View.OnClickListener) invokeV.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public final xfa c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c67.e
+    public void update(ViewGroup view2, s87 feedAgreeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (xfa) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a87
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, feedAgreeData) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(feedAgreeData, "feedAgreeData");
+            if (view2 instanceof AgreeView) {
+                AgreeView agreeView = (AgreeView) view2;
+                agreeView.setAgreeAlone(true);
+                agreeView.z(false);
+                Map<String, String> a = feedAgreeData.b().a();
+                AgreeData agreeData = new AgreeData();
+                agreeData.agreeNum = feedAgreeData.a();
+                agreeData.hasAgree = feedAgreeData.c();
+                String str = a.get("thread_id");
+                String str2 = "";
+                if (str == null) {
+                    str = "";
+                }
+                agreeData.threadId = str;
+                String str3 = a.get("forum_id");
+                if (str3 == null) {
+                    str3 = "";
+                }
+                agreeData.forumId = str3;
+                String str4 = a.get("reply_id");
+                if (str4 != null) {
+                    str2 = str4;
+                }
+                agreeData.postId = str2;
+                agreeData.isInPost = true;
+                agreeView.setData(agreeData);
+            }
         }
     }
 }

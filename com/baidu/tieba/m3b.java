@@ -1,43 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.n3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class m3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final n2b b;
-    @NonNull
-    public final EditorTools c;
-    @NonNull
-    public final g1b d;
-    @NonNull
-    public final y3b e;
-    @NonNull
-    public final c4b f;
-    @NonNull
-    public final WriteData g;
+    public TbPageContext a;
+    public yt6 b;
 
-    public m3b(@NonNull TbPageContext<?> tbPageContext, @NonNull n2b n2bVar, @NonNull EditorTools editorTools, @NonNull g1b g1bVar, @NonNull y3b y3bVar, @NonNull c4b c4bVar, @NonNull WriteData writeData) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m3b a;
+
+        public a(m3b m3bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m3bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m3bVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a();
+            }
+        }
+    }
+
+    public m3b(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, n2bVar, editorTools, g1bVar, y3bVar, c4bVar, writeData};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,179 +63,43 @@ public class m3b {
             }
         }
         this.a = tbPageContext;
-        this.b = n2bVar;
-        this.c = editorTools;
-        this.d = g1bVar;
-        this.e = y3bVar;
-        this.f = c4bVar;
-        this.g = writeData;
     }
 
-    public List<r2b<?>> a(List<n3b.a> list) {
-        InterceptResult invokeL;
+    public void a() {
+        yt6 yt6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (n3b.a aVar : list) {
-                r2b<?> b = b(aVar);
-                if (b != null) {
-                    b.h(aVar.b, this.g);
-                    arrayList.add(b);
-                }
-            }
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yt6Var = this.b) != null) {
+            yt6Var.h();
         }
-        return (List) invokeL.objValue;
     }
 
-    public r2b<?> b(n3b.a aVar) {
-        InterceptResult invokeL;
+    public void b(View view2) {
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (tbPageContext = this.a) != null && view2 != null) {
+            if (this.b == null) {
+                yt6 yt6Var = new yt6(tbPageContext, view2);
+                this.b = yt6Var;
+                yt6Var.L(R.drawable.pic_sign_tip_down);
+                this.b.v(1);
+                this.b.o(32);
+                this.b.l(2);
+                this.b.y(false);
+                this.b.m(new a(this));
+                int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035d);
+                int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
+                int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds44);
+                int dimensionPixelSize4 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds50);
+                int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.tbds6);
+                this.b.E(dimensionPixelSize3, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2);
+                this.b.Q(-dimensionPixelSize4);
+                this.b.R(-dimensionPixelSize5);
+                this.b.n(3000);
             }
-            String str = aVar.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 3118:
-                    if (str.equals("c1")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 3119:
-                    if (str.equals("c2")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3120:
-                    if (str.equals("c3")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 3121:
-                    if (str.equals("c4")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3122:
-                    if (str.equals("c5")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case 3123:
-                    if (str.equals("c6")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 3124:
-                    if (str.equals("c7")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3125:
-                    if (str.equals("c8")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 3126:
-                    if (str.equals("c9")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 96706:
-                            if (str.equals("c10")) {
-                                c = 15;
-                                break;
-                            }
-                            break;
-                        case 96707:
-                            if (str.equals("c11")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 96708:
-                            if (str.equals("c12")) {
-                                c = '\t';
-                                break;
-                            }
-                            break;
-                        case 96709:
-                            if (str.equals("c13")) {
-                                c = '\n';
-                                break;
-                            }
-                            break;
-                        case 96710:
-                            if (str.equals("c14")) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 96711:
-                            if (str.equals("c15")) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 96712:
-                            if (str.equals("c16")) {
-                                c = '\b';
-                                break;
-                            }
-                            break;
-                    }
-            }
-            switch (c) {
-                case 0:
-                    return u3b.a(this.a);
-                case 1:
-                    return u3b.b(this.a);
-                case 2:
-                    return u3b.c(this.a, this.b, this.c, this.d, this.e);
-                case 3:
-                    return u3b.e(this.a);
-                case 4:
-                    return u3b.f(this.a);
-                case 5:
-                    return u3b.g(this.a);
-                case 6:
-                    return u3b.h(this.a, this.f);
-                case 7:
-                    return u3b.i(this.a);
-                case '\b':
-                    return u3b.j(this.a);
-                case '\t':
-                    return u3b.k(this.a);
-                case '\n':
-                    return u3b.l(this.a);
-                case 11:
-                    return u3b.m(this.a, this.b, this.c, this.f, this.d, this.e);
-                case '\f':
-                    return u3b.n(this.a, this.b, this.d, this.e);
-                case '\r':
-                    return u3b.o(this.a);
-                case 14:
-                    return u3b.p(this.a);
-                case 15:
-                    return u3b.q(this.a);
-                default:
-                    return null;
-            }
+            String string = this.a.getResources().getString(R.string.write_activity_tip_content);
+            this.b.D(R.drawable.icon_pure_guide_haowu16);
+            this.b.u(true);
+            this.b.T(string, "commodity_tip_show_controller");
         }
-        return (r2b) invokeL.objValue;
     }
 }

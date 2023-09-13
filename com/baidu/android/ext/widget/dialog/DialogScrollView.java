@@ -199,7 +199,7 @@ public final class DialogScrollView extends ScrollView {
             if (2 == getContext().getResources().getConfiguration().orientation) {
                 i = getContext().getResources().getDisplayMetrics().widthPixels;
             }
-            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b1) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b9)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ae);
+            return ((i - (getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b6) * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bd)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b3);
         }
         return invokeV.intValue;
     }

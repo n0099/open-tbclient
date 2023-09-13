@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class nla implements n65 {
+public final class nla extends e65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.n65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_WRITE_GUIDE_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public nla() {
         Interceptable interceptable = $ic;
@@ -34,13 +27,13 @@ public final class nla implements n65 {
         }
     }
 
-    @Override // com.baidu.tieba.n65
-    public l65 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e65
+    public void a(Context context, v55 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new mla();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921818));
         }
-        return (l65) invokeV.objValue;
     }
 }

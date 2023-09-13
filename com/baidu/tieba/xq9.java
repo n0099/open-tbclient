@@ -1,52 +1,144 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.Anti;
-import tbclient.DynamicInfo;
-import tbclient.ForumDynamic;
-import tbclient.HotUserRankEntry;
-import tbclient.PostInfoList;
-import tbclient.Profile.NicknameInfo;
-import tbclient.Profile.TAInfo;
-import tbclient.Profile.UserAgreeInfo;
-import tbclient.Profile.UserGodInfo;
-import tbclient.TbBookrack;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes8.dex */
-public interface xq9 {
-    Anti GetAntiStat();
+public class xq9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public br9 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<pm> e;
+    public View.OnClickListener f;
+    public boolean g;
+    public boolean h;
 
-    List<PostInfoList> GetPostList();
+    public xq9(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new ArrayList();
+        this.f = null;
+        this.g = false;
+        this.h = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
+    }
 
-    User GetUser();
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
 
-    TbBookrack getBookrackData();
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
+        }
+    }
 
-    List<ForumDynamic> getConcernedForumList();
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            br9 br9Var = new br9(this.c, tha.X0);
+            this.a = br9Var;
+            br9Var.e(this.f);
+            this.a.setFromCDN(this.h);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, er9.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new cr9(this.c, dr9.a));
+            this.d.addAdapters(this.e);
+        }
+    }
 
-    List<DynamicInfo> getDynamicInfoList();
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
 
-    int getErrorCode();
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
 
-    my7 getGoodsWindowInfo();
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g = z;
+        }
+    }
 
-    HotUserRankEntry getHotRankEntry();
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
 
-    AlaLiveInfoCoreData getLiveInfo();
+    public void i(boolean z) {
+        br9 br9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (br9Var = this.a) != null) {
+            br9Var.I(z);
+        }
+    }
 
-    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+    public void j(TbRichTextView.z zVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, zVar) == null) {
+            this.a.n(zVar);
+        }
+    }
 
-    int getMaskType();
-
-    List<ThreadInfo> getNewestThreadList();
-
-    NicknameInfo getNicknameInfo();
-
-    TAInfo getTaInfo();
-
-    UserAgreeInfo getUserAgreeInfo();
-
-    UserGodInfo getUserGodInfo();
+    public void e(ThreadData threadData, List<cn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.K(threadData);
+            if (!ei.isEmpty(this.c.F3().D0())) {
+                this.a.J(this.c.F3().D0());
+            }
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.F3() != null) {
+                this.a.H(this.c.F3().a1());
+            }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
+        }
+    }
 }

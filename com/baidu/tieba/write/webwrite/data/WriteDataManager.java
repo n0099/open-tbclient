@@ -12,10 +12,14 @@ import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c0b;
-import com.baidu.tieba.dt6;
-import com.baidu.tieba.gza;
-import com.baidu.tieba.o0b;
+import com.baidu.tieba.d2b;
+import com.baidu.tieba.f3b;
+import com.baidu.tieba.hu6;
+import com.baidu.tieba.k2b;
+import com.baidu.tieba.m1b;
+import com.baidu.tieba.si5;
+import com.baidu.tieba.tja;
+import com.baidu.tieba.w2b;
 import com.baidu.tieba.write.webwrite.hybirdlistener.AddVoiceListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.AddVoteListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.AtSelectListener;
@@ -30,10 +34,6 @@ import com.baidu.tieba.write.webwrite.hybirdlistener.SwanAppGoodsListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.TopicSelectListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.UpdateWriteDataBiz;
 import com.baidu.tieba.write.webwrite.hybirdlistener.VideoBizListener;
-import com.baidu.tieba.wza;
-import com.baidu.tieba.x0b;
-import com.baidu.tieba.zh5;
-import com.baidu.tieba.zha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ import org.json.JSONObject;
 public abstract class WriteDataManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c0b a;
+    public k2b a;
     public final HashMap<String, String> b;
     public TbWebView c;
     public UpdateWriteDataBiz d;
@@ -61,7 +61,7 @@ public abstract class WriteDataManager {
 
     public abstract void e();
 
-    public abstract void o(TbPageContext<?> tbPageContext, gza gzaVar, EditorTools editorTools);
+    public abstract void o(TbPageContext<?> tbPageContext, m1b m1bVar, EditorTools editorTools);
 
     public WriteDataManager() {
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public abstract class WriteDataManager {
                         throw new RuntimeException("write page must init isFromErrorDialog before use WriteData");
                     }
                     if (Intrinsics.areEqual(this.this$0.d().p(), Boolean.TRUE)) {
-                        return zha.f;
+                        return tja.f;
                     }
                     return new WriteData();
                 }
@@ -158,18 +158,18 @@ public abstract class WriteDataManager {
         return (TbWebView) invokeV.objValue;
     }
 
-    public final c0b d() {
+    public final k2b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c0b c0bVar = this.a;
-            if (c0bVar != null) {
-                return c0bVar;
+            k2b k2bVar = this.a;
+            if (k2bVar != null) {
+                return k2bVar;
             }
             Intrinsics.throwUninitializedPropertyAccessException("mWritePageState");
             return null;
         }
-        return (c0b) invokeV.objValue;
+        return (k2b) invokeV.objValue;
     }
 
     public final void j() {
@@ -179,7 +179,7 @@ public abstract class WriteDataManager {
         }
     }
 
-    public final void f(c0b writePageState, Bundle bundle, Intent intent) {
+    public final void f(k2b writePageState, Bundle bundle, Intent intent) {
         Boolean bool;
         String str;
         boolean z;
@@ -188,11 +188,11 @@ public abstract class WriteDataManager {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, writePageState, bundle, intent) == null) {
             Intrinsics.checkNotNullParameter(writePageState, "writePageState");
             q(writePageState);
-            c0b d = d();
+            k2b d = d();
             boolean z3 = false;
             if (bundle == null && intent != null) {
                 if (intent.getBooleanExtra(WriteActivityConfig.IS_FROM_ERROR_DIALOG, false)) {
-                    WriteData writeData = zha.f;
+                    WriteData writeData = tja.f;
                     if (writeData != null && d().F() == writeData.getType()) {
                         z2 = true;
                     } else {
@@ -209,7 +209,7 @@ public abstract class WriteDataManager {
                 bool = Boolean.FALSE;
             }
             d.w(bool);
-            c0b d2 = d();
+            k2b d2 = d();
             if (intent != null) {
                 str = intent.getStringExtra(WriteActivityConfig.SHOW_NOT_SAVE_POPUP);
             } else {
@@ -220,7 +220,7 @@ public abstract class WriteDataManager {
             }
             d2.z(str);
             if (bundle != null) {
-                x0b.a.b(bundle, b());
+                f3b.a.b(bundle, b());
             } else if (intent != null) {
                 WriteData b = b();
                 Boolean p = d().p();
@@ -228,7 +228,7 @@ public abstract class WriteDataManager {
                     z3 = p.booleanValue();
                 }
                 b.setFromErrorDialog(z3);
-                x0b.a.c(intent, b());
+                f3b.a.c(intent, b());
                 Serializable serializableExtra = intent.getSerializableExtra(WriteActivityConfig.KEY_WEBVIEW_DATA);
                 if (serializableExtra instanceof JSONLikeSerializable) {
                     d().C(((JSONLikeSerializable) serializableExtra).toJsonObject());
@@ -285,22 +285,22 @@ public abstract class WriteDataManager {
         }
     }
 
-    public final void q(c0b c0bVar) {
+    public final void q(k2b k2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, c0bVar) == null) {
-            Intrinsics.checkNotNullParameter(c0bVar, "<set-?>");
-            this.a = c0bVar;
+        if (interceptable == null || interceptable.invokeL(1048592, this, k2bVar) == null) {
+            Intrinsics.checkNotNullParameter(k2bVar, "<set-?>");
+            this.a = k2bVar;
         }
     }
 
-    public final boolean k(zh5 action) {
+    public final boolean k(si5 action) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, action)) == null) {
             Intrinsics.checkNotNullParameter(action, "action");
             if (!d().q()) {
                 d().A(true);
-                dt6.b().b(new wza());
+                hu6.b().b(new d2b());
             }
             if (a().i(action)) {
                 return true;
@@ -310,16 +310,16 @@ public abstract class WriteDataManager {
         return invokeL.booleanValue;
     }
 
-    public final void n(c0b mWritePageState, TbWebView webView, EditorTools editor, TbPageContext<?> pageContext) {
+    public final void n(k2b mWritePageState, TbWebView webView, EditorTools editor, TbPageContext<?> pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048589, this, mWritePageState, webView, editor, pageContext) == null) {
             Intrinsics.checkNotNullParameter(mWritePageState, "mWritePageState");
             Intrinsics.checkNotNullParameter(webView, "webView");
             Intrinsics.checkNotNullParameter(editor, "editor");
             Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-            gza gzaVar = new gza(this.b, b());
+            m1b m1bVar = new m1b(this.b, b());
             p(webView);
-            c().setTargetInterceptor(gzaVar);
+            c().setTargetInterceptor(m1bVar);
             this.d = new UpdateWriteDataBiz(pageContext, c(), b(), mWritePageState, new WriteDataManager$registerBizListener$1(this));
             BizBus a = a();
             UpdateWriteDataBiz updateWriteDataBiz = this.d;
@@ -338,11 +338,11 @@ public abstract class WriteDataManager {
             a().l(new SwanAppGoodsListener(pageContext, c(), b(), mWritePageState));
             a().l(new ForumRegionQADialogListener(pageContext, c(), b(), mWritePageState));
             a().l(new AddVoiceListener(pageContext, c(), b(), mWritePageState, editor));
-            a().l(new o0b(pageContext, c(), b(), mWritePageState, editor));
+            a().l(new w2b(pageContext, c(), b(), mWritePageState, editor));
             a().l(new LinkBizListener(pageContext, c(), b(), mWritePageState));
             a().l(new VideoBizListener(pageContext, c(), b(), mWritePageState, editor));
             a().l(new BubbleBizListener(pageContext, c(), b(), mWritePageState));
-            o(pageContext, gzaVar, editor);
+            o(pageContext, m1bVar, editor);
         }
     }
 }

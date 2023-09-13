@@ -1,43 +1,48 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
 /* loaded from: classes8.dex */
 public class xd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(xc xcVar, ec ecVar) {
+    public static final boolean a(fc fcVar, yc ycVar) {
         InterceptResult invokeLL;
-        Object objectByType;
+        nc a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, xcVar, ecVar)) == null) {
-            if (ecVar != null && xcVar != null) {
-                List<Field> b = cc.b(ecVar.getClass());
-                Set<String> keys = xcVar.getKeys();
-                for (Field field : b) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, fcVar, ycVar)) == null) {
+            if (fcVar != null && ycVar != null) {
+                for (Field field : dc.b(fcVar.getClass())) {
                     if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
                         String name = field.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            if (keys.contains(name)) {
-                                Object objectByType2 = xcVar.getObjectByType(name, field.getGenericType());
-                                if (objectByType2 != null) {
-                                    cc.i(ecVar, name, objectByType2);
-                                }
-                            } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
-                                Object objectByType3 = xcVar.getObjectByType(name.toLowerCase(Locale.getDefault()), field.getGenericType());
-                                if (objectByType3 != null) {
-                                    cc.i(ecVar, name, objectByType3);
-                                }
-                            } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (objectByType = xcVar.getObjectByType(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
-                                cc.i(ecVar, name, objectByType);
+                        if (!TextUtils.isEmpty(name) && (a = zd.a(dc.d(fcVar, name))) != null) {
+                            Object obj = null;
+                            if (ycVar instanceof JsonDataSource) {
+                                obj = a.f(new wd(field.getGenericType()));
+                            } else if (ycVar instanceof BundleDataSource) {
+                                obj = a.d(new wd(field.getGenericType()));
+                            } else if (ycVar instanceof IntentDataSource) {
+                                obj = a.e(new wd(field.getGenericType()));
+                            } else if (ycVar instanceof MapDataSource) {
+                                obj = a.b(new wd(field.getGenericType()));
+                            } else if (ycVar instanceof CursorDataSource) {
+                                obj = a.a(new wd(field.getGenericType()));
+                            } else if (ycVar instanceof ProtobufDataSource) {
+                                obj = a.c(new wd(field.getGenericType()));
+                            }
+                            if (obj != null) {
+                                ycVar.set(name, obj);
                             }
                         }
                     }

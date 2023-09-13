@@ -72,6 +72,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.c1;
 import com.baidu.ufosdk.d0;
 import com.baidu.ufosdk.e0;
@@ -131,7 +132,7 @@ public class FeedbackInputActivity extends Activity {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1196T;
+    public boolean f1192T;
     public String U;
     public boolean V;
     public Handler W;
@@ -194,9 +195,9 @@ public class FeedbackInputActivity extends Activity {
                 window.getDecorView().setBackgroundColor(-1);
                 window.setStatusBarColor(0);
             }
-            this.f1196T = com.baidu.ufosdk.b.m() == 1;
+            this.f1192T = com.baidu.ufosdk.b.m() == 1;
             this.l0 = e0.a(this);
-            if (this.f1196T) {
+            if (this.f1192T) {
                 if (this.S) {
                     return;
                 }
@@ -315,7 +316,7 @@ public class FeedbackInputActivity extends Activity {
             this.i0.setTextSize(1, 11.0f);
             this.i0.setGravity(17);
             this.i0.setId(2030633003);
-            this.i0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081396);
+            this.i0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813ba);
             this.i0.setPadding(p1.a(getApplicationContext(), 14.0f), p1.a(getApplicationContext(), 0.0f), p1.a(getApplicationContext(), 14.0f), p1.a(getApplicationContext(), 0.0f));
             RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 50.0f), p1.a(getApplicationContext(), 24.0f));
             layoutParams7.addRule(11);
@@ -357,7 +358,7 @@ public class FeedbackInputActivity extends Activity {
             this.Z.setTextSize(1, 15.0f);
             this.Z.setGravity(16);
             this.Z.setHint("请描述您遇到的问题...");
-            this.Z.setBackgroundResource(R.drawable.obfuscated_res_0x7f081546);
+            this.Z.setBackgroundResource(R.drawable.obfuscated_res_0x7f081569);
             this.Z.setPadding(p1.a(getApplicationContext(), 8.0f), 0, p1.a(getApplicationContext(), 15.0f), 0);
             RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 280.0f), p1.a(getApplicationContext(), 28.0f));
             layoutParams10.addRule(0, imageView.getId());
@@ -387,7 +388,7 @@ public class FeedbackInputActivity extends Activity {
             byte[] byteArrayExtra = getIntent().getByteArrayExtra("shot");
             if (byteArrayExtra != null && byteArrayExtra.length > 0) {
                 this.c.add(byteArrayExtra);
-                this.c.add(p1.a(this, this.f1196T));
+                this.c.add(p1.a(this, this.f1192T));
                 this.b.setVisibility(0);
             } else {
                 this.c.add(p1.a(this));
@@ -458,7 +459,7 @@ public class FeedbackInputActivity extends Activity {
             button3.setText(t1.a("22"));
             this.j.setTextSize(1, 16.0f);
             this.j.setTextColor(-12814593);
-            this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810c6);
+            this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810e5);
             LinearLayout.LayoutParams layoutParams16 = new LinearLayout.LayoutParams(p1.a(getApplicationContext(), 122.0f), p1.a(getApplicationContext(), 40.0f));
             this.k0 = layoutParams16;
             layoutParams16.setMargins(0, p1.a(getApplicationContext(), 15.0f), 0, 0);
@@ -530,8 +531,8 @@ public class FeedbackInputActivity extends Activity {
             return invokeI.longValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:321:0x19ef  */
-        /* JADX WARN: Removed duplicated region for block: B:322:0x19f5  */
+        /* JADX WARN: Removed duplicated region for block: B:321:0x19eb  */
+        /* JADX WARN: Removed duplicated region for block: B:322:0x19f1  */
         @Override // android.widget.Adapter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -586,7 +587,7 @@ public class FeedbackInputActivity extends Activity {
                         relativeLayout8.setId(2030632968);
                         relativeLayout8.setClickable(false);
                         TextView textView = new TextView(this.b);
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081544);
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081567);
                         textView.setTextColor(-1);
                         textView.setTextSize(1, 12.0f);
                         textView.setGravity(17);
@@ -610,7 +611,7 @@ public class FeedbackInputActivity extends Activity {
                         wVar2.b = imageView;
                         RelativeLayout relativeLayout9 = new RelativeLayout(this.b);
                         try {
-                            relativeLayout9.setBackgroundResource(R.drawable.obfuscated_res_0x7f081548);
+                            relativeLayout9.setBackgroundResource(R.drawable.obfuscated_res_0x7f08156b);
                             relativeLayout9.setPadding(p1.a(this.b.getApplicationContext(), 1.0f), p1.a(this.b.getApplicationContext(), 1.0f), 11, p1.a(this.b.getApplicationContext(), 1.0f));
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -663,7 +664,7 @@ public class FeedbackInputActivity extends Activity {
                         relativeLayout12.setId(2030632968);
                         relativeLayout12.setClickable(false);
                         TextView textView2 = new TextView(this.b);
-                        textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081544);
+                        textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081567);
                         textView2.setTextColor(-1);
                         textView2.setTextSize(1, 12.0f);
                         textView2.setGravity(17);
@@ -689,7 +690,7 @@ public class FeedbackInputActivity extends Activity {
                         textView3.setTextColor(-13421773);
                         textView3.setTextSize(1, 17.0f);
                         textView3.setLineSpacing(4.0f, 1.0f);
-                        textView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f081548);
+                        textView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f08156b);
                         textView3.setGravity(16);
                         textView3.setPadding(p1.a(this.b.getApplicationContext(), 10.0f), p1.a(this.b.getApplicationContext(), 8.0f), p1.a(this.b.getApplicationContext(), 14.0f), p1.a(this.b.getApplicationContext(), 8.0f));
                         textView3.setLineSpacing(5.0f, 1.0f);
@@ -732,7 +733,7 @@ public class FeedbackInputActivity extends Activity {
                         relativeLayout15.setId(2030632968);
                         relativeLayout15.setClickable(false);
                         TextView textView4 = new TextView(this.b);
-                        textView4.setBackgroundResource(R.drawable.obfuscated_res_0x7f081544);
+                        textView4.setBackgroundResource(R.drawable.obfuscated_res_0x7f081567);
                         textView4.setTextColor(-1);
                         textView4.setTextSize(1, 12.0f);
                         textView4.setGravity(17);
@@ -757,7 +758,7 @@ public class FeedbackInputActivity extends Activity {
                         LinearLayout linearLayout = new LinearLayout(this.a);
                         linearLayout.setOrientation(1);
                         linearLayout.setId(2031091720);
-                        linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08154d);
+                        linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081570);
                         TextView textView5 = new TextView(this.b);
                         textView5.setId(2031091719);
                         obj2 = "content";
@@ -787,7 +788,7 @@ public class FeedbackInputActivity extends Activity {
                         obj = "contenttype";
                         bitmapDrawable.setBounds(p1.a(this.b.getApplicationContext(), 13.0f), 0, p1.a(this.b.getApplicationContext(), 33.0f), p1.a(this.b.getApplicationContext(), 20.0f));
                         textView6.setCompoundDrawables(bitmapDrawable, null, null, null);
-                        textView6.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813d0);
+                        textView6.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813f5);
                         LinearLayout.LayoutParams layoutParams18 = new LinearLayout.LayoutParams(-1, p1.a(this.b.getApplicationContext(), 35.0f));
                         layoutParams18.setMargins(0, 0, p1.a(this.b.getApplicationContext(), 5.0f), 0);
                         layoutParams18.weight = 1.0f;
@@ -801,7 +802,7 @@ public class FeedbackInputActivity extends Activity {
                         int i8 = i3;
                         bitmapDrawable2.setBounds(p1.a(this.b.getApplicationContext(), 13.0f), 0, p1.a(this.b.getApplicationContext(), 33.0f), p1.a(this.b.getApplicationContext(), 20.0f));
                         textView7.setCompoundDrawables(bitmapDrawable2, null, null, null);
-                        textView7.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813d0);
+                        textView7.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813f5);
                         LinearLayout.LayoutParams layoutParams19 = new LinearLayout.LayoutParams(-1, p1.a(this.b.getApplicationContext(), 35.0f));
                         layoutParams19.setMargins(p1.a(this.b.getApplicationContext(), 5.0f), 0, 0, 0);
                         layoutParams19.weight = 1.0f;
@@ -835,7 +836,7 @@ public class FeedbackInputActivity extends Activity {
                         textView8.setText("填写不满意原因");
                         textView8.setTextSize(15.0f);
                         textView8.setTextColor(p1.a(-12814593, -15644211, -12814593, -12814593));
-                        Drawable a2 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f08154f);
+                        Drawable a2 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f081572);
                         a2.setBounds(p1.a(this.a, 1.0f), p1.a(this.a, 1.0f), p1.a(this.a, 14.0f), p1.a(this.a, 14.0f));
                         textView8.setCompoundDrawables(null, null, a2, null);
                         RelativeLayout.LayoutParams layoutParams24 = new RelativeLayout.LayoutParams(-2, -2);
@@ -875,7 +876,7 @@ public class FeedbackInputActivity extends Activity {
                             relativeLayout19.setId(2030632968);
                             relativeLayout19.setClickable(false);
                             TextView textView9 = new TextView(this.b);
-                            textView9.setBackgroundResource(R.drawable.obfuscated_res_0x7f081544);
+                            textView9.setBackgroundResource(R.drawable.obfuscated_res_0x7f081567);
                             textView9.setTextColor(-1);
                             textView9.setTextSize(1, 12.0f);
                             textView9.setGravity(17);
@@ -898,7 +899,7 @@ public class FeedbackInputActivity extends Activity {
                             relativeLayout18.addView(imageView6, layoutParams29);
                             tVar2.b = imageView6;
                             RelativeLayout relativeLayout20 = new RelativeLayout(this.b);
-                            relativeLayout20.setBackgroundResource(R.drawable.obfuscated_res_0x7f08154d);
+                            relativeLayout20.setBackgroundResource(R.drawable.obfuscated_res_0x7f081570);
                             relativeLayout20.setPadding(11, p1.a(this.b.getApplicationContext(), 1.2f), p1.a(this.b.getApplicationContext(), 1.0f), p1.a(this.b.getApplicationContext(), 1.0f));
                             ImageView imageView7 = new ImageView(this.b);
                             imageView7.setOnClickListener(new m(this));
@@ -950,7 +951,7 @@ public class FeedbackInputActivity extends Activity {
                                 relativeLayout23.setId(2030632968);
                                 relativeLayout23.setClickable(false);
                                 TextView textView10 = new TextView(this.b);
-                                textView10.setBackgroundResource(R.drawable.obfuscated_res_0x7f081544);
+                                textView10.setBackgroundResource(R.drawable.obfuscated_res_0x7f081567);
                                 textView10.setTextColor(-1);
                                 textView10.setTextSize(1, 12.0f);
                                 textView10.setGravity(17);
@@ -975,7 +976,7 @@ public class FeedbackInputActivity extends Activity {
                                 LinearLayout linearLayout3 = new LinearLayout(this.b);
                                 linearLayout3.setOrientation(1);
                                 linearLayout3.setId(2031091718);
-                                linearLayout3.setBackgroundResource(R.drawable.obfuscated_res_0x7f08154e);
+                                linearLayout3.setBackgroundResource(R.drawable.obfuscated_res_0x7f081571);
                                 linearLayout3.setPadding(10, 3, 2, 2);
                                 TextView textView11 = new TextView(this.b);
                                 textView11.setGravity(16);
@@ -1219,8 +1220,8 @@ public class FeedbackInputActivity extends Activity {
                             vVar.e.setVisibility(0);
                             vVar.g.setClickable(true);
                             vVar.f.setClickable(true);
-                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813d0);
-                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813d0);
+                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813f5);
+                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0813f5);
                         } else if (i6 == 2) {
                             vVar.e.setVisibility(0);
                             vVar.j.setVisibility(8);
@@ -1228,8 +1229,8 @@ public class FeedbackInputActivity extends Activity {
                             vVar.f.setClickable(false);
                             vVar.h.setVisibility(8);
                             vVar.i.setVisibility(8);
-                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081540);
-                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08153f);
+                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081563);
+                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f081562);
                         } else if (i6 == 3) {
                             vVar.e.setVisibility(0);
                             vVar.j.setVisibility(8);
@@ -1237,8 +1238,8 @@ public class FeedbackInputActivity extends Activity {
                             vVar.g.setClickable(false);
                             vVar.h.setVisibility(8);
                             vVar.i.setVisibility(8);
-                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f081540);
-                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08153f);
+                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f081563);
+                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081562);
                         } else if (i6 == 9) {
                             if (this.b.K != 0) {
                                 i7 = 0;
@@ -1261,13 +1262,13 @@ public class FeedbackInputActivity extends Activity {
                             vVar.j.setVisibility(0);
                             if (((Map) this.b.o.get(i2)).containsKey("isClicked")) {
                                 vVar.j.setTextColor(p1.a(2034005759, -15644211, 2034005759, 2034005759));
-                                Drawable a4 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f081550);
+                                Drawable a4 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f081573);
                                 a4.setAlpha(127);
                                 a4.setBounds(p1.a(this.a, 1.0f), p1.a(this.a, 1.0f), p1.a(this.a, 14.0f), p1.a(this.a, 14.0f));
                                 vVar.j.setCompoundDrawables(null, null, a4, null);
                             } else {
                                 vVar.j.setTextColor(p1.a(-12814593, -15644211, -12814593, -12814593));
-                                Drawable a5 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f08154f);
+                                Drawable a5 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f081572);
                                 a5.setBounds(p1.a(this.a, 1.0f), p1.a(this.a, 1.0f), p1.a(this.a, 14.0f), p1.a(this.a, 14.0f));
                                 vVar.j.setCompoundDrawables(null, null, a5, null);
                             }
@@ -1368,29 +1369,29 @@ public class FeedbackInputActivity extends Activity {
                             String str5 = "";
                             try {
                                 str = (String) ((Map) this.b.o.get(i2)).get("tip");
-                            } catch (Exception e7) {
-                                e = e7;
-                            }
-                            try {
-                                if (TextUtils.isEmpty(str)) {
-                                    str = "您是不是要问以下问题？";
+                                try {
+                                    if (TextUtils.isEmpty(str)) {
+                                        str = "您是不是要问以下问题？";
+                                    }
+                                } catch (Exception e7) {
+                                    e = e7;
+                                    str5 = str;
+                                    e.printStackTrace();
+                                    str = str5;
+                                    uVar.d.setText(str);
+                                    SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder("没有想要的，进入人工反馈");
+                                    spannableStringBuilder3.setSpan(new ForegroundColorSpan(-12814593), 8, 12, 33);
+                                    if (!this.b.d0) {
+                                    }
+                                    uVar.e.setVisibility(0);
+                                    uVar.e.setOnClickListener(new d(this));
+                                    uVar.c.setAdapter((ListAdapter) h1Var);
+                                    uVar.c.setOnItemClickListener(new e(this, i2));
+                                    FeedbackInputActivity.a(this.b, uVar.c);
+                                    return relativeLayout3;
                                 }
                             } catch (Exception e8) {
                                 e = e8;
-                                str5 = str;
-                                e.printStackTrace();
-                                str = str5;
-                                uVar.d.setText(str);
-                                SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder("没有想要的，进入人工反馈");
-                                spannableStringBuilder3.setSpan(new ForegroundColorSpan(-12814593), 8, 12, 33);
-                                if (!this.b.d0) {
-                                }
-                                uVar.e.setVisibility(0);
-                                uVar.e.setOnClickListener(new d(this));
-                                uVar.c.setAdapter((ListAdapter) h1Var);
-                                uVar.c.setOnItemClickListener(new e(this, i2));
-                                FeedbackInputActivity.a(this.b, uVar.c);
-                                return relativeLayout3;
                             }
                             uVar.d.setText(str);
                             SpannableStringBuilder spannableStringBuilder32 = new SpannableStringBuilder("没有想要的，进入人工反馈");
@@ -2194,36 +2195,36 @@ public class FeedbackInputActivity extends Activity {
         public String a;
         public final /* synthetic */ FeedbackInputActivity b;
 
-        /* JADX WARN: Can't wrap try/catch for region: R(13:(3:164|165|(2:167|168)(1:205))|(2:169|170)|(2:172|(8:183|184|185|186|(2:188|(1:193)(1:192))|194|(1:190)|193)(4:176|177|178|(1:182)))|201|(1:174)|183|184|185|186|(0)|194|(0)|193) */
-        /* JADX WARN: Code restructure failed: missing block: B:252:0x087f, code lost:
+        /* JADX WARN: Can't wrap try/catch for region: R(12:(5:164|165|(2:167|168)(1:205)|169|170)|(2:172|(8:183|184|185|186|(2:188|(1:193)(1:192))|194|(1:190)|193)(4:176|177|178|(1:182)))|201|(1:174)|183|184|185|186|(0)|194|(0)|193) */
+        /* JADX WARN: Code restructure failed: missing block: B:252:0x087b, code lost:
             r0 = move-exception;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:253:0x0880, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:253:0x087c, code lost:
             r0.printStackTrace();
          */
-        /* JADX WARN: Removed duplicated region for block: B:127:0x0556  */
-        /* JADX WARN: Removed duplicated region for block: B:138:0x05d5  */
-        /* JADX WARN: Removed duplicated region for block: B:139:0x060c  */
-        /* JADX WARN: Removed duplicated region for block: B:142:0x0612  */
-        /* JADX WARN: Removed duplicated region for block: B:203:0x079b A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:204:0x07aa  */
-        /* JADX WARN: Removed duplicated region for block: B:207:0x07cf A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:208:0x07da  */
-        /* JADX WARN: Removed duplicated region for block: B:211:0x07e1 A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:213:0x07f7 A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:237:0x084c A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:250:0x087a A[Catch: Exception -> 0x087f, TRY_LEAVE, TryCatch #1 {Exception -> 0x087f, blocks: (B:248:0x0874, B:250:0x087a), top: B:338:0x0874, outer: #6 }] */
-        /* JADX WARN: Removed duplicated region for block: B:256:0x0886 A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:263:0x08bc A[Catch: Exception -> 0x06f9, TryCatch #6 {Exception -> 0x06f9, blocks: (B:168:0x06eb, B:177:0x0707, B:179:0x0713, B:181:0x0723, B:183:0x072c, B:188:0x0738, B:191:0x0740, B:193:0x0755, B:194:0x0762, B:196:0x0770, B:201:0x078f, B:203:0x079b, B:205:0x07ab, B:207:0x07cf, B:209:0x07db, B:211:0x07e1, B:261:0x08b0, B:263:0x08bc, B:265:0x08d0, B:266:0x08d6, B:268:0x08dc, B:213:0x07f7, B:215:0x0803, B:217:0x0809, B:219:0x0816, B:237:0x084c, B:239:0x0852, B:241:0x0860, B:243:0x0865, B:245:0x086b, B:246:0x086f, B:256:0x0886, B:258:0x088c, B:259:0x0894, B:253:0x0880, B:234:0x0846, B:260:0x08a0, B:200:0x0788, B:248:0x0874, B:250:0x087a), top: B:348:0x06eb, inners: #1 }] */
-        /* JADX WARN: Removed duplicated region for block: B:267:0x08da  */
-        /* JADX WARN: Removed duplicated region for block: B:281:0x0973  */
-        /* JADX WARN: Removed duplicated region for block: B:284:0x097f  */
-        /* JADX WARN: Removed duplicated region for block: B:306:0x0a2a  */
-        /* JADX WARN: Removed duplicated region for block: B:322:0x0af7  */
-        /* JADX WARN: Removed duplicated region for block: B:325:0x0b28  */
-        /* JADX WARN: Removed duplicated region for block: B:328:0x0b33  */
-        /* JADX WARN: Removed duplicated region for block: B:331:0x0b3e  */
-        /* JADX WARN: Removed duplicated region for block: B:354:0x099f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:127:0x0553  */
+        /* JADX WARN: Removed duplicated region for block: B:138:0x05d2  */
+        /* JADX WARN: Removed duplicated region for block: B:139:0x0609  */
+        /* JADX WARN: Removed duplicated region for block: B:142:0x060f  */
+        /* JADX WARN: Removed duplicated region for block: B:203:0x0798 A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:204:0x07a7  */
+        /* JADX WARN: Removed duplicated region for block: B:207:0x07cc A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:208:0x07d7  */
+        /* JADX WARN: Removed duplicated region for block: B:211:0x07de A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:213:0x07f4 A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:237:0x0849 A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:250:0x0876 A[Catch: Exception -> 0x087b, TRY_LEAVE, TryCatch #2 {Exception -> 0x087b, blocks: (B:248:0x0870, B:250:0x0876), top: B:340:0x0870, outer: #7 }] */
+        /* JADX WARN: Removed duplicated region for block: B:256:0x0882 A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:263:0x08b8 A[Catch: Exception -> 0x06f6, TryCatch #7 {Exception -> 0x06f6, blocks: (B:168:0x06e8, B:177:0x0704, B:179:0x0710, B:181:0x0720, B:183:0x0729, B:188:0x0735, B:191:0x073d, B:193:0x0752, B:194:0x075f, B:196:0x076d, B:201:0x078c, B:203:0x0798, B:205:0x07a8, B:207:0x07cc, B:209:0x07d8, B:211:0x07de, B:261:0x08ac, B:263:0x08b8, B:265:0x08cc, B:266:0x08d2, B:268:0x08d8, B:213:0x07f4, B:215:0x0800, B:217:0x0806, B:219:0x0813, B:237:0x0849, B:239:0x084f, B:241:0x085c, B:243:0x0861, B:245:0x0867, B:246:0x086b, B:256:0x0882, B:258:0x0888, B:259:0x0890, B:253:0x087c, B:234:0x0843, B:260:0x089c, B:200:0x0785, B:248:0x0870, B:250:0x0876), top: B:350:0x06e8, inners: #2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:267:0x08d6  */
+        /* JADX WARN: Removed duplicated region for block: B:281:0x096f  */
+        /* JADX WARN: Removed duplicated region for block: B:284:0x097b  */
+        /* JADX WARN: Removed duplicated region for block: B:306:0x0a26  */
+        /* JADX WARN: Removed duplicated region for block: B:322:0x0af3  */
+        /* JADX WARN: Removed duplicated region for block: B:325:0x0b24  */
+        /* JADX WARN: Removed duplicated region for block: B:328:0x0b2f  */
+        /* JADX WARN: Removed duplicated region for block: B:331:0x0b3a  */
+        /* JADX WARN: Removed duplicated region for block: B:360:0x099b A[EXC_TOP_SPLITTER, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:366:? A[RETURN, SYNTHETIC] */
         @Override // android.os.Handler
         /*
@@ -2275,7 +2276,7 @@ public class FeedbackInputActivity extends Activity {
                 String str13 = "" + message.arg2;
                 String str14 = "Handler = 12 PluginInvoker  tempRobotSwitch = " + aVar2.b.C + "; id = " + aVar2.b.m;
                 if (aVar2.b.C && aVar2.b.m != null && aVar2.b.m.length() > 0) {
-                    aVar2.b.s.execute(new RunnableC0560a(aVar2, str13));
+                    aVar2.b.s.execute(new RunnableC0552a(aVar2, str13));
                 }
             } else if (i == 13) {
                 FeedbackInputActivity feedbackInputActivity4 = aVar2.b;
@@ -2662,39 +2663,39 @@ public class FeedbackInputActivity extends Activity {
                                                 } else {
                                                     try {
                                                         jSONArray = jSONObject.has("robot") ? (JSONArray) jSONObject.get("robot") : null;
-                                                    } catch (Exception e7) {
-                                                        e = e7;
-                                                        jSONArray = null;
-                                                    }
-                                                    try {
+                                                        try {
+                                                        } catch (Exception e7) {
+                                                            e = e7;
+                                                            e.printStackTrace();
+                                                            str11 = null;
+                                                            if (jSONArray == null) {
+                                                            }
+                                                            hashMap5.put(str8, 0);
+                                                            str10 = str21;
+                                                            if (jSONObject.has(str10)) {
+                                                            }
+                                                            str12 = null;
+                                                            if (str12 == null) {
+                                                            }
+                                                            hashMap5.put("content", jSONArray3.getJSONObject(i4).getString("content"));
+                                                            if (((Integer) hashMap5.get(str8)).intValue() != 0) {
+                                                            }
+                                                            hashMap5.put("time", jSONArray3.getJSONObject(i4).get("time"));
+                                                            aVar = this;
+                                                            aVar.b.o.add(hashMap5);
+                                                            i4++;
+                                                            str21 = str10;
+                                                            aVar2 = aVar;
+                                                            charSequence3 = charSequence4;
+                                                            str22 = str5;
+                                                            String str40 = str9;
+                                                            str = str8;
+                                                            str18 = str39;
+                                                            str24 = str40;
+                                                        }
                                                     } catch (Exception e8) {
                                                         e = e8;
-                                                        e.printStackTrace();
-                                                        str11 = null;
-                                                        if (jSONArray == null) {
-                                                        }
-                                                        hashMap5.put(str8, 0);
-                                                        str10 = str21;
-                                                        if (jSONObject.has(str10)) {
-                                                        }
-                                                        str12 = null;
-                                                        if (str12 == null) {
-                                                        }
-                                                        hashMap5.put("content", jSONArray3.getJSONObject(i4).getString("content"));
-                                                        if (((Integer) hashMap5.get(str8)).intValue() != 0) {
-                                                        }
-                                                        hashMap5.put("time", jSONArray3.getJSONObject(i4).get("time"));
-                                                        aVar = this;
-                                                        aVar.b.o.add(hashMap5);
-                                                        i4++;
-                                                        str21 = str10;
-                                                        aVar2 = aVar;
-                                                        charSequence3 = charSequence4;
-                                                        str22 = str5;
-                                                        String str40 = str9;
-                                                        str = str8;
-                                                        str18 = str39;
-                                                        str24 = str40;
+                                                        jSONArray = null;
                                                     }
                                                     if (jSONObject.has(str33)) {
                                                         str11 = (String) jSONObject.get(str33);
@@ -2884,7 +2885,7 @@ public class FeedbackInputActivity extends Activity {
                         }
                         HashMap hashMap6 = new HashMap();
                         hashMap6.put(str5, 1);
-                        hashMap6.put("content", aVar.b.getString(R.string.obfuscated_res_0x7f0f1267));
+                        hashMap6.put("content", aVar.b.getString(R.string.obfuscated_res_0x7f0f1280));
                         hashMap6.put("contenttype", str6);
                         hashMap6.put("time", String.valueOf(System.currentTimeMillis()));
                         hashMap6.put("ask", 0);
@@ -2951,13 +2952,13 @@ public class FeedbackInputActivity extends Activity {
 
         /* renamed from: com.baidu.ufosdk.ui.FeedbackInputActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0560a implements Runnable {
+        public class RunnableC0552a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0560a(a aVar, String str) {
+            public RunnableC0552a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -4064,7 +4065,7 @@ public class FeedbackInputActivity extends Activity {
         this.N = null;
         this.O = null;
         this.P = null;
-        this.f1196T = false;
+        this.f1192T = false;
         this.W = new a(this);
         this.X = new l(this);
         this.Y = false;
@@ -4155,7 +4156,7 @@ public class FeedbackInputActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, feedbackInputActivity, message) == null) {
             feedbackInputActivity.F.j.setVisibility(8);
-            feedbackInputActivity.F.l.setBackgroundResource(R.drawable.obfuscated_res_0x7f08058e);
+            feedbackInputActivity.F.l.setBackgroundResource(R.drawable.obfuscated_res_0x7f08059a);
             feedbackInputActivity.F.l.setTextColor(-1);
             feedbackInputActivity.F.l.setClickable(true);
             feedbackInputActivity.F.k.setFocusable(true);
@@ -4238,71 +4239,71 @@ public class FeedbackInputActivity extends Activity {
                 if (feedbackInputActivity.o.get(feedbackInputActivity.H).containsKey("discontent_reason")) {
                     str = (String) feedbackInputActivity.o.get(feedbackInputActivity.H).get("discontent_reason");
                     if (feedbackInputActivity.G == null) {
-                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f100446);
+                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f10044f);
                     }
                     g1Var = feedbackInputActivity.G;
                     if (g1Var == null) {
                         if (jSONArray != null && jSONArray.length() > 0) {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091618).setVisibility(0);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091620).setVisibility(0);
                             int length = jSONArray.length();
                             if (length != 1) {
                                 if (length != 2) {
                                     if (length != 3) {
                                         if (length != 4) {
                                             if (length == 5) {
-                                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161b).setVisibility(0);
-                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090662);
+                                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091623).setVisibility(0);
+                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090658);
                                                 checkBox.setVisibility(0);
                                                 checkBox.setText(jSONArray.optString(4));
                                             }
                                         } else {
-                                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161a).setVisibility(0);
-                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090661);
+                                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091622).setVisibility(0);
+                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090657);
                                             checkBox2.setVisibility(0);
                                             checkBox2.setText(jSONArray.optString(3));
                                         }
                                     } else {
-                                        g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161a).setVisibility(0);
-                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090660);
+                                        g1Var.b.findViewById(R.id.obfuscated_res_0x7f091622).setVisibility(0);
+                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090656);
                                         checkBox3.setVisibility(0);
                                         checkBox3.setText(jSONArray.optString(2));
                                     }
                                 } else {
-                                    g1Var.b.findViewById(R.id.obfuscated_res_0x7f091619).setVisibility(0);
-                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09065f);
+                                    g1Var.b.findViewById(R.id.obfuscated_res_0x7f091621).setVisibility(0);
+                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090655);
                                     checkBox4.setVisibility(0);
                                     checkBox4.setText(jSONArray.optString(1));
                                 }
                             } else {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091619).setVisibility(0);
-                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09065e);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091621).setVisibility(0);
+                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090654);
                                 checkBox5.setVisibility(0);
                                 checkBox5.setText(jSONArray.optString(0));
                             }
                             if (jSONArray.length() == 4) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161b).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091623).setVisibility(8);
                             }
                             if (jSONArray.length() == 3) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161b).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090661)).setVisibility(4);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091623).setVisibility(8);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090657)).setVisibility(4);
                             }
                             if (jSONArray.length() == 2) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161b).setVisibility(8);
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161a).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091623).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091622).setVisibility(8);
                             }
                             if (jSONArray.length() == 1) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161b).setVisibility(8);
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09161a).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09065f)).setVisibility(4);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091623).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091622).setVisibility(8);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090655)).setVisibility(4);
                             }
                         } else {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091618).setVisibility(8);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091620).setVisibility(8);
                         }
                         if (!TextUtils.isEmpty(str)) {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091f79).setVisibility(0);
-                            ((TextView) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0927a3)).setText(str);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091fb9).setVisibility(0);
+                            ((TextView) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0927d6)).setText(str);
                         } else {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091f79).setVisibility(8);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091fb9).setVisibility(8);
                         }
                         feedbackInputActivity.G.show();
                         return;
@@ -4317,7 +4318,7 @@ public class FeedbackInputActivity extends Activity {
                 }
             } else {
                 if (feedbackInputActivity.F == null) {
-                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f100446, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
+                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f10044f, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
                 }
                 c1 c1Var = feedbackInputActivity.F;
                 c1Var.p = z2;
@@ -4422,7 +4423,7 @@ public class FeedbackInputActivity extends Activity {
                 hashMap.put("brand", "");
                 hashMap.put("model", "");
                 hashMap.put("sdkvn", "4.1.9.1");
-                hashMap.put("os", "android");
+                hashMap.put(TtsLogLoad.KEY_OS, "android");
                 hashMap.put("appvn", com.baidu.ufosdk.c.b());
                 hashMap.put("baiducuid", com.baidu.ufosdk.b.f());
                 hashMap.put("extra", com.baidu.ufosdk.b.g());
@@ -4521,7 +4522,7 @@ public class FeedbackInputActivity extends Activity {
             popupWindow.getContentView().setOnClickListener(new j(this, view2, popupWindow));
             popupWindow.setTouchInterceptor(new k(this));
             try {
-                popupWindow.setBackgroundDrawable(new BitmapDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081547)));
+                popupWindow.setBackgroundDrawable(new BitmapDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f08156a)));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -4554,7 +4555,7 @@ public class FeedbackInputActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("from", 1);
-            hashMap.put("content", getString(R.string.obfuscated_res_0x7f0f1267));
+            hashMap.put("content", getString(R.string.obfuscated_res_0x7f0f1280));
             hashMap.put("contenttype", "0");
             hashMap.put("time", String.valueOf(System.currentTimeMillis()));
             hashMap.put("ask", 0);
@@ -4633,7 +4634,7 @@ public class FeedbackInputActivity extends Activity {
             hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("sdkvn", "4.1.9.1");
-            hashMap.put("os", "android");
+            hashMap.put(TtsLogLoad.KEY_OS, "android");
             hashMap.put("appvn", com.baidu.ufosdk.c.b());
             hashMap.put("baiducuid", com.baidu.ufosdk.b.f());
             hashMap.put("extra", com.baidu.ufosdk.b.g());
@@ -4836,7 +4837,7 @@ public class FeedbackInputActivity extends Activity {
                 if (byteArrayExtra != null && byteArrayExtra.length > 0) {
                     this.c.set(i2, byteArrayExtra);
                 }
-                this.c.add(p1.a(this, this.f1196T));
+                this.c.add(p1.a(this, this.f1192T));
                 c();
                 return;
             } else if (intent == null) {

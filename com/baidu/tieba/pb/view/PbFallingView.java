@@ -44,10 +44,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.kq9;
-import com.baidu.tieba.ooa;
-import com.baidu.tieba.ww4;
+import com.baidu.tieba.ax4;
+import com.baidu.tieba.bs9;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.mqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class PbFallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<kq9> f;
+    public final List<bs9> f;
     public final Context g;
     public int h;
     public int i;
@@ -447,7 +447,7 @@ public class PbFallingView extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class j implements kq9.c {
+    public class j implements bs9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -472,7 +472,7 @@ public class PbFallingView extends FrameLayout {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.kq9.c
+        @Override // com.baidu.tieba.bs9.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -520,7 +520,7 @@ public class PbFallingView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && (adverSegmentData = this.b) != null) {
                 if (!UtilHelper.isMatchScheme(this.a.getPageActivity(), adverSegmentData.getJumpExternalScheme(), this.b.getJumpExternalPackageName())) {
                     TbPageContext tbPageContext = this.a;
-                    ooa.a(tbPageContext, ww4.a + di.getUrlEncode(this.b.getJumpLink()));
+                    mqa.a(tbPageContext, ax4.a + ei.getUrlEncode(this.b.getJumpLink()));
                 }
                 TiebaStatic.log(new StatisticItem("c14126").param("obj_type", this.c).param("obj_locate", this.d.B).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 ThirdStatisticHelper.sendReq(this.b.getClickStatisticsUrl());
@@ -788,9 +788,9 @@ public class PbFallingView extends FrameLayout {
         }
     }
 
-    public final void o(kq9 kq9Var, int i2) {
+    public final void o(bs9 bs9Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, kq9Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, bs9Var, i2) == null) {
             if (this.h == 0) {
                 this.h = BdUtilHelper.getEquipmentWidth(this.g);
             }
@@ -799,9 +799,9 @@ public class PbFallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                kq9 kq9Var2 = new kq9(kq9Var.i, this.h, this.i);
-                kq9Var2.e = (-i3) * 180;
-                this.f.add(kq9Var2);
+                bs9 bs9Var2 = new bs9(bs9Var.i, this.h, this.i);
+                bs9Var2.e = (-i3) * 180;
+                this.f.add(bs9Var2);
             }
         }
     }
@@ -959,13 +959,13 @@ public class PbFallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, adverSegmentData, bitmap, i2) == null) {
             Random random = new Random();
-            kq9.b bVar = new kq9.b(bitmap);
+            bs9.b bVar = new bs9.b(bitmap);
             bVar.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.l(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new j(this, random));
             bVar.p(true, true);
-            kq9 k2 = bVar.k();
+            bs9 k2 = bVar.k();
             this.A = i2;
             o(k2, 19);
             postDelayed(this.y, 1500L);
@@ -1150,12 +1150,12 @@ public class PbFallingView extends FrameLayout {
     public final void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d7, (ViewGroup) null, false);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02da, (ViewGroup) null, false);
             this.b = inflate;
             this.c = inflate.findViewById(R.id.expand_layout);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f090aaf);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f090aa7);
             this.e = (TextView) this.b.findViewById(R.id.expand_text);
-            this.a = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090728);
+            this.a = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09071c);
             EMManager.from(this.c).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0608);
             EMManager.from(this.e).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0101);
             EMManager.from(this.d).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0317);
@@ -1164,16 +1164,16 @@ public class PbFallingView extends FrameLayout {
             this.a.setPadding(BdUtilHelper.getDimens(context, R.dimen.tbds10), BdUtilHelper.getDimens(context, R.dimen.tbds5), BdUtilHelper.getDimens(context, R.dimen.tbds10), BdUtilHelper.getDimens(context, R.dimen.tbds5));
             this.a.setPlaceHolder(2);
             addView(this.b, layoutParams);
-            View inflate2 = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d6, (ViewGroup) null, false);
+            View inflate2 = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d9, (ViewGroup) null, false);
             this.s = inflate2;
-            this.t = inflate2.findViewById(R.id.obfuscated_res_0x7f0900db);
-            this.u = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f090af0);
-            this.v = (TextView) this.s.findViewById(R.id.obfuscated_res_0x7f090aef);
+            this.t = inflate2.findViewById(R.id.obfuscated_res_0x7f0900d7);
+            this.u = (ImageView) this.s.findViewById(R.id.obfuscated_res_0x7f090ae8);
+            this.v = (TextView) this.s.findViewById(R.id.obfuscated_res_0x7f090ae7);
             x();
             DrawableSelector.make().trRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26)).brRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26)).defaultColor(R.color.CAM_X0624).into(this.t);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-2, -2);
             layoutParams2.gravity = 3;
-            WebPManager.setPureDrawable(this.u, R.drawable.obfuscated_res_0x7f0808b2, R.color.CAM_X0101, null);
+            WebPManager.setPureDrawable(this.u, R.drawable.obfuscated_res_0x7f0808c2, R.color.CAM_X0101, null);
             EMManager.from(this.v).setTextColor(R.color.CAM_X0101);
             this.s.setY(BdUtilHelper.getEquipmentHeight(this.g) - BdUtilHelper.getDimens(this.g, R.dimen.tbds720));
             addView(this.s, layoutParams2);

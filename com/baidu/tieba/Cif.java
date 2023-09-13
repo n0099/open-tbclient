@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
 /* renamed from: com.baidu.tieba.if  reason: invalid class name */
 /* loaded from: classes6.dex */
 public interface Cif {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
+    void a(boolean z);
 
-    boolean isIpv6();
+    void b(BdLocationMananger.c cVar);
 
-    boolean isSwitchOn();
+    void c();
+
+    void destroy();
 }

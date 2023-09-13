@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.zrb;
+import com.baidu.tieba.yub;
 import java.util.Locale;
 /* loaded from: classes9.dex */
 public class Pose {
-    public final zrb a;
+    public final yub a;
     public final float[] b;
 
     static {
-        zrb zrbVar = zrb.e;
+        yub yubVar = yub.e;
     }
 
     public String toString() {

@@ -1,14 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
+import android.content.Context;
+import android.graphics.Bitmap;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
 public interface vv1 {
-    void a();
 
-    void b(String str, tz1 tz1Var);
+    /* loaded from: classes8.dex */
+    public interface a {
+        void onResult(String str);
+    }
 
-    void c(SwanAppActivity swanAppActivity, String str, tz1 tz1Var);
+    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
 
-    void d(String str, String str2, JSONObject jSONObject, tz1 tz1Var);
+    void b(Context context, String str, String str2, String str3);
+
+    void c(HashMap<String, String> hashMap, File file, a aVar);
+
+    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.feed.data;
 
 import android.content.Context;
-import com.baidu.tieba.b77;
+import com.baidu.tieba.g87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import kotlin.jvm.functions.Function2;
 /* loaded from: classes5.dex */
 public final class CardDataKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<Context, b77<?>, Unit> a;
+    public static final Function2<Context, g87<?>, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

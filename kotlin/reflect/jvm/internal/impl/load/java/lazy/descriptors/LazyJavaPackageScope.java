@@ -246,7 +246,7 @@ public final class LazyJavaPackageScope extends LazyJavaStaticScope {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassDescriptor mo2106getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassDescriptor mo2107getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return findClassifier(name, null);
     }
 

@@ -5,9 +5,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.log.OldBdLog;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.logsystem.exceptionhandler.api.ExceptionHandler;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,11 +27,11 @@ public class BdLog {
     public static String LogFilter_classNameStartsWith;
     public static boolean enableExceptionLog;
     public static ArrayList<String> logPackage;
-    public static hi permissionUtil;
+    public static ii permissionUtil;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static class a extends AsyncTask<Void, Void, Void> {
+    public class a extends AsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Exception a;
@@ -173,10 +174,10 @@ public class BdLog {
         }
     }
 
-    public static void setPermissionUtil(hi hiVar) {
+    public static void setPermissionUtil(ii iiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, hiVar) == null) {
-            permissionUtil = hiVar;
+        if (interceptable == null || interceptable.invokeL(65561, null, iiVar) == null) {
+            permissionUtil = iiVar;
         }
     }
 
@@ -227,7 +228,7 @@ public class BdLog {
         String createMsg;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
-            Log.d(LOG_TAG, createMsg);
+            OldBdLog.getInstance().d(LOG_TAG, createMsg);
         }
     }
 
@@ -244,7 +245,7 @@ public class BdLog {
         String createMsg;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65552, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
-            Log.e(LOG_TAG, createMsg);
+            OldBdLog.getInstance().e(LOG_TAG, createMsg);
         }
     }
 
@@ -252,7 +253,7 @@ public class BdLog {
         String createMsg;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65554, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
-            Log.i(LOG_TAG, createMsg);
+            OldBdLog.getInstance().i(LOG_TAG, createMsg);
         }
     }
 
@@ -260,7 +261,7 @@ public class BdLog {
         String createMsg;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65563, null, str, str2, str3) == null) && (createMsg = createMsg(true, str, str2, str3)) != null) {
-            Log.v(LOG_TAG, createMsg);
+            OldBdLog.getInstance().v(LOG_TAG, createMsg);
         }
     }
 
@@ -268,7 +269,7 @@ public class BdLog {
         String createMsg;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65565, null, str, str2, str3) == null) && (createMsg = createMsg(false, str, str2, str3)) != null) {
-            Log.w(LOG_TAG, createMsg);
+            OldBdLog.getInstance().w(LOG_TAG, createMsg);
         }
     }
 

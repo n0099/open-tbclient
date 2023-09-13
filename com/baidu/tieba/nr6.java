@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.HotCardView;
+import com.baidu.tieba.de7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Personalized.LiveAnswer;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nr6 implements z87<Message> {
+public final class nr6 extends yb7<HotCardView, a28> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nr6() {
+        super("template_stub_hot_card");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,28 +26,39 @@ public class nr6 implements z87<Message> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z87
-    /* renamed from: a */
-    public jb7<?> b(Message message) {
+    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    public View a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof LiveAnswer)) {
-                return null;
-            }
-            w58 w58Var = new w58();
-            w58Var.c((LiveAnswer) message);
-            k87 k87Var = new k87();
-            k87Var.a = w58Var;
-            return new kb7(new x47(k87Var), "recommend_banner");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            de7.a aVar = de7.b;
+            View a = super.a(parent);
+            Intrinsics.checkNotNullExpressionValue(a, "super.createView(parent)");
+            de7.a.f(aVar, a, null, null, 6, null);
+            return a;
         }
-        return (jb7) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oc7
+    /* renamed from: e */
+    public void b(HotCardView view2, a28 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.setData(data);
+            view2.b();
+        }
     }
 }

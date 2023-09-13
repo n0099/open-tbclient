@@ -25,7 +25,7 @@ public abstract class TypeSubstitution {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
         /* renamed from: get  reason: collision with other method in class */
-        public /* bridge */ /* synthetic */ TypeProjection mo2109get(KotlinType kotlinType) {
+        public /* bridge */ /* synthetic */ TypeProjection mo2110get(KotlinType kotlinType) {
             return (TypeProjection) get(kotlinType);
         }
     };
@@ -43,7 +43,7 @@ public abstract class TypeSubstitution {
     }
 
     /* renamed from: get */
-    public abstract TypeProjection mo2109get(KotlinType kotlinType);
+    public abstract TypeProjection mo2110get(KotlinType kotlinType);
 
     public boolean isEmpty() {
         return false;

@@ -55,7 +55,7 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void c(@Nullable View.OnLongClickListener onLongClickListener) {
+        public void b(@Nullable View.OnLongClickListener onLongClickListener) {
             ChatShareCard chatShareCard;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, onLongClickListener) == null) && (chatShareCard = this.a) != null) {
@@ -126,7 +126,7 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
             chatShareCard.V = 1;
             chatShareCard.setChatRoomId(this.l);
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090eba);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090eb9);
             chatShareCard.setCurrentCardType((short) 33);
             return new ViewHolder(chatShareCard);
         }

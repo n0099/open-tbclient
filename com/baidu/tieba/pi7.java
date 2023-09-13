@@ -8,10 +8,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class pi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public boolean d;
+    public int a;
+    public boolean b;
 
     public pi7() {
         Interceptable interceptable = $ic;
@@ -23,9 +21,7 @@ public class pi7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = false;
     }
 }

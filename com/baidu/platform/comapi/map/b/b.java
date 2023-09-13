@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0134a a;
+    public a.InterfaceC0123a a;
     public MapController b;
     public com.baidu.platform.comapi.map.b.a.b c;
     public com.baidu.platform.comapi.map.b.a.a d;

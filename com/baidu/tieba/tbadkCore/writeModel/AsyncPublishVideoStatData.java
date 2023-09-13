@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +53,7 @@ public class AsyncPublishVideoStatData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("startTime", this.startTime);
             jSONObject.put("endTime", this.endTime);
-            jSONObject.put("errorCode", this.errorCode);
+            jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             jSONObject.put(PackageTable.MD5, this.md5);
             jSONObject.put("url", this.url);

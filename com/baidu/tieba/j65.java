@@ -1,73 +1,91 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.me5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class j65 {
+public final class j65 extends e65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends x55>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835264, "Lcom/baidu/tieba/j65;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835264, "Lcom/baidu/tieba/j65;");
-                return;
-            }
-        }
-        ArrayMap arrayMap = new ArrayMap();
-        a = arrayMap;
-        arrayMap.put("WebViewYunDialog", i65.class);
-        a.put("userIcon", h65.class);
-        a.put("userGrowth", g65.class);
-        a.put("newGod", d65.class);
-        a.put("operateNew", e65.class);
-        a.put("homeLiveRemind", c65.class);
-        a.put("updateDialog", f65.class);
-        a.put("lcUpdateDialog", b65.class);
-        y55 y55Var = new y55();
-        lk1<z55> lk1Var = y55Var.a;
-        if (lk1Var != null && !ListUtils.isEmpty(lk1Var.getList())) {
-            for (z55 z55Var : y55Var.a.getList()) {
-                a.put(z55Var.name(), z55Var.a());
+    public j65() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
-            p55 b = p55.b(str, str2);
-            try {
-                String a2 = b.a("yun_dialogClass");
-                if (TextUtils.isEmpty(a2)) {
-                    return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
+        }
+    }
+
+    @Override // com.baidu.tieba.e65
+    public void a(Context context, v55 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                int i = 0;
+                LiveRemindRecommendData c = a95.a().c(0);
+                HashMap hashMap = new HashMap();
+                if (c.getRemindType() == 1) {
+                    i = 3;
+                } else if (c.getRemindType() == 2) {
+                    i = 4;
+                } else if (c.getRemindType() == 3) {
+                    i = 2;
                 }
-                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
-            } catch (Exception e) {
-                TbLog yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.e(YunDialogManager.LOG_KEY, "云弹窗 " + str + " 渲染失败：" + e.getMessage());
-                YunDialogManager.unMarkShowingDialogName(str);
-                e.printStackTrace();
+                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
+                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
+                hashMap.put("view_top_params_user_name", c.getUserName());
+                hashMap.put("view_top_params_key_desc", c.getDesc());
+                hashMap.put("view_top_params_room_id", c.getRoomId());
+                hashMap.put("view_top_params_btn_text", c.getBtnText());
+                hashMap.put("view_top_params_key_title", c.getTitle());
+                hashMap.put("view_top_params_key_nid", c.getFeedId());
+                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
+                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
+                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
+                ne5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new me5.h() { // from class: com.baidu.tieba.b65
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.me5.h
+                    public final void dismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            j65.b();
+                        }
+                    }
+                });
+                b95.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                YunDialogManager.markShowingDialogName("homeLiveRemind");
+                return;
             }
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
     }
 }

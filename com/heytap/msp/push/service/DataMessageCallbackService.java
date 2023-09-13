@@ -15,7 +15,7 @@ import com.heytap.mcssdk.b;
 import com.heytap.mcssdk.utils.d;
 import com.heytap.msp.push.callback.IDataMessageCallBackService;
 import com.heytap.msp.push.mode.DataMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DataMessageCallbackService extends Service implements IDataMessageCallBackService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

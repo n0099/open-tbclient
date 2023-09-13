@@ -1,27 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class vm8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vm8 extends sm8 {
+    void a(@NonNull String str);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(str), false);
-        }
-        return invokeL.booleanValue;
-    }
+    void i();
 
-    public static void b(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, str, z) == null) {
-            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(str), z);
-        }
-    }
+    void l(@NonNull String str);
+
+    void m(@NonNull String str, @NonNull CharSequence charSequence);
+
+    void n(@NonNull tm8 tm8Var);
+
+    void o(Object obj);
+
+    void onChangeSkinType();
+
+    void onDestroy();
+
+    void p();
+
+    void q(boolean z, int i, int i2, @Nullable Map<String, Object> map, boolean z2, long j, long j2);
+
+    void r(@NonNull String str, @Nullable String str2);
+
+    void s(int i, int i2, @Nullable String str);
 }

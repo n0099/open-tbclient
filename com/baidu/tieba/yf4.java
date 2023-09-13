@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yf4 extends pf4<rx2> {
+public class yf4 extends tf4<tx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +30,7 @@ public class yf4 extends pf4<rx2> {
                 return;
             }
         }
-        boolean z = nr1.a;
+        boolean z = rr1.a;
     }
 
     public yf4() {
@@ -46,7 +47,7 @@ public class yf4 extends pf4<rx2> {
         }
     }
 
-    public static yf4 e() {
+    public static yf4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -55,48 +56,47 @@ public class yf4 extends pf4<rx2> {
         return (yf4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pf4
-    /* renamed from: d */
-    public boolean b(Context context, rx2 rx2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.tf4
+    public boolean b(Context context, tx2 tx2Var, qx2 qx2Var, hb3 hb3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rx2Var, mx2Var, db3Var, jSONObject)) == null) {
-            return g(context, rx2Var, mx2Var, db3Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tx2Var, qx2Var, hb3Var, jSONObject)) == null) {
+            return e(context, tx2Var, qx2Var, hb3Var, jSONObject);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final Bundle f(rx2 rx2Var) {
-        InterceptResult invokeL;
+    public final boolean e(Context context, tx2 tx2Var, qx2 qx2Var, hb3 hb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rx2Var)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("slaveId", rx2Var.c);
-            bundle.putDouble("latitude", rx2Var.j.a);
-            bundle.putDouble("longitude", rx2Var.j.b);
-            bundle.putDouble("scale", rx2Var.k);
-            bundle.putString("name", rx2Var.z);
-            bundle.putString("address", rx2Var.A);
-            bundle.putStringArrayList("ignoredApps", rx2Var.B);
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public final boolean g(Context context, rx2 rx2Var, mx2 mx2Var, db3 db3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, rx2Var, mx2Var, db3Var)) == null) {
-            d82.i("map", "OpenLocationAction start");
-            if (!rx2Var.isValid()) {
-                d82.c("map", "model is invalid");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tx2Var, qx2Var, hb3Var, jSONObject)) == null) {
+            h82.i("map", "GetRegionAction start");
+            px1 A = uw2.T().A(tx2Var.c);
+            if (!(A instanceof nx1)) {
+                h82.c("map", "WebViewManager is null");
                 return false;
             }
-            kg4.t3(f(rx2Var)).x3();
-            d82.i("map", "OpenLocationAction end");
+            rg4 d = qf4.b().c((nx1) A).d(tx2Var.b);
+            if (d == null) {
+                h82.c("map", "can not find map by id " + tx2Var.b);
+                return false;
+            }
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
+                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
+                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
+                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
+                jSONObject.put("southwest", jSONObject3);
+                jSONObject.put("northeast", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            h82.i("map", "GetRegionAction end");
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

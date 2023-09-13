@@ -1,5 +1,5 @@
 package com.huawei.hms.adapter.internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ConnectCode {
     public static final int CONNECT_RESULT_NULL = -1;
     public static final int OK = 0;

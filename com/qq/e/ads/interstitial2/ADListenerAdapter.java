@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
-import com.qq.e.comm.adevent.AdEventType;
 import com.qq.e.comm.listeners.NegativeFeedbackListener;
 import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.a;
@@ -156,7 +155,7 @@ public class ADListenerAdapter implements ADListener {
                             }
                             unifiedInterstitialMediaListener6.onVideoReady(num3.intValue());
                             return;
-                        case AdEventType.VIDEO_LOADING /* 211 */:
+                        case 211:
                             UnifiedInterstitialMediaListener unifiedInterstitialMediaListener7 = this.b;
                             if (unifiedInterstitialMediaListener7 != null) {
                                 unifiedInterstitialMediaListener7.onVideoLoading();

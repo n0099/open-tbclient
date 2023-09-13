@@ -377,10 +377,10 @@ public class H5Activity extends Activity implements L1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0a3b);
+            setContentView(R.layout.obfuscated_res_0x7f0d0a4e);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092a5a);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092a51);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092a90);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092a87);
             this.h = 0L;
             this.i = new m2(this);
             M1.a("hcl", this);

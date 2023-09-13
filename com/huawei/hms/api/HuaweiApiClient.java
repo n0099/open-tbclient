@@ -33,12 +33,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HuaweiApiClient implements AidlApiClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ConnectionCallbacks {
         public static final int CAUSE_API_CLIENT_EXPIRED = 3;
         public static final int CAUSE_NETWORK_LOST = 2;
@@ -49,7 +49,7 @@ public abstract class HuaweiApiClient implements AidlApiClient {
         void onConnectionSuspended(int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnConnectionFailedListener {
         void onConnectionFailed(ConnectionResult connectionResult);
     }
@@ -109,7 +109,7 @@ public abstract class HuaweiApiClient implements AidlApiClient {
 
     public abstract boolean setSubAppInfo(SubAppInfo subAppInfo);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

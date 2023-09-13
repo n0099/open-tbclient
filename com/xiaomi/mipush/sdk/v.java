@@ -28,16 +28,16 @@ public class v {
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f89a;
+        public boolean f88a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f90b;
+        public boolean f89b;
 
         public b(String str, boolean z, boolean z2, String str2) {
             this.a = str;
-            this.f89a = z;
-            this.f90b = z2;
+            this.f88a = z;
+            this.f89b = z2;
             this.b = str2;
         }
     }
@@ -221,8 +221,8 @@ public class v {
             for (ServiceInfo serviceInfo : serviceInfoArr) {
                 if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                     b bVar = (b) hashMap2.remove(serviceInfo.name);
-                    boolean z = bVar.f89a;
-                    boolean z2 = bVar.f90b;
+                    boolean z = bVar.f88a;
+                    boolean z2 = bVar.f89b;
                     String str = bVar.b;
                     if (z != serviceInfo.enabled) {
                         throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));

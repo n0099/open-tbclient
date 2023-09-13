@@ -3,6 +3,7 @@ package com.huawei.hms.framework.network.grs.g;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -269,7 +270,7 @@ public class d {
                         e(jSONObject.has("errorList") ? jSONObject.getJSONObject("errorList").toString() : "");
                         return;
                     }
-                    b(jSONObject.has("errorCode") ? jSONObject.getInt("errorCode") : 9001);
+                    b(jSONObject.has(CloudStabilityUBCUtils.KEY_ERROR_CODE) ? jSONObject.getInt(CloudStabilityUBCUtils.KEY_ERROR_CODE) : 9001);
                     d(jSONObject.has("errorDesc") ? jSONObject.getString("errorDesc") : "");
                 } catch (JSONException e) {
                     Logger.w(o, "GrsResponse GrsResponse(String result) JSONException: %s", StringUtils.anonymizeMessage(e.getMessage()));

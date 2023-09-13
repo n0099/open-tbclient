@@ -22,7 +22,6 @@ import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
@@ -226,9 +225,9 @@ public class GrantWebActivity extends BaseActivity {
         hashMap.put("tpl", SapiAccountManager.getInstance().getConfignation().tpl);
         hashMap.put("u", this.u);
         if (z2 && !YYOption.IsLive.VALUE_TRUE.equals(this.w)) {
-            hashMap.put(TTDownloadField.TT_FORCE, "false");
+            hashMap.put("force", "false");
         } else {
-            hashMap.put(TTDownloadField.TT_FORCE, YYOption.IsLive.VALUE_TRUE);
+            hashMap.put("force", YYOption.IsLive.VALUE_TRUE);
         }
         String str2 = str + SapiUtils.mapToUrlParams(hashMap, false) + "#app_auth";
         Log.d(y, "url = " + str2);
@@ -246,7 +245,7 @@ public class GrantWebActivity extends BaseActivity {
             this.t = data.getQueryParameter("channel_id");
             this.u = data.getQueryParameter("u");
             this.v = data.getQueryParameter("nu");
-            this.w = data.getQueryParameter(TTDownloadField.TT_FORCE);
+            this.w = data.getQueryParameter("force");
             this.x = data.getQueryParameter("wap_tpl");
         }
         if (TextUtils.isEmpty(this.t)) {

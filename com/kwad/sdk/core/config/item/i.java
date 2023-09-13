@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
+import com.baidu.searchbox.dns.stratege.DnsStrategy;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +11,7 @@ public final class i extends b<a> {
     @KsJson
     /* loaded from: classes10.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
-        public int VD = 180000;
+        public int VD = DnsStrategy.Factory.PRE_FETCH_INTERVAL;
         public int VE = 90000;
     }
 

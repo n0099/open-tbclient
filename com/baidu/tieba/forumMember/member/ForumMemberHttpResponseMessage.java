@@ -3,8 +3,8 @@ package com.baidu.tieba.forumMember.member;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.bg7;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
-import com.baidu.tieba.ue7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,8 +65,8 @@ public class ForumMemberHttpResponseMessage extends TbHttpResponsedMessage {
             forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
         }
         if (forumMemberRequestMessage != null) {
-            ue7 ue7Var = new ue7();
-            ue7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+            bg7 bg7Var = new bg7();
+            bg7Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
         }
     }
 

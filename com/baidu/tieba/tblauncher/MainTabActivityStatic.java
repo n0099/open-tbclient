@@ -34,8 +34,8 @@ import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cq5;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.jp5;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,7 +54,7 @@ public class MainTabActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements UrlManager.UrlDealListener {
+    public class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class b extends CustomMessageListener {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,7 +129,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements UrlManager.UrlDealListener {
+    public class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -218,7 +218,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class d extends CustomMessageListener {
+    public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -254,7 +254,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class e extends CustomMessageListener {
+    public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -287,16 +287,16 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                jp5.b().m(jp5.b().j());
-                jp5.b().c();
-            } else if (!jp5.b().i() && jp5.b().k()) {
-                jp5.b().o();
+                cq5.b().m(cq5.b().j());
+                cq5.b().c();
+            } else if (!cq5.b().i() && cq5.b().k()) {
+                cq5.b().o();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class f extends CustomMessageListener {
+    public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,16 +329,16 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                jp5.b().m(jp5.b().j());
-                jp5.b().c();
-            } else if (!jp5.b().i() && jp5.b().k()) {
-                jp5.b().o();
+                cq5.b().m(cq5.b().j());
+                cq5.b().c();
+            } else if (!cq5.b().i() && cq5.b().k()) {
+                cq5.b().o();
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class g implements UrlManager.UrlDealListener {
+    public class g implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -407,7 +407,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class h implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
+    public class h implements CustomMessageTask.CustomRunnable<MainTabActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -440,7 +440,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class i implements CustomMessageTask.CustomRunnable<Void> {
+    public class i implements CustomMessageTask.CustomRunnable<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -474,7 +474,7 @@ public class MainTabActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class j implements CustomMessageTask.CustomRunnable<Integer> {
+    public class j implements CustomMessageTask.CustomRunnable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

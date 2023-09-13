@@ -1,61 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class lh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lh8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public lh8() {
+    @Nullable
+    public static Object a(@NonNull fh8 fh8Var, @NonNull gh8 gh8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, fh8Var, gh8Var, obj)) == null) {
+            try {
+                return fh8Var.b(gh8Var, obj);
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
         }
+        return invokeLLL.objValue;
     }
 
-    public static lh8 a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static Object b(@NonNull fh8 fh8Var, @NonNull gh8 gh8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (lh8.class) {
-                    if (b == null) {
-                        b = new lh8();
-                    }
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, fh8Var, gh8Var, obj)) == null) {
+            try {
+                return fh8Var.a(gh8Var, obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+                BdLog.e(e);
+                return null;
             }
-            return b;
         }
-        return (lh8) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        return invokeLLL.objValue;
     }
 }

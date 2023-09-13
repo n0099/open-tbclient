@@ -240,8 +240,8 @@ public class AutoOrientationBtnActDialog {
             }
             this.this$0 = autoOrientationBtnActDialog;
             if (view2 != null) {
-                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff3);
-                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff2);
+                this.text = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff2);
+                this.subText = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ff1);
                 this.button = (LinearLayout) view2;
                 this.mDialog = autoOrientationBtnActDialog2;
             }
@@ -358,8 +358,8 @@ public class AutoOrientationBtnActDialog {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, btnItem, linearLayout)) == null) {
-            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0468, (ViewGroup) linearLayout, false);
-            linearLayout2.setBackground(this.mContent.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080209));
+            LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d046f, (ViewGroup) linearLayout, false);
+            linearLayout2.setBackground(this.mContent.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08020a));
             new ViewHelper(this, linearLayout2, this).onBindView(btnItem);
             return linearLayout2;
         }
@@ -397,7 +397,7 @@ public class AutoOrientationBtnActDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
             View view2 = new View(this.mContext);
-            view2.setBackgroundColor(this.mContent.getResources().getColor(R.color.obfuscated_res_0x7f06071c));
+            view2.setBackgroundColor(this.mContent.getResources().getColor(R.color.obfuscated_res_0x7f06071e));
             if (i == 1) {
                 view2.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
             } else {
@@ -412,11 +412,11 @@ public class AutoOrientationBtnActDialog {
     private void createView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d09f7, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0a09, (ViewGroup) null);
             this.mView = viewGroup;
-            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ff4);
-            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090ff5);
-            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090ff1);
+            this.mContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ff3);
+            this.mDivider = this.mView.findViewById(R.id.obfuscated_res_0x7f090ff4);
+            this.mBtnContainer = (FrameLayout) this.mView.findViewById(R.id.obfuscated_res_0x7f090ff0);
             View createContentView = createContentView(this.mContent);
             if (createContentView != null) {
                 this.mContent.addView(createContentView);
@@ -441,7 +441,7 @@ public class AutoOrientationBtnActDialog {
     private void updateBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.mDivider.setBackgroundColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06071c));
+            this.mDivider.setBackgroundColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06071e));
         }
     }
 

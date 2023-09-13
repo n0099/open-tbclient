@@ -5,13 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.go8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor;
+import com.baidu.tieba.ip8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -147,7 +147,7 @@ public class EmojiReplySysMsg extends BaseSysMsg {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.cn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -183,21 +183,21 @@ public class EmojiReplySysMsg extends BaseSysMsg {
                 } else {
                     ArrayList arrayList2 = new ArrayList(emojiList);
                     for (EmojiData emojiData : arrayList2) {
-                        EmojiData b = go8.b(emojiData.getContent(), list);
+                        EmojiData b = ip8.b(emojiData.getContent(), list);
                         if (b != null) {
                             emojiData.setAllNum(b.getAllNum());
                         }
                     }
                     ArrayList arrayList3 = new ArrayList();
                     for (EmojiData emojiData2 : list) {
-                        if (go8.b(emojiData2.getContent(), arrayList2) == null) {
+                        if (ip8.b(emojiData2.getContent(), arrayList2) == null) {
                             arrayList3.add(emojiData2);
                         }
                     }
                     arrayList2.addAll(arrayList3);
                     Iterator it = arrayList2.iterator();
                     while (it.hasNext()) {
-                        if (go8.b(((EmojiData) it.next()).getContent(), list) == null) {
+                        if (ip8.b(((EmojiData) it.next()).getContent(), list) == null) {
                             it.remove();
                         }
                     }

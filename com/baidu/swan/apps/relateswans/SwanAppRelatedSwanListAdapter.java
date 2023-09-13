@@ -13,17 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao3;
-import com.baidu.tieba.aw2;
-import com.baidu.tieba.cb3;
-import com.baidu.tieba.gi3;
-import com.baidu.tieba.k93;
-import com.baidu.tieba.mh3;
-import com.baidu.tieba.wh3;
+import com.baidu.tieba.ai3;
+import com.baidu.tieba.eo3;
+import com.baidu.tieba.ew2;
+import com.baidu.tieba.gb3;
+import com.baidu.tieba.ki3;
+import com.baidu.tieba.o93;
+import com.baidu.tieba.qh3;
 /* loaded from: classes4.dex */
 public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
-    public k93 b;
+    public o93 b;
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
@@ -35,11 +35,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0213a implements View.OnClickListener {
+        public class View$OnClickListenerC0202a implements View.OnClickListener {
             public final /* synthetic */ Context a;
             public final /* synthetic */ String b;
 
-            public View$OnClickListenerC0213a(a aVar, Context context, String str) {
+            public View$OnClickListenerC0202a(a aVar, Context context, String str) {
                 this.a = context;
                 this.b = str;
             }
@@ -55,14 +55,14 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             super(view2);
         }
 
-        public void b(Context context, String str) {
-            TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0917ae);
+        public void a(Context context, String str) {
+            TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0917b7);
             if (TextUtils.isEmpty(str)) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setOnClickListener(new View$OnClickListenerC0213a(this, context, str));
+            textView.setOnClickListener(new View$OnClickListenerC0202a(this, context, str));
         }
     }
 
@@ -71,11 +71,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
-            public final /* synthetic */ k93.a a;
+            public final /* synthetic */ o93.a a;
             public final /* synthetic */ Context b;
             public final /* synthetic */ int c;
 
-            public a(b bVar, k93.a aVar, Context context, int i) {
+            public a(b bVar, o93.a aVar, Context context, int i) {
                 this.a = aVar;
                 this.b = context;
                 this.c = i;
@@ -93,19 +93,19 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0214b implements ao3.b {
+        public class C0203b implements eo3.b {
             public final /* synthetic */ SwanAppRoundedImageView a;
             public final /* synthetic */ Context b;
 
-            public C0214b(b bVar, SwanAppRoundedImageView swanAppRoundedImageView, Context context) {
+            public C0203b(b bVar, SwanAppRoundedImageView swanAppRoundedImageView, Context context) {
                 this.a = swanAppRoundedImageView;
                 this.b = context;
             }
 
-            @Override // com.baidu.tieba.ao3.b
+            @Override // com.baidu.tieba.eo3.b
             public void a(String str, Bitmap bitmap) {
                 if (bitmap == null) {
-                    this.a.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080159));
+                    this.a.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08015a));
                 } else {
                     this.a.setImageBitmap(bitmap);
                 }
@@ -116,13 +116,13 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             super(view2);
         }
 
-        public void b(Context context, k93.a aVar, int i) {
+        public void a(Context context, o93.a aVar, int i) {
             if (aVar == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ebf)).setOnClickListener(new a(this, aVar, context, i));
-            ao3.e(aVar.a, new C0214b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f092329), context));
-            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f09232b)).setText(aVar.b);
+            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ee8)).setOnClickListener(new a(this, aVar, context, i));
+            eo3.e(aVar.a, new C0203b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f092369), context));
+            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f09236b)).setText(aVar.b);
         }
     }
 
@@ -130,20 +130,20 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         this(context, null);
     }
 
-    public void m(k93 k93Var) {
-        this.b = k93Var;
+    public void m(o93 o93Var) {
+        this.b = o93Var;
         notifyDataSetChanged();
     }
 
-    public SwanAppRelatedSwanListAdapter(Context context, k93 k93Var) {
+    public SwanAppRelatedSwanListAdapter(Context context, o93 o93Var) {
         this.a = context;
-        this.b = k93Var;
+        this.b = o93Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        k93 k93Var = this.b;
-        if (k93Var == null) {
+        o93 o93Var = this.b;
+        if (o93Var == null) {
             return;
         }
         if (viewHolder instanceof b) {
@@ -151,9 +151,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (i2 < 0) {
                 return;
             }
-            ((b) viewHolder).b(this.a, k93Var.a.get(i2), i);
+            ((b) viewHolder).a(this.a, o93Var.a.get(i2), i);
         } else if (viewHolder instanceof a) {
-            ((a) viewHolder).b(this.a, k93Var.b);
+            ((a) viewHolder).a(this.a, o93Var.b);
         }
     }
 
@@ -161,39 +161,39 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         if (i == 0) {
-            return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d091f, viewGroup, false));
+            return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0934, viewGroup, false));
         }
-        return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0920, viewGroup, false));
+        return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0935, viewGroup, false));
     }
 
     public static void l(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        gi3 gi3Var = new gi3();
-        gi3Var.e = str;
+        ki3 ki3Var = new ki3();
+        ki3Var.e = str;
         if (!TextUtils.isEmpty(str2)) {
-            gi3Var.a("page", str2);
-            gi3Var.g = str2;
+            ki3Var.a("page", str2);
+            ki3Var.g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            gi3Var.b = str3;
+            ki3Var.b = str3;
         }
-        aw2.a W = cb3.K().q().W();
-        gi3Var.a = wh3.n(cb3.K().k());
-        gi3Var.f = W.H();
-        gi3Var.c = W.T();
-        gi3Var.b(wh3.k(W.W()));
-        gi3Var.d(W.s0().getString("ubc"));
-        mh3.b(gi3Var);
+        ew2.a W = gb3.K().q().W();
+        ki3Var.a = ai3.n(gb3.K().k());
+        ki3Var.f = W.H();
+        ki3Var.c = W.T();
+        ki3Var.b(ai3.k(W.W()));
+        ki3Var.d(W.s0().getString("ubc"));
+        qh3.b(ki3Var);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        k93 k93Var = this.b;
-        if (k93Var == null) {
+        o93 o93Var = this.b;
+        if (o93Var == null) {
             return 0;
         }
-        return k93Var.a.size() + 1;
+        return o93Var.a.size() + 1;
     }
 }

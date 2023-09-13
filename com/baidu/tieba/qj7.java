@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public interface qj7 {
-    void d();
-
-    void hideLoadingView();
-
-    void j1(List<tj7> list, boolean z, boolean z2);
-
-    void m(String str);
+    void a(int i, int i2, bk7 bk7Var, ArrayList<cn> arrayList);
 }

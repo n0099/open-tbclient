@@ -1,173 +1,97 @@
 package com.baidu.tieba;
 
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes7.dex */
-public final class ohb {
+public class ohb extends lhb {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean B;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948033664, "Lcom/baidu/tieba/ohb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948033664, "Lcom/baidu/tieba/ohb;");
-                return;
-            }
+    @Override // com.baidu.tieba.khb, com.baidu.tieba.zhb
+    public void a(thb thbVar, SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, thbVar, surfaceTexture) == null) {
+            thbVar.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
+            thbVar.f(surfaceTexture);
         }
-        a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
     }
 
-    public static byte[] a(byte[] bArr) {
+    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            GLES20.glBindFramebuffer(36160, i2);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            GLES20.glClear(16640);
+            if (this.z) {
+                if (z) {
+                    int i8 = this.j;
+                    int i9 = this.k;
+                    if (i8 > i9) {
+                        int i10 = this.p;
+                        float f = (i10 * 1.0f) / i8;
+                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
+                    } else {
+                        GLES20.glViewport(0, 0, this.p, this.q);
+                    }
+                    this.o.drawFrame(this.l, fArr2);
+                }
+                if (z2) {
+                    GLES20.glViewport(0, 0, this.p, this.q);
+                } else {
+                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                }
+                this.mFullScreen2D.drawFrame(i, fArr);
+            } else {
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(i, fArr);
+                if (z) {
+                    int i11 = i4 + this.w;
+                    int i12 = this.q;
+                    int i13 = this.k;
+                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
+                    this.o.drawFrame(this.l, fArr2);
+                }
+            }
+            GLES20.glBindFramebuffer(36160, 0);
+        }
+    }
+
+    public boolean j(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return b(bArr, bArr.length);
-        }
-        return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
     }
 
-    public static byte[] b(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        byte b;
-        int i2;
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            int i3 = (i / 4) * 3;
-            if (i3 == 0) {
-                return new byte[0];
-            }
-            byte[] bArr2 = new byte[i3];
-            int i4 = i;
-            int i5 = 0;
-            while (true) {
-                byte b2 = bArr[i4 - 1];
-                b = 10;
-                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
-                    if (b2 != 61) {
-                        break;
-                    }
-                    i5++;
-                }
-                i4--;
-            }
-            int i6 = 0;
-            int i7 = 0;
-            int i8 = 0;
-            int i9 = 0;
-            while (i6 < i4) {
-                byte b3 = bArr[i6];
-                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
-                    if (b3 >= 65 && b3 <= 90) {
-                        i2 = b3 - 65;
-                    } else if (b3 >= 97 && b3 <= 122) {
-                        i2 = b3 - 71;
-                    } else if (b3 >= 48 && b3 <= 57) {
-                        i2 = b3 + 4;
-                    } else if (b3 == 43) {
-                        i2 = 62;
-                    } else if (b3 == 47) {
-                        i2 = 63;
-                    } else {
-                        return null;
-                    }
-                    i7 = ((byte) i2) | (i7 << 6);
-                    if (i9 % 4 == 3) {
-                        int i10 = i8 + 1;
-                        bArr2[i8] = (byte) ((16711680 & i7) >> 16);
-                        int i11 = i10 + 1;
-                        bArr2[i10] = (byte) ((65280 & i7) >> 8);
-                        bArr2[i11] = (byte) (i7 & 255);
-                        i8 = i11 + 1;
-                    }
-                    i9++;
-                }
-                i6++;
-                b = 10;
-            }
-            if (i5 > 0) {
-                int i12 = i7 << (i5 * 6);
-                int i13 = i8 + 1;
-                bArr2[i8] = (byte) ((i12 & 16711680) >> 16);
-                if (i5 == 1) {
-                    i8 = i13 + 1;
-                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
-                } else {
-                    i8 = i13;
-                }
-            }
-            byte[] bArr3 = new byte[i8];
-            System.arraycopy(bArr2, 0, bArr3, 0, i8);
-            return bArr3;
-        }
-        return (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
     }
 
-    public static String c(byte[] bArr, String str) throws UnsupportedEncodingException {
-        InterceptResult invokeLL;
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onDrawFrame(tg0 tg0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, str)) == null) {
-            int length = (bArr.length * 4) / 3;
-            byte[] bArr2 = new byte[length + (length / 76) + 3];
-            int length2 = bArr.length - (bArr.length % 3);
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < length2; i3 += 3) {
-                int i4 = i + 1;
-                byte[] bArr3 = a;
-                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i = i7 + 1;
-                bArr2[i7] = bArr3[bArr[i8] & 63];
-                if ((i - i2) % 76 == 0 && i != 0) {
-                    bArr2[i] = 10;
-                    i2++;
-                    i++;
-                }
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, tg0Var, i, fArr) == null) && this.s && this.l != 0) {
+            try {
+                this.mTextureId = i;
+                this.m.updateTexImage();
+                this.m.getTransformMatrix(this.n);
+                f();
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
+            } catch (Throwable th) {
+                iib.c("followvideo", th.toString());
             }
-            int length3 = bArr.length % 3;
-            if (length3 != 1) {
-                if (length3 == 2) {
-                    int i9 = i + 1;
-                    byte[] bArr4 = a;
-                    bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
-                    int i10 = i9 + 1;
-                    int i11 = length2 + 1;
-                    bArr2[i9] = bArr4[((bArr[i11] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                    int i12 = i10 + 1;
-                    bArr2[i10] = bArr4[(bArr[i11] & 15) << 2];
-                    i = i12 + 1;
-                    bArr2[i12] = 61;
-                }
-            } else {
-                int i13 = i + 1;
-                byte[] bArr5 = a;
-                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
-                int i14 = i13 + 1;
-                bArr2[i13] = bArr5[(bArr[length2] & 3) << 4];
-                int i15 = i14 + 1;
-                bArr2[i14] = 61;
-                i = i15 + 1;
-                bArr2[i15] = 61;
-            }
-            return new String(bArr2, 0, i, str);
         }
-        return (String) invokeLL.objValue;
     }
 }

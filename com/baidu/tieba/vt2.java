@@ -1,300 +1,103 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.Editable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.PopupWindow;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.face.platform.ConstPath;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tieba.q72;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vt2 extends PopupWindow {
+public class vt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static q72.g b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppActivity a;
-    public EditText b;
-    public String[] c;
-    public int d;
-    public d e;
 
-    /* loaded from: classes8.dex */
-    public interface d {
-        void a();
-
-        void b(int i);
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GridView a;
-        public final /* synthetic */ AdapterView.OnItemClickListener b;
-
-        /* loaded from: classes8.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    int intValue = ((Integer) view2.getTag()).intValue();
-                    b bVar = this.a;
-                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
-                }
-            }
-        }
-
-        public b(vt2 vt2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252245, "Lcom/baidu/tieba/vt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vt2Var, gridView, onItemClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = gridView;
-            this.b = onItemClickListener;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int childCount = this.a.getChildCount();
-                if (childCount > 0) {
-                    this.a.setClickable(false);
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = this.a.getChildAt(i);
-                        childAt.setTag(Integer.valueOf(i));
-                        childAt.setOnClickListener(new a(this));
-                    }
-                    return;
-                }
-                this.a.setOnItemClickListener(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ vt2 b;
-
-        public a(vt2 vt2Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vt2Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vt2Var;
-            this.a = i;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                int selectionStart = this.b.b.getSelectionStart();
-                Editable text = this.b.b.getText();
-                if (i == 11) {
-                    if (selectionStart > 0 && text != null && text.length() > 0) {
-                        int i2 = selectionStart - 1;
-                        text.delete(i2, selectionStart);
-                        this.b.b.setText(text);
-                        this.b.b.setSelection(i2);
-                        return;
-                    }
-                    return;
-                }
-                int length = text.length();
-                int i3 = this.a;
-                if (length < i3 || i3 < 0) {
-                    text.insert(selectionStart, this.b.c[i]);
-                    this.b.b.setText(text);
-                    this.b.b.setSelection(selectionStart + this.b.c[i].length());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vt2 a;
-
-        public c(vt2 vt2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vt2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vt2Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                this.a.b.clearFocus();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vt2(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
-        super(swanAppActivity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {swanAppActivity, editText, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252245, "Lcom/baidu/tieba/vt2;");
                 return;
             }
         }
-        this.c = new String[12];
-        c(i);
-        d(swanAppActivity, editText, i2);
+        a = rr1.a;
     }
 
-    public void e(@NonNull d dVar) {
+    public static void a(q72.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.e = dVar;
+        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
+            b = gVar;
         }
     }
 
-    public final void c(int i) {
+    public static void b(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int i2 = 0;
-            while (i2 < 9) {
-                int i3 = i2 + 1;
-                this.c[i2] = String.valueOf(i3);
-                i2 = i3;
-            }
-            if (i == 1) {
-                this.c[9] = "X";
-            } else if (i == 0) {
-                this.c[9] = "";
-            } else if (i == 2) {
-                this.c[9] = ".";
-            }
-            this.c[10] = "0";
+        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
+            e(editText, ConstPath.KEY_BLUR, i);
         }
     }
 
-    public final void d(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i) {
+    public static void d(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, editText, i) == null) {
-            this.a = swanAppActivity;
-            this.b = editText;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00bb, (ViewGroup) null);
-            this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070159);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091261);
-            gridView.setAdapter((ListAdapter) new ut2(swanAppActivity, this.c));
-            xo3.a0(new b(this, gridView, new a(this, i)));
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09073a);
-            imageView.setOnClickListener(new c(this));
-            imageView.setClickable(true);
-            setContentView(linearLayout);
-            setWidth(-1);
-            setHeight(this.d);
-            setBackgroundDrawable(new BitmapDrawable());
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
+            e(editText, "confirm", i);
         }
     }
 
-    @Override // android.widget.PopupWindow
-    public void dismiss() {
+    public static void f(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.dismiss();
-            d dVar = this.e;
-            if (dVar != null) {
-                dVar.a();
-            }
+        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
+            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
         }
     }
 
-    public void f() {
+    public static void c(r72 r72Var, EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !isShowing()) {
-            showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
-            d dVar = this.e;
-            if (dVar != null) {
-                dVar.b(this.d);
+        if ((interceptable == null || interceptable.invokeLLI(65539, null, r72Var, editText, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", "change");
+                jSONObject.put("cursorOffset", editText.getSelectionStart());
+                jSONObject.put("keyCode", i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
+            r72Var.j(editText.getText().toString());
+            r72Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
+            b.a(String.valueOf(editText.getTag()), jSONObject);
+        }
+    }
+
+    public static void e(EditText editText, String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) && editText != null && b != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", editText.getText());
+                jSONObject.put("eventName", str);
+                jSONObject.put("cursorOffset", editText.getText().length());
+                jSONObject.put("keyboardHeight", "" + yo3.O(i));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            b.a(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

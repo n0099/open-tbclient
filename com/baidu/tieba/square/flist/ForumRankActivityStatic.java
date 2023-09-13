@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ifa;
+import com.baidu.tieba.bha;
 import com.baidu.tieba.square.forumlist.SquareForumListActivity;
 import com.baidu.tieba.square.forumlist.SquareForumListResHttpMsg;
 import com.baidu.tieba.square.forumlist.SquareForumListResSocketMsg;
@@ -37,7 +37,7 @@ public class ForumRankActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<ForumListActivityConfig> {
+    public class a implements CustomMessageTask.CustomRunnable<ForumListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,7 +70,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<ForumRankActivityConfig> {
+    public class b implements CustomMessageTask.CustomRunnable<ForumRankActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -103,7 +103,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class c implements CustomMessageTask.CustomRunnable<SingleSquareActivityConfig> {
+    public class c implements CustomMessageTask.CustomRunnable<SingleSquareActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,7 +136,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<BarFolderFirstDirActivityConfig> {
+    public class d implements CustomMessageTask.CustomRunnable<BarFolderFirstDirActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -169,7 +169,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class e implements CustomMessageTask.CustomRunnable<SquareForumListActivityConfig> {
+    public class e implements CustomMessageTask.CustomRunnable<SquareForumListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -202,7 +202,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class f implements UrlManager.UrlDealListener {
+    public class f implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -246,7 +246,7 @@ public class ForumRankActivityStatic {
     }
 
     /* loaded from: classes8.dex */
-    public static class g implements UrlManager.UrlSchemaHandler {
+    public class g implements UrlManager.UrlSchemaHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -302,8 +302,8 @@ public class ForumRankActivityStatic {
         CustomMessageTask customMessageTask5 = new CustomMessageTask(2902029, new e());
         customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask5);
-        ifa.h(309097, SquareForumListResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, ifa.a("c/f/forumsquare/getForumsFromForumClass", 309097));
+        bha.h(309097, SquareForumListResSocketMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SQUARE_FORUM_LIST, bha.a("c/f/forumsquare/getForumsFromForumClass", 309097));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

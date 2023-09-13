@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.gwb;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class awb {
     public static /* synthetic */ Interceptable $ic;
-    public static gwb a;
+    public static final awb a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,35 +27,40 @@ public class awb {
                 return;
             }
         }
-        a = new gwb();
+        a = new awb();
     }
 
-    public static <TResult> TResult a(xvb<TResult> xvbVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
+    public awb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xvbVar)) == null) {
-            gwb.c("await must not be called on the UI thread");
-            if (xvbVar.g()) {
-                return (TResult) gwb.b(xvbVar);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            gwb.b bVar = new gwb.b();
-            xvbVar.c(bVar);
-            xvbVar.b(bVar);
-            bVar.a.await();
-            return (TResult) gwb.b(xvbVar);
         }
-        return (TResult) invokeL.objValue;
     }
 
-    public static <TResult> xvb<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public static awb a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(zvb.a(), callable) : (xvb) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (awb) invokeV.objValue;
     }
 
-    public static <TResult> xvb<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(zvb.b(), callable) : (xvb) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            kwb kwbVar = kwb.e;
+            owb owbVar = new owb();
+            owbVar.a = context.getApplicationContext();
+            owbVar.b = z;
+            kwbVar.c(owbVar);
+        }
     }
 }

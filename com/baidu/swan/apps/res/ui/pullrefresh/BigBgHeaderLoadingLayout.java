@@ -65,7 +65,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cd, viewGroup, false);
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d0, viewGroup, false);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -107,7 +107,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
-        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070166);
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070168);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -132,13 +132,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dce);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091dcc);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091dcf);
-        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091dd0);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd2);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091dd4);
-        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091dcd);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091df4);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df2);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091df5);
+        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091df6);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091df8);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091dfa);
+        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091df3);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.k = rotateAnimation;
         rotateAnimation.setDuration(120L);

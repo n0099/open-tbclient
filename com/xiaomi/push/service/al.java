@@ -6,25 +6,25 @@ public final class al extends aj.a {
     public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ax f898a;
+    public final /* synthetic */ ax f897a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f899a;
+    public final /* synthetic */ String f898a;
 
     public al(String str, ax axVar, int i) {
-        this.f899a = str;
-        this.f898a = axVar;
+        this.f898a = str;
+        this.f897a = axVar;
         this.a = i;
     }
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo300a() {
-        return this.f899a;
+    public String mo301a() {
+        return this.f898a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f898a.a(this.a);
+        this.f897a.a(this.a);
     }
 }

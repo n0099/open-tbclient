@@ -1,108 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IStatisticManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import java.util.AbstractMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class el {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "11446";
-    public static String b = "type";
-    public static String c = "value";
-    public static String d = "ext";
-    public static String e = "suc";
-    public static String f = "fail";
+public class el implements IStatisticManager {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303590, "Lcom/baidu/tieba/el;")) == null) {
-            return;
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void onPatchResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void onUninstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordDownloadResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordException(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordPeriod(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordResult(long j, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+        }
+    }
+
+    public el() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448303590, "Lcom/baidu/tieba/el;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "-";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, f);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
-                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
-                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
-                        }
-                    }
-                }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordInstallResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(b, e);
-                jSONObject.put(c, str);
-                JSONObject jSONObject2 = new JSONObject();
-                if (list != null && !list.isEmpty()) {
-                    for (int i = 0; i < list.size(); i++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
-                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
-                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
-                        }
-                    }
-                }
-                jSONObject.put(d, jSONObject2);
-                d(a, jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+            dl.c(str, i, i2);
         }
     }
 
-    public static void d(String str, JSONObject jSONObject) {
+    @Override // com.baidu.nps.interfa.IStatisticManager
+    public void recordInvokeResult(int i, String str, int i2, String str2, IStatisticManager.StatisticExtendInfo statisticExtendInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, statisticExtendInfo}) == null) {
+            if (i == 14) {
+                dl.a(str, i2);
+            }
+            dl.d(str, i, i2);
         }
     }
 }

@@ -1,27 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import java.util.Map;
-import org.json.JSONObject;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes5.dex */
 public interface dx1 {
-    void a(@NonNull Object obj, String str, String str2);
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    void b(@NonNull Object obj);
+    boolean c();
 
-    Object beginFlow(String str);
-
-    void c(@NonNull Object obj);
-
-    void d(String str, Map<String, String> map);
-
-    boolean e();
-
-    void f(String str, JSONObject jSONObject);
-
-    void g(@NonNull Object obj, String str, String str2, long j);
-
-    void h(@NonNull Object obj, String str);
-
-    void i(String str, String str2);
+    boolean d();
 }

@@ -6,25 +6,25 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.f93;
-import com.baidu.tieba.g93;
-import com.baidu.tieba.nr1;
-import com.baidu.tieba.w83;
+import com.baidu.tieba.a93;
+import com.baidu.tieba.j93;
+import com.baidu.tieba.k93;
+import com.baidu.tieba.rr1;
 /* loaded from: classes4.dex */
-public class SPSwitchPanelLinearLayout extends LinearLayout implements f93, g93 {
-    public static final boolean b = nr1.a;
-    public w83 a;
+public class SPSwitchPanelLinearLayout extends LinearLayout implements j93, k93 {
+    public static final boolean b = rr1.a;
+    public a93 a;
 
     public final void a() {
-        this.a = new w83(this);
+        this.a = new a93(this);
     }
 
-    @Override // com.baidu.tieba.f93
+    @Override // com.baidu.tieba.j93
     public void handleHide() {
         this.a.handleHide();
     }
 
-    @Override // com.baidu.tieba.f93
+    @Override // com.baidu.tieba.j93
     public void handleShow() {
         super.setVisibility(0);
     }
@@ -33,12 +33,12 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements f93, g93 
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.g93
+    @Override // com.baidu.tieba.k93
     public void onSoftInputShowing(boolean z) {
         this.a.e(z);
     }
 
-    @Override // com.baidu.tieba.g93
+    @Override // com.baidu.tieba.k93
     public void refreshHeight(int i) {
         this.a.d(i);
     }

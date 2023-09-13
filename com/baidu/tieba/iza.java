@@ -1,115 +1,195 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import java.net.URLDecoder;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class iza extends gn6 {
-    public static /* synthetic */ Interceptable $ic;
+public final class iza {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a a;
+    public static final String b = "#\\(rich-image_[\\s\\S]+?_img\\)";
+    @JvmField
+    public static final String c = "#(rich-image_";
+    public static final String d = "_img)";
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView d;
-    public final HashSet<String> e;
 
-    public abstract void i(WebView webView, String str);
-
-    public abstract void j(WebView webView, String str);
-
-    public iza(TbWebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947872185, "Lcom/baidu/tieba/iza;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947872185, "Lcom/baidu/tieba/iza;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        this.d = webView;
-        HashSet<String> hashSet = new HashSet<>();
-        this.e = hashSet;
-        hashSet.add("onPageStarted");
-        this.e.add("onPageFinished");
-        this.e.add("onAddView");
-        this.e.add("onDraftLoad");
-        this.d.p(this);
-        c(new dm6() { // from class: com.baidu.tieba.eza
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        a = new a(null);
+    }
 
-            @Override // com.baidu.tieba.dm6
-            public final void d(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    iza.d(iza.this, webView2, str);
+    @JvmStatic
+    public static final String c(WriteData writeData, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, writeData, str)) == null) ? a.a(writeData, str) : (String) invokeLL.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        });
-        b(new cm6() { // from class: com.baidu.tieba.cza
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        }
 
-            @Override // com.baidu.tieba.cm6
-            public final void onPageFinished(WebView webView2, String str) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
-                    iza.e(iza.this, webView2, str);
+        public final String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return iza.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return iza.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JvmStatic
+        public final String a(WriteData writeData, String content) {
+            InterceptResult invokeLL;
+            String replace$default;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, writeData, content)) == null) {
+                Intrinsics.checkNotNullParameter(writeData, "writeData");
+                Intrinsics.checkNotNullParameter(content, "content");
+                if (TextUtils.isEmpty(content)) {
+                    return content;
                 }
+                Matcher matcher = Pattern.compile(c()).matcher(content);
+                if (matcher.find()) {
+                    String result = matcher.group();
+                    Intrinsics.checkNotNullExpressionValue(result, "result");
+                    String substring = result.substring(iza.c.length(), result.length() - d().length());
+                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+                    if (!TextUtils.isEmpty(substring) && StringsKt__StringsJVMKt.startsWith$default(substring, "%7B%22", false, 2, null)) {
+                        substring = URLDecoder.decode(substring);
+                        Intrinsics.checkNotNullExpressionValue(substring, "decode(commodityJson)");
+                    }
+                    try {
+                        ImageFileInfo b = b(writeData, new JSONObject(substring));
+                        if (b != null && !TextUtils.isEmpty(b.getServerImageCode())) {
+                            TbLog hybridLog = HybridLog.getInstance();
+                            hybridLog.e("WriteDataHelper", "富文本图片数据替换成功，to：" + b.getServerImageCode() + " from " + result);
+                            String serverImageCode = b.getServerImageCode();
+                            Intrinsics.checkNotNullExpressionValue(serverImageCode, "data.serverImageCode");
+                            replace$default = StringsKt__StringsJVMKt.replace$default(content, result, serverImageCode, false, 4, (Object) null);
+                        } else {
+                            HybridLog.getInstance().e("WriteDataHelper", "富文本图片数据替换失败，没有对应的serverImageCode");
+                            replace$default = StringsKt__StringsJVMKt.replace$default(content, result, "", false, 4, (Object) null);
+                        }
+                    } catch (Exception e) {
+                        TbLog hybridLog2 = HybridLog.getInstance();
+                        hybridLog2.e("WriteDataHelper", "富文本数据解析失败：" + e);
+                        replace$default = StringsKt__StringsJVMKt.replace$default(content, result, "", false, 4, (Object) null);
+                    }
+                    return a(writeData, replace$default);
+                }
+                return content;
             }
-        });
-    }
-
-    public static final void d(iza this$0, WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.j(webView, str);
-            this$0.f("onPageStarted");
+            return (String) invokeLL.objValue;
         }
-    }
 
-    public static final void e(iza this$0, WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.i(webView, str);
-            this$0.f("onPageFinished");
-        }
-    }
-
-    public final void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.e.remove(str);
-            if (this.e.isEmpty()) {
-                wl6.a().i(this.d, "writePageNa.pageReady", new JSONObject());
+        public final ImageFileInfo b(WriteData writeData, JSONObject jsonFromH5) {
+            InterceptResult invokeLL;
+            LinkedList<ImageFileInfo> linkedList;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData, jsonFromH5)) == null) {
+                Intrinsics.checkNotNullParameter(writeData, "writeData");
+                Intrinsics.checkNotNullParameter(jsonFromH5, "jsonFromH5");
+                String optString = jsonFromH5.optString("tag");
+                String optString2 = jsonFromH5.optString("name");
+                int optInt = jsonFromH5.optInt("imageIndex");
+                ImageFileInfo imageFileInfo = null;
+                if (TextUtils.isEmpty(optString)) {
+                    HybridLog.getInstance().e("WriteDataHelper", "图片解析失败：FE传递的tag错误，info=" + jsonFromH5);
+                    return null;
+                }
+                WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
+                if (writeImagesInfo != null) {
+                    linkedList = writeImagesInfo.getChosedFiles();
+                } else {
+                    linkedList = null;
+                }
+                if (ListUtils.isEmpty(linkedList)) {
+                    HybridLog.getInstance().e("WriteDataHelper", "图片解析失败：端上没有图片数据，info=" + jsonFromH5);
+                    return null;
+                }
+                LinkedList<ImageFileInfo> chosedFiles = writeData.getWriteImagesInfo().getChosedFiles();
+                Intrinsics.checkNotNull(chosedFiles);
+                Iterator<ImageFileInfo> it = chosedFiles.iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    int i2 = i + 1;
+                    ImageFileInfo item = it.next();
+                    Intrinsics.checkNotNullExpressionValue(item, "item");
+                    if (!optString.equals(jza.a(item)) && !optString2.equals(jza.b(item))) {
+                        i = i2;
+                    } else if (optInt == i) {
+                        return item;
+                    } else {
+                        i = i2;
+                        imageFileInfo = item;
+                    }
+                }
+                return imageFileInfo;
             }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f("onAddView");
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f("onDraftLoad");
+            return (ImageFileInfo) invokeLL.objValue;
         }
     }
 }

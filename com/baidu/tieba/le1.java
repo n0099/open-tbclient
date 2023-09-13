@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,20 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class le1 {
     public static /* synthetic */ Interceptable $ic;
     public static le1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public kk1<ISignatureVerifier> a;
+    public ok1<IPackageGetter> a;
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ik1 b2 = ik1.b();
+            mk1 b2 = mk1.b();
             this.a = b2;
-            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
+            b2.a(new IPackageGetter_PackageGetter_Provider());
         }
     }
 
@@ -69,12 +69,12 @@ public class le1 {
         return (le1) invokeV.objValue;
     }
 
-    public ISignatureVerifier b() {
+    public IPackageGetter b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a.get();
         }
-        return (ISignatureVerifier) invokeV.objValue;
+        return (IPackageGetter) invokeV.objValue;
     }
 }

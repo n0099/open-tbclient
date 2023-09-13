@@ -28,7 +28,7 @@ public final class n {
     }
 
     /* loaded from: classes10.dex */
-    public static class b implements f<a.C0675a> {
+    public static class b implements f<a.C0670a> {
         public final IKsAdSDK Sw;
         public final String b;
 
@@ -38,7 +38,7 @@ public final class n {
         }
 
         @Override // com.kwad.sdk.api.loader.n.f
-        public final void a(final c<a.C0675a> cVar) {
+        public final void a(final c<a.C0670a> cVar) {
             try {
                 final com.kwad.sdk.api.loader.f fVar = new com.kwad.sdk.api.loader.f(this.b, this.Sw);
                 final f.a aVar = new f.a() { // from class: com.kwad.sdk.api.loader.n.b.1
@@ -90,38 +90,38 @@ public final class n {
     }
 
     /* loaded from: classes10.dex */
-    public static class d implements f<a.C0675a> {
-        public f<a.C0675a> Sy;
+    public static class d implements f<a.C0670a> {
+        public f<a.C0670a> Sy;
         public Context b;
 
-        public d(f<a.C0675a> fVar, Context context) {
+        public d(f<a.C0670a> fVar, Context context) {
             this.Sy = fVar;
             this.b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.n.f
-        public final void a(final c<a.C0675a> cVar) {
-            this.Sy.a(new a<a.C0675a>(cVar) { // from class: com.kwad.sdk.api.loader.n.d.1
+        public final void a(final c<a.C0670a> cVar) {
+            this.Sy.a(new a<a.C0670a>(cVar) { // from class: com.kwad.sdk.api.loader.n.d.1
                 @Override // com.kwad.sdk.api.loader.n.c
                 @WorkerThread
                 public final /* synthetic */ void c(@NonNull Object obj) {
                     File file;
                     Throwable th;
-                    a.C0675a c0675a = (a.C0675a) obj;
+                    a.C0670a c0670a = (a.C0670a) obj;
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
-                        j.a(c0675a);
+                        j.a(c0670a);
                         Context context = d.this.b;
-                        String str = c0675a.e;
+                        String str = c0670a.e;
                         file = new File(com.kwad.sdk.api.loader.h.aG(context), "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
                         try {
-                            i.b(c0675a.b, file);
-                            j.a(c0675a, System.currentTimeMillis() - currentTimeMillis);
-                            c0675a.Sf = file;
-                            cVar.c(c0675a);
+                            i.b(c0670a.b, file);
+                            j.a(c0670a, System.currentTimeMillis() - currentTimeMillis);
+                            c0670a.Sf = file;
+                            cVar.c(c0670a);
                         } catch (Throwable th2) {
                             th = th2;
-                            j.a(c0675a, System.currentTimeMillis() - currentTimeMillis, Log.getStackTraceString(th));
+                            j.a(c0670a, System.currentTimeMillis() - currentTimeMillis, Log.getStackTraceString(th));
                             com.kwad.sdk.api.loader.h.f(file);
                             cVar.g(th);
                         }
@@ -136,43 +136,43 @@ public final class n {
 
     /* loaded from: classes10.dex */
     public static class e implements f<Boolean> {
-        public f<a.C0675a> Sy;
+        public f<a.C0670a> Sy;
         public Context b;
 
-        public e(f<a.C0675a> fVar, Context context) {
+        public e(f<a.C0670a> fVar, Context context) {
             this.Sy = fVar;
             this.b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.n.f
         public final void a(final c<Boolean> cVar) {
-            this.Sy.a(new c<a.C0675a>() { // from class: com.kwad.sdk.api.loader.n.e.1
-                private void a(a.C0675a c0675a, int i, Throwable th) {
+            this.Sy.a(new c<a.C0670a>() { // from class: com.kwad.sdk.api.loader.n.e.1
+                private void a(a.C0670a c0670a, int i, Throwable th) {
                     try {
-                        com.kwad.sdk.api.loader.h.d(c0675a.Sf);
+                        com.kwad.sdk.api.loader.h.d(c0670a.Sf);
                     } catch (Exception unused) {
                     }
-                    j.b(c0675a, i, Log.getStackTraceString(th));
+                    j.b(c0670a, i, Log.getStackTraceString(th));
                     g(th);
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                 @Override // com.kwad.sdk.api.loader.n.c
-                public final /* synthetic */ void c(@NonNull a.C0675a c0675a) {
-                    a.C0675a c0675a2 = c0675a;
+                public final /* synthetic */ void c(@NonNull a.C0670a c0670a) {
+                    a.C0670a c0670a2 = c0670a;
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
-                        j.b(c0675a2);
-                        if (!com.kwad.sdk.api.loader.b.b(e.this.b, c0675a2.Sf.getPath(), c0675a2.e)) {
-                            a(c0675a2, 1, new RuntimeException("Apk pre install fail"));
+                        j.b(c0670a2);
+                        if (!com.kwad.sdk.api.loader.b.b(e.this.b, c0670a2.Sf.getPath(), c0670a2.e)) {
+                            a(c0670a2, 1, new RuntimeException("Apk pre install fail"));
                             return;
                         }
-                        com.kwad.sdk.api.loader.g.b(e.this.b, c0675a2.e);
-                        com.kwad.sdk.api.loader.h.f(c0675a2.Sf);
-                        j.b(c0675a2, System.currentTimeMillis() - currentTimeMillis);
+                        com.kwad.sdk.api.loader.g.b(e.this.b, c0670a2.e);
+                        com.kwad.sdk.api.loader.h.f(c0670a2.Sf);
+                        j.b(c0670a2, System.currentTimeMillis() - currentTimeMillis);
                         cVar.c(Boolean.TRUE);
                     } catch (Throwable th) {
-                        a(c0675a2, 2, th);
+                        a(c0670a2, 2, th);
                     }
                 }
 
@@ -190,48 +190,48 @@ public final class n {
     }
 
     /* loaded from: classes10.dex */
-    public static class g implements f<a.C0675a> {
-        public f<a.C0675a> Sy;
+    public static class g implements f<a.C0670a> {
+        public f<a.C0670a> Sy;
         public Context b;
 
-        public g(f<a.C0675a> fVar, Context context) {
+        public g(f<a.C0670a> fVar, Context context) {
             this.Sy = fVar;
             this.b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.n.f
-        public final void a(final c<a.C0675a> cVar) {
-            this.Sy.a(new a<a.C0675a>(cVar) { // from class: com.kwad.sdk.api.loader.n.g.1
-                private void a(a.C0675a c0675a, int i, Throwable th) {
+        public final void a(final c<a.C0670a> cVar) {
+            this.Sy.a(new a<a.C0670a>(cVar) { // from class: com.kwad.sdk.api.loader.n.g.1
+                private void a(a.C0670a c0670a, int i, Throwable th) {
                     try {
-                        com.kwad.sdk.api.loader.h.d(c0675a.Sf);
+                        com.kwad.sdk.api.loader.h.d(c0670a.Sf);
                     } catch (Exception unused) {
                     }
-                    j.a(c0675a, i, th.getMessage());
+                    j.a(c0670a, i, th.getMessage());
                     cVar.g(th);
                 }
 
                 @Override // com.kwad.sdk.api.loader.n.c
                 public final /* synthetic */ void c(@NonNull Object obj) {
-                    a.C0675a c0675a = (a.C0675a) obj;
+                    a.C0670a c0670a = (a.C0670a) obj;
                     try {
-                        File file = c0675a.Sf;
+                        File file = c0670a.Sf;
                         boolean z = false;
                         if (!(file != null && file.exists() && file.length() > 0 && file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX))) {
-                            a(c0675a, 1, new RuntimeException("Security checkFileValid fail"));
+                            a(c0670a, 1, new RuntimeException("Security checkFileValid fail"));
                             return;
                         }
-                        String str = c0675a.c;
+                        String str = c0670a.c;
                         if (!TextUtils.isEmpty(str)) {
                             z = str.toLowerCase().equals(s.a(file).toLowerCase());
                         }
                         if (z) {
-                            cVar.c(c0675a);
+                            cVar.c(c0670a);
                         } else {
-                            a(c0675a, 2, new RuntimeException("Security checkMd5 fail"));
+                            a(c0670a, 2, new RuntimeException("Security checkMd5 fail"));
                         }
                     } catch (Throwable th) {
-                        a(c0675a, 3, th);
+                        a(c0670a, 3, th);
                     }
                 }
             });
@@ -239,47 +239,47 @@ public final class n {
     }
 
     /* loaded from: classes10.dex */
-    public static class h implements f<a.C0675a> {
-        public f<a.C0675a> Sy;
+    public static class h implements f<a.C0670a> {
+        public f<a.C0670a> Sy;
         public Context b;
 
-        public h(f<a.C0675a> fVar, Context context) {
+        public h(f<a.C0670a> fVar, Context context) {
             this.Sy = fVar;
             this.b = context;
         }
 
         @Override // com.kwad.sdk.api.loader.n.f
-        public final void a(final c<a.C0675a> cVar) {
-            this.Sy.a(new c<a.C0675a>() { // from class: com.kwad.sdk.api.loader.n.h.1
+        public final void a(final c<a.C0670a> cVar) {
+            this.Sy.a(new c<a.C0670a>() { // from class: com.kwad.sdk.api.loader.n.h.1
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
                 @Override // com.kwad.sdk.api.loader.n.c
-                public final /* synthetic */ void c(a.C0675a c0675a) {
-                    a.C0675a c0675a2 = c0675a;
-                    if (c0675a2 != null) {
+                public final /* synthetic */ void c(a.C0670a c0670a) {
+                    a.C0670a c0670a2 = c0670a;
+                    if (c0670a2 != null) {
                         String a = com.kwad.sdk.api.loader.g.a(h.this.b);
                         if (TextUtils.isEmpty(a)) {
                             a = Loader.get().getKsAdSDKImpl().getSDKVersion();
                         }
-                        String str = c0675a2.e;
+                        String str = c0670a2.e;
                         StringBuilder sb = new StringBuilder("UpgradeProducer curVersion:");
                         sb.append(a);
                         sb.append("-newVersion");
                         sb.append(str);
-                        t.a(h.this.b, "interval", c0675a2.Se);
+                        t.a(h.this.b, "interval", c0670a2.Se);
                         t.a(h.this.b, "lastUpdateTime", System.currentTimeMillis());
-                        if (c0675a2.a == -1) {
+                        if (c0670a2.a == -1) {
                             com.kwad.sdk.api.loader.g.a(h.this.b, "");
                             cVar.g(new RuntimeException("DynamicType == -1, curVersion: ".concat(String.valueOf(a))));
                             return;
                         }
-                        if (com.kwad.sdk.api.loader.g.a(c0675a2.e, a)) {
-                            if (c0675a2.a == 1) {
-                                cVar.c(c0675a2);
+                        if (com.kwad.sdk.api.loader.g.a(c0670a2.e, a)) {
+                            if (c0670a2.a == 1) {
+                                cVar.c(c0670a2);
                                 return;
                             }
                         }
                         c cVar2 = cVar;
-                        cVar2.g(new RuntimeException("No new sdkVersion. remote sdkVersion:" + c0675a2.e + " currentDynamicVersion:" + a + " dynamicType:" + c0675a2.a));
+                        cVar2.g(new RuntimeException("No new sdkVersion. remote sdkVersion:" + c0670a2.e + " currentDynamicVersion:" + a + " dynamicType:" + c0670a2.a));
                     }
                 }
 

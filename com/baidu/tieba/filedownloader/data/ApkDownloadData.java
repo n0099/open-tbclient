@@ -36,6 +36,15 @@ public class ApkDownloadData implements Serializable {
         return (String) invokeV.objValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "ApkDownloadData{mPackageName='" + this.mPackageName + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
     public void setPackageName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {

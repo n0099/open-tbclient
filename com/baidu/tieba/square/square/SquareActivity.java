@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p95;
-import com.baidu.tieba.sca;
+import com.baidu.tieba.lea;
+import com.baidu.tieba.nea;
 import com.baidu.tieba.square.square.SquareModel;
-import com.baidu.tieba.uca;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public static /* synthetic */ Interceptable $ic;
     public static boolean m;
     public transient /* synthetic */ FieldHolder $fh;
-    public uca a;
+    public nea a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -45,7 +45,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public final SquareModel.a i;
     public final NoNetworkView.b j;
     public final View.OnKeyListener k;
-    public final p95.g l;
+    public final z95.g l;
 
     static {
         InterceptResult invokeClinit;
@@ -120,50 +120,50 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, sca scaVar) {
+        public void a(boolean z, String str, lea leaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, scaVar}) == null) {
-                this.a.a.z(true, "");
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, leaVar}) == null) {
+                this.a.a.y(true, "");
                 SquareActivity squareActivity = this.a;
-                squareActivity.hideLoadingView(squareActivity.a.A());
-                if (z && scaVar != null && !scaVar.g()) {
-                    this.a.a.F(this.a.b.W());
+                squareActivity.hideLoadingView(squareActivity.a.z());
+                if (z && leaVar != null && !leaVar.g()) {
+                    this.a.a.E(this.a.b.V());
                     this.a.c = true;
-                    this.a.a.D();
-                    this.a.J1();
+                    this.a.a.C();
+                    this.a.G1();
                 }
-                if (this.a.d) {
-                    this.a.d = false;
-                    this.a.K1(true);
-                    if (!this.a.c) {
-                        this.a.a.D();
-                        SquareActivity squareActivity2 = this.a;
-                        squareActivity2.showLoadingView(squareActivity2.a.A());
-                    }
-                } else {
+                if (!this.a.d) {
                     if (this.a.e > -1) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        TiebaStatic.page(TiebaStatic.OpKey.OP_SQUARE_ENTER, currentTimeMillis - this.a.e, this.a.b.Y() - this.a.e, this.a.b.a0(), this.a.b.Z(), currentTimeMillis - this.a.b.X());
+                        TiebaStatic.page("op_square_enter", currentTimeMillis - this.a.e, this.a.b.X() - this.a.e, this.a.b.Z(), this.a.b.Y(), currentTimeMillis - this.a.b.W());
                         this.a.e = -1L;
                     }
                     if (!this.a.c) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
-                            this.a.a.I(R.string.no_data_text);
+                            this.a.a.H(R.string.no_data_text);
                         } else {
-                            this.a.a.I(R.string.game_index_no_network_text);
+                            this.a.a.H(R.string.game_index_no_network_text);
                         }
+                    }
+                } else {
+                    this.a.d = false;
+                    this.a.H1(true);
+                    if (!this.a.c) {
+                        this.a.a.C();
+                        SquareActivity squareActivity2 = this.a;
+                        squareActivity2.showLoadingView(squareActivity2.a.z());
                     }
                 }
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.a.y();
-                    if (this.a.c) {
+                    this.a.a.x();
+                    if (!this.a.c) {
+                        this.a.C1();
                         return;
                     }
-                    this.a.G1();
                     return;
                 }
                 this.a.g.showToast(str);
-                this.a.a.E();
+                this.a.a.D();
             }
         }
     }
@@ -198,7 +198,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !z) {
                 return;
             }
-            this.a.K1(true);
+            this.a.H1(true);
         }
     }
 
@@ -253,7 +253,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     }
 
     /* loaded from: classes8.dex */
-    public class e implements p95.g {
+    public class e implements z95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareActivity a;
@@ -276,13 +276,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             this.a = squareActivity;
         }
 
-        @Override // com.baidu.tieba.p95.g
+        @Override // com.baidu.tieba.z95.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
                 return;
             }
-            this.a.K1(true);
+            this.a.H1(true);
         }
     }
 
@@ -310,16 +310,16 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         this.l = new e(this);
     }
 
-    public final void I1() {
+    public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            uca ucaVar = new uca(getPageContext(), this.h, this.k);
-            this.a = ucaVar;
-            ucaVar.H(this.l);
+            nea neaVar = new nea(getPageContext(), this.h, this.k);
+            this.a = neaVar;
+            neaVar.G(this.l);
             NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f0308));
+            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f0309));
         }
     }
 
@@ -328,46 +328,46 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            uca ucaVar = this.a;
-            if (ucaVar != null) {
-                ucaVar.onChangeSkinType(i);
+            nea neaVar = this.a;
+            if (neaVar != null) {
+                neaVar.onChangeSkinType(i);
                 this.f.onChangeSkinType(getPageContext(), i);
             }
+        }
+    }
+
+    public final void C1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.t(this.j);
+        }
+    }
+
+    public final void D1() {
+        SquareModel squareModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (squareModel = this.b) != null) {
+            squareModel.cancelLoadData();
         }
     }
 
     @Override // com.baidu.adp.widget.SwipeBackLayout.b
     public void E0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setSwipeBackEnabled(false);
         }
     }
 
     public final void G1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.u(this.j);
-        }
-    }
-
-    public final void H1() {
-        SquareModel squareModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (squareModel = this.b) != null) {
-            squareModel.cancelLoadData();
-        }
-    }
-
-    public final void J1() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.G(this.j);
+            this.a.F(this.j);
         }
     }
 
     @Override // com.baidu.adp.widget.SwipeBackLayout.b
-    public void f0() {
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setSwipeBackEnabled(true);
@@ -379,9 +379,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             SquareModel squareModel = new SquareModel(getPageContext());
             this.b = squareModel;
-            squareModel.e0(this.i);
+            squareModel.d0(this.i);
             this.d = true;
-            K1(true);
+            H1(true);
         }
     }
 
@@ -389,7 +389,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            H1();
+            D1();
             super.onDestroy();
         }
     }
@@ -400,13 +400,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             if (m) {
-                K1(true);
+                H1(true);
                 m = false;
             }
         }
     }
 
-    public final void K1(boolean z) {
+    public final void H1(boolean z) {
         SquareModel squareModel;
         boolean z2;
         boolean z3;
@@ -415,7 +415,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             return;
         }
         boolean z4 = false;
-        if (squareModel.W() != null && !this.b.W().g()) {
+        if (squareModel.V() != null && !this.b.V().g()) {
             z2 = false;
         } else {
             z2 = true;
@@ -438,11 +438,11 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         if (!z2 && !z4) {
             return;
         }
-        H1();
+        D1();
         if (z4) {
-            this.b.d0();
-        } else {
             this.b.c0();
+        } else {
+            this.b.b0();
         }
     }
 
@@ -453,9 +453,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             super.onCreate(bundle);
             this.g = getPageContext();
             this.e = System.currentTimeMillis();
-            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0902, (ViewGroup) null);
+            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0917, (ViewGroup) null);
             getPageContext().getPageActivity().setContentView(this.h);
-            I1();
+            E1();
             initData();
         }
     }

@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
-import com.baidu.tieba.di;
-import com.baidu.tieba.rpa;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.pra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbLiveCyberView extends CyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String N;
-    public PowerManager.WakeLock O;
-    public b P;
-    public final CustomMessageListener Q;
+    public String a;
+    public PowerManager.WakeLock b;
+    public b c;
+    public final CustomMessageListener d;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -74,7 +74,7 @@ public class TbLiveCyberView extends CyberVideoView {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.a.n();
+                this.a.f();
             }
         }
     }
@@ -98,25 +98,25 @@ public class TbLiveCyberView extends CyberVideoView {
                 return;
             }
         }
-        this.Q = new a(this, 2001011);
-        k(context);
+        this.d = new a(this, 2001011);
+        c(context);
     }
 
-    public final void k(Context context) {
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             try {
                 PowerManager powerManager = (PowerManager) TbadkCoreApplication.getInst().getContext().getSystemService("power");
                 if (powerManager != null) {
                     PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(536870922, "TbBVideoView_WakeLock");
-                    this.O = newWakeLock;
+                    this.b = newWakeLock;
                     newWakeLock.setReferenceCounted(false);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
             }
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.da6
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.cb6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -124,10 +124,10 @@ public class TbLiveCyberView extends CyberVideoView {
                 public final boolean onError(int i, int i2, Object obj) {
                     InterceptResult invokeIIL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i, i2, obj)) == null) ? TbLiveCyberView.this.l(i, i2, obj) : invokeIIL.booleanValue;
+                    return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i, i2, obj)) == null) ? TbLiveCyberView.this.d(i, i2, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.ea6
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.bb6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public class TbLiveCyberView extends CyberVideoView {
                 public final void onPrepared() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TbLiveCyberView.this.m();
+                        TbLiveCyberView.this.e();
                     }
                 }
             });
@@ -161,8 +161,8 @@ public class TbLiveCyberView extends CyberVideoView {
                 return;
             }
         }
-        this.Q = new a(this, 2001011);
-        k(context);
+        this.d = new a(this, 2001011);
+        c(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,73 +184,18 @@ public class TbLiveCyberView extends CyberVideoView {
                 return;
             }
         }
-        this.Q = new a(this, 2001011);
-        k(context);
+        this.d = new a(this, 2001011);
+        c(context);
     }
 
-    public String getOriginUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.N;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ void m() {
-        b bVar = this.P;
-        if (bVar != null) {
-            bVar.onPrepared();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            try {
-                if (this.O != null && this.O.isHeld()) {
-                    this.O.release();
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            stopPlayback();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.Q);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDetachedFromWindow();
-            try {
-                if (this.O != null && this.O.isHeld()) {
-                    this.O.release();
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            MessageManager.getInstance().unRegisterListener(this.Q);
-        }
-    }
-
-    public final String j(String str) {
+    public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (di.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (ei.isEmpty(str)) {
                 return str;
             }
-            if (rpa.c().d()) {
+            if (pra.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -264,8 +209,8 @@ public class TbLiveCyberView extends CyberVideoView {
         return (String) invokeL.objValue;
     }
 
-    public /* synthetic */ boolean l(int i, int i2, Object obj) {
-        b bVar = this.P;
+    public /* synthetic */ boolean d(int i, int i2, Object obj) {
+        b bVar = this.c;
         if (bVar != null) {
             bVar.onError();
             return false;
@@ -273,27 +218,82 @@ public class TbLiveCyberView extends CyberVideoView {
         return false;
     }
 
+    public /* synthetic */ void e() {
+        b bVar = this.c;
+        if (bVar != null) {
+            bVar.onPrepared();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                if (this.b != null && this.b.isHeld()) {
+                    this.b.release();
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            stopPlayback();
+        }
+    }
+
+    public String getOriginUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.onAttachedToWindow();
+            MessageManager.getInstance().registerListener(this.d);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDetachedFromWindow();
+            try {
+                if (this.b != null && this.b.isHeld()) {
+                    this.b.release();
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
     public void setOuterListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.P = bVar;
+            this.c = bVar;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || di.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || ei.isEmpty(str)) {
             return;
         }
-        this.N = str;
-        super.setVideoPath(j(str));
+        this.a = str;
+        super.setVideoPath(b(str));
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void start() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || TextUtils.isEmpty(this.N)) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || TextUtils.isEmpty(this.a)) {
             return;
         }
         super.start();
@@ -301,8 +301,8 @@ public class TbLiveCyberView extends CyberVideoView {
             getCyberPlayer().muteOrUnmuteAudio(true);
         }
         try {
-            if (this.O != null && !this.O.isHeld()) {
-                this.O.acquire();
+            if (this.b != null && !this.b.isHeld()) {
+                this.b.acquire();
             }
         } catch (Exception e) {
             BdLog.e(e);

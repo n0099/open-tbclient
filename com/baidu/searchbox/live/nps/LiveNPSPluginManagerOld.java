@@ -31,9 +31,9 @@ import com.baidu.searchbox.live.interfaces.yy.YYStaticConfig;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pe1;
-import com.baidu.tieba.re1;
-import com.baidu.tieba.se1;
+import com.baidu.tieba.te1;
+import com.baidu.tieba.ve1;
+import com.baidu.tieba.we1;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.io.UnsupportedEncodingException;
@@ -122,19 +122,19 @@ public class LiveNPSPluginManagerOld {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new pe1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
-            @Override // com.baidu.tieba.pe1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new te1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.32
+            @Override // com.baidu.tieba.te1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.pe1
+            @Override // com.baidu.tieba.te1
             public void onResult(int i, String str) {
             }
-        }, new re1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
-            @Override // com.baidu.tieba.re1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, se1 se1Var) {
-                if (se1Var != null) {
-                    se1Var.onResult(1);
+        }, new ve1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.33
+            @Override // com.baidu.tieba.ve1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, we1 we1Var) {
+                if (we1Var != null) {
+                    we1Var.onResult(1);
                 }
             }
         }, 1);
@@ -1146,30 +1146,30 @@ public class LiveNPSPluginManagerOld {
                 }
                 if (!z2) {
                     if (z) {
-                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new pe1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
-                            @Override // com.baidu.tieba.pe1
+                        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new te1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.43
+                            @Override // com.baidu.tieba.te1
                             public void onProgress(long j, long j2) {
                             }
 
-                            @Override // com.baidu.tieba.pe1
+                            @Override // com.baidu.tieba.te1
                             public void onResult(int i, String str) {
                             }
-                        }, new re1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
-                            @Override // com.baidu.tieba.re1
-                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, se1 se1Var) {
-                                if (se1Var != null) {
-                                    se1Var.onResult(1);
+                        }, new ve1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.44
+                            @Override // com.baidu.tieba.ve1
+                            public void checkAuthorization(IBundleInfo iBundleInfo, int i, we1 we1Var) {
+                                if (we1Var != null) {
+                                    we1Var.onResult(1);
                                 }
                             }
                         }, 1);
                         return;
                     } else {
-                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new pe1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
-                            @Override // com.baidu.tieba.pe1
+                        NPSPackageManager.getInstance().downloadBundle("com.baidu.searchbox.yylive.entrance", new te1() { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManagerOld.45
+                            @Override // com.baidu.tieba.te1
                             public void onProgress(long j, long j2) {
                             }
 
-                            @Override // com.baidu.tieba.pe1
+                            @Override // com.baidu.tieba.te1
                             public void onResult(int i, String str) {
                             }
                         });
@@ -1482,7 +1482,7 @@ public class LiveNPSPluginManagerOld {
             pluginLoadCallback2.onResult(-112, "old arch can not install", null, "download");
             this.mCurrentCallback = null;
         }
-        showNormalToast(R.string.obfuscated_res_0x7f0f0bdd, 0);
+        showNormalToast(R.string.obfuscated_res_0x7f0f0bf2, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -5,7 +5,7 @@ import java.util.Random;
 public class gx {
 
     /* renamed from: a  reason: collision with other field name */
-    public static final char[] f455a = "&quot;".toCharArray();
+    public static final char[] f454a = "&quot;".toCharArray();
     public static final char[] b = "&apos;".toCharArray();
     public static final char[] c = "&amp;".toCharArray();
     public static final char[] d = "&lt;".toCharArray();
@@ -62,7 +62,7 @@ public class gx {
                         sb.append(charArray, i2, i - i2);
                     }
                     i2 = i + 1;
-                    sb.append(f455a);
+                    sb.append(f454a);
                 } else if (c2 == '\'') {
                     if (i > i2) {
                         sb.append(charArray, i2, i - i2);

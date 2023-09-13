@@ -200,7 +200,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     @NonNull
     public Snackbar setActionTextColor(@ColorInt int i) {
-        ((SnackbarContentLayout) this.f1212view.getChildAt(0)).getActionView().setTextColor(i);
+        ((SnackbarContentLayout) this.f1208view.getChildAt(0)).getActionView().setTextColor(i);
         return this;
     }
 
@@ -211,13 +211,13 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     @NonNull
     public Snackbar setBackgroundTintList(@Nullable ColorStateList colorStateList) {
-        this.f1212view.setBackgroundTintList(colorStateList);
+        this.f1208view.setBackgroundTintList(colorStateList);
         return this;
     }
 
     @NonNull
     public Snackbar setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
-        this.f1212view.setBackgroundTintMode(mode);
+        this.f1208view.setBackgroundTintMode(mode);
         return this;
     }
 
@@ -237,7 +237,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     @NonNull
     public Snackbar setMaxInlineActionWidth(@Dimension int i) {
-        ((SnackbarContentLayout) this.f1212view.getChildAt(0)).setMaxInlineActionWidth(i);
+        ((SnackbarContentLayout) this.f1208view.getChildAt(0)).setMaxInlineActionWidth(i);
         return this;
     }
 
@@ -248,7 +248,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     @NonNull
     public Snackbar setTextColor(@ColorInt int i) {
-        ((SnackbarContentLayout) this.f1212view.getChildAt(0)).getMessageView().setTextColor(i);
+        ((SnackbarContentLayout) this.f1208view.getChildAt(0)).getMessageView().setTextColor(i);
         return this;
     }
 
@@ -259,9 +259,9 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (findSuitableParent != null) {
             LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
             if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                i2 = R.layout.obfuscated_res_0x7f0d065b;
+                i2 = R.layout.obfuscated_res_0x7f0d066c;
             } else {
-                i2 = R.layout.obfuscated_res_0x7f0d0251;
+                i2 = R.layout.obfuscated_res_0x7f0d0254;
             }
             SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) from.inflate(i2, findSuitableParent, false);
             Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);
@@ -279,7 +279,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     @NonNull
     public Snackbar setAction(@Nullable CharSequence charSequence, @Nullable final View.OnClickListener onClickListener) {
-        Button actionView = ((SnackbarContentLayout) this.f1212view.getChildAt(0)).getActionView();
+        Button actionView = ((SnackbarContentLayout) this.f1208view.getChildAt(0)).getActionView();
         if (!TextUtils.isEmpty(charSequence) && onClickListener != null) {
             this.hasAction = true;
             actionView.setVisibility(0);
@@ -301,19 +301,19 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
 
     @NonNull
     public Snackbar setActionTextColor(ColorStateList colorStateList) {
-        ((SnackbarContentLayout) this.f1212view.getChildAt(0)).getActionView().setTextColor(colorStateList);
+        ((SnackbarContentLayout) this.f1208view.getChildAt(0)).getActionView().setTextColor(colorStateList);
         return this;
     }
 
     @NonNull
     public Snackbar setText(@NonNull CharSequence charSequence) {
-        ((SnackbarContentLayout) this.f1212view.getChildAt(0)).getMessageView().setText(charSequence);
+        ((SnackbarContentLayout) this.f1208view.getChildAt(0)).getMessageView().setText(charSequence);
         return this;
     }
 
     @NonNull
     public Snackbar setTextColor(ColorStateList colorStateList) {
-        ((SnackbarContentLayout) this.f1212view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
+        ((SnackbarContentLayout) this.f1208view.getChildAt(0)).getMessageView().setTextColor(colorStateList);
         return this;
     }
 }

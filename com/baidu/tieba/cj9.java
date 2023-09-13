@@ -1,129 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class cj9 {
+public class cj9 implements cn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public final kk1<fp5> a;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public String f;
+    public String g;
+    public boolean h;
+    public List<String> i;
+    public k25 j;
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ik1 b = ik1.b();
-            this.a = b;
-            b.a(new gp5());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676823, "Lcom/baidu/tieba/cj9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947676823, "Lcom/baidu/tieba/cj9;");
+                return;
+            }
         }
+        k = BdUniqueId.gen();
     }
 
-    public cj9() {
+    @Override // com.baidu.tieba.cn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return k;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public cj9(ForumData forumData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        f();
+        this.e = false;
+        if (forumData == null) {
+            return;
+        }
+        this.a = forumData.getName();
+        this.b = forumData.getImage_url();
+        this.c = forumData.getPost_num();
+        this.d = forumData.getMember_num();
+        this.f = forumData.getId();
+        this.h = forumData.isLike() == 1;
+        this.j = forumData.getForumShowInfo();
     }
 
-    public final fp5 a() {
-        InterceptResult invokeV;
+    public cj9(d45 d45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            kk1<fp5> kk1Var = this.a;
-            if (kk1Var != null) {
-                return kk1Var.get();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d45Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return null;
         }
-        return (fp5) invokeV.objValue;
-    }
-
-    public final BaseFragment b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fp5 a = a();
-            if (a != null) {
-                return a.t();
-            }
-            return null;
+        this.e = false;
+        if (d45Var == null) {
+            return;
         }
-        return (BaseFragment) invokeV.objValue;
-    }
-
-    public final long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            fp5 a = a();
-            if (a != null) {
-                return a.n();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            fp5 a = a();
-            if (a != null && a.s()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d(int i, int i2, Intent intent) {
-        fp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
-            a.q(i, i2, intent);
-        }
-    }
-
-    public final void g(boolean z) {
-        fp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
-            a.u(z);
-        }
-    }
-
-    public final void h(BdUniqueId bdUniqueId) {
-        fp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
-            a.setUniqueId(bdUniqueId);
-        }
-    }
-
-    public final void i(boolean z) {
-        fp5 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
-            a.setUserVisibleHint(z);
-        }
+        this.a = d45Var.b;
+        this.b = d45Var.c;
+        this.c = d45Var.j;
+        this.d = d45Var.k;
+        this.f = d45Var.a;
+        this.h = d45Var.f();
+        this.i = d45Var.h();
+        this.j = d45Var.e();
     }
 }

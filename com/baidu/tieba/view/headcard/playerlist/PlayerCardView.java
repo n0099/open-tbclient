@@ -28,11 +28,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.dz4;
-import com.baidu.tieba.fva;
-import com.baidu.tieba.gea;
+import com.baidu.tieba.dxa;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tha;
 import com.baidu.tieba.view.headcard.playerlist.PlayerCardView;
 import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ import org.json.JSONObject;
 public final class PlayerCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fva a;
+    public dxa a;
     public final View b;
     public final Lazy c;
     public final Lazy d;
@@ -119,12 +119,12 @@ public final class PlayerCardView extends LinearLayout {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a implements dz4.d {
+    public static final class a implements hz4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PlayerCardView a;
 
-        @Override // com.baidu.tieba.dz4.d
+        @Override // com.baidu.tieba.hz4.d
         public String getKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public final class PlayerCardView extends LinearLayout {
             this.a = playerCardView;
         }
 
-        @Override // com.baidu.tieba.dz4.c
+        @Override // com.baidu.tieba.hz4.c
         public void a(String data) {
             boolean z;
             boolean z2;
@@ -166,10 +166,10 @@ public final class PlayerCardView extends LinearLayout {
                         long optLong = jSONObject.optLong("matchId", -1L);
                         int optInt = jSONObject.optInt("index", -1);
                         long optLong2 = jSONObject.optLong("playerId", -1L);
-                        fva fvaVar = this.a.a;
+                        dxa dxaVar = this.a.a;
                         boolean z3 = true;
                         int i2 = 0;
-                        if (fvaVar != null && optLong == fvaVar.e()) {
+                        if (dxaVar != null && optLong == dxaVar.e()) {
                             z = true;
                         } else {
                             z = false;
@@ -177,8 +177,8 @@ public final class PlayerCardView extends LinearLayout {
                         if (!z) {
                             return;
                         }
-                        fva fvaVar2 = this.a.a;
-                        if (fvaVar2 != null && optInt == fvaVar2.f()) {
+                        dxa dxaVar2 = this.a.a;
+                        if (dxaVar2 != null && optInt == dxaVar2.f()) {
                             z2 = true;
                         } else {
                             z2 = false;
@@ -186,71 +186,71 @@ public final class PlayerCardView extends LinearLayout {
                         if (!z2) {
                             return;
                         }
-                        fva fvaVar3 = this.a.a;
-                        if (fvaVar3 == null || optLong2 != fvaVar3.i()) {
+                        dxa dxaVar3 = this.a.a;
+                        if (dxaVar3 == null || optLong2 != dxaVar3.i()) {
                             z3 = false;
                         }
                         if (z3) {
                             TbLog hybridLog = HybridLog.getInstance();
                             StringBuilder sb = new StringBuilder();
                             sb.append("收到评星数据 matchId:");
-                            fva fvaVar4 = this.a.a;
+                            dxa dxaVar4 = this.a.a;
                             Long l2 = null;
-                            if (fvaVar4 != null) {
-                                l = Long.valueOf(fvaVar4.e());
+                            if (dxaVar4 != null) {
+                                l = Long.valueOf(dxaVar4.e());
                             } else {
                                 l = null;
                             }
                             sb.append(l);
                             sb.append(" matchIndex:");
-                            fva fvaVar5 = this.a.a;
-                            if (fvaVar5 != null) {
-                                num = Integer.valueOf(fvaVar5.f());
+                            dxa dxaVar5 = this.a.a;
+                            if (dxaVar5 != null) {
+                                num = Integer.valueOf(dxaVar5.f());
                             } else {
                                 num = null;
                             }
                             sb.append(num);
                             sb.append("  playerId:");
-                            fva fvaVar6 = this.a.a;
-                            if (fvaVar6 != null) {
-                                l2 = Long.valueOf(fvaVar6.i());
+                            dxa dxaVar6 = this.a.a;
+                            if (dxaVar6 != null) {
+                                l2 = Long.valueOf(dxaVar6.i());
                             }
                             sb.append(l2);
                             sb.append(GlideException.IndentedAppendable.INDENT);
                             sb.append(jSONObject);
                             hybridLog.i("PlayerCard", sb.toString());
-                            fva fvaVar7 = this.a.a;
-                            if (fvaVar7 != null) {
-                                i = fvaVar7.m();
+                            dxa dxaVar7 = this.a.a;
+                            if (dxaVar7 != null) {
+                                i = dxaVar7.m();
                             } else {
                                 i = 0;
                             }
                             int optInt2 = jSONObject.optInt("score", i);
-                            fva fvaVar8 = this.a.a;
-                            if (fvaVar8 != null) {
-                                d = fvaVar8.j();
+                            dxa dxaVar8 = this.a.a;
+                            if (dxaVar8 != null) {
+                                d = dxaVar8.j();
                             } else {
                                 d = 0.0d;
                             }
                             double optDouble = jSONObject.optDouble("averageScore", d);
-                            fva fvaVar9 = this.a.a;
-                            if (fvaVar9 != null) {
-                                i2 = (int) fvaVar9.k();
+                            dxa dxaVar9 = this.a.a;
+                            if (dxaVar9 != null) {
+                                i2 = (int) dxaVar9.k();
                             }
                             int optInt3 = jSONObject.optInt("starTimes", i2);
-                            fva fvaVar10 = this.a.a;
-                            Intrinsics.checkNotNull(fvaVar10);
-                            fvaVar10.y(optInt2);
-                            fva fvaVar11 = this.a.a;
-                            Intrinsics.checkNotNull(fvaVar11);
-                            fvaVar11.w(optDouble);
-                            fva fvaVar12 = this.a.a;
-                            Intrinsics.checkNotNull(fvaVar12);
-                            fvaVar12.x(optInt3);
+                            dxa dxaVar10 = this.a.a;
+                            Intrinsics.checkNotNull(dxaVar10);
+                            dxaVar10.y(optInt2);
+                            dxa dxaVar11 = this.a.a;
+                            Intrinsics.checkNotNull(dxaVar11);
+                            dxaVar11.w(optDouble);
+                            dxa dxaVar12 = this.a.a;
+                            Intrinsics.checkNotNull(dxaVar12);
+                            dxaVar12.x(optInt3);
                             PlayerCardView playerCardView = this.a;
-                            fva fvaVar13 = this.a.a;
-                            Intrinsics.checkNotNull(fvaVar13);
-                            playerCardView.setData(fvaVar13);
+                            dxa dxaVar13 = this.a.a;
+                            Intrinsics.checkNotNull(dxaVar13);
+                            playerCardView.setData(dxaVar13);
                         }
                     } catch (Exception unused) {
                     }
@@ -465,7 +465,7 @@ public final class PlayerCardView extends LinearLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (TextView) this.this$0.findViewById(R.id.obfuscated_res_0x7f0920ec);
+                    return (TextView) this.this$0.findViewById(R.id.obfuscated_res_0x7f09212b);
                 }
                 return (TextView) invokeV.objValue;
             }
@@ -786,12 +786,12 @@ public final class PlayerCardView extends LinearLayout {
         getMKDAIcon().setPlaceHolder(1);
         getMKDAIcon().setIsRound(true);
         getMRankStarView().setStarSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.tbds18));
-        getMRankStarView().setFullStarColorListIndex(0, gea.f("#FFA02B"));
-        getMRankStarView().setFullStarColorListIndex(1, gea.f("#FF962B"));
-        getMRankStarView().setFullStarColorListIndex(2, gea.f("#FF8C2B"));
-        getMRankStarView().setFullStarColorListIndex(3, gea.f("#FF842B"));
-        getMRankStarView().setFullStarColorListIndex(4, gea.f("#FF7C2B"));
-        dz4.b.a().c(new a(this));
+        getMRankStarView().setFullStarColorListIndex(0, zfa.f("#FFA02B"));
+        getMRankStarView().setFullStarColorListIndex(1, zfa.f("#FF962B"));
+        getMRankStarView().setFullStarColorListIndex(2, zfa.f("#FF8C2B"));
+        getMRankStarView().setFullStarColorListIndex(3, zfa.f("#FF842B"));
+        getMRankStarView().setFullStarColorListIndex(4, zfa.f("#FF7C2B"));
+        hz4.b.a().c(new a(this));
     }
 
     public /* synthetic */ PlayerCardView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -810,7 +810,7 @@ public final class PlayerCardView extends LinearLayout {
         return invokeI.floatValue;
     }
 
-    public static final boolean e(fva data, PlayerCardView this$0, View view2, MotionEvent motionEvent) {
+    public static final boolean e(dxa data, PlayerCardView this$0, View view2, MotionEvent motionEvent) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, data, this$0, view2, motionEvent)) == null) {
@@ -829,7 +829,7 @@ public final class PlayerCardView extends LinearLayout {
         return invokeLLLL.booleanValue;
     }
 
-    public static final void f(fva data, PlayerCardView this$0, View view2) {
+    public static final void f(dxa data, PlayerCardView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, data, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
@@ -984,15 +984,15 @@ public final class PlayerCardView extends LinearLayout {
         return (TextView) invokeV.objValue;
     }
 
-    public final void b(int i, fva fvaVar) {
+    public final void b(int i, dxa dxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, fvaVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, dxaVar) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_COLLECT_COVER_CLICK);
             statisticItem.param("obj_type", i);
-            statisticItem.addParam("obj_locate", fvaVar.n());
-            statisticItem.addParam("obj_source", fvaVar.h());
-            statisticItem.addParam("fid", fvaVar.b());
-            statisticItem.addParam("fname", fvaVar.c());
+            statisticItem.addParam("obj_locate", dxaVar.n());
+            statisticItem.addParam("obj_source", dxaVar.h());
+            statisticItem.addParam("fid", dxaVar.b());
+            statisticItem.addParam("fname", dxaVar.c());
             TiebaStatic.log(statisticItem);
         }
     }
@@ -1006,7 +1006,7 @@ public final class PlayerCardView extends LinearLayout {
             EMManager.from(getMScore()).setTextSize(R.dimen.T_X02).setTextColor(R.color.CAM_X0319);
             EMManager.from(getMReplyTextView()).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0319);
             int color = SkinManager.getColor(R.color.CAM_X0301);
-            EMManager.from(getMReplyLayout()).setCorner(R.string.J_X18).setGradientColorValue(new int[]{gea.a(color, 0.06f), gea.a(color, 0.04f)}, Direction.LEFT);
+            EMManager.from(getMReplyLayout()).setCorner(R.string.J_X18).setGradientColorValue(new int[]{zfa.a(color, 0.06f), zfa.a(color, 0.04f)}, Direction.LEFT);
             WebPManager.setPureDrawable(getMAgreeImg(), R.drawable.icon_pure_danmu_zan, R.color.CAM_X0319, WebPManager.ResourceStateType.NORMAL);
             EMManager.from(getMAgreeNum()).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0319);
             getMRankStarView().f(TbadkCoreApplication.getInst().getSkinType());
@@ -1015,9 +1015,9 @@ public final class PlayerCardView extends LinearLayout {
         }
     }
 
-    public final void setData(final fva data) {
-        AgreeData o;
-        TbRichText e0;
+    public final void setData(final dxa data) {
+        AgreeData p;
+        TbRichText f0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -1030,13 +1030,13 @@ public final class PlayerCardView extends LinearLayout {
             if (g != null) {
                 getMPlayerNameView().setText(g);
             }
-            String o2 = data.o();
-            if (o2 != null) {
-                getMKDAIcon().startLoad(o2, 28, false);
+            String o = data.o();
+            if (o != null) {
+                getMKDAIcon().startLoad(o, 28, false);
             }
-            String p = data.p();
-            if (p != null) {
-                getMKDAInfo().setText(p);
+            String p2 = data.p();
+            if (p2 != null) {
+                getMKDAInfo().setText(p2);
             }
             getMScore().setText(String.valueOf(data.j()));
             TextView mScoreCount = getMScoreCount();
@@ -1046,20 +1046,20 @@ public final class PlayerCardView extends LinearLayout {
             String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numberUniformFormatExtraWithRound(data.k())}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
             mScoreCount.setText(format);
-            zfa d = data.d();
-            if (d != null && (e0 = d.e0()) != null) {
-                getMReplyTextView().setText(e0.toString());
+            tha d = data.d();
+            if (d != null && (f0 = d.f0()) != null) {
+                getMReplyTextView().setText(f0.toString());
             }
             getMAgreeImg().setVisibility(8);
             getMAgreeNum().setVisibility(8);
-            zfa d2 = data.d();
-            if (d2 != null && (o = d2.o()) != null && o.agreeType == 2) {
+            tha d2 = data.d();
+            if (d2 != null && (p = d2.p()) != null && p.agreeType == 2) {
                 getMAgreeImg().setVisibility(0);
                 getMAgreeNum().setVisibility(0);
-                getMAgreeNum().setText(StringHelper.numberUniformFormatExtraWithRound(o.agreeNum));
+                getMAgreeNum().setText(StringHelper.numberUniformFormatExtraWithRound(p.agreeNum));
             }
             getMRankStarView().setStarCount(d(data.m()));
-            getMRankStarView().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.kva
+            getMRankStarView().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ixa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1067,10 +1067,10 @@ public final class PlayerCardView extends LinearLayout {
                 public final boolean onTouch(View view2, MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) ? PlayerCardView.e(fva.this, this, view2, motionEvent) : invokeLL.booleanValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) ? PlayerCardView.e(dxa.this, this, view2, motionEvent) : invokeLL.booleanValue;
                 }
             });
-            getMGotoMark().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lva
+            getMGotoMark().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jxa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1078,7 +1078,7 @@ public final class PlayerCardView extends LinearLayout {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PlayerCardView.f(fva.this, this, view2);
+                        PlayerCardView.f(dxa.this, this, view2);
                     }
                 }
             });

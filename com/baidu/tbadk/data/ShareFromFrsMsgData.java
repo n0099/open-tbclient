@@ -118,8 +118,8 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
 
     @Override // com.baidu.tbadk.data.ShareBaseMsgData
     public String toChatMessageContent() {
-        InterceptResult invokeV;
         String str;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             try {

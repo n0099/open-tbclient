@@ -1,102 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.tieba.zt2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class w63 {
+public class w63 extends u63 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948222485, "Lcom/baidu/tieba/w63;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.v63
+    public h32 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            return null;
+        }
+        return (h32) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v63
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "mapp_choose_address" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v63
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginAddressFunPage" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements xr1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s63 a;
+        public final /* synthetic */ tc2 b;
+
+        public a(w63 w63Var, s63 s63Var, tc2 tc2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w63Var, s63Var, tc2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948222485, "Lcom/baidu/tieba/w63;");
+            this.a = s63Var;
+            this.b = tc2Var;
+        }
+
+        @Override // com.baidu.tieba.xr1
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                z63.b("obtain address failure, errCode = " + i);
+                this.b.a(this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.xr1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                z63.b("obtain address success");
+                s63 s63Var = this.a;
+                s63Var.d = true;
+                if (jSONObject != null) {
+                    s63Var.e = jSONObject.toString();
+                }
+                this.b.a(this.a);
+            }
+        }
+    }
+
+    public w63() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u63
+    public void p(SwanAppActivity swanAppActivity, String str, r63 r63Var, tg3 tg3Var, tc2<s63> tc2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, r63Var, tg3Var, tc2Var) == null) {
+            s63 s63Var = new s63(r63Var.f);
+            s63Var.a = r63Var.e;
+            if (tg3Var != null && tg3Var.j.a() != 10003) {
+                z63.b("obtain address detail");
+                ou2.j0().a(swanAppActivity, str, str, new a(this, s63Var, tc2Var));
                 return;
             }
+            z63.b("user denied");
+            tc2Var.a(s63Var);
         }
-        a = nr1.a;
-    }
-
-    public static void a() {
-        String[] list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = zt2.q().list()) != null && list.length > 0) {
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    ek4 ek4Var = new ek4();
-                    ek4Var.g = str;
-                    ek4Var.i = -1L;
-                    aj4.i().f(ek4Var);
-                }
-            }
-            zt2.e.d();
-        }
-    }
-
-    public static void b(String str) {
-        File s;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = zt2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
-            List<ek4> q = k63.q(str);
-            for (String str2 : list) {
-                long j = -1;
-                try {
-                    j = Long.parseLong(str2);
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        v63.b(Log.getStackTraceString(e));
-                    }
-                }
-                if (!c(j, q)) {
-                    hr4.L(zt2.t(str, str2));
-                    v63.b("delete plugin name = " + str + " ; version = " + str2);
-                }
-            }
-            ek4 ek4Var = null;
-            if (q != null) {
-                if (q.size() == 1) {
-                    ek4Var = q.get(0);
-                } else if (q.size() >= 2) {
-                    ek4Var = q.get(1);
-                }
-            }
-            if (ek4Var != null) {
-                aj4.i().f(ek4Var);
-            }
-        }
-    }
-
-    public static boolean c(long j, List<ek4> list) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    ek4 ek4Var = list.get(i);
-                    if (ek4Var != null && (j == ek4Var.i || j == so3.c(ek4Var.j))) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeJL.booleanValue;
     }
 }

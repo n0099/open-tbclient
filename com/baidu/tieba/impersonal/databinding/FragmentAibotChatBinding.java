@@ -33,14 +33,16 @@ public final class FragmentAibotChatBinding implements ViewBinding {
     @NonNull
     public final FrameLayout f;
     @NonNull
-    public final RelativeLayout g;
+    public final FrameLayout g;
+    @NonNull
+    public final RelativeLayout h;
 
-    public FragmentAibotChatBinding(@NonNull RelativeLayout relativeLayout, @NonNull LinearLayout linearLayout, @NonNull FrameLayout frameLayout, @NonNull FragmentContainerView fragmentContainerView, @NonNull FrameLayout frameLayout2, @NonNull FrameLayout frameLayout3, @NonNull RelativeLayout relativeLayout2) {
+    public FragmentAibotChatBinding(@NonNull RelativeLayout relativeLayout, @NonNull LinearLayout linearLayout, @NonNull FrameLayout frameLayout, @NonNull FragmentContainerView fragmentContainerView, @NonNull FrameLayout frameLayout2, @NonNull FrameLayout frameLayout3, @NonNull FrameLayout frameLayout4, @NonNull RelativeLayout relativeLayout2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {relativeLayout, linearLayout, frameLayout, fragmentContainerView, frameLayout2, frameLayout3, relativeLayout2};
+            Object[] objArr = {relativeLayout, linearLayout, frameLayout, fragmentContainerView, frameLayout2, frameLayout3, frameLayout4, relativeLayout2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,7 +58,8 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         this.d = fragmentContainerView;
         this.e = frameLayout2;
         this.f = frameLayout3;
-        this.g = relativeLayout2;
+        this.g = frameLayout4;
+        this.h = relativeLayout2;
     }
 
     @NonNull
@@ -64,23 +67,27 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090487;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090487);
+            int i = R.id.obfuscated_res_0x7f090490;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090490);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f0906e7;
-                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906e7);
+                i = R.id.obfuscated_res_0x7f0906db;
+                FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906db);
                 if (frameLayout != null) {
-                    i = R.id.obfuscated_res_0x7f091141;
-                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f091141);
+                    i = R.id.obfuscated_res_0x7f091143;
+                    FragmentContainerView fragmentContainerView = (FragmentContainerView) view2.findViewById(R.id.obfuscated_res_0x7f091143);
                     if (fragmentContainerView != null) {
-                        i = R.id.obfuscated_res_0x7f0918c9;
-                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918c9);
+                        i = R.id.obfuscated_res_0x7f0918e1;
+                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918e1);
                         if (frameLayout2 != null) {
-                            i = R.id.obfuscated_res_0x7f092317;
-                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092317);
+                            i = R.id.obfuscated_res_0x7f092357;
+                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092357);
                             if (frameLayout3 != null) {
-                                RelativeLayout relativeLayout = (RelativeLayout) view2;
-                                return new FragmentAibotChatBinding(relativeLayout, linearLayout, frameLayout, fragmentContainerView, frameLayout2, frameLayout3, relativeLayout);
+                                i = R.id.view_bg;
+                                FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.view_bg);
+                                if (frameLayout4 != null) {
+                                    RelativeLayout relativeLayout = (RelativeLayout) view2;
+                                    return new FragmentAibotChatBinding(relativeLayout, linearLayout, frameLayout, fragmentContainerView, frameLayout2, frameLayout3, frameLayout4, relativeLayout);
+                                }
                             }
                         }
                     }
@@ -96,7 +103,7 @@ public final class FragmentAibotChatBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0320, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0324, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

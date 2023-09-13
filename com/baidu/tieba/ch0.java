@@ -26,7 +26,7 @@ public class ch0 {
             }
         }
         try {
-            z = gia.a;
+            z = dh0.a;
         } catch (Throwable unused) {
             z = false;
         }

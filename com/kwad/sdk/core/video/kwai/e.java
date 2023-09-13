@@ -2,6 +2,7 @@ package com.kwad.sdk.core.video.kwai;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import com.baidu.cyberplayer.sdk.MediaPlayerImpl;
 import com.kwad.sdk.core.report.m;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.utils.ak;
@@ -22,18 +23,18 @@ public final class e {
         b bVar2;
         try {
             if (rr() && z2 && vB()) {
-                com.kwad.sdk.core.e.b.i("MediaPlayerImpl", "constructPlayer KwaiMediaPlayer");
+                com.kwad.sdk.core.e.b.i(MediaPlayerImpl.TAG, "constructPlayer KwaiMediaPlayer");
                 d dVar = new d(context);
                 dVar.aM(z);
                 bVar2 = dVar;
             } else {
-                com.kwad.sdk.core.e.b.i("MediaPlayerImpl", "constructPlayer AndroidMediaPlayer");
+                com.kwad.sdk.core.e.b.i(MediaPlayerImpl.TAG, "constructPlayer AndroidMediaPlayer");
                 bVar2 = new b();
             }
             z4 = false;
             bVar = bVar2;
         } catch (Throwable th) {
-            com.kwad.sdk.core.e.b.e("MediaPlayerImpl", "constructPlayer exception, using AndroidMediaPlayer", th);
+            com.kwad.sdk.core.e.b.e(MediaPlayerImpl.TAG, "constructPlayer exception, using AndroidMediaPlayer", th);
             if (!JD) {
                 JD = true;
                 com.kwad.sdk.service.a.gatherException(th);

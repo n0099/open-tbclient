@@ -43,10 +43,10 @@ public class ShareLoginView extends RelativeLayout {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.ShareLoginView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0153a extends WebAuthListener {
+        public class C0142a extends WebAuthListener {
             public final /* synthetic */ long a;
 
-            public C0153a(long j) {
+            public C0142a(long j) {
                 this.a = j;
             }
 
@@ -95,7 +95,7 @@ public class ShareLoginView extends RelativeLayout {
             } else if (!ShareLoginView.this.i.onPreStart(false)) {
                 Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
             } else {
-                CoreViewRouter.getInstance().invokeV2ShareLogin(ShareLoginView.this.b, ShareLoginView.this.h, new C0153a(System.currentTimeMillis()), "quick_login");
+                CoreViewRouter.getInstance().invokeV2ShareLogin(ShareLoginView.this.b, ShareLoginView.this.h, new C0142a(System.currentTimeMillis()), "quick_login");
             }
         }
     }

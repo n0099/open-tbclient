@@ -118,17 +118,17 @@ public final class RawSubstitution extends TypeSubstitution {
     }
 
     private final KotlinType eraseType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
-        if (mo2104getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-            return eraseType(JavaTypeResolverKt.getErasedUpperBound$default((TypeParameterDescriptor) mo2104getDeclarationDescriptor, null, null, 3, null));
+        ClassifierDescriptor mo2105getDeclarationDescriptor = kotlinType.getConstructor().mo2105getDeclarationDescriptor();
+        if (mo2105getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+            return eraseType(JavaTypeResolverKt.getErasedUpperBound$default((TypeParameterDescriptor) mo2105getDeclarationDescriptor, null, null, 3, null));
         }
-        if (mo2104getDeclarationDescriptor instanceof ClassDescriptor) {
-            ClassifierDescriptor mo2104getDeclarationDescriptor2 = FlexibleTypesKt.upperIfFlexible(kotlinType).getConstructor().mo2104getDeclarationDescriptor();
-            if (mo2104getDeclarationDescriptor2 instanceof ClassDescriptor) {
-                Pair<SimpleType, Boolean> eraseInflexibleBasedOnClassDescriptor = eraseInflexibleBasedOnClassDescriptor(FlexibleTypesKt.lowerIfFlexible(kotlinType), (ClassDescriptor) mo2104getDeclarationDescriptor, lowerTypeAttr);
+        if (mo2105getDeclarationDescriptor instanceof ClassDescriptor) {
+            ClassifierDescriptor mo2105getDeclarationDescriptor2 = FlexibleTypesKt.upperIfFlexible(kotlinType).getConstructor().mo2105getDeclarationDescriptor();
+            if (mo2105getDeclarationDescriptor2 instanceof ClassDescriptor) {
+                Pair<SimpleType, Boolean> eraseInflexibleBasedOnClassDescriptor = eraseInflexibleBasedOnClassDescriptor(FlexibleTypesKt.lowerIfFlexible(kotlinType), (ClassDescriptor) mo2105getDeclarationDescriptor, lowerTypeAttr);
                 SimpleType component1 = eraseInflexibleBasedOnClassDescriptor.component1();
                 boolean booleanValue = eraseInflexibleBasedOnClassDescriptor.component2().booleanValue();
-                Pair<SimpleType, Boolean> eraseInflexibleBasedOnClassDescriptor2 = eraseInflexibleBasedOnClassDescriptor(FlexibleTypesKt.upperIfFlexible(kotlinType), (ClassDescriptor) mo2104getDeclarationDescriptor2, upperTypeAttr);
+                Pair<SimpleType, Boolean> eraseInflexibleBasedOnClassDescriptor2 = eraseInflexibleBasedOnClassDescriptor(FlexibleTypesKt.upperIfFlexible(kotlinType), (ClassDescriptor) mo2105getDeclarationDescriptor2, upperTypeAttr);
                 SimpleType component12 = eraseInflexibleBasedOnClassDescriptor2.component1();
                 boolean booleanValue2 = eraseInflexibleBasedOnClassDescriptor2.component2().booleanValue();
                 if (!booleanValue && !booleanValue2) {
@@ -136,9 +136,9 @@ public final class RawSubstitution extends TypeSubstitution {
                 }
                 return new RawTypeImpl(component1, component12);
             }
-            throw new IllegalStateException(("For some reason declaration for upper bound is not a class but \"" + mo2104getDeclarationDescriptor2 + "\" while for lower it's \"" + mo2104getDeclarationDescriptor + Typography.quote).toString());
+            throw new IllegalStateException(("For some reason declaration for upper bound is not a class but \"" + mo2105getDeclarationDescriptor2 + "\" while for lower it's \"" + mo2105getDeclarationDescriptor + Typography.quote).toString());
         }
-        throw new IllegalStateException(("Unexpected declaration kind: " + mo2104getDeclarationDescriptor).toString());
+        throw new IllegalStateException(("Unexpected declaration kind: " + mo2105getDeclarationDescriptor).toString());
     }
 
     public final TypeProjection computeProjection(TypeParameterDescriptor typeParameterDescriptor, JavaTypeAttributes javaTypeAttributes, KotlinType kotlinType) {
@@ -166,7 +166,7 @@ public final class RawSubstitution extends TypeSubstitution {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjectionImpl mo2109get(KotlinType kotlinType) {
+    public TypeProjectionImpl mo2110get(KotlinType kotlinType) {
         return new TypeProjectionImpl(eraseType(kotlinType));
     }
 }

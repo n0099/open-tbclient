@@ -1,225 +1,215 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ko2 {
+public class ko2 extends kz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public JSONObject d;
 
-    public ko2() {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // com.baidu.tieba.kz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GameCenter" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GameCenterApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements lo2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public final /* synthetic */ ko2 b;
+
+        public b(ko2 ko2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ko2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ko2Var;
+            this.a = str;
+        }
+
+        public /* synthetic */ b(ko2 ko2Var, String str, a aVar) {
+            this(ko2Var, str);
+        }
+
+        @Override // com.baidu.tieba.lo2
+        public void onFail(int i, @Nullable String str) {
+            h32 h32Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                if (str == null) {
+                    h32Var = new h32(i);
+                } else {
+                    h32Var = new h32(i, str);
+                }
+                this.b.d(this.a, h32Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.lo2
+        public void onSuccess(@Nullable JSONObject jSONObject) {
+            h32 h32Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                if (jSONObject == null) {
+                    h32Var = new h32(0);
+                } else {
+                    h32Var = new h32(0, jSONObject);
+                }
+                this.b.d(this.a, h32Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements lo2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.lo2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.lo2
+        public void onSuccess(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            }
+        }
+
+        public c(ko2 ko2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ko2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(ko2 ko2Var, a aVar) {
+            this(ko2Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ko2(@NonNull iz1 iz1Var) {
+        super(iz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (cb3.K().k() == 0) {
-                return c(this.d, "bbasp_guide_");
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String string = rj3.a().getString("swan_guide_toast", "");
-            if (!TextUtils.isEmpty(string)) {
-                try {
-                    return new JSONObject(string);
-                } catch (JSONException unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a) {
-                return "special";
-            }
-            if (this.b) {
-                return "normal";
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.b && !this.a) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray optJSONArray = this.d.optJSONArray("custom_guide_list");
-            if (optJSONArray != null && optJSONArray.length() != 0) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("appid", "");
-                    if (db3.g0() == null || TextUtils.equals(db3.g0(), optString)) {
-                        return c(optJSONObject, "");
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        int i;
-        long j;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            boolean z2 = false;
-            if (jSONObject == null) {
-                return false;
-            }
-            String optString = jSONObject.optString(str + "count", "3");
-            try {
-                if (!TextUtils.isEmpty(optString)) {
-                    i = Integer.valueOf(optString).intValue();
-                } else {
-                    i = 0;
-                }
-                String optString2 = jSONObject.optString(str + "interval", "72");
-                if (!TextUtils.isEmpty(optString2)) {
-                    j = Long.valueOf(optString2).longValue();
-                } else {
-                    j = 0;
-                }
-                long optLong = jSONObject.optLong(str + "last_time", 0L);
-                int optInt = jSONObject.optInt(str + "shown_count", 0);
-                int optInt2 = jSONObject.optInt(str + "image_index", 0);
-                if (System.currentTimeMillis() - optLong > j * 3600000) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                boolean i2 = i(jSONObject.optJSONArray("scenes"));
-                if (optInt < i && z && i2) {
-                    z2 = true;
-                }
-                if (z2) {
-                    g(jSONObject, optInt2, str + "images");
-                }
-            } catch (NumberFormatException unused) {
-            }
-            return z2;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final int g(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, jSONObject, i, str)) == null) {
-            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            if (i >= optJSONArray.length()) {
-                i = 0;
-            }
-            this.c = optJSONArray.optString(i);
-            return i;
-        }
-        return invokeLIL.intValue;
-    }
-
-    public ko2 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.a = false;
-            this.b = false;
-            this.c = null;
-            JSONObject d = d();
-            this.d = d;
-            if (d != null && d.length() != 0) {
-                boolean b = b();
-                this.a = b;
-                if (b) {
-                    return this;
-                }
-                this.b = a();
-            }
-            return this;
-        }
-        return (ko2) invokeV.objValue;
-    }
-
-    public final boolean i(JSONArray jSONArray) {
+    public h32 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                h82.c("GameCenterApi", "parse fail");
+                return h32Var;
             }
-            String T2 = cb3.K().q().W().T();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.equals(T2, jSONArray.optString(i))) {
-                    return true;
-                }
-            }
-            return false;
+            return z((JSONObject) s.second, new c(this, null));
         }
-        return invokeL.booleanValue;
+        return (h32) invokeL.objValue;
+    }
+
+    public h32 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#postGameCenterMessage", false);
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                h82.c("GameCenterApi", "parse fail");
+                return h32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                h82.c("GameCenterApi", "empty cb");
+                return new h32(202, "empty cb");
+            }
+            return z(jSONObject, new b(this, optString, null));
+        }
+        return (h32) invokeL.objValue;
+    }
+
+    public final h32 z(@NonNull JSONObject jSONObject, @NonNull lo2 lo2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, jSONObject, lo2Var)) == null) {
+            String optString = jSONObject.optString("api");
+            if (TextUtils.isEmpty(optString)) {
+                return new h32(202, "empty api name");
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("params");
+            if (optJSONObject == null) {
+                optJSONObject = new JSONObject();
+            }
+            h32 a2 = ou2.v0().a(optString, optJSONObject, lo2Var);
+            if (a2 == null) {
+                return new h32(0);
+            }
+            return a2;
+        }
+        return (h32) invokeLL.objValue;
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uf4 extends pf4<px2> {
+public class uf4 extends tf4<tx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +28,7 @@ public class uf4 extends pf4<px2> {
                 return;
             }
         }
-        boolean z = nr1.a;
+        boolean z = rr1.a;
     }
 
     public uf4() {
@@ -47,7 +45,7 @@ public class uf4 extends pf4<px2> {
         }
     }
 
-    public static uf4 d() {
+    public static uf4 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -56,47 +54,25 @@ public class uf4 extends pf4<px2> {
         return (uf4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pf4
-    public boolean b(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.tf4
+    public boolean b(Context context, tx2 tx2Var, qx2 qx2Var, hb3 hb3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
-            return e(context, px2Var, mx2Var, db3Var, jSONObject);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tx2Var, qx2Var, hb3Var, jSONObject)) == null) {
+            return d(context, tx2Var, qx2Var, hb3Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final boolean d(Context context, tx2 tx2Var, qx2 qx2Var, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
-            d82.i("map", "GetRegionAction start");
-            lx1 A = qw2.T().A(px2Var.c);
-            if (!(A instanceof jx1)) {
-                d82.c("map", "WebViewManager is null");
-                return false;
-            }
-            ng4 d = mf4.b().c((jx1) A).d(px2Var.b);
-            if (d == null) {
-                d82.c("map", "can not find map by id " + px2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            d82.i("map", "GetRegionAction end");
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tx2Var, qx2Var, hb3Var)) == null) {
+            h82.i("map", "MapCreateAction start");
+            boolean a = qf4.b().a(context, tx2Var);
+            h82.i("map", "MapCreateAction end");
+            return a;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

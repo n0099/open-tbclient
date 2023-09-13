@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.net.Uri;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
 /* loaded from: classes7.dex */
 public interface rz3 {
-    void d(String str, String str2);
-
-    void f(View view2);
+    void b(CommandType commandType, Uri uri);
 }

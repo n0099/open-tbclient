@@ -29,7 +29,7 @@ public class bn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m297a(String str) {
+    public static byte[] m298a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

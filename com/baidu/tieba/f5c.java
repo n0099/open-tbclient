@@ -1,71 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes5.dex */
-public final class f5c {
+public class f5c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
-
-    /* renamed from: T  reason: collision with root package name */
-    public int f1103T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
-    public int b;
-    public final w4c c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final c5c k;
-    public final c5c l;
-    public final c5c m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public long d;
+    public long e;
 
     public f5c() {
         Interceptable interceptable = $ic;
@@ -80,80 +30,91 @@ public final class f5c {
                 return;
             }
         }
-        this.a = 0;
-        this.c = new w4c();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new c5c();
-        this.l = new c5c();
-        this.m = new c5c();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.f1103T = 0;
+        this.a = false;
+        this.b = true;
+        this.c = 0;
+        this.d = 0L;
+        this.e = 0L;
     }
 
-    public static void a(f5c f5cVar) throws IOException {
+    public synchronized boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, f5cVar) == null) {
-            int i = f5cVar.a;
-            if (i != 0) {
-                if (i == 11) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (this.c < 2) {
+                    return false;
                 }
-                f5cVar.a = 11;
-                w4c.b(f5cVar.c);
-                return;
+                if (Math.abs(this.d - this.e) < 100) {
+                    z = true;
+                }
+                return z;
             }
-            throw new IllegalStateException("State MUST be initialized");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.a;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceCreated");
+                if (this.c > 0) {
+                    this.e = this.d;
+                }
+                this.c++;
+                this.d = System.currentTimeMillis();
+                this.b = true;
+                this.a = true;
+            }
         }
     }
 
-    public static int b(w4c w4cVar) {
-        InterceptResult invokeL;
+    public synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, w4cVar)) == null) {
-            if (w4c.i(w4cVar, 1) == 0) {
-                return 16;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceDestroy");
+                this.b = true;
+                this.a = false;
             }
-            int i = w4c.i(w4cVar, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = w4c.i(w4cVar, 3);
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2 + 8;
         }
-        return invokeL.intValue;
     }
 
-    public static void c(f5c f5cVar, InputStream inputStream) {
+    public synchronized boolean a(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, f5cVar, inputStream) == null) {
-            if (f5cVar.a == 0) {
-                w4c.e(f5cVar.c, inputStream);
-                int b = b(f5cVar.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    f5cVar.P = i;
-                    f5cVar.O = i - 16;
-                    f5cVar.a = 1;
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (this.b == z) {
+                    this.b = z2;
+                    return true;
                 }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+                return false;
             }
-            throw new IllegalStateException("State MUST be uninitialized");
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public synchronized void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            synchronized (this) {
+            }
         }
     }
 }

@@ -1,31 +1,58 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.ValueCallback;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface kx1 extends ba2 {
-    boolean canGoBack();
+public interface kx1 {
 
-    View covertToView();
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
 
-    void destroy();
+    void C(@NonNull Context context, @NonNull lx1 lx1Var, @NonNull a aVar);
 
-    @Override // com.baidu.tieba.ba2
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    boolean i();
 
-    int getContentHeight();
+    /* loaded from: classes6.dex */
+    public static class b extends pb3 implements kx1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    View getCurrentWebView();
+        @Override // com.baidu.tieba.kx1
+        public void C(Context context, lx1 lx1Var, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, lx1Var, aVar) == null) {
+            }
+        }
 
-    float getScale();
+        @Override // com.baidu.tieba.kx1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
-    int getWebViewScrollX();
-
-    int getWebViewScrollY();
-
-    void goBack();
-
-    void setDefaultViewSize(int i, int i2, String str);
-
-    void webViewScrollTo(int i, int i2);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

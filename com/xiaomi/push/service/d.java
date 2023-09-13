@@ -16,26 +16,26 @@ public class d {
         public final int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final long f978a;
+        public final long f977a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final String f979a;
+        public final String f978a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final Notification.Action[] f980a;
+        public final Notification.Action[] f979a;
 
         public a(String str, long j, int i, Notification.Action[] actionArr) {
-            this.f979a = str;
-            this.f978a = j;
+            this.f978a = str;
+            this.f977a = j;
             this.a = i;
-            this.f980a = actionArr;
+            this.f979a = actionArr;
         }
     }
 
     public static void a() {
         for (int size = a.size() - 1; size >= 0; size--) {
             a aVar = a.get(size);
-            if (SystemClock.elapsedRealtime() - aVar.f978a > 5000) {
+            if (SystemClock.elapsedRealtime() - aVar.f977a > 5000) {
                 a.remove(aVar);
             }
         }
@@ -45,10 +45,10 @@ public class d {
     }
 
     public static void a(Context context, StatusBarNotification statusBarNotification, int i) {
-        if (!com.xiaomi.push.j.m711a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
+        if (!com.xiaomi.push.j.m712a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
             return;
         }
-        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m790a(statusBarNotification.getNotification())));
+        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m791a(statusBarNotification.getNotification())));
     }
 
     public static void a(a aVar) {

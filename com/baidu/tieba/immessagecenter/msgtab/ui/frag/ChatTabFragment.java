@@ -20,9 +20,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d8c;
-import com.baidu.tieba.dt8;
-import com.baidu.tieba.i8c;
+import com.baidu.tieba.fu8;
+import com.baidu.tieba.gbc;
 import com.baidu.tieba.immessagecenter.mention.base.NotificationView;
 import com.baidu.tieba.immessagecenter.msgtab.adapt.ChatTabFragmentAdapt;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
@@ -33,16 +32,16 @@ import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterSlice;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.immessagecenter.slice.SliceFragment;
-import com.baidu.tieba.j8c;
-import com.baidu.tieba.ju8;
-import com.baidu.tieba.lcc;
-import com.baidu.tieba.mu8;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.pw8;
-import com.baidu.tieba.qcc;
-import com.baidu.tieba.rna;
-import com.baidu.tieba.rw8;
-import com.baidu.tieba.sna;
+import com.baidu.tieba.lbc;
+import com.baidu.tieba.lv8;
+import com.baidu.tieba.mbc;
+import com.baidu.tieba.ofc;
+import com.baidu.tieba.ov8;
+import com.baidu.tieba.qpa;
+import com.baidu.tieba.rx8;
+import com.baidu.tieba.sac;
+import com.baidu.tieba.tfc;
+import com.baidu.tieba.tx8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,25 +55,25 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0080\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003:\u00016B\u0005¢\u0006\u0002\u0010\u0004J\b\u0010\u0018\u001a\u00020\u0015H\u0016J\n\u0010\u0019\u001a\u0004\u0018\u00010\u001aH\u0002J\b\u0010\u001b\u001a\u00020\u0015H\u0016J\b\u0010\u001c\u001a\u00020\u0015H\u0016J\b\u0010\u001d\u001a\u00020\u001eH\u0002J\b\u0010\u001f\u001a\u00020\u001eH\u0002J\u0012\u0010 \u001a\u00020\u001e2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016J\u0010\u0010#\u001a\u00020\u001e2\u0006\u0010$\u001a\u00020%H\u0016J$\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020)2\b\u0010*\u001a\u0004\u0018\u00010+2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016J\b\u0010,\u001a\u00020\u001eH\u0016J\b\u0010-\u001a\u00020\u001eH\u0016J\u0010\u0010.\u001a\u00020\u001e2\u0006\u0010/\u001a\u00020\nH\u0016J\b\u00100\u001a\u00020\u001eH\u0016J\b\u00101\u001a\u00020\u001eH\u0016J\u0010\u00102\u001a\u00020\u001e2\u0006\u00103\u001a\u00020\nH\u0014J\u001a\u00104\u001a\u00020\u001e2\u0006\u00105\u001a\u00020'2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \r*\u0004\u0018\u00010\f0\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R2\u0010\u0012\u001a&\u0012\f\u0012\n \r*\u0004\u0018\u00010\n0\n \r*\u0012\u0012\f\u0012\n \r*\u0004\u0018\u00010\n0\n\u0018\u00010\u00130\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00067"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/ChatTabFragment;", "Lcom/baidu/tieba/immessagecenter/slice/SliceFragment;", "Lcom/baidu/tbadk/core/view/NoNetworkView$NetworkChangeListener;", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "()V", "binding", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/ChatTabFragment$Binding;", "chatSlice", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/slice/MsgChatCenterSlice;", "hasRenderData", "", "mBdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "kotlin.jvm.PlatformType", "mRenderCallBack", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/listener/MsgChatDataChangedCallBack;", "mSubscribes", "Lrx/subscriptions/CompositeSubscription;", "mVisibleStatusBs", "Lrx/subjects/BehaviorSubject;", "pageSource", "", "popActionController", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/prenster/PopActionChatPresenter;", "getFrom", "getIntent", "Landroid/content/Intent;", "getScene", "getTraceId", "initPushPermission", "", "initSubSlice", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, "onDestroyView", "onNetworkChange", "hasNetwork", MissionEvent.MESSAGE_PAUSE, "onResume", "onUserChanged", "isLogin", "onViewCreated", "view", "Binding", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ChatTabFragment extends SliceFragment implements NoNetworkView.b, sna {
+public final class ChatTabFragment extends SliceFragment implements NoNetworkView.b, qpa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a e;
     public MsgChatCenterSlice f;
     public String g;
-    public qcc h;
+    public tfc h;
     public final BdUniqueId i;
-    public final lcc<Boolean> j;
+    public final ofc<Boolean> j;
     public boolean k;
-    public final ju8 l;
+    public final lv8 l;
 
-    public static final Boolean d2(Boolean bool) {
+    public static final Boolean f2(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool)) == null) ? bool : (Boolean) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sna
+    @Override // com.baidu.tieba.qpa
     public String getScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,7 +83,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0354a f;
+        public static final C0344a f;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public FrameLayout b;
@@ -105,20 +104,20 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                     return;
                 }
             }
-            f = new C0354a(null);
+            f = new C0344a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.msgtab.ui.frag.ChatTabFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0354a {
+        public static final class C0344a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0354a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0344a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0354a() {
+            public C0344a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,10 +138,10 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                     Intrinsics.checkNotNullParameter(root, "root");
                     a aVar = new a();
                     aVar.i(root);
-                    aVar.f((FrameLayout) root.findViewById(R.id.obfuscated_res_0x7f0917d3));
-                    aVar.e((FrameLayout) root.findViewById(R.id.obfuscated_res_0x7f0917d2));
-                    aVar.g((NoNetworkView) root.findViewById(R.id.obfuscated_res_0x7f0917d4));
-                    aVar.h((NotificationView) root.findViewById(R.id.obfuscated_res_0x7f0917fd));
+                    aVar.f((FrameLayout) root.findViewById(R.id.obfuscated_res_0x7f0917dd));
+                    aVar.e((FrameLayout) root.findViewById(R.id.obfuscated_res_0x7f0917dc));
+                    aVar.g((NoNetworkView) root.findViewById(R.id.obfuscated_res_0x7f0917de));
+                    aVar.h((NotificationView) root.findViewById(R.id.obfuscated_res_0x7f091807));
                     return aVar;
                 }
                 return (a) invokeL.objValue;
@@ -236,7 +235,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
     }
 
     /* loaded from: classes6.dex */
-    public static final class b implements ju8 {
+    public static final class b implements lv8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatTabFragment a;
@@ -259,7 +258,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
             this.a = chatTabFragment;
         }
 
-        @Override // com.baidu.tieba.ju8
+        @Override // com.baidu.tieba.lv8
         public void a(boolean z) {
             NotificationView notificationView;
             Interceptable interceptable = $ic;
@@ -301,21 +300,21 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         }
         this.g = "MSGTAB";
         this.i = BdUniqueId.gen();
-        this.j = lcc.R(Boolean.FALSE);
+        this.j = ofc.R(Boolean.FALSE);
         this.l = new b(this);
     }
 
-    public final void b2() {
+    public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = new MsgChatCenterSlice(this, Z1(), this.g);
+            this.f = new MsgChatCenterSlice(this, b2(), this.g);
             a aVar = this.e;
             Intrinsics.checkNotNull(aVar);
             FrameLayout a2 = aVar.a();
             Intrinsics.checkNotNull(a2);
             MsgChatCenterSlice msgChatCenterSlice = this.f;
             Intrinsics.checkNotNull(msgChatCenterSlice);
-            U1(a2, msgChatCenterSlice);
+            W1(a2, msgChatCenterSlice);
             if (Intrinsics.areEqual(this.g, "MSGTAB")) {
                 a aVar2 = this.e;
                 Intrinsics.checkNotNull(aVar2);
@@ -323,7 +322,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                 Intrinsics.checkNotNull(b2);
                 TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
                 Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-                U1(b2, new MsgChatCenterNavSlice(pageContext));
+                W1(b2, new MsgChatCenterNavSlice(pageContext));
             }
         }
     }
@@ -355,7 +354,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         MsgChatCenterSlice msgChatCenterSlice;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (msgChatCenterSlice = this.f) != null) {
-            msgChatCenterSlice.c0(z);
+            msgChatCenterSlice.e0(z);
         }
     }
 
@@ -367,24 +366,24 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
             MsgChatCenterSlice msgChatCenterSlice = this.f;
             if (msgChatCenterSlice != null) {
                 Intrinsics.checkNotNull(msgChatCenterSlice);
-                msgChatCenterSlice.e0(z);
+                msgChatCenterSlice.g0(z);
             }
         }
     }
 
-    public static final void e2(ChatTabFragment this$0, Boolean bool) {
+    public static final void g2(ChatTabFragment this$0, Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, bool) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            pw8.a.e();
+            rx8.a.e();
             MsgChatCenterSlice msgChatCenterSlice = this$0.f;
             if (msgChatCenterSlice != null) {
-                msgChatCenterSlice.d0();
+                msgChatCenterSlice.f0();
             }
         }
     }
 
-    public static final Boolean c2(Boolean parentVisible, Boolean visible) {
+    public static final Boolean e2(Boolean parentVisible, Boolean visible) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -403,13 +402,13 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         return (Boolean) invokeLL.objValue;
     }
 
-    public static final void f2(ChatTabFragment this$0, Pair pair) {
+    public static final void h2(ChatTabFragment this$0, Pair pair) {
         NotificationView notificationView;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, pair) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            rw8.a.h(((Boolean) pair.getFirst()).booleanValue());
+            tx8.a.h(((Boolean) pair.getFirst()).booleanValue());
             a aVar = this$0.e;
             if (aVar != null) {
                 notificationView = aVar.d();
@@ -441,19 +440,19 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
             } else {
                 notificationView = null;
             }
-            new mu8(notificationView);
-            qcc qccVar = new qcc();
-            this.h = qccVar;
-            if (qccVar != null) {
-                qccVar.a(NotificationChangedMonitor.c.a().f().H(new d8c() { // from class: com.baidu.tieba.cu8
+            new ov8(notificationView);
+            tfc tfcVar = new tfc();
+            this.h = tfcVar;
+            if (tfcVar != null) {
+                tfcVar.a(NotificationChangedMonitor.c.a().f().H(new gbc() { // from class: com.baidu.tieba.ev8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.d8c
+                    @Override // com.baidu.tieba.gbc
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            ChatTabFragment.f2(ChatTabFragment.this, (Pair) obj);
+                            ChatTabFragment.h2(ChatTabFragment.this, (Pair) obj);
                         }
                     }
                 }));
@@ -462,7 +461,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         }
     }
 
-    public final Intent Z1() {
+    public final Intent b2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -475,14 +474,14 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         return (Intent) invokeV.objValue;
     }
 
-    public final void a2() {
+    public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new dt8(new ChatTabFragmentAdapt(null, this)).c();
+            new fu8(new ChatTabFragmentAdapt(null, this)).c();
         }
     }
 
-    @Override // com.baidu.tieba.sna
+    @Override // com.baidu.tieba.qpa
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -495,7 +494,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sna
+    @Override // com.baidu.tieba.qpa
     public String getTraceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -507,13 +506,13 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        MsgChatCenterSliceView Z;
+        MsgChatCenterSliceView b0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
             MsgChatCenterSlice msgChatCenterSlice = this.f;
-            if (msgChatCenterSlice != null && (Z = msgChatCenterSlice.Z()) != null) {
-                Z.G0(null);
+            if (msgChatCenterSlice != null && (b0 = msgChatCenterSlice.b0()) != null) {
+                b0.F0(null);
             }
         }
     }
@@ -523,13 +522,13 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroyView();
-            qcc qccVar = this.h;
-            if (qccVar != null) {
-                qccVar.unsubscribe();
+            tfc tfcVar = this.h;
+            if (tfcVar != null) {
+                tfcVar.unsubscribe();
             }
-            qcc qccVar2 = this.h;
-            if (qccVar2 != null) {
-                qccVar2.c();
+            tfc tfcVar2 = this.h;
+            if (tfcVar2 != null) {
+                tfcVar2.c();
             }
             this.h = null;
         }
@@ -553,7 +552,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
     public void onActivityCreated(Bundle bundle) {
         Object obj;
         MsgCenterContainerFragment msgCenterContainerFragment;
-        MsgChatCenterSliceView Z;
+        MsgChatCenterSliceView b0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onActivityCreated(bundle);
@@ -561,22 +560,21 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
             Intrinsics.checkNotNullExpressionValue(requireContext, "requireContext()");
             new PopActionChatPresenter(requireContext);
             Bundle arguments = getArguments();
-            p7c<Boolean> p7cVar = null;
+            sac<Boolean> sacVar = null;
             if (arguments != null) {
                 obj = arguments.get("FROM");
             } else {
                 obj = null;
             }
             this.g = String.valueOf(obj);
-            rna.d(this, new Pair[0]);
-            b2();
-            a2();
+            d2();
+            c2();
             MsgChatCenterSlice msgChatCenterSlice = this.f;
-            if (msgChatCenterSlice != null && (Z = msgChatCenterSlice.Z()) != null) {
-                Z.G0(this.l);
+            if (msgChatCenterSlice != null && (b0 = msgChatCenterSlice.b0()) != null) {
+                b0.F0(this.l);
             }
-            qcc qccVar = this.h;
-            if (qccVar != null) {
+            tfc tfcVar = this.h;
+            if (tfcVar != null) {
                 Fragment parentFragment = getParentFragment();
                 if (parentFragment instanceof MsgCenterContainerFragment) {
                     msgCenterContainerFragment = (MsgCenterContainerFragment) parentFragment;
@@ -584,42 +582,42 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
                     msgCenterContainerFragment = null;
                 }
                 if (msgCenterContainerFragment != null) {
-                    p7cVar = msgCenterContainerFragment.W1();
+                    sacVar = msgCenterContainerFragment.Y1();
                 }
-                qccVar.a(p7c.c(p7cVar, this.j.g(), new j8c() { // from class: com.baidu.tieba.hu8
+                tfcVar.a(sac.c(sacVar, this.j.g(), new mbc() { // from class: com.baidu.tieba.jv8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.j8c
+                    @Override // com.baidu.tieba.mbc
                     public final Object call(Object obj2, Object obj3) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj2, obj3)) == null) ? ChatTabFragment.c2((Boolean) obj2, (Boolean) obj3) : invokeLL.objValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj2, obj3)) == null) ? ChatTabFragment.e2((Boolean) obj2, (Boolean) obj3) : invokeLL.objValue;
                     }
-                }).k(new i8c() { // from class: com.baidu.tieba.xt8
+                }).k(new lbc() { // from class: com.baidu.tieba.zu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.i8c
+                    @Override // com.baidu.tieba.lbc
                     public final Object call(Object obj2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj2)) == null) {
                             Boolean bool = (Boolean) obj2;
-                            ChatTabFragment.d2(bool);
+                            ChatTabFragment.f2(bool);
                             return bool;
                         }
                         return invokeL.objValue;
                     }
-                }).x().H(new d8c() { // from class: com.baidu.tieba.gu8
+                }).x().H(new gbc() { // from class: com.baidu.tieba.iv8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.d8c
+                    @Override // com.baidu.tieba.gbc
                     public final void call(Object obj2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj2) == null) {
-                            ChatTabFragment.e2(ChatTabFragment.this, (Boolean) obj2);
+                            ChatTabFragment.g2(ChatTabFragment.this, (Boolean) obj2);
                         }
                     }
                 }));
@@ -654,7 +652,7 @@ public final class ChatTabFragment extends SliceFragment implements NoNetworkVie
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
-            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d0322, viewGroup, false);
+            View inflate = inflater.inflate(R.layout.obfuscated_res_0x7f0d0327, viewGroup, false);
             Intrinsics.checkNotNullExpressionValue(inflate, "inflater.inflate(R.layou…er_tab, container, false)");
             return inflate;
         }

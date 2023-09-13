@@ -25,8 +25,8 @@ public abstract class AbstractScopeAdapter implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2106getContributedClassifier(Name name, LookupLocation lookupLocation) {
-        return getWorkerScope().mo2106getContributedClassifier(name, lookupLocation);
+    public ClassifierDescriptor mo2107getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        return getWorkerScope().mo2107getContributedClassifier(name, lookupLocation);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope

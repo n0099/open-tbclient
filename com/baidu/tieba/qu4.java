@@ -1,118 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class qu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public String e;
+    public final Map<String, String> f;
+    public final List<vu4> g;
 
-    public static String a(char[] cArr) {
-        InterceptResult invokeL;
+    public qu4(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
-            if (cArr != null && cArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (char c : cArr) {
-                    if (c != 0) {
-                        sb.append(c);
-                    }
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeL.objValue;
+        this.f = new LinkedHashMap();
+        this.g = new ArrayList();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
+            a();
+            b();
+            c();
+            return;
+        }
+        this.d = false;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
-                return str.replace("$", "").replace("!", "");
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.add(new bv4());
+            this.g.add(new zu4());
+            this.g.add(new xu4());
+            this.g.add(new cv4());
+            this.g.add(new av4());
+            this.g.add(new dv4());
+            this.g.add(new yu4());
         }
-        return (String) invokeL.objValue;
     }
 
-    public static char[][] e(char[][] cArr) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
-            if (cArr != null && cArr[0] != null) {
-                char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
-                for (int length = cArr.length - 1; length >= 0; length--) {
-                    cArr2[(cArr.length - length) - 1] = cArr[length];
-                }
-                return cArr2;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || StringUtils.isNull(this.b)) {
+            return;
         }
-        return (char[][]) invokeL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            char[] charArray = str.toCharArray();
-            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
-            c(charArray, cArr);
-            return a(b(e(cArr)));
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static char[] b(char[][] cArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if (cArr != null && cArr[0] != null) {
-                char[] cArr2 = new char[cArr.length * cArr[0].length];
-                int i = 0;
-                for (int i2 = 0; i2 < cArr.length; i2++) {
-                    for (int i3 = 0; i3 < cArr[i2].length; i3++) {
-                        if (cArr[i2][i3] != 0) {
-                            cArr2[i] = cArr[i2][i3];
-                            i++;
-                        }
-                    }
-                }
-                return cArr2;
-            }
-            return null;
-        }
-        return (char[]) invokeL.objValue;
-    }
-
-    public static void c(char[] cArr, char[][] cArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
-            int length = cArr2.length;
-            int length2 = cArr2[0].length;
-            int i = 0;
-            int i2 = 0;
-            for (char c : cArr) {
-                if (i >= length2) {
-                    i2++;
-                    i = 0;
-                }
-                if (i2 < length) {
-                    cArr2[i2][i] = c;
-                    i++;
-                } else {
+        String valueOf = String.valueOf(this.b.charAt(0));
+        String[] split = this.b.split("@");
+        for (vu4 vu4Var : this.g) {
+            if (valueOf.equals(vu4Var.b())) {
+                String a = vu4Var.a(split, this.f);
+                this.e = a;
+                if (!StringUtils.isNull(a)) {
+                    this.d = true;
                     return;
                 }
+                return;
             }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.put("@d", BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            this.f.put("@n", BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE);
+            this.f.put("@v", BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            this.f.put("@rid", HttpClientWrap.f);
+            this.f.put("@sid", TiebaStatic.Params.WISE_SAMPLE_ID);
+            this.f.put("@c", TiebaStatic.Params.QD);
+            this.f.put("@p", "obj_source");
+            this.f.put("@eq", TiebaStatic.Params.EQID);
+            this.f.put("@1p", "obj_param1");
+            this.f.put("@2p", TiebaStatic.Params.OBJ_PARAM2);
+            this.f.put("@m", "obj_name");
+            this.f.put("@re", "refer");
+            this.f.put("@lo", "obj_locate");
         }
     }
 }

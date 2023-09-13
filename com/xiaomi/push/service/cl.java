@@ -12,7 +12,7 @@ public class cl implements gi {
 
     @Override // com.xiaomi.push.gi
     /* renamed from: a */
-    public boolean mo500a(gm gmVar) {
+    public boolean mo501a(gm gmVar) {
         return true;
     }
 }

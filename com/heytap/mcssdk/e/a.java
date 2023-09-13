@@ -15,7 +15,7 @@ import com.heytap.msp.push.callback.IDataMessageCallBackService;
 import com.heytap.msp.push.callback.IGetAppNotificationCallBackService;
 import com.heytap.msp.push.callback.ISetAppNotificationCallBackService;
 import com.heytap.msp.push.mode.BaseMode;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

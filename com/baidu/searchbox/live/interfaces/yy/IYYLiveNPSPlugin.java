@@ -13,14 +13,14 @@ import com.baidu.searchbox.live.interfaces.payment.IPaymentLogDelegate;
 import com.baidu.searchbox.live.interfaces.payment.IPaymentStateCallback;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IYYLiveNPSPlugin {
     public static final String YY_ENV_CREATE_LIVE = "create_live";
     public static final String YY_ENV_ENTRANCE_PRE_INSTALL = "entrance_pre_install";
     public static final String YY_ENV_MINILIB_INIT = "minilib_init";
     public static final String YY_ENV_MINILIB_PRE_INIT = "minilib_pre_init";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Empty implements IYYLiveNPSPlugin {
         @Override // com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin
         public void cancelLoad() {

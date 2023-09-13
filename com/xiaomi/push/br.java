@@ -8,14 +8,14 @@ public class br implements Runnable {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f151a;
+    public com.xiaomi.clientreport.processor.c f150a;
 
     public void a(Context context) {
         this.a = context;
     }
 
     public void a(com.xiaomi.clientreport.processor.c cVar) {
-        this.f151a = cVar;
+        this.f150a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,22 +24,22 @@ public class br implements Runnable {
         String str;
         long currentTimeMillis;
         try {
-            if (this.f151a != null) {
-                this.f151a.a();
+            if (this.f150a != null) {
+                this.f150a.a();
             }
             com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-            if (this.f151a instanceof IEventProcessor) {
+            if (this.f150a instanceof IEventProcessor) {
                 a = bv.a(this.a);
                 str = "event_last_upload_time";
                 currentTimeMillis = System.currentTimeMillis();
-            } else if (!(this.f151a instanceof IPerfProcessor)) {
+            } else if (!(this.f150a instanceof IPerfProcessor)) {
                 return;
             } else {
                 a = bv.a(this.a);
                 str = "perf_last_upload_time";
                 currentTimeMillis = System.currentTimeMillis();
             }
-            a.m304a("sp_client_report_status", str, currentTimeMillis);
+            a.m305a("sp_client_report_status", str, currentTimeMillis);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
         }

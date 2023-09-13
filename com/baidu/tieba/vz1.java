@@ -1,9 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,86 +16,78 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import org.json.JSONException;
+import java.net.URLConnection;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vz1 extends uz1 {
+public class vz1 extends kz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gz1
+    @Override // com.baidu.tieba.kz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public class a implements ActivityResultConsumer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ db3 d;
-        public final /* synthetic */ vz1 e;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ vz1 b;
 
-        public a(vz1 vz1Var, File file, int i, String str, db3 db3Var) {
+        public a(vz1 vz1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vz1Var, file, Integer.valueOf(i), str, db3Var};
+                Object[] objArr = {vz1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = vz1Var;
-            this.a = file;
-            this.b = i;
-            this.c = str;
-            this.d = db3Var;
+            this.b = vz1Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File k = bo3.k(this.a.getName());
-                if (!bo3.b(this.a, k, this.b)) {
-                    d82.c("ImageApi", "compress image failed");
-                    this.e.d(this.c, new d32(1001, "compress image failed"));
-                    return;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("tempFilePath", li3.J(k.getAbsolutePath(), this.d.b));
-                } catch (JSONException e) {
-                    d82.c("ImageApi", e.toString());
-                }
-                this.e.d(this.c, new d32(0, jSONObject));
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new h32(0));
+                return true;
             }
+            return invokeLIL.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vz1(@NonNull ez1 ez1Var) {
-        super(ez1Var);
+    public vz1(@NonNull iz1 iz1Var) {
+        super(iz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ez1Var};
+            Object[] objArr = {iz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ez1) newInitContext.callArgs[0]);
+                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,64 +95,75 @@ public class vz1 extends uz1 {
         }
     }
 
-    public d32 x(String str) {
+    public final String x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#compressImage", false);
-            Pair<d32, JSONObject> s = s(str);
-            d32 d32Var = (d32) s.first;
-            if (!d32Var.isSuccess()) {
-                return d32Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                if (!TextUtils.isEmpty(contentTypeFor)) {
+                    return contentTypeFor;
+                }
+                return "*/*";
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                d82.c("ImageApi", "cb is empty");
-                return new d32(202, "cb is empty");
-            }
-            return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
+            return "*/*";
         }
-        return (d32) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final d32 y(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        int i2;
+    public h32 y(String str) {
+        InterceptResult invokeL;
+        Uri fromFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
-            db3 b0 = db3.b0();
-            if (b0 == null) {
-                return new d32(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#shareFile", false);
+            if (n()) {
+                h82.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new h32(1001, "FileApi does not supported when app is invisible.");
             }
-            if (i >= 0 && i <= 100) {
-                i2 = i;
-            } else {
-                i2 = 80;
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                return h32Var;
             }
-            if (TextUtils.isEmpty(str2)) {
-                d82.c("ImageApi", "src is null");
-                return new d32(202, "src is null");
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("filePath");
+            String M = pi3.M(optString, hb3.g0());
+            if (!TextUtils.isEmpty(optString) && pi3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    h82.c("FileApi", "cb is required");
+                    return new h32(202, "cb is required");
+                }
+                File file = new File(M);
+                if (file.exists() && !file.isDirectory()) {
+                    SwanAppActivity activity = uw2.T().getActivity();
+                    if (activity == null) {
+                        h82.c("FileApi", "activity null");
+                        return new h32(1001, "activity null");
+                    }
+                    ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                    Intent intent = new Intent();
+                    if (on3.i()) {
+                        fromFile = ep3.a(activity, file);
+                        intent.setFlags(3);
+                    } else {
+                        fromFile = Uri.fromFile(file);
+                    }
+                    intent.setAction("android.intent.action.SEND");
+                    intent.putExtra("android.intent.extra.STREAM", fromFile);
+                    intent.setType(x(M));
+                    resultDispatcher.addConsumer(new a(this, optString2));
+                    resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                    return h32.f();
+                }
+                h82.c("FileApi", "file not exists");
+                return new h32(1001, "file not exists");
             }
-            PathType s = li3.s(str2);
-            String str3 = null;
-            if (s == PathType.BD_FILE) {
-                str3 = li3.M(str2, b0.b);
-            } else if (s == PathType.RELATIVE) {
-                str3 = li3.L(str2, b0, b0.k0());
-            }
-            if (TextUtils.isEmpty(str3)) {
-                d82.c("ImageApi", "file path error");
-                return new d32(2001, "file path error");
-            }
-            File file = new File(str3);
-            if (!file.exists()) {
-                d82.c("ImageApi", "file does not exist");
-                return new d32(2001, "file does not exist");
-            }
-            xn3.k(new a(this, file, i2, str, b0), "compressImage");
-            return d32.f();
+            h82.c("FileApi", "a valid filePath is required");
+            return new h32(202, "a valid filePath is required");
         }
-        return (d32) invokeLLI.objValue;
+        return (h32) invokeL.objValue;
     }
 }

@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
+import com.baidu.cyberplayer.sdk.utils.ZipUtils;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.k;
@@ -27,7 +28,7 @@ public class c implements h {
 
     private void a(final DownloadInfo downloadInfo, final com.ss.android.downloadad.api.a.b bVar) {
         final long a2 = l.a(Environment.getDataDirectory(), -1L);
-        long min = Math.min(524288000L, l.a(Environment.getDataDirectory()) / 10);
+        long min = Math.min((long) ZipUtils.MAX_ZIP_FILE_LENGTH, l.a(Environment.getDataDirectory()) / 10);
         final long totalBytes = downloadInfo.getTotalBytes();
         final double d = (totalBytes * 2.5d) + min;
         if (a2 > -1 && totalBytes > -1) {
@@ -36,12 +37,12 @@ public class c implements h {
                 com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0748a() { // from class: com.ss.android.downloadlib.c.3
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0743a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0743a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0743a
             public void b() {
                 if (!l.b(bVar)) {
                     long j = a2;

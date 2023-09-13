@@ -13,12 +13,17 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,6 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.PeiwanInfo;
 /* loaded from: classes4.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +41,8 @@ public class HeadPendantClickableView extends HeadPendantView {
     public ThreadData n;
     public Context o;
     public View.OnClickListener p;
-    public View.OnClickListener q;
+    public int q;
+    public View.OnClickListener r;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -109,7 +116,11 @@ public class HeadPendantClickableView extends HeadPendantView {
                     YyExtData yyExtData = alaInfo.mYyExtData;
                     YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "" + alaInfo.roomId, alaInfo.mYyExtData.streamInfo, str);
                     HeadPendantClickableView headPendantClickableView = this.a;
-                    headPendantClickableView.t(headPendantClickableView.n.getTid(), String.valueOf(this.a.n.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                    headPendantClickableView.u(headPendantClickableView.n.getTid(), String.valueOf(this.a.n.getFid()), String.valueOf(alaInfo.roomId), String.valueOf(alaInfo.live_id), alaInfo.mYyExtData.mSid);
+                } else if (this.a.n.getPeiwanInfo() != null && this.a.n.getPeiwanInfo().scheme != null) {
+                    UrlManager.getInstance().dealOneLink(this.a.n.getPeiwanInfo().scheme);
+                    HeadPendantClickableView headPendantClickableView2 = this.a;
+                    headPendantClickableView2.t(headPendantClickableView2.n);
                 } else {
                     PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.o, this.a.n.getAuthor().getUserId(), this.a.n.getAuthor().getName_show(), this.a.n.getForum_name(), str2, this.a.n.getTid(), this.a.n.getNid());
                     if (this.a.n.getThreadVideoInfo() != null) {
@@ -152,8 +163,9 @@ public class HeadPendantClickableView extends HeadPendantView {
                 return;
             }
         }
+        this.q = 0;
         a aVar = new a(this);
-        this.q = aVar;
+        this.r = aVar;
         this.o = context;
         setOnClickListener(aVar);
     }
@@ -177,8 +189,9 @@ public class HeadPendantClickableView extends HeadPendantView {
                 return;
             }
         }
+        this.q = 0;
         a aVar = new a(this);
-        this.q = aVar;
+        this.r = aVar;
         this.o = context;
         setOnClickListener(aVar);
     }
@@ -252,9 +265,41 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
     }
 
-    public final void t(String str, String str2, String str3, String str4, String str5) {
+    public void t(ThreadData threadData) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, str, str2, str3, str4, str5) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) && threadData != null && threadData.getPeiwanInfo() != null) {
+            String str2 = null;
+            int i = this.q;
+            if (i == 1) {
+                str2 = CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK;
+            } else if (i == 2) {
+                str2 = CommonStatisticKey.KEY_FRS_HOT_PEI_WAN_CARD_CLICK;
+            }
+            if (StringUtils.isNotNull(str2)) {
+                PeiwanInfo peiwanInfo = threadData.getPeiwanInfo();
+                StatisticItem statisticItem = new StatisticItem(str2);
+                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem.addParam("obj_locate", String.valueOf(threadData.floorPosition));
+                statisticItem.addParam(TiebaStatic.Params.OBJ_TO, peiwanInfo.room_id.longValue());
+                if (threadData.isFromNet) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                statisticItem.addParam("obj_param1", str);
+                if (this.q == 2) {
+                    statisticItem.addParam("fid", threadData.getFid());
+                    statisticItem.addParam("fname", threadData.getForum_name());
+                }
+                statisticItem.eventStat();
+            }
+        }
+    }
+
+    public final void u(String str, String str2, String str3, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, str3, str4, str5) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("tid", str);

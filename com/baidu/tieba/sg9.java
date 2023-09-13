@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.view.FriendBotView;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,11 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sg9 extends x55 {
+public class sg9 extends AccountLoginCoreHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static sg9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AccountLoginCoreHelper.IReLoginCallback a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,60 +41,46 @@ public final class sg9 extends x55 {
     }
 
     /* loaded from: classes8.dex */
-    public static final class a implements eh9 {
+    public class a implements AccountLoginCoreHelper.IReLoginCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
 
-        public a(Context context) {
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onBeforeLogin(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        public a(sg9 sg9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {sg9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = context;
-        }
-
-        @Override // com.baidu.tieba.eh9
-        public void onDismiss() {
-            hm9 Y5;
-            FriendBotView V0;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PbFragment Y1 = ((PbActivity) this.a).Y1();
-                if (Y1 != null && (Y5 = Y1.Y5()) != null && (V0 = Y5.V0()) != null) {
-                    V0.x();
-                }
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewUser");
             }
         }
 
-        @Override // com.baidu.tieba.eh9
-        public void onShow() {
-            hm9 Y5;
-            FriendBotView V0;
-            hm9 Y52;
-            FriendBotView V02;
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onSuccess(AccountData accountData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                PbFragment Y1 = ((PbActivity) this.a).Y1();
-                if (Y1 != null && (Y52 = Y1.Y5()) != null && (V02 = Y52.V0()) != null) {
-                    V02.setDynamicLooping(false);
-                }
-                PbFragment Y12 = ((PbActivity) this.a).Y1();
-                if (Y12 != null && (Y5 = Y12.Y5()) != null && (V0 = Y5.V0()) != null) {
-                    V0.r();
-                }
-                SharedPrefHelper.getInstance().putBoolean("pb_friend_bot_bottom_new_user_shown", true);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921613));
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onFailure(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) && i == 1) {
+                ReloginManager.g().f(null);
             }
         }
     }
@@ -106,45 +95,84 @@ public final class sg9 extends x55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static final void b(Context context) {
-        hm9 Y5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            Intrinsics.checkNotNullParameter(context, "$context");
-            PbFragment Y1 = ((PbActivity) context).Y1();
-            if (Y1 != null && (Y5 = Y1.Y5()) != null) {
-                Y5.Z3(new a(context));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.x55
-    public void a(final Context context, p55 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!(context instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新手引导失败：当前Activity非PbActivity");
-                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNewUser");
                 return;
             }
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.rg9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        sg9.b(context);
-                    }
-                }
-            }, 1000L);
         }
+        this.a = new a(this);
+    }
+
+    public static sg9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new sg9();
+            }
+            return b;
+        }
+        return (sg9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
+    public BdAsyncTask<?, ?, ?> asyncReLogin(String str, String str2, String str3, String str4, AccountLoginCoreHelper.IReLoginCallback iReLoginCallback) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, iReLoginCallback)) == null) {
+            return xb9.a(str, str2, str3, str4, iReLoginCallback);
+        }
+        return (BdAsyncTask) invokeLLLLL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
+    public AccountLoginCoreHelper.a parseBDUSS(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            AccountLoginCoreHelper.a aVar = null;
+            if (str == null) {
+                return null;
+            }
+            try {
+                String[] split = str.split("[|]");
+                if (split == null || split.length < 1) {
+                    return null;
+                }
+                AccountLoginCoreHelper.a aVar2 = new AccountLoginCoreHelper.a();
+                try {
+                    aVar2.a = split[0];
+                    if (split.length >= 2) {
+                        aVar2.b = split[1];
+                    }
+                    return aVar2;
+                } catch (Exception e) {
+                    e = e;
+                    aVar = aVar2;
+                    BdLog.e(e.getMessage());
+                    return aVar;
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } else {
+            return (AccountLoginCoreHelper.a) invokeL.objValue;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper
+    public void reLoginByCacheAccount() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
+            return;
+        }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            AccountLoginCoreHelper.a parseBDUSS = parseBDUSS(currentAccountObj.getBDUSS());
+            if (parseBDUSS != null) {
+                xb9.a(currentAccountObj.getAccount(), parseBDUSS.a, parseBDUSS.b, currentAccountObj.getStoken(), this.a);
+                return;
+            }
+            return;
+        }
+        Logger.addLog("account", -1L, 0, "main_tab_has_no_cache_account", 0, "", new Object[0]);
     }
 }

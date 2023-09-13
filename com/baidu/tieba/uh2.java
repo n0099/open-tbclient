@@ -1,130 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public final class uh2 {
+public class uh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public boolean g;
-    public String h;
-    public boolean i;
-    public String j;
-    public String k;
-    public String l;
-    public boolean m;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948210922, "Lcom/baidu/tieba/uh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948210922, "Lcom/baidu/tieba/uh2;");
-                return;
-            }
-        }
-        n = nr1.a;
-    }
+    public UbcFlowEvent b;
+    public boolean c;
 
     public uh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static el2 a(uh2 uh2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uh2Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, uh2Var.a);
-            treeMap.put("pagePath", uh2Var.b);
-            treeMap.put("pageType", uh2Var.c);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, uh2Var.e);
-            if (!TextUtils.isEmpty(uh2Var.f)) {
-                if (n) {
-                    Log.d("PageReadyEvent", "add initData: " + uh2Var.f);
-                }
-                treeMap.put("initData", uh2Var.f);
-            }
-            if (!TextUtils.isEmpty(uh2Var.d)) {
-                treeMap.put("onReachBottomDistance", uh2Var.d);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(uh2Var.g));
-            if (!TextUtils.isEmpty(uh2Var.h)) {
-                treeMap.put("routeId", uh2Var.h);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(uh2Var.i));
-            if (!TextUtils.isEmpty(uh2Var.j)) {
-                treeMap.put("slavePreload", uh2Var.j);
-            }
-            treeMap.put("root", uh2Var.k);
-            b73.a(treeMap, "page ready event");
-            ve3.a(uh2Var.b, treeMap);
-            String f = vo3.f(ve3.b(uh2Var.b));
-            d82.k("PageReadyEvent", "#createPageReadyMessage pagePath=" + ((String) treeMap.get("pagePath")));
-            String c = nb3.c(uh2Var.a, f);
-            uh2Var.l = c;
-            if (!TextUtils.isEmpty(c)) {
-                treeMap.put("pageConfig", uh2Var.l);
-            }
-            zc2 W = xh2.U().W();
-            if (W != null) {
-                treeMap.put("masterId", W.a());
-            }
-            if (uh2Var.m) {
-                treeMap.put("isFirstPage", YYOption.IsLive.VALUE_TRUE);
-            }
-            if (ha2.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (bh3.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (bh3.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            return new el2("PageReady", treeMap);
-        }
-        return (el2) invokeL.objValue;
-    }
-
-    public String toString() {
+    public UbcFlowEvent a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PageReadyEvent{appPath='" + this.a + "', pagePath='" + this.b + "', pageType='" + this.c + "', onReachBottomDistance='" + this.d + "', sConsole='" + this.e + "', initData='" + this.f + "', showPerformancePanel=" + this.g + ", routeId='" + this.h + "', isT7Available=" + this.i + ", preloadFile='" + this.j + "', rootPath='" + this.k + "', pageConfig='" + this.l + "'}";
+            return this.b;
+        }
+        return (UbcFlowEvent) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(@NonNull UbcFlowEvent ubcFlowEvent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, ubcFlowEvent, z) == null) {
+            if (this.b == null || z) {
+                this.b = ubcFlowEvent;
+            }
+        }
+    }
+
+    public void f(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
+            if (this.a == null || z) {
+                this.a = str;
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
     }
 }

@@ -43,47 +43,47 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092756);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092788);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f4);
     }
 
-    public void a() {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c58, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.b.setText(R.string.obfuscated_res_0x7f0f0bef);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0c04);
                         this.c.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                this.b.setText(R.string.obfuscated_res_0x7f0f0bf1);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0c06);
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f11d0);
+            this.b.setText(R.string.obfuscated_res_0x7f0f11e9);
             this.c.setVisibility(0);
         }
     }
 
-    public void c(boolean z) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                b(0);
+                a(0);
             } else {
                 this.a.setVisibility(8);
             }
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c67, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 }

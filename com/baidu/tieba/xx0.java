@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 /* loaded from: classes8.dex */
-public class xx0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xx0 {
+    void a(@NonNull ww0 ww0Var);
 
-    @NonNull
-    @Inject(force = false)
-    public static mx0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return cy0.a();
-        }
-        return (mx0) invokeV.objValue;
-    }
+    void d(@NonNull ww0 ww0Var);
+
+    int getExpectOrder();
+
+    @Nullable
+    int[] getSubscribeEvent();
+
+    int getType();
+
+    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+
+    void j(@NonNull ww0 ww0Var);
+
+    void k(@NonNull ww0 ww0Var);
+
+    void n(@NonNull ww0 ww0Var);
+
+    void q(@NonNull ww0 ww0Var);
 }

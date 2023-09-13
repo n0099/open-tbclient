@@ -37,7 +37,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public int N() {
+    public int M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -46,7 +46,7 @@ public class HotSearchInfoData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String O() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -82,7 +82,7 @@ public class HotSearchInfoData extends OrmObject {
         return invokeV.longValue;
     }
 
-    public void P(HotSearch hotSearch) {
+    public void O(HotSearch hotSearch) {
         SearchValue searchValue;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hotSearch) == null) && hotSearch != null && (searchValue = hotSearch.search_value) != null) {
@@ -95,14 +95,14 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void Q(String str) {
+    public void P(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.a = str;
         }
     }
 
-    public void R(long j) {
+    public void Q(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.b = j;

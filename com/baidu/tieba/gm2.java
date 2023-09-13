@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ig3;
+import com.baidu.tieba.bi2;
+import com.baidu.tieba.mg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,25 +16,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gm2 extends ad3 {
+public class gm2 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements wp3<gg3<ig3.e>> {
+    public static class a implements aq3<kg3<mg3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
         public final /* synthetic */ UnitedSchemeEntity b;
         public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
 
-        public a(gm2 gm2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
+        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gm2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
+                Object[] objArr = {callbackHandler, unitedSchemeEntity, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,40 +46,66 @@ public class gm2 extends ad3 {
             this.a = callbackHandler;
             this.b = unitedSchemeEntity;
             this.c = jSONObject;
-            this.d = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp3
+        @Override // com.baidu.tieba.aq3
         /* renamed from: b */
-        public void a(gg3<ig3.e> gg3Var) {
+        public void a(kg3<mg3.e> kg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
-                if (!bg3.h(gg3Var)) {
-                    bg3.p(gg3Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                if (!fg3.h(kg3Var)) {
+                    fg3.p(kg3Var, this.a, this.b);
                     return;
                 }
-                boolean b = rl2.b(this.c.optInt("useExtension"));
-                if (b && !ul2.b().exists()) {
-                    va3.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f0170).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0170));
-                    return;
+                if (this.c.has("emitLive")) {
+                    g73.Q(vl2.b(this.c.optInt("emitLive")));
                 }
-                c73.V(b);
+                if (this.c.has("emitHttps")) {
+                    g73.N(vl2.b(this.c.optInt("emitHttps")));
+                }
+                if (this.c.has("emitDomain")) {
+                    g73.T(!vl2.b(this.c.optInt("emitDomain")));
+                    g73.W(!vl2.b(this.c.optInt("emitDomain")));
+                }
+                if (this.c.has("emitWss")) {
+                    g73.P(vl2.b(this.c.optInt("emitWss")));
+                }
+                if (this.c.has("emitLaunchMode")) {
+                    g73.U(vl2.b(this.c.optInt("emitLaunchMode")));
+                }
+                if (this.c.has("debugEnvData")) {
+                    g73.K(this.c.optString("debugEnvData"));
+                }
+                if (this.c.has("emitReplaceJsNative")) {
+                    g73.O(vl2.b(this.c.optInt("emitReplaceJsNative")));
+                }
+                if (this.c.has("emitReplaceV8Core")) {
+                    bi2.v.e(bi2.v.b(this.c.optInt("emitReplaceV8Core")));
+                }
+                if (this.c.has("emitHostEnv")) {
+                    g73.S(this.c.optInt("emitHostEnv"));
+                }
+                if (this.c.has("openStabilityCollector")) {
+                    am2.b(vl2.b(this.c.optInt("openStabilityCollector")));
+                }
+                if (this.c.has("openPerformanceTesting")) {
+                    zl2.b(vl2.b(this.c.optInt("openPerformanceTesting")));
+                }
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                c73.Z();
+                g73.Z();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gm2(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/debug/setExtensionConfig");
+    public gm2(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/debug/setDebugConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,24 +119,72 @@ public class gm2 extends ad3 {
         }
     }
 
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+    public static boolean j(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, unitedSchemeEntity, callbackHandler, hb3Var, jSONObject)) == null) {
+            hb3Var.e0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, jSONObject));
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public static boolean k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, JSONObject jSONObject2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            JSONObject a2 = ad3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                d82.c("ExtCore-SetConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, unitedSchemeEntity, callbackHandler, jSONObject, jSONObject2)) == null) {
+            if (!ed3.b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
                 return false;
-            } else if (!a2.has("useExtension")) {
-                d82.c("ExtCore-SetConfig", "useExtension is null");
+            } else if (!TextUtils.equals(jSONObject.optString("category"), "swanGame")) {
+                h82.c("setDebugConfig", "params is not swangame");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                db3Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                if (jSONObject2.has("emitHttps")) {
+                    g73.N(vl2.b(jSONObject2.optInt("emitHttps")));
+                }
+                if (jSONObject2.has("emitWss")) {
+                    g73.P(vl2.b(jSONObject2.optInt("emitWss")));
+                }
+                if (jSONObject2.has("debugEnvData")) {
+                    g73.K(jSONObject2.optString("debugEnvData"));
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                g73.Z();
                 return true;
             }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            JSONObject a2 = ed3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                h82.c("setDebugConfig", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            JSONObject optJSONObject = a2.optJSONObject("config");
+            if (optJSONObject == null) {
+                h82.c("setDebugConfig", "config is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            int k = gb3.K().k();
+            if (k != 0) {
+                if (k != 1) {
+                    h82.c("setDebugConfig", "frame type error");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                return k(unitedSchemeEntity, callbackHandler, a2, optJSONObject);
+            }
+            return j(context, unitedSchemeEntity, callbackHandler, hb3Var, optJSONObject);
         }
         return invokeLLLL.booleanValue;
     }

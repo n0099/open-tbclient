@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: PollingModel.java */
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class o85 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o85 {
+    void a(q85 q85Var, JSONObject jSONObject);
 
-    public static void a(PollingModel.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, dVar) == null) {
-        }
-    }
+    void b(int i, Throwable th);
 }

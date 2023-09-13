@@ -157,7 +157,7 @@ public class CardLiveLabelView extends RelativeLayout {
 
     public void setViewType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.a = i;
             if (i == 1 || i == 2) {
                 this.l = LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label_a, (ViewGroup) null, false);
@@ -216,6 +216,14 @@ public class CardLiveLabelView extends RelativeLayout {
         d();
     }
 
+    public void h(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (textView = this.i) != null) {
+            textView.setText(str);
+        }
+    }
+
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -240,7 +248,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091fac);
+            this.k = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091fec);
         }
     }
 
@@ -279,6 +287,7 @@ public class CardLiveLabelView extends RelativeLayout {
             this.i = (TextView) this.l.findViewById(R.id.ala_live_state_home);
             this.j = this.l.findViewById(R.id.ala_live_lottie_view_home);
             this.h.loop(true);
+            this.h.setLifecycleEnable(true);
             SkinManager.setLottieAnimation(this.h, R.raw.lottie_ala_live);
             this.h.addOnAttachStateChangeListener(new b(this));
             int i = this.a;

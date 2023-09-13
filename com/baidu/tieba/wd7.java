@@ -1,106 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
-import com.baidu.tieba.view.ScreenTopToast;
+import com.baidu.tieba.feed.card.FeedCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wd7 {
+public class wd7 extends yb7<FeedCardView, g87<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> a;
-    public String b;
-    public String c;
-    public View.OnClickListener d;
 
-    public wd7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wd7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = CollectionsKt__CollectionsKt.mutableListOf("DownloadManagerActivity");
-        String string = TbadkCoreApplication.getInst().getString(R.string.item_first_use_download_manager_toast);
-        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…e_download_manager_toast)");
-        this.b = string;
-        String string2 = TbadkCoreApplication.getInst().getString(R.string.dialog_confirm_see);
-        Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.dialog_confirm_see)");
-        this.c = string2;
-        this.d = new View.OnClickListener() { // from class: com.baidu.tieba.vd7
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    wd7.b(view2);
-                }
-            }
-        };
     }
 
-    public final void a() {
-        Activity curGlobalActivity;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oc7
+    /* renamed from: e */
+    public void b(@NonNull FeedCardView feedCardView, @NonNull g87<?> g87Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity()) == null || this.a.contains(curGlobalActivity.getClass().getSimpleName())) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, g87Var) == null) {
+            feedCardView.g(g87Var);
         }
-        ScreenTopToast screenTopToast = new ScreenTopToast(curGlobalActivity);
-        screenTopToast.m(this.b);
-        screenTopToast.k(this.c);
-        screenTopToast.j(this.d);
-        screenTopToast.n(this.d);
-        screenTopToast.o((ViewGroup) curGlobalActivity.findViewById(16908290));
-    }
-
-    public static final void b(View view2) {
-        Activity curGlobalActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || (curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity()) == null) {
-            return;
-        }
-        DownloadManagerActivityConfig downloadManagerActivityConfig = new DownloadManagerActivityConfig(curGlobalActivity, 3);
-        downloadManagerActivityConfig.setCurrentTab(3);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, downloadManagerActivityConfig));
-    }
-
-    public final wd7 c(String text) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text)) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            if (text.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                this.b = text;
-            }
-            return this;
-        }
-        return (wd7) invokeL.objValue;
     }
 }

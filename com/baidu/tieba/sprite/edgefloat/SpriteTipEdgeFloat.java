@@ -5,7 +5,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.maa;
+import com.baidu.tieba.fca;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -179,13 +179,13 @@ public final class SpriteTipEdgeFloat {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    maa maaVar = new maa(this.this$0.c());
-                    maaVar.x(this.$gravity);
-                    maaVar.H(this.$startX);
-                    maaVar.I(this.$startY);
-                    maaVar.d(this.$canDrag);
-                    maaVar.C(this.$pageSupportList);
-                    return maaVar.c();
+                    fca fcaVar = new fca(this.this$0.c());
+                    fcaVar.x(this.$gravity);
+                    fcaVar.H(this.$startX);
+                    fcaVar.I(this.$startY);
+                    fcaVar.d(this.$canDrag);
+                    fcaVar.C(this.$pageSupportList);
+                    return fcaVar.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }

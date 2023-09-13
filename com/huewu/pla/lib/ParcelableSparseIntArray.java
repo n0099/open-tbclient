@@ -29,7 +29,7 @@ public class ParcelableSparseIntArray extends SparseIntArray implements Parcelab
     }
 
     /* loaded from: classes10.dex */
-    public static class a implements Parcelable.Creator<ParcelableSparseIntArray> {
+    public class a implements Parcelable.Creator<ParcelableSparseIntArray> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

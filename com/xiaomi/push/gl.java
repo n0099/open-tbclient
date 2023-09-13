@@ -8,7 +8,7 @@ public class gl extends gm {
     public String b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f441b;
+    public boolean f440b;
     public String c;
     public String d;
     public String e;
@@ -28,7 +28,7 @@ public class gl extends gm {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f441b = false;
+        this.f440b = false;
     }
 
     public gl(Bundle bundle) {
@@ -40,7 +40,7 @@ public class gl extends gm {
         this.j = "";
         this.k = "";
         this.l = "";
-        this.f441b = false;
+        this.f440b = false;
         this.b = bundle.getString("ext_msg_type");
         this.d = bundle.getString("ext_msg_lang");
         this.c = bundle.getString("ext_msg_thread");
@@ -49,7 +49,7 @@ public class gl extends gm {
         this.g = bundle.getString("ext_body_encode");
         this.h = bundle.getString("ext_msg_appid");
         this.a = bundle.getBoolean("ext_msg_trans", false);
-        this.f441b = bundle.getBoolean("ext_msg_encrypt", false);
+        this.f440b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
@@ -97,7 +97,7 @@ public class gl extends gm {
         if (!TextUtils.isEmpty(this.k)) {
             a.putString("ext_msg_fseq", this.k);
         }
-        if (this.f441b) {
+        if (this.f440b) {
             a.putBoolean("ext_msg_encrypt", true);
         }
         if (!TextUtils.isEmpty(this.l)) {
@@ -108,8 +108,8 @@ public class gl extends gm {
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a */
-    public String mo529a() {
-        gq m530a;
+    public String mo530a() {
+        gq m531a;
         StringBuilder sb = new StringBuilder();
         sb.append("<message");
         if (p() != null) {
@@ -175,7 +175,7 @@ public class gl extends gm {
             sb.append(this.b);
             sb.append("\"");
         }
-        if (this.f441b) {
+        if (this.f440b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
@@ -200,8 +200,8 @@ public class gl extends gm {
             sb.append(this.c);
             sb.append("</thread>");
         }
-        if ("error".equalsIgnoreCase(this.b) && (m530a = m530a()) != null) {
-            sb.append(m530a.m533a());
+        if ("error".equalsIgnoreCase(this.b) && (m531a = m531a()) != null) {
+            sb.append(m531a.m534a());
         }
         sb.append(o());
         sb.append("</message>");
@@ -234,7 +234,7 @@ public class gl extends gm {
     }
 
     public void b(boolean z) {
-        this.f441b = z;
+        this.f440b = z;
     }
 
     public String c() {

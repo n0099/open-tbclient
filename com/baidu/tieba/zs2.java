@@ -8,18 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public class zs2 extends xo2<ot2> {
+public class zs2 extends bp2<st2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xo2
+    @Override // com.baidu.tieba.bp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     public zs2() {
@@ -37,25 +36,26 @@ public class zs2 extends xo2<ot2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xo2
+    @Override // com.baidu.tieba.bp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ot2 ot2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull st2 st2Var) {
         Object obj;
-        boolean z;
+        float f;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ot2Var) != null) || (obj = command.obj) == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, st2Var) != null) || (obj = command.obj) == null) {
             return;
         }
-        ArrayList arrayList = (ArrayList) obj;
-        if (command.arg1 != 0) {
-            z = true;
+        if (obj instanceof Float) {
+            f = ((Float) obj).floatValue();
+        } else if (obj instanceof Double) {
+            f = ((Double) obj).floatValue();
         } else {
-            z = false;
+            f = Float.MIN_VALUE;
         }
-        String str = (String) arrayList.get(0);
-        String f = zj3.l().f(str, (String) arrayList.get(1));
-        command.ret = ot2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
-        String str2 = command.what;
-        d(ot2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
+        if (f != Float.MIN_VALUE) {
+            st2Var.setSpeed(f);
+            String str = command.what;
+            d(st2Var, str, "playbackRate: " + command.obj, false);
+        }
     }
 }

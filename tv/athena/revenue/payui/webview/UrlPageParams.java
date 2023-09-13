@@ -1,7 +1,7 @@
 package tv.athena.revenue.payui.webview;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.wgc;
+import com.baidu.tieba.zjc;
 import com.google.gson.annotations.SerializedName;
 @Keep
 /* loaded from: classes2.dex */
@@ -24,6 +24,6 @@ public class UrlPageParams {
     public String url;
 
     public String toString() {
-        return "UrlPageParams{title='" + this.title + "', url='" + wgc.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + wgc.a(this.rightUrl) + "', rightIcon='" + wgc.a(this.rightIcon) + "', rightIconTitle='" + this.rightIconTitle + "', rightIconUrl='" + wgc.a(this.rightIconUrl) + "', pageType='" + this.pageType + "'}";
+        return "UrlPageParams{title='" + this.title + "', url='" + zjc.a(this.url) + "', rightTitle='" + this.rightTitle + "', rightUrl='" + zjc.a(this.rightUrl) + "', rightIcon='" + zjc.a(this.rightIcon) + "', rightIconTitle='" + this.rightIconTitle + "', rightIconUrl='" + zjc.a(this.rightIconUrl) + "', pageType='" + this.pageType + "'}";
     }
 }

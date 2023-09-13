@@ -140,6 +140,6 @@ public class c extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091428);
+        this.Oh = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09142e);
     }
 }

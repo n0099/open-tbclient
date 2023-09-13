@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.RC4;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -1425,8 +1424,8 @@ public final class NTLMEngineImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(RC4.LOGTAG);
-                cipher.init(1, new SecretKeySpec(bArr2, RC4.LOGTAG));
+                Cipher cipher = Cipher.getInstance("RC4");
+                cipher.init(1, new SecretKeySpec(bArr2, "RC4"));
                 return cipher.doFinal(bArr);
             } catch (Exception e) {
                 throw new NTLMEngineException(e.getMessage(), e);

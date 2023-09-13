@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.swan.menu.BaseMenuView;
 /* loaded from: classes6.dex */
 public interface ih4 {
-    boolean b(View view2, lh4 lh4Var);
+    void a(BaseMenuView baseMenuView);
 }

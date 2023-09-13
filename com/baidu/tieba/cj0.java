@@ -1,59 +1,90 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class cj0 {
+public class cj0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final bj0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract String a();
-
-    public cj0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947676544, "Lcom/baidu/tieba/cj0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947676544, "Lcom/baidu/tieba/cj0;");
+                return;
             }
         }
+        a = new bj0();
     }
 
-    @CallSuper
-    public boolean b(@NonNull Context context, @NonNull gj0 gj0Var, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var) {
+    public static boolean a(@NonNull Context context, @NonNull hj0 hj0Var, @Nullable Map<String, Object> map, @Nullable lj0 lj0Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gj0Var, map, kj0Var)) == null) {
-            u31.b((String) f31.b(gj0Var.d(), "charge_url"));
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, hj0Var, map, lj0Var)) == null) {
+            return a.a(context, hj0Var, map, lj0Var);
         }
         return invokeLLLL.booleanValue;
     }
 
-    public void c(kj0 kj0Var, @Nullable gj0 gj0Var, int i, boolean z) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{kj0Var, gj0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            pj0.b(kj0Var, gj0Var, i, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, null);
         }
+        return invokeL.booleanValue;
     }
 
-    public void d(kj0 kj0Var, @Nullable gj0 gj0Var, @Nullable String str, int i, boolean z) {
+    public static boolean c(String str, @Nullable Context context) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{kj0Var, gj0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            pj0.c(kj0Var, gj0Var, str, i, z);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, context)) == null) {
+            return d(str, context, null);
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean d(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, map)) == null) {
+            return e(str, context, map, null);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static boolean e(String str, @Nullable Context context, @Nullable Map<String, Object> map, @Nullable lj0 lj0Var) {
+        InterceptResult invokeLLLL;
+        y51 y51Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, context, map, lj0Var)) == null) {
+            if (u51.a && (y51Var = (y51) t51.a().a(y51.class)) != null) {
+                y51Var.a(str);
+            }
+            if (!qj0.o(str)) {
+                qj0.d(lj0Var, str, 201, false);
+                return false;
+            }
+            if (context == null) {
+                context = tj0.b();
+            }
+            return a(context, new hj0(str), map, lj0Var);
+        }
+        return invokeLLLL.booleanValue;
     }
 }

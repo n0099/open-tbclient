@@ -1,37 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ry9 {
+public class ry9 extends no6<kx9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public TbImageView j;
+    public TextView k;
+    public ImageView l;
+    public kx9 m;
 
-    public static boolean a(dn5 dn5Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.no6
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dn5Var)) == null) {
-            if (dn5Var != null) {
-                return dn5Var.isViewAttached();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0807 : invokeV.intValue;
     }
 
-    public static void b(dn5 dn5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ry9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{dn5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(dn5Var) && context != null && view2 != null) {
-            if (dn5Var == null) {
-                dn5Var = new dn5(context, onClickListener);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            dn5Var.j(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            dn5Var.attachView(view2, z);
-            dn5Var.o();
-            dn5Var.onChangeSkinType();
         }
+        View h = h();
+        this.i = h;
+        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091d1d);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091d1c);
+        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091d1e);
+        this.i.setOnClickListener(this);
+    }
+
+    @Override // com.baidu.tieba.no6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
+            MessageManager messageManager = MessageManager.getInstance();
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
+            kx9 kx9Var = this.m;
+            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(kx9Var.c, kx9Var.d, "person_page")));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.no6
+    /* renamed from: r */
+    public void i(kx9 kx9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, kx9Var) != null) || kx9Var == null) {
+            return;
+        }
+        this.m = kx9Var;
+        this.j.startLoad(kx9Var.a, 10, false);
+        this.k.setText(kx9Var.b);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 }

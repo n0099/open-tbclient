@@ -7,19 +7,19 @@ public final class y implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f92a;
+    public final /* synthetic */ Intent f91a;
 
     public y(Context context, Intent intent) {
         this.a = context;
-        this.f92a = intent;
+        this.f91a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.a.startService(this.f92a);
+            this.a.startService(this.f91a);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m181a(e.getMessage());
         }
     }
 }

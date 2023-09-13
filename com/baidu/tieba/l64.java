@@ -10,7 +10,7 @@ public class l64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public long duration;
+    public int progress;
 
     public l64() {
         Interceptable interceptable = $ic;

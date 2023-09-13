@@ -44,7 +44,7 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
         this.b.setVisibility(0);
     }
 
-    public void b(View.OnClickListener onClickListener) {
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
             this.a.setOnClickListener(onClickListener);

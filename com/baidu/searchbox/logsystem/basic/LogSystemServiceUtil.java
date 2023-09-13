@@ -14,7 +14,7 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
-import com.baidu.tieba.mk1;
+import com.baidu.tieba.qk1;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class LogSystemServiceUtil {
@@ -27,7 +27,7 @@ public class LogSystemServiceUtil {
         try {
             Intent intent = new Intent();
             intent.setClass(context, LokiService.class);
-            intent.putExtra("logtype", LogType.NONE);
+            intent.putExtra(LokiService.Constant.LOG_TYPE, LogType.NONE);
             context.startService(intent);
         } catch (Exception e) {
             if (LLog.sDebug) {
@@ -93,7 +93,7 @@ public class LogSystemServiceUtil {
     }
 
     public static void tranLogHandlerAction(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
-        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(mk1.b());
+        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(qk1.b());
         if (!obtainFileDirWithProcessName.exists()) {
             obtainFileDirWithProcessName.mkdirs();
         }
@@ -114,8 +114,8 @@ public class LogSystemServiceUtil {
         }
         Intent intent = new Intent();
         intent.setClass(context, LokiService.class);
-        intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, mk1.b());
-        intent.putExtra("logtype", logType);
+        intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, qk1.b());
+        intent.putExtra(LokiService.Constant.LOG_TYPE, logType);
         if (str != null) {
             intent.putExtra(LokiService.Constant.LOG_BASIC_DATA, str);
         }

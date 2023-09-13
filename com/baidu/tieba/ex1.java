@@ -3,23 +3,11 @@ package com.baidu.tieba;
 import android.content.Context;
 /* loaded from: classes5.dex */
 public interface ex1 {
-    mx1 a(Context context);
+    void a(Context context, aq3<Boolean> aq3Var);
 
-    ix1 b(Context context);
+    void b(boolean z, aq3<String> aq3Var);
 
-    mx1 c(Context context);
+    void c(Context context, aq3<String> aq3Var);
 
-    yc2 d();
-
-    jx1 e(Context context, int i);
-
-    mx1 f(Context context);
-
-    mx1 g(Context context);
-
-    zc2 h(Context context, int i);
-
-    mx1 i(Context context);
-
-    boolean j(int i);
+    void d(aq3<Integer> aq3Var);
 }

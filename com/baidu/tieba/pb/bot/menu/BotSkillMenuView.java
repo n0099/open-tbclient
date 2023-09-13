@@ -119,7 +119,7 @@ public final class BotSkillMenuView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 c = null;
             }
-            c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e04);
+            c.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e1c);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), 0, false);
             BotSkillMenuViewBinding botSkillMenuViewBinding2 = this.a;
             if (botSkillMenuViewBinding2 == null) {

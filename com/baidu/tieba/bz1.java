@@ -1,221 +1,169 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
-import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class bz1 implements ez1 {
+public class bz1 extends va2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Context a;
-    @NonNull
-    public CallbackHandler b;
-    public WeakReference<Activity> c;
-    public ba2 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947662160, "Lcom/baidu/tieba/bz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947662160, "Lcom/baidu/tieba/bz1;");
-                return;
-            }
-        }
-        e = nr1.a;
-    }
-
-    @Override // com.baidu.tieba.ez1
-    @NonNull
-    public ba2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (ba2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ez1
-    @NonNull
-    public CallbackHandler e() {
+    @Override // com.baidu.tieba.va2, com.baidu.tieba.na2
+    public boolean e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return true;
         }
-        return (CallbackHandler) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ez1
-    @NonNull
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return h();
-        }
-        return (Context) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a extends sc2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bz1 c;
 
-    @NonNull
-    public final Context h() {
-        InterceptResult invokeV;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            WeakReference<Activity> weakReference = this.c;
-            if (weakReference != null) {
-                activity = weakReference.get();
-            } else {
-                activity = null;
+        public a(bz1 bz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (activity == null) {
-                return this.a;
-            }
-            return activity;
+            this.c = bz1Var;
         }
-        return (Context) invokeV.objValue;
+
+        @Override // com.baidu.tieba.sc2, com.baidu.tieba.vc2
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return super.a(str);
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public bz1(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull ba2 ba2Var) {
+    public bz1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, callbackHandler, ba2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        this.b = callbackHandler;
-        this.d = ba2Var;
-    }
-
-    public void a(@NonNull ba2 ba2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ba2Var) == null) {
-            ba2Var.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
-        }
-    }
-
-    public final void b(@NonNull ba2 ba2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ba2Var) == null) {
-            if (ba2Var instanceof ni2) {
-                c((ni2) ba2Var);
-            } else {
-                f(ba2Var);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void c(@NonNull ni2 ni2Var) {
+    @Override // com.baidu.tieba.va2, com.baidu.tieba.na2
+    public boolean H() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ni2Var) == null) {
-            g(ni2Var, SwanApi$$ModulesProvider.getV8ApiModules(this), ku2.s().b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ox1 ox1Var = this.H0;
+            if (ox1Var != null && ox1Var.canGoBack()) {
+                this.H0.goBack();
+                return true;
+            }
+            cz1.a().b(1);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.va2
+    public vc2 b3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
+        }
+        return (vc2) invokeV.objValue;
+    }
+
+    public final int i3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (f2()) {
+                return 18;
+            }
+            return 12;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.va2
+    public qx1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return bi2.U().f0().g(getContext());
+        }
+        return (qx1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.va2, com.baidu.tieba.na2
+    public void W1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.W1(view2);
+            this.f0.setRightZoneVisibility(true);
         }
     }
 
-    public final void f(@NonNull ba2 ba2Var) {
+    @Override // com.baidu.tieba.va2
+    public void c3() {
+        FragmentActivity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ba2Var) == null) {
-            g(ba2Var, SwanApi$$ModulesProvider.getWebviewApiModules(this), ku2.s().c(this));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
+            this.g0 = new oh4(activity, this.f0, i3(), ou2.K(), new qq3());
+            new x03(this.g0, this).z();
         }
     }
 
-    public void i(Activity activity) {
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.ox1] */
+    @Override // com.baidu.tieba.va2, com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && activity != null) {
-            this.c = new WeakReference<>(activity);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e7, viewGroup, false);
+            W1(inflate);
+            qx1 j = j();
+            this.G0 = j;
+            j.X(b3());
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.I0);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bb);
+            this.G0.i(frameLayout, this.H0.covertToView());
+            Y2(frameLayout);
+            if (V1()) {
+                return Y1(inflate);
+            }
+            return inflate;
         }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void g(@NonNull ba2 ba2Var, Map<String, Object> map, Map<String, Object> map2) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, ba2Var, map, map2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (map2 != null) {
-                if (map == null) {
-                    map = map2;
-                } else {
-                    try {
-                        map.putAll(map2);
-                    } catch (Exception e2) {
-                        if (!e) {
-                            return;
-                        }
-                        e2.printStackTrace();
-                        throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
-                    }
-                }
-            }
-            if (map == null) {
-                if (!e) {
-                    return;
-                }
-                throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
-            }
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                if (TextUtils.isEmpty(key)) {
-                    if (e) {
-                        throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
-                    }
-                } else if (value == null) {
-                    if (e) {
-                        throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
-                    }
-                } else {
-                    ba2Var.addJavascriptInterface(value, key);
-                    if (e) {
-                        if (ba2Var instanceof ni2) {
-                            str = "V8";
-                        } else {
-                            str = "Webview";
-                        }
-                        Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
-                    }
-                }
-            }
-            if (e) {
-                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (currentTimeMillis2 > 5) {
-                    Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
-                }
-            }
-        }
+        return (View) invokeLLL.objValue;
     }
 }

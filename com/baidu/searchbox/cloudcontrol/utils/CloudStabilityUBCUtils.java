@@ -88,7 +88,7 @@ public class CloudStabilityUBCUtils {
                 jSONObject2.put(KEY_POST_LENGTH, String.valueOf(j3));
             }
             if (i3 != -100) {
-                jSONObject2.put("errorCode", i3);
+                jSONObject2.put(KEY_ERROR_CODE, i3);
             }
             if (!TextUtils.isEmpty(str3)) {
                 jSONObject2.put("errorMsg", str3);

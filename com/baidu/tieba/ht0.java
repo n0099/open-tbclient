@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
-import java.io.InputStream;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface ht0 {
-    void a(Exception exc, int i);
+    public static final ServiceReference a = new ServiceReference("nad.core", "net");
 
-    void c(Headers headers, InputStream inputStream, int i) throws Exception;
+    ft0 a();
 }

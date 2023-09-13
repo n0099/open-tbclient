@@ -4,6 +4,7 @@ import android.util.Log;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.heytap.mcssdk.constant.b;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class CloudLogUtil {
                         jSONObject.put("uid", CloudLogUtil.mUid);
                         jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, CloudLogUtil.mAppId);
                         jSONObject.put(Config.DEVICE_PART, CloudLogUtil.mDevice);
-                        jSONObject.put("os", CloudLogUtil.mOS);
+                        jSONObject.put(TtsLogLoad.KEY_OS, CloudLogUtil.mOS);
                         jSONObject.put("appName", CloudLogUtil.mAppName);
                         jSONObject.put("clientVer", CloudLogUtil.mClientVer);
                         jSONObject.put(b.C, CloudLogUtil.mSdkVersion);

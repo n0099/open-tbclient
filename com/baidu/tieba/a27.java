@@ -1,36 +1,43 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class a27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public ViewGroup c;
-    public ImageView d;
-    public TextView e;
-    public TextView f;
+    public EnterForumTabFeedFragment a;
+    public BdTypeRecyclerView b;
+    public m27 c;
+    public d27 d;
+    public f27 e;
+    public e27 f;
+    public g27 g;
+    public n27 h;
+    public i27 i;
+    public k27 j;
+    public j27 k;
+    public h27 l;
+    public l27 m;
+    public c27 n;
+    public o27 o;
+    public List<pm> p;
 
-    public a27(TbPageContext<?> tbPageContext) {
+    public a27(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,33 +47,100 @@ public class a27 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0729, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0911b6);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09108c);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f58);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f59);
-        this.e.setText(R.string.no_like_forum_hint_1);
-        this.f.setText(R.string.no_like_forum_hint_2);
+        this.p = new LinkedList();
+        this.a = enterForumTabFeedFragment;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setImageResource(this.d, R.drawable.cp_mask_attention_a);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0206).tlRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).trRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).blRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).brRadius(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds21)).into(this.c);
+            m27 m27Var = new m27(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.Y1());
+            this.c = m27Var;
+            m27Var.y(this.b);
+            this.p.add(this.c);
+            d27 d27Var = new d27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.Y1());
+            this.d = d27Var;
+            d27Var.z(this.b);
+            this.p.add(this.d);
+            f27 f27Var = new f27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.Y1());
+            this.e = f27Var;
+            f27Var.y(this.b);
+            this.p.add(this.e);
+            e27 e27Var = new e27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.Y1());
+            this.f = e27Var;
+            e27Var.y(this.b);
+            this.p.add(this.f);
+            g27 g27Var = new g27(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.Y1());
+            this.g = g27Var;
+            g27Var.y(this.b);
+            this.p.add(this.g);
+            n27 n27Var = new n27(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.Y1());
+            this.h = n27Var;
+            n27Var.B(this.b);
+            this.p.add(this.h);
+            i27 i27Var = new i27(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.Y1());
+            this.i = i27Var;
+            i27Var.u(this.b);
+            this.p.add(this.i);
+            k27 k27Var = new k27(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.Y1());
+            this.j = k27Var;
+            k27Var.y(this.b);
+            this.p.add(this.j);
+            j27 j27Var = new j27(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.Y1());
+            this.k = j27Var;
+            j27Var.u(this.b);
+            this.p.add(this.k);
+            h27 h27Var = new h27(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.Y1());
+            this.l = h27Var;
+            h27Var.y(this.b);
+            this.p.add(this.l);
+            l27 l27Var = new l27(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.Y1());
+            this.m = l27Var;
+            l27Var.y(this.b);
+            this.p.add(this.m);
+            c27 c27Var = new c27(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.Y1());
+            this.n = c27Var;
+            c27Var.z(this.b);
+            this.p.add(this.n);
+            o27 o27Var = new o27(this.a.getPageContext(), y35.d, this.a.getUniqueId(), this.a.Y1());
+            this.o = o27Var;
+            o27Var.x(this.b);
+            this.p.add(this.o);
+            this.b.addAdapters(this.p);
         }
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
-        return (View) invokeV.objValue;
+    }
+
+    public void c(ArrayList<cn> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.b.setData(arrayList);
+        }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            d27 d27Var = this.d;
+            if (d27Var != null) {
+                d27Var.setFromCDN(z);
+            }
+            e27 e27Var = this.f;
+            if (e27Var != null) {
+                e27Var.setFromCDN(z);
+            }
+            f27 f27Var = this.e;
+            if (f27Var != null) {
+                f27Var.setFromCDN(z);
+            }
+        }
     }
 }

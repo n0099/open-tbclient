@@ -1,139 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes8.dex */
-public final class ytb {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ytb f;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public volatile Executor c;
-    public volatile ExecutorService d;
-    public final Object e;
+public interface ytb {
+    void onAdClicked(Ssp.Pid pid);
 
-    /* loaded from: classes8.dex */
-    public static class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void onAdClose(Ssp.Pid pid);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void onAdLoad(Ssp.Pid pid);
 
-        @Override // java.util.concurrent.Executor
-        public final void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                new Handler(Looper.getMainLooper()).post(runnable);
-            }
-        }
-    }
+    void onAdLoadError(Ssp.Pid pid, int i, String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948343106, "Lcom/baidu/tieba/ytb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948343106, "Lcom/baidu/tieba/ytb;");
-                return;
-            }
-        }
-        f = new ytb();
-    }
+    void onAdLoaded(Ssp.Pid pid, double d);
 
-    public static Executor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ytb ytbVar = f;
-            if (ytbVar.c == null) {
-                synchronized (ytbVar.e) {
-                    if (ytbVar.c == null) {
-                        ytbVar.c = new a();
-                    }
-                }
-            }
-            return ytbVar.c;
-        }
-        return (Executor) invokeV.objValue;
-    }
+    void onAdShow(Ssp.Pid pid, double d);
 
-    public static ExecutorService d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return f.c();
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
+    void onAdShowError(Ssp.Pid pid, int i, String str);
 
-    public final ExecutorService c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(this.a, this.b, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-            return threadPoolExecutor;
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
-
-    public ytb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new Object();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        this.a = availableProcessors + 1;
-        this.b = (availableProcessors * 2) + 1;
-    }
-
-    public static void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-                runnable.run();
-            } else {
-                a().execute(runnable);
-            }
-        }
-    }
+    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
 }

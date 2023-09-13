@@ -65,67 +65,67 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class color {
-        public static final int children_background = 0x7f0604e8;
-        public static final int children_stroke = 0x7f0604e9;
-        public static final int children_text = 0x7f0604ea;
-        public static final int crius_blue = 0x7f0606dd;
-        public static final int crius_grey = 0x7f0606de;
-        public static final int crius_swipe_indicator_back_color = 0x7f0606df;
-        public static final int crius_swipe_indicator_default = 0x7f0606e0;
-        public static final int crius_swipe_indicator_selected = 0x7f0606e1;
-        public static final int crius_white = 0x7f0606e2;
-        public static final int transparent = 0x7f060b86;
+        public static final int children_background = 0x7f0604ea;
+        public static final int children_stroke = 0x7f0604eb;
+        public static final int children_text = 0x7f0604ec;
+        public static final int crius_blue = 0x7f0606df;
+        public static final int crius_grey = 0x7f0606e0;
+        public static final int crius_swipe_indicator_back_color = 0x7f0606e1;
+        public static final int crius_swipe_indicator_default = 0x7f0606e2;
+        public static final int crius_swipe_indicator_selected = 0x7f0606e3;
+        public static final int crius_white = 0x7f0606e4;
+        public static final int transparent = 0x7f060b90;
     }
 
     /* loaded from: classes3.dex */
     public static final class dimen {
-        public static final int crius_swiper_indicator_bottom_margin = 0x7f070299;
-        public static final int crius_swiper_indicator_dot_left_margin = 0x7f07029a;
-        public static final int crius_swiper_indicator_dot_size = 0x7f07029b;
-        public static final int crius_swiper_indicator_height = 0x7f07029c;
-        public static final int dimens_1dp = 0x7f070343;
-        public static final int dimens_1px = 0x7f070344;
-        public static final int dimens_2dp = 0x7f070346;
-        public static final int dimens_3dp = 0x7f070347;
-        public static final int dimens_4dp = 0x7f070348;
-        public static final int dimens_5dp = 0x7f07034b;
+        public static final int crius_swiper_indicator_bottom_margin = 0x7f07029d;
+        public static final int crius_swiper_indicator_dot_left_margin = 0x7f07029e;
+        public static final int crius_swiper_indicator_dot_size = 0x7f07029f;
+        public static final int crius_swiper_indicator_height = 0x7f0702a0;
+        public static final int dimens_1dp = 0x7f070347;
+        public static final int dimens_1px = 0x7f070348;
+        public static final int dimens_2dp = 0x7f07034a;
+        public static final int dimens_3dp = 0x7f07034b;
+        public static final int dimens_4dp = 0x7f07034c;
+        public static final int dimens_5dp = 0x7f07034f;
     }
 
     /* loaded from: classes3.dex */
     public static final class drawable {
-        public static final int crius = 0x7f080558;
+        public static final int crius = 0x7f080564;
     }
 
     /* loaded from: classes3.dex */
     public static final class id {
         public static final int absolute = 0x7f09002c;
-        public static final int auto = 0x7f09030a;
-        public static final int baseline = 0x7f090367;
-        public static final int benchmarkSelect = 0x7f0903d4;
-        public static final int btn = 0x7f0904a0;
-        public static final int center = 0x7f09068d;
-        public static final int column = 0x7f09075b;
-        public static final int column_reverse = 0x7f09075c;
-        public static final int flex = 0x7f090b55;
-        public static final int flex_end = 0x7f090b56;
-        public static final int flex_start = 0x7f090b57;
-        public static final int hidden = 0x7f090f4c;
-        public static final int inherit = 0x7f091138;
-        public static final int ltr = 0x7f0916a0;
-        public static final int no_wrap = 0x7f091991;
-        public static final int none = 0x7f091994;
-        public static final int relative = 0x7f091ec1;
-        public static final int root = 0x7f091f96;
-        public static final int row = 0x7f091fbd;
-        public static final int row_reverse = 0x7f091fbf;
-        public static final int rtl = 0x7f091fc0;
-        public static final int scroll = 0x7f0920f9;
-        public static final int space_around = 0x7f092268;
-        public static final int space_between = 0x7f092269;
-        public static final int stretch = 0x7f0922e9;
-        public static final int text = 0x7f092488;
-        public static final int visible = 0x7f0929c9;
-        public static final int wrap = 0x7f092a76;
+        public static final int auto = 0x7f09030e;
+        public static final int baseline = 0x7f09036f;
+        public static final int benchmarkSelect = 0x7f0903dc;
+        public static final int btn = 0x7f0904a9;
+        public static final int center = 0x7f090683;
+        public static final int column = 0x7f09074f;
+        public static final int column_reverse = 0x7f090750;
+        public static final int flex = 0x7f090b4f;
+        public static final int flex_end = 0x7f090b50;
+        public static final int flex_start = 0x7f090b51;
+        public static final int hidden = 0x7f090f4b;
+        public static final int inherit = 0x7f09113a;
+        public static final int ltr = 0x7f0916a9;
+        public static final int no_wrap = 0x7f0919ab;
+        public static final int none = 0x7f0919ae;
+        public static final int relative = 0x7f091eea;
+        public static final int root = 0x7f091fd6;
+        public static final int row = 0x7f091ffc;
+        public static final int row_reverse = 0x7f091ffe;
+        public static final int rtl = 0x7f091fff;
+        public static final int scroll = 0x7f092138;
+        public static final int space_around = 0x7f0922a8;
+        public static final int space_between = 0x7f0922a9;
+        public static final int stretch = 0x7f092329;
+        public static final int text = 0x7f0924c8;
+        public static final int visible = 0x7f0929ff;
+        public static final int wrap = 0x7f092aab;
     }
 
     /* loaded from: classes3.dex */
@@ -133,20 +133,20 @@ public final class R {
         public static final int activity_benchmark = 0x7f0d002e;
         public static final int activity_crius = 0x7f0d0033;
         public static final int activity_crius_flatten = 0x7f0d0034;
-        public static final int benchmark_flatten_layout = 0x7f0d0172;
-        public static final int benchmark_layout = 0x7f0d0173;
+        public static final int benchmark_flatten_layout = 0x7f0d0177;
+        public static final int benchmark_layout = 0x7f0d0178;
     }
 
     /* loaded from: classes3.dex */
     public static final class string {
         public static final int app_name = 0x7f0f029e;
-        public static final int bm_child_6_text = 0x7f0f036d;
-        public static final int child_1_text = 0x7f0f0435;
-        public static final int child_2_text = 0x7f0f0436;
-        public static final int child_3_text = 0x7f0f0437;
-        public static final int child_4_text = 0x7f0f0438;
-        public static final int child_5_text = 0x7f0f0439;
-        public static final int run_benchmark = 0x7f0f126f;
+        public static final int bm_child_6_text = 0x7f0f036e;
+        public static final int child_1_text = 0x7f0f0437;
+        public static final int child_2_text = 0x7f0f0438;
+        public static final int child_3_text = 0x7f0f0439;
+        public static final int child_4_text = 0x7f0f043a;
+        public static final int child_5_text = 0x7f0f043b;
+        public static final int run_benchmark = 0x7f0f1288;
     }
 
     /* loaded from: classes3.dex */

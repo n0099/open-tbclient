@@ -1,82 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes5.dex */
-public class a88 extends om<dc9, AdapterViewHolder<NearbyForumFriendCardView>> {
+public class a88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public AdapterViewHolder<NearbyForumFriendCardView> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a88(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), dc9.d);
+    public static void a(String str, List<cn> list) {
+        rha rhaVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<cn> it = list.iterator();
+            int i = 0;
+            AdvertAppInfo advertAppInfo = null;
+            int i2 = 0;
+            int i3 = 0;
+            while (it.hasNext()) {
+                i++;
+                cn next = it.next();
+                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof v66)) {
+                    it.remove();
+                }
+                if (next instanceof y68) {
+                    advertAppInfo = ((y68) next).c();
+                } else if (next instanceof u25) {
+                    u25 u25Var = (u25) next;
+                    if (u25Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
+                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) u25Var.c()).getAdvertAppInfo();
+                    }
+                } else if ((next instanceof ThreadData) && (rhaVar = ((ThreadData) next).funAdData) != null && rhaVar.i()) {
+                    it.remove();
+                    i3 = i;
+                }
+                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
+                    it.remove();
+                    advertAppInfo = null;
+                    i2 = i;
+                }
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: s */
-    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void b(List<cn> list, DataRes.Builder builder, j58 j58Var, v68 v68Var) {
+        rha rhaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
-            this.b = adapterViewHolder;
-            return adapterViewHolder;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, j58Var, v68Var) == null) {
+            if (list != null && list.size() > 0) {
+                Iterator<cn> it = list.iterator();
+                while (it.hasNext()) {
+                    cn next = it.next();
+                    if (!(next instanceof y68) && !(next instanceof u25) && !(next instanceof v66)) {
+                        if ((next instanceof ThreadData) && (rhaVar = ((ThreadData) next).funAdData) != null) {
+                            rhaVar.p(true);
+                            it.remove();
+                        }
+                    } else {
+                        it.remove();
+                    }
+                }
+            }
+            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
+                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+                List<App> list2 = builder2.app;
+                if (list2 != null) {
+                    list2.clear();
+                }
+                builder.banner_list = builder2.build(false);
+                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+                builder3.banner_list = builder2.build(true);
+                if (j58Var != null) {
+                    j58Var.a(builder3);
+                }
+            }
+            if (v68Var != null) {
+                v68Var.B(list);
+            }
         }
-        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public void u(boolean z) {
-        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
+    public static void c(String str, DataRes.Builder builder, j58 j58Var) {
+        BannerList bannerList;
+        List<App> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
-            adapterViewHolder.b().setNeedCompleteProfile(z);
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, j58Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (App app : builder.banner_list.app) {
+                if (app != null && str.equals(m2a.a(app))) {
+                    arrayList.add(app);
+                }
+            }
+            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+            List<App> list2 = builder2.app;
+            if (list2 != null) {
+                list2.removeAll(arrayList);
+            }
+            builder.banner_list = builder2.build(false);
+            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+            builder3.banner_list = builder2.build(true);
+            if (j58Var != null) {
+                j58Var.a(builder3);
+            }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dc9 dc9Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dc9Var, adapterViewHolder})) == null) {
-            NearbyForumFriendCardView b = adapterViewHolder.b();
-            b.onBindDataToView(dc9Var);
-            b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return adapterViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
     }
 }

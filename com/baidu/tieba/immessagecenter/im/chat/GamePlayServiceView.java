@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.base.BdPageContext;
@@ -13,6 +14,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fbc;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,14 +24,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GamePlayServiceView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public View b;
-    public TextView c;
-    public final View.OnClickListener d;
+    public c a;
+    public Context b;
+    public boolean c;
+    public boolean d;
+    public View e;
+    public LinearLayout f;
+    public TextView g;
+    public LinearLayout h;
+    public TextView i;
+    public final View.OnClickListener j;
+    public final View.OnClickListener k;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void h(int i);
+    public interface c {
+        void g(int i);
     }
 
     /* loaded from: classes6.dex */
@@ -60,7 +69,40 @@ public class GamePlayServiceView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.h(0);
+                this.a.a.g(0);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GamePlayServiceView a;
+
+        public b(GamePlayServiceView gamePlayServiceView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gamePlayServiceView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gamePlayServiceView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
+                this.a.a.g(1);
             }
         }
     }
@@ -83,17 +125,6 @@ public class GamePlayServiceView extends RelativeLayout {
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-    }
-
-    public final void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0800, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09160f);
-            findViewById(R.id.obfuscated_res_0x7f091629).setOnClickListener(this.d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09273c);
-            d();
         }
     }
 
@@ -137,14 +168,44 @@ public class GamePlayServiceView extends RelativeLayout {
                 return;
             }
         }
-        this.d = new a(this);
+        this.j = new a(this);
+        this.k = new b(this);
+        this.b = context;
         b(context);
     }
 
-    public void e(b bVar) {
+    public void e(boolean z) {
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+            if (z && (linearLayout = this.f) != null) {
+                linearLayout.setVisibility(0);
+            }
+        }
+    }
+
+    public void f(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.a = cVar;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0814, (ViewGroup) this, true);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091617);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091632);
+            this.f = linearLayout;
+            linearLayout.setOnClickListener(this.j);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09276e);
+            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091631);
+            this.h = linearLayout2;
+            linearLayout2.setOnClickListener(this.k);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09276d);
+            d();
         }
     }
 
@@ -167,16 +228,32 @@ public class GamePlayServiceView extends RelativeLayout {
         }
     }
 
+    public void g(boolean z, fbc fbcVar) {
+        LinearLayout linearLayout;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048581, this, z, fbcVar) == null) {
+            this.d = z;
+            if (z && (linearLayout = this.h) != null) {
+                linearLayout.setVisibility(0);
+                fbcVar.call();
+            }
+        }
+    }
+
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View view2 = this.b;
+            View view2 = this.e;
             if (view2 != null) {
                 view2.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
             }
-            TextView textView = this.c;
+            TextView textView = this.g;
             if (textView != null) {
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            }
+            TextView textView2 = this.i;
+            if (textView2 != null) {
+                textView2.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             }
         }
     }

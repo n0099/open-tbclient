@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.recommendcard.RecommendCardView;
-import com.baidu.tieba.om;
 import com.baidu.tieba.pb.data.PbFirstFloorRecommendData;
 import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorRecommendAdapter;
+import com.baidu.tieba.pm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\u0018\u0000 \u00172\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0002\u0012\b\u0012\u00060\u0003R\u00020\u00000\u0001:\u0002\u0017\u0018B\u0019\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0016\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0002J\u0014\u0010\u000e\u001a\u00060\u0003R\u00020\u00002\u0006\u0010\u000f\u001a\u00020\u0010H\u0014J6\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00122\u0006\u0010\u000f\u001a\u00020\u00102\b\u0010\r\u001a\u0004\u0018\u00010\u00022\n\u0010\u0016\u001a\u00060\u0003R\u00020\u0000H\u0014¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorRecommendAdapter;", "Lcom/baidu/adp/widget/ListView/AbsDelegateAdapter;", "Lcom/baidu/tieba/pb/data/PbFirstFloorRecommendData;", "Lcom/baidu/tieba/pb/pb/main/adapter/PbFirstFloorRecommendAdapter$PbFirstFloorRecommendViewHolder;", "context", "Landroid/content/Context;", "type", "Lcom/baidu/adp/BdUniqueId;", "(Landroid/content/Context;Lcom/baidu/adp/BdUniqueId;)V", "eventStat", "", "statisticItem", "Lcom/baidu/tbadk/core/util/StatisticItem;", "data", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "", "convertView", "viewHolder", "Companion", "PbFirstFloorRecommendViewHolder", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder> {
+public final class PbFirstFloorRecommendAdapter extends pm<PbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +98,7 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
             throw new NullPointerException("null cannot be cast to non-null type android.widget.TextView");
         }
 
-        public static final void c(PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendAdapter this$0, View view2) {
+        public static final void b(PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendAdapter this$0, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65537, null, pbFirstFloorRecommendData, this$0, view2) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -111,7 +111,7 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
             }
         }
 
-        public static final void d(PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendAdapter this$0, View view2) {
+        public static final void c(PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendAdapter this$0, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65538, null, pbFirstFloorRecommendData, this$0, view2) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -124,7 +124,7 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
             }
         }
 
-        public static final void e(PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendAdapter this$0, View view2) {
+        public static final void d(PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendAdapter this$0, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(65539, null, pbFirstFloorRecommendData, this$0, view2) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -137,23 +137,15 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
             }
         }
 
-        public final void a() {
+        public final void a(final PbFirstFloorRecommendData pbFirstFloorRecommendData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
-            }
-        }
-
-        public final void b(final PbFirstFloorRecommendData pbFirstFloorRecommendData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbFirstFloorRecommendData) != null) || pbFirstFloorRecommendData == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, pbFirstFloorRecommendData) != null) || pbFirstFloorRecommendData == null) {
                 return;
             }
             this.a.setText(this.d.mContext.getText(R.string.related_recommendation));
             RecommendCardView recommendCardView = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter = this.d;
-            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pm9
+            recommendCardView.setRootOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fo9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -161,13 +153,13 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PbFirstFloorRecommendAdapter.PbFirstFloorRecommendViewHolder.c(PbFirstFloorRecommendData.this, pbFirstFloorRecommendAdapter, view2);
+                        PbFirstFloorRecommendAdapter.PbFirstFloorRecommendViewHolder.b(PbFirstFloorRecommendData.this, pbFirstFloorRecommendAdapter, view2);
                     }
                 }
             });
             RecommendCardView recommendCardView2 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter2 = this.d;
-            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rm9
+            recommendCardView2.setRightButtonOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ho9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,13 +167,13 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PbFirstFloorRecommendAdapter.PbFirstFloorRecommendViewHolder.d(PbFirstFloorRecommendData.this, pbFirstFloorRecommendAdapter2, view2);
+                        PbFirstFloorRecommendAdapter.PbFirstFloorRecommendViewHolder.c(PbFirstFloorRecommendData.this, pbFirstFloorRecommendAdapter2, view2);
                     }
                 }
             });
             RecommendCardView recommendCardView3 = this.b;
             final PbFirstFloorRecommendAdapter pbFirstFloorRecommendAdapter3 = this.d;
-            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sm9
+            recommendCardView3.setBottomGroupOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.io9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -189,11 +181,19 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PbFirstFloorRecommendAdapter.PbFirstFloorRecommendViewHolder.e(PbFirstFloorRecommendData.this, pbFirstFloorRecommendAdapter3, view2);
+                        PbFirstFloorRecommendAdapter.PbFirstFloorRecommendViewHolder.d(PbFirstFloorRecommendData.this, pbFirstFloorRecommendAdapter3, view2);
                     }
                 }
             });
             this.b.a(pbFirstFloorRecommendData.c());
+        }
+
+        public final void onChangeSkinType() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+            }
         }
     }
 
@@ -219,7 +219,7 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.om
+    @Override // com.baidu.tieba.pm
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PbFirstFloorRecommendData pbFirstFloorRecommendData, PbFirstFloorRecommendViewHolder pbFirstFloorRecommendViewHolder) {
         x(i, view2, viewGroup, pbFirstFloorRecommendData, pbFirstFloorRecommendViewHolder);
         return view2;
@@ -235,7 +235,7 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
+    @Override // com.baidu.tieba.pm
     /* renamed from: u */
     public PbFirstFloorRecommendViewHolder onCreateViewHolder(ViewGroup parent) {
         InterceptResult invokeL;
@@ -282,10 +282,10 @@ public final class PbFirstFloorRecommendAdapter extends om<PbFirstFloorRecommend
             Intrinsics.checkNotNullParameter(parent, "parent");
             Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
             if (pbFirstFloorRecommendData != null) {
-                viewHolder.b(pbFirstFloorRecommendData);
+                viewHolder.a(pbFirstFloorRecommendData);
                 t(new StatisticItem("c14070"), pbFirstFloorRecommendData);
             }
-            viewHolder.a();
+            viewHolder.onChangeSkinType();
             return convertView;
         }
         return (View) invokeCommon.objValue;

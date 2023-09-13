@@ -1,31 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public final class pjb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] SVGImageView;
-    public static final int SVGImageView_css = 0;
-    public static final int SVGImageView_svg = 1;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pjb {
+    void a(int i);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948065377, "Lcom/baidu/tieba/pjb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948065377, "Lcom/baidu/tieba/pjb;");
-                return;
-            }
-        }
-        SVGImageView = new int[]{R.attr.obfuscated_res_0x7f040206, R.attr.obfuscated_res_0x7f0406d3};
-    }
+    void b(String str);
+
+    boolean c();
+
+    pjb d();
+
+    void e(boolean z);
+
+    void f(String str);
+
+    void g(String str);
+
+    String getAAID();
+
+    String getOAID();
+
+    int getStatusCode();
+
+    String getVAID();
+
+    void h(boolean z);
+
+    boolean isSupport();
 }

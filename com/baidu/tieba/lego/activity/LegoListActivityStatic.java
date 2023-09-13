@@ -6,17 +6,17 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.c39;
-import com.baidu.tieba.ev4;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.m19;
-import com.baidu.tieba.n19;
-import com.baidu.tieba.o19;
-import com.baidu.tieba.p19;
-import com.baidu.tieba.q19;
-import com.baidu.tieba.r19;
-import com.baidu.tieba.u19;
-import com.baidu.tieba.v19;
+import com.baidu.tieba.e49;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.o29;
+import com.baidu.tieba.p29;
+import com.baidu.tieba.q29;
+import com.baidu.tieba.r29;
+import com.baidu.tieba.s29;
+import com.baidu.tieba.t29;
+import com.baidu.tieba.w29;
+import com.baidu.tieba.x29;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
+    /* loaded from: classes6.dex */
+    public class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -75,19 +75,19 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        c39.a.set(new m19());
+        e49.a.set(new o29());
         TbConfig.setLegoLibVersion("3.0.0");
-        u19.h().g(v19.f());
+        w29.h().g(x29.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        o19.a().b(new r19());
-        n19.a().b(new p19());
-        n19.a().b(new q19());
-        fv4.a.set(o19.a());
-        ev4.a.set(n19.a());
+        q29.a().b(new t29());
+        p29.a().b(new r29());
+        p29.a().b(new s29());
+        jv4.a.set(q29.a());
+        iv4.a.set(p29.a());
     }
 
     public LegoListActivityStatic() {

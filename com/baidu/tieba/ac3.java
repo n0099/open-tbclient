@@ -1,193 +1,159 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class ac3 extends UnitedSchemeBaseDispatcher {
+public final class ac3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ad3> a;
 
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public String getDispatcherName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "swanAPI" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return null;
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public ac3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947610328, "Lcom/baidu/tieba/ac3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947610328, "Lcom/baidu/tieba/ac3;");
                 return;
             }
         }
-        this.a = new HashMap();
-        a();
+        a = rr1.a;
     }
 
-    public void a() {
-        List<ad3> c;
+    public static ec3 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            b(new uc3(this));
-            b(new n23(this));
-            b(new dd3(this));
-            b(new gc3(this));
-            b(new g23(this));
-            b(new pc3(this));
-            b(new zi3(this));
-            b(new aj3(this));
-            b(new ti3(this));
-            b(new ui3(this));
-            b(new bj3(this));
-            b(new cj3(this));
-            b(new wi3(this));
-            b(new xi3(this));
-            b(new oi3(this));
-            b(new pi3(this));
-            b(new uf3(this));
-            b(new tf3(this));
-            b(new rf3(this));
-            b(new pf3(this));
-            b(new of3(this));
-            b(new nf3(this));
-            b(new qf3(this));
-            b(new xf3(this));
-            b(new jc3(this));
-            b(new yc3(this));
-            b(new zh2(this));
-            b(new cd3(this));
-            b(new rc3(this));
-            b(new qc3(this));
-            b(new dl3(this));
-            b(new el3(this));
-            b(new qk3(this));
-            b(new rk3(this));
-            b(new qz2(this));
-            b(new tc3(this));
-            b(new yz2(this));
-            b(new s23(this));
-            b(new kc3(this));
-            b(new ae3(this));
-            b(new xd3(this));
-            b(new i32(this));
-            b(new xc3(this));
-            b(new SwanAppDownloadAction(this));
-            b(new bd3(this));
-            b(new yd3(this));
-            b(new vd3(this));
-            b(new ud3(this));
-            b(new ml3(this));
-            b(new nl3(this));
-            b(new zk3(this));
-            b(new xk3(this));
-            b(new sk3(this));
-            b(new pl3(this));
-            b(new tk3(this));
-            b(new uk3(this));
-            b(new ol3(this));
-            b(new uy1(this));
-            b(new vf3(this));
-            b(new wr2(this));
-            b(new vy1(this));
-            b(new m83(this));
-            b(new k83(this));
-            b(new n83(this));
-            b(new l83(this));
-            is1 d = lu2.d();
-            if (d != null && (c = d.c(this)) != null && !c.isEmpty()) {
-                for (ad3 ad3Var : c) {
-                    b(ad3Var);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
+            ec3 ec3Var = new ec3();
+            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", ec3Var);
+            ou2.s().a(ec3Var);
+            ec3Var.b(new ue3(ec3Var));
+            ec3Var.b(new te3(ec3Var));
+            ec3Var.b(new af3(ec3Var));
+            ec3Var.b(new ye3(ec3Var));
+            ec3Var.b(new xe3(ec3Var));
+            ec3Var.b(new re3(ec3Var));
+            ec3Var.b(new ke3(ec3Var));
+            ec3Var.b(new je3(ec3Var));
+            ec3Var.b(new ie3(ec3Var));
+            ec3Var.b(new le3(ec3Var));
+            ec3Var.b(new pe3(ec3Var));
+            ec3Var.b(new oe3(ec3Var));
+            ec3Var.b(new cf3(ec3Var));
+            ec3Var.b(new ef3(ec3Var));
+            ec3Var.b(new df3(ec3Var));
+            ec3Var.b(new mc3(ec3Var));
+            ec3Var.b(new fe3(ec3Var));
+            ec3Var.b(new h42(ec3Var));
+            ec3Var.b(new k42(ec3Var));
+            ec3Var.b(new m42(ec3Var));
+            ec3Var.b(new f42(ec3Var));
+            ec3Var.b(new i42(ec3Var));
+            ec3Var.b(new l42(ec3Var));
+            ec3Var.b(new my2(ec3Var));
+            ec3Var.b(new ly2(ec3Var));
+            ec3Var.b(new i03(ec3Var));
+            ec3Var.b(new ba2(ec3Var));
+            ec3Var.b(new v82(ec3Var));
+            ec3Var.b(new cj3(ec3Var));
+            ec3Var.b(new vi3(ec3Var));
+            ec3Var.b(new wi3(ec3Var));
+            ec3Var.b(new zi3(ec3Var));
+            ec3Var.b(new p23(ec3Var));
+            ec3Var.b(new wt2(ec3Var));
+            ec3Var.b(new tt2(ec3Var));
+            ec3Var.b(new xt2(ec3Var));
+            ec3Var.b(new lm3(ec3Var));
+            ec3Var.b(new mm3(ec3Var));
+            ec3Var.b(new nm3(ec3Var));
+            ec3Var.b(new om3(ec3Var));
+            ec3Var.b(new pm3(ec3Var));
+            ec3Var.b(new qm3(ec3Var));
+            ec3Var.b(new rm3(ec3Var));
+            ec3Var.b(new sm3(ec3Var));
+            ec3Var.b(new px2(ec3Var));
+            ec3Var.b(new s32(ec3Var));
+            ec3Var.b(new x32(ec3Var));
+            ec3Var.b(new t32(ec3Var));
+            ec3Var.b(new w32(ec3Var));
+            ec3Var.b(new u32(ec3Var));
+            ec3Var.b(new v32(ec3Var));
+            ec3Var.b(new j72(ec3Var));
+            ec3Var.b(new k72(ec3Var));
+            ec3Var.b(new ao2(ec3Var));
+            ec3Var.b(new zr1(ec3Var));
+            ec3Var.b(new wr1(ec3Var));
+            ec3Var.b(new ul3(ec3Var));
+            ec3Var.b(new vl3(ec3Var));
+            ec3Var.b(new el3(ec3Var));
+            ec3Var.b(new sq3(ec3Var));
+            ec3Var.b(new l32(ec3Var));
+            ec3Var.b(new qy2(ec3Var));
+            ec3Var.b(new ry2(ec3Var));
+            ec3Var.b(new py2(ec3Var));
+            ec3Var.b(new ui3(ec3Var));
+            ec3Var.b(new q92(ec3Var));
+            ec3Var.b(new ym3(ec3Var));
+            ec3Var.b(new xm3(ec3Var));
+            ec3Var.b(new zm3(ec3Var));
+            ec3Var.b(new ol3(ec3Var));
+            ec3Var.b(new de3(ec3Var));
+            ec3Var.b(new ae3(ec3Var));
+            ec3Var.b(new wc3(ec3Var));
+            if (a) {
+                ec3Var.b(new bf3(ec3Var));
+                ec3Var.b(new f92(ec3Var));
             }
+            ec3Var.b(new zc3(ec3Var));
+            ec3Var.b(new qc3(ec3Var));
+            ec3Var.b(new hc3(ec3Var));
+            ec3Var.b(new sc3(ec3Var));
+            ec3Var.b(new g42(ec3Var));
+            ec3Var.b(new j42(ec3Var));
+            ec3Var.b(new e72(ec3Var));
+            ec3Var.b(new kd3(ec3Var));
+            ec3Var.b(new nd3(ec3Var));
+            ec3Var.b(new od3(ec3Var));
+            ec3Var.b(new md3(ec3Var));
+            ec3Var.b(new pd3(ec3Var));
+            ec3Var.b(new ve3(ec3Var));
+            ec3Var.b(new by1(ec3Var));
+            ec3Var.b(new rl2(ec3Var));
+            ec3Var.b(new id3(ec3Var));
+            ec3Var.b(new jd3(ec3Var));
+            ec3Var.b(new he3(ec3Var));
+            ec3Var.b(new qd3(ec3Var));
+            ec3Var.b(new dd3(ec3Var));
+            ec3Var.b(new jc3(ec3Var));
+            ec3Var.b(new z03(ec3Var));
+            ec3Var.b(new rc3(ec3Var));
+            ec3Var.b(new xr2(ec3Var));
+            ec3Var.b(new zr2(ec3Var));
+            ec3Var.b(new vd3(ec3Var));
+            ec3Var.b(new wd3(ec3Var));
+            ec3Var.b(new t03(ec3Var));
+            ec3Var.b(new es1(ec3Var));
+            ec3Var.b(new r33(ec3Var));
+            ec3Var.b(new iy1(ec3Var));
+            ec3Var.b(new my1(ec3Var));
+            ec3Var.b(new ky1(ec3Var));
+            ec3Var.b(new ny1(ec3Var));
+            ec3Var.b(new ly1(ec3Var));
+            ec3Var.b(new wf3(ec3Var));
+            ec3Var.b(new zx1(ec3Var));
+            ec3Var.b(new ay1(ec3Var));
+            ec3Var.b(new gy1(ec3Var));
+            ou2.Y().a(ec3Var);
+            return ec3Var;
         }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(ad3 ad3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
-            this.a.put(ad3Var.a, ad3Var);
-        }
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
-    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            Uri uri = unitedSchemeEntity.getUri();
-            if (uri == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty url");
-                return false;
-            } else if (uri.getPathSegments() != null && !uri.getPathSegments().isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("swanAPI");
-                arrayList.addAll(uri.getPathSegments());
-                String str = "/swanAPI" + uri.getPath();
-                if (!TextUtils.isEmpty(str) && str.startsWith("/")) {
-                    for (int size = arrayList.size(); size > 0; size--) {
-                        String str2 = "/" + ((String) arrayList.get(size - 1));
-                        if (!str.isEmpty() && str.length() >= str2.length()) {
-                            ad3 ad3Var = this.a.get(str);
-                            if (ad3Var != null) {
-                                if (unitedSchemeEntity.isOnlyVerify()) {
-                                    return true;
-                                }
-                                return ad3Var.h(context, unitedSchemeEntity, callbackHandler, "/swanAPI" + uri.getPath());
-                            }
-                            str = str.substring(0, str.length() - str2.length());
-                        } else {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str + " @ " + str2);
-                            return false;
-                        }
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "not support such action ：" + uri.getPath());
-                    return false;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302, "err path ：" + str);
-                return false;
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty Segment");
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
+        return (ec3) invokeL.objValue;
     }
 }

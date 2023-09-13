@@ -1,10 +1,26 @@
 package com.baidu.cyberplayer.sdk.statistics;
 
+import com.baidu.cyberplayer.sdk.CyberGlobalSetting;
 import com.baidu.cyberplayer.sdk.Keep;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public final class UbcSessionUploader {
+    public static final String SERVICE_MANAGER_CALSS_NAME = "com.baidu.pyramid.runtime.service.ServiceManager";
+    public static final String SERVICE_REFERENCE_CLASS_NAME = "com.baidu.pyramid.runtime.service.ServiceReference";
+    public static final String TAG = "UbcSessionUploader";
+    public static final String UBC_BAIDUURLEXP_ID = "5790";
+    public static final String UBC_BAIDUURL_ID = "5793";
+    public static final String UBC_CYBERDOWN_ID = "5960";
+    public static final String UBC_DEADLINK_ID = "5927";
+    public static final String UBC_DOWNLOAD_ID = "5785";
+    public static final String UBC_FLOWSTAT_ID = "5792";
+    public static final String UBC_GRAYRELEASE_ID = "5786";
+    public static final String UBC_INIT_ID = "5787";
+    public static final String UBC_MANAGER_CLASS_NAME = "com.baidu.ubc.UBCManager";
+    public static final String UBC_NOSTART_ID = "5789";
+    public static final String UBC_NOTBAIDUURL_ID = "5791";
+    public static final String UBC_SUBP_ID = "5248";
     @Keep
     public static final int UBC_TYPE_BAIDU_URL = -1009;
     @Keep
@@ -25,35 +41,35 @@ public final class UbcSessionUploader {
     public static final int UBC_TYPE_NO_START = -1005;
     @Keep
     public static final int UBC_TYPE_VIDEO_DEAD_LINK = -1011;
-    public static UbcSessionUploader a;
-    public Object b = null;
-    public Method c = null;
+    public static UbcSessionUploader ubcInstance;
+    public Object mUbcManager = null;
+    public Method mOnEvent = null;
 
     public UbcSessionUploader() {
-        a();
+        initUbcSDK();
     }
 
     @Keep
     public static synchronized UbcSessionUploader getInstance() {
         UbcSessionUploader ubcSessionUploader;
         synchronized (UbcSessionUploader.class) {
-            if (a == null) {
-                a = new UbcSessionUploader();
+            if (ubcInstance == null) {
+                ubcInstance = new UbcSessionUploader();
             }
-            ubcSessionUploader = a;
+            ubcSessionUploader = ubcInstance;
         }
         return ubcSessionUploader;
     }
 
-    private void a() {
+    private void initUbcSDK() {
         try {
-            Class<?> cls = Class.forName("com.baidu.ubc.UBCManager");
-            Class<?> cls2 = Class.forName("com.baidu.pyramid.runtime.service.ServiceManager");
+            Class<?> cls = Class.forName(UBC_MANAGER_CLASS_NAME);
+            Class<?> cls2 = Class.forName(SERVICE_MANAGER_CALSS_NAME);
             Field declaredField = cls.getDeclaredField("SERVICE_REFERENCE");
             if (declaredField != null) {
                 declaredField.setAccessible(true);
-                this.b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
-                this.c = cls.getDeclaredMethod("onEvent", String.class, String.class);
+                this.mUbcManager = cls2.getDeclaredMethod("getService", Class.forName(SERVICE_REFERENCE_CLASS_NAME)).invoke(null, declaredField.get(null));
+                this.mOnEvent = cls.getDeclaredMethod("onEvent", String.class, String.class);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,7 +80,7 @@ public final class UbcSessionUploader {
     public void upload(String str, String str2) {
         Method method;
         Object obj;
-        if (com.baidu.cyberplayer.sdk.e.a().e() && (method = this.c) != null && (obj = this.b) != null) {
+        if (CyberGlobalSetting.getInstance().isUbcUploadEnable() && (method = this.mOnEvent) != null && (obj = this.mUbcManager) != null) {
             try {
                 method.invoke(obj, str, str2);
             } catch (Exception e) {
@@ -76,43 +92,43 @@ public final class UbcSessionUploader {
     @Keep
     public void upload(String str, String str2, int i) {
         String str3;
-        if (com.baidu.cyberplayer.sdk.e.a().e() && this.c != null && this.b != null) {
+        if (CyberGlobalSetting.getInstance().isUbcUploadEnable() && this.mOnEvent != null && this.mUbcManager != null) {
             switch (i) {
                 case -1012:
-                    str3 = "5960";
+                    str3 = UBC_CYBERDOWN_ID;
                     break;
                 case -1011:
-                    str3 = "5927";
+                    str3 = UBC_DEADLINK_ID;
                     break;
                 case -1010:
-                    str3 = "5787";
+                    str3 = UBC_INIT_ID;
                     break;
                 case -1009:
-                    str3 = "5793";
+                    str3 = UBC_BAIDUURL_ID;
                     break;
                 case -1008:
-                    str3 = "5792";
+                    str3 = UBC_FLOWSTAT_ID;
                     break;
                 case -1007:
-                    str3 = "5791";
+                    str3 = UBC_NOTBAIDUURL_ID;
                     break;
                 case -1006:
-                    str3 = "5790";
+                    str3 = UBC_BAIDUURLEXP_ID;
                     break;
                 case -1005:
-                    str3 = "5789";
+                    str3 = UBC_NOSTART_ID;
                     break;
                 case -1004:
-                    str3 = "5786";
+                    str3 = UBC_GRAYRELEASE_ID;
                     break;
                 case -1003:
-                    str3 = "5785";
+                    str3 = UBC_DOWNLOAD_ID;
                     break;
                 default:
                     return;
             }
             try {
-                this.c.invoke(this.b, str3, str);
+                this.mOnEvent.invoke(this.mUbcManager, str3, str);
             } catch (Exception e) {
                 e.printStackTrace();
             }

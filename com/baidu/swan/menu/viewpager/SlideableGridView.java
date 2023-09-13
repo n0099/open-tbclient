@@ -154,11 +154,11 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void a(Context context) {
-        PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f080116, R.drawable.obfuscated_res_0x7f080117);
-        e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024c));
+        PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f080117, R.drawable.obfuscated_res_0x7f080118);
+        e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070250));
         this.h = e;
-        this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024a);
-        this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024b);
+        this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024e);
+        this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024f);
         addView(this.h, e());
     }
 
@@ -193,7 +193,7 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public int d() {
-        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024a);
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024e);
     }
 
     public LinearLayout.LayoutParams e() {

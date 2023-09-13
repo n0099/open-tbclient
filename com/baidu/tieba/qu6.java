@@ -1,142 +1,164 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
-import kotlin.collections.CollectionsKt__MutableCollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class qu6 extends ou6 implements i0 {
+public class qu6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, String> a;
+    public static boolean b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k0 e;
-    public final Comparator<h0> f;
-    public final List<h0> g;
-    public boolean h;
 
-    @Override // com.baidu.tieba.ou6
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            qu6.g();
         }
     }
 
-    public abstract void l(h0 h0Var, float f);
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qu6(lu6 context, k0 family, Comparator<h0> comparator) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, family, comparator};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((lu6) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104375, "Lcom/baidu/tieba/qu6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948104375, "Lcom/baidu/tieba/qu6;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(family, "family");
-        Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.e = family;
-        this.f = comparator;
-        this.g = new ArrayList();
+        a = new HashMap();
+        b = false;
+        c = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res";
+        d = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res.zip";
     }
 
-    public /* synthetic */ qu6(lu6 lu6Var, k0 k0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(lu6Var, k0Var, (i & 4) != 0 ? new pu6() : comparator);
-    }
-
-    public void a(h0 entity) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.remove(entity);
-            this.h = true;
+        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || !FileUtils.exists(d)) {
+            return;
+        }
+        vu6.a(new a(), "ResLoader", 3);
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && t85.b(d, c)) {
+            FileUtils.deleteFile(d);
         }
     }
 
-    @Override // com.baidu.tieba.i0
-    public void b(h0 entity) {
+    public static synchronized Uri b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.add(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.ou6, com.baidu.tieba.j0
-    public void g(g0 engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            engine.o(this);
-            this.g.clear();
-            this.h = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.j0
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            m();
-            for (h0 h0Var : this.g) {
-                l(h0Var, f);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            synchronized (qu6.class) {
+                Uri c2 = c(str);
+                if (c2 != null) {
+                    return c2;
+                }
+                return d(str2);
             }
         }
+        return (Uri) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.j0
-    public void c(g0 engine) {
+    public static synchronized Uri c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            this.g.clear();
-            r0<h0> newEntities = engine.j(this.e);
-            if (newEntities.size() > 0) {
-                List<h0> list = this.g;
-                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
-                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (qu6.class) {
+                f();
+                String str2 = c + File.separator + str;
+                String str3 = c + File.separator + "dynamic_big_res" + File.separator + str;
+                if (FileUtils.exists(str2)) {
+                    return new Uri.Builder().scheme("file").path(str2).build();
+                }
+                if (FileUtils.exists(str3)) {
+                    return new Uri.Builder().scheme("file").path(str3).build();
+                }
+                return null;
             }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-            engine.f(this.e, this);
         }
+        return (Uri) invokeL.objValue;
     }
 
-    public final List<h0> k() {
-        InterceptResult invokeV;
+    public static synchronized Uri d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            m();
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (qu6.class) {
+                e();
+                String str2 = a.get(str);
+                if (TextUtils.isEmpty(str2)) {
+                    return null;
+                }
+                return Uri.parse(str2);
+            }
         }
-        return (List) invokeV.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    public final void m() {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || b) {
+            return;
+        }
+        b = true;
+        try {
+            JSONObject jSONObject = new JSONObject(SharedPrefHelper.getInstance().getString("dynamic_res_url", ""));
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                a.put(next, jSONObject.optString(next));
+            }
+        } catch (Throwable th) {
+            TbLog defaultLog = DefaultLog.getInstance();
+            defaultLog.e("DynamicResLoader", "exception:" + th);
         }
     }
 }

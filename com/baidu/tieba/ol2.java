@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mm2;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class ol2<T extends mm2> {
+public class ol2 extends hl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public T a;
+    public final String c;
+    public final String d;
 
-    public ol2(@NonNull T t) {
+    public ol2(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +30,27 @@ public abstract class ol2<T extends mm2> {
                 return;
             }
         }
-        this.a = t;
+        this.c = str;
+        this.d = str2;
+        this.a = "firstMeaningfulPainted";
     }
 
-    @NonNull
-    public File b(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.hl2
+    public void m(Map<String, Object> map) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return new File(a(), String.valueOf(j));
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            String str2 = "";
+            if (TextUtils.isEmpty(this.c)) {
+                str = "";
+            } else {
+                str = this.c;
+            }
+            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+            if (!TextUtils.isEmpty(this.d)) {
+                str2 = this.d;
+            }
+            map.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
         }
-        return (File) invokeJ.objValue;
-    }
-
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.f();
-        }
-        return (File) invokeV.objValue;
     }
 }

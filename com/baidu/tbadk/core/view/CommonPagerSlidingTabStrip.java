@@ -69,7 +69,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         public int currentPosition;
 
         /* loaded from: classes4.dex */
-        public static class a implements Parcelable.Creator<SavedState> {
+        public class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

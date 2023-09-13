@@ -1,36 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.ChatRoomEntranceData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.hybrid.BridgeHandler;
+import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface p85 {
-    MemberBroadcastData getActivityBroadcastData();
+public abstract class p85 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public Context b;
 
-    ChatRoomEntranceData getChatRoomEntranceData();
+    public abstract void c(q85 q85Var);
 
-    qg5 getFestivalConfigData();
+    public abstract void e(String str, BridgeHandler bridgeHandler);
 
-    IconPopData getIconPopData();
+    public p85(View view2, h85 h85Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, h85Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = view2;
+        this.b = view2.getContext();
+    }
 
-    LevePopData getLevePopData();
+    public final void d(NamedBridgeHandler namedBridgeHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namedBridgeHandler) == null) {
+            e(namedBridgeHandler.scope(), namedBridgeHandler);
+        }
+    }
 
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
-
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
-
-    List<AlaLiveInfo> getLivePicSecondFloor();
-
-    LiveRemindData getLiveRemindData();
-
-    MemberBroadcastData getMemberBroadcastData();
-
-    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
-
-    String getUniqueId();
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (Context) invokeV.objValue;
+    }
 }

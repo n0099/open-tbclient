@@ -51,7 +51,7 @@ public abstract class BaseActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.finish();
             if (this.a) {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f01017e, R.anim.obfuscated_res_0x7f010182);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010182, R.anim.obfuscated_res_0x7f010186);
             }
         }
     }
@@ -114,7 +114,7 @@ public abstract class BaseActivity extends Activity {
                         i = 0;
                     }
                     Log.d("BaseActivity", "onSetDefaultStatusBarColor: " + i);
-                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092a18);
+                    ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092a4e);
                     if (viewGroup != null && i > 0) {
                         if (!getSharedPreferences("feedback_switch_prefs", 0).getBoolean("f_stu_b", false)) {
                             ((ViewGroup) viewGroup.getParent()).setPadding(0, i, 0, 0);
@@ -133,9 +133,9 @@ public abstract class BaseActivity extends Activity {
                                 window.getDecorView().setSystemUiVisibility(9216);
                             }
                         }
-                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f060650));
+                        window.setStatusBarColor(getResources().getColor(R.color.obfuscated_res_0x7f060652));
                     } else {
-                        int color = getResources().getColor(R.color.obfuscated_res_0x7f060650);
+                        int color = getResources().getColor(R.color.obfuscated_res_0x7f060652);
                         if (Build.VERSION.SDK_INT >= 21) {
                             Window window2 = getWindow();
                             window2.addFlags(Integer.MIN_VALUE);

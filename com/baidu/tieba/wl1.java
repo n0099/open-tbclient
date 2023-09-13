@@ -1,24 +1,13 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface wl1 {
+    void a(xl1 xl1Var);
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-    }
+    void c(vl1 vl1Var);
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void onPrepared();
-    }
+    View getAdView();
 
-    void a();
-
-    void b();
-
-    void c();
-
-    void d();
-
-    void e();
+    void load();
 }

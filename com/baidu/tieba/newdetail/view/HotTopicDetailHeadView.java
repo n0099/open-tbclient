@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ka8;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.gb8;
+import com.baidu.tieba.lb8;
+import com.baidu.tieba.m9;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.pa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,14 +57,14 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public ka8 q;
+    public gb8 q;
     public ValueAnimator r;
 
     @StringRes
     public final int e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f0a05 : i == 2 ? R.string.obfuscated_res_0x7f0f0a04 : R.string.obfuscated_res_0x7f0f0a03 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 1 ? R.string.obfuscated_res_0x7f0f0a0b : i == 2 ? R.string.obfuscated_res_0x7f0f0a0a : R.string.obfuscated_res_0x7f0f0a09 : invokeI.intValue;
     }
 
     /* loaded from: classes7.dex */
@@ -95,7 +95,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ((HotTopicDetailActivity) this.a.b.getOrignalPage()).y1();
+                ((HotTopicDetailActivity) this.a.b.getOrignalPage()).v1();
             }
         }
     }
@@ -130,8 +130,8 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.q == null) {
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13819").param("obj_type", this.a.q.e).param("topic_id", ((HotTopicDetailActivity) this.a.b.getOrignalPage()).v1()));
-            ((HotTopicDetailActivity) this.a.b.getOrignalPage()).E1(this.a.q);
+            TiebaStatic.log(new StatisticItem("c13819").param("obj_type", this.a.q.e).param("topic_id", ((HotTopicDetailActivity) this.a.b.getOrignalPage()).q1()));
+            ((HotTopicDetailActivity) this.a.b.getOrignalPage()).A1(this.a.q);
         }
     }
 
@@ -216,14 +216,14 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        ka8 ka8Var;
+        gb8 gb8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (ka8Var = this.q) != null && ka8Var.b != 1) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (gb8Var = this.q) != null && gb8Var.b != 1) {
             this.o.playAnimation();
             i();
-            ka8 ka8Var2 = this.q;
-            ka8Var2.b = 1;
-            ka8Var2.d = j2;
+            gb8 gb8Var2 = this.q;
+            gb8Var2.b = 1;
+            gb8Var2.d = j2;
         }
     }
 
@@ -266,7 +266,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             if (skinType != 0 && skinType != 3) {
                 if (i == 1) {
                     this.o.setImageAssetsFolder("lottie_watch_2/");
-                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f11006c);
+                    SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f11006d);
                 } else if (i == 2) {
                     this.o.setImageAssetsFolder("lottie_candle_2/");
                     SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110029);
@@ -276,7 +276,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 }
             } else if (i == 1) {
                 this.o.setImageAssetsFolder("lottie_watch/");
-                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f11006b);
+                SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f11006c);
             } else if (i == 2) {
                 this.o.setImageAssetsFolder("lottie_candle/");
                 SkinManager.setLottieAnimation(this.o, R.raw.obfuscated_res_0x7f110028);
@@ -299,9 +299,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-            ka8 ka8Var = this.q;
-            if (ka8Var != null) {
-                f(ka8Var.e);
+            gb8 gb8Var = this.q;
+            if (gb8Var != null) {
+                f(gb8Var.e);
             }
             this.a = i;
         }
@@ -310,25 +310,25 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            BdPageContext<?> a2 = l9.a(getContext());
+            BdPageContext<?> a2 = m9.a(getContext());
             if (a2 instanceof TbPageContext) {
                 this.b = (TbPageContext) a2;
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0410, (ViewGroup) this, true);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903d6);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0903d5);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0903d9);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090f2b);
-            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091000);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092595);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092593);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092592);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09239d);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090889);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09088a);
-            this.n = findViewById(R.id.obfuscated_res_0x7f090888);
-            this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09040c);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09040d);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0417, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903de);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0903dd);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0903e1);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090f2a);
+            this.g = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090fff);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d7);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d5);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d4);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0923dd);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090880);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f090881);
+            this.n = findViewById(R.id.obfuscated_res_0x7f09087f);
+            this.o = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090414);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090415);
             this.p = textView;
             textView.setAlpha(0.66f);
             this.e.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -363,11 +363,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setBlessInfo(ka8 ka8Var) {
+    public void setBlessInfo(gb8 gb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ka8Var) == null) {
-            this.q = ka8Var;
-            if (ka8Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, gb8Var) == null) {
+            this.q = gb8Var;
+            if (gb8Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -378,15 +378,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(ka8Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(ka8Var.a)));
-            if (ka8Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(gb8Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(gb8Var.a)));
+            if (gb8Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(ka8Var.e);
+                f(gb8Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -398,30 +398,30 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(pa8 pa8Var) {
+    public void setTopicInfo(lb8 lb8Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pa8Var) != null) || pa8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lb8Var) != null) || lb8Var == null) {
             return;
         }
         View view2 = this.e;
-        if (TextUtils.isEmpty(pa8Var.f)) {
+        if (TextUtils.isEmpty(lb8Var.f)) {
             i = 0;
         } else {
             i = 8;
         }
         view2.setVisibility(i);
-        this.g.startLoad(pa8Var.e, 10, false);
-        this.c.startLoad(pa8Var.f, 39, false);
-        this.h.setText(pa8Var.b);
-        if (pa8Var.i > 0) {
+        this.g.startLoad(lb8Var.e, 10, false);
+        this.c.startLoad(lb8Var.f, 39, false);
+        this.h.setText(lb8Var.b);
+        if (lb8Var.i > 0) {
             TextView textView = this.l;
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0a1d);
-            textView.setText(String.format(string, "" + pa8Var.i));
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0a23);
+            textView.setText(String.format(string, "" + lb8Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a1b), StringHelper.numberUniformFormatExtraWithRoundInt(pa8Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a21), StringHelper.numberUniformFormatExtraWithRoundInt(lb8Var.d)));
     }
 }

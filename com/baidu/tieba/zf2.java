@@ -1,115 +1,110 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes9.dex */
-public class zf2 {
+public final class zf2 implements qf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a b;
+    public OutputStream c;
+    public File d;
+    public boolean e;
 
     /* loaded from: classes9.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ PrefetchEvent b;
+    public interface a {
+        void a(File file);
 
-        public a(String str, PrefetchEvent prefetchEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = prefetchEvent;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zf2.d(this.a);
-                zf2.d(zf2.e(this.a, this.b.pageUrl));
-            }
-        }
+        void b(File file);
     }
 
-    public static void c(@NonNull PrefetchEvent prefetchEvent) {
+    public zf2(File file, a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !e53.a()) {
-            return;
-        }
-        String str = prefetchEvent.appPath;
-        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
-            return;
-        }
-        xn3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list != null && list.length != 0) {
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        String str3 = str + File.separator + str2;
-                        File file2 = new File(str3);
-                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
-                            BdSailorWebView.addToWebCache("file://" + str3, true);
-                        }
-                    }
-                }
-            }
-        } else if (file.isFile()) {
-            String absolutePath = file.getAbsolutePath();
-            if (TextUtils.isEmpty(absolutePath)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
-                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+        }
+        this.d = file;
+        this.b = aVar;
+        b(file);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+            return;
+        }
+        a aVar = this.b;
+        if (aVar != null) {
+            if (this.e) {
+                aVar.a(this.d);
+            } else {
+                aVar.b(this.d);
+            }
+        }
+        lr4.d(this.c);
+    }
+
+    public final void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            try {
+                if (this.c == null && file != null) {
+                    lr4.h(this.d);
+                    this.c = new FileOutputStream(file);
+                }
+            } catch (Exception e) {
+                if (qf2.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
+                }
             }
         }
     }
 
-    public static String e(@NonNull String str, String str2) {
-        InterceptResult invokeLL;
-        int lastIndexOf;
+    public void c(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String f = vo3.f(str2);
-            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
-                return null;
-            }
-            String substring = f.substring(0, lastIndexOf);
-            return str + File.separator + substring;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) && inputStream != null && !this.e) {
+            lr4.Q(inputStream, this.d);
+            this.e = true;
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public void d(byte[] bArr, int i, int i2) {
+        OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) && (outputStream = this.c) != null) {
+            try {
+                if (i2 > 0) {
+                    outputStream.write(bArr, i, i2);
+                } else {
+                    this.e = true;
+                }
+            } catch (IOException unused) {
+                lr4.d(this.c);
+                this.c = null;
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.b(this.d);
+                }
+            }
+        }
     }
 }

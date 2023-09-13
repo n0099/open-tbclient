@@ -1,49 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RelateRecThread.DataRes;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class co9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<bn> a;
-    public final RelateRecThreadListModel b;
-    public hm9 c;
-    public PbModel d;
-    public boolean e;
-    public List<bn> f;
-    public final lz4 g;
+    public TbPageContext a;
 
     /* loaded from: classes5.dex */
-    public class a implements lz4 {
+    public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ co9 a;
+        public String a;
+        public byte[] b;
+        public final /* synthetic */ co9 c;
 
-        public a(co9 co9Var) {
+        public a(co9 co9Var, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {co9Var};
+                Object[] objArr = {co9Var, str, bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,77 +38,64 @@ public class co9 {
                     return;
                 }
             }
-            this.a = co9Var;
+            this.c = co9Var;
+            this.a = null;
+            this.b = null;
+            this.a = str;
+            this.b = bArr;
         }
 
-        @Override // com.baidu.tieba.lz4
-        public void onError(int i, String str) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.c != null && this.a.c.s1() != null) {
-                this.a.c.s1().Q();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.cancel(true);
             }
         }
 
-        @Override // com.baidu.tieba.lz4
-        public void onSuccess(Object obj) {
-            String str;
-            int intValue;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                if (this.a.d != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    yh9 s1 = this.a.d.s1();
-                    if (s1.k() != null) {
-                        str = s1.k().getFirst_class();
-                    } else {
-                        str = "";
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onCancelled();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.a.getPageActivity());
+                if (saveImageFileByUser != -2) {
+                    if (saveImageFileByUser != 0) {
+                        return this.c.a.getString(R.string.save_fail);
                     }
-                    List<ThreadInfo> list = dataRes.recom_thread_info;
-                    if (ListUtils.isEmpty(list)) {
-                        if (this.a.c != null && this.a.c.s1() != null) {
-                            this.a.c.s1().y(s1.s());
-                            this.a.c.s1().Q();
-                            if (s1.s()) {
-                                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
-                                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                                statisticItem.param("fid", s1.l());
-                                statisticItem.param("fname", s1.m());
-                                statisticItem.param("tid", s1.Q());
-                                TiebaStatic.log(statisticItem);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    List<bn> b = do9.b(list, str, this.a.d.r1());
-                    this.a.a.addAll(b);
-                    s1.S0(this.a.a);
-                    this.a.f.addAll(b);
-                    Integer num = dataRes.rec_type;
-                    if (num == null) {
-                        intValue = 0;
-                    } else {
-                        intValue = num.intValue();
-                    }
-                    s1.O0(intValue);
+                    return this.c.a.getString(R.string.save_image_to_album);
                 }
-                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.m4();
-                }
-                if (this.a.c != null && this.a.c.s1() != null && this.a.c.s1().q() && !ListUtils.isEmpty(this.a.a)) {
-                    this.a.c.s1().n();
-                }
+                return FileHelper.getSdErrorString();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                super.onPostExecute((a) str);
+                this.c.a.showToast(str);
             }
         }
     }
 
-    public co9(aq9 aq9Var, BdUniqueId bdUniqueId, hm9 hm9Var, PbModel pbModel) {
+    public co9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aq9Var, bdUniqueId, hm9Var, pbModel};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,59 +105,13 @@ public class co9 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.f = new ArrayList();
-        this.g = new a(this);
-        this.c = hm9Var;
-        this.d = pbModel;
-        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(aq9Var.getPageContext(), bdUniqueId);
-        this.b = relateRecThreadListModel;
-        relateRecThreadListModel.U(this.g);
+        this.a = tbPageContext;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public void b(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PbModel pbModel = this.d;
-            if (pbModel == null || TextUtils.isEmpty(pbModel.M1()) || this.d.s1() == null) {
-                return false;
-            }
-            if (this.e) {
-                return true;
-            }
-            if (this.d.s1().c0()) {
-                return false;
-            }
-            String forumId = this.d.getForumId();
-            if (TextUtils.isEmpty(forumId) && this.d.s1().k() != null) {
-                forumId = this.d.s1().k().getId();
-            }
-            long j = JavaTypesHelper.toLong(forumId, 0L);
-            long j2 = JavaTypesHelper.toLong(this.d.M1(), 0L);
-            int I1 = this.d.I1();
-            String H1 = this.d.H1();
-            if (!this.e) {
-                this.e = true;
-            }
-            return this.b.T(j, j2, 1, I1, H1);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-            this.b.onDestroy();
-        }
-    }
-
-    public void f(hm9 hm9Var, PbModel pbModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hm9Var, pbModel) == null) {
-            this.c = hm9Var;
-            this.d = pbModel;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bArr) == null) {
+            new a(this, str, bArr).execute(new String[0]);
         }
     }
 }

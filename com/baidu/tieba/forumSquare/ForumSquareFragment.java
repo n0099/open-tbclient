@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.mf7;
-import com.baidu.tieba.nf7;
+import com.baidu.tieba.tg7;
+import com.baidu.tieba.ug7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumSquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mf7 a;
+    public tg7 a;
 
     public ForumSquareFragment() {
         Interceptable interceptable = $ic;
@@ -42,23 +42,23 @@ public class ForumSquareFragment extends BaseFragment {
         }
     }
 
-    public void U1(String str) {
-        mf7 mf7Var;
+    public void W1(String str) {
+        tg7 tg7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (mf7Var = this.a) != null) {
-            mf7Var.j(str);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (tg7Var = this.a) != null) {
+            tg7Var.j(str);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        nf7 nf7Var;
+        ug7 ug7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            mf7 mf7Var = this.a;
-            if (mf7Var != null && (nf7Var = mf7Var.d) != null) {
-                nf7Var.a(i);
+            tg7 tg7Var = this.a;
+            if (tg7Var != null && (ug7Var = tg7Var.d) != null) {
+                ug7Var.a(i);
             }
         }
     }
@@ -69,9 +69,9 @@ public class ForumSquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                mf7 mf7Var = new mf7(getContext(), getPageContext());
-                this.a = mf7Var;
-                mf7Var.e();
+                tg7 tg7Var = new tg7(getContext(), getPageContext());
+                this.a = tg7Var;
+                tg7Var.e();
                 this.a.d();
             }
             return this.a.d.e();
@@ -84,9 +84,9 @@ public class ForumSquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            mf7 mf7Var = this.a;
-            if (mf7Var != null) {
-                mf7Var.m();
+            tg7 tg7Var = this.a;
+            if (tg7Var != null) {
+                tg7Var.m();
             }
         }
     }

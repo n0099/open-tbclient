@@ -13,7 +13,6 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADListener;
-import com.qq.e.comm.adevent.AdEventType;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.listeners.ADRewardListener;
 import com.qq.e.comm.listeners.NegativeFeedbackListener;
@@ -444,7 +443,7 @@ public class NativeExpressAD extends NativeAbstractAD<NEADI> implements IReward 
                                                     }
                                                     nativeExpressMediaListener.onVideoReady(nativeExpressADView, num.intValue());
                                                     return true;
-                                                case AdEventType.VIDEO_LOADING /* 211 */:
+                                                case 211:
                                                     nativeExpressMediaListener.onVideoLoading(nativeExpressADView);
                                                     return true;
                                             }

@@ -53,16 +53,16 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09258b);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092308);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c1);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925cd);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092348);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092501);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void b(@Nullable View.OnClickListener onClickListener) {
+        public void a(@Nullable View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                super.b(onClickListener);
+                super.a(onClickListener);
                 this.b.setOnClickListener(onClickListener);
             }
         }
@@ -98,7 +98,7 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d090c, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0921, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -127,10 +127,10 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                 i3 = R.color.CAM_X0304;
             }
             textSize.setTextColor(i3).setTextStyle(R.string.F_X01);
-            holder.b.setText(R.string.obfuscated_res_0x7f0f148b);
+            holder.b.setText(R.string.obfuscated_res_0x7f0f14a4);
             if (getContext() != null) {
                 TextView textView = holder.a;
-                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f148c));
+                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f14a5));
             }
             return holder.getView();
         }

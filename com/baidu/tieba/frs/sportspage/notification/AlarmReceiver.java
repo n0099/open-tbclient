@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "bkb";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f142b), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f1444), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -62,7 +62,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Intent intent2 = new Intent(context, DealIntentService.class);
             intent2.putExtra("class", 37);
             intent2.putExtra(IntentConfig.KEY_AI_APP_SCHEMA, str3);
-            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0c56), "", "", PendingIntent.getService(context, 2001, intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
+            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0c6b), "", "", PendingIntent.getService(context, 2001, intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

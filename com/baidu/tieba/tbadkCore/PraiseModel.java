@@ -32,7 +32,7 @@ public class PraiseModel extends BdBaseModel {
     public interface b {
         void a(int i, String str);
 
-        void i(String str);
+        void h(String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -91,7 +91,7 @@ public class PraiseModel extends BdBaseModel {
                 if (statusCode == 200 && (httpResponsedMessage instanceof PraiseResponseMessage)) {
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        this.a.a.i(praiseResponseMessage.getErrMsg());
+                        this.a.a.h(praiseResponseMessage.getErrMsg());
                     } else if (this.a.a != null) {
                         this.a.a.a(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }

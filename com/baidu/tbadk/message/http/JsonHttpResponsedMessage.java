@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.of;
+import com.baidu.tieba.pf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,12 +20,7 @@ import org.json.JSONObject;
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jSONObject) == null) {
-        }
-    }
+    public String logId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public JsonHttpResponsedMessage(int i) {
@@ -70,14 +65,14 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a9));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06ac));
                 } else {
                     setErrorString(errorData.getError_msg());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 setError(-1);
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a9));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06ac));
             }
         }
     }
@@ -99,7 +94,7 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         InterceptResult invokeL;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             JSONObject jSONObject2 = null;
             if (str == null) {
                 return null;
@@ -124,11 +119,18 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, of ofVar) {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ofVar) == null) {
-            super.logStatInBackground(i, ofVar);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jSONObject) == null) {
+            this.logId = jSONObject.optString("logid", "");
+        }
+    }
+
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
+    public void logStatInBackground(int i, pf pfVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, pfVar) == null) {
+            super.logStatInBackground(i, pfVar);
         }
     }
 
@@ -146,5 +148,14 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
             }
             decodeLogicInBackGround(i, jSONObject);
         }
+    }
+
+    public String getLogId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.logId;
+        }
+        return (String) invokeV.objValue;
     }
 }

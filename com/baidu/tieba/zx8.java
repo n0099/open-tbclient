@@ -1,19 +1,134 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes9.dex */
-public final class zx8 {
+public final class zx8 extends bl1<pe5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final ArrayList<String> b;
-    public boolean c;
+
+    /* loaded from: classes9.dex */
+    public static final class a implements pe5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public NewsRemindMessage a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().m();
+            }
+            return (NewsRemindMessage) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public sac<Boolean> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().i();
+            }
+            return (sac) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return fy8.a();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public sac<NewsRemindMessage> g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().k();
+            }
+            return (sac) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                NewsRemindMsgMonitor.f.a().j().onNext(Boolean.valueOf(z));
+            }
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public boolean d() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                Long valueOf = Long.valueOf(SharedPrefHelper.getInstance().getLong("key_msg_remind_frequency_minute", 0L));
+                if (valueOf.longValue() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    valueOf = null;
+                }
+                if (valueOf == null) {
+                    return false;
+                }
+                if (System.currentTimeMillis() - SharedPrefHelper.getInstance().getLong("key_msg_remind_last_show_time", 0L) < valueOf.longValue()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.pe5
+        public void e() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || TbSingleton.MsgUpgradeTips.isMsgTabUpgradeTipsShowing() || d()) {
+                return;
+            }
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            int msgCount = m.getMsgCount() + m.getChatCount() + m.getNotificationCount();
+            if (!m.hasMsgRemind() && !m.hasChatRemind() && !m.hasNotificationRemind()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (msgCount <= 0 && z && SharedPrefHelper.getInstance().getLong("key_msg_remind_frequency_minute", 0L) > 0) {
+                SharedPrefHelper.getInstance().putLong("key_msg_remind_last_show_time", System.currentTimeMillis());
+                NewsRemindMsgMonitor.f.a().f();
+            }
+        }
+    }
 
     public zx8() {
         Interceptable interceptable = $ic;
@@ -25,44 +140,19 @@ public final class zx8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = R.drawable.obfuscated_res_0x7f080901;
-        this.b = jy8.a();
     }
 
-    public final int a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl1
+    /* renamed from: a */
+    public pe5 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return new a();
         }
-        return invokeV.intValue;
-    }
-
-    public final ArrayList<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
+        return (pe5) invokeV.objValue;
     }
 }

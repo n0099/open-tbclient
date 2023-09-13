@@ -1,161 +1,261 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.player.helper.NetUtils;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.tieba.eo0;
-import com.baidu.tieba.mu0;
+import com.baidu.searchbox.player.utils.BdViewOpUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Pair;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "VideoClarity")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class h21 {
+public class h21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Pair<Integer, Integer> a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
-            if (i <= 0) {
-                return new Pair<>(0, Integer.valueOf(i2));
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Activity b;
+
+        public a(View view2, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (i >= i3) {
-                return new Pair<>(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
-            }
-            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
+            this.a = view2;
+            this.b = activity;
         }
-        return (Pair) invokeIII.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int g = h21.g();
+                int systemUiVisibility = this.a.getSystemUiVisibility();
+                int h = h21.h(this.b);
+                if (g != systemUiVisibility) {
+                    h |= systemUiVisibility;
+                }
+                f21.b(BdViewOpUtils.TAG, "RESTORE KEY_SYSTEM_UI_VISIBILITY=" + h);
+                this.a.setSystemUiVisibility(h);
+            }
+        }
     }
 
-    public static final Pair<Integer, Integer> b(int i, Pair<Integer, Integer> pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
-        InterceptResult invokeCommon;
+    @Nullable
+    public static ViewGroup e(@Nullable Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
-            if (i < 0) {
-                return c(pair, i2, i3, d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if (activity != null) {
+                return (ViewGroup) activity.getWindow().getDecorView();
             }
-            return e(clarityUrlList.size(), i, i4, i2);
+            return null;
         }
-        return (Pair) invokeCommon.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public static final Pair<Integer, Integer> c(Pair<Integer, Integer> defaultClarity, int i, int i2, double d) {
-        InterceptResult invokeCommon;
+    public static int f(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
-            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
-            if (!NetUtils.c()) {
-                return a(defaultClarity.getFirst().intValue(), 2, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            if (activity.getIntent() == null) {
+                return 0;
             }
-            return d(i2, i, d, defaultClarity.getSecond().intValue());
+            return activity.getIntent().getIntExtra(BdViewOpUtils.KEY_DISPLAY_CUTOUT_MODE, 0);
         }
-        return (Pair) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 
-    public static final Pair<Integer, Integer> d(int i, int i2, double d, int i3) {
-        InterceptResult invokeCommon;
+    public static int h(@Nullable Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
-            if (!nu0.g()) {
-                return a(i3, 4, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, activity)) == null) {
+            if (activity == null || activity.getIntent() == null) {
+                return -1;
             }
-            eo0 a = eo0.a.a();
-            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
-            float staticDeviceScore = a.getStaticDeviceScore();
-            boolean z = false;
-            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
-                z = true;
+            return activity.getIntent().getIntExtra(BdViewOpUtils.KEY_SYSTEM_UI_VISIBILITY, -1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context != null) {
+                return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void l(@Nullable Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, activity) != null) || !i(activity)) {
+            return;
+        }
+        ViewGroup e = e(activity);
+        int h = h(activity);
+        if (e != null && h != -1) {
+            e.postDelayed(new a(e, activity), 300L);
+        }
+    }
+
+    public static boolean b(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, view2)) == null) {
+            if (activity != null && view2 != null) {
+                ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                k(view2);
+                viewGroup.removeView(view2);
+                viewGroup.addView(view2);
+                if (i(activity)) {
+                    n(activity);
+                    o(viewGroup, true);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65539, null, activity, z) != null) || activity == null || Build.VERSION.SDK_INT < 28) {
+            return;
+        }
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        if (z) {
+            m(activity, attributes.layoutInDisplayCutoutMode);
+            attributes.layoutInDisplayCutoutMode = 1;
+        } else {
+            attributes.layoutInDisplayCutoutMode = f(activity);
+        }
+        window.setAttributes(attributes);
+    }
+
+    public static void o(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65550, null, view2, z) == null) {
+            f21.b(BdViewOpUtils.TAG, "setSystemUiVisibility immersive: " + z);
+            if (view2 == null) {
+                return;
             }
             if (z) {
-                return a(i, 3, i2);
+                view2.setSystemUiVisibility(g());
+            } else {
+                view2.setSystemUiVisibility(0);
             }
-            if (d > 5.6f) {
-                return a(i, 6, i2);
-            }
-            return a(i3, 4, i2);
         }
-        return (Pair) invokeCommon.objValue;
     }
 
-    public static final i01 g(ClarityUrlList list, int i, double d, boolean z) {
-        InterceptResult invokeCommon;
+    public static boolean c(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            Pair<Integer, Integer> a = nu0.a(list);
-            int size = list.size();
-            Pair<Integer, Integer> h = h(z, list, b(i, a, size, size - 1, d, list, 0));
-            i01 i01Var = new i01();
-            i01Var.a = h.getFirst().intValue();
-            i01Var.b = h.getSecond().intValue();
-            return i01Var;
-        }
-        return (i01) invokeCommon.objValue;
-    }
-
-    public static final Pair<Integer, Integer> e(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
-            if (i <= i2) {
-                return a(i3, 4, i4);
-            }
-            return a((i4 - i2) - 1, 1, i4);
-        }
-        return (Pair) invokeIIII.objValue;
-    }
-
-    public static final int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i != -2) {
-                return i;
-            }
-            if (Intrinsics.areEqual(nu0.c(), mu0.a.a)) {
-                return i21.f();
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    public static final Pair<Integer, Integer> h(boolean z, ClarityUrlList list, Pair<Integer, Integer> selectedClarity) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
-            if (!z) {
-                ClarityUrlList.c cVar = list.get(selectedClarity.getFirst().intValue());
-                Intrinsics.checkNotNullExpressionValue(cVar, "list[result.first]");
-                String selectKey = cVar.c();
-                String d = nu0.d();
-                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
-                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
-                    int i = 0;
-                    for (ClarityUrlList.c entity : list) {
-                        String d2 = nu0.d();
-                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
-                        String c = entity.c();
-                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
-                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
-                            return new Pair<>(Integer.valueOf(i), 0);
-                        }
-                        i++;
-                    }
-                    return selectedClarity;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, viewGroup)) == null) {
+            if (view2 != null && viewGroup != null && viewGroup.getParent() != null) {
+                f21.b(BdViewOpUtils.TAG, "attachView " + view2.hashCode() + " " + viewGroup.hashCode());
+                try {
+                    viewGroup.addView(view2);
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                return selectedClarity;
             }
-            return selectedClarity;
+            return false;
         }
-        return (Pair) invokeCommon.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return 5638;
+            }
+            return 1542;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean j(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, viewGroup)) == null) {
+            if (viewGroup != null) {
+                f21.b(BdViewOpUtils.TAG, "removeChilds " + viewGroup.hashCode());
+                viewGroup.removeAllViews();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, view2)) == null) {
+            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
+                if (viewGroup.indexOfChild(view2) != -1) {
+                    try {
+                        f21.b(BdViewOpUtils.TAG, "removeView " + view2.hashCode());
+                        viewGroup.removeView(view2);
+                        return true;
+                    } catch (Exception e) {
+                        f21.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void m(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65548, null, activity, i) == null) && activity.getIntent() != null) {
+            activity.getIntent().putExtra(BdViewOpUtils.KEY_DISPLAY_CUTOUT_MODE, i);
+        }
+    }
+
+    public static void n(@Nullable Activity activity) {
+        ViewGroup e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, activity) == null) && activity != null && activity.getIntent() != null && (e = e(activity)) != null) {
+            f21.b(BdViewOpUtils.TAG, "SAVE KEY_SYSTEM_UI_VISIBILITY=" + e.getSystemUiVisibility());
+            activity.getIntent().putExtra(BdViewOpUtils.KEY_SYSTEM_UI_VISIBILITY, e.getSystemUiVisibility());
+        }
     }
 }

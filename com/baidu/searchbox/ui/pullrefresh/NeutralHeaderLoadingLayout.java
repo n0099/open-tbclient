@@ -64,7 +64,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     }
 
     private void init() {
-        this.mAnimView = (NeutralRefreshAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091929);
+        this.mAnimView = (NeutralRefreshAnimView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091943);
         int dp2px = DeviceUtil.ScreenInfo.dp2px(getContext(), 29.0f);
         this.mRefreshingViewSizeInPixel = dp2px;
         this.mTriggerRefreshLength = (int) (dp2px * 2.4f);
@@ -122,7 +122,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.searchbox.ui.pullrefresh.LoadingLayout
     public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d06f7, viewGroup, false);
+        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d070a, viewGroup, false);
         this.mRootChild = inflate;
         return inflate;
     }

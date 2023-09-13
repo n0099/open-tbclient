@@ -6,22 +6,22 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.ba2;
-import com.baidu.tieba.c73;
-import com.baidu.tieba.d82;
-import com.baidu.tieba.e23;
-import com.baidu.tieba.hn3;
-import com.baidu.tieba.nr1;
-import com.baidu.tieba.nv2;
-import com.baidu.tieba.qn3;
+import com.baidu.tieba.fa2;
+import com.baidu.tieba.g73;
+import com.baidu.tieba.h82;
+import com.baidu.tieba.i23;
+import com.baidu.tieba.ln3;
+import com.baidu.tieba.rr1;
+import com.baidu.tieba.rv2;
+import com.baidu.tieba.un3;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes4.dex */
 public class SwanAppNativeSwanJsBridge {
-    public static final boolean DEBUG = nr1.a;
+    public static final boolean DEBUG = rr1.a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "_naSwan";
     public static final String TAG = "SwanAppNativeSwanJsBridge";
-    public ba2 mJSContainer;
+    public fa2 mJSContainer;
 
     public String getClassify() {
         if (isSwanWeb()) {
@@ -32,47 +32,47 @@ public class SwanAppNativeSwanJsBridge {
 
     @JavascriptInterface
     public String getEnvVariables() {
-        return nv2.a(this.mJSContainer);
+        return rv2.a(this.mJSContainer);
     }
 
     @JavascriptInterface
     public String getNACanIUseMap() {
-        JSONObject b = e23.b();
-        d82.k(TAG, "getNACanIUseMap - " + b.toString());
+        JSONObject b = i23.b();
+        h82.k(TAG, "getNACanIUseMap - " + b.toString());
         return b.toString();
     }
 
     public boolean isSwanWeb() {
-        ba2 ba2Var = this.mJSContainer;
-        if (ba2Var == null || !(ba2Var instanceof NgWebView) || !((NgWebView) ba2Var).isSwanWebMode()) {
+        fa2 fa2Var = this.mJSContainer;
+        if (fa2Var == null || !(fa2Var instanceof NgWebView) || !((NgWebView) fa2Var).isSwanWebMode()) {
             return false;
         }
         return true;
     }
 
-    public SwanAppNativeSwanJsBridge(ba2 ba2Var) {
-        this.mJSContainer = ba2Var;
+    public SwanAppNativeSwanJsBridge(fa2 fa2Var) {
+        this.mJSContainer = fa2Var;
     }
 
     @JavascriptInterface
     @SuppressLint({"BDThrowableCheck"})
     public String getAPIs(int i) {
         if (DEBUG) {
-            if (c73.p()) {
-                return qn3.d(i, getClassify());
+            if (g73.p()) {
+                return un3.d(i, getClassify());
             }
             return "";
         }
-        String d = qn3.d(i, getClassify());
+        String d = un3.d(i, getClassify());
         if (TextUtils.isEmpty(d)) {
             if (!DEBUG) {
-                hn3.c(qn3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
+                ln3.c(un3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
             } else {
-                qn3.i();
+                un3.i();
                 throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d));
             }
         } else {
-            hn3.d();
+            ln3.d();
         }
         return d;
     }

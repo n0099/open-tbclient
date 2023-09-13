@@ -125,7 +125,7 @@ public class CyberVideoKernel extends BaseDumediaVideoKernel {
     @Nullable
     public TextureView getRenderView() {
         if (this.mVideoView.getRenderView() instanceof TextureView) {
-            return (TextureView) this.mVideoView.getRenderView();
+            return this.mVideoView.getRenderView();
         }
         return null;
     }

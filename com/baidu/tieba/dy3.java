@@ -1,48 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 @Service
 /* loaded from: classes5.dex */
-public class dy3 implements ISchemeIoc {
+public class dy3 implements fx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void showSchemeNotSupportDialog(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-        }
-    }
 
     public dy3() {
         Interceptable interceptable = $ic;
@@ -58,20 +29,72 @@ public class dy3 implements ISchemeIoc {
         }
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void doStatistic(String str, String str2) {
+    @Override // com.baidu.tieba.fx1
+    public go4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            kh3.h(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return cy3.b().a();
         }
+        return (go4) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
-    public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
+    @Override // com.baidu.tieba.fx1
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, context, confirmDialogCallback) != null) || confirmDialogCallback == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return !cy3.b().c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.fx1
+    public void b(lh2 lh2Var, jh2 jh2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lh2Var, jh2Var) != null) || jh2Var == null) {
             return;
         }
-        confirmDialogCallback.onConfirm();
+        if (lh2Var != null && !TextUtils.isEmpty(lh2Var.a)) {
+            String str = lh2Var.a;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1195918653) {
+                if (hashCode == 1825003424 && str.equals("by_click")) {
+                    c = 0;
+                }
+            } else if (str.equals("by_silent")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    jh2Var.onFail();
+                    return;
+                } else {
+                    cy3.b().b(true, jh2Var);
+                    return;
+                }
+            } else if (lh2Var.b) {
+                cy3.b().b(false, jh2Var);
+                return;
+            } else {
+                cy3.b().b(true, jh2Var);
+                return;
+            }
+        }
+        jh2Var.onFail();
+    }
+
+    @Override // com.baidu.tieba.fx1
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!d() && !wk2.d.w() && (!wk2.d.k(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) || !bi2.U().s0())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

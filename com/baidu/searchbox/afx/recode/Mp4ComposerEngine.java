@@ -8,6 +8,7 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -50,7 +51,7 @@ public class Mp4ComposerEngine {
                 this.mDurationUs = mp4Info.getDurationUs();
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
                 createVideoFormat.setInteger("bitrate-mode", 0);
-                createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
+                createVideoFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, mp4Info.getBitrate() * 3);
                 createVideoFormat.setInteger("frame-rate", i);
                 createVideoFormat.setInteger("i-frame-interval", 0);
                 createVideoFormat.setInteger("color-format", 2130708361);

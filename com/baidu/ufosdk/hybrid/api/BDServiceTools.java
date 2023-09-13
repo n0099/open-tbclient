@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.b;
 import com.baidu.ufosdk.k1;
 import com.baidu.ufosdk.o;
@@ -37,7 +38,7 @@ public class BDServiceTools implements IBridgeApi {
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, pVar, oVar) == null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("os", b.e(context));
+                jSONObject.put(TtsLogLoad.KEY_OS, b.e(context));
                 oVar.a(jSONObject);
             } catch (Throwable unused) {
                 oVar.a("10102", "Unknow Exception!");
@@ -59,7 +60,7 @@ public class BDServiceTools implements IBridgeApi {
                 oVar.a((JSONObject) null);
             } catch (Exception e) {
                 e.printStackTrace();
-                b.f.post(new k1(R.string.obfuscated_res_0x7f0f0728, 0));
+                b.f.post(new k1(R.string.obfuscated_res_0x7f0f072b, 0));
                 oVar.a("10102", "Unknow Exception!");
             }
         }

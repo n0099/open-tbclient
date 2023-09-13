@@ -4,21 +4,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
-import java.util.Locale;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
 public class r61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
+    public static String a(String str, byte[] bArr, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, str, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return b(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
             for (byte b : bArr) {
                 String hexString = Integer.toHexString(b & 255);
                 if (z) {
-                    hexString = hexString.toUpperCase(Locale.getDefault());
+                    hexString = hexString.toUpperCase();
                 }
                 if (hexString.length() == 1) {
                     sb.append("0");
@@ -29,23 +45,5 @@ public class r61 {
             return sb.toString();
         }
         return (String) invokeLLZ.objValue;
-    }
-
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest(), "", z);
-            } catch (Exception unused) {
-                return String.valueOf(str.hashCode());
-            }
-        }
-        return (String) invokeLZ.objValue;
     }
 }

@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLException;
-import javax.net.ssl.SSLSession;
+import java.util.ArrayList;
+import java.util.List;
+/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/wwb<TTResult;>; */
 /* loaded from: classes8.dex */
-public class wwb implements HostnameVerifier {
+public final class wwb<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object a;
+    public boolean b;
+    public TResult c;
+    public Exception d;
+    public List<kxb<TResult>> e;
 
     public wwb() {
         Interceptable interceptable = $ic;
@@ -24,25 +29,104 @@ public class wwb implements HostnameVerifier {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new Object();
+        this.e = new ArrayList();
     }
 
-    @Override // javax.net.ssl.HostnameVerifier
-    public final boolean verify(String str, SSLSession sSLSession) {
-        InterceptResult invokeLL;
+    public final Exception c() {
+        InterceptResult invokeV;
+        Exception exc;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
-            try {
-                X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
-                exb.b("", "verify: certificate is : " + x509Certificate.getSubjectDN().getName());
-                ywb.a(str, x509Certificate, true);
-                return true;
-            } catch (SSLException e) {
-                exb.d("", "SSLException : " + e.getMessage());
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.a) {
+                exc = this.d;
+            }
+            return exc;
+        }
+        return (Exception) invokeV.objValue;
+    }
+
+    public final TResult d() {
+        InterceptResult invokeV;
+        TResult tresult;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.d == null) {
+                    tresult = this.c;
+                } else {
+                    throw new RuntimeException(this.d);
+                }
+            }
+            return tresult;
+        }
+        return (TResult) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.a) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.a) {
+                if (this.b) {
+                    e();
+                    if (this.d == null) {
+                        z = true;
+                    }
+                }
+                z = false;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final wwb<TResult> a(kxb<TResult> kxbVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kxbVar)) == null) {
+            synchronized (this.a) {
+                if (!this.b) {
+                    this.e.add(kxbVar);
+                } else {
+                    kxbVar.a(this);
+                }
+            }
+            return this;
+        }
+        return (wwb) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                for (kxb<TResult> kxbVar : this.e) {
+                    try {
+                        kxbVar.a(this);
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e2) {
+                        throw new RuntimeException(e2);
+                    }
+                }
+                this.e = null;
             }
         }
-        return invokeLL.booleanValue;
     }
 }

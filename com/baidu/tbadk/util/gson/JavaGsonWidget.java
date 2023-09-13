@@ -245,7 +245,7 @@ public final class JavaGsonWidget {
     }
 
     /* loaded from: classes5.dex */
-    public static class a extends TypeToken<Map<String, Object>> {
+    public class a extends TypeToken<Map<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

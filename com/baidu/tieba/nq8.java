@@ -1,37 +1,28 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.orderlist.OrderLinkList;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class nq8 implements pq8 {
+public class nq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ChatRoomDetail a;
-    @NonNull
-    public final OrderLinkList<xp8> b;
-    @NonNull
-    public final GroupInputViewController c;
+    public final String a;
+    public final RoundTbImageView b;
+    public final RoundTbImageView c;
+    public final String d;
 
-    public nq8(@NonNull GroupInputViewController groupInputViewController) {
+    public nq8(@NonNull String str, @NonNull RoundTbImageView roundTbImageView, @NonNull RoundTbImageView roundTbImageView2, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {groupInputViewController};
+            Object[] objArr = {str, roundTbImageView, roundTbImageView2, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,201 +32,49 @@ public class nq8 implements pq8 {
                 return;
             }
         }
-        this.c = groupInputViewController;
-        this.b = new OrderLinkList<>();
+        this.a = str;
+        this.b = roundTbImageView;
+        this.c = roundTbImageView2;
+        this.d = str2;
     }
 
-    @Override // com.baidu.tieba.pq8
-    public boolean a(@NonNull List<Integer> list) {
-        InterceptResult invokeL;
+    @NonNull
+    public RoundTbImageView a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (list.isEmpty()) {
-                return false;
-            }
-            for (Integer num : list) {
-                if (i(num.intValue()) != null) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (RoundTbImageView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pq8
-    public void e(@NonNull List<xp8> list) {
+    @NonNull
+    public RoundTbImageView b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list.size() > 0) {
-            for (xp8 xp8Var : list) {
-                xp8Var.b(k(xp8Var.d()));
-                xp8Var.h(false);
-                this.b.insert(xp8Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (RoundTbImageView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pq8
-    public void b(int i) {
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b.c(k(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pq8
-    public void c(@NonNull xp8 xp8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xp8Var) == null) {
-            xp8Var.b(k(xp8Var.d()));
-            xp8Var.h(false);
-            this.b.insert(xp8Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.pq8
-    public void h(@NonNull ChatRoomDetail chatRoomDetail) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, chatRoomDetail) == null) {
-            this.a = chatRoomDetail;
-        }
-    }
-
-    @Nullable
-    public xp8 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return this.b.a(k(i));
-        }
-        return (xp8) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.pq8
-    public boolean d() {
+    @NonNull
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            xp8 g = g();
-            if (g == null) {
-                return false;
-            }
-            this.c.J1(g.c());
-            this.c.Z1(false);
-            return true;
+            return this.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pq8
-    @Nullable
-    public xp8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b.b();
-        }
-        return (xp8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pq8
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            int k = k(i);
-            xp8 a = this.b.a(k);
-            if (i == 7011 && a != null && a.e()) {
-                a.f(j(i));
-            }
-            if (a == null) {
-                xp8 xp8Var = new xp8();
-                xp8Var.g(i);
-                xp8Var.b(k);
-                xp8Var.f(j(i));
-                xp8Var.h(true);
-                this.b.insert(xp8Var);
-            }
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @SuppressLint({"StringFormatMatches"})
-    public final String j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (i != 102) {
-                if (i != 7003) {
-                    if (i != 7005) {
-                        if (i != 7007) {
-                            switch (i) {
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                    ChatRoomDetail chatRoomDetail = this.a;
-                                    if (chatRoomDetail != null) {
-                                        return String.format(oq8.g, Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel()));
-                                    }
-                                    break;
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                    return oq8.b;
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                    return oq8.e;
-                            }
-                            return "";
-                        }
-                        return oq8.c;
-                    }
-                    return oq8.d;
-                }
-                return oq8.f;
-            }
-            return oq8.a;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final int k(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            if (i != 102) {
-                switch (i) {
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
-                        i2 = 5;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
-                        i2 = 7;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
-                        i2 = 8;
-                        break;
-                    default:
-                        switch (i) {
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                i2 = 4;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                i2 = 9;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                i2 = 6;
-                                break;
-                            default:
-                                i2 = 0;
-                                break;
-                        }
-                }
-            } else {
-                i2 = 10;
-            }
-            if (i2 != 0) {
-                return i2;
-            }
-            throw new IllegalArgumentException("The type of the banned msg is unknown!");
-        }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 }

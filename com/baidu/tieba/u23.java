@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes8.dex */
-public class u23 implements Interceptor {
+public class u23 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
 
     public u23() {
         Interceptable interceptable = $ic;
@@ -28,37 +24,36 @@ public class u23 implements Interceptor {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap != null && hashMap.size() >= 1) {
-                this.a = hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            w73 c = u73.c(u23.class, null);
+            if (!c.a()) {
+                return -1;
             }
+            return c.a.getInt("net_quality", -1);
         }
+        return invokeV.intValue;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap != null && hashMap.size() >= 1) {
-                Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                    newBuilder.addHeader(entry.getKey(), entry.getValue());
-                }
-                return chain.proceed(newBuilder.build());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (SwanAppNetworkUtils.h()) {
+                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                bundle2.putInt("net_quality", 3);
             }
-            return chain.proceed(chain.request());
+            return bundle2;
         }
-        return (Response) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

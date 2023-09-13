@@ -7,7 +7,7 @@ public class ge extends XMPushService.j {
     public final /* synthetic */ gc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Exception f432a;
+    public final /* synthetic */ Exception f431a;
     public final /* synthetic */ int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -15,18 +15,18 @@ public class ge extends XMPushService.j {
         super(i);
         this.a = gcVar;
         this.b = i2;
-        this.f432a = exc;
+        this.f431a = exc;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo755a() {
-        return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f432a;
+    public String mo756a() {
+        return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f431a;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo472a() {
-        this.a.b.a(this.b, this.f432a);
+    public void mo473a() {
+        this.a.b.a(this.b, this.f431a);
     }
 }

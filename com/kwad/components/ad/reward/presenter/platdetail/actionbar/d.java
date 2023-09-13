@@ -35,10 +35,10 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
             z2 = ((!ag.cB(context) && (com.kwad.components.ad.reward.kwai.b.h(adInfo) || com.kwad.sdk.core.response.a.a.bF(adInfo))) || (ag.cB(context) && com.kwad.sdk.core.response.a.a.bE(adInfo))) ? true : true;
             layoutParams3.gravity = 85;
             if (z2) {
-                i = R.dimen.obfuscated_res_0x7f07050a;
+                i = R.dimen.obfuscated_res_0x7f07050f;
             }
             layoutParams3.bottomMargin = context.getResources().getDimensionPixelOffset(i);
-            layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07050a);
+            layoutParams3.rightMargin = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07050f);
             ksLogoView.setLayoutParams(layoutParams3);
         }
         return layoutParams;
@@ -56,7 +56,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         h hVar = new h(this.nM, this.es, this.pM);
         this.rM = hVar;
         hVar.b(u.D(this.nM.mAdTemplate));
-        a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f070526, false);
+        a(getContext(), com.kwad.sdk.core.response.a.d.bQ(this.nM.mAdTemplate), this.pM, R.dimen.obfuscated_res_0x7f07052b, false);
     }
 
     @Override // com.kwad.components.ad.reward.k.b
@@ -74,6 +74,6 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091274);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09127a);
     }
 }

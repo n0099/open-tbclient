@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes5.dex */
-public class ex3 implements zv1 {
+public class ex3 implements lw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,38 +26,11 @@ public class ex3 implements zv1 {
         }
     }
 
-    @Override // com.baidu.tieba.zv1
-    public void a() {
+    @Override // com.baidu.tieba.lw1
+    public void a(String str, i13 i13Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-        }
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d();
-        }
-    }
-
-    @Override // com.baidu.tieba.zv1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (SwanAppInitHelper.class) {
-                if (SwanAppInitHelper.isDelayInit()) {
-                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, i13Var, context) == null) {
+            q33.e().a(str, i13Var, context);
         }
     }
 }

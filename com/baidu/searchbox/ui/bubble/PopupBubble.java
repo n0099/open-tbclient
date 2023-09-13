@@ -92,7 +92,7 @@ public class PopupBubble extends BdMenu {
             int measuredWidth = this.mBubbleView.getMeasuredWidth() - ((DeviceUtil.ScreenInfo.getDisplayWidth(null) - rect.centerX()) - DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 15.0f));
             this.mXOffset = rect.centerX() - measuredWidth;
             this.mBubbleView.setBubbleArrowPosition(measuredWidth - DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 5.0f));
-            this.mYOffset = ((int) this.mViewToAttach.getResources().getDimension(R.dimen.obfuscated_res_0x7f07024f)) + DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 1.0f);
+            this.mYOffset = ((int) this.mViewToAttach.getResources().getDimension(R.dimen.obfuscated_res_0x7f070254)) + DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 1.0f);
         }
     }
 }

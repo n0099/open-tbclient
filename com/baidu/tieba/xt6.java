@@ -1,387 +1,196 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class xt6 {
+public class xt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final yt6 b;
-    public final zt6 c;
-    public final String d;
-    public final int e;
-    public final yt6 f;
-    public final String g;
-    public final String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public yt6 p;
-    public String q;
-    public yt6 r;
-    public String s;
-    public yt6 t;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public ImageView d;
+    public MessageRedDotView e;
+    @Nullable
+    public MessageRedDotView f;
+    public boolean g;
+    public pe5 h;
 
-    public xt6(int i, yt6 mainImage, zt6 titleTags, String leftIconBackgroundColor, int i2, yt6 leftIconImage, String leftIconTextColorString, String leftIconText) {
+    public xt6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), mainImage, titleTags, leftIconBackgroundColor, Integer.valueOf(i2), leftIconImage, leftIconTextColorString, leftIconText};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mainImage, "mainImage");
-        Intrinsics.checkNotNullParameter(titleTags, "titleTags");
-        Intrinsics.checkNotNullParameter(leftIconBackgroundColor, "leftIconBackgroundColor");
-        Intrinsics.checkNotNullParameter(leftIconImage, "leftIconImage");
-        Intrinsics.checkNotNullParameter(leftIconTextColorString, "leftIconTextColorString");
-        Intrinsics.checkNotNullParameter(leftIconText, "leftIconText");
-        this.a = i;
-        this.b = mainImage;
-        this.c = titleTags;
-        this.d = leftIconBackgroundColor;
-        this.e = i2;
-        this.f = leftIconImage;
-        this.g = leftIconTextColorString;
-        this.h = leftIconText;
-        this.i = "";
-        this.j = "";
-        this.k = "";
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = new yt6(0, 0, null, 7, null);
-        this.q = "";
-        this.r = new yt6(0, 0, null, 7, null);
-        this.s = "";
-        this.t = new yt6(0, 0, null, 7, null);
+        this.g = false;
+        this.a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
+        this.d = (ImageView) this.b.findViewById(R.id.img_message);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.img_red_tip);
+        this.e = messageRedDotView;
+        messageRedDotView.setShadowEnabled(false);
+        this.h = (pe5) ServiceManager.getService(pe5.a);
     }
 
-    public final zt6 A() {
+    public void j(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, navigationBar) != null) || !TbSingleton.MsgUpgradeTips.shouldShow()) {
+            return;
+        }
+        MessageRedDotView messageRedDotView = this.e;
+        if (messageRedDotView != null) {
+            messageRedDotView.setVisibility(8);
+        }
+        Context context = navigationBar.getContext();
+        MessageRedDotView messageRedDotView2 = new MessageRedDotView(context);
+        this.f = messageRedDotView2;
+        messageRedDotView2.refresh(context.getString(R.string.message_notify_upgrade), false);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(11);
+        layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds90);
+        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds20);
+        navigationBar.addView(this.f, layoutParams);
+        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_SHOW);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
+    }
+
+    public MessageRedDotView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (zt6) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final yt6 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.p;
-        }
-        return (yt6) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final yt6 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.t;
-        }
-        return (yt6) invokeV.objValue;
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.s;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final yt6 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.r;
-        }
-        return (yt6) invokeV.objValue;
-    }
-
-    public final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final yt6 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.f;
-        }
-        return (yt6) invokeV.objValue;
-    }
-
-    public final String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.e;
         }
-        return invokeV.intValue;
+        return (MessageRedDotView) invokeV.objValue;
     }
 
-    public final yt6 w() {
+    public ImageView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (yt6) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final String x() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.n;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final xt6 B(String leftIconSubText) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, leftIconSubText)) == null) {
-            Intrinsics.checkNotNullParameter(leftIconSubText, "leftIconSubText");
-            this.m = leftIconSubText;
-            return this;
-        }
-        return (xt6) invokeL.objValue;
-    }
-
-    public final xt6 C(String leftIconSubTextColorString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, leftIconSubTextColorString)) == null) {
-            Intrinsics.checkNotNullParameter(leftIconSubTextColorString, "leftIconSubTextColorString");
-            this.l = leftIconSubTextColorString;
-            return this;
-        }
-        return (xt6) invokeL.objValue;
-    }
-
-    public final xt6 D(String rightButtonText) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rightButtonText)) == null) {
-            Intrinsics.checkNotNullParameter(rightButtonText, "rightButtonText");
-            this.n = rightButtonText;
-            return this;
-        }
-        return (xt6) invokeL.objValue;
-    }
-
-    public final void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.i = str;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f == null) {
+                this.h.e();
+            }
+            MessageRedDotView messageRedDotView = this.f;
+            if (messageRedDotView != null) {
+                messageRedDotView.setVisibility(8);
+                TbSingleton.MsgUpgradeTips.markHasShown();
+                this.f = null;
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_CLICK);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            }
+            if (this.g && this.e != null && !this.h.d()) {
+                this.e.setVisibility(0);
+            }
         }
     }
 
-    public final xt6 F(String subtitleText) {
-        InterceptResult invokeL;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, subtitleText)) == null) {
-            Intrinsics.checkNotNullParameter(subtitleText, "subtitleText");
-            this.j = subtitleText;
-            return this;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e.onChangeSkinType();
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
-        return (xt6) invokeL.objValue;
     }
 
-    public final xt6 a(yt6 bottomLeftIconImage) {
-        InterceptResult invokeL;
+    public void h(int i) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bottomLeftIconImage)) == null) {
-            Intrinsics.checkNotNullParameter(bottomLeftIconImage, "bottomLeftIconImage");
-            this.p = bottomLeftIconImage;
-            return this;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (view2 = this.b) != null) {
+            view2.setVisibility(i);
         }
-        return (xt6) invokeL.objValue;
     }
 
-    public final xt6 b(String bottomLeftIconText) {
-        InterceptResult invokeL;
+    public void i(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        MessageRedDotView messageRedDotView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bottomLeftIconText)) == null) {
-            Intrinsics.checkNotNullParameter(bottomLeftIconText, "bottomLeftIconText");
-            this.q = bottomLeftIconText;
-            return this;
+        if ((interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) && (messageRedDotView = this.f) != null) {
+            messageRedDotView.setAlpha(f);
         }
-        return (xt6) invokeL.objValue;
     }
 
-    public final xt6 c(yt6 bottomRightEndIconImage) {
-        InterceptResult invokeL;
+    public void f(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bottomRightEndIconImage)) == null) {
-            Intrinsics.checkNotNullParameter(bottomRightEndIconImage, "bottomRightEndIconImage");
-            this.t = bottomRightEndIconImage;
-            return this;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.e.refresh(i);
+                this.g = true;
+                if (this.h.d() && i <= 0) {
+                    this.e.setVisibility(8);
+                    return;
+                } else if (this.f == null) {
+                    this.e.setVisibility(0);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            this.e.setVisibility(8);
+            this.g = false;
         }
-        return (xt6) invokeL.objValue;
     }
 
-    public final xt6 d(String bottomRightIconText) {
-        InterceptResult invokeL;
+    public void g(NavigationBar.ControlAlign controlAlign, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bottomRightIconText)) == null) {
-            Intrinsics.checkNotNullParameter(bottomRightIconText, "bottomRightIconText");
-            this.s = bottomRightIconText;
-            return this;
+        if ((interceptable == null || interceptable.invokeLZ(1048582, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -BdUtilHelper.getDimens(this.a, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -BdUtilHelper.getDimens(this.a, R.dimen.tbds10);
+            this.c.getLayoutParams().width = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070424);
         }
-        return (xt6) invokeL.objValue;
-    }
-
-    public final xt6 e(yt6 bottomRightStartIconImage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bottomRightStartIconImage)) == null) {
-            Intrinsics.checkNotNullParameter(bottomRightStartIconImage, "bottomRightStartIconImage");
-            this.r = bottomRightStartIconImage;
-            return this;
-        }
-        return (xt6) invokeL.objValue;
-    }
-
-    public final xt6 f(String descriptionOneLineText) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, descriptionOneLineText)) == null) {
-            Intrinsics.checkNotNullParameter(descriptionOneLineText, "descriptionOneLineText");
-            this.o = descriptionOneLineText;
-            return this;
-        }
-        return (xt6) invokeL.objValue;
-    }
-
-    public final xt6 g(String descriptionText) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, descriptionText)) == null) {
-            Intrinsics.checkNotNullParameter(descriptionText, "descriptionText");
-            this.k = descriptionText;
-            return this;
-        }
-        return (xt6) invokeL.objValue;
     }
 }

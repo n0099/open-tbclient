@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class t53 implements v53 {
+public class t53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Long> a;
-    public long b;
-
-    @Override // com.baidu.tieba.v53
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public boolean b;
 
     public t53() {
         Interceptable interceptable = $ic;
@@ -33,41 +30,116 @@ public class t53 implements v53 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = -1L;
     }
 
-    @Override // com.baidu.tieba.v53
-    public long a() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = true;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            d();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            c();
+            k();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b) {
+            b();
+        }
+    }
+
+    public final ViewGroup b() {
         InterceptResult invokeV;
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<Long> list = this.a;
-            if (list != null && list.size() > 0 && this.b >= 0) {
-                return this.b - ((Long) Collections.min(this.a)).longValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (hb3.b0() != null && hb3.b0().w() != null && (viewGroup = (ViewGroup) hb3.b0().w().findViewById(16908290)) != null) {
+                ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f092316);
+                if (viewGroup2 != null) {
+                    return viewGroup2;
+                }
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(hb3.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d0937, viewGroup);
+                this.b = true;
+                return viewGroup3;
             }
-            return -1L;
+            return null;
         }
-        return invokeV.longValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v53
-    public void b(long j) {
+    public final void d() {
+        hb3 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.b = j;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b0 = hb3.b0()) != null && b0.w() != null) {
+            ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f092316);
+            if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
+            }
+            this.b = false;
         }
     }
 
-    @Override // com.baidu.tieba.v53
-    public void c(long j) {
-        List<Long> list;
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (list = this.a) != null) {
-            list.add(Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090af9, j, "#80ff0000", "FCP");
         }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090b1d, j, "#80ff0000", "FIP");
+        }
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090b80, j, "#8000ff00", "FMP");
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090d9e, j, "#80ff0000", "FTP");
+        }
+    }
+
+    public final void j(int i, long j, String str, String str2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) != null) || this.a || (b = b()) == null) {
+            return;
+        }
+        TextView textView = (TextView) b.findViewById(i);
+        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
+        textView.setBackgroundColor(Color.parseColor(str));
+    }
+
+    public void l(long j, long j2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.a || (b = b()) == null) {
+            return;
+        }
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f092358)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.ix4;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.rga;
-import com.baidu.tieba.sga;
-import com.baidu.tieba.uga;
-import com.baidu.tieba.vl6;
+import com.baidu.tieba.kia;
+import com.baidu.tieba.lia;
+import com.baidu.tieba.mia;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.oia;
+import com.baidu.tieba.tm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,17 +23,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ActivityJsBridgePlugin_Proxy extends qga {
+public class ActivityJsBridgePlugin_Proxy extends kia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix4 mJsBridge;
+    public mx4 mJsBridge;
 
-    public ActivityJsBridgePlugin_Proxy(ix4 ix4Var) {
+    public ActivityJsBridgePlugin_Proxy(mx4 mx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ix4Var};
+            Object[] objArr = {mx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class ActivityJsBridgePlugin_Proxy extends qga {
                 return;
             }
         }
-        this.mJsBridge = ix4Var;
+        this.mJsBridge = mx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -51,134 +51,135 @@ public class ActivityJsBridgePlugin_Proxy extends qga {
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_POST_WALL);
     }
 
-    @Override // com.baidu.tieba.qga
-    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
+    @Override // com.baidu.tieba.kia
+    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
-            if (sgaVar == null) {
-                sgaVar = new sga();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, oiaVar, miaVar)) == null) {
+            if (miaVar == null) {
+                miaVar = new mia();
             }
-            String b = ugaVar.b();
-            JSONObject e = ugaVar.e();
+            String b = oiaVar.b();
+            JSONObject e = oiaVar.e();
             if (b.equals("activity/updateSearchForumInfo")) {
-                sgaVar.s(true);
-                sga h = this.mJsBridge.h(webView, e.optString("forumParams"));
+                miaVar.s(true);
+                mia h = this.mJsBridge.h(webView, e.optString("forumParams"));
                 if (h != null) {
-                    sgaVar.y(h.f());
-                    sgaVar.u(h.b());
-                    sgaVar.o(h.a());
-                    sgaVar.x(h.e());
+                    miaVar.y(h.f());
+                    miaVar.u(h.b());
+                    miaVar.o(h.a());
+                    miaVar.x(h.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("activity/personlizedSwitchChange")) {
-                sgaVar.s(true);
-                sga d = this.mJsBridge.d(webView, e.optString("personlizedSwitchStatus"));
+                miaVar.s(true);
+                mia d = this.mJsBridge.d(webView, e.optString("personlizedSwitchStatus"));
                 if (d != null) {
-                    sgaVar.y(d.f());
-                    sgaVar.u(d.b());
-                    sgaVar.o(d.a());
-                    sgaVar.x(d.e());
+                    miaVar.y(d.f());
+                    miaVar.u(d.b());
+                    miaVar.o(d.a());
+                    miaVar.x(d.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("activity/updateTailStyle")) {
-                sgaVar.s(true);
-                sga i = this.mJsBridge.i(webView, e.optInt("type"), e.optString("tailId"));
+                miaVar.s(true);
+                mia i = this.mJsBridge.i(webView, e.optInt("type"), e.optString("tailId"));
                 if (i != null) {
-                    sgaVar.y(i.f());
-                    sgaVar.u(i.b());
-                    sgaVar.o(i.a());
-                    sgaVar.x(i.e());
+                    miaVar.y(i.f());
+                    miaVar.u(i.b());
+                    miaVar.o(i.a());
+                    miaVar.x(i.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("activity/oneKeyDeletion")) {
-                sgaVar.s(true);
-                sga g = this.mJsBridge.g(webView);
+                miaVar.s(true);
+                mia g = this.mJsBridge.g(webView);
                 if (g != null) {
-                    sgaVar.y(g.f());
-                    sgaVar.u(g.b());
-                    sgaVar.o(g.a());
-                    sgaVar.x(g.e());
+                    miaVar.y(g.f());
+                    miaVar.u(g.b());
+                    miaVar.o(g.a());
+                    miaVar.x(g.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("activity/completeTask")) {
-                sgaVar.s(true);
-                sga f = this.mJsBridge.f(webView, e.optString("activityId"), e.optString("missionId"));
+                miaVar.s(true);
+                mia f = this.mJsBridge.f(webView, e.optString("activityId"), e.optString("missionId"));
                 if (f != null) {
-                    sgaVar.y(f.f());
-                    sgaVar.u(f.b());
-                    sgaVar.o(f.a());
-                    sgaVar.x(f.e());
+                    miaVar.y(f.f());
+                    miaVar.u(f.b());
+                    miaVar.o(f.a());
+                    miaVar.x(f.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("activity/finishTestAnswer")) {
-                sgaVar.s(true);
-                sga c = this.mJsBridge.c(webView, e.optLong("testId"));
+                miaVar.s(true);
+                mia c = this.mJsBridge.c(webView, e.optLong("testId"));
                 if (c != null) {
-                    sgaVar.y(c.f());
-                    sgaVar.u(c.b());
-                    sgaVar.o(c.a());
-                    sgaVar.x(c.e());
+                    miaVar.y(c.f());
+                    miaVar.u(c.b());
+                    miaVar.o(c.a());
+                    miaVar.x(c.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("activity/worldCupRaiseSuccess")) {
-                sgaVar.s(true);
-                sga j = this.mJsBridge.j(webView, e.optString("portrait"), e.optString("flagUrl"));
+                miaVar.s(true);
+                mia j = this.mJsBridge.j(webView, e.optString("portrait"), e.optString("flagUrl"));
                 if (j != null) {
-                    sgaVar.y(j.f());
-                    sgaVar.u(j.b());
-                    sgaVar.o(j.a());
-                    sgaVar.x(j.e());
+                    miaVar.y(j.f());
+                    miaVar.u(j.b());
+                    miaVar.o(j.a());
+                    miaVar.x(j.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             }
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeLLL.objValue;
+        return (mia) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public vl6 getJsBridge() {
+    @Override // com.baidu.tieba.kia
+    public tm6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (vl6) invokeV.objValue;
+        return (tm6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.kia
+    public List<mia> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            sga sgaVar = null;
+            mia miaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("writePostSuccess")) {
-                sgaVar = this.mJsBridge.k(webView, hashMap);
+                miaVar = this.mJsBridge.k(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_POST_WALL)) {
-                sgaVar = this.mJsBridge.e(webView, hashMap);
+                miaVar = this.mJsBridge.e(webView, hashMap);
             }
-            if (sgaVar != null) {
-                sgaVar.z(0);
+            if (miaVar != null) {
+                miaVar.z(0);
             }
-            List<rga> list = this.mAsyncCallBackMethodList.get(str);
-            if (sgaVar != null && list != null) {
-                Iterator<rga> it = list.iterator();
-                if (!TextUtils.isEmpty(sgaVar.e())) {
+            List<lia> list = this.mAsyncCallBackMethodList.get(str);
+            if (miaVar != null && list != null) {
+                Iterator<lia> it = list.iterator();
+                if (!TextUtils.isEmpty(miaVar.e())) {
                     while (it.hasNext()) {
-                        rga next = it.next();
-                        if (next.b().equals(sgaVar.e())) {
-                            sga sgaVar2 = new sga();
-                            sgaVar2.w(next.a());
-                            sgaVar2.y(sgaVar.f());
-                            sgaVar2.u(sgaVar.b());
-                            sgaVar2.o(sgaVar.a());
-                            sgaVar2.A(sgaVar.l());
-                            arrayList.add(sgaVar2);
+                        lia next = it.next();
+                        if (next.b().equals(miaVar.e())) {
+                            mia miaVar2 = new mia();
+                            miaVar2.w(next.a());
+                            miaVar2.y(miaVar.f());
+                            miaVar2.u(miaVar.b());
+                            miaVar2.o(miaVar.a());
+                            miaVar2.j = miaVar.j;
+                            miaVar2.A(miaVar.l());
+                            arrayList.add(miaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -186,14 +187,15 @@ public class ActivityJsBridgePlugin_Proxy extends qga {
                     }
                 } else {
                     while (it.hasNext()) {
-                        rga next2 = it.next();
-                        sga sgaVar3 = new sga();
-                        sgaVar3.w(next2.a());
-                        sgaVar3.y(sgaVar.f());
-                        sgaVar3.u(sgaVar.b());
-                        sgaVar3.o(sgaVar.a());
-                        sgaVar3.A(sgaVar.l());
-                        arrayList.add(sgaVar3);
+                        lia next2 = it.next();
+                        mia miaVar3 = new mia();
+                        miaVar3.w(next2.a());
+                        miaVar3.y(miaVar.f());
+                        miaVar3.u(miaVar.b());
+                        miaVar3.o(miaVar.a());
+                        miaVar3.j = miaVar.j;
+                        miaVar3.A(miaVar.l());
+                        arrayList.add(miaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

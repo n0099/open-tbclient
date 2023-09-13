@@ -2,16 +2,19 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.t74;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+@Singleton
 @Service
 /* loaded from: classes6.dex */
-public class h84 implements ls1 {
+public class h84 implements ms1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,33 +32,39 @@ public class h84 implements ls1 {
         }
     }
 
-    @Override // com.baidu.tieba.ls1
-    public File b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ms1
+    public List<ed3> a(ec3 ec3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return t74.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ec3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new x64(ec3Var));
+            arrayList.add(new y64(ec3Var));
+            return arrayList;
         }
-        return (File) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ls1
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ms1
+    public List<ed3> c(ec3 ec3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return t74.d.g().getPath();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ec3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new qb4(ec3Var));
+            arrayList.add(new pb4(ec3Var));
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ls1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ms1
+    public List<ed3> b(ec3 ec3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return t74.d.h(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ec3Var)) == null) {
+            return Arrays.asList(new k74(ec3Var), new z54(ec3Var), new i64(ec3Var), new v64(ec3Var));
         }
-        return (File) invokeLL.objValue;
+        return (List) invokeL.objValue;
     }
 }

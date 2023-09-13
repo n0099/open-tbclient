@@ -5,7 +5,7 @@ import com.coremedia.iso.Hex;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {19})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ExtensionProfileLevelDescriptor extends BaseDescriptor {
     public byte[] bytes;
 

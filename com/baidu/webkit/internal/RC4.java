@@ -36,7 +36,7 @@ public class RC4 implements INoProGuard {
             return bArr;
         }
         byte[] bArr2 = new byte[bArr.length];
-        Log.w(LOGTAG, "kernelEncrypt " + bArr.length);
+        Log.w("RC4", "kernelEncrypt " + bArr.length);
         WebSettingsGlobalBlink.kernelEncrypt(bArr, bArr.length, bArr2);
         return bArr2;
     }
@@ -82,7 +82,7 @@ public class RC4 implements INoProGuard {
         }
         sb.append(str);
         sb.append(i4);
-        Log.e(LOGTAG, sb.toString());
+        Log.e("RC4", sb.toString());
     }
 
     private void reset() {

@@ -1,55 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
-public final class xd1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xd1<View> {
+    void a();
 
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
-            b(context, drawable, mode, i, e(context));
-        }
-    }
+    void b(String str, boolean z);
 
-    public static void b(Context context, Drawable drawable, PorterDuff.Mode mode, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, drawable, mode, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && context != null && drawable != null) {
-            if (i >= 0 && i < 255) {
-                i2 = Color.argb((Color.alpha(i2) * i) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
-            }
-            drawable.setColorFilter(i2, mode);
-        }
-    }
+    void c(boolean z);
 
-    public static void c(Context context, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            d(context, drawable, 255);
-        }
-    }
+    View getRealView();
 
-    public static void d(Context context, Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
-        }
-    }
+    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
-    public static int e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return context.getResources().getColor(R.color.nad_ui_cover_layer_color);
-        }
-        return invokeL.intValue;
-    }
+    void setCriusPopListener(@NonNull vd1 vd1Var);
+
+    void setData(@NonNull lr0 lr0Var);
 }

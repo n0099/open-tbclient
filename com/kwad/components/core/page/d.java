@@ -31,15 +31,15 @@ public class d extends com.kwad.components.core.i.b {
 
     private void nJ() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.obfuscated_res_0x7f0f0b61);
-        builder.setMessage(R.string.obfuscated_res_0x7f0f0b5e);
-        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f0b5f, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.1
+        builder.setTitle(R.string.obfuscated_res_0x7f0f0b74);
+        builder.setMessage(R.string.obfuscated_res_0x7f0f0b71);
+        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f0b72, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.1
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
                 d.this.finish();
             }
         });
-        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f0b60, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.2
+        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f0b73, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.2
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
                 d.this.nK();

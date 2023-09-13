@@ -82,10 +82,10 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                Z(0, -1, 0, 1.0f, true, this.e.J());
+                Z(0, -1, 0, 1.0f, true, this.e.I());
                 return;
             }
-            Z(-2, -1, BdUtilHelper.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.e.J());
+            Z(-2, -1, BdUtilHelper.getDimens(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
         }
     }
 
@@ -94,12 +94,12 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            boolean J = this.e.J();
+            boolean I = this.e.I();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             int i = layoutParams.width;
             float f2 = layoutParams.weight;
             if (z) {
-                if (J) {
+                if (I) {
                     f = 1.0f;
                 } else {
                     f = 2.0f;
@@ -198,7 +198,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             super.y(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.N(true);
+            this.e.M(true);
         }
     }
 
@@ -206,7 +206,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            X(c0(), this.e.J());
+            X(c0(), this.e.I());
         }
     }
 
@@ -230,7 +230,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             this.e.setVisibilityListener(this.y0);
             boolean c0 = c0();
             if (b0(c0) || a0(c0)) {
-                this.e.B(c0);
+                this.e.A(c0);
                 Y(c0());
             }
         }

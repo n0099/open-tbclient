@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.AppCode;
 /* loaded from: classes5.dex */
 public class f15 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile f15 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public float a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public f15() {
         Interceptable interceptable = $ic;
@@ -30,36 +30,65 @@ public class f15 {
         }
     }
 
-    public String a() {
+    public static f15 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (f15.class) {
+                    if (e == null) {
+                        e = new f15();
+                    }
+                }
+            }
+            return e;
+        }
+        return (f15) invokeV.objValue;
+    }
+
+    public float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
-        try {
-            jSONObject.optString("game_icon");
-            this.a = jSONObject.optString("post_url");
-            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        return invokeV.booleanValue;
     }
 
-    public void c(AppCode appCode) {
+    public void f(float f, float f2, float f3, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) != null) || appCode == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = z;
         }
-        String str = appCode.game_icon;
-        this.a = appCode.post_url;
-        String str2 = appCode.button_text;
     }
 }

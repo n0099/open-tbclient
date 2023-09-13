@@ -22,12 +22,12 @@ public interface t extends IInterface {
 
         /* renamed from: com.fun.openid.sdk.t$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public static class C0586a implements t {
+        public static class C0581a implements t {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0586a(IBinder iBinder) {
+            public C0581a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

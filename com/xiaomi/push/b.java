@@ -8,10 +8,10 @@ public final class b {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final InputStream f132a;
+    public final InputStream f131a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final byte[] f133a;
+    public final byte[] f132a;
     public int b;
     public int c;
     public int d;
@@ -25,20 +25,20 @@ public final class b {
         this.f = Integer.MAX_VALUE;
         this.h = 64;
         this.i = 67108864;
-        this.f133a = new byte[4096];
+        this.f132a = new byte[4096];
         this.a = 0;
         this.c = 0;
-        this.f132a = inputStream;
+        this.f131a = inputStream;
     }
 
     public b(byte[] bArr, int i, int i2) {
         this.f = Integer.MAX_VALUE;
         this.h = 64;
         this.i = 67108864;
-        this.f133a = bArr;
+        this.f132a = bArr;
         this.a = i2 + i;
         this.c = i;
-        this.f132a = null;
+        this.f131a = null;
     }
 
     public static b a(InputStream inputStream) {
@@ -62,8 +62,8 @@ public final class b {
             }
             this.e = i3 + i2;
             this.c = 0;
-            InputStream inputStream = this.f132a;
-            int read = inputStream == null ? -1 : inputStream.read(this.f133a);
+            InputStream inputStream = this.f131a;
+            int read = inputStream == null ? -1 : inputStream.read(this.f132a);
             this.a = read;
             if (read == 0 || read < -1) {
                 throw new IllegalStateException("InputStream#read(byte[]) returned invalid result: " + this.a + "\nThe InputStream implementation is buggy.");
@@ -103,15 +103,15 @@ public final class b {
         if (this.c == this.a) {
             a(true);
         }
-        byte[] bArr = this.f133a;
+        byte[] bArr = this.f132a;
         int i = this.c;
         this.c = i + 1;
         return bArr[i];
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m268a() {
-        if (m279b()) {
+    public int m269a() {
+        if (m280b()) {
             this.d = 0;
             return 0;
         }
@@ -138,47 +138,47 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m269a() {
-        return m280c();
+    public long m270a() {
+        return m281c();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public a m270a() {
+    public a m271a() {
         int d = d();
         int i = this.a;
         int i2 = this.c;
         if (d > i - i2 || d <= 0) {
-            return a.a(m276a(d));
+            return a.a(m277a(d));
         }
-        a a = a.a(this.f133a, i2, d);
+        a a = a.a(this.f132a, i2, d);
         this.c += d;
         return a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m271a() {
+    public String m272a() {
         int d = d();
         if (d > this.a - this.c || d <= 0) {
-            return new String(m276a(d), "UTF-8");
+            return new String(m277a(d), "UTF-8");
         }
-        String str = new String(this.f133a, this.c, d, "UTF-8");
+        String str = new String(this.f132a, this.c, d, "UTF-8");
         this.c += d;
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m272a() {
-        int m268a;
+    public void m273a() {
+        int m269a;
         do {
-            m268a = m268a();
-            if (m268a == 0) {
+            m269a = m269a();
+            if (m269a == 0) {
                 return;
             }
-        } while (m275a(m268a));
+        } while (m276a(m269a));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m273a(int i) {
+    public void m274a(int i) {
         if (this.d != i) {
             throw d.e();
         }
@@ -192,31 +192,31 @@ public final class b {
         int a = a(d);
         this.g++;
         eVar.a(this);
-        m273a(0);
+        m274a(0);
         this.g--;
         b(a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m274a() {
+    public boolean m275a() {
         return d() != 0;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m275a(int i) {
+    public boolean m276a(int i) {
         int a = f.a(i);
         if (a == 0) {
-            m277b();
+            m278b();
             return true;
         } else if (a == 1) {
-            m281d();
+            m282d();
             return true;
         } else if (a == 2) {
             c(d());
             return true;
         } else if (a == 3) {
-            m272a();
-            m273a(f.a(f.b(i), 4));
+            m273a();
+            m274a(f.a(f.b(i), 4));
             return true;
         } else if (a != 4) {
             if (a == 5) {
@@ -230,7 +230,7 @@ public final class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m276a(int i) {
+    public byte[] m277a(int i) {
         if (i < 0) {
             throw d.b();
         }
@@ -245,7 +245,7 @@ public final class b {
         int i6 = this.a;
         if (i <= i6 - i3) {
             byte[] bArr = new byte[i];
-            System.arraycopy(this.f133a, i3, bArr, 0, i);
+            System.arraycopy(this.f132a, i3, bArr, 0, i);
             this.c += i;
             return bArr;
         } else if (i >= 4096) {
@@ -260,7 +260,7 @@ public final class b {
                 byte[] bArr2 = new byte[min];
                 int i9 = 0;
                 while (i9 < min) {
-                    InputStream inputStream = this.f132a;
+                    InputStream inputStream = this.f131a;
                     int read = inputStream == null ? -1 : inputStream.read(bArr2, i9, min - i9);
                     if (read == -1) {
                         throw d.a();
@@ -272,7 +272,7 @@ public final class b {
                 vector.addElement(bArr2);
             }
             byte[] bArr3 = new byte[i];
-            System.arraycopy(this.f133a, i3, bArr3, 0, i7);
+            System.arraycopy(this.f132a, i3, bArr3, 0, i7);
             for (int i10 = 0; i10 < vector.size(); i10++) {
                 byte[] bArr4 = (byte[]) vector.elementAt(i10);
                 System.arraycopy(bArr4, 0, bArr3, i7, bArr4.length);
@@ -282,18 +282,18 @@ public final class b {
         } else {
             byte[] bArr5 = new byte[i];
             int i11 = i6 - i3;
-            System.arraycopy(this.f133a, i3, bArr5, 0, i11);
+            System.arraycopy(this.f132a, i3, bArr5, 0, i11);
             this.c = this.a;
             while (true) {
                 a(true);
                 int i12 = i - i11;
                 int i13 = this.a;
                 if (i12 <= i13) {
-                    System.arraycopy(this.f133a, 0, bArr5, i11, i12);
+                    System.arraycopy(this.f132a, 0, bArr5, i11, i12);
                     this.c = i12;
                     return bArr5;
                 }
-                System.arraycopy(this.f133a, 0, bArr5, i11, i13);
+                System.arraycopy(this.f132a, 0, bArr5, i11, i13);
                 int i14 = this.a;
                 i11 += i14;
                 this.c = i14;
@@ -302,13 +302,13 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public int m277b() {
+    public int m278b() {
         return d();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public long m278b() {
-        return m280c();
+    public long m279b() {
+        return m281c();
     }
 
     public void b(int i) {
@@ -317,7 +317,7 @@ public final class b {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m279b() {
+    public boolean m280b() {
         return this.c == this.a && !a(false);
     }
 
@@ -326,7 +326,7 @@ public final class b {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public long m280c() {
+    public long m281c() {
         long j = 0;
         for (int i = 0; i < 64; i += 7) {
             byte a = a();
@@ -360,7 +360,7 @@ public final class b {
         this.c = 0;
         this.a = 0;
         while (i7 < i) {
-            InputStream inputStream = this.f132a;
+            InputStream inputStream = this.f131a;
             int skip = inputStream == null ? -1 : (int) inputStream.skip(i - i7);
             if (skip <= 0) {
                 throw d.a();
@@ -409,7 +409,7 @@ public final class b {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public long m281d() {
+    public long m282d() {
         byte a = a();
         byte a2 = a();
         return ((a2 & 255) << 8) | (a & 255) | ((a() & 255) << 16) | ((a() & 255) << 24) | ((a() & 255) << 32) | ((a() & 255) << 40) | ((a() & 255) << 48) | ((a() & 255) << 56);

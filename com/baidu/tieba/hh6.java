@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class hh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
     public hh6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -31,20 +29,24 @@ public class hh6 {
                 return;
             }
         }
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_CARD_INFO, TbConfig.SERVER_ADDRESS + "c/c/bawu/verifyIdentityInfo");
-        tbHttpMessageTask.setResponsedClass(JsonHttpResponsedMessage.class);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.a = tbPageContext;
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_CARD_INFO);
-            httpMessage.addParam("fid", j);
-            MessageManager.getInstance().sendMessage(httpMessage);
+            long j2 = j - TbadkCoreApplication.getInst().currentAccountTdouNum;
+            if (j2 <= 0) {
+                return;
+            }
+            if (j2 > 200000000) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f027e, 20L));
+                return;
+            }
+            if (j2 % 1000 != 0) {
+                j2 = ((j2 / 1000) + 1) * 1000;
+            }
+            CurrencyJumpHelper.gotoBuyTBeanPage(this.a.getPageActivity(), j2);
         }
     }
 }

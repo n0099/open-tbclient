@@ -18,8 +18,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci1;
-import com.baidu.tieba.jg1;
+import com.baidu.tieba.gi1;
+import com.baidu.tieba.ng1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -254,7 +254,7 @@ public class PopupWindow {
                 return;
             }
         }
-        P = ci1.d;
+        P = gi1.d;
         Q = new int[]{16842922};
     }
 
@@ -283,9 +283,9 @@ public class PopupWindow {
             if (i == -1) {
                 if (this.d) {
                     if (this.G) {
-                        return R.style.obfuscated_res_0x7f10017c;
+                        return R.style.obfuscated_res_0x7f10017e;
                     }
-                    return R.style.obfuscated_res_0x7f10017b;
+                    return R.style.obfuscated_res_0x7f10017d;
                 }
                 return 0;
             }
@@ -415,7 +415,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jg1.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ng1.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

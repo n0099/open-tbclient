@@ -10,14 +10,12 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
 import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.rw5;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.nx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +52,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
         BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
-    public void e() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
@@ -62,11 +60,11 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             setGravity(17);
             setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
             setOnClickListener(this);
-            f();
+            e();
         }
     }
 
-    public void f() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             EMManager.from(this).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X09).setTextColor(R.color.CAM_X0304).setAlpha(R.string.A_X07).setCorner(R.string.J_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304);
@@ -98,7 +96,16 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        e();
+        d();
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        RecommendTopicData.RecommendTopicListData recommendTopicListData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !ei.isEmpty(recommendTopicListData.getTopicName()) && (view2.getContext() instanceof BaseActivity)) {
+            nx5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -120,7 +127,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        e();
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -142,22 +149,6 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        e();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        RecommendTopicData.RecommendTopicListData recommendTopicListData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !di.isEmpty(recommendTopicListData.getTopicName())) {
-            if (NewWebHotTopicPageSwitch.isOn()) {
-                if (view2.getContext() instanceof BaseActivity) {
-                    rw5.f(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
-                    return;
-                }
-                return;
-            }
-            new HotTopicActivityConfig(view2.getContext()).createNormalConfig(null, this.a.getTopicName(), "2").start();
-        }
+        d();
     }
 }

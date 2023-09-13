@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
-public interface ux {
-    void onChangeSkinType(TbPageContext tbPageContext, int i);
+public interface ux<T> {
+    void onBindDataToView(T t);
 }

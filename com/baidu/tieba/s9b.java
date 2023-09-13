@@ -1,43 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
-/* loaded from: classes8.dex */
-public class s9b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.InlineExecutionProhibitedException;
+import java.util.concurrent.Executor;
+/* loaded from: classes7.dex */
+public final class s9b implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
 
-    @Inject
-    public static x8b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return f9a.a();
+    /* loaded from: classes7.dex */
+    public static final class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Runnable a;
+        public Thread b;
+        public InlineExecutionProhibitedException c;
+
+        public a(Runnable runnable, Thread thread) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable, thread};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+            this.b = thread;
         }
-        return (x8b) invokeV.objValue;
+
+        public /* synthetic */ a(Runnable runnable, Thread thread, q9b q9bVar) {
+            this(runnable, thread);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (Thread.currentThread() == this.b) {
+                    this.c = new InlineExecutionProhibitedException();
+                } else {
+                    this.a.run();
+                }
+            }
+        }
     }
 
-    @Inject
-    public static w8b b() {
-        InterceptResult invokeV;
+    public s9b(Executor executor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return d9a.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (w8b) invokeV.objValue;
+        this.a = executor;
     }
 
-    @Inject
-    public static a9b c() {
-        InterceptResult invokeV;
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return o8b.a();
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            a aVar = new a(runnable, Thread.currentThread(), null);
+            this.a.execute(aVar);
+            if (aVar.c != null) {
+                throw aVar.c;
+            }
+            aVar.b = null;
         }
-        return (a9b) invokeV.objValue;
     }
 }

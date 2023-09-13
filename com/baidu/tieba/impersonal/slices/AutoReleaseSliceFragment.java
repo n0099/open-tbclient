@@ -24,7 +24,7 @@ public abstract class AutoReleaseSliceFragment<V extends ViewBinding> extends Sl
     public transient /* synthetic */ FieldHolder $fh;
     public V e;
 
-    public abstract V X1(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle);
+    public abstract V Z1(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoReleaseSliceFragment() {
@@ -45,7 +45,7 @@ public abstract class AutoReleaseSliceFragment<V extends ViewBinding> extends Sl
         }
     }
 
-    public final V Y1() {
+    public final V a2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -71,8 +71,8 @@ public abstract class AutoReleaseSliceFragment<V extends ViewBinding> extends Sl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
-            this.e = X1(inflater, viewGroup, bundle);
-            View root = Y1().getRoot();
+            this.e = Z1(inflater, viewGroup, bundle);
+            View root = a2().getRoot();
             Intrinsics.checkNotNullExpressionValue(root, "binding.root");
             return root;
         }

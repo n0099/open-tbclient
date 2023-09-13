@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oh4;
+import com.baidu.tieba.sh4;
 /* loaded from: classes4.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
@@ -43,11 +43,11 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     public void a(Context context) {
-        PointPageIndicator e = new oh4(context).e(R.drawable.obfuscated_res_0x7f080fae, R.drawable.obfuscated_res_0x7f080faf);
-        e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07024c));
+        PointPageIndicator e = new sh4(context).e(R.drawable.obfuscated_res_0x7f080fca, R.drawable.obfuscated_res_0x7f080fcb);
+        e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070250));
         this.h = e;
-        this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e4);
-        this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e4);
+        this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e6);
+        this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e6);
         addView(this.h, e());
     }
 
@@ -83,7 +83,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     public int d() {
-        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e4);
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e6);
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
@@ -91,8 +91,8 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         setOrientation(1);
         b(context);
         Resources resources = context.getResources();
-        addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e6)));
+        addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e8)));
         a(context);
-        addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e7)));
+        addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700e9)));
     }
 }

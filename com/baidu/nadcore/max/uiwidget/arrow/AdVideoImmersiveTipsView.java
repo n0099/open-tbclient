@@ -17,8 +17,8 @@ import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g71;
-import com.baidu.tieba.m61;
+import com.baidu.tieba.l71;
+import com.baidu.tieba.q61;
 import java.util.Arrays;
 import java.util.HashMap;
 import kotlin.Metadata;
@@ -29,8 +29,8 @@ import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\r\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u0000 =2\u00020\u0001:\u0001=B'\b\u0007\u0012\u0006\u00107\u001a\u000206\u0012\n\b\u0002\u00109\u001a\u0004\u0018\u000108\u0012\b\b\u0002\u0010:\u001a\u00020\u0002¢\u0006\u0004\b;\u0010<J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\t\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\u000b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u000b\u0010\u0006J\u000f\u0010\f\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u000e\u0010\rJ\u001d\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0012\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u0007¢\u0006\u0004\b\u0012\u0010\nJ\r\u0010\u0013\u001a\u00020\u0004¢\u0006\u0004\b\u0013\u0010\rJ\u000f\u0010\u0014\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0014\u0010\rJ\u001d\u0010\u0018\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u00152\u0006\u0010\u0017\u001a\u00020\u0015¢\u0006\u0004\b\u0018\u0010\u0019J\u0015\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u0002¢\u0006\u0004\b\u001a\u0010\u0006J\u0015\u0010\u001b\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u0015¢\u0006\u0004\b\u001b\u0010\u001cR$\u0010\u001e\u001a\u0004\u0018\u00010\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R\u0016\u0010$\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b$\u0010%R$\u0010&\u001a\u0004\u0018\u00010\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b&\u0010\u001f\u001a\u0004\b'\u0010!\"\u0004\b(\u0010#R\u001c\u0010)\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\f\n\u0004\b)\u0010%\u0012\u0004\b*\u0010\rR\u0018\u0010,\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R\u0016\u0010.\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010%R$\u00100\u001a\u0004\u0018\u00010/8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u00101\u001a\u0004\b2\u00103\"\u0004\b4\u00105¨\u0006>"}, d2 = {"Lcom/baidu/nadcore/max/uiwidget/arrow/AdVideoImmersiveTipsView;", "Landroid/widget/FrameLayout;", "", "type", "", "cancelArrowAnim", "(I)V", "", "fraction", "changeBottomMargin", "(F)V", "doArrowAnim", "doDefaultAnim", "()V", "doLightPieAnim", "time", "initGuideArrowAnim", "(II)V", "onScroll", "release", "resetAnim", "", MapBundleKey.MapObjKey.OBJ_SL_VISI, "withAnim", "setTipsVisible", "(ZZ)V", "startCountDown", "stopCountDown", "(Z)V", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "animTimer", "Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "getAnimTimer", "()Lcom/baidu/nadcore/utils/UniversalCountDownTimer;", "setAnimTimer", "(Lcom/baidu/nadcore/utils/UniversalCountDownTimer;)V", "arrowVideoMargin", "I", "countDownTimer", "getCountDownTimer", "setCountDownTimer", "guideAnimType", "getGuideAnimType$annotations", "Landroid/animation/ObjectAnimator;", "guideTipAnimator", "Landroid/animation/ObjectAnimator;", "guideTipTime", "Landroid/view/View$OnClickListener;", "outClickListener", "Landroid/view/View$OnClickListener;", "getOutClickListener", "()Landroid/view/View$OnClickListener;", "setOutClickListener", "(Landroid/view/View$OnClickListener;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "Companion", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class AdVideoImmersiveTipsView extends FrameLayout {
-    public g71 a;
-    public g71 b;
+    public l71 a;
+    public l71 b;
     public ObjectAnimator c;
     public int d;
     public View.OnClickListener e;
@@ -80,14 +80,14 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
 
             /* renamed from: com.baidu.nadcore.max.uiwidget.arrow.AdVideoImmersiveTipsView$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public static final class C0126a extends AnimatorListenerAdapter {
+            public static final class C0115a extends AnimatorListenerAdapter {
                 /* JADX DEBUG: Incorrect args count in method signature: ()V */
-                public C0126a() {
+                public C0115a() {
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    ImageView arrowPieImage = (ImageView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cc);
+                    ImageView arrowPieImage = (ImageView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902d0);
                     Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
                     arrowPieImage.setVisibility(8);
                 }
@@ -95,16 +95,16 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
 
             @Override // java.lang.Runnable
             public final void run() {
-                ImageView arrowPieImage = (ImageView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cc);
+                ImageView arrowPieImage = (ImageView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902d0);
                 Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
                 if (arrowPieImage.getVisibility() == 0) {
-                    ObjectAnimator duration = ObjectAnimator.ofFloat((ImageView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cc), Key.ALPHA, 1.0f).setDuration(500L);
+                    ObjectAnimator duration = ObjectAnimator.ofFloat((ImageView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902d0), Key.ALPHA, 1.0f).setDuration(500L);
                     Intrinsics.checkNotNullExpressionValue(duration, "ObjectAnimator.ofFloat(a…on(DEFUALT_ANIM_DURATION)");
                     duration.setFloatValues(1.0f, 0.0f);
-                    duration.addListener(new C0126a());
+                    duration.addListener(new C0115a());
                     duration.start();
                 }
-                ExpandIconView arrowImage = (ExpandIconView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cb);
+                ExpandIconView arrowImage = (ExpandIconView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cf);
                 Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
                 arrowImage.setVisibility(0);
             }
@@ -129,7 +129,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         public final void onClick(View view2) {
             View.OnClickListener outClickListener = AdVideoImmersiveTipsView.this.getOutClickListener();
             if (outClickListener != null) {
-                outClickListener.onClick((ExpandIconView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cb));
+                outClickListener.onClick((ExpandIconView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f0902cf));
             }
         }
     }
@@ -154,17 +154,17 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class d extends g71.b {
+    public static final class d extends l71.b {
         public final /* synthetic */ int b;
 
         public d(int i) {
             this.b = i;
         }
 
-        @Override // com.baidu.tieba.g71.b
+        @Override // com.baidu.tieba.l71.b
         public void b() {
             AdVideoImmersiveTipsView.this.e(this.b);
-            g71 animTimer = AdVideoImmersiveTipsView.this.getAnimTimer();
+            l71 animTimer = AdVideoImmersiveTipsView.this.getAnimTimer();
             if (animTimer != null) {
                 animTimer.a();
             }
@@ -180,31 +180,31 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            TextView guideText = (TextView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f090ed8);
+            TextView guideText = (TextView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f090ed7);
             Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
             guideText.setVisibility(8);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class f extends g71.b {
+    public static final class f extends l71.b {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public f() {
         }
 
-        @Override // com.baidu.tieba.g71.b
+        @Override // com.baidu.tieba.l71.b
         public void b() {
             AdVideoImmersiveTipsView.this.setTipsVisible(false, true);
         }
 
-        @Override // com.baidu.tieba.g71.b
+        @Override // com.baidu.tieba.l71.b
         public void e() {
             AdVideoImmersiveTipsView.this.setTipsVisible(true, true);
         }
 
-        @Override // com.baidu.tieba.g71.b
+        @Override // com.baidu.tieba.l71.b
         public void f(long j) {
-            TextView guideText = (TextView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f090ed8);
+            TextView guideText = (TextView) AdVideoImmersiveTipsView.this.a(R.id.obfuscated_res_0x7f090ed7);
             Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             Context context = AdVideoImmersiveTipsView.this.getContext();
@@ -223,8 +223,8 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         super(context, attributeSet, i);
         Intrinsics.checkNotNullParameter(context, "context");
         LayoutInflater.from(context).inflate(R.layout.nad_max_tip_view, this);
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).setOnClickListener(new a());
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).setState(1, true);
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf)).setOnClickListener(new a());
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf)).setState(1, true);
     }
 
     public /* synthetic */ AdVideoImmersiveTipsView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -234,19 +234,19 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     public final void c(int i) {
         if (i != 0) {
             if (i == 1) {
-                ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).clearAnimation();
-                ((ImageView) a(R.id.obfuscated_res_0x7f0902cc)).clearAnimation();
+                ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf)).clearAnimation();
+                ((ImageView) a(R.id.obfuscated_res_0x7f0902d0)).clearAnimation();
                 return;
             }
             return;
         }
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).clearAnimation();
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf)).clearAnimation();
     }
 
     public final void e(int i) {
         if (i != 0) {
             if (i == 1) {
-                ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+                ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f0902d0);
                 imageView.setOnClickListener(new b(imageView, this));
                 g();
                 return;
@@ -258,7 +258,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
 
     public final void i(float f2) {
         float max = Math.max(Math.min(f2, 1.0f), -1.0f);
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).setFraction(max, false);
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf)).setFraction(max, false);
         d(max);
     }
 
@@ -266,32 +266,32 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         if (this.a != null) {
             return;
         }
-        g71 g71Var = new g71(i * 1000, 1000L);
-        g71Var.d(new f());
-        this.a = g71Var;
-        if (g71Var != null) {
-            g71Var.e();
+        l71 l71Var = new l71(i * 1000, 1000L);
+        l71Var.d(new f());
+        this.a = l71Var;
+        if (l71Var != null) {
+            l71Var.e();
         }
     }
 
     public final void m(boolean z) {
-        g71 g71Var = this.a;
-        if (g71Var != null) {
-            g71Var.a();
+        l71 l71Var = this.a;
+        if (l71Var != null) {
+            l71Var.a();
         }
-        TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090ed8);
+        TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090ed7);
         Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
         if (guideText.getVisibility() == 0) {
             setTipsVisible(false, z);
         }
     }
 
-    public final void setAnimTimer(g71 g71Var) {
-        this.b = g71Var;
+    public final void setAnimTimer(l71 l71Var) {
+        this.b = l71Var;
     }
 
-    public final void setCountDownTimer(g71 g71Var) {
-        this.a = g71Var;
+    public final void setCountDownTimer(l71 l71Var) {
+        this.a = l71Var;
     }
 
     public final void setOutClickListener(View.OnClickListener onClickListener) {
@@ -303,7 +303,7 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             return;
         }
         float abs = (Math.abs(f2) - 0.6f) / 0.39999998f;
-        int a2 = m61.c.a(getContext(), -4.0f);
+        int a2 = q61.c.a(getContext(), -4.0f);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (!(layoutParams instanceof FrameLayout.LayoutParams)) {
             layoutParams = null;
@@ -316,35 +316,35 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
     }
 
     public final void f() {
-        ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+        ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902d0);
         Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
         if (arrowPieImage.getVisibility() == 0) {
-            ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+            ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902d0);
             Intrinsics.checkNotNullExpressionValue(arrowPieImage2, "arrowPieImage");
             arrowPieImage2.setVisibility(8);
         }
-        ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+        ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf);
         Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
         if (arrowImage.getVisibility() != 0) {
-            ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+            ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf);
             Intrinsics.checkNotNullExpressionValue(arrowImage2, "arrowImage");
             arrowImage2.setVisibility(0);
         }
-        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb)).startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.nad_max_guide_arrow_anim));
+        ((ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf)).startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.nad_max_guide_arrow_anim));
     }
 
     public final void g() {
-        ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+        ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf);
         Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
         if (arrowImage.getVisibility() == 0) {
-            ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+            ExpandIconView arrowImage2 = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf);
             Intrinsics.checkNotNullExpressionValue(arrowImage2, "arrowImage");
             arrowImage2.setVisibility(8);
         }
-        ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+        ImageView arrowPieImage = (ImageView) a(R.id.obfuscated_res_0x7f0902d0);
         Intrinsics.checkNotNullExpressionValue(arrowPieImage, "arrowPieImage");
         if (arrowPieImage.getVisibility() != 0) {
-            ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902cc);
+            ImageView arrowPieImage2 = (ImageView) a(R.id.obfuscated_res_0x7f0902d0);
             Intrinsics.checkNotNullExpressionValue(arrowPieImage2, "arrowPieImage");
             arrowPieImage2.setVisibility(0);
         }
@@ -352,14 +352,14 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         if (loadAnimation != null) {
             loadAnimation.setAnimationListener(new c());
         }
-        ((ImageView) a(R.id.obfuscated_res_0x7f0902cc)).startAnimation(loadAnimation);
+        ((ImageView) a(R.id.obfuscated_res_0x7f0902d0)).startAnimation(loadAnimation);
     }
 
-    public final g71 getAnimTimer() {
+    public final l71 getAnimTimer() {
         return this.b;
     }
 
-    public final g71 getCountDownTimer() {
+    public final l71 getCountDownTimer() {
         return this.a;
     }
 
@@ -369,14 +369,14 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
 
     public final void j() {
         k();
-        g71 g71Var = this.b;
-        if (g71Var != null) {
-            g71Var.a();
+        l71 l71Var = this.b;
+        if (l71Var != null) {
+            l71Var.a();
         }
         this.b = null;
-        g71 g71Var2 = this.a;
-        if (g71Var2 != null) {
-            g71Var2.a();
+        l71 l71Var2 = this.a;
+        if (l71Var2 != null) {
+            l71Var2.a();
         }
         this.a = null;
     }
@@ -398,18 +398,18 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             e(i2);
         } else {
             if (i == 1 && i2 == 1) {
-                ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cb);
+                ExpandIconView arrowImage = (ExpandIconView) a(R.id.obfuscated_res_0x7f0902cf);
                 Intrinsics.checkNotNullExpressionValue(arrowImage, "arrowImage");
                 arrowImage.setVisibility(8);
             }
             if (this.b != null) {
                 return;
             }
-            g71 g71Var = new g71(i * 1000, 1000L);
-            g71Var.d(new d(i2));
-            this.b = g71Var;
-            if (g71Var != null) {
-                g71Var.e();
+            l71 l71Var = new l71(i * 1000, 1000L);
+            l71Var.d(new d(i2));
+            this.b = l71Var;
+            if (l71Var != null) {
+                l71Var.e();
             }
         }
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -433,13 +433,13 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
         } else {
             i = 8;
         }
-        TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090ed8);
+        TextView guideText = (TextView) a(R.id.obfuscated_res_0x7f090ed7);
         Intrinsics.checkNotNullExpressionValue(guideText, "guideText");
         if (guideText.getVisibility() == i) {
             return;
         }
         if (!z2) {
-            TextView guideText2 = (TextView) a(R.id.obfuscated_res_0x7f090ed8);
+            TextView guideText2 = (TextView) a(R.id.obfuscated_res_0x7f090ed7);
             Intrinsics.checkNotNullExpressionValue(guideText2, "guideText");
             guideText2.setVisibility(i);
             return;
@@ -457,13 +457,13 @@ public final class AdVideoImmersiveTipsView extends FrameLayout {
             }
             this.c = null;
         }
-        ObjectAnimator duration = ObjectAnimator.ofFloat((TextView) a(R.id.obfuscated_res_0x7f090ed8), Key.ALPHA, 1.0f).setDuration(500L);
+        ObjectAnimator duration = ObjectAnimator.ofFloat((TextView) a(R.id.obfuscated_res_0x7f090ed7), Key.ALPHA, 1.0f).setDuration(500L);
         this.c = duration;
         if (z) {
             if (duration != null) {
                 duration.setFloatValues(0.0f, 1.0f);
             }
-            TextView guideText3 = (TextView) a(R.id.obfuscated_res_0x7f090ed8);
+            TextView guideText3 = (TextView) a(R.id.obfuscated_res_0x7f090ed7);
             Intrinsics.checkNotNullExpressionValue(guideText3, "guideText");
             guideText3.setVisibility(0);
         } else {

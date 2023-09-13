@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import tbclient.TiebaFieldsInfo;
 /* loaded from: classes7.dex */
 public class m17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n35 a;
-    public ArrayList<bn> b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public n17 g;
-    public boolean h;
+    public String a;
+    public String b;
+    public MetaData c;
+    public long d;
+    public String e;
+    public TiebaFieldsInfo f;
 
     public m17() {
         Interceptable interceptable = $ic;
@@ -28,15 +27,7 @@ public class m17 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.h = true;
-        this.b = new ArrayList<>();
-        this.a = new n35();
     }
 }

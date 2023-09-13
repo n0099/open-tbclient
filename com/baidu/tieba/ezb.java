@@ -1,241 +1,254 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.RemoteCallbackList;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mzb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.render.IRemoteListener;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public final class ezb {
+public final class ezb<TResult> extends wyb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static ezb b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public RemoteCallbackList<IRemoteListener> a;
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final ezb a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ezb.b;
-            }
-            return (ezb) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947753052, "Lcom/baidu/tieba/ezb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947753052, "Lcom/baidu/tieba/ezb;");
-                return;
-            }
-        }
-        c = new a(null);
-        b = new ezb();
-    }
+    public final Object a;
+    public boolean b;
+    public volatile boolean c;
+    public TResult d;
+    public Exception e;
+    public List<syb<TResult>> f;
 
     public ezb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new RemoteCallbackList<>();
+        this.a = new Object();
+        this.f = new ArrayList();
     }
 
-    public final synchronized void b(String str, String str2) {
-        boolean z;
-        RemoteCallbackList<IRemoteListener> remoteCallbackList;
+    @Override // com.baidu.tieba.wyb
+    public final wyb<TResult> a(tyb<TResult> tybVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(str, "")) {
-                    int i = 1;
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        try {
-                            int beginBroadcast = this.a.beginBroadcast();
-                            mzb.a aVar = mzb.b;
-                            aVar.a("listener size = " + beginBroadcast);
-                            if (1 <= beginBroadcast) {
-                                while (true) {
-                                    this.a.getBroadcastItem(i - 1).action(str, str2);
-                                    if (i == beginBroadcast) {
-                                        break;
-                                    }
-                                    i++;
-                                }
-                            }
-                            remoteCallbackList = this.a;
-                        } catch (Exception e) {
-                            mzb.a aVar2 = mzb.b;
-                            aVar2.c("(executeAction) ex: " + e.getMessage());
-                            e.printStackTrace();
-                            remoteCallbackList = this.a;
-                        }
-                        remoteCallbackList.finishBroadcast();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tybVar)) == null) {
+            m(yyb.c(), tybVar);
+            return this;
+        }
+        return (wyb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final wyb<TResult> b(uyb uybVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uybVar)) == null) {
+            n(yyb.c(), uybVar);
+            return this;
+        }
+        return (wyb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final wyb<TResult> c(vyb<TResult> vybVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vybVar)) == null) {
+            o(yyb.c(), vybVar);
+            return this;
+        }
+        return (wyb) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final Exception d() {
+        InterceptResult invokeV;
+        Exception exc;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                exc = this.e;
+            }
+            return exc;
+        }
+        return (Exception) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final TResult e() {
+        InterceptResult invokeV;
+        TResult tresult;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.a) {
+                if (this.e != null) {
+                    throw new RuntimeException(this.e);
                 }
+                tresult = this.d;
+            }
+            return tresult;
+        }
+        return (TResult) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final boolean g() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this.a) {
+                z = this.b;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wyb
+    public final boolean h() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this.a) {
+                z = this.b && !f() && this.e == null;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final wyb<TResult> i(syb<TResult> sybVar) {
+        InterceptResult invokeL;
+        boolean g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sybVar)) == null) {
+            synchronized (this.a) {
+                g = g();
+                if (!g) {
+                    this.f.add(sybVar);
+                }
+            }
+            if (g) {
+                sybVar.onComplete(this);
+            }
+            return this;
+        }
+        return (wyb) invokeL.objValue;
+    }
+
+    public final void j(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, exc) == null) {
+            synchronized (this.a) {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                this.e = exc;
+                this.a.notifyAll();
+                p();
             }
         }
     }
 
-    public final synchronized boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
+    public final void k(TResult tresult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(str, "")) {
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        try {
-                            int beginBroadcast = this.a.beginBroadcast();
-                            if (1 <= beginBroadcast) {
-                                int i = 1;
-                                while (true) {
-                                    this.a.getBroadcastItem(i - 1).transData(str, str2);
-                                    if (i == beginBroadcast) {
-                                        break;
-                                    }
-                                    i++;
-                                }
-                            }
-                            this.a.finishBroadcast();
-                            return true;
-                        } catch (Exception e) {
-                            mzb.a aVar = mzb.b;
-                            aVar.c("(executeData) ex: " + e.getMessage());
-                            e.printStackTrace();
-                            this.a.finishBroadcast();
-                            return false;
-                        }
-                    }
+        if (interceptable == null || interceptable.invokeL(1048586, this, tresult) == null) {
+            synchronized (this.a) {
+                if (this.b) {
+                    return;
                 }
-                return false;
+                this.b = true;
+                this.d = tresult;
+                this.a.notifyAll();
+                p();
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public final synchronized boolean f(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    public final boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bitmap)) == null) {
-            synchronized (this) {
-                if (Intrinsics.areEqual(str, "")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this.a) {
+                if (this.b) {
                     return false;
                 }
-                try {
-                    int beginBroadcast = this.a.beginBroadcast();
-                    mzb.a aVar = mzb.b;
-                    aVar.f("(sendBitmap) channelId: " + str + ", size = " + beginBroadcast);
-                    if (1 <= beginBroadcast) {
-                        int i = 1;
-                        while (true) {
-                            this.a.getBroadcastItem(i - 1).transBitmap(str, bitmap);
-                            if (i == beginBroadcast) {
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                    this.a.finishBroadcast();
-                    return true;
-                } catch (Exception e) {
-                    mzb.a aVar2 = mzb.b;
-                    aVar2.c("(sendBitmap) ex: " + e.getMessage());
-                    e.printStackTrace();
-                    this.a.finishBroadcast();
-                    return false;
-                }
+                this.b = true;
+                this.c = true;
+                this.a.notifyAll();
+                p();
+                return true;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void d(IRemoteListener iRemoteListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iRemoteListener) == null) {
-            this.a.register(iRemoteListener);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            b("reportCrash", str);
-        }
-    }
-
-    public final boolean g(String str, Bitmap bitmap) {
+    public final wyb<TResult> m(Executor executor, tyb<TResult> tybVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bitmap)) == null) {
-            return f(str, bitmap);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, executor, tybVar)) == null) {
+            i(new bzb(executor, tybVar));
+            return this;
         }
-        return invokeLL.booleanValue;
+        return (wyb) invokeLL.objValue;
     }
 
-    public final boolean h(String str, String str2) {
+    public final wyb<TResult> n(Executor executor, uyb uybVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            return c(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, executor, uybVar)) == null) {
+            i(new czb(executor, uybVar));
+            return this;
         }
-        return invokeLL.booleanValue;
+        return (wyb) invokeLL.objValue;
+    }
+
+    public final wyb<TResult> o(Executor executor, vyb<TResult> vybVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, executor, vybVar)) == null) {
+            i(new dzb(executor, vybVar));
+            return this;
+        }
+        return (wyb) invokeLL.objValue;
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            synchronized (this.a) {
+                for (syb<TResult> sybVar : this.f) {
+                    try {
+                        sybVar.onComplete(this);
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e2) {
+                        throw new RuntimeException(e2);
+                    }
+                }
+                this.f = null;
+            }
+        }
     }
 }

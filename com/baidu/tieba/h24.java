@@ -1,110 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class h24 extends j34 {
+public class h24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile HashMap<String, List<a34>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771807, "Lcom/baidu/tieba/h24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947771807, "Lcom/baidu/tieba/h24;");
-                return;
-            }
-        }
-        c = nr1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h24() {
-        super("getAppList");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.j34
-    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
-        InterceptResult invokeLL;
+    public synchronized void a(String str, a34 a34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", c());
-                if (c) {
-                    Log.i("GetAppListAction", jSONObject2.toString());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, a34Var) == null) {
+            synchronized (this) {
+                if (e(str, a34Var)) {
+                    return;
                 }
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
+                List<a34> c = c(str);
+                if (!c.contains(a34Var)) {
+                    c.add(a34Var);
+                }
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, c);
                 }
             }
-            ho2Var.onSuccess(jSONObject2);
-            return null;
         }
-        return (d32) invokeLL.objValue;
     }
 
-    public final JSONObject b(PackageInfo packageInfo) throws JSONException {
+    public synchronized void b(String str, c34 c34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, c34Var) == null) {
+            synchronized (this) {
+                for (a34 a34Var : new ArrayList(c(str))) {
+                    if (a34Var != null) {
+                        a34Var.a(c34Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(String str, a34 a34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, a34Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (a34Var == null) {
+                    this.a.remove(str);
+                    return;
+                }
+                List<a34> c = c(str);
+                if (c.contains(a34Var)) {
+                    c.remove(a34Var);
+                    if (c.isEmpty()) {
+                        this.a.remove(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public final List<a34> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appName", packageInfo.applicationInfo.name);
-            jSONObject.put("appPackageName", packageInfo.packageName);
-            jSONObject.put("appVersion", packageInfo.versionName);
-            boolean z = true;
-            if ((packageInfo.applicationInfo.flags & 1) == 0) {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new ArrayList();
             }
-            jSONObject.put("appIsSystemApp", z);
-            return jSONObject;
+            List<a34> list = this.a.get(str);
+            if (list == null) {
+                return new ArrayList();
+            }
+            return list;
         }
-        return (JSONObject) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public final JSONArray c() throws JSONException {
-        InterceptResult invokeV;
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
-                jSONArray.put(b(packageInfo));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                List<a34> list = this.a.get(str);
+                if (list != null) {
+                    if (!list.isEmpty()) {
+                        z = true;
+                    }
+                }
+                return z;
             }
-            return jSONArray;
         }
-        return (JSONArray) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                g(str, null);
+            }
+        }
+    }
+
+    public final boolean e(String str, a34 a34Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, a34Var)) == null) {
+            if (!TextUtils.isEmpty(str) && a34Var != null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

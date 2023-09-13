@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ei;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,30 +58,22 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091247);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09124d);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a8);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927db);
         }
 
-        public void a() {
+        public void a(SmartApp smartApp) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SkinManager.setBackgroundResource(this.a, R.drawable.person_center_action_item_selector);
-                SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            }
-        }
-
-        public void b(SmartApp smartApp) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smartApp) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
                 this.a.setTag(smartApp);
-                if (!di.isEmpty(smartApp.avatar)) {
+                if (!ei.isEmpty(smartApp.avatar)) {
                     this.b.setPlaceHolder(1);
                     this.b.startLoad(smartApp.avatar, 10, false, false);
                 }
-                if (!di.isEmpty(smartApp.name)) {
+                if (!ei.isEmpty(smartApp.name)) {
                     this.c.setText(smartApp.name);
                 } else {
                     this.c.setText(R.string.intelligent_smart_app);
@@ -89,19 +81,27 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
             }
         }
 
-        public void c(View.OnClickListener onClickListener) {
+        public void b(View.OnClickListener onClickListener) {
             View view2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) && (view2 = this.a) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && (view2 = this.a) != null) {
                 view2.setOnClickListener(onClickListener);
             }
         }
 
-        public void d(View.OnLongClickListener onLongClickListener) {
+        public void c(View.OnLongClickListener onLongClickListener) {
             View view2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, onLongClickListener) == null) && (view2 = this.a) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onLongClickListener) == null) && (view2 = this.a) != null) {
                 view2.setOnLongClickListener(onLongClickListener);
+            }
+        }
+
+        public void onChangeSkinType() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                SkinManager.setBackgroundResource(this.a, R.drawable.person_center_action_item_selector);
+                SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             }
         }
     }
@@ -182,10 +182,10 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         if ((interceptable != null && interceptable.invokeLI(1048579, this, historyRecordViewHolder, i) != null) || historyRecordViewHolder == null || (l = l(i)) == null) {
             return;
         }
-        historyRecordViewHolder.b(l);
-        historyRecordViewHolder.c(this.c);
-        historyRecordViewHolder.d(this.d);
-        historyRecordViewHolder.a();
+        historyRecordViewHolder.a(l);
+        historyRecordViewHolder.b(this.c);
+        historyRecordViewHolder.c(this.d);
+        historyRecordViewHolder.onChangeSkinType();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -195,7 +195,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d5, viewGroup, false));
+            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08ea, viewGroup, false));
         }
         return (HistoryRecordViewHolder) invokeLI.objValue;
     }

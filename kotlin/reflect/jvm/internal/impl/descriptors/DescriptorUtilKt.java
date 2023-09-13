@@ -19,11 +19,11 @@ public final class DescriptorUtilKt {
         MemberScope memberScope = moduleDescriptor.getPackage(parent).getMemberScope();
         Name shortName = fqName.shortName();
         Intrinsics.checkExpressionValueIsNotNull(shortName, "fqName.shortName()");
-        ClassifierDescriptor mo2106getContributedClassifier = memberScope.mo2106getContributedClassifier(shortName, lookupLocation);
-        if (!(mo2106getContributedClassifier instanceof ClassDescriptor)) {
-            mo2106getContributedClassifier = null;
+        ClassifierDescriptor mo2107getContributedClassifier = memberScope.mo2107getContributedClassifier(shortName, lookupLocation);
+        if (!(mo2107getContributedClassifier instanceof ClassDescriptor)) {
+            mo2107getContributedClassifier = null;
         }
-        ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2106getContributedClassifier;
+        ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2107getContributedClassifier;
         if (classDescriptor2 != null) {
             return classDescriptor2;
         }
@@ -33,7 +33,7 @@ public final class DescriptorUtilKt {
         if (resolveClassByFqName != null && (unsubstitutedInnerClassesScope = resolveClassByFqName.getUnsubstitutedInnerClassesScope()) != null) {
             Name shortName2 = fqName.shortName();
             Intrinsics.checkExpressionValueIsNotNull(shortName2, "fqName.shortName()");
-            classifierDescriptor = unsubstitutedInnerClassesScope.mo2106getContributedClassifier(shortName2, lookupLocation);
+            classifierDescriptor = unsubstitutedInnerClassesScope.mo2107getContributedClassifier(shortName2, lookupLocation);
         } else {
             classifierDescriptor = null;
         }

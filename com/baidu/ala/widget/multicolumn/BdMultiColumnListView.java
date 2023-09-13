@@ -9,17 +9,17 @@ import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cn;
-import com.baidu.tieba.fn;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.kk;
+import com.baidu.tieba.dn;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.k0c;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.lxb;
-import com.baidu.tieba.on;
-import com.baidu.tieba.pm;
+import com.baidu.tieba.lk;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.pn;
 import com.baidu.tieba.qm;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.rm;
 import com.baidu.tieba.tm;
+import com.baidu.tieba.um;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
     public int mFirstVisibleItemIndex;
     public int mLastAddPosition;
     public int mLastLoadCount;
-    public pm mNextPage;
+    public qm mNextPage;
     public View mNoDataView;
     public OnFooterClickListener mOnFooterClickListener;
     public OnHeaderClickListener mOnHeaderClickListener;
@@ -55,9 +55,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
     public OnScrollToBottomListener mOnScrollToBottomListener;
     public OnScrollToPullListener mOnScrollToPullListener;
     public OnScrollToTopListener mOnScrollToTopListener;
-    public fn mPreLoadListView;
+    public gn mPreLoadListView;
     public int mPreLoadNum;
-    public pm mPrePage;
+    public qm mPrePage;
     public PullRefresh mPullRefresh;
     public int mScrollToTopNum;
     public Runnable preLoadRunnable;
@@ -109,7 +109,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         public static float sRatio = 3.0f;
         public transient /* synthetic */ FieldHolder $fh;
         public int mAnimDurationTime;
-        public qm mBdIListPullView;
+        public rm mBdIListPullView;
         public Boolean mIsBack;
         public boolean mIsRecored;
         public BdMultiColumnListView mListView;
@@ -132,12 +132,12 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
         }
 
-        public PullRefresh(BdMultiColumnListView bdMultiColumnListView, qm qmVar) {
+        public PullRefresh(BdMultiColumnListView bdMultiColumnListView, rm rmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bdMultiColumnListView, qmVar};
+                Object[] objArr = {bdMultiColumnListView, rmVar};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -155,12 +155,12 @@ public class BdMultiColumnListView extends MultiColumnListView {
             this.mIsBack = Boolean.FALSE;
             this.mOnScrollToPullListener = null;
             this.mAnimDurationTime = 800;
-            if (qmVar != null) {
+            if (rmVar != null) {
                 if (bdMultiColumnListView != null) {
-                    this.mBdIListPullView = qmVar;
+                    this.mBdIListPullView = rmVar;
                     this.mListView = bdMultiColumnListView;
-                    View view2 = qmVar.getView();
-                    view2.setPadding(0, -this.mBdIListPullView.k(), 0, 0);
+                    View view2 = rmVar.getView();
+                    view2.setPadding(0, -this.mBdIListPullView.h(), 0, 0);
                     view2.invalidate();
                     this.mListView.addPullRefreshView(view2);
                     return;
@@ -189,14 +189,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void animatePullView() {
-            qm bdIListPullView;
+            rm bdIListPullView;
             View view2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) != null) || (bdIListPullView = getBdIListPullView()) == null || (view2 = bdIListPullView.getView()) == null) {
                 return;
             }
-            tm tmVar = new tm(view2.getContext(), 0, -bdIListPullView.k(), this.mAnimDurationTime);
-            tmVar.d(new on(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.PullRefresh.1
+            um umVar = new um(view2.getContext(), 0, -bdIListPullView.h(), this.mAnimDurationTime);
+            umVar.d(new pn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.PullRefresh.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullRefresh this$0;
@@ -219,7 +219,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.on
+                @Override // com.baidu.tieba.pn
                 public void onOver() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -227,16 +227,16 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     }
                 }
             });
-            tmVar.f(view2);
+            umVar.f(view2);
         }
 
         public void done() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.mState = 3;
-                qm qmVar = this.mBdIListPullView;
-                qmVar.x(0, -qmVar.k(), 0, 0);
-                this.mBdIListPullView.j(true);
+                rm rmVar = this.mBdIListPullView;
+                rmVar.x(0, -rmVar.h(), 0, 0);
+                this.mBdIListPullView.g(true);
                 OnScrollToPullListener onScrollToPullListener = this.mOnScrollToPullListener;
                 if (onScrollToPullListener != null) {
                     onScrollToPullListener.onScrollToPull(false);
@@ -244,18 +244,18 @@ public class BdMultiColumnListView extends MultiColumnListView {
             }
         }
 
-        public qm getBdIListPullView() {
+        public rm getBdIListPullView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.mBdIListPullView;
             }
-            return (qm) invokeV.objValue;
+            return (rm) invokeV.objValue;
         }
 
         public void onInterceptTouchEvent(MotionEvent motionEvent, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, motionEvent, i) == null) && motionEvent.getAction() == 0 && getBdIListPullView().l()) {
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, motionEvent, i) == null) && motionEvent.getAction() == 0 && getBdIListPullView().i()) {
                 this.mIsRecored = false;
                 this.mIsBack = Boolean.FALSE;
                 if (i == 0 && 0 == 0 && this.mListView.getChildAt(0) != null && this.mListView.getChildAt(0).getTop() >= 0) {
@@ -268,7 +268,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
         public void onTouchEvent(MotionEvent motionEvent, int i) {
             OnScrollToPullListener onScrollToPullListener;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048579, this, motionEvent, i) == null) && getBdIListPullView().l()) {
+            if ((interceptable == null || interceptable.invokeLI(1048579, this, motionEvent, i) == null) && getBdIListPullView().i()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action != 2) {
@@ -285,7 +285,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                         if (i2 != 2 && this.mIsRecored) {
                             if (i2 == 0) {
                                 this.mListView.setSelection(0);
-                                if (((int) ((y - this.mStartY) / sRatio)) < this.mBdIListPullView.k() && y - this.mStartY > 0) {
+                                if (((int) ((y - this.mStartY) / sRatio)) < this.mBdIListPullView.h() && y - this.mStartY > 0) {
                                     this.mState = 1;
                                     this.mBdIListPullView.r(this.mIsBack.booleanValue());
                                     this.mIsBack = Boolean.FALSE;
@@ -295,9 +295,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                                     }
                                 } else if (y - this.mStartY <= 0) {
                                     this.mState = 3;
-                                    qm qmVar = this.mBdIListPullView;
-                                    qmVar.x(0, -qmVar.k(), 0, 0);
-                                    this.mBdIListPullView.j(false);
+                                    rm rmVar = this.mBdIListPullView;
+                                    rmVar.x(0, -rmVar.h(), 0, 0);
+                                    this.mBdIListPullView.g(false);
                                     OnScrollToPullListener onScrollToPullListener3 = this.mOnScrollToPullListener;
                                     if (onScrollToPullListener3 != null) {
                                         onScrollToPullListener3.onScrollToPull(true);
@@ -305,7 +305,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                                 }
                             } else if (i2 == 1) {
                                 this.mListView.setSelection(0);
-                                if (((int) ((y - this.mStartY) / sRatio)) >= this.mBdIListPullView.k()) {
+                                if (((int) ((y - this.mStartY) / sRatio)) >= this.mBdIListPullView.h()) {
                                     this.mState = 0;
                                     this.mIsBack = Boolean.TRUE;
                                     this.mBdIListPullView.t();
@@ -315,9 +315,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                                     }
                                 } else if (y - this.mStartY <= 0) {
                                     this.mState = 3;
-                                    qm qmVar2 = this.mBdIListPullView;
-                                    qmVar2.x(0, -qmVar2.k(), 0, 0);
-                                    this.mBdIListPullView.j(false);
+                                    rm rmVar2 = this.mBdIListPullView;
+                                    rmVar2.x(0, -rmVar2.h(), 0, 0);
+                                    this.mBdIListPullView.g(false);
                                     OnScrollToPullListener onScrollToPullListener5 = this.mOnScrollToPullListener;
                                     if (onScrollToPullListener5 != null) {
                                         onScrollToPullListener5.onScrollToPull(true);
@@ -341,8 +341,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             }
                             int i3 = this.mState;
                             if (i3 == 1 || i3 == 0) {
-                                qm qmVar3 = this.mBdIListPullView;
-                                qmVar3.x(0, ((int) ((y - this.mStartY) / sRatio)) - qmVar3.k(), 0, 0);
+                                rm rmVar3 = this.mBdIListPullView;
+                                rmVar3.x(0, ((int) ((y - this.mStartY) / sRatio)) - rmVar3.h(), 0, 0);
                                 return;
                             }
                             return;
@@ -354,9 +354,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if (i4 != 2) {
                     if (i4 == 1) {
                         this.mState = 3;
-                        qm qmVar4 = this.mBdIListPullView;
-                        qmVar4.x(0, -qmVar4.k(), 0, 0);
-                        this.mBdIListPullView.j(false);
+                        rm rmVar4 = this.mBdIListPullView;
+                        rmVar4.x(0, -rmVar4.h(), 0, 0);
+                        this.mBdIListPullView.g(false);
                         OnScrollToPullListener onScrollToPullListener8 = this.mOnScrollToPullListener;
                         if (onScrollToPullListener8 != null) {
                             onScrollToPullListener8.onScrollToPull(true);
@@ -441,14 +441,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i3 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof lxb) {
-                        int c = firstVisiblePosition - ((lxb) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof k0c) {
+                        int c = firstVisiblePosition - ((k0c) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((lxb) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((k0c) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -462,7 +462,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
         };
-        this.mPreLoadListView = new fn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
+        this.mPreLoadListView = new gn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BdMultiColumnListView this$0;
@@ -485,7 +485,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public void cancelRefresh() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -494,17 +494,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // com.baidu.tieba.fn
-            public cn getAdapter() {
+            @Override // com.baidu.tieba.gn
+            public dn getAdapter() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                    return (cn) invokeV.objValue;
+                    return (dn) invokeV.objValue;
                 }
                 return this.this$0.mBdListAdpter;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public int getFirstVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -514,7 +514,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public int getLastVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -552,8 +552,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if ((interceptable2 != null && interceptable2.invokeL(65537, this, view2) != null) || view2 == null) {
                     return;
                 }
-                if (view2 instanceof kk) {
-                    ((kk) view2).refresh();
+                if (view2 instanceof lk) {
+                    ((lk) view2).refresh();
                 }
                 if (view2 instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view2;
@@ -572,7 +572,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     for (int i3 = 0; i3 < childCount; i3++) {
                         refreshImage(this.this$0.getChildAt(i3));
                     }
-                    k9 c = l9.c(this.this$0.getContext());
+                    l9 c = m9.c(this.this$0.getContext());
                     if (c != null) {
                         c.onPreLoad(this.this$0.mPreLoadListView);
                     }
@@ -604,9 +604,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
             @Override // java.lang.Runnable
             public void run() {
-                k9 c;
+                l9 c;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (c = l9.c(this.this$0.getContext())) != null) {
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (c = m9.c(this.this$0.getContext())) != null) {
                     c.onPreLoad(this.this$0.mPreLoadListView);
                 }
             }
@@ -682,14 +682,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i3 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof lxb) {
-                        int c = firstVisiblePosition - ((lxb) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof k0c) {
+                        int c = firstVisiblePosition - ((k0c) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((lxb) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((k0c) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -703,7 +703,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
         };
-        this.mPreLoadListView = new fn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
+        this.mPreLoadListView = new gn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BdMultiColumnListView this$0;
@@ -726,7 +726,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public void cancelRefresh() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -735,17 +735,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // com.baidu.tieba.fn
-            public cn getAdapter() {
+            @Override // com.baidu.tieba.gn
+            public dn getAdapter() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                    return (cn) invokeV.objValue;
+                    return (dn) invokeV.objValue;
                 }
                 return this.this$0.mBdListAdpter;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public int getFirstVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -755,7 +755,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public int getLastVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -793,8 +793,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if ((interceptable2 != null && interceptable2.invokeL(65537, this, view2) != null) || view2 == null) {
                     return;
                 }
-                if (view2 instanceof kk) {
-                    ((kk) view2).refresh();
+                if (view2 instanceof lk) {
+                    ((lk) view2).refresh();
                 }
                 if (view2 instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view2;
@@ -813,7 +813,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     for (int i3 = 0; i3 < childCount; i3++) {
                         refreshImage(this.this$0.getChildAt(i3));
                     }
-                    k9 c = l9.c(this.this$0.getContext());
+                    l9 c = m9.c(this.this$0.getContext());
                     if (c != null) {
                         c.onPreLoad(this.this$0.mPreLoadListView);
                     }
@@ -845,9 +845,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
             @Override // java.lang.Runnable
             public void run() {
-                k9 c;
+                l9 c;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (c = l9.c(this.this$0.getContext())) != null) {
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (c = m9.c(this.this$0.getContext())) != null) {
                     c.onPreLoad(this.this$0.mPreLoadListView);
                 }
             }
@@ -923,14 +923,14 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                     int i32 = 0;
                     int i4 = -1;
-                    if (this.this$0.mAdapter instanceof lxb) {
-                        int c = firstVisiblePosition - ((lxb) this.this$0.mAdapter).c();
+                    if (this.this$0.mAdapter instanceof k0c) {
+                        int c = firstVisiblePosition - ((k0c) this.this$0.mAdapter).c();
                         if (c < 0) {
                             i4 = 0;
                         } else {
                             i4 = c;
                         }
-                        int c2 = lastVisiblePosition - ((lxb) this.this$0.mAdapter).c();
+                        int c2 = lastVisiblePosition - ((k0c) this.this$0.mAdapter).c();
                         if (c2 >= this.this$0.mAdapter.getCount()) {
                             c2 = this.this$0.mAdapter.getCount() - 1;
                         }
@@ -944,7 +944,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
         };
-        this.mPreLoadListView = new fn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
+        this.mPreLoadListView = new gn(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ BdMultiColumnListView this$0;
@@ -967,7 +967,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public void cancelRefresh() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -976,17 +976,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 }
             }
 
-            @Override // com.baidu.tieba.fn
-            public cn getAdapter() {
+            @Override // com.baidu.tieba.gn
+            public dn getAdapter() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-                    return (cn) invokeV.objValue;
+                    return (dn) invokeV.objValue;
                 }
                 return this.this$0.mBdListAdpter;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public int getFirstVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -996,7 +996,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 return invokeV.intValue;
             }
 
-            @Override // com.baidu.tieba.fn
+            @Override // com.baidu.tieba.gn
             public int getLastVisiblePosition() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -1034,8 +1034,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 if ((interceptable2 != null && interceptable2.invokeL(65537, this, view2) != null) || view2 == null) {
                     return;
                 }
-                if (view2 instanceof kk) {
-                    ((kk) view2).refresh();
+                if (view2 instanceof lk) {
+                    ((lk) view2).refresh();
                 }
                 if (view2 instanceof ViewGroup) {
                     ViewGroup viewGroup = (ViewGroup) view2;
@@ -1054,7 +1054,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     for (int i32 = 0; i32 < childCount; i32++) {
                         refreshImage(this.this$0.getChildAt(i32));
                     }
-                    k9 c = l9.c(this.this$0.getContext());
+                    l9 c = m9.c(this.this$0.getContext());
                     if (c != null) {
                         c.onPreLoad(this.this$0.mPreLoadListView);
                     }
@@ -1086,9 +1086,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
 
             @Override // java.lang.Runnable
             public void run() {
-                k9 c;
+                l9 c;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (c = l9.c(this.this$0.getContext())) != null) {
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (c = m9.c(this.this$0.getContext())) != null) {
                     c.onPreLoad(this.this$0.mPreLoadListView);
                 }
             }
@@ -1137,17 +1137,17 @@ public class BdMultiColumnListView extends MultiColumnListView {
         return invokeL.booleanValue;
     }
 
-    public void setNextPage(pm pmVar) {
+    public void setNextPage(qm qmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, pmVar) == null) {
-            pm pmVar2 = this.mNextPage;
-            if (pmVar2 != null) {
-                removeFooterView(pmVar2.c());
+        if (interceptable == null || interceptable.invokeL(1048585, this, qmVar) == null) {
+            qm qmVar2 = this.mNextPage;
+            if (qmVar2 != null) {
+                removeFooterView(qmVar2.c());
                 this.mNextPage = null;
             }
-            if (pmVar != null) {
-                addFooterView(pmVar.c(), null, true, 0);
-                this.mNextPage = pmVar;
+            if (qmVar != null) {
+                addFooterView(qmVar.c(), null, true, 0);
+                this.mNextPage = qmVar;
             }
         }
     }
@@ -1198,8 +1198,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                        if (this.this$0.mAdapter instanceof lxb) {
-                            i2 = ((lxb) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof k0c) {
+                            i2 = ((k0c) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1267,8 +1267,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        if (this.this$0.mAdapter instanceof lxb) {
-                            i2 = ((lxb) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof k0c) {
+                            i2 = ((k0c) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1301,16 +1301,16 @@ public class BdMultiColumnListView extends MultiColumnListView {
         }
     }
 
-    public void setPullRefresh(qm qmVar) {
+    public void setPullRefresh(rm rmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, qmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, rmVar) == null) {
             PullRefresh pullRefresh = this.mPullRefresh;
             if (pullRefresh != null) {
                 removeHeaderView(pullRefresh.getBdIListPullView().getView());
             }
             this.mPullRefresh = null;
-            if (qmVar != null) {
-                PullRefresh pullRefresh2 = new PullRefresh(this, qmVar);
+            if (rmVar != null) {
+                PullRefresh pullRefresh2 = new PullRefresh(this, rmVar);
                 this.mPullRefresh = pullRefresh2;
                 pullRefresh2.setOnScrollToPullListener(this.mOnScrollToPullListener);
             }
@@ -1331,7 +1331,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
             setFadingEdgeLength(0);
             BdSimplePreLoadListAdapter bdSimplePreLoadListAdapter = new BdSimplePreLoadListAdapter();
             this.mBdListAdpter = bdSimplePreLoadListAdapter;
-            bdSimplePreLoadListAdapter.setListPreLoad(new sm.b(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.5
+            bdSimplePreLoadListAdapter.setListPreLoad(new tm.b(this) { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BdMultiColumnListView this$0;
@@ -1354,7 +1354,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.sm.b
+                @Override // com.baidu.tieba.tm.b
                 public void onPreLoad() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1394,8 +1394,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     ListAdapter listAdapter;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        if (this.this$0.mAdapter instanceof lxb) {
-                            i2 = ((lxb) this.this$0.mAdapter).c();
+                        if (this.this$0.mAdapter instanceof k0c) {
+                            i2 = ((k0c) this.this$0.mAdapter).c();
                         } else {
                             i2 = 0;
                         }
@@ -1411,8 +1411,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             }
                         }
                         int i3 = i - i2;
-                        if (this.this$0.mAdapter instanceof lxb) {
-                            listAdapter = ((lxb) this.this$0.mAdapter).getWrappedAdapter();
+                        if (this.this$0.mAdapter instanceof k0c) {
+                            listAdapter = ((k0c) this.this$0.mAdapter).getWrappedAdapter();
                         } else {
                             listAdapter = this.this$0.mAdapter;
                         }
@@ -1471,7 +1471,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pLA_AbsListView, i) == null) {
-                        k9 c = l9.c(this.this$0.getContext());
+                        l9 c = m9.c(this.this$0.getContext());
                         if (c != null) {
                             if (i == 2) {
                                 BdMultiColumnListView bdMultiColumnListView = this.this$0;

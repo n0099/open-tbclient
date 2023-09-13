@@ -103,7 +103,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
             PagerTabBarItem pagerTabBarItem = new PagerTabBarItem(context);
             this.mPagerTabBarItem = pagerTabBarItem;
             pagerTabBarItem.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
-            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f0917d1);
+            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f0917db);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             addView(this.mPagerTabBarItem, layoutParams);
@@ -247,12 +247,12 @@ public class BdPagerTabBar extends HorizontalScrollView {
             if (this.mUseStandardStyle) {
                 Resources resources = getResources();
                 if (this.mLayoutInActionBar) {
-                    setTextSize(0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bb));
+                    setTextSize(0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701c0));
                 } else {
-                    setTextSize(0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bc));
+                    setTextSize(0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701c1));
                 }
                 setBoldWhenSelect(true);
-                setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0603af), resources.getColor(R.color.obfuscated_res_0x7f0603ae));
+                setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0603b1), resources.getColor(R.color.obfuscated_res_0x7f0603b0));
                 return;
             }
             setTextSize(0, bdPagerTab.getTextSize());
@@ -420,7 +420,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
 
     public void addTab(BdPagerTab bdPagerTab) {
         if (bdPagerTab != null) {
-            bdPagerTab.setTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070756));
+            bdPagerTab.setTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07075c));
             Adapter adapter = getAdapter();
             if (adapter instanceof TabAdapter) {
                 ((TabAdapter) adapter).addTab(bdPagerTab);
@@ -640,7 +640,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
         this.mLeftShadow = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, SHADOWS_COLORS);
         this.mRightShadow = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, SHADOWS_COLORS);
         setFillViewport(true);
-        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070756));
+        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07075c));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

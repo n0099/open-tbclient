@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.l9;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.m9;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.tieba.write.webwrite.WebWriteActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,7 +29,7 @@ public class WriteActivityImmediateStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a extends CustomRule {
+    public class a extends CustomRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,7 +73,7 @@ public class WriteActivityImmediateStatic {
                                 }
                                 String simpleName = ((IntentConfig) data).getContext().getClass().getSimpleName();
                                 if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName) || z) {
-                                    WriteMsgHolder.setCurrentWriteActivityFromTag(l9.a(((IntentConfig) data).getContext()).getUniqueId());
+                                    WriteMsgHolder.setCurrentWriteActivityFromTag(m9.a(((IntentConfig) data).getContext()).getUniqueId());
                                     WriteMsgHolder.setFromPersonCenter(false);
                                 }
                             }

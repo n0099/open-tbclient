@@ -1,29 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class b73 {
+public class b73 extends c73 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final ub3<b73> k;
+    public static final vb3<b73> l;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
+    public long h;
+    public long i;
+    public int j;
+
+    /* loaded from: classes5.dex */
+    public static class a extends ub3<b73> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ub3
+        /* renamed from: b */
+        public b73 a(@NonNull mu2 mu2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mu2Var)) == null) {
+                b73 b73Var = new b73();
+                b73Var.a = mu2Var.g();
+                b73Var.b = mu2Var.g();
+                b73Var.c = mu2Var.readLong();
+                b73Var.d = mu2Var.readInt();
+                b73Var.e = mu2Var.g();
+                b73Var.f = mu2Var.g();
+                b73Var.g = mu2Var.readBoolean();
+                b73Var.h = mu2Var.readLong();
+                b73Var.i = mu2Var.readLong();
+                b73Var.j = mu2Var.readInt();
+                return b73Var;
+            }
+            return (b73) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends vb3<b73> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vb3
+        /* renamed from: b */
+        public void a(@NonNull b73 b73Var, @NonNull nu2 nu2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b73Var, nu2Var) == null) {
+                nu2Var.f(b73Var.a);
+                nu2Var.f(b73Var.b);
+                nu2Var.writeLong(b73Var.c);
+                nu2Var.writeInt(b73Var.d);
+                nu2Var.f(b73Var.e);
+                nu2Var.f(b73Var.f);
+                nu2Var.writeBoolean(b73Var.g);
+                nu2Var.writeLong(b73Var.h);
+                nu2Var.writeLong(b73Var.i);
+                nu2Var.writeInt(b73Var.j);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,276 +116,74 @@ public class b73 {
                 return;
             }
         }
-        a = nr1.a;
+        k = new a();
+        l = new b();
     }
 
-    public static void j() {
-        ma2 U;
+    public b73() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (U = qw2.T().U()) != null && (U.m() instanceof na2)) {
-            qw2.T().getActivity().onBackPressed();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.g = false;
+        this.j = 1;
     }
 
-    public static void a(Map<String, String> map, String str) {
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, map, str) != null) || map == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
+    }
+
+    public b73(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+        this.j = 1;
+        if (jSONObject == null) {
             return;
         }
-        String b = b(map, "dynamicLibPath", 3);
-        String b2 = b(map, "dynamicLibConfig", 3);
-        String b3 = b(map, "pluginPath", 4);
-        String b4 = b(map, "dependenciesPath", 6);
-        String b5 = b(map, "dependenciesConfig", 6);
-        if (!TextUtils.isEmpty(str) && a) {
-            v63.b(str + ", dynamicLibPath = " + b + "; dynamicLibConfig = " + b2 + "; pluginPath = " + b3 + "; dependenciesPath = " + b4 + "; dependenciesConfig = " + b5);
-        }
+        this.a = str;
+        this.d = 6;
+        this.b = jSONObject.optString("version");
+        this.c = jSONObject.optLong("version_code", -1L);
+        this.e = jSONObject.optString("path");
+        this.g = jSONObject.optBoolean("inline", false);
+        this.h = jSONObject.optLong("min_version_code");
+        this.i = jSONObject.optLong("max_version_code");
+        this.f = jSONObject.optString("config");
+        this.j = jSONObject.optInt("require_type");
     }
 
-    public static String b(Map<String, String> map, String str, int i) {
-        InterceptResult invokeLLI;
-        String str2;
-        SwanAppConfigData swanAppConfigData;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i)) == null) {
-            if (map == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            db3 M = db3.M();
-            if (M != null) {
-                str2 = M.U().e(str, null);
-            } else {
-                str2 = null;
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                map.put(str, str2);
-                return str2;
-            }
-            if (M != null) {
-                swanAppConfigData = M.Q();
-            } else {
-                swanAppConfigData = null;
-            }
-            if (i == 3) {
-                k63.m(swanAppConfigData, false);
-                str2 = i(str, null);
-            } else if (i == 4) {
-                str2 = l(swanAppConfigData);
-            } else if (i == 6) {
-                i63.a(swanAppConfigData);
-                str2 = i(str, null);
-            }
-            map.put(str, str2);
-            return str2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanDependentModel{inline=" + this.g + ", minVersionCode=" + this.h + ", maxVersionCode=" + this.i + ", requireType=" + this.j + ", libName='" + this.a + "', versionName='" + this.b + "', versionCode=" + this.c + ", category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
         }
-        return (String) invokeLLI.objValue;
-    }
-
-    public static void c(String str, String str2) {
-        db3 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str) && (M = db3.M()) != null) {
-            M.U().j(str, str2);
-        }
-    }
-
-    public static String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            db3 M = db3.M();
-            if (M != null && !TextUtils.isEmpty(str)) {
-                return M.U().e(str, str2);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(List<z63> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            int size = list.size();
-            StringBuilder sb = new StringBuilder();
-            sb.append("select * from (SELECT * from ");
-            sb.append("swan_plugin");
-            sb.append(" ORDER BY update_time) group by bundle_id having bundle_id in ");
-            sb.append("(");
-            for (int i = 0; i < size; i++) {
-                sb.append("'");
-                sb.append(list.get(i).a);
-                sb.append("'");
-                if (i == size - 1) {
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    sb.append(",");
-                }
-            }
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            ek4 g = g(str);
-            if (g != null && !TextUtils.isEmpty(g.r)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return g.r;
-            }
-            v63.b("get plugin appKey form db, but empty, plugin appId = " + str);
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static ek4 h(String str) {
-        InterceptResult invokeL;
-        SwanAppConfigData Q;
-        List<ek4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (!u82.d() && !c73.H() && !c73.D()) {
-                return g(str);
-            }
-            db3 M = db3.M();
-            if (M != null && (Q = M.Q()) != null && (list = Q.l) != null) {
-                for (ek4 ek4Var : list) {
-                    if (TextUtils.equals(str, ek4Var.g)) {
-                        return ek4Var;
-                    }
-                }
-            }
-            return null;
-        }
-        return (ek4) invokeL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            SwanAppConfigData b = pb3.b(str);
-            if (b == null) {
-                v63.b("getDownloadKey, app.json is null");
-                return null;
-            }
-            SwanAppConfigData.m mVar = b.d;
-            if (mVar == null) {
-                v63.b("getDownloadKey, sub pkg obj is null");
-                return null;
-            }
-            Map<String, String> map = mVar.a;
-            if (map == null) {
-                v63.b("getDownloadKey, sub pkg map is null");
-                return null;
-            }
-            return map.get(str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static ek4 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return k63.p(str, com.kuaishou.weapon.p0.q1.e, 0L);
-        }
-        return (ek4) invokeL.objValue;
-    }
-
-    public static List<ek4> k(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                if (length == 0) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("plugin_id");
-                        if (!TextUtils.isEmpty(optString)) {
-                            ek4 ek4Var = new ek4();
-                            ek4Var.g = optString;
-                            ek4Var.i = optJSONObject.optLong("version_code", 0L);
-                            ek4Var.j = optJSONObject.optString(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, com.kuaishou.weapon.p0.q1.e);
-                            ek4Var.p = optJSONObject.optString("token");
-                            ek4Var.q = optJSONObject.optString("domains");
-                            ek4Var.h = 4;
-                            ek4Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            ek4Var.s = optJSONObject.optString("app_name");
-                            ek4Var.l = "";
-                            ek4Var.m = "";
-                            ek4Var.n = "";
-                            arrayList.add(ek4Var);
-                            if (z) {
-                                aj4.i().m(ek4Var);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                v63.b(Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (List) invokeLZ.objValue;
-    }
-
-    public static String l(SwanAppConfigData swanAppConfigData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, swanAppConfigData)) == null) {
-            if (swanAppConfigData == null) {
-                v63.b("parse app.json is null");
-                return null;
-            }
-            List<z63> i = swanAppConfigData.i(4);
-            if (i != null && !i.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (z63 z63Var : i) {
-                    if (z63Var != null && z63Var.a()) {
-                        do3.f(jSONObject, z63Var.a, z63Var.e);
-                    }
-                }
-                String jSONObject2 = jSONObject.toString();
-                c("pluginPath", jSONObject2);
-                return jSONObject2;
-            }
-            c("pluginPath", null);
-            v63.b("this swan app not apply on someone plugin");
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

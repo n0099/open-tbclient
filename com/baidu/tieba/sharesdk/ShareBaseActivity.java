@@ -27,20 +27,9 @@ public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> 
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public void o1(int i, int i2, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            super.onCreate(bundle);
-            if (getIntent() == null) {
-                finish();
-            }
-        }
-    }
-
-    public void s1(int i, int i2, Bundle bundle, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bundle, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bundle, str}) == null) {
             Intent intent = new Intent();
             intent.putExtra("extra_show_channel", i);
             intent.putExtra("extra_share_status", i2);
@@ -57,6 +46,17 @@ public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> 
             intent.putExtra("complete_id", str);
             setResult(-1, intent);
             finish();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            if (getIntent() == null) {
+                finish();
+            }
         }
     }
 }

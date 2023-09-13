@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.r7c;
+import com.baidu.tieba.uac;
 /* loaded from: classes2.dex */
-public enum OnSubscribeDetach$TerminatedProducer implements r7c {
+public enum OnSubscribeDetach$TerminatedProducer implements uac {
     INSTANCE;
 
-    @Override // com.baidu.tieba.r7c
+    @Override // com.baidu.tieba.uac
     public void request(long j) {
     }
 }

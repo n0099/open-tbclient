@@ -7,10 +7,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aj7;
+import com.baidu.tieba.dr7;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.up7;
+import com.baidu.tieba.hk7;
+import com.baidu.tieba.va5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,8 +52,8 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.g(2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new la5(19)));
+            this.a.f(2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(19)));
         }
     }
 
@@ -87,8 +87,8 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.g(1);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new la5(18)));
+            this.a.f(1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(18)));
         }
     }
 
@@ -116,20 +116,20 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void c(up7 up7Var) {
+    public void b(dr7 dr7Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, up7Var) == null) && (frsItemAcceleratorView = this.a) != null) {
-            frsItemAcceleratorView.setBtnColor(up7Var.b());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dr7Var) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.setBtnColor(dr7Var.b());
             this.a.setBtnImgClickListener(new a(this));
             this.a.setBtnDescClickListener(new b(this));
         }
     }
 
-    public final void g(int i) {
+    public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new aj7(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new hk7(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);
@@ -137,7 +137,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void d() {
+    public void c() {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsItemAcceleratorView = this.a) != null) {
@@ -145,7 +145,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void e() {
+    public void d() {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (frsItemAcceleratorView = this.a) != null) {
@@ -153,7 +153,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void f() {
+    public void e() {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (frsItemAcceleratorView = this.a) != null) {

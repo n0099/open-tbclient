@@ -25,7 +25,7 @@ public class bo {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m299a(str));
+            messageDigest.update(m300a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException unused) {
             return str;
@@ -138,7 +138,7 @@ public class bo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m298a(String str) {
+    public static boolean m299a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -152,7 +152,7 @@ public class bo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m299a(String str) {
+    public static byte[] m300a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException unused) {
@@ -164,7 +164,7 @@ public class bo {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m299a(str));
+                messageDigest.update(m300a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;

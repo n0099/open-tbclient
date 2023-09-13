@@ -1,347 +1,146 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import tbclient.FrsPage.CoverImageColor;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.FrsPage.VideoImageColor;
 /* loaded from: classes5.dex */
-public class a25 implements h75 {
+public class a25 implements Comparable<a25> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public CoverImageColor c;
-    public List<VideoImageColor> d;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
     public String e;
     public String f;
     public String g;
     public String h;
-    public String i;
+    public boolean i;
     public String j;
     public String k;
-    public boolean l;
+    public String l;
     public String m;
-    public float n;
-    public List<String> o;
-    public bfa p;
+    public boolean n;
+    public int o;
+    public CardLinkInfoData p;
+    public int q;
 
-    /* loaded from: classes5.dex */
-    public class a implements Comparator<VideoImageColor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(a25 a25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a25Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(VideoImageColor videoImageColor, VideoImageColor videoImageColor2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, videoImageColor, videoImageColor2)) == null) {
-                return videoImageColor.time.intValue() - videoImageColor2.time.intValue();
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public a25() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public CoverImageColor b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (CoverImageColor) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bfa f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.p;
-        }
-        return (bfa) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h75
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h75
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public float k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.n;
-        }
-        return invokeV.floatValue;
-    }
-
-    public List<String> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.o;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<VideoImageColor> m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public a25(String str, String str2, String str3) {
+    public a25(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = str;
-        this.f = str2;
-        this.i = str3;
+        this.a = i;
+        this.b = i2;
+    }
+
+    public static a25 b(TbLinkSpanGroup tbLinkSpanGroup, vz7 vz7Var) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, vz7Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            a25 a25Var = new a25(tbLinkSpanGroup.e(), 2);
+            if (vz7Var == null) {
+                return a25Var;
+            }
+            if (TextUtils.isEmpty(vz7Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+            } else {
+                str = vz7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+            }
+            a25Var.d = str;
+            a25Var.c = vz7Var.c();
+            a25Var.m = vz7Var.a();
+            if (!ListUtils.isEmpty(vz7Var.b()) && vz7Var.b().get(0) != null) {
+                a25Var.e = vz7Var.b().get(0).a();
+            }
+            a25Var.l = vz7Var.f();
+            a25Var.f = vz7Var.d();
+            if (vz7Var.e() != null) {
+                a25Var.j = vz7Var.e().a();
+                a25Var.k = vz7Var.e().b();
+            }
+            tbLinkSpanGroup.B(a25Var);
+            return a25Var;
+        }
+        return (a25) invokeLL.objValue;
+    }
+
+    public static a25 c(TbLinkSpanGroup tbLinkSpanGroup, nb5 nb5Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, nb5Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            boolean z = true;
+            a25 a25Var = new a25(tbLinkSpanGroup.e(), 1);
+            if (nb5Var == null) {
+                return a25Var;
+            }
+            int i = nb5Var.b;
+            if (i == 4) {
+                CardLinkInfoData cardLinkInfoData = nb5Var.j;
+                if (cardLinkInfoData != null) {
+                    a25Var.p = cardLinkInfoData;
+                    a25Var.c = cardLinkInfoData.title;
+                    a25Var.e = cardLinkInfoData.imageUrl;
+                    a25Var.l = cardLinkInfoData.tagText;
+                    a25Var.g = cardLinkInfoData.url;
+                    a25Var.i = false;
+                    a25Var.o = i;
+                }
+            } else {
+                a25Var.p = nb5Var.j;
+                a25Var.c = nb5Var.e;
+                a25Var.e = nb5Var.d;
+                a25Var.l = nb5Var.f;
+                a25Var.f = nb5Var.g;
+                a25Var.g = nb5Var.c;
+                a25Var.n = nb5Var.h;
+                String str = nb5Var.i;
+                if (i != 1 && i != 5) {
+                    z = false;
+                }
+                a25Var.i = z;
+                a25Var.o = nb5Var.b;
+            }
+            tbLinkSpanGroup.B(a25Var);
+            return a25Var;
+        }
+        return (a25) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
     /* renamed from: a */
-    public a25 clone() {
-        InterceptResult invokeV;
+    public int compareTo(@NonNull a25 a25Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a25 a25Var = new a25();
-            a25Var.a = this.a;
-            a25Var.b = this.b;
-            a25Var.c = this.c;
-            a25Var.d = this.d;
-            a25Var.e = this.e;
-            a25Var.f = this.f;
-            a25Var.g = this.g;
-            a25Var.i = this.i;
-            a25Var.j = this.j;
-            a25Var.k = this.k;
-            a25Var.m = this.m;
-            a25Var.n = this.n;
-            a25Var.o = this.o;
-            a25Var.h = this.h;
-            return a25Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a25Var)) == null) {
+            return this.q - a25Var.q;
         }
-        return (a25) invokeV.objValue;
-    }
-
-    public void o(HeadImgs headImgs) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, headImgs) != null) || headImgs == null) {
-            return;
-        }
-        this.a = headImgs.cover_url;
-        this.b = headImgs.play_url;
-        this.c = headImgs.cover_image_color;
-        s(headImgs.video_image_color);
-        this.e = headImgs.img_url;
-        this.f = headImgs.pc_url;
-        this.g = headImgs.schema;
-        this.m = headImgs.tag_name_url;
-        this.h = headImgs.package_name;
-        String str = headImgs.tag_name_wh;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                int i = JavaTypesHelper.toInt(split[0], 1);
-                int i2 = JavaTypesHelper.toInt(split[1], 1);
-                if (i2 != 0) {
-                    this.n = i / i2;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        String str2 = headImgs.title;
-        if (str2 != null) {
-            this.i = str2.trim();
-        }
-        String str3 = headImgs.subtitle;
-        if (str3 != null) {
-            this.j = str3.trim();
-        }
-        String str4 = headImgs.btn_text;
-        if (str4 != null) {
-            this.k = str4.trim();
-        }
-        this.o = headImgs.third_statistics_url;
-        bfa bfaVar = new bfa();
-        this.p = bfaVar;
-        bfaVar.d(headImgs);
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void s(List<VideoImageColor> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048597, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList(list);
-        Collections.sort(arrayList, new a(this));
-        this.d = arrayList;
+        return invokeL.intValue;
     }
 }

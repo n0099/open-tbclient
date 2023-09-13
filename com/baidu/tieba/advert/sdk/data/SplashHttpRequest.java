@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.f86;
-import com.baidu.tieba.q76;
+import com.baidu.tieba.c96;
+import com.baidu.tieba.m86;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,17 +67,17 @@ public class SplashHttpRequest extends HttpMessage {
         }
         if (adInfo != null && context != null) {
             addParam("pid", adInfo.placeId);
-            addParam("ver", f86.b(context));
+            addParam("ver", c96.b(context));
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            addParam(SearchJsBridge.COOKIE_MOD, q76.c());
+            addParam(SearchJsBridge.COOKIE_MOD, m86.c());
             addParam("ot", 2);
-            addParam("ov", q76.d());
+            addParam("ov", m86.d());
             addParam(b.C, "1.1.4");
-            addParam("nt", q76.b(context).intValue());
+            addParam("nt", m86.b(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-            addParam(TbConfig.SW_APID, q76.f(context).intValue());
-            addParam("sh", q76.e(context).intValue());
-            addParam("imei", q76.a(context));
+            addParam(TbConfig.SW_APID, m86.f(context).intValue());
+            addParam("sh", m86.e(context).intValue());
+            addParam("imei", m86.a(context));
             addParam("fmt", "json");
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);

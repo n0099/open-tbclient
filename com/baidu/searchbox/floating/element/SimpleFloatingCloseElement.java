@@ -57,7 +57,7 @@ public class SimpleFloatingCloseElement extends AbsElement {
     public final ImageView initImageView() {
         ImageView imageView = new ImageView(getContext());
         imageView.setLayoutParams(new ViewGroup.LayoutParams(UtilsKt.floatingImageViewSize(imageView), UtilsKt.floatingImageViewSize(imageView)));
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f08026a);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f08026f);
         return imageView;
     }
 
@@ -105,8 +105,8 @@ public class SimpleFloatingCloseElement extends AbsElement {
         view2.setId(ViewCompat.generateViewId());
         view2.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         view2.setPadding(BdPlayerUtils.dp2px(view2, 4.0f), BdPlayerUtils.dp2px(view2, 1.0f), BdPlayerUtils.dp2px(view2, 4.0f), BdPlayerUtils.dp2px(view2, 1.0f));
-        view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080269);
-        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qn1
+        view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08026e);
+        view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.un1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

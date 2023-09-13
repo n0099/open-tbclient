@@ -1,44 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: TabBarLogic.java */
+import com.baidu.tieba.frs.mc.FrsModelController;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class cs7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface cs7 {
+    tr7 B1();
 
-    @NonNull
-    public static es7 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new ds7();
-        }
-        return (es7) invokeV.objValue;
-    }
+    fx7 G0();
 
-    @ColorInt
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return SkinManager.getColor(R.color.CAM_X0107);
-        }
-        return invokeV.intValue;
-    }
+    li7 N1();
 
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        }
-        return invokeV.intValue;
-    }
+    void b();
+
+    FrsModelController f1();
 }

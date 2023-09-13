@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.AutoChangeLineView;
+import com.baidu.tieba.write.write.work.selectview.SelectTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public class k8b {
+public final /* synthetic */ class k8b implements AutoChangeLineView.b {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ k8b a = new k8b();
     public transient /* synthetic */ FieldHolder $fh;
 
-    public k8b() {
+    private /* synthetic */ k8b() {
+    }
+
+    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
+    public final CharSequence a(TextView textView, int i, Object obj) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
+            String str = (String) obj;
+            SelectTagView.d(textView, i, str);
+            return str;
         }
+        return (CharSequence) invokeLIL.objValue;
     }
 }

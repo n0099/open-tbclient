@@ -1,55 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.adp.base.BdActivityStack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.wordscommand.WordCommandManager;
-import com.baidu.searchbox.wordscommand.data.CommandContent;
-import com.baidu.searchbox.wordscommand.listener.PictureCommandInvokeCallBack;
-import com.baidu.searchbox.wordscommand.runtime.IWordCommandApp;
-import com.baidu.tbadk.GrowthStatsUtil;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UsbAbTestConst;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class w5a implements IWordCommandApp {
+public final class w5a implements tc7, rc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public boolean canPreloadSwanApp(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rc7
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void getPictureCommandContent(String str, PictureCommandInvokeCallBack pictureCommandInvokeCallBack) {
+    @Override // com.baidu.tieba.tc7
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, pictureCommandInvokeCallBack) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void handlePreloadSwanApp() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK : (String) invokeV.objValue;
     }
 
     public w5a() {
@@ -62,57 +43,47 @@ public class w5a implements IWordCommandApp {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = true;
     }
 
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public boolean isMainProcess() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tc7
+    public Map<String, String> a(f87 businessInfo) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return TbadkCoreApplication.getInst().isMainProcess(false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public boolean isNewInstall() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return TbadkCoreApplication.getInst().getIsFirstUse();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void doOnShowParseCommandDialogWithPopupExclusion(Context context, CommandContent commandContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, commandContent) == null) {
-            WordCommandManager.getInstance().doOnShowParseCommandDialog(context, commandContent, null, null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.wordscommand.runtime.IWordCommandApp
-    public void schemeInvoke(String str) {
-        Uri parse;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy() || (parse = Uri.parse(str)) == null) {
-            return;
-        }
-        if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
-            if (!str.contains("tbwebview?url=https%3A") && !str.contains("tbwebview?url=http%3A")) {
-                str = str.replace("com.baidu.tieba://unidispatch/tbwebview?url=", "");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            String str2 = "";
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            String str3 = businessInfo.a().get("room_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_TO, str2);
+            if (this.a) {
+                str = "1";
             } else {
-                str = parse.getQueryParameter("url");
+                str = "0";
             }
+            hashMap.put("obj_param1", str);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_RECOMMEND_FEED_TEST);
+            return hashMap;
         }
-        Activity currentActivity = BdActivityStack.getInst().currentActivity();
-        if (currentActivity != null && (l9.a(currentActivity) instanceof TbPageContext)) {
-            UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(currentActivity), new String[]{str});
-            zt4.c(Uri.parse(str));
-            GrowthStatsUtil.statisticClipBoard(str);
+        return (Map) invokeL.objValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
         }
     }
 }

@@ -78,22 +78,22 @@ public final class JvmPackageScope implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2106getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2107getContributedClassifier(Name name, LookupLocation lookupLocation) {
         recordLookup(name, lookupLocation);
-        ClassDescriptor mo2106getContributedClassifier = this.javaScope.mo2106getContributedClassifier(name, lookupLocation);
-        if (mo2106getContributedClassifier != null) {
-            return mo2106getContributedClassifier;
+        ClassDescriptor mo2107getContributedClassifier = this.javaScope.mo2107getContributedClassifier(name, lookupLocation);
+        if (mo2107getContributedClassifier != null) {
+            return mo2107getContributedClassifier;
         }
         ClassifierDescriptor classifierDescriptor = null;
         for (MemberScope memberScope : getKotlinScopes()) {
-            ClassifierDescriptor mo2106getContributedClassifier2 = memberScope.mo2106getContributedClassifier(name, lookupLocation);
-            if (mo2106getContributedClassifier2 != null) {
-                if ((mo2106getContributedClassifier2 instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2106getContributedClassifier2).isExpect()) {
+            ClassifierDescriptor mo2107getContributedClassifier2 = memberScope.mo2107getContributedClassifier(name, lookupLocation);
+            if (mo2107getContributedClassifier2 != null) {
+                if ((mo2107getContributedClassifier2 instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2107getContributedClassifier2).isExpect()) {
                     if (classifierDescriptor == null) {
-                        classifierDescriptor = mo2106getContributedClassifier2;
+                        classifierDescriptor = mo2107getContributedClassifier2;
                     }
                 } else {
-                    return mo2106getContributedClassifier2;
+                    return mo2107getContributedClassifier2;
                 }
             }
         }

@@ -1,51 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.coreExtra.data.AudioInfoData;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class rb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public a b;
-    public pc5 c;
-    public String d;
-    public String e;
-    public List<b> f;
+    public ViewPager a;
+    public IndicatorView b;
+    public TextView c;
+    public BdBaseViewPagerAdapter d;
+    public tb5 e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public Context i;
+    public List<cn> j;
+    public ViewPager.OnPageChangeListener k;
+    public long l;
+    public final Handler.Callback m;
+    public final Handler n;
+    public ViewPager.OnPageChangeListener o;
 
     /* loaded from: classes7.dex */
-    public class a {
+    public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public oc5 c;
-        public NetWork d;
-        public boolean e;
-        public String f;
+        public final /* synthetic */ rb5 a;
 
-        public a(rb5 rb5Var, String str, oc5 oc5Var, String str2, String str3) {
+        public a(rb5 rb5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rb5Var, str, oc5Var, str2, str3};
+                Object[] objArr = {rb5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,153 +57,100 @@ public class rb5 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.e = false;
-            this.f = null;
-            this.a = str;
-            this.c = oc5Var;
-            this.b = str2;
-            this.f = str3;
+            this.a = rb5Var;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:44:0x00f6 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0111 A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public pc5 a() throws IOException {
-            InterceptResult invokeV;
-            int i;
-            boolean z;
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                pc5 pc5Var = new pc5();
-                long c = this.c.c();
-                long j = 30720;
-                long j2 = c / 30720;
-                if (c % 30720 != 0) {
-                    j2++;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what != 1) {
+                    return false;
                 }
-                int a = this.c.a();
-                if (a < j2) {
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.a), "r");
-                    int i2 = a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                    if (randomAccessFile.skipBytes(i2) >= i2) {
-                        while (true) {
-                            long j3 = a;
-                            if (j3 < j2) {
-                                long j4 = j2 - 1;
-                                if (j3 == j4) {
-                                    i = (int) (c - (j4 * j));
-                                } else {
-                                    i = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
-                                }
-                                byte[] bArr = new byte[i];
-                                int read = randomAccessFile.read(bArr, 0, i);
-                                if (read != -1) {
-                                    NetWork netWork = new NetWork(this.b);
-                                    this.d = netWork;
-                                    netWork.addPostData("voice_chunk", bArr);
-                                    this.d.addPostData("chunk_md5", this.c.b());
-                                    this.d.addPostData("length", String.valueOf(read));
-                                    this.d.addPostData("offset", String.valueOf(a * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                    this.d.addPostData("total_length", String.valueOf(c));
-                                    this.d.addPostData("chunk_no", String.valueOf(a + 1));
-                                    this.d.addPostData("total_num", String.valueOf(j2));
-                                    this.d.addPostData("voice_md5", this.f);
-                                    if (!this.e) {
-                                        if (this.d.postMultiNetData() != null && this.d.getNetContext().getResponse().isRequestSuccess()) {
-                                            z = false;
-                                            if (!z) {
-                                                pc5Var.f(this.d.getServerErrorCode());
-                                                pc5Var.g(this.d.getErrorString());
-                                                pc5Var.e(this.c);
-                                                pc5Var.h(false);
-                                                return pc5Var;
-                                            }
-                                        } else {
-                                            this.c.d(a);
-                                            ChunkUploadDatabaseService.saveChunkUploadData(this.c);
-                                            randomAccessFile.close();
-                                        }
-                                    }
-                                    z = true;
-                                    if (!z) {
-                                    }
-                                }
-                                a++;
-                                j = 30720;
-                            } else {
-                                randomAccessFile.close();
-                                break;
-                            }
-                        }
-                    } else {
-                        pc5Var.h(false);
-                        randomAccessFile.close();
-                        return pc5Var;
+                this.a.g();
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rb5 a;
+
+        public b(rb5 rb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rb5Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.k != null) {
+                    this.a.k.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.n();
+                } else if (i != 0 || (count = this.a.d.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
                     }
+                    this.a.m();
                 }
-                pc5Var.h(true);
-                return pc5Var;
             }
-            return (pc5) invokeV.objValue;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.e != null && this.a.e.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.e.c(i));
+                }
+                if (this.a.k != null) {
+                    this.a.k.onPageSelected(this.a.e.c(i));
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.k != null) {
+                this.a.k.onPageScrolled(i, f, i2);
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b(rb5 rb5Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rb5Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public rb5(String str, String str2) {
+    public rb5(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {context, viewPager, indicatorView, textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -211,115 +160,167 @@ public class rb5 {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.d = str;
-        this.e = str2;
+        this.f = false;
+        this.g = true;
+        this.h = 2;
+        this.j = new ArrayList();
+        this.l = 5000L;
+        this.m = new a(this);
+        this.n = new Handler(this.m);
+        this.o = new b(this);
+        h(context, viewPager, indicatorView, textView);
     }
 
-    public void a(String str, int i) {
+    public void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            this.f.add(new b(this, str, String.valueOf(i)));
-        }
-    }
-
-    public final long b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            int i = ((j % 30720) > 0L ? 1 : ((j % 30720) == 0L ? 0 : -1));
-            long j2 = j / 30720;
-            if (i != 0) {
-                return j2 + 1;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            return j2;
+            this.l = j;
         }
-        return invokeJ.longValue;
     }
 
-    public final String c(String str, oc5 oc5Var) {
-        InterceptResult invokeLL;
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, oc5Var)) == null) {
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + this.e);
-            this.a = netWork;
-            netWork.addPostData("voice_md5", oc5Var.b());
-            if (ListUtils.getCount(this.f) != 0) {
-                for (b bVar : this.f) {
-                    if (bVar != null) {
-                        this.a.addPostData(bVar.a(), bVar.b());
-                    }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.h = i;
+            tb5 tb5Var = this.e;
+            if (tb5Var != null) {
+                tb5Var.h(i);
+            }
+        }
+    }
+
+    public final void g() {
+        int count;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.d != null) {
+            l9 c = m9.c(this.i);
+            if ((c != null && c.isScroll()) || (count = this.d.getCount()) < 2) {
+                return;
+            }
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
+            } else {
+                this.a.setCurrentItem(currentItem + 1);
+            }
+        }
+    }
+
+    public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewPager, indicatorView, textView) == null) {
+            this.a = viewPager;
+            this.b = indicatorView;
+            this.c = textView;
+            this.i = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.d = bdBaseViewPagerAdapter;
+            ViewPager viewPager2 = this.a;
+            if (viewPager2 != null) {
+                viewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.o);
+            }
+        }
+    }
+
+    public void i(Context context, sb5<?, ?> sb5Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, sb5Var) == null) && (bdBaseViewPagerAdapter = this.d) != null) {
+            bdBaseViewPagerAdapter.g(context, sb5Var);
+        }
+    }
+
+    public void k(List<cn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.getCount(list) == 0) {
+            return;
+        }
+        this.j = list;
+        tb5 tb5Var = new tb5(list, this.f, this.h);
+        this.e = tb5Var;
+        tb5Var.i(2);
+        this.e.g(1);
+        this.d.h(this.e.e());
+        this.d.notifyDataSetChanged();
+        this.a.setCurrentItem(this.e.d(), false);
+        if (this.e.b() <= 0) {
+            return;
+        }
+        if (this.e.b() > this.h) {
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.c.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            } else {
+                IndicatorView indicatorView2 = this.b;
+                if (indicatorView2 != null && !this.f) {
+                    indicatorView2.setVisibility(8);
                 }
             }
-            String postNetData = this.a.postNetData();
-            if (postNetData != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                ChunkUploadDatabaseService.delChunkUploadData(str);
-                return postNetData;
-            }
-            oc5Var.d((int) b(oc5Var.c()));
-            ChunkUploadDatabaseService.saveChunkUploadData(oc5Var);
-            this.c.f(this.a.getServerErrorCode());
-            this.c.g(this.a.getErrorString());
-            this.c.h(false);
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final pc5 e(String str, File file) throws IOException {
-        InterceptResult invokeLL;
-        String c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, file)) == null) {
-            String b2 = ji.b(FileHelper.GetStreamFromFile(file));
-            if (b2 != null && b2.length() > 0) {
-                b2 = b2.toLowerCase();
-            }
-            oc5 chunkUploadDataByMd5 = ChunkUploadDatabaseService.getChunkUploadDataByMd5(b2);
-            if (chunkUploadDataByMd5 == null) {
-                chunkUploadDataByMd5 = new oc5();
-                chunkUploadDataByMd5.e(b2);
-                chunkUploadDataByMd5.d(0);
-                chunkUploadDataByMd5.f(file.length());
-            }
-            oc5 oc5Var = chunkUploadDataByMd5;
-            a aVar = new a(this, str, oc5Var, TbConfig.SERVER_ADDRESS + this.d, b2);
-            this.b = aVar;
-            pc5 a2 = aVar.a();
-            this.c = a2;
-            if (a2.d() && (c = c(b2, oc5Var)) != null && !c.equals("")) {
-                AudioInfoData audioInfoData = new AudioInfoData();
-                audioInfoData.parserJson(c);
-                if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                    oc5Var.e(audioInfoData.getVoiceId());
-                    this.c.e(oc5Var);
-                } else {
-                    this.c.f(audioInfoData.getErrorCode());
-                    this.c.g(audioInfoData.getErrorUserMsg());
-                    this.c.h(false);
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
+                int count = this.b.getCount();
+                int i = this.h;
+                if (count != i) {
+                    this.b.setCount(i);
                 }
             }
-            return this.c;
+            m();
         }
-        return (pc5) invokeLL.objValue;
+        if (this.e.b() >= 2 && this.e.b() <= this.h) {
+            TextView textView2 = this.c;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView4 = this.b;
+            if (indicatorView4 != null) {
+                indicatorView4.setVisibility(0);
+                if (this.b.getCount() != this.e.b()) {
+                    this.b.setCount(this.e.b());
+                }
+            }
+            m();
+        }
+        if (this.e.b() < 2) {
+            TextView textView3 = this.c;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView5 = this.b;
+            if (indicatorView5 != null) {
+                indicatorView5.setVisibility(8);
+            }
+            n();
+        }
     }
 
-    public pc5 d(String str) {
-        InterceptResult invokeL;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    return null;
-                }
-                this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.d);
-                return e(str, file);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.g) {
+                this.n.removeMessages(1);
+                this.n.sendEmptyMessageDelayed(1, this.l);
+                return;
             }
+            this.n.removeMessages(1);
         }
-        return (pc5) invokeL.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.n.removeMessages(1);
+        }
     }
 }

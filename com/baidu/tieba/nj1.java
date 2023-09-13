@@ -1,42 +1,25 @@
 package com.baidu.tieba;
 
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class nj1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nj1 {
+    void a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948004276, "Lcom/baidu/tieba/nj1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948004276, "Lcom/baidu/tieba/nj1;");
-        }
-    }
+    void b(String str);
 
-    public static void a(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
-    }
+    boolean c(String str);
 
-    public static void b(@NonNull tj1 tj1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, tj1Var) == null) {
-            a = tj1Var.d;
-        }
-    }
+    void d();
+
+    void e(yl1 yl1Var);
+
+    void f();
+
+    @NonNull
+    ViewGroup g();
+
+    void onAdShow();
+
+    void onSkip();
 }

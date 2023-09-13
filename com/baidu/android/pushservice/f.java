@@ -16,6 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.util.Utility;
+import com.baidu.searchbox.dns.stratege.DnsStrategy;
 import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
@@ -204,7 +205,7 @@ public class f {
         this.j = new b(this);
         this.f = new Handler(context.getMainLooper());
         this.e = context.getApplicationContext();
-        this.a = 180000;
+        this.a = DnsStrategy.Factory.PRE_FETCH_INTERVAL;
     }
 
     public static f a(Context context) {

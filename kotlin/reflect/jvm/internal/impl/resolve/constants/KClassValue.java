@@ -134,14 +134,14 @@ public final class KClassValue extends ConstantValue<Value> {
                 Intrinsics.checkExpressionValueIsNotNull(kotlinType2, "type.arguments.single().type");
                 i++;
             }
-            ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType2.getConstructor().mo2104getDeclarationDescriptor();
-            if (mo2104getDeclarationDescriptor instanceof ClassDescriptor) {
-                ClassId classId = DescriptorUtilsKt.getClassId(mo2104getDeclarationDescriptor);
+            ClassifierDescriptor mo2105getDeclarationDescriptor = kotlinType2.getConstructor().mo2105getDeclarationDescriptor();
+            if (mo2105getDeclarationDescriptor instanceof ClassDescriptor) {
+                ClassId classId = DescriptorUtilsKt.getClassId(mo2105getDeclarationDescriptor);
                 if (classId != null) {
                     return new KClassValue(classId, i);
                 }
                 return new KClassValue(new Value.LocalClass(kotlinType));
-            } else if (!(mo2104getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+            } else if (!(mo2105getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
                 return null;
             } else {
                 ClassId classId2 = ClassId.topLevel(KotlinBuiltIns.FQ_NAMES.any.toSafe());

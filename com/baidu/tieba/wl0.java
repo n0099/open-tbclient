@@ -1,129 +1,57 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.net.util.NetUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class wl0 extends Handler {
+public class wl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, WeakReference<xl0>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hl0 a;
-    public float b;
-    public final float c;
-    public final float d;
-    public final float e;
-    public boolean f;
 
-    public wl0(@NonNull hl0 hl0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hl0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948274286, "Lcom/baidu/tieba/wl0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948274286, "Lcom/baidu/tieba/wl0;");
                 return;
             }
         }
-        this.b = -1.0f;
-        this.f = false;
-        this.c = (float) tn0.b().a().b("nad_fake_progress", 0.5950000286102295d);
-        this.b = (float) tn0.b().a().b("nad_fake_max_progress_time", 0.0d);
-        this.d = (float) tn0.b().a().b("nad_fake_speed", 768000.0d);
-        this.e = (float) tn0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
-        this.a = hl0Var;
+        a = new HashMap();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    public static xl0 a(@NonNull il0 il0Var) {
+        InterceptResult invokeL;
+        xl0 xl0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
-            super.handleMessage(message);
-            if (message.what != 1) {
-                d();
-            } else if (this.a.q.g == 1) {
-                this.f = false;
-            } else if (!NetUtil.a(sj0.b())) {
-                d();
-            } else {
-                hl0 hl0Var = this.a;
-                if (hl0Var.c != AdDownloadStatus.DOWNLOADING) {
-                    d();
-                    return;
-                }
-                float f = hl0Var.j;
-                if (f >= this.c) {
-                    d();
-                    return;
-                }
-                this.f = true;
-                hl0Var.j = Math.max(hl0Var.i, f) + this.e;
-                uk0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
-                c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, il0Var)) == null) {
+            WeakReference<xl0> weakReference = a.get(il0Var.e());
+            if (weakReference == null || (xl0Var = weakReference.get()) == null) {
+                xl0 xl0Var2 = new xl0(il0Var);
+                a.put(il0Var.e(), new WeakReference<>(xl0Var2));
+                return xl0Var2;
             }
+            return xl0Var;
         }
+        return (xl0) invokeL.objValue;
     }
 
-    public void a() {
+    public static void b(@NonNull il0 il0Var) {
+        WeakReference<xl0> remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(false);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            removeMessages(1);
-            this.f = false;
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.f && !z) {
-                return;
-            }
-            d();
-            long j = this.a.q.e;
-            if (j > 0) {
-                float f = this.d;
-                if (f > 0.0f) {
-                    this.b = (((float) j) * this.c) / f;
-                }
-            }
-            if (this.b <= 0.0f) {
-                this.f = false;
-            } else if (this.e <= 0.0f) {
-                this.f = false;
-            } else {
-                this.f = true;
-                Message obtain = Message.obtain();
-                obtain.what = 1;
-                sendMessage(obtain);
-            }
+        if ((interceptable == null || interceptable.invokeL(65538, null, il0Var) == null) && (remove = a.remove(il0Var.e())) != null) {
+            remove.clear();
         }
     }
 }

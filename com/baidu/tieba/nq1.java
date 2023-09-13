@@ -1,77 +1,122 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public final class nq1 {
+public class nq1 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b;
+    public static nq1 b = null;
+    public static int c = Integer.MAX_VALUE;
+    public static long d = 120;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadPoolExecutor a;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                mq1.d(th);
+    /* loaded from: classes7.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(nq1 nq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            a = wo1.g(context).F();
-            return a;
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (Pattern.matches("cpu[0-9]", file.getName())) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public nq1() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(b)) {
-                    return b;
-                }
-                String c = c(context);
-                b = c;
-                if (!TextUtils.isEmpty(c)) {
-                    return b;
-                }
-                String a2 = new zo1(context).a();
-                b = a2;
-                if (!TextUtils.isEmpty(a2)) {
-                    return b;
-                }
-                return "";
-            } catch (Throwable th) {
-                mq1.d(th);
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        int a2 = (a() / 2) + 2;
+        if (a2 > 3) {
+            i = 3;
+        } else {
+            i = a2;
+        }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, c, d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.setThreadFactory(new mq1());
+        this.a.allowCoreThreadTimeOut(true);
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
+    public static nq1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
-                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
-                if (invoke == null) {
-                    return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (nq1.class) {
+                if (b == null) {
+                    b = new nq1();
                 }
-                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
-            } catch (Throwable th) {
-                mq1.d(th);
-                return "";
+            }
+            return b;
+        }
+        return (nq1) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return new File("/sys/devices/system/cpu/").listFiles(new a(this)).length;
+            } catch (Throwable unused) {
+                return 2;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public void b(jq1 jq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jq1Var) == null) {
+            try {
+                this.a.execute(jq1Var);
+            } catch (Throwable th) {
+                qq1.d(th);
+            }
+        }
     }
 }

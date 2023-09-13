@@ -12,22 +12,22 @@ public class fu implements fy {
 
     @Override // com.xiaomi.push.fy
     public void a(fv fvVar) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f404a.format(new Date()) + " Connection started (" + this.a.f401a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f403a.format(new Date()) + " Connection started (" + this.a.f400a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     @Override // com.xiaomi.push.fy
     public void a(fv fvVar, int i, Exception exc) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f404a.format(new Date()) + " Connection closed (" + this.a.f401a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f403a.format(new Date()) + " Connection closed (" + this.a.f400a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 
     @Override // com.xiaomi.push.fy
     public void a(fv fvVar, Exception exc) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f404a.format(new Date()) + " Reconnection failed due to an exception (" + this.a.f401a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f403a.format(new Date()) + " Reconnection failed due to an exception (" + this.a.f400a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
         exc.printStackTrace();
     }
 
     @Override // com.xiaomi.push.fy
     public void b(fv fvVar) {
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f404a.format(new Date()) + " Connection reconnected (" + this.a.f401a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + this.a.f403a.format(new Date()) + " Connection reconnected (" + this.a.f400a.hashCode() + SmallTailInfo.EMOTION_SUFFIX);
     }
 }

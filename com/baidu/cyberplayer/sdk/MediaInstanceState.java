@@ -9,82 +9,85 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
+    public static final int INSTANCE_STATE_IDLE = -1;
     public static final int INSTANCE_STATE_INACTIVE = 0;
-    public Map<String, String> A;
-    public CyberPlayerManager.OnPreparedListener a;
-    public CyberPlayerManager.OnCompletionListener b;
-    public CyberPlayerManager.OnBufferingUpdateListener c;
-    public CyberPlayerManager.OnSeekCompleteListener d;
-    public CyberPlayerManager.OnVideoSizeChangedListener e;
-    public CyberPlayerManager.OnInfoListener f;
-    public CyberPlayerManager.OnMediaSourceChangedListener g;
-    public Surface h;
-    public CyberPlayerManager.HttpDNS i;
-    public Uri z;
-    public int j = -1;
-    public int k = 0;
-    public float l = -1.0f;
-    public float m = -1.0f;
-    public long n = 0;
-    public long o = 0;
-    public int p = 0;
-    public Context q = null;
-    public boolean r = false;
-    public boolean s = false;
-    public boolean t = false;
-    public int u = 0;
-    public boolean v = false;
-    public int w = -1;
-    public int x = 0;
-    public int y = 0;
-    public int B = Integer.MIN_VALUE;
-    public CyberPlayerManager.MediaSourceSwitchMode C = CyberPlayerManager.MediaSourceSwitchMode.MEDIASOURCE_SWITCH_ABR_MODE;
-    public String D = null;
-    public String E = null;
+    public static final int PLAY_LOOPED = 1;
+    public static final int PLAY_MUTED = 0;
+    public CyberPlayerManager.HttpDNS mDns;
+    public Map<String, String> mHeader;
+    public CyberPlayerManager.OnBufferingUpdateListener mOnBufferingUpdateListener;
+    public CyberPlayerManager.OnCompletionListener mOnCompletionListener;
+    public CyberPlayerManager.OnInfoListener mOnInfoListener;
+    public CyberPlayerManager.OnMediaSourceChangedListener mOnMediaSourceChangedListener;
+    public CyberPlayerManager.OnPreparedListener mOnPreparedListener;
+    public CyberPlayerManager.OnSeekCompleteListener mOnSeekCompleteListener;
+    public CyberPlayerManager.OnVideoSizeChangedListener mOnVideoSizeChangeListener;
+    public Surface mSurface;
+    public Uri mUri;
+    public int mSeekWhenPrepared = -1;
+    public int mDuration = 0;
+    public float mLeftVolume = -1.0f;
+    public float mRightVolume = -1.0f;
+    public long mPlayedTime = 0;
+    public long mDownLoadSpeed = 0;
+    public int mDecoderMode = 0;
+    public Context mContext = null;
+    public boolean mIsMuted = false;
+    public boolean mIsLooped = false;
+    public boolean mIsPlaying = false;
+    public int mDecodeMode = 0;
+    public boolean mRemote = false;
+    public int mCurrentInstanceState = -1;
+    public int mInstanceDestroyCount = 0;
+    public int mInstanceResumeCount = 0;
+    public int mMediaSourceSwitchRank = Integer.MIN_VALUE;
+    public CyberPlayerManager.MediaSourceSwitchMode mMediaSourceSwitchMode = CyberPlayerManager.MediaSourceSwitchMode.MEDIASOURCE_SWITCH_ABR_MODE;
+    public String mClarityInfo = null;
+    public String mPlayJson = null;
 
     public CyberPlayerManager.HttpDNS dns() {
-        return this.i;
+        return this.mDns;
     }
 
     public String getClarityInfo() {
-        return this.D;
+        return this.mClarityInfo;
     }
 
     public int getCurrentPosition() {
-        return this.j;
+        return this.mSeekWhenPrepared;
     }
 
     public int getDecoderMode() {
-        return this.p;
+        return this.mDecoderMode;
     }
 
     public long getDownLoadSpeed() {
-        return this.o;
+        return this.mDownLoadSpeed;
     }
 
     public int getDuration() {
-        return this.k;
+        return this.mDuration;
     }
 
     public Context getInstanceContext() {
-        return this.q;
+        return this.mContext;
     }
 
     public Map<String, String> getInstanceHeader() {
-        return this.A;
+        return this.mHeader;
     }
 
     public Surface getInstanceSurface() {
-        return this.h;
+        return this.mSurface;
     }
 
     public Uri getInstanceUri() {
-        return this.z;
+        return this.mUri;
     }
 
     public float getLRVolume() {
-        float f = this.l;
-        float f2 = this.m;
+        float f = this.mLeftVolume;
+        float f2 = this.mRightVolume;
         if (f <= f2) {
             return f2;
         }
@@ -92,192 +95,192 @@ public class MediaInstanceState {
     }
 
     public CyberPlayerManager.MediaSourceSwitchMode getMediaSourceSwitchMode() {
-        return this.C;
+        return this.mMediaSourceSwitchMode;
     }
 
     public int getMediaSourceSwitchRank() {
-        return this.B;
+        return this.mMediaSourceSwitchRank;
     }
 
     public CyberPlayerManager.OnBufferingUpdateListener getOnBufferingUpdateListener() {
-        return this.c;
+        return this.mOnBufferingUpdateListener;
     }
 
     public CyberPlayerManager.OnCompletionListener getOnCompletionListener() {
-        return this.b;
+        return this.mOnCompletionListener;
     }
 
     public CyberPlayerManager.OnInfoListener getOnInfoListener() {
-        return this.f;
+        return this.mOnInfoListener;
     }
 
     public CyberPlayerManager.OnMediaSourceChangedListener getOnMediaSourceChangedListener() {
-        return this.g;
+        return this.mOnMediaSourceChangedListener;
     }
 
     public CyberPlayerManager.OnPreparedListener getOnPreparedListener() {
-        return this.a;
+        return this.mOnPreparedListener;
     }
 
     public CyberPlayerManager.OnSeekCompleteListener getOnSeekCompleteListener() {
-        return this.d;
+        return this.mOnSeekCompleteListener;
     }
 
     public CyberPlayerManager.OnVideoSizeChangedListener getOnVideoSizeChangedListener() {
-        return this.e;
+        return this.mOnVideoSizeChangeListener;
     }
 
     public String getPlayJson() {
-        return this.E;
+        return this.mPlayJson;
     }
 
     public long getPlayedTime() {
-        return this.n;
+        return this.mPlayedTime;
     }
 
     public boolean getPlayingStatus() {
-        return this.t;
+        return this.mIsPlaying;
     }
 
     public boolean isRemote() {
-        return this.v;
+        return this.mRemote;
     }
 
     public boolean needActiveInstance() {
-        if (this.w == 0) {
+        if (this.mCurrentInstanceState == 0) {
             return true;
         }
         return false;
     }
 
     public void release() {
-        this.a = null;
-        this.f = null;
-        this.d = null;
-        this.c = null;
-        this.e = null;
-        this.a = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.A = null;
-        this.z = null;
+        this.mOnPreparedListener = null;
+        this.mOnInfoListener = null;
+        this.mOnSeekCompleteListener = null;
+        this.mOnBufferingUpdateListener = null;
+        this.mOnVideoSizeChangeListener = null;
+        this.mOnPreparedListener = null;
+        this.mOnMediaSourceChangedListener = null;
+        this.mSurface = null;
+        this.mDns = null;
+        this.mHeader = null;
+        this.mUri = null;
     }
 
     public int getInstanceStaticsCount(boolean z) {
         if (z) {
-            int i = this.x + 1;
-            this.x = i;
+            int i = this.mInstanceDestroyCount + 1;
+            this.mInstanceDestroyCount = i;
             return i;
         }
-        int i2 = this.y + 1;
-        this.y = i2;
+        int i2 = this.mInstanceResumeCount + 1;
+        this.mInstanceResumeCount = i2;
         return i2;
     }
 
     public boolean getPlayStateByType(int i) {
         if (i == 0) {
-            return this.r;
+            return this.mIsMuted;
         }
         if (i == 1) {
-            return this.s;
+            return this.mIsLooped;
         }
         return false;
     }
 
     public void setClarityInfo(String str) {
-        this.D = str;
+        this.mClarityInfo = str;
     }
 
     public void setOnBufferingUpdateListener(CyberPlayerManager.OnBufferingUpdateListener onBufferingUpdateListener) {
-        this.c = onBufferingUpdateListener;
+        this.mOnBufferingUpdateListener = onBufferingUpdateListener;
     }
 
     public void setOnCompletionListener(CyberPlayerManager.OnCompletionListener onCompletionListener) {
-        this.b = onCompletionListener;
+        this.mOnCompletionListener = onCompletionListener;
     }
 
     public void setOnInfoListener(CyberPlayerManager.OnInfoListener onInfoListener) {
-        this.f = onInfoListener;
+        this.mOnInfoListener = onInfoListener;
     }
 
     public void setOnMediaSourceChangedListener(CyberPlayerManager.OnMediaSourceChangedListener onMediaSourceChangedListener) {
-        this.g = onMediaSourceChangedListener;
+        this.mOnMediaSourceChangedListener = onMediaSourceChangedListener;
     }
 
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.a = onPreparedListener;
+        this.mOnPreparedListener = onPreparedListener;
     }
 
     public void setOnSeekCompleteListener(CyberPlayerManager.OnSeekCompleteListener onSeekCompleteListener) {
-        this.d = onSeekCompleteListener;
+        this.mOnSeekCompleteListener = onSeekCompleteListener;
     }
 
     public void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener) {
-        this.e = onVideoSizeChangedListener;
+        this.mOnVideoSizeChangeListener = onVideoSizeChangedListener;
     }
 
     public void setPlayJson(String str) {
-        this.E = str;
+        this.mPlayJson = str;
     }
 
     public void updateDecoderMode(int i) {
-        this.p = i;
+        this.mDecoderMode = i;
     }
 
     public void updateDns(CyberPlayerManager.HttpDNS httpDNS) {
-        this.i = httpDNS;
+        this.mDns = httpDNS;
     }
 
     public void updateDownLoadSpeed(long j) {
-        this.o = j;
+        this.mDownLoadSpeed = j;
     }
 
     public void updateInstanceState(int i) {
-        this.w = i;
+        this.mCurrentInstanceState = i;
     }
 
     public void updatePlayedTime(long j) {
-        this.n = j;
+        this.mPlayedTime = j;
     }
 
     public void updatePlayingStatus(boolean z) {
-        this.t = z;
+        this.mIsPlaying = z;
     }
 
     public void updateRemote(boolean z) {
-        this.v = z;
+        this.mRemote = z;
     }
 
     public void updateSurface(Surface surface) {
-        this.h = surface;
+        this.mSurface = surface;
     }
 
     public void setMediaSourceSwitchInfo(int i, CyberPlayerManager.MediaSourceSwitchMode mediaSourceSwitchMode) {
-        this.C = mediaSourceSwitchMode;
-        this.B = i;
+        this.mMediaSourceSwitchMode = mediaSourceSwitchMode;
+        this.mMediaSourceSwitchRank = i;
     }
 
     public void updatePlayStateByType(int i, boolean z) {
         if (i == 0) {
-            this.r = z;
+            this.mIsMuted = z;
         } else if (i == 1) {
-            this.s = z;
+            this.mIsLooped = z;
         }
     }
 
     public void updateSeekPos(int i, int i2) {
         if (i >= i2 - 100) {
-            this.j = 0;
+            this.mSeekWhenPrepared = 0;
         } else {
-            this.j = i;
+            this.mSeekWhenPrepared = i;
         }
-        this.k = i2;
+        this.mDuration = i2;
     }
 
     public void updateDataSource(Context context, Uri uri, Map<String, String> map) {
-        this.q = context;
-        this.z = uri;
-        this.A = map;
+        this.mContext = context;
+        this.mUri = uri;
+        this.mHeader = map;
     }
 }

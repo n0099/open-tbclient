@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tieba.kx1;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public interface ix1<T extends kx1> extends lx1<T> {
-    void D();
+public interface ix1 {
+    qx1 a(Context context);
 
-    void E(ViewGroup viewGroup);
+    mx1 b(Context context);
 
-    void F(View view2);
+    qx1 c(Context context);
 
-    void O(boolean z);
+    cd2 d();
 
-    void T();
+    nx1 e(Context context, int i);
 
-    void e0(String str, String str2);
+    qx1 f(Context context);
+
+    qx1 g(Context context);
+
+    dd2 h(Context context, int i);
+
+    qx1 i(Context context);
+
+    boolean j(int i);
 }

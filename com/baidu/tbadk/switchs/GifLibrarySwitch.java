@@ -33,7 +33,7 @@ public class GifLibrarySwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ve
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.ioc.IDownloadDownloadCenter;
 import com.baidu.searchbox.download.unified.DownloadParams;
-import com.baidu.tieba.a20;
+import com.baidu.tieba.b20;
 /* loaded from: classes3.dex */
 public class DownloadMessageSender {
     public static final boolean DEBUG = AppConfig.isDebug();
@@ -16,14 +16,14 @@ public class DownloadMessageSender {
         if (DEBUG) {
             Log.e(TAG, "logDownloadStart 手百下载失败 fileName=" + str + "\\n mimeType=" + str2 + "\\n status=" + i + "\\n url=" + str3 + "\\n referer=" + str4 + "\\n redirectCount=" + i2 + "\\n countRetry=" + z + "\\nextraInfo=" + str5);
         }
-        a20.m(str, str2, i, str3, str4, i2, z, str5);
+        b20.m(str, str2, i, str3, str4, i2, z, str5);
     }
 
     public static void logDownloadStart(String str, String str2, String str3) {
         if (DEBUG) {
             Log.e(TAG, "logDownloadStart 开始下载的fileName=" + str);
         }
-        a20.v(str, str2, str3);
+        b20.v(str, str2, str3);
     }
 
     public static void sendBeginMessage(String str, DownloadParams downloadParams) {

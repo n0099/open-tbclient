@@ -22,10 +22,10 @@ public final class AsyncLayoutInflater {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             InflateRequest inflateRequest = (InflateRequest) message.obj;
-            if (inflateRequest.f1027view == null) {
-                inflateRequest.f1027view = AsyncLayoutInflater.this.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
+            if (inflateRequest.f1026view == null) {
+                inflateRequest.f1026view = AsyncLayoutInflater.this.mInflater.inflate(inflateRequest.resid, inflateRequest.parent, false);
             }
-            inflateRequest.callback.onInflateFinished(inflateRequest.f1027view, inflateRequest.resid, inflateRequest.parent);
+            inflateRequest.callback.onInflateFinished(inflateRequest.f1026view, inflateRequest.resid, inflateRequest.parent);
             AsyncLayoutInflater.this.mInflateThread.releaseRequest(inflateRequest);
             return true;
         }
@@ -41,7 +41,7 @@ public final class AsyncLayoutInflater {
         public int resid;
 
         /* renamed from: view  reason: collision with root package name */
-        public View f1027view;
+        public View f1026view;
     }
 
     /* loaded from: classes.dex */
@@ -84,7 +84,7 @@ public final class AsyncLayoutInflater {
             try {
                 InflateRequest take = this.mQueue.take();
                 try {
-                    take.f1027view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
+                    take.f1026view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
                 } catch (RuntimeException e) {
                     Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e);
                 }
@@ -107,7 +107,7 @@ public final class AsyncLayoutInflater {
             inflateRequest.inflater = null;
             inflateRequest.parent = null;
             inflateRequest.resid = 0;
-            inflateRequest.f1027view = null;
+            inflateRequest.f1026view = null;
             this.mRequestPool.release(inflateRequest);
         }
     }

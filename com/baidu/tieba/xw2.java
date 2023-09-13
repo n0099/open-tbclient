@@ -1,64 +1,123 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class xw2 implements uw2 {
+public class xw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<WeakReference<ww2>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public li2 a;
 
-    public xw2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314710, "Lcom/baidu/tieba/xw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948314710, "Lcom/baidu/tieba/xw2;");
+                return;
+            }
+        }
+        a = new ArrayList();
+    }
+
+    public static void a(px1 px1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, px1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ww2 ww2Var = a.get(size).get();
+                if (ww2Var == null) {
+                    a.remove(size);
+                } else {
+                    ww2Var.d(px1Var);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.uw2
-    public void onPause() {
+    public static void b(px1 px1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            li2 li2Var = this.a;
-            if (li2Var != null) {
-                li2Var.suspendTimer();
+        if (interceptable == null || interceptable.invokeL(65538, null, px1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ww2 ww2Var = a.get(size).get();
+                if (ww2Var == null) {
+                    a.remove(size);
+                } else {
+                    ww2Var.b(px1Var);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.uw2
-    public void onResume() {
+    public static void c(px1 px1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            li2 li2Var = this.a;
-            if (li2Var != null) {
-                li2Var.continueTimer();
+        if (interceptable == null || interceptable.invokeL(65539, null, px1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ww2 ww2Var = a.get(size).get();
+                if (ww2Var == null) {
+                    a.remove(size);
+                } else {
+                    ww2Var.c(px1Var);
+                }
             }
         }
     }
 
-    public final void a() {
-        zc2 W;
+    public static void d(px1 px1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            li2 li2Var = this.a;
-            if ((li2Var == null || li2Var.isDestroyed()) && (W = xh2.U().W()) != null && (W.d() instanceof li2)) {
-                this.a = (li2) W.d();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, px1Var) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                ww2 ww2Var = a.get(size).get();
+                if (ww2Var == null) {
+                    a.remove(size);
+                } else {
+                    ww2Var.a(px1Var);
+                }
             }
+        }
+    }
+
+    public static void f(ww2 ww2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, ww2Var) != null) || ww2Var == null) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ww2 ww2Var2 = a.get(size).get();
+            if (ww2Var2 == null || ww2Var == ww2Var2) {
+                a.remove(size);
+            }
+        }
+    }
+
+    public static void e(ww2 ww2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, ww2Var) != null) || ww2Var == null) {
+            return;
+        }
+        boolean z = false;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            ww2 ww2Var2 = a.get(size).get();
+            if (ww2Var2 == null) {
+                a.remove(size);
+            } else if (ww2Var2 == ww2Var) {
+                z = true;
+            } else {
+                z = false;
+            }
+        }
+        if (!z) {
+            a.add(new WeakReference<>(ww2Var));
         }
     }
 }

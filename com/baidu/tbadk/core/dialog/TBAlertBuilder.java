@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.l55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class TBAlertBuilder {
     public AlertDialog dialog;
     public View.OnClickListener dismissClick;
     public boolean hasCreated;
-    public f55 mTBAlertWidget;
+    public l55 mTBAlertWidget;
     public LinearLayout mainLayout;
     public boolean needTransparentBg;
     public boolean operateBtnAutoClose;
@@ -187,7 +187,7 @@ public class TBAlertBuilder {
         this.descMovementMethod = ScrollingMovementMethod.getInstance();
         this.activity = activity;
         this.builder = new AlertDialog.Builder(activity);
-        this.mTBAlertWidget = new f55();
+        this.mTBAlertWidget = new l55();
     }
 
     public static void handleDialogBackground(@NonNull Dialog dialog) {
@@ -453,17 +453,17 @@ public class TBAlertBuilder {
             this.mainLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             changeMainLayoutView(this.mainLayout, this.needTransparentBg);
             if (!TextUtils.isEmpty(this.titleStr)) {
-                TextView m = this.mTBAlertWidget.m(this.activity);
-                m.setText(this.titleStr);
-                m.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-                this.mainLayout.addView(m);
+                TextView o = this.mTBAlertWidget.o(this.activity);
+                o.setText(this.titleStr);
+                o.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
+                this.mainLayout.addView(o);
                 CharSequence charSequence = this.subTitleStr;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
-                    m.setPadding(m.getPaddingLeft(), m.getPaddingTop(), m.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView m2 = this.mTBAlertWidget.m(this.activity);
-                    m2.setText(this.subTitleStr);
-                    m2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
-                    this.mainLayout.addView(m2);
+                    o.setPadding(o.getPaddingLeft(), o.getPaddingTop(), o.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+                    TextView o2 = this.mTBAlertWidget.o(this.activity);
+                    o2.setText(this.subTitleStr);
+                    o2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
+                    this.mainLayout.addView(o2);
                 }
             }
             if (!TextUtils.isEmpty(this.descStr)) {
@@ -472,7 +472,7 @@ public class TBAlertBuilder {
                 TextView c2 = this.mTBAlertWidget.c(this.activity, this.descLightStyle);
                 c2.setText(this.descStr);
                 c2.setGravity(this.descGravity);
-                c2.setId(R.id.obfuscated_res_0x7f090886);
+                c2.setId(R.id.obfuscated_res_0x7f09087d);
                 c2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 c2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 c2.setMovementMethod(this.descMovementMethod);
@@ -480,7 +480,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.activity);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090886);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f09087d);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.mainLayout.addView(relativeLayout);
@@ -498,7 +498,7 @@ public class TBAlertBuilder {
                 if (this.operateBtnAutoClose) {
                     this.dismissClick = new b(this);
                 }
-                this.mainLayout.addView(this.mTBAlertWidget.k(this.activity, this.operateConfig, this.dismissClick));
+                this.mainLayout.addView(this.mTBAlertWidget.l(this.activity, this.operateConfig, this.dismissClick));
             }
             linearLayout.addView(this.mainLayout, new ViewGroup.LayoutParams(-1, -2));
             if (this.showBottomCloseBtn) {
@@ -540,7 +540,7 @@ public class TBAlertBuilder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             changeMainLayoutView(this.mainLayout, this.needTransparentBg);
-            this.mTBAlertWidget.h();
+            this.mTBAlertWidget.i();
         }
     }
 

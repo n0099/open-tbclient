@@ -5,12 +5,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xx5<E> {
+public abstract class xx5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public E b;
-    public xx5<E> c;
+
+    public abstract T doInBackground();
 
     public xx5() {
         Interceptable interceptable = $ic;

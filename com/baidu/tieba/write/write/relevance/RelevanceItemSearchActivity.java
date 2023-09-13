@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.dt5;
+import com.baidu.tieba.xt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void C1() {
+    public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -41,7 +41,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public RelevanceItemSearchView F1() {
+    public RelevanceItemSearchView G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -62,7 +62,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public boolean G1(View view2, MotionEvent motionEvent) {
+    public boolean H1(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
@@ -91,7 +91,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
                 View currentFocus = getCurrentFocus();
-                if (G1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+                if (H1(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
                     inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
                 }
                 return super.dispatchTouchEvent(motionEvent);
@@ -105,7 +105,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public dt5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public xt5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, linearLayout, navigationBar)) == null) {
@@ -113,6 +113,6 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.k = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (dt5) invokeLL.objValue;
+        return (xt5) invokeLL.objValue;
     }
 }

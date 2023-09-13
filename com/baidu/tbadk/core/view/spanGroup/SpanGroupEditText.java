@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k9;
-import com.baidu.tieba.ly7;
-import com.baidu.tieba.v15;
-import com.baidu.tieba.xa5;
+import com.baidu.tieba.a25;
+import com.baidu.tieba.hb5;
+import com.baidu.tieba.l9;
+import com.baidu.tieba.vz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -149,10 +149,21 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
+        public boolean finishComposingText() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                sendKeyEvent(new KeyEvent(0, 6));
+                return super.finishComposingText();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
                 if (this.a.c != null && this.a.c.onKey(this.a, keyEvent.getKeyCode(), keyEvent)) {
                     return true;
                 }
@@ -226,8 +237,8 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
         this.a = EDIT_TEXT_TYPE.TYPE_DEFAULT;
         this.d = 0L;
-        if (context instanceof k9) {
-            bdUniqueId = ((k9) context).getUniqueId();
+        if (context instanceof l9) {
+            bdUniqueId = ((l9) context).getUniqueId();
         } else {
             bdUniqueId = null;
         }
@@ -249,7 +260,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void f(int i) {
-        xa5 E;
+        hb5 E;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (E = this.b.E(i)) != null && getText() != null) {
             this.b.delete(E.f(), E.c());
@@ -281,7 +292,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(xa5.a aVar) {
+    public void setOnSpanGroupChangedListener(hb5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.b.W(aVar);
@@ -444,18 +455,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void g(List<ly7> list, List<String> list2) {
+    public void g(List<vz7> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, list, list2) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            ly7 ly7Var = list.get(i);
+            vz7 vz7Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.p(ly7Var.a())) {
+            if (!this.b.p(vz7Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                v15 b = v15.b(tbLinkSpanGroup, ly7Var);
+                a25 b = a25.b(tbLinkSpanGroup, vz7Var);
                 b.h = str;
                 tbLinkSpanGroup.C(b.d);
                 tbLinkSpanGroup.t();

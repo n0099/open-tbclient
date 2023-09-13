@@ -1,146 +1,171 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import com.baidu.android.util.io.FileUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xlb extends jmb<mmb> {
+public class xlb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public String i;
+    public String j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xlb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+    public static String d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "Banner";
+                case 2:
+                    return "插屏";
+                case 3:
+                case 4:
+                    return "开屏";
+                case 5:
+                    return "信息流";
+                case 6:
+                    return "贴片";
+                case 7:
+                    return "激励";
+                case 8:
+                    return "全屏";
+                case 9:
+                    return "Draw";
+                default:
+                    return FileUtils.UNKNOW;
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public xlb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.jmb
-    public void f(Context context, FunAdSlot funAdSlot) {
+    public static xlb a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
-            }
-            this.e.loadBannerExpressAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build(), new a(this, funAdSlot));
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
-        public final /* synthetic */ xlb b;
-
-        public a(xlb xlbVar, FunAdSlot funAdSlot) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xlbVar, funAdSlot};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            xlb xlbVar = new xlb();
+            xlbVar.a = str;
+            Cursor cursor = null;
+            try {
+                Cursor b = bmb.b(context, "setting_rit", null, "rit=?", new String[]{str}, null, null, "rit ASC");
+                if (b == null) {
+                    if (b != null) {
+                        b.close();
+                    }
+                    return xlbVar;
                 }
-            }
-            this.b = xlbVar;
-            this.a = funAdSlot;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
-                if (list != null && !list.isEmpty()) {
-                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    xlb xlbVar = this.b;
-                    mmb mmbVar = new mmb(tTNativeExpressAd);
-                    this.a.getSid();
-                    xlbVar.getClass();
-                    tTNativeExpressAd.setExpressInteractionListener(new amb(xlbVar, mmbVar));
-                    tTNativeExpressAd.render();
-                    return;
+                if (b.moveToNext()) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(zlb.g(b.getString(b.getColumnIndex("slot"))));
+                        xlbVar.c = jSONObject.optString("img_width");
+                        xlbVar.d = jSONObject.optString("img_height");
+                        xlbVar.e = jSONObject.optString("express_width");
+                        xlbVar.f = jSONObject.optString("express_height");
+                        xlbVar.g = jSONObject.optInt("ad_count");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        xlbVar.b = d(new JSONObject(zlb.g(new JSONObject(b.getString(b.getColumnIndex("value"))).optString("message"))).optInt("slot_type"));
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(zlb.g(b.getString(b.getColumnIndex("config"))));
+                        xlbVar.h = jSONObject2.optString("aid");
+                        xlbVar.i = jSONObject2.optString("cid");
+                        xlbVar.j = jSONObject2.optString("ext");
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
                 }
-                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
-                this.b.onError(0, "NoFill");
+                if (b != null) {
+                    b.close();
+                }
+                return xlbVar;
+            } catch (Throwable th) {
+                if (0 != 0) {
+                    cursor.close();
+                }
+                throw th;
             }
         }
+        return (xlb) invokeLL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        mmb mmbVar;
+    public static xlb b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (mmbVar = (mmb) obj) != null) {
-            ((TTNativeExpressAd) mmbVar.a).destroy();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            mmb mmbVar = (mmb) obj;
-            onShowStart(mmbVar);
-            ((TTNativeExpressAd) mmbVar.a).setSlideIntervalTime(this.mPid.interval);
-            View expressAdView = ((TTNativeExpressAd) mmbVar.a).getExpressAdView();
-            if (expressAdView.getParent() != null) {
-                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            xlb xlbVar = new xlb();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                xlbVar.a = jSONObject.getString("ritId");
+                xlbVar.c = jSONObject.getString("imgWidth");
+                xlbVar.d = jSONObject.getString("imgHeight");
+                xlbVar.e = jSONObject.getString("expressWidth");
+                xlbVar.f = jSONObject.getString("expressHeight");
+                xlbVar.g = jSONObject.getInt("adCount");
+                xlbVar.h = jSONObject.getString("previewAid");
+                xlbVar.i = jSONObject.getString("previewCid");
+                xlbVar.j = jSONObject.getString("previewExt");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            ((TTNativeExpressAd) mmbVar.a).setDislikeCallback(activity, new bmb(this, expressAdView, mmbVar));
-            ((TTNativeExpressAd) mmbVar.a).setDownloadListener(new zlb(null));
-            viewGroup.removeAllViews();
-            viewGroup.addView(expressAdView);
-            return true;
+            return xlbVar;
         }
-        return invokeLLLL.booleanValue;
+        return (xlb) invokeL.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ritId", this.a);
+                jSONObject.put("imgWidth", this.c);
+                jSONObject.put("imgHeight", this.d);
+                jSONObject.put("expressWidth", this.e);
+                jSONObject.put("expressHeight", this.f);
+                jSONObject.put("adCount", this.g);
+                jSONObject.put("previewAid", this.h);
+                jSONObject.put("previewCid", this.i);
+                jSONObject.put("previewExt", this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

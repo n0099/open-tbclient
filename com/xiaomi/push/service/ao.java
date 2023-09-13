@@ -9,10 +9,10 @@ public class ao {
     public static int a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f905a = -1;
+    public static long f904a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Boolean f906a;
+    public static Boolean f905a;
 
     public static void a(Context context, String str, String str2, an anVar) {
         if (context == null || anVar == null) {
@@ -25,10 +25,10 @@ public class ao {
         hlVar.e("com.xiaomi.xmsf");
         HashMap hashMap = new HashMap();
         hashMap.put("chid", String.valueOf(anVar.a));
-        hashMap.put("screen_on", String.valueOf(anVar.f902a));
-        hashMap.put("wifi", String.valueOf(anVar.f904b));
-        hashMap.put("rx_msg", String.valueOf(anVar.f901a));
-        hashMap.put("enqueue", String.valueOf(anVar.f903b));
+        hashMap.put("screen_on", String.valueOf(anVar.f901a));
+        hashMap.put("wifi", String.valueOf(anVar.f903b));
+        hashMap.put("rx_msg", String.valueOf(anVar.f900a));
+        hashMap.put("enqueue", String.valueOf(anVar.f902b));
         hashMap.put("num", String.valueOf(anVar.b));
         hashMap.put("run", String.valueOf(anVar.c));
         hashMap.put("send", String.valueOf(anVar.d));
@@ -42,8 +42,8 @@ public class ao {
     }
 
     public static boolean a(Context context) {
-        String m837a = u.m837a(context);
-        return !TextUtils.isEmpty(m837a) && m837a.length() >= 3 && com.xiaomi.push.t.a(m837a.substring(m837a.length() - 3), 1) < 1;
+        String m838a = u.m838a(context);
+        return !TextUtils.isEmpty(m838a) && m838a.length() >= 3 && com.xiaomi.push.t.a(m838a.substring(m838a.length() - 3), 1) < 1;
     }
 
     public static boolean a(Context context, String str, an anVar) {
@@ -51,14 +51,14 @@ public class ao {
         if (context == null || anVar == null) {
             return false;
         }
-        if (f906a == null) {
-            f906a = Boolean.valueOf(a(context));
+        if (f905a == null) {
+            f905a = Boolean.valueOf(a(context));
         }
-        if (f906a.booleanValue()) {
+        if (f905a.booleanValue()) {
             long b = com.xiaomi.push.ae.b();
-            if (b - f905a >= 1) {
+            if (b - f904a >= 1) {
                 a = 0;
-                f905a = b;
+                f904a = b;
             }
             if (a()) {
                 String str3 = "coord_down";

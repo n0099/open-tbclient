@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.constants.PlayerStatus;
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes8.dex */
 public interface tx0 {
-    void a(@NonNull sw0 sw0Var);
+    void b();
 
-    void d(@NonNull sw0 sw0Var);
+    void c(int i, int i2);
 
-    int getExpectOrder();
+    void f(float f);
 
-    @Nullable
-    int[] getSubscribeEvent();
+    int getCurrentPosition();
 
-    int getType();
+    void i(float f);
 
-    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+    void l(int i, float f);
 
-    void j(@NonNull sw0 sw0Var);
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
 
-    void k(@NonNull sw0 sw0Var);
+    Activity o();
 
-    void n(@NonNull sw0 sw0Var);
-
-    void q(@NonNull sw0 sw0Var);
+    boolean p();
 }

@@ -3,13 +3,16 @@ package com.baidu.tbadk.core.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import androidx.collection.ArrayMap;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.ApiUtil;
 import com.baidu.permissionhelper.app.ActivityCompat;
@@ -23,14 +26,15 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.dw5;
-import com.baidu.tieba.fx5;
-import com.baidu.tieba.gw5;
-import com.baidu.tieba.lp5;
-import com.baidu.tieba.toa;
-import com.baidu.tieba.uv5;
-import com.baidu.tieba.xoa;
+import com.baidu.tieba.by5;
+import com.baidu.tieba.cx5;
+import com.baidu.tieba.eq5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.qw5;
+import com.baidu.tieba.rqa;
+import com.baidu.tieba.vqa;
+import com.baidu.tieba.xx5;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,14 +44,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes4.dex */
 public class PermissionUtil {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "PermissionUtil";
     public static boolean isAgreePrivacyPolicy;
     public static boolean isBrowseMode;
     public static boolean isSdkInited;
     public static String localMacAddress;
-    public static lp5 mAgreePrivacyPolicyEventListener;
+    public static eq5 mAgreePrivacyPolicyEventListener;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +69,7 @@ public class PermissionUtil {
                 return;
             }
         }
-        mAgreePrivacyPolicyEventListener = new lp5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
+        mAgreePrivacyPolicyEventListener = new eq5<PrivacyPolicyEvent>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,7 +88,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.lp5
+            @Override // com.baidu.tieba.eq5
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -131,7 +137,7 @@ public class PermissionUtil {
     public static void doBrowseModeAgreePrivacy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            fx5.b(new bx5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
+            by5.b(new xx5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,17 +155,17 @@ public class PermissionUtil {
                     }
                 }
 
-                @Override // com.baidu.tieba.bx5
+                @Override // com.baidu.tieba.xx5
                 public Object doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        xoa.b();
+                        vqa.b();
                         return null;
                     }
                     return invokeV.objValue;
                 }
-            }, new gw5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
+            }, new cx5<Object>() { // from class: com.baidu.tbadk.core.util.PermissionUtil.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,12 +183,12 @@ public class PermissionUtil {
                     }
                 }
 
-                @Override // com.baidu.tieba.gw5
+                @Override // com.baidu.tieba.cx5
                 public void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         PermissionUtil.setIsAgreePrivacyPolicy(true);
-                        toa.b(true);
+                        rqa.b(true);
                     }
                 }
             });
@@ -347,7 +353,7 @@ public class PermissionUtil {
                 return "";
             }
             if (localMacAddress == null) {
-                localMacAddress = uv5.c().d(context);
+                localMacAddress = qw5.c().d(context);
             }
             return localMacAddress;
         }
@@ -572,7 +578,7 @@ public class PermissionUtil {
             GrowthStatsUtil.statisticActivity();
             MutiProcessManager.getInstance().init(TbadkCoreApplication.getInst());
             MutiProcessManager.publishEvent(new PrivacyPolicyEvent(Boolean.valueOf(isAgreePrivacyPolicy())));
-            dw5.g().s();
+            zw5.g().s();
         }
     }
 
@@ -609,7 +615,7 @@ public class PermissionUtil {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, strArr, iArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, strArr, iArr)) == null) {
             if (strArr != null && strArr.length != 0 && iArr != null && iArr.length != 0) {
                 ArrayMap<String, Boolean> arrayMap = new ArrayMap<>(strArr.length);
                 for (int i = 0; i < strArr.length && i < iArr.length; i++) {
@@ -628,10 +634,27 @@ public class PermissionUtil {
         return (ArrayMap) invokeLL.objValue;
     }
 
+    public static boolean shouldShowRequestPermissionRationale(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, activity, str)) == null) {
+            if (Build.VERSION.SDK_INT == 31) {
+                try {
+                    return ((Boolean) PackageManager.class.getMethod("shouldShowRequestPermissionRationale", String.class).invoke(activity.getApplication().getPackageManager(), str)).booleanValue();
+                } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.e(TAG, "fail: " + e);
+                }
+            }
+            return ActivityCompat.shouldShowRequestPermissionRationale(activity, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
     public static void starMainTabActivity(Context context, int i) {
         Class<?> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65572, null, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65573, null, context, i) == null) {
             try {
                 cls = Class.forName(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
             } catch (Exception e) {

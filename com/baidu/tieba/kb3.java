@@ -1,47 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.tieba.lb3;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class kb3 extends bb3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kb3 {
+    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
 
-    public kb3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void A(lb3.a aVar);
 
-    @Override // com.baidu.tieba.bb3, com.baidu.tieba.cb3
-    public mk4 I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new qe2(this);
-        }
-        return (mk4) invokeV.objValue;
-    }
+    rd3 B();
 
-    @Override // com.baidu.tieba.bb3, com.baidu.tieba.cb3
-    public nd3 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new pd3(this);
-        }
-        return (nd3) invokeV.objValue;
-    }
+    boolean E();
+
+    void G();
+
+    String getAppId();
+
+    int k();
+
+    void l(Bundle bundle, String str);
+
+    SwanAppCores m();
+
+    String n(String... strArr);
+
+    void o(aq3<lb3.a> aq3Var);
+
+    void p(String str);
+
+    hb3 q();
+
+    void r(SwanAppActivity swanAppActivity);
+
+    void s();
+
+    void t(SwanAppActivity swanAppActivity);
+
+    void u(aq3<lb3.a> aq3Var);
+
+    void v(String str, Bundle bundle);
+
+    SwanAppActivity w();
+
+    ks1 x();
+
+    c83 y();
 }

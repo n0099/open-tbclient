@@ -1,7 +1,6 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import android.os.SystemClock;
-import com.baidu.clientupdate.download.DownloadManager;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.Closeable;
@@ -92,7 +91,7 @@ public class e {
 
     private com.ss.android.socialbase.downloader.e.b a(InputStream inputStream) {
         int H = c.H();
-        if (this.t.a("rw_concurrent", 0) == 1 && this.c.getChunkCount() == 1 && this.c.getTotalBytes() > DownloadManager.MIN_LEFT_SIZE) {
+        if (this.t.a("rw_concurrent", 0) == 1 && this.c.getChunkCount() == 1 && this.c.getTotalBytes() > 20971520) {
             try {
                 com.ss.android.socialbase.downloader.e.a aVar = new com.ss.android.socialbase.downloader.e.a(inputStream, H, this.t.a("rw_concurrent_max_buffer_count", 4));
                 this.z = true;

@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lh4;
+import com.baidu.tieba.ph4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MainMenuView extends BaseMenuView {
@@ -22,7 +22,7 @@ public class MainMenuView extends BaseMenuView {
     public MenuContentAdapter j;
     public RecyclerView k;
     public MenuContentAdapter l;
-    public List<List<lh4>> m;
+    public List<List<ph4>> m;
     public View n;
     public boolean o;
 
@@ -70,13 +70,13 @@ public class MainMenuView extends BaseMenuView {
         this.i = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.i.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e5), 0, 0);
+        this.i.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e7), 0, 0);
         this.f.addView(this.i, layoutParams);
         View view2 = new View(context);
         this.h = view2;
         view2.setVisibility(8);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, 1);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070576);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07057b);
         layoutParams2.leftMargin = dimensionPixelSize;
         layoutParams2.rightMargin = dimensionPixelSize;
         this.f.addView(this.h, layoutParams2);
@@ -90,7 +90,7 @@ public class MainMenuView extends BaseMenuView {
 
     @Override // com.baidu.swan.menu.BaseMenuView
     public boolean a() {
-        List<List<lh4>> list = this.m;
+        List<List<ph4>> list = this.m;
         if (list != null && list.size() > 1) {
             return true;
         }
@@ -140,7 +140,7 @@ public class MainMenuView extends BaseMenuView {
         this.l.o(this.m.subList(1, 2), this.o, i);
     }
 
-    public final void g(List<List<lh4>> list, boolean z, int i) {
+    public final void g(List<List<ph4>> list, boolean z, int i) {
         this.m = list;
         this.o = z;
         if (z && list.size() > 1) {
@@ -150,7 +150,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public void update(List<List<lh4>> list, View view2, boolean z, int i) {
+    public void update(List<List<ph4>> list, View view2, boolean z, int i) {
         setMode();
         setMenuHeader(view2);
         g(list, z, i);

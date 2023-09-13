@@ -31,6 +31,8 @@ public interface ICyberVideoView {
 
     MediaInfo getMediaInfo();
 
+    void getMediaRuntimeInfo(int i, CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener);
+
     void getMediaRuntimeInfo(CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener);
 
     long getPlayedTime();

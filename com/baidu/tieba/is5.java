@@ -1,169 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.performanceLog.PerformanceLogger;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes6.dex */
-public class is5 extends os5 {
+public class is5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public is5() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        oe<String> n;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || !TextUtils.equals(a(), str2) || (n = x45.n("tb.novel_thread_read_record", a(), str)) == null || StringUtils.isNull(n.get(str))) {
+                return null;
+            }
+            return n.get(str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
+        }
+    }
+
+    public static void d(String str, ReadRecordsData readRecordsData) {
+        oe<String> n;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, readRecordsData) == null) {
+            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && (n = x45.n("tb.novel_thread_read_record", a(), str)) != null && readRecordsData != null) {
+                n.g(str, OrmObject.jsonStrWithObject(readRecordsData));
             }
         }
     }
 
-    @Override // com.baidu.tieba.os5
-    public void a(ls5 ls5Var) {
-        String str;
-        int i;
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ls5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
         }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time_t");
-        e(logItem, ls5Var);
-        String str2 = "1";
-        if (ls5Var.s) {
-            str = "1";
-        } else {
-            str = "0";
-        }
-        logItem.append("ishttp", str);
-        if (!ls5Var.b) {
-            str2 = "0";
-        }
-        logItem.append("issuccess", str2);
-        logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        logItem.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(ls5Var.e));
-        logItem.append("wt", String.valueOf(ls5Var.p));
-        logItem.append("qt", String.valueOf(ls5Var.f));
-        logItem.append("connt", String.valueOf(ls5Var.g));
-        logItem.append("rwt", String.valueOf(ls5Var.h));
-        logItem.append("dect", String.valueOf(ls5Var.k));
-        logItem.append("parset", String.valueOf(ls5Var.l));
-        logItem.append("rendert", String.valueOf(ls5Var.o));
-        logItem.append("ss", String.valueOf(ls5Var.q));
-        logItem.append("hs", String.valueOf(ls5Var.r));
-        if (ls5Var.s && (i = ls5Var.t) != 0) {
-            logItem.append("salno", String.valueOf(i));
-            long j = ls5Var.u;
-            if (j != 0) {
-                logItem.append("scosttime", String.valueOf(j));
-            }
-        }
-        int i2 = ls5Var.v;
-        if (i2 != 0) {
-            logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-        }
-        if (ls5Var.s) {
-            logItem.append("c_logid", String.valueOf(ls5Var.A));
-        } else {
-            logItem.append(PushConstants.SEQ_ID, String.valueOf(ls5Var.z & 4294967295L));
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    @Override // com.baidu.tieba.os5
-    public void b(ls5 ls5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ls5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || ls5Var.D <= 0) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time_t");
-        e(logItem, ls5Var);
-        logItem.append("pct", String.valueOf(ls5Var.D));
-        if (i != 0) {
-            if (i != 40) {
-                return;
-            }
-            logItem.append("pct_type", String.valueOf(101));
-        } else {
-            logItem.append("pct_type", String.valueOf(100));
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    @Override // com.baidu.tieba.os5
-    public void c(ls5 ls5Var, boolean z) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, ls5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (!z || ls5Var.B > 0) {
-            if (!z && ls5Var.C <= 0) {
-                return;
-            }
-            BdStatsItem logItem = PerformanceLogger.getLogItem();
-            logItem.append("action", "time_t");
-            e(logItem, ls5Var);
-            if (z) {
-                logItem.append("put", String.valueOf(ls5Var.B));
-            } else {
-                logItem.append("pdt", String.valueOf(ls5Var.C));
-            }
-            String str2 = "1";
-            if (ls5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            logItem.append("ishttp", str);
-            if (!ls5Var.b) {
-                str2 = "0";
-            }
-            logItem.append("issuccess", str2);
-            logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            logItem.append("qt", String.valueOf(ls5Var.f));
-            logItem.append("connt", String.valueOf(ls5Var.g));
-            logItem.append("rwt", String.valueOf(ls5Var.h));
-            logItem.append("dect", String.valueOf(ls5Var.k));
-            logItem.append("parset", String.valueOf(ls5Var.l));
-            logItem.append("rendert", String.valueOf(ls5Var.o));
-            logItem.append("ss", String.valueOf(ls5Var.q));
-            logItem.append("hs", String.valueOf(ls5Var.r));
-            if (ls5Var.s && (i = ls5Var.t) != 0) {
-                logItem.append("salno", String.valueOf(i));
-                long j = ls5Var.u;
-                if (j != 0) {
-                    logItem.append("scosttime", String.valueOf(j));
-                }
-            }
-            int i2 = ls5Var.v;
-            if (i2 != 0) {
-                logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-            }
-            BdStatisticsManager.getInstance().performance(this.subType, logItem);
-        }
-    }
-
-    public final void e(BdStatsItem bdStatsItem, ls5 ls5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, bdStatsItem, ls5Var) == null) && (ls5Var instanceof hs5)) {
-            bdStatsItem.append("ptype", Integer.valueOf(((hs5) ls5Var).F));
-        }
+        return (String) invokeL.objValue;
     }
 }

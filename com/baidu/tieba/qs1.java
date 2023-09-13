@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.HttpManager;
-import okhttp3.Callback;
-import okhttp3.Request;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface qs1 {
-    HttpManager a();
+    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
 
-    void call(HttpManager httpManager, Request request, Callback callback);
+    String b();
+
+    void c(JSONObject jSONObject);
+
+    cj4 d();
+
+    void e(int i, String str);
+
+    void f(@NonNull aq3<Boolean> aq3Var);
 }

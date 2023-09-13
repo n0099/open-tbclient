@@ -1,9 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.kx1;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tieba.ox1;
 /* loaded from: classes7.dex */
-public interface mx1<T extends kx1> extends jx1<T> {
-    @Nullable
-    bf3 getParams();
+public interface mx1<T extends ox1> extends px1<T> {
+    void D();
+
+    void E(ViewGroup viewGroup);
+
+    void F(View view2);
+
+    void O(boolean z);
+
+    void T();
+
+    void e0(String str, String str2);
 }

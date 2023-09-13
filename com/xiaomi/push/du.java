@@ -16,22 +16,22 @@ public class du extends aj.a {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f237a;
+    public SharedPreferences f236a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.ba f238a;
+    public com.xiaomi.push.service.ba f237a;
 
     public du(Context context) {
         this.a = context;
-        this.f237a = context.getSharedPreferences("mipush_extra", 0);
-        this.f238a = com.xiaomi.push.service.ba.a(context);
+        this.f236a = context.getSharedPreferences("mipush_extra", 0);
+        this.f237a = com.xiaomi.push.service.ba.a(context);
     }
 
     private List<hp> a(File file) {
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
-        dl m363a = dm.a().m363a();
-        String a = m363a == null ? "" : m363a.a();
+        dl m364a = dm.a().m364a();
+        String a = m364a == null ? "" : m364a.a();
         FileLock fileLock = null;
         if (TextUtils.isEmpty(a)) {
             return null;
@@ -41,7 +41,7 @@ public class du extends aj.a {
         synchronized (dp.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m843a(file2);
+                y.m844a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     FileLock lock = randomAccessFile.getChannel().lock();
@@ -119,23 +119,23 @@ public class du extends aj.a {
     }
 
     private void a() {
-        SharedPreferences.Editor edit = this.f237a.edit();
+        SharedPreferences.Editor edit = this.f236a.edit();
         edit.putLong("last_upload_data_timestamp", System.currentTimeMillis() / 1000);
         edit.commit();
     }
 
     private void a(hp hpVar) {
-        if (hpVar.f500a != hj.AppInstallList || hpVar.f501a.startsWith("same_")) {
+        if (hpVar.f499a != hj.AppInstallList || hpVar.f500a.startsWith("same_")) {
             return;
         }
-        SharedPreferences.Editor edit = this.f237a.edit();
-        edit.putLong("dc_job_result_time_4", hpVar.f499a);
-        edit.putString("dc_job_result_4", bo.a(hpVar.f501a));
+        SharedPreferences.Editor edit = this.f236a.edit();
+        edit.putLong("dc_job_result_time_4", hpVar.f498a);
+        edit.putString("dc_job_result_4", bo.a(hpVar.f500a));
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m368a() {
+    private boolean m369a() {
         if (bi.e(this.a)) {
             return false;
         }
@@ -146,22 +146,22 @@ public class du extends aj.a {
     }
 
     private boolean b() {
-        if (this.f238a.a(hm.Upload3GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f237a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f238a.a(hm.Upload3GFrequency.a(), 432000)));
+        if (this.f237a.a(hm.Upload3GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f236a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f237a.a(hm.Upload3GFrequency.a(), 432000)));
         }
         return false;
     }
 
     private boolean c() {
-        if (this.f238a.a(hm.Upload4GSwitch.a(), true)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f237a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f238a.a(hm.Upload4GFrequency.a(), 259200)));
+        if (this.f237a.a(hm.Upload4GSwitch.a(), true)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f236a.getLong("last_upload_data_timestamp", -1L)) > ((long) Math.max(86400, this.f237a.a(hm.Upload4GFrequency.a(), 259200)));
         }
         return false;
     }
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo300a() {
+    public String mo301a() {
         return "1";
     }
 
@@ -172,7 +172,7 @@ public class du extends aj.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (!m368a() && file.exists()) {
+        } else if (!m369a() && file.exists()) {
             List<hp> a = a(file);
             if (!ad.a(a)) {
                 int size = a.size();
@@ -183,11 +183,11 @@ public class du extends aj.a {
                 iaVar.a(a);
                 byte[] a2 = y.a(ir.a(iaVar));
                 ig igVar = new ig("-1", false);
-                igVar.c(hr.DataCollection.f509a);
+                igVar.c(hr.DataCollection.f508a);
                 igVar.a(a2);
-                dl m363a = dm.a().m363a();
-                if (m363a != null) {
-                    m363a.a(igVar, hh.Notification, null);
+                dl m364a = dm.a().m364a();
+                if (m364a != null) {
+                    m364a.a(igVar, hh.Notification, null);
                 }
                 a();
             }

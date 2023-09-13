@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lpa;
-import com.baidu.tieba.lqa;
-import com.baidu.tieba.os6;
-import com.baidu.tieba.pl;
+import com.baidu.tieba.jra;
+import com.baidu.tieba.jsa;
 import com.baidu.tieba.ql;
+import com.baidu.tieba.rl;
+import com.baidu.tieba.st6;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,7 +41,7 @@ public class LocalVideoActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class b extends CustomMessageListener {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,15 +155,15 @@ public class LocalVideoActivityStatic {
             arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
             arrayList.add("com.baidu.tieba.resloader.v3.mp3");
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(ql.a);
+            requestParams.setRunType(rl.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new pl(arrayList, new a(this, customResponsedMessage)));
+            requestParams.addChannel(new ql(arrayList, new a(this, customResponsedMessage)));
             PmsManager.getInstance().execute(requestParams);
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<Object> {
+    public class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,12 +182,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<os6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<st6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof lpa)) {
-                    return new CustomResponsedMessage<>(2921466, new lqa((lpa) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof jra)) {
+                    return new CustomResponsedMessage<>(2921466, new jsa((jra) customMessage.getData()));
                 }
                 return null;
             }

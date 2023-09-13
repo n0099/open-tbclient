@@ -16,10 +16,10 @@ public interface cd extends IInterface {
 
         /* renamed from: com.baidu.mobstat.cd$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0124a implements cd {
+        public static class C0113a implements cd {
             public IBinder a;
 
-            public C0124a(IBinder iBinder) {
+            public C0113a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -71,7 +71,7 @@ public interface cd extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof cd)) {
                 return (cd) queryLocalInterface;
             }
-            return new C0124a(iBinder);
+            return new C0113a(iBinder);
         }
 
         @Override // android.os.Binder

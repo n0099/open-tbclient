@@ -1,73 +1,98 @@
 package com.baidu.tieba;
 
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public abstract class i6c implements k6c {
+public final class i6c extends a6c implements NativeFfmpeg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.k6c
-    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, y6c y6cVar, f7c f7cVar) throws InvalidDataException {
+    @Override // com.baidu.tieba.v5c
+    public void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, y6cVar, f7cVar) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.k6c
-    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, y6c y6cVar) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, y6cVar) == null) {
-        }
-    }
-
-    @Deprecated
-    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
-
-    @Override // com.baidu.tieba.k6c
-    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
-        }
-    }
-
-    public i6c() {
+    public i6c(e5c e5cVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e5cVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l.d(-16);
+        this.s = new WeakReference<>(e5cVar);
+        this.w = true;
+        this.b = i;
+        this.A.i(i);
+        this.o = 3;
+    }
+
+    public void M(MediaInfo mediaInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
+            TLog.g(this, mediaInfo.toString());
+            synchronized (this) {
+                if (this.q.e(mediaInfo)) {
+                    this.q.c(mediaInfo);
+                } else {
+                    TLog.g(this, String.format(Locale.getDefault(), "onFormatChanged output size %d * %d", Integer.valueOf(mediaInfo.b), Integer.valueOf(mediaInfo.c)));
+                }
+                if (this.B == null || this.B.capacity() < this.q.i) {
+                    this.B = ByteBuffer.allocateDirect(this.q.i);
+                }
+                int j = ((((int) r5c.j(this.q.d, 16L)) * ((int) r5c.j(this.q.e, 16L))) * 3) >> 1;
+                if (j > this.E) {
+                    this.E = j;
+                    this.C = ByteBuffer.allocateDirect(j);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.k6c
-    public g7c onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, y6c y6cVar) throws InvalidDataException {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.v5c
+    public void z(MediaFormat mediaFormat, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, y6cVar)) == null) {
-            return new c7c();
-        }
-        return (g7c) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.k6c
-    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
-            webSocket.sendFrame(new w6c((v6c) framedata));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
+            TLog.g(this, "VideoSwDecoder handleCreateDecoder: taskId " + i);
+            this.x = System.currentTimeMillis();
+            this.a = i;
+            this.A.p(this);
+            this.A.h(i);
+            String string = mediaFormat.getString("mime");
+            if (string.compareTo("video/avc") == 0) {
+                i2 = 6;
+            } else if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
+                i2 = 7;
+            } else {
+                i2 = 0;
+            }
+            if (this.A.j(i2, mediaFormat) != 0) {
+                m(50);
+            }
+            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
+            this.y = System.currentTimeMillis();
         }
     }
 }

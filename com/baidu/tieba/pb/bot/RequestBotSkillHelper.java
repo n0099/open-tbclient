@@ -292,16 +292,16 @@ public final class RequestBotSkillHelper {
             Intrinsics.checkNotNullParameter(botRequest, "botRequest");
             Intrinsics.checkNotNullParameter(callback, "callback");
             FastRequest c = c();
-            c.T(HttpMessageTask.HTTP_METHOD.POST);
-            c.O("scene", "thread");
-            c.O("bot_uk", botRequest.getBotUk());
-            c.O("skill_id", Long.valueOf(botRequest.getSkillId()));
-            c.O("thread_id", botRequest.getTid());
-            c.O("post_id", botRequest.getPid());
-            c.O("loading_post_token", botRequest.getToken());
-            c.O("source", "one_key_reply_post");
-            c.Q(callback);
-            c.P();
+            c.S(HttpMessageTask.HTTP_METHOD.POST);
+            c.N("scene", "thread");
+            c.N("bot_uk", botRequest.getBotUk());
+            c.N("skill_id", Long.valueOf(botRequest.getSkillId()));
+            c.N("thread_id", botRequest.getTid());
+            c.N("post_id", botRequest.getPid());
+            c.N("loading_post_token", botRequest.getToken());
+            c.N("source", "one_key_reply_post");
+            c.P(callback);
+            c.O();
         }
     }
 

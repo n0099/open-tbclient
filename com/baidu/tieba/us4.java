@@ -1,16 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
-import com.baidu.tieba.ap2;
-import com.baidu.tieba.lp2;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,73 +13,49 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class us4 implements lp2 {
+public final class us4 extends GestureDetector.SimpleOnGestureListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public lp2.a b;
-    public CyberExtractor c;
-    public volatile boolean d;
-
-    @Override // com.baidu.tieba.ap2
-    @Nullable
-    public String j0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
+    public final Context a;
+    public final GestureDetector b;
+    public vs4 c;
+    public MediaGestureMode d;
+    public int e;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Map b;
-        public final /* synthetic */ us4 c;
 
-        public a(us4 us4Var, String str, Map map) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {us4Var, str, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-364845738, "Lcom/baidu/tieba/us4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-364845738, "Lcom/baidu/tieba/us4$a;");
                     return;
                 }
             }
-            this.c = us4Var;
-            this.a = str;
-            this.b = map;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.c.d) {
-                    if (us4.e) {
-                        Log.d("MediaExtractorWidget", "media extractor already released");
-                        return;
-                    }
-                    return;
-                }
-                this.c.c.setDataSource(this.c.getContext(), Uri.parse(fs2.a(this.a)), this.b);
-                Bundle metaData = this.c.c.getMetaData();
-                if (this.c.b != null) {
-                    this.c.b.a(metaData);
-                }
+            int[] iArr = new int[MediaGestureMode.values().length];
+            a = iArr;
+            try {
+                iArr[MediaGestureMode.VOLUME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[MediaGestureMode.BRIGHTNESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[MediaGestureMode.FAST_FORWARD.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
     }
@@ -102,53 +73,15 @@ public class us4 implements lp2 {
                 return;
             }
         }
-        e = nr1.a;
+        f = rr1.a;
     }
 
-    @Override // com.baidu.tieba.ap2
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ku2.c();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lp2
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            CyberExtractor cyberExtractor = this.c;
-            if (cyberExtractor != null) {
-                cyberExtractor.release();
-            }
-            this.c = null;
-            lp2.a aVar = this.b;
-            if (aVar != null) {
-                aVar.onRelease();
-            }
-            this.b = null;
-        }
-    }
-
-    public us4(ZeusPluginFactory.Invoker invoker, String str) {
+    public us4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -158,33 +91,142 @@ public class us4 implements lp2 {
                 return;
             }
         }
-        this.a = str;
-        this.d = false;
+        this.d = MediaGestureMode.INTI;
+        this.a = context;
+        this.b = new GestureDetector(context, this);
     }
 
-    @Override // com.baidu.tieba.ap2
-    public void A(@NonNull ap2.a aVar) {
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.c = new CyberExtractor(true);
-            aVar.a(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDoubleTap:" + motionEvent);
+            }
+            vs4 vs4Var = this.c;
+            if (vs4Var != null) {
+                return vs4Var.onDoubleTap(motionEvent);
+            }
+            return super.onDoubleTap(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onDown:" + motionEvent);
+            }
+            this.d = MediaGestureMode.INTI;
+            vs4 vs4Var = this.c;
+            if (vs4Var != null) {
+                return vs4Var.onDown(motionEvent);
+            }
+            return super.onDown(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onSingleTapUp:" + motionEvent);
+            }
+            vs4 vs4Var = this.c;
+            if (vs4Var != null) {
+                return vs4Var.a(motionEvent);
+            }
+            return super.onSingleTapUp(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        vs4 vs4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 1 && (vs4Var = this.c) != null) {
+                vs4Var.b(motionEvent, this.d);
+            }
+            return this.b.onTouchEvent(motionEvent);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
         }
     }
 
-    @Override // com.baidu.tieba.lp2
-    public void w(lp2.a aVar) {
+    public void d(vs4 vs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vs4Var) == null) {
+            this.c = vs4Var;
         }
     }
 
-    @Override // com.baidu.tieba.lp2
-    public void k(String str, Map<String, String> map) {
+    public final MediaGestureMode b(MediaGestureMode mediaGestureMode, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaGestureMode, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (mediaGestureMode == MediaGestureMode.INTI) {
+                if (Math.abs(f3) - Math.abs(f4) > 3.0f) {
+                    mediaGestureMode = MediaGestureMode.FAST_FORWARD;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "horizontal slide");
+                    }
+                } else if (f2 <= this.e / 2) {
+                    mediaGestureMode = MediaGestureMode.BRIGHTNESS;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "brightness slide");
+                    }
+                } else {
+                    mediaGestureMode = MediaGestureMode.VOLUME;
+                    if (f) {
+                        Log.d("MediaGestureDetector", "volume slide");
+                    }
+                }
+            }
+            return mediaGestureMode;
         }
-        xn3.j(new a(this, str, map), "loadMetadata");
+        return (MediaGestureMode) invokeCommon.objValue;
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (f) {
+                Log.d("MediaGestureDetector", "onScroll:" + motionEvent + " e2:" + motionEvent2 + " distanceX:" + f2 + " distanceY:" + f3);
+            }
+            if (this.c == null) {
+                return super.onScroll(motionEvent, motionEvent2, f2, f3);
+            }
+            MediaGestureMode b = b(this.d, motionEvent.getX(), f2, f3);
+            this.d = b;
+            int i = a.a[b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return false;
+                    }
+                    return this.c.d(motionEvent, motionEvent2, f2, f3);
+                }
+                return this.c.e(motionEvent, motionEvent2, f2, f3);
+            }
+            return this.c.c(motionEvent, motionEvent2, f2, f3);
+        }
+        return invokeCommon.booleanValue;
     }
 }

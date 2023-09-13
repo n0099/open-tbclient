@@ -20,7 +20,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.kuaishou.weapon.p0.u;
 import java.io.BufferedReader;
 import java.io.File;
@@ -431,7 +430,7 @@ public class LBSAuthManager {
             }
             sb.append(i2);
             sb.append("");
-            hashMap.put(TTDownloadField.TT_FORCE, sb.toString());
+            hashMap.put("force", sb.toString());
         }
         if (str == null) {
             hashMap.put("from_service", "");
@@ -501,7 +500,7 @@ public class LBSAuthManager {
             }
             sb.append(i2);
             sb.append("");
-            hashMap.put(TTDownloadField.TT_FORCE, sb.toString());
+            hashMap.put("force", sb.toString());
         }
         if (str == null) {
             hashMap.put("from_service", "");

@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.HeadSdk;
+import org.json.JSONObject;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes6.dex */
 public class h25 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,15 +27,27 @@ public class h25 {
         }
     }
 
-    public void a(HeadSdk headSdk) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, headSdk) != null) || headSdk == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        String str = headSdk.head_pic;
-        String str2 = headSdk.head_text;
-        String str3 = headSdk.sdk_name;
-        String str4 = headSdk.sdk_params;
-        headSdk.head_type.intValue();
+        try {
+            jSONObject.optString("icon");
+            jSONObject.optString("name");
+            jSONObject.optString("url");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void b(MemberShowIcon memberShowIcon) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberShowIcon) != null) || memberShowIcon == null) {
+            return;
+        }
+        String str = memberShowIcon.icon;
+        String str2 = memberShowIcon.name;
+        String str3 = memberShowIcon.url;
     }
 }

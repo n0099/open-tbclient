@@ -29,13 +29,13 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt5;
-import com.baidu.tieba.kg;
-import com.baidu.tieba.nf9;
-import com.baidu.tieba.of9;
-import com.baidu.tieba.pf9;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.pg9;
+import com.baidu.tieba.qg9;
+import com.baidu.tieba.rg9;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+import com.baidu.tieba.xt5;
+import com.baidu.tieba.y05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,11 +43,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes7.dex */
-public class LoginDialogActivity extends SuspendedActivity implements dt5 {
+public class LoginDialogActivity extends SuspendedActivity implements xt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public nf9 l;
+    public pg9 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -62,25 +62,25 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
     public String x;
     public final AccountLoginCoreHelper.IReLoginCallback y;
 
-    @Override // com.baidu.tieba.dt5
-    public boolean C() {
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void D1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xt5
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void C1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dt5
-    public boolean Z0() {
+    @Override // com.baidu.tieba.xt5
+    public boolean a1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
@@ -126,7 +126,7 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 this.a.closeLoadingDialog();
-                this.a.N1(accountData);
+                this.a.O1(accountData);
             }
         }
 
@@ -225,14 +225,14 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         this.y = new a(this);
     }
 
-    public final void I1() {
+    public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SafeHandler.getInst().post(new b(this));
         }
     }
 
-    public String K1() {
+    public String L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -241,7 +241,7 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         return (String) invokeV.objValue;
     }
 
-    public ILoginListener L1() {
+    public ILoginListener M1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -259,32 +259,32 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         }
     }
 
-    public void Q1() {
+    public void R1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this, true);
             loginActivityConfig.setFrom(getPreExtraPageKey());
             loginActivityConfig.setFromDialog("dialog_fail");
             loginActivityConfig.start();
-            J1(0);
+            K1(0);
         }
     }
 
-    @Override // com.baidu.tieba.dt5
+    @Override // com.baidu.tieba.xt5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            nf9 nf9Var = this.l;
-            if (nf9Var != null) {
-                return nf9Var.getResultIntent();
+            pg9 pg9Var = this.l;
+            if (pg9Var != null) {
+                return pg9Var.getResultIntent();
             }
             return null;
         }
         return (Intent) invokeV.objValue;
     }
 
-    public void H1(String str) {
+    public void I1(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && getIntent() != null) {
             DialogLoginHelper.addLoginDialogSuccessLog(this.s, this.t, str);
@@ -292,19 +292,19 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         }
     }
 
-    @Override // com.baidu.tieba.dt5
+    @Override // com.baidu.tieba.xt5
     public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            nf9 nf9Var = this.l;
-            if (nf9Var != null) {
-                nf9Var.r(i);
+            pg9 pg9Var = this.l;
+            if (pg9Var != null) {
+                pg9Var.r(i);
             }
         }
     }
 
-    public void J1(int i) {
+    public void K1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             ILoginListener iLoginListener = this.w;
@@ -326,20 +326,20 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         }
     }
 
-    public final void N1(AccountData accountData) {
+    public final void O1(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, accountData) == null) {
-            S1(accountData);
+            T1(accountData);
             Logger.addLog("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
-            J1(-1);
+            K1(-1);
             TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
-            t05.c().b(1);
-            I1();
+            y05.c().b(1);
+            J1();
         }
     }
 
-    public final void M1() {
+    public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.n = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
@@ -359,7 +359,7 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         }
     }
 
-    public void R1() {
+    public void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
@@ -373,7 +373,7 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
                 return;
             }
             closeLoadingDialog();
-            J1(0);
+            K1(0);
         }
     }
 
@@ -392,10 +392,10 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
         }
     }
 
-    public final void S1(AccountData accountData) {
+    public final void T1(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, accountData) == null) {
-            kg.a().c(new c(this, accountData));
+            lg.a().c(new c(this, accountData));
             Logger.addLog("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
             BrowserHelper.initCookie(TbadkCoreApplication.getInst());
@@ -412,7 +412,7 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public dt5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public xt5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, linearLayout, navigationBar)) == null) {
@@ -422,15 +422,15 @@ public class LoginDialogActivity extends SuspendedActivity implements dt5 {
                 finish();
                 return this;
             }
-            M1();
+            N1();
             if (TextUtils.isEmpty(this.n)) {
-                this.l = new of9(this.o, this.p, this.q);
+                this.l = new qg9(this.o, this.p, this.q);
             } else {
-                this.l = new pf9(this.n);
+                this.l = new rg9(this.n);
             }
             this.l.a(this, linearLayout);
             return this;
         }
-        return (dt5) invokeLL.objValue;
+        return (xt5) invokeLL.objValue;
     }
 }

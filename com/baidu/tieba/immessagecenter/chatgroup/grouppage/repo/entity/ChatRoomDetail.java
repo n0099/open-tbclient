@@ -8,13 +8,14 @@ import com.baidu.searchbox.download.lightdownload.LightFileUtils;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ReplyEmojiMsgInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.ChatActivityInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.EnableDegradeUserData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
-import com.baidu.tieba.xp8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,6 +36,8 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public BotsDTO bots;
     @SerializedName("perms")
     public CanExcellent canExcellent;
+    @SerializedName("activity_info")
+    public ChatActivityInfo chatActivityInfo;
     @SerializedName("top_bubble_list")
     public List<TopBubbleData> chatBubbleData;
     @Nullable
@@ -58,7 +61,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<xp8> maskInfoList;
+    public List<zq8> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -582,7 +585,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     }
 
     @Nullable
-    public List<xp8> getMaskInfoList() {
+    public List<zq8> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {

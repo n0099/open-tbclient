@@ -1,36 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes8.dex */
-public class si3 extends ad3 {
+public class si3 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public si3(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/file/getSavedFileList");
+    public si3(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/clearStorage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,53 +37,19 @@ public class si3 extends ad3 {
         }
     }
 
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            if (context != null && callbackHandler != null && db3Var != null && db3Var.f0() != null) {
-                ArrayList arrayList = (ArrayList) db3Var.f0().i();
-                JSONArray jSONArray = new JSONArray();
-                if (arrayList != null && arrayList.size() != 0) {
-                    Iterator it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        ki3 ki3Var = (ki3) it.next();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("filePath", li3.J(ki3Var.b(), db3.g0()));
-                            jSONObject.put(FileMetaUtil.CREATE_TIME, ki3Var.a());
-                            jSONObject.put("size", ki3Var.c());
-                            if (ad3.b) {
-                                Log.d("GetSavedFileListAction", "——> handle: fileInfo (" + jSONObject.get("filePath") + " , " + jSONObject.get(FileMetaUtil.CREATE_TIME) + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
-                            }
-                        } catch (JSONException e) {
-                            d82.o("getSavedFileList", "file info to json fail");
-                            e.printStackTrace();
-                        }
-                        jSONArray.put(jSONObject);
-                    }
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("fileList", jSONArray);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-                        return true;
-                    } catch (JSONException e2) {
-                        d82.c("getSavedFileList", "file list to json fail");
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, xb3.a(2003)));
-                        if (ad3.b) {
-                            Log.d("GetSavedFileListAction", "——> handle: jsonException " + e2.getMessage());
-                        }
-                        return false;
-                    }
-                }
-                d82.c("getSavedFileList", "file list is null");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams((JSONObject) null, 0));
-                return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            if (hb3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            d82.c("getSavedFileList", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+            hb3Var.f0().g().edit().clear().apply();
+            dn3.h.update();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

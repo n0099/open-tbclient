@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
+/* loaded from: classes5.dex */
 public interface fv2 {
-    void a(Activity activity, String str, String str2);
+    void a(ec3 ec3Var);
 
-    boolean b(Context context);
+    @Nullable
+    Map<String, Object> b(@NonNull iz1 iz1Var);
 
-    void c(Activity activity, String str, yf1 yf1Var);
+    @Nullable
+    Map<String, Object> c(@NonNull iz1 iz1Var);
 
-    void d(Context context, JSONObject jSONObject, yf1 yf1Var);
-
-    void e(Activity activity, String str, yf1 yf1Var);
-
-    void f(Activity activity, String str, kg1<JSONObject> kg1Var);
+    @Nullable
+    Map<Class, Object> d();
 }

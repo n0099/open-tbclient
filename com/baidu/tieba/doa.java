@@ -1,87 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
-import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import java.util.Date;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class doa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public View b;
+    public TextView c;
+    public TbImageView d;
+    public TextView e;
 
-    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
+    public doa(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
-                jSONObject.put("status", clientUpdateInfo.mStatus);
-                jSONObject.put("reverson", clientUpdateInfo.mReverson);
-                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
-                jSONObject.put("apk_md5_rsa", str);
-                jSONObject.put("version_code", clientUpdateInfo.mVercode);
-                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, clientUpdateInfo.mVername);
-                jSONObject.put("download_url", clientUpdateInfo.mDownurl);
-                jSONObject.put("change_log", clientUpdateInfo.mChangelog);
-                jSONObject.put("size", clientUpdateInfo.mSize);
-                jSONObject.put("package_name", clientUpdateInfo.mPackageName);
-                jSONObject.put("sign", clientUpdateInfo.mSign);
-                jSONObject.put("prod_line", clientUpdateInfo.mProdline);
-                jSONObject.put(FkApkInfoSearchRequestKt.PARAMS_KEY_SIGN_MD5, clientUpdateInfo.mSignMd5);
-                jSONObject.put("apk_md5", clientUpdateInfo.mApkMd5);
-                jSONObject.put("patch_download_url", clientUpdateInfo.mPatchDownUrl);
-                jSONObject.put("patch_size", clientUpdateInfo.mPatchSize);
-                jSONObject.put("icon_url", clientUpdateInfo.mIconUrl);
-                jSONObject.put(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, clientUpdateInfo.mSname);
-                jSONObject.put("update_time", clientUpdateInfo.mUpdateTime);
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            YunDialogManager.onShow(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
+        }
+        this.a = tbPageContext;
+        b();
+    }
+
+    public void d(DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dressItemData) != null) || dressItemData == null) {
+            return;
+        }
+        this.c.setText(dressItemData.getTitle());
+        this.d.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
+        this.e.setText(dressItemData.getDescription());
+    }
+
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            vt5.a(this.a, this.b);
         }
     }
 
-    public static void b(re5 re5Var) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, re5Var) != null) || re5Var == null) {
-            return;
-        }
-        VersionData v = re5Var.v();
-        TbadkCoreApplication.getInst().setVersionData(v);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (!v.forceUpdate()) {
-            Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-            Long valueOf2 = Long.valueOf(new Date().getTime());
-            if (valueOf2.longValue() - valueOf.longValue() > 86400000 && v.getStrategy() == 0 && re5Var.l() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                TbSingleton.getInstance().setSyncModel(re5Var);
-                TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
-            }
-        }
-    }
-
-    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
-            return;
-        }
-        TbadkCoreApplication.getInst().setVersionData(versionData);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            if (versionData.forceUpdate()) {
-                a(clientUpdateInfo, str);
-            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
-                a(clientUpdateInfo, str);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0140, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d7);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0903e5);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924d6);
+            c();
         }
     }
 }

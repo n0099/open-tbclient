@@ -52,46 +52,47 @@ import com.baidu.tbadk.data.VirtualImageCustomFigure;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tbadk.switchs.ConveneThreadOpenSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.a45;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.d16;
-import com.baidu.tieba.di;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.a26;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.bx5;
+import com.baidu.tieba.c15;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.d26;
+import com.baidu.tieba.d45;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.eh5;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.f35;
 import com.baidu.tieba.f45;
-import com.baidu.tieba.fw5;
-import com.baidu.tieba.g16;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.h45;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.jm;
-import com.baidu.tieba.lg5;
-import com.baidu.tieba.o15;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.ox5;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.j15;
+import com.baidu.tieba.k15;
+import com.baidu.tieba.k45;
+import com.baidu.tieba.km;
+import com.baidu.tieba.ky5;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.m45;
+import com.baidu.tieba.o45;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.s15;
-import com.baidu.tieba.t95;
+import com.baidu.tieba.rg5;
+import com.baidu.tieba.rha;
+import com.baidu.tieba.t15;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.u15;
-import com.baidu.tieba.u95;
+import com.baidu.tieba.tha;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.v45;
 import com.baidu.tieba.video.ActivityItemData;
-import com.baidu.tieba.vn6;
-import com.baidu.tieba.w05;
 import com.baidu.tieba.w25;
-import com.baidu.tieba.x05;
-import com.baidu.tieba.xfa;
-import com.baidu.tieba.y35;
-import com.baidu.tieba.yf5;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.w45;
+import com.baidu.tieba.x15;
+import com.baidu.tieba.xo6;
+import com.baidu.tieba.z15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,6 +126,7 @@ import tbclient.NoticeInfo;
 import tbclient.PbContent;
 import tbclient.PbGoodsInfo;
 import tbclient.PbLinkInfo;
+import tbclient.PeiwanInfo;
 import tbclient.ReportInfo;
 import tbclient.RobotEntrance;
 import tbclient.SkinInfo;
@@ -142,7 +144,7 @@ import tbclient.Voice;
 import tbclient.VoiceRoom;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes4.dex */
-public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoData {
+public class ThreadData extends b15 implements PreLoadImageProvider, cn, IVideoData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACT_STATE_CLOSE = 3;
     public static final int ACT_STATE_INVALID = -1;
@@ -229,7 +231,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public static AtomicBoolean isLegoLoaded;
     public static AtomicBoolean isRecAppLoaded;
     public static HashMap<Integer, Integer> mInterviewResMap;
-    public static SparseArray<vn6.a> mInterviewResMapForPb;
+    public static SparseArray<xo6.a> mInterviewResMapForPb;
     public transient /* synthetic */ FieldHolder $fh;
     public SpannableString abstractText;
     public String abstract_text;
@@ -243,7 +245,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public MetaData author;
     public String authorId;
     public int bjhContentTag;
-    public o15 bookChapterData;
+    public t15 bookChapterData;
     public String buttonText;
     public boolean canCopyThread;
     public String category_name;
@@ -261,13 +263,14 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public long fid;
     public String first_post_id;
     public int floorNum;
+    public int floorPosition;
     public boolean forbidComment;
     public boolean forceReadUserMap;
     public String forumAvatar;
-    public y35 forumData;
+    public d45 forumData;
     public String forum_name;
     public String from;
-    public xfa funAdData;
+    public rha funAdData;
     public String funAdId;
     public boolean hasItem;
     public boolean hasRecommend;
@@ -302,6 +305,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isFromHotRankTab;
     public boolean isFromLocal;
     public boolean isFromLowFlowsPage;
+    public boolean isFromNet;
     public boolean isFromPersonPolymeric;
     public boolean isFromVideoTab;
     public boolean isFrsKadunOpt;
@@ -355,28 +359,29 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String latitude;
     public String legoCard;
     public String lengthLimitName;
-    public r25 linkThreadData;
+    public w25 linkThreadData;
     public String linkUrl;
     public String location;
     public String longtitude;
-    public ArrayList<x05> mActDatas;
-    public f15 mAppCodeData;
+    public ArrayList<c15> mActDatas;
+    public k15 mAppCodeData;
     public long mAuditTime;
     public BaijiahaoData mBaijiahao;
     public CallRobotEntrance mCallRobotEntrance;
-    public s15 mCartoonThreadData;
+    public x15 mCartoonThreadData;
     public boolean mCheckRepeat;
     public long mCreateTime;
     public VirtualImageCustomFigure mCustomFigure;
     public VirtualImageCustomState mCustomState;
     public String mDailyPaperTime;
-    public ArrayList<lg5> mExtTails;
+    public ArrayList<eh5> mExtTails;
     public String mFirstClassName;
     public List<PbContent> mFirstFloorList;
     public String mFirstPostId;
     public long mFreqNum;
     public String mFromType;
     public List<PbGoodsData> mGoodsDataList;
+    public String mHeadType;
     public String mHomePageTopTabTabCode;
     public VideoInfo mHotTopicInfo;
     public int mInsertFloor;
@@ -397,7 +402,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String mPhotoLiveCover;
     public MediaData mPicMediaData;
     public PollData mPollData;
-    public List<zfa> mPostList;
+    public List<tha> mPostList;
     public PushStatusData mPushStatusData;
     public String mRecomAbTag;
     public String mRecomExtra;
@@ -424,13 +429,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int mTabId;
     public String mTabName;
     public int mTabShowMode;
-    public zfa mTopAgreePost;
+    public tha mTopAgreePost;
     public TopicModule mTopicModule;
     public String mUrl;
     public VoiceRoom mVoiceRoomData;
     public ArrayList<VoiceData.VoiceModel> mVoices;
     public String mWonderfulPostInfo;
-    public p45 mYulePostActivityData;
+    public u45 mYulePostActivityData;
     public String markID;
     public int middle_page_num;
     public int middle_page_pass_flag;
@@ -440,7 +445,8 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public OriginalThreadInfo originalThreadData;
     public int originalThreadType;
     public boolean partialVisible;
-    public zfa pbFirstShareData;
+    public tha pbFirstShareData;
+    public PeiwanInfo peiwanInfo;
     public String person_center_post_id;
     public int positionInFrsItemTab;
     public int post_num;
@@ -463,19 +469,19 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int smartFrsPosition;
     public int sortType;
     public SpannableStringBuilder span_str;
-    public e15 specialData;
+    public j15 specialData;
     public int statFloor;
     public int style_flag;
     public String targetScheme;
-    public a45 taskInfoData;
+    public f45 taskInfoData;
     public AlaInfoData threadAlaInfo;
-    public ArrayList<yf5> threadExpressionArrayList;
+    public ArrayList<rg5> threadExpressionArrayList;
     public String threadExtendInfo;
     public List<ThreadRecommendInfoData> threadRecommendInfoDataList;
     public ThreadRecommendTagData threadRecommendTagData;
     public int threadTitleSpanOffset;
     public int threadType;
-    public j45 threadVideoChannelInfo;
+    public o45 threadVideoChannelInfo;
     public VideoInfo threadVideoInfo;
     public VideoDesc threadVideoSegment;
     public String thread_share_link;
@@ -484,7 +490,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String tiePlusCostUrl;
     public int tiePlusFrsStaticLocate;
     @Nullable
-    public List<o16> tiePlusLinkOriginData;
+    public List<l26> tiePlusLinkOriginData;
     public String tiePlusMonitorClickUrl;
     public String tiePlusMonitorShowUrl;
     public String tiePlusShowUrl;
@@ -497,7 +503,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String title;
     @Nullable
     public SpannableStringBuilder titleText;
-    public f45 topicData;
+    public k45 topicData;
     public String topicUrl;
     public String topicUserName;
     public TwZhiBoUser twZhiBoUser;
@@ -516,18 +522,18 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w05
+    @Override // com.baidu.tieba.b15
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) ? this : (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) ? this : (ThreadData) invokeV.objValue;
     }
 
     @Deprecated
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048840, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048845, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -644,33 +650,33 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             JSONArray optJSONArray5 = jSONObject.optJSONArray("act_info");
             if (optJSONArray5 != null) {
                 for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                    x05 x05Var = new x05();
-                    x05Var.h(optJSONArray5.getJSONObject(i5));
-                    this.mActDatas.add(x05Var);
+                    c15 c15Var = new c15();
+                    c15Var.h(optJSONArray5.getJSONObject(i5));
+                    this.mActDatas.add(c15Var);
                 }
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("yule_post_activity");
             if (optJSONObject4 != null) {
-                p45 p45Var = new p45();
-                this.mYulePostActivityData = p45Var;
-                p45Var.c(optJSONObject4);
+                u45 u45Var = new u45();
+                this.mYulePostActivityData = u45Var;
+                u45Var.c(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("app_code");
             if (optJSONObject5 != null) {
-                f15 f15Var = new f15();
-                this.mAppCodeData = f15Var;
-                f15Var.b(optJSONObject5);
+                k15 k15Var = new k15();
+                this.mAppCodeData = k15Var;
+                k15Var.b(optJSONObject5);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("cartoon_info");
             if (optJSONObject6 != null) {
-                s15 s15Var = new s15();
-                this.mCartoonThreadData = s15Var;
-                s15Var.c(optJSONObject6);
+                x15 x15Var = new x15();
+                this.mCartoonThreadData = x15Var;
+                x15Var.c(optJSONObject6);
             }
             this.praise.setUserMap(this.userMap);
             this.praise.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
             this.anchorInfoData.parserJson(jSONObject.optJSONObject("anchor_info"));
-            if (!di.isEmpty(this.title)) {
+            if (!ei.isEmpty(this.title)) {
                 this.praise.setTitle(this.title);
             } else {
                 this.praise.setTitle(this.abstract_text);
@@ -682,9 +688,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             JSONArray optJSONArray6 = jSONObject.optJSONArray("ext_tails");
             if (optJSONArray6 != null) {
                 for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                    lg5 lg5Var = new lg5();
-                    lg5Var.a(optJSONArray6.getJSONObject(i6));
-                    this.mExtTails.add(lg5Var);
+                    eh5 eh5Var = new eh5();
+                    eh5Var.a(optJSONArray6.getJSONObject(i6));
+                    this.mExtTails.add(eh5Var);
                 }
             }
             this.isBookChapter = jSONObject.optInt("is_book_chapter", 0);
@@ -702,24 +708,24 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             this.mCheckRepeat = jSONObject.optInt("cheak_repeat") == 1;
             JSONObject optJSONObject8 = jSONObject.optJSONObject("video_channel_info");
             if (optJSONObject8 != null) {
-                j45 j45Var = new j45();
-                this.threadVideoChannelInfo = j45Var;
-                j45Var.a(optJSONObject8);
+                o45 o45Var = new o45();
+                this.threadVideoChannelInfo = o45Var;
+                o45Var.a(optJSONObject8);
             }
             this.isMutiForumThread = jSONObject.optInt("is_multiforum_thread") == 1;
             this.isLinkThread = jSONObject.optBoolean("is_link_thread");
             JSONObject optJSONObject9 = jSONObject.optJSONObject("link_info");
             if (this.isLinkThread && optJSONObject9 != null) {
-                r25 r25Var = new r25();
-                this.linkThreadData = r25Var;
-                r25Var.g(optJSONObject9);
+                w25 w25Var = new w25();
+                this.linkThreadData = w25Var;
+                w25Var.g(optJSONObject9);
             }
             this.partialVisible = jSONObject.optInt("is_partial_visible") == 1;
             JSONObject optJSONObject10 = jSONObject.optJSONObject("activity_info");
             if (optJSONObject10 != null) {
-                e15 e15Var = new e15();
-                this.specialData = e15Var;
-                e15Var.a(optJSONObject10);
+                j15 j15Var = new j15();
+                this.specialData = j15Var;
+                j15Var.a(optJSONObject10);
             }
             JSONObject optJSONObject11 = jSONObject.optJSONObject("pic_info");
             if (optJSONObject11 != null) {
@@ -841,26 +847,27 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                     this.threadRecommendInfoDataList.add(threadRecommendInfoData);
                 }
             }
-            y35 y35Var = new y35();
-            this.forumData = y35Var;
-            y35Var.k(jSONObject.optJSONObject("forum_info"));
+            d45 d45Var = new d45();
+            this.forumData = d45Var;
+            d45Var.l(jSONObject.optJSONObject("forum_info"));
             this.isAuthorView = jSONObject.optInt("is_author_view");
             jSONObject.optString("scard_packet_id");
             this.mPhotoLiveCover = jSONObject.optString("livecover_src");
+            this.mHeadType = jSONObject.optString("head_type");
             JSONArray optJSONArray10 = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray10 != null) {
-                this.mRichAbstractList = a35.a(optJSONArray10);
+                this.mRichAbstractList = f35.a(optJSONArray10);
             }
             this.showAdSubscript = jSONObject.optInt("show_ad_subscript") == 1;
             this.convertBtnType = jSONObject.optString("convert_btn_type");
             this.mIsExcellentThread = jSONObject.optInt("is_excellent_thread") == 1;
             JSONArray optJSONArray11 = jSONObject.optJSONArray("rich_title");
             if (optJSONArray11 != null) {
-                this.mRichTitleList = a35.a(optJSONArray11);
+                this.mRichTitleList = f35.a(optJSONArray11);
             }
             JSONArray optJSONArray12 = jSONObject.optJSONArray("first_post_content");
             if (optJSONArray12 != null) {
-                this.mFirstFloorList = a35.a(optJSONArray12);
+                this.mFirstFloorList = f35.a(optJSONArray12);
             }
             JSONObject optJSONObject18 = jSONObject.optJSONObject("star_rank_icon");
             if (optJSONObject18 != null) {
@@ -961,7 +968,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             this.mTabShowMode = jSONObject.optInt("tab_show_mode");
             JSONObject optJSONObject24 = jSONObject.optJSONObject("tiebaplus_ad");
             if (optJSONObject24 != null) {
-                this.tiePlusAdSource = optJSONObject24.optString(TiebaStatic.Params.T_PLUS_AD_SOURCE);
+                this.tiePlusAdSource = optJSONObject24.optString("ad_source");
                 this.tiePlusShowUrl = optJSONObject24.optString("show_url");
                 this.tiePlusCostUrl = optJSONObject24.optString("cost_url");
             }
@@ -978,7 +985,8 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             this.isHighLight = jSONObject.optInt("is_highlight") == 1;
             this.isXiuxiuThread = jSONObject.optInt("is_xiuxiu_thread") == 1;
             this.targetScheme = jSONObject.optString("target_scheme");
-            this.clickBackCard = q45.a(jSONObject.optJSONObject("click_back_card"));
+            this.clickBackCard = v45.a(jSONObject.optJSONObject("click_back_card"));
+            this.peiwanInfo = w45.a(jSONObject.optJSONObject("peiwan_info"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -987,7 +995,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public void parserProtobuf(ThreadInfo threadInfo) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048841, this, threadInfo) == null) || threadInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048846, this, threadInfo) == null) || threadInfo == null) {
             return;
         }
         try {
@@ -1081,9 +1089,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                 this.threadVideoInfo = threadInfo.video_info;
             }
             if (threadInfo.video_channel_info != null && threadInfo.video_channel_info.channel_id.longValue() > 0) {
-                j45 j45Var = new j45();
-                this.threadVideoChannelInfo = j45Var;
-                j45Var.b(threadInfo.video_channel_info);
+                o45 o45Var = new o45();
+                this.threadVideoChannelInfo = o45Var;
+                o45Var.b(threadInfo.video_channel_info);
             }
             List<Voice> list3 = threadInfo.voice_info;
             if (list3 != null) {
@@ -1101,30 +1109,30 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             if (list4 != null) {
                 int size2 = list4.size();
                 for (int i4 = 0; i4 < size2; i4++) {
-                    x05 x05Var = new x05();
-                    x05Var.i(list4.get(i4));
-                    this.mActDatas.add(x05Var);
+                    c15 c15Var = new c15();
+                    c15Var.i(list4.get(i4));
+                    this.mActDatas.add(c15Var);
                 }
             }
             if (threadInfo.yule_post_activity != null) {
-                p45 p45Var = new p45();
-                this.mYulePostActivityData = p45Var;
-                p45Var.d(threadInfo.yule_post_activity);
+                u45 u45Var = new u45();
+                this.mYulePostActivityData = u45Var;
+                u45Var.d(threadInfo.yule_post_activity);
             }
             if (threadInfo.app_code != null) {
-                f15 f15Var = new f15();
-                this.mAppCodeData = f15Var;
-                f15Var.c(threadInfo.app_code);
+                k15 k15Var = new k15();
+                this.mAppCodeData = k15Var;
+                k15Var.c(threadInfo.app_code);
             }
             if (threadInfo.cartoon_info != null) {
-                s15 s15Var = new s15();
-                this.mCartoonThreadData = s15Var;
-                s15Var.d(threadInfo.cartoon_info);
+                x15 x15Var = new x15();
+                this.mCartoonThreadData = x15Var;
+                x15Var.d(threadInfo.cartoon_info);
             }
             this.praise.setUserMap(this.userMap);
             this.praise.parserProtobuf(threadInfo.zan);
             this.anchorInfoData.parserProtobuf(threadInfo.anchor_info);
-            if (!di.isEmpty(this.title)) {
+            if (!ei.isEmpty(this.title)) {
                 this.praise.setTitle(this.title);
             } else {
                 this.praise.setTitle(this.abstract_text);
@@ -1134,17 +1142,18 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             this.post_num = threadInfo.post_num.intValue();
             this.mLastPostNum = threadInfo.post_num.intValue();
             this.mFreqNum = threadInfo.freq_num.longValue();
+            this.mHeadType = threadInfo.head_type;
             ZhiBoInfoTW zhiBoInfoTW = threadInfo.twzhibo_info;
             if (zhiBoInfoTW != null) {
                 if (zhiBoInfoTW.labelInfo != null) {
                     int size3 = zhiBoInfoTW.labelInfo.size();
                     for (int i5 = 0; i5 < size3; i5++) {
                         if (zhiBoInfoTW.labelInfo.get(i5) != null) {
-                            yf5 yf5Var = new yf5();
-                            yf5Var.a(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
-                            yf5Var.b(zhiBoInfoTW.labelInfo.get(i5).labelId);
-                            yf5Var.c(zhiBoInfoTW.labelInfo.get(i5).labelContent);
-                            this.threadExpressionArrayList.add(yf5Var);
+                            rg5 rg5Var = new rg5();
+                            rg5Var.a(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                            rg5Var.b(zhiBoInfoTW.labelInfo.get(i5).labelId);
+                            rg5Var.c(zhiBoInfoTW.labelInfo.get(i5).labelContent);
+                            this.threadExpressionArrayList.add(rg5Var);
                         }
                     }
                 }
@@ -1177,9 +1186,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             }
             if (threadInfo.ext_tails != null) {
                 for (int i6 = 0; i6 != threadInfo.ext_tails.size(); i6++) {
-                    lg5 lg5Var = new lg5();
-                    lg5Var.b(threadInfo.ext_tails.get(i6));
-                    this.mExtTails.add(lg5Var);
+                    eh5 eh5Var = new eh5();
+                    eh5Var.b(threadInfo.ext_tails.get(i6));
+                    this.mExtTails.add(eh5Var);
                 }
             }
             this.mPushStatusData.parserProtobuf(threadInfo.push_status);
@@ -1197,13 +1206,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             this.mCheckRepeat = threadInfo.cheak_repeat.intValue() == 1;
             this.mReportInfoList = threadInfo.report_info;
             if (threadInfo.top_agree_post != null) {
-                this.mTopAgreePost.H0(threadInfo.top_agree_post);
+                this.mTopAgreePost.J0(threadInfo.top_agree_post);
             }
             if (threadInfo.hot_post_list != null) {
                 for (int i7 = 0; i7 < threadInfo.hot_post_list.size(); i7++) {
-                    zfa zfaVar = new zfa();
-                    zfaVar.H0(threadInfo.hot_post_list.get(i7));
-                    this.mPostList.add(zfaVar);
+                    tha thaVar = new tha();
+                    thaVar.J0(threadInfo.hot_post_list.get(i7));
+                    this.mPostList.add(thaVar);
                 }
             }
             if (threadInfo.robot_entrance != null) {
@@ -1226,15 +1235,15 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             boolean z = threadInfo.is_link_thread.intValue() == 1;
             this.isLinkThread = z;
             if (z && threadInfo.link_info != null) {
-                r25 r25Var = new r25();
-                this.linkThreadData = r25Var;
-                r25Var.h(threadInfo.link_info);
+                w25 w25Var = new w25();
+                this.linkThreadData = w25Var;
+                w25Var.h(threadInfo.link_info);
             }
             this.partialVisible = threadInfo.is_partial_visible.intValue() == 1;
             if (threadInfo.activity_info != null) {
-                e15 e15Var = new e15();
-                this.specialData = e15Var;
-                e15Var.b(threadInfo.activity_info);
+                j15 j15Var = new j15();
+                this.specialData = j15Var;
+                j15Var.b(threadInfo.activity_info);
             }
             if (threadInfo.pic_info != null) {
                 MediaData mediaData2 = new MediaData();
@@ -1265,9 +1274,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             this.mOriginalForumInfo = OriginalForumInfo.parser(threadInfo.ori_forum_info);
             this.mDailyPaperTime = threadInfo.daily_paper_time;
             if (threadInfo.forum_info != null) {
-                y35 y35Var = new y35();
-                this.forumData = y35Var;
-                y35Var.l(threadInfo.forum_info);
+                d45 d45Var = new d45();
+                this.forumData = d45Var;
+                d45Var.m(threadInfo.forum_info);
             }
             if (threadInfo.naws_info != null) {
                 this.mSmartApp = threadInfo.naws_info;
@@ -1393,6 +1402,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             }
             this.targetScheme = threadInfo.target_scheme;
             this.clickBackCard = threadInfo.click_back_card;
+            this.peiwanInfo = threadInfo.peiwan_info;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -1548,9 +1558,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         mInterviewResMap.put(1, Integer.valueOf((int) R.drawable.label_interview_no));
         mInterviewResMap.put(2, Integer.valueOf((int) R.drawable.label_interview_live));
         mInterviewResMap.put(3, Integer.valueOf((int) R.drawable.label_interview_off));
-        mInterviewResMapForPb.put(1, new vn6.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-        mInterviewResMapForPb.put(2, new vn6.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
-        mInterviewResMapForPb.put(3, new vn6.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
+        mInterviewResMapForPb.put(1, new xo6.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+        mInterviewResMapForPb.put(2, new xo6.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
+        mInterviewResMapForPb.put(3, new xo6.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
     }
 
     public ThreadData() {
@@ -1611,6 +1621,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         this.location = "";
         this.isSimilarPageType = false;
         this.removeDuplicationFalg = RemoveDuplication.NONE;
+        this.isFromNet = true;
         this.id = null;
         this.tid = null;
         this.fid = 0L;
@@ -1625,7 +1636,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         this.is_membertop = 0;
         this.is_good = 0;
         this.is_live = 0;
-        this.topicData = new f45();
+        this.topicData = new k45();
         this.author = new MetaData();
         this.forum_name = null;
         this.mMedias = new ArrayList<>();
@@ -1658,18 +1669,18 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         this.operator_flag = 0;
         this.anchorLevel = 0;
         this.isBookChapter = 0;
-        this.bookChapterData = new o15();
+        this.bookChapterData = new t15();
         this.mFirstFloorList = new ArrayList();
         this.mRichTitleList = new ArrayList();
         this.mRichAbstractList = new ArrayList();
         this.category_name = null;
-        this.taskInfoData = new a45();
+        this.taskInfoData = new f45();
         this.mExtTails = new ArrayList<>();
         this.mPushStatusData = new PushStatusData();
         this.isTbReadDispatch = 0;
         this.isInsertThread = false;
         this.mInsertFloor = -1;
-        this.mTopAgreePost = new zfa();
+        this.mTopAgreePost = new tha();
         this.agreeData = new AgreeData();
         this.is_called = 0;
         this.middle_page_num = 0;
@@ -1687,18 +1698,18 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         this.mPostList = new ArrayList();
     }
 
-    private SpannableStringBuilder addGodTittle(String str, ArrayList<vn6.a> arrayList) {
+    private SpannableStringBuilder addGodTittle(String str, ArrayList<xo6.a> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, arrayList)) == null) {
-            if (isVideoThreadType() || !needShowGodTitle() || di.isEmpty(str)) {
+            if (isVideoThreadType() || !needShowGodTitle() || ei.isEmpty(str)) {
                 return null;
             }
             if (arrayList == null || arrayList.size() <= 0) {
                 arrayList = new ArrayList<>();
-                arrayList.add(new vn6.a((int) R.string.god_title));
+                arrayList.add(new xo6.a((int) R.string.god_title));
             }
-            return vn6.h(TbadkCoreApplication.getInst(), str, arrayList, true);
+            return xo6.h(TbadkCoreApplication.getInst(), str, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -1707,11 +1718,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, spannableStringBuilder, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            ArrayList<vn6.a> prefixList = getPrefixList(z, z2, z3, z4);
+            ArrayList<xo6.a> prefixList = getPrefixList(z, z2, z3, z4);
             if (prefixList == null) {
                 return new SpannableStringBuilder();
             }
-            SpannableStringBuilder h = vn6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
+            SpannableStringBuilder h = xo6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
             if (prefixList.size() > 0) {
                 if (h == null) {
                     h = new SpannableStringBuilder();
@@ -1738,11 +1749,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, spannableString, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            ArrayList<vn6.a> prefixList = getPrefixList(z, z2, z3, false);
+            ArrayList<xo6.a> prefixList = getPrefixList(z, z2, z3, false);
             if (prefixList == null) {
                 return new SpannableStringBuilder();
             }
-            SpannableStringBuilder h = vn6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
+            SpannableStringBuilder h = xo6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
             if (prefixList.size() > 0 && h == null) {
                 h = new SpannableStringBuilder();
             }
@@ -1756,7 +1767,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    private ArrayList<vn6.a> getPrefixList(boolean z, boolean z2) {
+    private ArrayList<xo6.a> getPrefixList(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -1768,7 +1779,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableStringBuilder parseTitleOrAbstractForFrs(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048836, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048841, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             return parseTitleOrAbstractForFrs(z, z2, false);
         }
         return (SpannableStringBuilder) invokeCommon.objValue;
@@ -1776,37 +1787,37 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void parserSpecTitleForFrsAndPb(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048842, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048847, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             parserSpecTitleForFrsAndPb(z, z2, true);
         }
     }
 
     public void setSpecUrl(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048947, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048954, this, str, str2) == null) {
             this.mUrl = str;
             this.mRightUrl = str2;
         }
     }
 
-    private ArrayList<vn6.a> getPrefixList(boolean z, boolean z2, boolean z3, boolean z4) {
+    private ArrayList<xo6.a> getPrefixList(boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            ArrayList<vn6.a> arrayList = new ArrayList<>();
+            ArrayList<xo6.a> arrayList = new ArrayList<>();
             boolean needShowGodTitle = needShowGodTitle();
             if (z2) {
                 if (z) {
                     if (needShowGodTitle && !isVideoThreadType()) {
-                        arrayList.add(new vn6.a((int) R.string.god_title));
+                        arrayList.add(new xo6.a((int) R.string.god_title));
                     }
                     if (getIsLive() == 1 || getThreadType() == 33 || (getTopicData() != null && getTopicData().a() != 0)) {
                         if (getTaskInfoData() != null && isInterviewLive()) {
                             if (getTaskInfoStatus() == 2) {
-                                arrayList.add(new vn6.a((int) R.string.interview_live));
+                                arrayList.add(new xo6.a((int) R.string.interview_live));
                             }
                         } else if (!needShowGodTitle) {
-                            arrayList.add(new vn6.a((int) R.string.photo_live_tips));
+                            arrayList.add(new xo6.a((int) R.string.photo_live_tips));
                         }
                     }
                     if (isInterviewLive()) {
@@ -1815,63 +1826,63 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                     if (isActInfo()) {
                         Integer num = activityResStringMap.get(new Point(getActInfoType(), getActInfoStatus()));
                         if (num != null) {
-                            arrayList.add(new vn6.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                            arrayList.add(new xo6.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                         } else {
-                            arrayList.add(new vn6.a((int) R.string.card_promotion_text));
+                            arrayList.add(new xo6.a((int) R.string.card_promotion_text));
                         }
                     }
                     if (getYulePostActivityData() != null) {
-                        arrayList.add(new vn6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new xo6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
-                    if (!di.isEmpty(getCategory())) {
-                        arrayList.add(new vn6.a(getCategory()));
+                    if (!ei.isEmpty(getCategory())) {
+                        arrayList.add(new xo6.a(getCategory()));
                     }
                 } else {
                     if (needShowGodTitle && getIs_top() != 1 && !isVideoThreadType()) {
-                        arrayList.add(new vn6.a((int) R.string.god_title));
+                        arrayList.add(new xo6.a((int) R.string.god_title));
                     }
                     if ((getIsLive() == 1 || getThreadType() == 33) && !isInterviewLive() && !needShowGodTitle) {
-                        arrayList.add(new vn6.a((int) R.string.photo_live_tips));
+                        arrayList.add(new xo6.a((int) R.string.photo_live_tips));
                     }
                     if (getIs_good() == 1) {
-                        arrayList.add(new vn6.a((int) R.string.obfuscated_res_0x7f0f0919));
+                        arrayList.add(new xo6.a((int) R.string.obfuscated_res_0x7f0f091e));
                     }
                     if (getIs_top() == 1) {
-                        arrayList.add(new vn6.a((int) R.string.obfuscated_res_0x7f0f16c2));
+                        arrayList.add(new xo6.a((int) R.string.obfuscated_res_0x7f0f16e0));
                     }
                     if (isInterviewLive() && getTaskInfoData() != null && getTaskInfoStatus() == 2) {
-                        arrayList.add(new vn6.a((int) R.string.interview_live));
+                        arrayList.add(new xo6.a((int) R.string.interview_live));
                     }
                     if (isActInfo()) {
                         Integer num2 = activityResStringMap.get(new Point(getActInfoType(), getActInfoStatus()));
                         if (num2 != null) {
-                            arrayList.add(new vn6.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                            arrayList.add(new xo6.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                         } else {
-                            arrayList.add(new vn6.a((int) R.string.card_promotion_text));
+                            arrayList.add(new xo6.a((int) R.string.card_promotion_text));
                         }
                     }
                     if (this.isBookChapter == 1) {
-                        arrayList.add(new vn6.a((int) R.string.card_tbread_text));
+                        arrayList.add(new xo6.a((int) R.string.card_tbread_text));
                     }
                     if (getAppCodeData() != null) {
-                        arrayList.add(new vn6.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new xo6.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
                     if (getYulePostActivityData() != null) {
-                        arrayList.add(new vn6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new xo6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
-                    if (!di.isEmpty(getCategory())) {
-                        arrayList.add(new vn6.a(getCategory()));
+                    if (!ei.isEmpty(getCategory())) {
+                        arrayList.add(new xo6.a(getCategory()));
                     }
                     if (z3 && isLiveThread()) {
-                        arrayList.add(new vn6.a((int) R.string.ala_live));
+                        arrayList.add(new xo6.a((int) R.string.ala_live));
                     }
                     if (z3 && isLiveRecordThread()) {
-                        arrayList.add(new vn6.a((int) R.string.live_record));
+                        arrayList.add(new xo6.a((int) R.string.live_record));
                     } else if (isRealVideoThread()) {
-                        arrayList.add(new vn6.a((int) R.string.video_title_str));
+                        arrayList.add(new xo6.a((int) R.string.video_title_str));
                     }
                     if (z4) {
-                        arrayList.add(new vn6.a((int) R.string.video_review_state));
+                        arrayList.add(new xo6.a((int) R.string.video_review_state));
                     }
                 }
             }
@@ -1918,7 +1929,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             SpannableStringBuilder parseTitle = parseTitle();
             this.titleText = parseTitle;
-            vn6.b(this, parseTitle, true);
+            xo6.b(this, parseTitle, true);
         }
     }
 
@@ -1954,7 +1965,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (SpannableString) invokeV.objValue;
     }
 
-    public ArrayList<x05> getActDatas() {
+    public ArrayList<c15> getActDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -2035,13 +2046,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.intValue;
     }
 
-    public f15 getAppCodeData() {
+    public k15 getAppCodeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mAppCodeData;
         }
-        return (f15) invokeV.objValue;
+        return (k15) invokeV.objValue;
     }
 
     public String getArticeCover() {
@@ -2120,13 +2131,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.booleanValue;
     }
 
-    public s15 getCartoonThreadData() {
+    public x15 getCartoonThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.mCartoonThreadData;
         }
-        return (s15) invokeV.objValue;
+        return (x15) invokeV.objValue;
     }
 
     public String getCategory() {
@@ -2228,7 +2239,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<yf5> getExpressDatas() {
+    public ArrayList<rg5> getExpressDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
@@ -2237,7 +2248,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<lg5> getExtTails() {
+    public ArrayList<eh5> getExtTails() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
@@ -2309,13 +2320,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public y35 getForumData() {
+    public d45 getForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return this.forumData;
         }
-        return (y35) invokeV.objValue;
+        return (d45) invokeV.objValue;
     }
 
     public String getForum_name() {
@@ -2403,10 +2414,19 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.intValue;
     }
 
-    public VideoInfo getHotTopicInfo() {
+    public String getHeadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            return this.mHeadType;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public VideoInfo getHotTopicInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             return this.mHotTopicInfo;
         }
         return (VideoInfo) invokeV.objValue;
@@ -2415,7 +2435,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
             return this.id;
         }
         return (String) invokeV.objValue;
@@ -2424,7 +2444,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getInsertFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             return this.mInsertFloor;
         }
         return invokeV.intValue;
@@ -2433,7 +2453,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean getIsDailyThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             return this.isDailyThread;
         }
         return invokeV.booleanValue;
@@ -2442,7 +2462,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIsLive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
             return this.is_live;
         }
         return invokeV.intValue;
@@ -2451,7 +2471,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIsManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             return this.isManager;
         }
         return invokeV.intValue;
@@ -2460,7 +2480,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIsMarked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
             return this.isMarked;
         }
         return invokeV.intValue;
@@ -2469,7 +2489,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIsMemberTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             return this.is_membertop;
         }
         return invokeV.intValue;
@@ -2478,7 +2498,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIsNoTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             return this.isNoTitle;
         }
         return invokeV.intValue;
@@ -2487,7 +2507,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean getIsOperateThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             return this.isOperateThread;
         }
         return invokeV.booleanValue;
@@ -2496,7 +2516,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIsOriginManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
             return this.isOriginManager;
         }
         return invokeV.intValue;
@@ -2505,7 +2525,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIs_called() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
             return this.is_called;
         }
         return invokeV.intValue;
@@ -2514,7 +2534,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIs_good() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
             return this.is_good;
         }
         return invokeV.intValue;
@@ -2523,7 +2543,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getIs_top() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
             return this.is_top;
         }
         return invokeV.intValue;
@@ -2532,7 +2552,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public Item getItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
             return this.mItem;
         }
         return (Item) invokeV.objValue;
@@ -2541,7 +2561,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<HeadItem> getItemStar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
             return this.mItemStar;
         }
         return (List) invokeV.objValue;
@@ -2550,7 +2570,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getLastPostNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             return this.mLastPostNum;
         }
         return invokeV.intValue;
@@ -2559,7 +2579,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public long getLastReadPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             return this.mLastReadPid;
         }
         return invokeV.longValue;
@@ -2568,7 +2588,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getLast_time() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
             return this.last_time;
         }
         return (String) invokeV.objValue;
@@ -2577,7 +2597,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public long getLast_time_int() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
             return this.last_time_int;
         }
         return invokeV.longValue;
@@ -2586,7 +2606,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getLatitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
             return this.latitude;
         }
         return (String) invokeV.objValue;
@@ -2595,7 +2615,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getLeftHotIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
             return this.mUrl;
         }
         return (String) invokeV.objValue;
@@ -2604,7 +2624,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getLegoCard() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
             return this.legoCard;
         }
         return (String) invokeV.objValue;
@@ -2613,7 +2633,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getLengthLimitName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
             return this.lengthLimitName;
         }
         return (String) invokeV.objValue;
@@ -2622,25 +2642,25 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<PbLinkData> getLinkDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
             return this.mLinkDataList;
         }
         return (List) invokeV.objValue;
     }
 
-    public r25 getLinkThreadData() {
+    public w25 getLinkThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             return this.linkThreadData;
         }
-        return (r25) invokeV.objValue;
+        return (w25) invokeV.objValue;
     }
 
     public LiveCoverStatus getLiveCoverStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) {
             return this.mLiveCoverStatus;
         }
         return (LiveCoverStatus) invokeV.objValue;
@@ -2649,7 +2669,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getLongtitude() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
             return this.longtitude;
         }
         return (String) invokeV.objValue;
@@ -2658,7 +2678,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getMarkID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
             return this.markID;
         }
         return (String) invokeV.objValue;
@@ -2667,7 +2687,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public ArrayList<MediaData> getMedias() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
             return this.mMedias;
         }
         return (ArrayList) invokeV.objValue;
@@ -2676,7 +2696,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getNid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
             return this.mNid;
         }
         return (String) invokeV.objValue;
@@ -2685,7 +2705,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getNotice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
             return this.mNotice;
         }
         return (String) invokeV.objValue;
@@ -2694,7 +2714,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getOperatorFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
             return this.operator_flag;
         }
         return invokeV.intValue;
@@ -2703,34 +2723,43 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getOriginalThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
             return this.originalThreadType;
         }
         return invokeV.intValue;
     }
 
-    public zfa getPbFirstShareData() {
+    public tha getPbFirstShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
             return this.pbFirstShareData;
         }
-        return (zfa) invokeV.objValue;
+        return (tha) invokeV.objValue;
     }
 
     public String getPbTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
             return this.mPbTitle;
         }
         return (String) invokeV.objValue;
     }
 
+    public PeiwanInfo getPeiwanInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
+            return this.peiwanInfo;
+        }
+        return (PeiwanInfo) invokeV.objValue;
+    }
+
     public String getPhotoLiveCover() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             return this.mPhotoLiveCover;
         }
         return (String) invokeV.objValue;
@@ -2739,7 +2768,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public MediaData getPicMediaData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) {
             return this.mPicMediaData;
         }
         return (MediaData) invokeV.objValue;
@@ -2748,7 +2777,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public PollData getPollData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
             return this.mPollData;
         }
         return (PollData) invokeV.objValue;
@@ -2757,16 +2786,16 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getPositionInFrsItemTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
             return this.positionInFrsItemTab;
         }
         return invokeV.intValue;
     }
 
-    public List<zfa> getPostList() {
+    public List<tha> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
             return this.mPostList;
         }
         return (List) invokeV.objValue;
@@ -2775,7 +2804,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getPost_num() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
             return this.post_num;
         }
         return invokeV.intValue;
@@ -2784,7 +2813,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public PraiseData getPraise() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             return this.praise;
         }
         return (PraiseData) invokeV.objValue;
@@ -2793,7 +2822,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<TwAnchorProfitItem> getProfitList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
             return this.profitList;
         }
         return (List) invokeV.objValue;
@@ -2802,7 +2831,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public PushStatusData getPushStatusData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
             return this.mPushStatusData;
         }
         return (PushStatusData) invokeV.objValue;
@@ -2811,17 +2840,17 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public ThreadInfo getRawThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
             return this.rawThreadInfo;
         }
         return (ThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w05
+    @Override // com.baidu.tieba.b15
     public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
             return this.mRecomReason;
         }
         return (String) invokeV.objValue;
@@ -2830,7 +2859,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getRecomSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
             return this.mRecomSource;
         }
         return (String) invokeV.objValue;
@@ -2839,7 +2868,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getReplyTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
             return this.replyTime;
         }
         return (String) invokeV.objValue;
@@ -2848,7 +2877,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getReplyTimeForMyThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) {
             return this.replyTimeForMyThread;
         }
         return (String) invokeV.objValue;
@@ -2857,7 +2886,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getReply_num() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
             return this.reply_num;
         }
         return invokeV.intValue;
@@ -2866,7 +2895,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<ReportInfo> getReportInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048690, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
             return this.mReportInfoList;
         }
         return (List) invokeV.objValue;
@@ -2875,7 +2904,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getRepost_num() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
             return this.repost_num;
         }
         return invokeV.intValue;
@@ -2884,7 +2913,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048692, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
             return this.mResourceType;
         }
         return invokeV.intValue;
@@ -2893,7 +2922,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<PbContent> getRichAbstractList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) {
             return this.mRichAbstractList;
         }
         return (List) invokeV.objValue;
@@ -2902,7 +2931,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<PbContent> getRichTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048694, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
             return this.mRichTitleList;
         }
         return (List) invokeV.objValue;
@@ -2911,7 +2940,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getRightHotIconUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
             return this.mRightUrl;
         }
         return (String) invokeV.objValue;
@@ -2920,7 +2949,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public RobotEntrance getRobotEntrance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048696, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048698, this)) == null) {
             return this.robotEntrance;
         }
         return (RobotEntrance) invokeV.objValue;
@@ -2929,7 +2958,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getSecondClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) {
             return this.mSecondClassName;
         }
         return (String) invokeV.objValue;
@@ -2938,7 +2967,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getShareImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048698, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
             return this.mShareImageUrl;
         }
         return (String) invokeV.objValue;
@@ -2947,7 +2976,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getShareIntro() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048701, this)) == null) {
             return this.shareIntro;
         }
         return (String) invokeV.objValue;
@@ -2956,7 +2985,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public long getShareNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) {
             return this.mShareNum;
         }
         return invokeV.longValue;
@@ -2965,7 +2994,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean getShowAdSubscript() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048701, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) {
             return this.showAdSubscript;
         }
         return invokeV.booleanValue;
@@ -2974,7 +3003,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getShow_commented() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048702, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) {
             return this.show_commented;
         }
         return invokeV.intValue;
@@ -2983,7 +3012,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SkinInfo getSkinInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048703, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) {
             return this.mSkinInfoData;
         }
         return (SkinInfo) invokeV.objValue;
@@ -2992,7 +3021,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SmartApp getSmartApp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048704, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
             return this.mSmartApp;
         }
         return (SmartApp) invokeV.objValue;
@@ -3001,7 +3030,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getSmartFrsPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048705, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) {
             return this.smartFrsPosition;
         }
         return invokeV.intValue;
@@ -3010,7 +3039,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableStringBuilder getSpan_str() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
             return this.span_str;
         }
         return (SpannableStringBuilder) invokeV.objValue;
@@ -3019,7 +3048,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getStoreCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) {
             return this.mStoreCount;
         }
         return invokeV.intValue;
@@ -3028,7 +3057,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getStyle_flag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048710, this)) == null) {
             return this.style_flag;
         }
         return invokeV.intValue;
@@ -3037,7 +3066,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getTabId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048709, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) {
             return this.mTabId;
         }
         return invokeV.intValue;
@@ -3046,7 +3075,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getTabName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048710, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) {
             return this.mTabName;
         }
         return (String) invokeV.objValue;
@@ -3055,7 +3084,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getTabShowMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) {
             return this.mTabShowMode;
         }
         return invokeV.intValue;
@@ -3064,25 +3093,25 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getTargetScheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048712, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048714, this)) == null) {
             return this.targetScheme;
         }
         return (String) invokeV.objValue;
     }
 
-    public a45 getTaskInfoData() {
+    public f45 getTaskInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) {
             return this.taskInfoData;
         }
-        return (a45) invokeV.objValue;
+        return (f45) invokeV.objValue;
     }
 
     public AlaInfoData getThreadAlaInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048717, this)) == null) {
             return this.threadAlaInfo;
         }
         return (AlaInfoData) invokeV.objValue;
@@ -3091,7 +3120,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getThreadExtendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048717, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048719, this)) == null) {
             return this.threadExtendInfo;
         }
         return (String) invokeV.objValue;
@@ -3100,7 +3129,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public List<ThreadRecommendInfoData> getThreadRecommendInfoDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) {
             return this.threadRecommendInfoDataList;
         }
         return (List) invokeV.objValue;
@@ -3109,7 +3138,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public ThreadRecommendTagData getThreadRecommendTagData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048719, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) {
             return this.threadRecommendTagData;
         }
         return (ThreadRecommendTagData) invokeV.objValue;
@@ -3118,25 +3147,25 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048720, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) {
             return this.threadType;
         }
         return invokeV.intValue;
     }
 
-    public j45 getThreadVideoChannelInfo() {
+    public o45 getThreadVideoChannelInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048723, this)) == null) {
             return this.threadVideoChannelInfo;
         }
-        return (j45) invokeV.objValue;
+        return (o45) invokeV.objValue;
     }
 
     public VideoInfo getThreadVideoInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048722, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048724, this)) == null) {
             return this.threadVideoInfo;
         }
         return (VideoInfo) invokeV.objValue;
@@ -3145,7 +3174,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public VideoDesc getThreadVideoSegment() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048723, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) {
             return this.threadVideoSegment;
         }
         return (VideoDesc) invokeV.objValue;
@@ -3154,7 +3183,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getTid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048724, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) {
             if (!StringUtils.isNull(this.tid) && !"0".equals(this.tid)) {
                 return this.tid;
             }
@@ -3164,10 +3193,10 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     }
 
     @Nullable
-    public List<o16> getTiePlusLinkOriginData() {
+    public List<l26> getTiePlusLinkOriginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
             return this.tiePlusLinkOriginData;
         }
         return (List) invokeV.objValue;
@@ -3176,7 +3205,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public long getTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048726, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) {
             return this.time;
         }
         return invokeV.longValue;
@@ -3185,7 +3214,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048729, this)) == null) {
             return this.title;
         }
         return (String) invokeV.objValue;
@@ -3195,34 +3224,34 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableStringBuilder getTitleText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048728, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) {
             return this.titleText;
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public zfa getTopAgreePost() {
+    public tha getTopAgreePost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048729, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) {
             return this.mTopAgreePost;
         }
-        return (zfa) invokeV.objValue;
+        return (tha) invokeV.objValue;
     }
 
-    public f45 getTopicData() {
+    public k45 getTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048732, this)) == null) {
             return this.topicData;
         }
-        return (f45) invokeV.objValue;
+        return (k45) invokeV.objValue;
     }
 
     public TopicModule getTopicModule() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048731, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048733, this)) == null) {
             return this.mTopicModule;
         }
         return (TopicModule) invokeV.objValue;
@@ -3231,7 +3260,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getTopicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048732, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) {
             return this.topicUrl;
         }
         return (String) invokeV.objValue;
@@ -3240,7 +3269,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getTopicUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048733, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048735, this)) == null) {
             return this.topicUserName;
         }
         return (String) invokeV.objValue;
@@ -3249,7 +3278,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public HashMap<String, MetaData> getUserMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048735, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048737, this)) == null) {
             return this.userMap;
         }
         return (HashMap) invokeV.objValue;
@@ -3258,7 +3287,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getVideoRecStaticticType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048736, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048738, this)) == null) {
             if (!isBJHVideoDynamicThreadType() && !isBJHNormalThreadType()) {
                 if (!isBJHArticleThreadType() && !isBJHVideoThreadType()) {
                     return 1;
@@ -3274,7 +3303,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048737, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) {
             VideoInfo videoInfo = this.threadVideoInfo;
             if (videoInfo != null) {
                 return videoInfo.video_url;
@@ -3287,7 +3316,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getView_num() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048738, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048740, this)) == null) {
             return this.view_num;
         }
         return invokeV.intValue;
@@ -3296,7 +3325,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public ArrayList<VoiceData.VoiceModel> getVoice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048741, this)) == null) {
             return this.mVoices;
         }
         return (ArrayList) invokeV.objValue;
@@ -3305,7 +3334,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public VoiceRoom getVoiceRoomData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048740, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048742, this)) == null) {
             return this.mVoiceRoomData;
         }
         return (VoiceRoom) invokeV.objValue;
@@ -3314,7 +3343,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public String getWonderfulPostInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048741, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) {
             return this.mWonderfulPostInfo;
         }
         return (String) invokeV.objValue;
@@ -3323,7 +3352,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getYYStaticticType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048742, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048744, this)) == null) {
             if (getRecomCardType() == 1) {
                 return 2;
             }
@@ -3338,19 +3367,19 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.intValue;
     }
 
-    public p45 getYulePostActivityData() {
+    public u45 getYulePostActivityData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) {
             return this.mYulePostActivityData;
         }
-        return (p45) invokeV.objValue;
+        return (u45) invokeV.objValue;
     }
 
     public UserTbVipInfoData getbigVData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048744, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) {
             MetaData metaData = this.author;
             if (metaData == null) {
                 return null;
@@ -3363,7 +3392,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public RemoveDuplication getremoveDuplicationFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048745, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048747, this)) == null) {
             return this.removeDuplicationFalg;
         }
         return (RemoveDuplication) invokeV.objValue;
@@ -3371,11 +3400,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public boolean hasUserLabelInfo() {
         InterceptResult invokeV;
-        h45 h45Var;
+        m45 m45Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048748, this)) == null) {
             AlaInfoData alaInfoData = this.threadAlaInfo;
-            if (alaInfoData != null && (h45Var = alaInfoData.userLabelInfo) != null && !TextUtils.isEmpty(h45Var.c())) {
+            if (alaInfoData != null && (m45Var = alaInfoData.userLabelInfo) != null && !TextUtils.isEmpty(m45Var.c())) {
                 return true;
             }
             return false;
@@ -3386,7 +3415,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isActInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048751, this)) == null) {
             if (this.is_activity == 1) {
                 return true;
             }
@@ -3398,8 +3427,20 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isAddedGood() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048750, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048752, this)) == null) {
             if (getIs_good() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isAlaLiveMixThreadType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) {
+            if (this.threadType == 74) {
                 return true;
             }
             return false;
@@ -3410,7 +3451,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isAlaLiveUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048751, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) {
             if (getAuthor() != null && getAuthor().getAlaUserData() != null && getAuthor().getAlaUserData().live_status == 1) {
                 return true;
             }
@@ -3423,7 +3464,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         InterceptResult invokeV;
         String userId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048752, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) {
             MetaData metaData = this.author;
             if (metaData != null && (userId = metaData.getUserId()) != null && !userId.equals("0")) {
                 return false;
@@ -3436,7 +3477,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBJHArticleThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048753, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048756, this)) == null) {
             BaijiahaoData baijiahaoData = this.mBaijiahao;
             if (baijiahaoData != null && baijiahaoData.oriUgcType == 1) {
                 return true;
@@ -3449,7 +3490,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBJHNormalThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048757, this)) == null) {
             BaijiahaoData baijiahaoData = this.mBaijiahao;
             if (baijiahaoData != null && baijiahaoData.oriUgcType == 3) {
                 return true;
@@ -3462,7 +3503,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBJHVideoDynamicThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048758, this)) == null) {
             BaijiahaoData baijiahaoData = this.mBaijiahao;
             if (baijiahaoData != null && baijiahaoData.oriUgcType == 4) {
                 return true;
@@ -3475,7 +3516,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBJHVideoThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048756, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) {
             BaijiahaoData baijiahaoData = this.mBaijiahao;
             if (baijiahaoData != null && baijiahaoData.oriUgcType == 2) {
                 return true;
@@ -3489,7 +3530,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBjh() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048757, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) {
             return isUgcThreadType();
         }
         return invokeV.booleanValue;
@@ -3498,7 +3539,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBjhDynamicThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048758, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) {
             if (!isBJHNormalThreadType() && !isBJHVideoDynamicThreadType()) {
                 return false;
             }
@@ -3510,7 +3551,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isBlocked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048759, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) {
             return this.isBlocked;
         }
         return invokeV.booleanValue;
@@ -3519,7 +3560,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isConcernDynamicType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048761, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048764, this)) == null) {
             if (!isUgcThreadType() && !this.isShareThread) {
                 return false;
             }
@@ -3531,7 +3572,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isCopyTWzhibo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048762, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048765, this)) == null) {
             return this.isCopyTWzhibo;
         }
         return invokeV.booleanValue;
@@ -3540,7 +3581,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isDisplayHighQualityPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048763, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048766, this)) == null) {
             return isWorksInfo();
         }
         return invokeV.booleanValue;
@@ -3549,7 +3590,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isDisplayOffcialPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048764, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048767, this)) == null) {
             MetaData metaData = this.author;
             if (metaData != null && metaData.isForumBusinessAccount()) {
                 return true;
@@ -3562,7 +3603,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isExcellentThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048765, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048768, this)) == null) {
             return this.mIsExcellentThread;
         }
         return invokeV.booleanValue;
@@ -3571,7 +3612,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isFloor5Video() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048766, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048769, this)) == null) {
             return this.isFloor5Video;
         }
         return invokeV.booleanValue;
@@ -3580,7 +3621,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isForceRefreshCallRobotEntrance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048767, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048770, this)) == null) {
             return this.isForceRefreshCallRobotEntrance;
         }
         return invokeV.booleanValue;
@@ -3589,17 +3630,17 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isFromConcern() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048768, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048771, this)) == null) {
             return this.isFromConcern;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w05
+    @Override // com.baidu.tieba.b15
     public boolean isFromFrs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048769, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048772, this)) == null) {
             return this.isFromFrs;
         }
         return invokeV.booleanValue;
@@ -3608,7 +3649,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isFromFrsTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048770, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048773, this)) == null) {
             return this.isFromFrsTab;
         }
         return invokeV.booleanValue;
@@ -3617,10 +3658,10 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isFunAdPlaceHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048771, this)) == null) {
-            xfa xfaVar = this.funAdData;
-            if (xfaVar != null) {
-                return xfaVar.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048774, this)) == null) {
+            rha rhaVar = this.funAdData;
+            if (rhaVar != null) {
+                return rhaVar.h();
             }
             return false;
         }
@@ -3630,7 +3671,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isGodThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048772, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048775, this)) == null) {
             MetaData metaData = this.author;
             if (metaData == null || metaData.getGodUserData() == null || this.author.getGodUserData().getType() != 2) {
                 return false;
@@ -3643,7 +3684,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isGoodThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048773, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048776, this)) == null) {
             if (this.is_good == 1) {
                 return true;
             }
@@ -3655,7 +3696,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isGoods() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048774, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048777, this)) == null) {
             return this.isGoods;
         }
         return invokeV.booleanValue;
@@ -3664,7 +3705,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isHeadLinesThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048775, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048778, this)) == null) {
             if (getType() == TYPE_STAR_INTERVIEW) {
                 return true;
             }
@@ -3676,17 +3717,17 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isHeadLive() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048776, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048779, this)) == null) {
             return this.isHeadLive;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w05, com.baidu.tieba.card.data.BaseCardInfo
+    @Override // com.baidu.tieba.b15, com.baidu.tieba.card.data.BaseCardInfo
     public boolean isHighLight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048777, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048780, this)) == null) {
             return this.isHighLight;
         }
         return invokeV.booleanValue;
@@ -3695,7 +3736,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isImShareFromPb() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048778, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048781, this)) == null) {
             return this.isImShareFromPb;
         }
         return invokeV.booleanValue;
@@ -3704,46 +3745,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isInsertThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048779, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048782, this)) == null) {
             return this.isInsertThread;
         }
         return invokeV.booleanValue;
     }
 
     public boolean isInterviewLive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048780, this)) == null) {
-            if (this.threadType == 41) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isInterviewLiveStyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048781, this)) == null) {
-            if (getTaskInfoData() != null && getThreadType() == 41 && getIsLive() == 1 && getTaskInfoStatus() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isLinkThread() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048782, this)) == null) {
-            return this.isLinkThread;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isLiveInterviewLiveType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048783, this)) == null) {
@@ -3755,10 +3763,43 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.booleanValue;
     }
 
-    public boolean isLiveRecordThread() {
+    public boolean isInterviewLiveStyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048784, this)) == null) {
+            if (getTaskInfoData() != null && getThreadType() == 41 && getIsLive() == 1 && getTaskInfoStatus() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLinkThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048785, this)) == null) {
+            return this.isLinkThread;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLiveInterviewLiveType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048786, this)) == null) {
+            if (this.threadType == 41) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isLiveRecordThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048787, this)) == null) {
             if (getThreadType() == 50) {
                 return true;
             }
@@ -3770,7 +3811,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isLiveThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048785, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048788, this)) == null) {
             if (getThreadType() != 49 && getThreadType() != 69) {
                 return false;
             }
@@ -3782,7 +3823,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isLongNovelThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048786, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048789, this)) == null) {
             if (this.threadType == 72) {
                 return true;
             }
@@ -3794,7 +3835,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isMadeTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048787, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048790, this)) == null) {
             if (getIs_top() == 1) {
                 return true;
             }
@@ -3806,7 +3847,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isMarkToDel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048788, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048791, this)) == null) {
             return this.isMarkToDel;
         }
         return invokeV.booleanValue;
@@ -3815,7 +3856,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isMarkToMove() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048789, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048792, this)) == null) {
             return this.mIsMarkToMove;
         }
         return invokeV.booleanValue;
@@ -3824,7 +3865,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isMutiForumThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048790, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048793, this)) == null) {
             return this.isMutiForumThread;
         }
         return invokeV.booleanValue;
@@ -3833,7 +3874,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isNeedCheckNTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048791, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048794, this)) == null) {
             return this.mIsNeedCheckNTitle;
         }
         return invokeV.booleanValue;
@@ -3842,7 +3883,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isNeedCheckRepeat() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048792, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048795, this)) == null) {
             return this.mCheckRepeat;
         }
         return invokeV.booleanValue;
@@ -3851,7 +3892,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isNewGodAuthor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048793, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048796, this)) == null) {
             MetaData metaData = this.author;
             if (metaData != null && metaData.isNewGod()) {
                 return true;
@@ -3864,7 +3905,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isNormalThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048794, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048797, this)) == null) {
             if (this.threadType == 0) {
                 return true;
             }
@@ -3876,7 +3917,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isNovelThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048795, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048798, this)) == null) {
             if (this.threadType == 31) {
                 return true;
             }
@@ -3888,7 +3929,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isPGCUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048796, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048799, this)) == null) {
             MetaData metaData = this.author;
             if (metaData == null || metaData.getGodUserData() == null || this.author.getGodUserData().getType() != 3) {
                 return false;
@@ -3901,8 +3942,32 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isPbHeadLinesThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048797, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048800, this)) == null) {
             if (getTaskInfoData() != null && !"0".equals(getTaskInfoData().k())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isPeiWanExtensionValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048801, this)) == null) {
+            if (getPeiwanInfo() != null && !TextUtils.isEmpty(getPeiwanInfo().extension_info)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isPeiWanThread() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048802, this)) == null) {
+            if (this.threadType == 68) {
                 return true;
             }
             return false;
@@ -3913,7 +3978,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isPhotoLiveThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048798, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048803, this)) == null) {
             if (this.threadType == 33) {
                 return true;
             }
@@ -3925,7 +3990,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isQuestionThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048799, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048804, this)) == null) {
             if (this.threadType == 71) {
                 return true;
             }
@@ -3937,7 +4002,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isQuestionsAndAnswersThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048800, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048805, this)) == null) {
             if (this.threadType == 71) {
                 return true;
             }
@@ -3949,7 +4014,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isRealGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048801, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048806, this)) == null) {
             if (this.is_god == 1) {
                 return true;
             }
@@ -3961,7 +4026,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isRealVideoThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048802, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048807, this)) == null) {
             if (getThreadType() == 40) {
                 return true;
             }
@@ -3974,7 +4039,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         InterceptResult invokeV;
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048803, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048808, this)) == null) {
             if (!this.hasItem && this.itemData == null && getItem() == null && ((originalThreadInfo = this.originalThreadData) == null || originalThreadInfo.C == null)) {
                 return false;
             }
@@ -3986,7 +4051,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isSharedLiveThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048804, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048809, this)) == null) {
             if (getThreadType() == 60) {
                 return true;
             }
@@ -3998,7 +4063,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isShowForumAndReply() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048806, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048811, this)) == null) {
             if ((isWorksInfo() || isVideoThreadType()) && !StringUtils.isNull(this.forum_name) && this.isFromHomPage) {
                 return true;
             }
@@ -4010,7 +4075,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isShowFullThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048807, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048812, this)) == null) {
             return this.isShowFullThread;
         }
         return invokeV.booleanValue;
@@ -4019,7 +4084,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isShowTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048808, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) {
             if (this.isNoTitle == 0) {
                 return true;
             }
@@ -4031,7 +4096,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isSimilarPageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048809, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048814, this)) == null) {
             return this.isSimilarPageType;
         }
         return invokeV.booleanValue;
@@ -4040,7 +4105,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isSmartAppThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048810, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048815, this)) == null) {
             if (this.threadType == 63) {
                 return true;
             }
@@ -4052,7 +4117,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isSmartFrsThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048811, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048816, this)) == null) {
             return this.isSmartFrsThread;
         }
         return invokeV.booleanValue;
@@ -4061,7 +4126,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTargetTWzhi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048812, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048817, this)) == null) {
             return this.isTargetTWZhibo;
         }
         return invokeV.booleanValue;
@@ -4070,7 +4135,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTbReadDispatch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048813, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048818, this)) == null) {
             if (this.isTbReadDispatch == 1) {
                 return true;
             }
@@ -4082,7 +4147,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTiePlusCantDeleteUnion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048814, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048819, this)) == null) {
             if (!this.isTiebaPlusAdThread && !this.tiebaplusCantDelete) {
                 return false;
             }
@@ -4094,7 +4159,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048815, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048820, this)) == null) {
             if (getIs_top() != 0) {
                 return true;
             }
@@ -4106,7 +4171,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTopThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048816, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048821, this)) == null) {
             if (this.is_top == 1) {
                 return true;
             }
@@ -4118,7 +4183,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTopicThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048817, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048822, this)) == null) {
             if (this.isTopic == 1) {
                 return true;
             }
@@ -4130,7 +4195,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isTransportThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048818, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048823, this)) == null) {
             if (this.mOriginalForumInfo != null) {
                 return true;
             }
@@ -4142,7 +4207,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isUgcThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048819, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048824, this)) == null) {
             BaijiahaoData baijiahaoData = this.mBaijiahao;
             if (baijiahaoData == null) {
                 return false;
@@ -4155,7 +4220,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isVideoThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048820, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048825, this)) == null) {
             int i = this.threadType;
             if (i != 40 && i != 50) {
                 return false;
@@ -4168,7 +4233,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isVideoWorksInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048821, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048826, this)) == null) {
             if (isVideoThreadType() && isWorksInfo()) {
                 return true;
             }
@@ -4180,7 +4245,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isVocieRoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048822, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048827, this)) == null) {
             VoiceRoom voiceRoom = this.mVoiceRoomData;
             if (voiceRoom != null && voiceRoom.room_id.longValue() > 0) {
                 return true;
@@ -4193,7 +4258,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isVoiceThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048823, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048828, this)) == null) {
             if (this.threadType == 11 || this.isVoiceThread == 1) {
                 return true;
             }
@@ -4205,7 +4270,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isVoteThreadType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048824, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048829, this)) == null) {
             if (this.threadType == 36) {
                 return true;
             }
@@ -4217,7 +4282,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isWorksInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048825, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048830, this)) == null) {
             WorksInfoData worksInfoData = this.worksInfoData;
             if (worksInfoData != null && worksInfoData.isWorks) {
                 return true;
@@ -4230,7 +4295,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isXiuXiuThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048826, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048831, this)) == null) {
             return this.isXiuxiuThread;
         }
         return invokeV.booleanValue;
@@ -4239,7 +4304,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean needShowGodTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048827, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) {
             if (this.is_god == 0) {
                 return false;
             }
@@ -4251,7 +4316,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean notShowHideThreadBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048828, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048833, this)) == null) {
             UserPostPerm userPostPerm = this.userPostPerm;
             if (userPostPerm == null || userPostPerm.not_show_hide_thread.intValue() != 1) {
                 return false;
@@ -4264,9 +4329,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableString parseAbstract() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048829, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048834, this)) == null) {
             SpannableStringBuilder parseRichAbastract = parseRichAbastract();
-            vn6.b(this, parseRichAbastract, false);
+            xo6.b(this, parseRichAbastract, false);
             return new SpannableString(parseRichAbastract);
         }
         return (SpannableString) invokeV.objValue;
@@ -4275,11 +4340,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableStringBuilder parseRichAbastract() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048832, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048837, this)) == null) {
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
-            return g16.G(this, this.mRichAbstractList, this.abstract_text, this.tiePlusLinkOriginData);
+            return d26.G(this, this.mRichAbstractList, this.abstract_text, this.tiePlusLinkOriginData);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
@@ -4287,11 +4352,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableStringBuilder parseRichTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048833, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048838, this)) == null) {
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
-            return g16.G(this, this.mRichTitleList, this.title, this.tiePlusLinkOriginData);
+            return d26.G(this, this.mRichTitleList, this.title, this.tiePlusLinkOriginData);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
@@ -4299,32 +4364,32 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableStringBuilder parseVideoTiePlusRichTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048839, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048844, this)) == null) {
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
-            return g16.K(this, this.mRichAbstractList, this.title, this.tiePlusLinkOriginData);
+            return d26.K(this, this.mRichAbstractList, this.title, this.tiePlusLinkOriginData);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
 
     public void parserTitleFrsForTop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048844, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048849, this) == null) {
             parse_title(false, true);
         }
     }
 
     public void parser_title() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048845, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048850, this) == null) {
             parse_title(false, false);
         }
     }
 
     public void praserTimeConsumingInfo() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048847, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048852, this) == null) {
             processUserName();
             processExtensionInfo();
             processShareIntro();
@@ -4337,7 +4402,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void setIsTopicThread() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048905, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048911, this) == null) {
             this.isTopic = 1;
         }
     }
@@ -4345,7 +4410,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean shouldShowBlockedState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048967, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048974, this)) == null) {
             OriginalThreadInfo originalThreadInfo = this.originalThreadData;
             if (originalThreadInfo == null || !originalThreadInfo.H || this.fid != originalThreadInfo.e) {
                 return false;
@@ -4357,7 +4422,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void updateShowStatus() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048969, this) == null) && this.showStatus == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048976, this) == null) && this.showStatus == 0) {
             this.showStatus = 1;
         }
     }
@@ -4397,7 +4462,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void parse_title(boolean z, boolean z2) {
-        jm jmVar;
+        km kmVar;
         SpannableStringBuilder parseRichTitle;
         SpannableString spannableString;
         Integer num;
@@ -4445,8 +4510,8 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                 if (getAppCodeData() != null) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_tag_giftsend));
                 }
-                if (!di.isEmpty(this.category_name)) {
-                    jmVar = transStrToSpanStr(this.category_name);
+                if (!ei.isEmpty(this.category_name)) {
+                    kmVar = transStrToSpanStr(this.category_name);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     if (arrayList.size() > 0) {
                         StringBuilder sb = new StringBuilder();
@@ -4454,7 +4519,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                             sb.append("1 ");
                         }
                         String sb2 = sb.toString();
-                        if (jmVar != null) {
+                        if (kmVar != null) {
                             spannableString = new SpannableString(sb2 + this.category_name + " ");
                         } else {
                             spannableString = new SpannableString(sb2);
@@ -4466,13 +4531,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                             if (bitmap != null) {
                                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                             }
-                            t95 t95Var = new t95(bitmapDrawable);
-                            t95Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.threadTitleSpanOffset));
-                            spannableString.setSpan(t95Var, i2, i2 + 1, 33);
+                            da5 da5Var = new da5(bitmapDrawable);
+                            da5Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.threadTitleSpanOffset));
+                            spannableString.setSpan(da5Var, i2, i2 + 1, 33);
                             i2 += 2;
                         }
-                        if (jmVar != null) {
-                            spannableString.setSpan(jmVar, i2, this.category_name.length() + i2, 33);
+                        if (kmVar != null) {
+                            spannableString.setSpan(kmVar, i2, this.category_name.length() + i2, 33);
                         }
                         spannableStringBuilder.append((CharSequence) spannableString);
                     }
@@ -4483,7 +4548,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                     this.span_str = spannableStringBuilder;
                 }
             }
-            jmVar = null;
+            kmVar = null;
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
             if (arrayList.size() > 0) {
             }
@@ -4527,7 +4592,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public void processExtensionInfoForPersonCenter() {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048848, this) == null) && !isUgcThreadType() && !isFromConcern()) {
+        if ((interceptable == null || interceptable.invokeV(1048853, this) == null) && !isUgcThreadType() && !isFromConcern()) {
             long last_time_int = getLast_time_int() * 1000;
             if (last_time_int != 0) {
                 String formatTimeForJustNow = StringHelper.getFormatTimeForJustNow(last_time_int);
@@ -4555,7 +4620,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     private void processExtensionInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            if ((this instanceof w25) && "0".equals(getId())) {
+            if ((this instanceof b35) && "0".equals(getId())) {
                 this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
                 return;
             }
@@ -4565,7 +4630,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                     processAlaExtensionInfo();
                     return;
                 } else if (isVocieRoom() && !TextUtils.isEmpty(this.forum_name)) {
-                    this.threadExtendInfo = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f077c);
+                    this.threadExtendInfo = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f077f);
                     return;
                 } else {
                     long last_time_int = getLast_time_int() * 1000;
@@ -4593,17 +4658,19 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                         i = 16;
                     }
                     String authInfo = UtilHelper.getAuthInfo(this.author, this.isFromHomPage, i);
-                    if (isShowForumAndReply()) {
-                        String str = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f077c);
+                    if (!isShowForumAndReply() && !isAlaLiveMixThreadType()) {
+                        if (!TextUtils.isEmpty(this.threadExtendInfo) && !TextUtils.isEmpty(authInfo)) {
+                            this.threadExtendInfo += GlideException.IndentedAppendable.INDENT + authInfo;
+                        } else if (!TextUtils.isEmpty(authInfo)) {
+                            this.threadExtendInfo = authInfo;
+                        }
+                    } else {
+                        String str = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f077f);
                         if (!TextUtils.isEmpty(authInfo)) {
                             this.threadExtendInfo = authInfo + GlideException.IndentedAppendable.INDENT + str;
                         } else {
                             this.threadExtendInfo = str;
                         }
-                    } else if (!TextUtils.isEmpty(this.threadExtendInfo) && !TextUtils.isEmpty(authInfo)) {
-                        this.threadExtendInfo += GlideException.IndentedAppendable.INDENT + authInfo;
-                    } else if (!TextUtils.isEmpty(authInfo)) {
-                        this.threadExtendInfo = authInfo;
                     }
                     if (!TextUtils.isEmpty(this.threadExtendInfo) && !TextUtils.isEmpty(getAddress())) {
                         this.threadExtendInfo += " • " + getAddress();
@@ -4652,13 +4719,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         int i11;
         int i12;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             int[] iArr = new int[2];
             int i13 = 0;
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int size = (int) (((View.MeasureSpec.getSize(BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) - (dimensionPixelSize * 2)) / 3.0f);
             ArrayList<MediaData> medias = getMedias();
-            if (h05.c().g() && ListUtils.getCount(medias) != 0) {
+            if (m05.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i14 = 0; i14 < medias.size(); i14++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i14);
@@ -4771,16 +4838,16 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         OriginalThreadInfo originalThreadInfo;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) {
-            xfa xfaVar = this.funAdData;
-            if (xfaVar != null) {
-                if (xfaVar.h()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048736, this)) == null) {
+            rha rhaVar = this.funAdData;
+            if (rhaVar != null) {
+                if (rhaVar.h()) {
                     if (this.funAdData.i()) {
                         return AdvertAppInfo.H;
                     }
@@ -4826,7 +4893,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                             if (isGodThread()) {
                                 return TYPE_VIDEO_GOD;
                             }
-                            if (this instanceof w25) {
+                            if (this instanceof b35) {
                                 return TYPE_FAKE_VIDEO;
                             }
                             return TYPE_VIDEO;
@@ -4915,10 +4982,10 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65549, this) == null) && isNewGodAuthor() && !TextUtils.isEmpty(this.author.getNewGodData().getFieldName())) {
             if (!TextUtils.isEmpty(this.threadExtendInfo)) {
-                this.threadExtendInfo += "   " + this.author.getNewGodData().getFieldName() + ox5.c(this.author.getNewGodData().isVideoGod());
+                this.threadExtendInfo += "   " + this.author.getNewGodData().getFieldName() + ky5.c(this.author.getNewGodData().isVideoGod());
                 return;
             }
-            this.threadExtendInfo = this.author.getNewGodData().getFieldName() + ox5.c(this.author.getNewGodData().isVideoGod());
+            this.threadExtendInfo = this.author.getNewGodData().getFieldName() + ky5.c(this.author.getNewGodData().isVideoGod());
         }
     }
 
@@ -4951,7 +5018,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                     PbContent pbContent = this.mRichTitleList.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && isVideoThreadType() && (str = pbContent.text) != null && str.length() >= 3) {
                         ActivityItemData activityItemData = new ActivityItemData();
-                        activityItemData.link_url = fw5.d(pbContent.text);
+                        activityItemData.link_url = bx5.d(pbContent.text);
                         String str2 = pbContent.text;
                         activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                         return activityItemData;
@@ -4964,11 +5031,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (ActivityItemData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w05
+    @Override // com.baidu.tieba.b15
     public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
             SparseArray<String> sparseArray = this.feedBackReasonMap;
             if (sparseArray != null && sparseArray.size() > 0) {
                 NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
@@ -4993,7 +5060,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getRecomCardType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
             int i = this.recomCardType;
             if (i > 0) {
                 return i;
@@ -5030,7 +5097,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return invokeV.intValue;
     }
 
-    private jm transStrToSpanStr(String str) {
+    private km transStrToSpanStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, str)) == null) {
@@ -5057,21 +5124,21 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             }
             BitmapDrawable bitmapDrawable = new BitmapDrawable(drawingCache);
             bitmapDrawable.setBounds(0, 0, drawingCache.getWidth(), drawingCache.getHeight());
-            return new jm(bitmapDrawable, 1);
+            return new km(bitmapDrawable, 1);
         }
-        return (jm) invokeL.objValue;
+        return (km) invokeL.objValue;
     }
 
-    public void parseStyle_flag(ArrayList<u15> arrayList) {
+    public void parseStyle_flag(ArrayList<z15> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048834, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048839, this, arrayList) == null) {
             if (this.isNoTitle == 1) {
                 this.style_flag = 0;
             } else if (arrayList != null && arrayList.size() > 0) {
                 this.style_flag = 0;
-                Iterator<u15> it = arrayList.iterator();
+                Iterator<z15> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    u15 next = it.next();
+                    z15 next = it.next();
                     if (next != null && next.a() != null && !StringUtils.isNull(this.title)) {
                         Iterator<String> it2 = next.a().iterator();
                         while (true) {
@@ -5098,11 +5165,11 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             if (clickableSpan == null) {
                 return null;
             }
-            int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07041c);
+            int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070420);
             Bitmap bitmap = SkinManager.getBitmap(R.drawable.icon_card_video_jump);
             BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            u95 u95Var = new u95(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
+            ea5 ea5Var = new ea5(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
             String string = SharedPrefHelper.getInstance().getString("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix));
             if (StringUtils.isNull(string)) {
                 string = TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix);
@@ -5110,18 +5177,18 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             StringBuilder sb = new StringBuilder(string);
             if (getAuthor() != null) {
                 if (getAuthor().getGender() == 1) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09b3));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09b9));
                 } else if (getAuthor().getGender() == 2) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f13d6));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f13ef));
                 } else {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15bb));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15d4));
                 }
             } else {
-                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15bb));
+                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15d4));
             }
             sb.insert(0, "[icon]");
             SpannableString spannableString = new SpannableString(sb.toString());
-            spannableString.setSpan(u95Var, 0, 6, 17);
+            spannableString.setSpan(ea5Var, 0, 6, 17);
             spannableString.setSpan(clickableSpan, 6, spannableString.length(), 17);
             return spannableString;
         }
@@ -5133,13 +5200,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (isActInfo() && this.mActDatas.size() >= 1) {
-                x05 x05Var = this.mActDatas.get(0);
-                int e = x05Var.e();
+                c15 c15Var = this.mActDatas.get(0);
+                int e = c15Var.e();
                 if (e == 3) {
                     return e;
                 }
-                int b = x05Var.b();
-                int c = x05Var.c();
+                int b = c15Var.b();
+                int c = c15Var.c();
                 int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
                 if (currentTimeMillis < b) {
                     return 4;
@@ -5157,8 +5224,8 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isShowDot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048805, this)) == null) {
-            if (getIsLive() == 1 || getIs_good() == 1 || getIs_top() == 1 || isActInfo() || this.isBookChapter == 1 || isGodThread() || getAppCodeData() != null || getYulePostActivityData() != null || !di.isEmpty(getCategory()) || isRealGod()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048810, this)) == null) {
+            if (getIsLive() == 1 || getIs_good() == 1 || getIs_top() == 1 || isActInfo() || this.isBookChapter == 1 || isGodThread() || getAppCodeData() != null || getYulePostActivityData() != null || !ei.isEmpty(getCategory()) || isRealGod()) {
                 return true;
             }
             return false;
@@ -5171,7 +5238,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         InterceptResult invokeV;
         SpannableStringBuilder parseRichTitle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048835, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048840, this)) == null) {
             if (!StringUtils.isNull(this.title)) {
                 if (!this.mIsNeedCheckNTitle || this.isNoTitle != 1) {
                     if (isRealVideoThread() && getRecomSource() != null && getRecomSource().startsWith("manual") && ListUtils.isEmpty(this.mRichTitleList)) {
@@ -5193,8 +5260,8 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int picCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048846, this)) == null) {
-            if (!h05.c().g() || ListUtils.getCount(getMedias()) == 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048851, this)) == null) {
+            if (!m05.c().g() || ListUtils.getCount(getMedias()) == 0) {
                 return 0;
             }
             LinkedList linkedList = new LinkedList();
@@ -5233,13 +5300,13 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<d16> getPrefixIcons() {
+    public ArrayList<a26> getPrefixIcons() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
-            ArrayList<d16> arrayList = new ArrayList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
+            ArrayList<a26> arrayList = new ArrayList<>();
             if (this.isSCard) {
-                arrayList.add(new d16(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
+                arrayList.add(new a26(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
             }
             return arrayList;
         }
@@ -5249,10 +5316,10 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public int getTaskInfoStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048714, this)) == null) {
-            a45 a45Var = this.taskInfoData;
-            if (a45Var != null) {
-                long g = a45Var.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) {
+            f45 f45Var = this.taskInfoData;
+            if (f45Var != null) {
+                long g = f45Var.g();
                 long b = this.taskInfoData.b();
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 if (currentTimeMillis < g) {
@@ -5270,14 +5337,14 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void insertItemToTitleOrAbstractText() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048747, this) == null) && ListUtils.getCount(this.mItemStar) > 0) {
+        if ((interceptable == null || interceptable.invokeV(1048749, this) == null) && ListUtils.getCount(this.mItemStar) > 0) {
             SpannableStringBuilder spannableStringBuilder = this.titleText;
             if (spannableStringBuilder != null) {
-                spannableStringBuilder.insert(0, (CharSequence) g16.e(this.mItemStar));
+                spannableStringBuilder.insert(0, (CharSequence) d26.e(this.mItemStar));
                 return;
             }
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.abstractText);
-            spannableStringBuilder2.insert(0, (CharSequence) g16.e(this.mItemStar));
+            spannableStringBuilder2.insert(0, (CharSequence) d26.e(this.mItemStar));
             this.abstractText = new SpannableString(spannableStringBuilder2);
         }
     }
@@ -5285,7 +5352,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public boolean isCommonUserThread() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048763, this)) == null) {
             MetaData metaData = this.author;
             if (metaData == null || metaData.getGodUserData() == null) {
                 return true;
@@ -5301,12 +5368,12 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public SpannableString parseFirstFloorContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048830, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048835, this)) == null) {
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
             if (!ListUtils.isEmpty(this.mFirstFloorList)) {
-                return new SpannableString(g16.G(this, this.mFirstFloorList, this.abstract_text, this.tiePlusLinkOriginData));
+                return new SpannableString(d26.G(this, this.mFirstFloorList, this.abstract_text, this.tiePlusLinkOriginData));
             }
             return null;
         }
@@ -5317,7 +5384,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public ArrayList<PreLoadImageInfo> getImages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             ArrayList<MediaData> medias = getMedias();
             if (medias == null || isTop()) {
                 return null;
@@ -5367,7 +5434,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void insertUsernameIntoTitleOrAbstract(SpannableString spannableString) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048748, this, spannableString) == null) && getAuthor() != null && !showNoName() && !showWeakenName()) {
+        if ((interceptable == null || interceptable.invokeL(1048750, this, spannableString) == null) && getAuthor() != null && !showNoName() && !showWeakenName()) {
             SpannableStringBuilder spannableStringBuilder = this.titleText;
             if (spannableStringBuilder != null) {
                 spannableStringBuilder.insert(0, (CharSequence) spannableString);
@@ -5381,7 +5448,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void setLinkDataList(List<PbLinkData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048916, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048922, this, list) == null) {
             this.mLinkDataList = list;
             if (!ListUtils.isEmpty(list)) {
                 for (PbLinkData pbLinkData : this.mLinkDataList) {
@@ -5397,7 +5464,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         int i;
         String lastVideoThumbUrl;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048831, this, writeData) != null) || writeData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048836, this, writeData) != null) || writeData == null) {
             return;
         }
         try {
@@ -5421,7 +5488,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
                 i = 0;
             }
             builder.is_vertical = Integer.valueOf(i);
-            if (di.isEmpty(WriteMsgHolder.getLastVideoThumbUrl())) {
+            if (ei.isEmpty(WriteMsgHolder.getLastVideoThumbUrl())) {
                 lastVideoThumbUrl = writeData.getVideoInfo().getThumbPath();
             } else {
                 lastVideoThumbUrl = WriteMsgHolder.getLastVideoThumbUrl();
@@ -5436,9 +5503,9 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
             }
             this.isNoTitle = i2;
             this.abstract_text = writeData.getContent();
-            y35 y35Var = new y35();
-            this.forumData = y35Var;
-            y35Var.a = writeData.getForumId();
+            d45 d45Var = new d45();
+            this.forumData = d45Var;
+            d45Var.a = writeData.getForumId();
             this.forumData.b = writeData.getForumName();
             this.mTabId = writeData.getTabId();
             this.mTabName = writeData.getTabName();
@@ -5468,7 +5535,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         String spannableStringBuilder;
         SpannableStringBuilder spannableStringBuilder2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048837, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048842, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             if (this.isNoTitle == 1) {
                 parseRichTitle = parseRichAbastract();
                 spannableStringBuilder = parseRichTitle.toString();
@@ -5492,7 +5559,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
     public void parserSpecTitleForFrsAndPb(boolean z, boolean z2, boolean z3) {
         SpannableStringBuilder spannableStringBuilder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048843, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048848, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
             if (ListUtils.getCount(getPrefixList(z, z2, z3, false)) > 0) {
                 parseTitleOrAbstractForFrs(z, z3);
                 return;
@@ -5511,7 +5578,7 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
         InterceptResult invokeCommon;
         SpannableStringBuilder parseRichAbastract;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048838, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048843, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (!StringUtils.isNull(this.title) && this.isNoTitle != 1) {
                 parseRichAbastract = parseRichTitle();
             } else {
@@ -5526,176 +5593,176 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void setAbstract(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048849, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048854, this, str) == null) {
             this.abstract_text = str;
         }
     }
 
-    public void setActDatas(ArrayList<x05> arrayList) {
+    public void setActDatas(ArrayList<c15> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048850, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048855, this, arrayList) == null) {
             this.mActDatas = arrayList;
         }
     }
 
     public void setAddedGood(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048851, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048856, this, z) == null) {
             setIs_good(z ? 1 : 0);
         }
     }
 
     public void setAddress(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048852, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048857, this, str) == null) {
             this.address = str;
         }
     }
 
     public void setAgreeNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048853, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048858, this, i) == null) {
             this.agreeData.agreeNum = i;
         }
     }
 
     public void setAgreeType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048855, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048860, this, i) == null) {
             this.agreeData.agreeType = i;
         }
     }
 
     public void setAnchorLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048856, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048861, this, i) == null) {
             this.anchorLevel = i;
         }
     }
 
-    public void setAppCodeData(f15 f15Var) {
+    public void setAppCodeData(k15 k15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048857, this, f15Var) == null) {
-            this.mAppCodeData = f15Var;
+        if (interceptable == null || interceptable.invokeL(1048862, this, k15Var) == null) {
+            this.mAppCodeData = k15Var;
         }
     }
 
     public void setArticeCover(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048858, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048863, this, str) == null) {
             this.articeCover = str;
         }
     }
 
     public void setAuthor(MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048859, this, metaData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048864, this, metaData) == null) {
             this.author = metaData;
         }
     }
 
     public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048860, this, baijiahaoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048865, this, baijiahaoData) == null) {
             this.mBaijiahao = baijiahaoData;
         }
     }
 
     public void setCallRobotEntrance(CallRobotEntrance callRobotEntrance) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048861, this, callRobotEntrance) == null) {
+        if (interceptable == null || interceptable.invokeL(1048866, this, callRobotEntrance) == null) {
             this.mCallRobotEntrance = callRobotEntrance;
         }
     }
 
-    public void setCartoonThreadData(s15 s15Var) {
+    public void setCartoonThreadData(x15 x15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048862, this, s15Var) == null) {
-            this.mCartoonThreadData = s15Var;
+        if (interceptable == null || interceptable.invokeL(1048867, this, x15Var) == null) {
+            this.mCartoonThreadData = x15Var;
         }
     }
 
     public void setCategory(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048863, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048868, this, str) == null) {
             this.category_name = str;
         }
     }
 
     public void setClickBackCard(ClickBackCard clickBackCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048864, this, clickBackCard) == null) {
+        if (interceptable == null || interceptable.invokeL(1048869, this, clickBackCard) == null) {
             this.clickBackCard = clickBackCard;
         }
     }
 
     public void setCopyThreadRemindType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048865, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048870, this, i) == null) {
             this.copyThreadRemindType = i;
         }
     }
 
     public void setCurrentPage(int i) {
-        j45 j45Var;
+        o45 o45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048866, this, i) == null) && (j45Var = this.threadVideoChannelInfo) != null) {
-            j45Var.b = i;
+        if ((interceptable == null || interceptable.invokeI(1048871, this, i) == null) && (o45Var = this.threadVideoChannelInfo) != null) {
+            o45Var.b = i;
         }
     }
 
     public void setCustomFigure(VirtualImageCustomFigure virtualImageCustomFigure) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048867, this, virtualImageCustomFigure) == null) {
+        if (interceptable == null || interceptable.invokeL(1048872, this, virtualImageCustomFigure) == null) {
             this.mCustomFigure = virtualImageCustomFigure;
         }
     }
 
     public void setCustomState(VirtualImageCustomState virtualImageCustomState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048868, this, virtualImageCustomState) == null) {
+        if (interceptable == null || interceptable.invokeL(1048873, this, virtualImageCustomState) == null) {
             this.mCustomState = virtualImageCustomState;
         }
     }
 
     public void setDailyPaperTime(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048869, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048874, this, str) == null) {
             this.mDailyPaperTime = str;
         }
     }
 
     public void setDisAgreeNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048870, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048875, this, j) == null) {
             this.agreeData.diffAgreeNum = j;
         }
     }
 
     public void setDispatchedForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048871, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048876, this, j) == null) {
             this.dispatchedForumId = j;
         }
     }
 
     public void setDispatchedForumIdWithString(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048872, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048877, this, str) == null) {
             setDispatchedForumId(JavaTypesHelper.toLong(str, 0L));
         }
     }
 
     public void setDistance(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048873, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048878, this, str) == null) {
             this.distance = str;
         }
     }
 
-    public void setExpressionDatas(ArrayList<yf5> arrayList) {
+    public void setExpressionDatas(ArrayList<rg5> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048874, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048879, this, arrayList) == null) {
             this.threadExpressionArrayList.clear();
             this.threadExpressionArrayList.addAll(arrayList);
         }
@@ -5703,119 +5770,119 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void setFeedBackReasonMap(SparseArray<String> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048875, this, sparseArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048880, this, sparseArray) == null) {
             this.feedBackReasonMap = sparseArray;
         }
     }
 
     public void setFid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048876, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048881, this, j) == null) {
             this.fid = j;
         }
     }
 
     public void setFirstClassName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048877, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048882, this, str) == null) {
             this.mFirstClassName = str;
         }
     }
 
     public void setFirstFloorList(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048878, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048883, this, list) == null) {
             this.mFirstFloorList = list;
         }
     }
 
     public void setFloor5Video(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048879, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048884, this, z) == null) {
             this.isFloor5Video = z;
         }
     }
 
     public void setForceRefreshCallRobotEntrance(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048880, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048885, this, z) == null) {
             this.isForceRefreshCallRobotEntrance = z;
         }
     }
 
     public void setForumAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048881, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048886, this, str) == null) {
             this.forumAvatar = str;
         }
     }
 
-    public void setForumData(y35 y35Var) {
+    public void setForumData(d45 d45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048882, this, y35Var) == null) {
-            this.forumData = y35Var;
+        if (interceptable == null || interceptable.invokeL(1048887, this, d45Var) == null) {
+            this.forumData = d45Var;
         }
     }
 
     public void setForum_name(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048883, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048888, this, str) == null) {
             this.forum_name = str;
         }
     }
 
     public void setFreqNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048884, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048889, this, j) == null) {
             this.mFreqNum = j;
         }
     }
 
     public void setFromConcern(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048885, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048890, this, z) == null) {
             this.isFromConcern = z;
         }
     }
 
     public void setFromFrs(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048886, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048891, this, z) == null) {
             this.isFromFrs = z;
         }
     }
 
     public void setFromFrsTab(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048887, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048892, this, z) == null) {
             this.isFromFrsTab = z;
         }
     }
 
     public void setFromType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048888, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048893, this, str) == null) {
             this.mFromType = str;
         }
     }
 
     public void setGameInformationSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048889, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048894, this, str) == null) {
             this.tieba_game_information_source = str;
         }
     }
 
     public void setGoods(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048890, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048895, this, z) == null) {
             this.isGoods = z;
         }
     }
 
     public void setHasAgree(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048891, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048896, this, i) == null) {
             AgreeData agreeData = this.agreeData;
             boolean z = true;
             if (i != 1) {
@@ -5827,504 +5894,518 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void setHas_commented(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048892, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048897, this, i) == null) {
             this.has_commented = i;
+        }
+    }
+
+    public void setHeadType(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048898, this, str) == null) {
+            this.mHeadType = str;
         }
     }
 
     public void setHotTopicInfo(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048893, this, videoInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048899, this, videoInfo) == null) {
             this.mHotTopicInfo = videoInfo;
         }
     }
 
     public void setId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048894, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048900, this, str) == null) {
             this.id = str;
         }
     }
 
     public void setImShareFromPb(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048895, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048901, this, z) == null) {
             this.isImShareFromPb = z;
         }
     }
 
     public void setInsertFloor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048896, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048902, this, i) == null) {
             this.mInsertFloor = i + 1;
         }
     }
 
     public void setIsBjh(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048897, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048903, this, i) == null) {
             this.isBjh = i;
         }
     }
 
     public void setIsDailyThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048898, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048904, this, z) == null) {
             this.isDailyThread = z;
         }
     }
 
     public void setIsInsertThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048899, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048905, this, z) == null) {
             this.isInsertThread = z;
         }
     }
 
     public void setIsManager(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048900, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048906, this, i) == null) {
             this.isManager = i;
         }
     }
 
     public void setIsMarked(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048901, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048907, this, i) == null) {
             this.isMarked = i;
         }
     }
 
     public void setIsOriginManager(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048902, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048908, this, i) == null) {
             this.isOriginManager = i;
         }
     }
 
     public void setIsSmartFrsThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048903, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048909, this, z) == null) {
             this.isSmartFrsThread = z;
         }
     }
 
     public void setIsTbReadDispatch(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048904, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048910, this, i) == null) {
             this.isTbReadDispatch = i;
         }
     }
 
     public void setIs_called(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048906, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048912, this, i) == null) {
             this.is_called = i;
         }
     }
 
     public void setIs_good(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048907, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048913, this, i) == null) {
             this.is_good = i;
         }
     }
 
     public void setIs_top(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048908, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048914, this, i) == null) {
             this.is_top = i;
         }
     }
 
     public void setItem(Item item) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048909, this, item) == null) {
+        if (interceptable == null || interceptable.invokeL(1048915, this, item) == null) {
             this.mItem = item;
         }
     }
 
     public void setItemData(ItemData itemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048910, this, itemData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048916, this, itemData) == null) {
             this.itemData = itemData;
         }
     }
 
     public void setItemStar(List<HeadItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048911, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048917, this, list) == null) {
             this.mItemStar = list;
         }
     }
 
     public void setLastPostNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048912, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048918, this, i) == null) {
             this.mLastPostNum = i;
         }
     }
 
     public void setLast_time(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048913, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048919, this, str) == null) {
             this.last_time = str;
         }
     }
 
     public void setLast_time_int(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048914, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048920, this, j) == null) {
             this.last_time_int = j;
         }
     }
 
     public void setLegoCard(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048915, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048921, this, str) == null) {
             this.legoCard = str;
         }
     }
 
     public void setMadeTop(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048917, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048923, this, z) == null) {
             setIs_top(z ? 1 : 0);
         }
     }
 
     public void setMarkID(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048918, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048924, this, str) == null) {
             this.markID = str;
         }
     }
 
     public void setMarkToDel(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048919, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048925, this, z) == null) {
             this.isMarkToDel = z;
         }
     }
 
     public void setMarkToMove(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048920, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048926, this, z) == null) {
             this.mIsMarkToMove = z;
         }
     }
 
     public void setMedias(ArrayList<MediaData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048921, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048927, this, arrayList) == null) {
             this.mMedias = arrayList;
         }
     }
 
     public void setNeedCheckNTitle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048922, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048928, this, z) == null) {
             this.mIsNeedCheckNTitle = z;
         }
     }
 
     public void setNeedRemoveDuplicationFlag(RemoveDuplication removeDuplication) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048923, this, removeDuplication) == null) {
+        if (interceptable == null || interceptable.invokeL(1048929, this, removeDuplication) == null) {
             this.removeDuplicationFalg = removeDuplication;
         }
     }
 
-    public void setPbFirstShareData(zfa zfaVar) {
+    public void setPbFirstShareData(tha thaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048924, this, zfaVar) == null) {
-            this.pbFirstShareData = zfaVar;
+        if (interceptable == null || interceptable.invokeL(1048930, this, thaVar) == null) {
+            this.pbFirstShareData = thaVar;
         }
     }
 
     public void setPbTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048925, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048931, this, str) == null) {
             this.mPbTitle = str;
+        }
+    }
+
+    public void setPeiwanInfo(PeiwanInfo peiwanInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048932, this, peiwanInfo) == null) {
+            this.peiwanInfo = peiwanInfo;
         }
     }
 
     public void setPhotoLiveCover(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048926, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048933, this, str) == null) {
             this.mPhotoLiveCover = str;
         }
     }
 
     public void setPollData(PollData pollData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048927, this, pollData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048934, this, pollData) == null) {
             this.mPollData = pollData;
         }
     }
 
     public void setPositionInFrsItemTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048928, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048935, this, i) == null) {
             this.positionInFrsItemTab = i;
         }
     }
 
-    public void setPostList(List<zfa> list) {
+    public void setPostList(List<tha> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048929, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048936, this, list) == null) {
             this.mPostList = list;
         }
     }
 
     public void setPost_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048930, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048937, this, i) == null) {
             this.post_num = i;
         }
     }
 
     public void setPraise(PraiseData praiseData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048931, this, praiseData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048938, this, praiseData) == null) {
             this.praise = praiseData;
         }
     }
 
     public void setProfitList(List<TwAnchorProfitItem> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048932, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048939, this, list) == null) {
             this.profitList = list;
         }
     }
 
     public void setReply_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048933, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048940, this, i) == null) {
             this.reply_num = i;
         }
     }
 
     public void setRepost_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048934, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048941, this, i) == null) {
             this.repost_num = i;
         }
     }
 
     public void setResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048935, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048942, this, i) == null) {
             this.mResourceType = i;
         }
     }
 
     public void setRichAbstractList(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048936, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048943, this, list) == null) {
             this.mRichAbstractList = list;
         }
     }
 
     public void setRichTitleList(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048937, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048944, this, list) == null) {
             this.mRichTitleList = list;
         }
     }
 
     public void setRobotEntrance(RobotEntrance robotEntrance) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048938, this, robotEntrance) == null) {
+        if (interceptable == null || interceptable.invokeL(1048945, this, robotEntrance) == null) {
             this.robotEntrance = robotEntrance;
         }
     }
 
     public void setSecondClassName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048939, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048946, this, str) == null) {
             this.mSecondClassName = str;
         }
     }
 
     public void setShareNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048940, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048947, this, j) == null) {
             this.mShareNum = j;
         }
     }
 
     public void setShowFullThread(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048941, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048948, this, z) == null) {
             this.isShowFullThread = z;
         }
     }
 
     public void setShow_commented(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048942, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048949, this, i) == null) {
             this.show_commented = i;
         }
     }
 
     public void setSimilarPageType(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048943, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048950, this, z) == null) {
             this.isSimilarPageType = z;
         }
     }
 
     public void setSmartFrsPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048944, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048951, this, i) == null) {
             this.smartFrsPosition = i;
         }
     }
 
     public void setSortType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048945, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048952, this, i) == null) {
             this.sortType = i;
         }
     }
 
     public void setSpan_str(SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048946, this, spannableStringBuilder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048953, this, spannableStringBuilder) == null) {
             this.span_str = spannableStringBuilder;
         }
     }
 
     public void setStyle_flag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048948, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048955, this, i) == null) {
             this.style_flag = i;
         }
     }
 
     public void setTargetScheme(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048949, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048956, this, str) == null) {
             this.targetScheme = str;
         }
     }
 
     public void setThreadAlaInfo(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048950, this, alaInfoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048957, this, alaInfoData) == null) {
             this.threadAlaInfo = alaInfoData;
         }
     }
 
     public void setThreadExtendInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048951, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048958, this, str) == null) {
             this.threadExtendInfo = str;
         }
     }
 
     public void setThreadRecommendInfoDataList(List<ThreadRecommendInfoData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048952, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048959, this, list) == null) {
             this.threadRecommendInfoDataList = list;
         }
     }
 
     public void setThreadType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048953, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048960, this, i) == null) {
             this.threadType = i;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048954, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048961, this, str) == null) {
             this.tid = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048955, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048962, this, str) == null) {
             this.title = str;
         }
     }
 
     public void setTopicUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048956, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048963, this, str) == null) {
             this.topicUrl = str;
         }
     }
 
     public void setTopicUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048957, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048964, this, str) == null) {
             this.topicUserName = str;
         }
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048958, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048965, this, hashMap) == null) {
             this.userMap = hashMap;
         }
     }
 
     public void setUserPostPerm(UserPostPerm userPostPerm) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048959, this, userPostPerm) == null) {
+        if (interceptable == null || interceptable.invokeL(1048966, this, userPostPerm) == null) {
             this.userPostPerm = userPostPerm;
         }
     }
 
     public void setVideoInfo(VideoInfo videoInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048960, this, videoInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048967, this, videoInfo) == null) {
             this.threadVideoInfo = videoInfo;
         }
     }
 
     public void setView_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048961, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048968, this, i) == null) {
             this.view_num = i;
         }
     }
 
     public void setVoices(ArrayList<VoiceData.VoiceModel> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048962, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048969, this, arrayList) == null) {
             this.mVoices = arrayList;
         }
     }
 
     public void setWonderfulPostInfo(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048963, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048970, this, str) == null) {
             this.mWonderfulPostInfo = str;
         }
     }
 
-    public void setYulePostActivityData(p45 p45Var) {
+    public void setYulePostActivityData(u45 u45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048964, this, p45Var) == null) {
-            this.mYulePostActivityData = p45Var;
+        if (interceptable == null || interceptable.invokeL(1048971, this, u45Var) == null) {
+            this.mYulePostActivityData = u45Var;
         }
     }
 
     public void setmCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048965, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048972, this, j) == null) {
             this.mCreateTime = j;
         }
     }
 
     public void setmGoodsDataList(List<PbGoodsData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048966, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048973, this, list) == null) {
             this.mGoodsDataList = list;
             if (!ListUtils.isEmpty(list) && !this.isGoods) {
                 this.isGoods = true;
@@ -6334,14 +6415,14 @@ public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoD
 
     public void updateIsNotitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048968, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048975, this, i) == null) {
             this.isNoTitle = i;
         }
     }
 
     public void setAgreeNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048854, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048859, this, j) == null) {
             this.agreeData.agreeNum = j;
         }
     }

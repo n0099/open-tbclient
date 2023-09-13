@@ -2,6 +2,7 @@ package com.baidu.webkit.logsdk.b;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.tbadk.core.atomData.EditNickNameActivityConfig;
 import java.util.HashMap;
@@ -33,7 +34,7 @@ public final class b {
         aVar.c = f();
         String str2 = "full";
         if (jSONObject != null && jSONObject.length() > 0) {
-            i = jSONObject.optInt("log_level", i);
+            i = jSONObject.optInt(CyberCfgManager.KEY_INT_LOG_LEVEL, i);
             str2 = jSONObject.optString(EditNickNameActivityConfig.PARAM_TYPE, "full");
         }
         aVar.b = i;
@@ -163,10 +164,10 @@ public final class b {
                             if (!TextUtils.isEmpty(string2)) {
                                 i = !string2.equals("0");
                                 JSONObject jSONObject3 = new JSONObject();
-                                if (i > 0 || !jSONObject2.has("log_level") || ((i = jSONObject2.getInt("log_level")) >= 0 && i <= 3)) {
+                                if (i > 0 || !jSONObject2.has(CyberCfgManager.KEY_INT_LOG_LEVEL) || ((i = jSONObject2.getInt(CyberCfgManager.KEY_INT_LOG_LEVEL)) >= 0 && i <= 3)) {
                                     i3 = i;
                                 }
-                                jSONObject3.put("log_level", i3);
+                                jSONObject3.put(CyberCfgManager.KEY_INT_LOG_LEVEL, i3);
                                 if (jSONObject2.has(EditNickNameActivityConfig.PARAM_TYPE)) {
                                     String string3 = jSONObject2.getString(EditNickNameActivityConfig.PARAM_TYPE);
                                     if (TextUtils.isEmpty(string3)) {
@@ -184,7 +185,7 @@ public final class b {
                         if (i > 0) {
                         }
                         i3 = i;
-                        jSONObject32.put("log_level", i3);
+                        jSONObject32.put(CyberCfgManager.KEY_INT_LOG_LEVEL, i3);
                         if (jSONObject2.has(EditNickNameActivityConfig.PARAM_TYPE)) {
                         }
                         editor.putString(string, jSONObject32.toString());

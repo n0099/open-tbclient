@@ -1,29 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.xa7;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class o4a implements xa7.b {
+public class o4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nb7 a;
-    public final BdUniqueId b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public boolean k;
 
-    public o4a(nb7 statStrategy, BdUniqueId pageId) {
+    public o4a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statStrategy, pageId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,57 +44,85 @@ public final class o4a implements xa7.b {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
-        Intrinsics.checkNotNullParameter(pageId, "pageId");
-        this.a = statStrategy;
-        this.b = pageId;
+        this.k = false;
     }
 
-    @Override // com.baidu.tieba.xa7.b
-    public void a(jb7<?> data, int i) {
-        Map<String, String> hashMap;
-        Map<String, String> a;
+    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            ta7 ta7Var = (ta7) data;
-            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            int i2 = i + 1;
-            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
-            a77 a77Var = new a77();
-            a77 a77Var2 = ta7Var.b;
-            if (a77Var2 != null) {
-                a77Var = a77Var2;
-            }
-            if (ta7Var.b != null) {
-                for (Map.Entry<String, String> entry : this.a.a(a77Var).entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-            }
-            h87 h87Var = ta7Var.a;
-            if (h87Var != null && (a = h87Var.a()) != null) {
-                for (Map.Entry<String, String> entry2 : a.entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-            }
-            cea.g().c(this.b, statisticItem);
-            h87 h87Var2 = ta7Var.a;
-            if (h87Var2 == null || (hashMap = h87Var2.a()) == null) {
-                hashMap = new HashMap<>();
-            }
-            a77Var.a().put("position_from_1", String.valueOf(i2));
-            if (Intrinsics.areEqual(a77Var.a().get("is_video_card"), "1")) {
-                m5a m5aVar = new m5a();
-                pb7.a.a(new r87(m5aVar.getKey(), m5aVar.a(a77Var), hashMap, null, null, 24, null));
-            } else if (Intrinsics.areEqual(a77Var.a().get("is_live_card"), "1")) {
-                v4a v4aVar = new v4a();
-                pb7.a.a(new r87(v4aVar.getKey(), v4aVar.a(a77Var), hashMap, null, null, 24, null));
-            } else {
-                e5a e5aVar = new e5a();
-                pb7.a.a(new r87(e5aVar.getKey(), e5aVar.a(a77Var), hashMap, null, null, 24, null));
-            }
-            h5a h5aVar = new h5a();
-            pb7.a.a(new r87(h5aVar.getKey(), h5aVar.a(a77Var), hashMap, h5aVar.b(), h5aVar.d()));
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
+            return;
         }
+        int i = advertAppInfo.n;
+        if (i == 3) {
+            this.a = "apk_download";
+            this.f = advertAppInfo.q;
+            this.g = advertAppInfo.p;
+        } else if (i == 1) {
+            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
+        }
+        this.e = adCard.getButtonText();
+        this.b = adCard.userName;
+        this.c = adCard.userImage;
+        this.d = adCard.scheme;
+        this.i = adCard.threadTitle;
+        this.j = adCard.getButtonCmdScheme();
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("style");
+        this.b = jSONObject.optString("user_name");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optString("scheme");
+        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.h = jSONObject.optInt("close_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
+        if (optJSONObject != null) {
+            this.f = optJSONObject.optString("pkgname");
+            this.g = optJSONObject.optString("download_url");
+        }
+        jSONObject.optString("content");
+        this.k = true;
+        this.j = jSONObject.optString("button_scheme");
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            b(new JSONObject(str));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("style", this.a);
+                jSONObject.put("user_name", this.b);
+                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
+                jSONObject.put("scheme", this.d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pkgname", this.f);
+                jSONObject2.put("download_url", this.g);
+                jSONObject.put("ext_data", jSONObject2);
+                jSONObject.put("content", this.h);
+                jSONObject.put("button_scheme", this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

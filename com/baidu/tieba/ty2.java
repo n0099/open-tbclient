@@ -1,441 +1,164 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
-import android.os.Parcelable;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.utils.enums.ShareDirectionType;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
-import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumActivity;
-import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class ty2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static ArrayList<MediaModel> a = null;
-    public static String b = "album";
-    public static int c = 9;
-    public static String d = "single";
-    public static boolean e = false;
-    public static String f = null;
-    public static int g = 0;
-    public static boolean h = true;
-    public static boolean i;
-    public static String j;
+public class ty2 extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public String b;
+    public ArrayList<hz2> c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948197468, "Lcom/baidu/tieba/ty2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948197468, "Lcom/baidu/tieba/ty2;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements ActivityResultConsumer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yy2 a;
-
-        public a(yy2 yy2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yy2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yy2Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                qw2.T().c();
-                if (i == -1) {
-                    if (intent == null) {
-                        this.a.e("choose: Selected data is null");
-                        return true;
-                    }
-                    this.a.f(intent.getParcelableArrayListExtra("mediaModels"));
-                    return true;
-                } else if (i == 0) {
-                    this.a.e("选择文件失败：用户取消操作");
-                    return true;
-                } else {
-                    return true;
-                }
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b implements zy2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public b(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // com.baidu.tieba.zy2
-        public void a(boolean z, String str, Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, obj}) == null) && z && (obj instanceof ArrayList)) {
-                ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
-                if (sy2.a) {
-                    Iterator<? extends Parcelable> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        Log.d("SwanAppChooseHelper", "tempPath = " + ((MediaModel) it.next()).getTempPath());
-                    }
-                }
-                Intent intent = new Intent();
-                intent.putParcelableArrayListExtra("mediaModels", arrayList);
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            }
-        }
-    }
-
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public TextView b;
+        public TextView c;
+
+        public a(ty2 ty2Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ty2Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09025f);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090262);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090261);
         }
     }
 
-    public static ArrayList<MediaModel> c() {
+    public ty2(Activity activity, String str, ArrayList<hz2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = activity;
+        this.b = str;
+        this.c = arrayList;
+        this.d = (int) (yo3.f(activity, 50.0f) / 2.0f);
+    }
+
+    public final String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (TextUtils.equals(this.b, "Image")) {
+                return this.a.getString(R.string.obfuscated_res_0x7f0f154f, new Object[]{Integer.valueOf(i)});
+            }
+            return this.a.getString(R.string.obfuscated_res_0x7f0f151e, new Object[]{Integer.valueOf(i)});
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<hz2> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        char c2;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 70760763) {
-                if (hashCode != 92896879) {
-                    if (hashCode == 112202875 && str.equals("video")) {
-                        c2 = 1;
-                    }
-                    c2 = 65535;
-                } else {
-                    if (str.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER)) {
-                        c2 = 2;
-                    }
-                    c2 = 65535;
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i <= this.c.size()) {
+                return this.c.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d093f, (ViewGroup) null);
+                aVar = new a(this, view2);
+                view2.setTag(aVar);
             } else {
-                if (str.equals("Image")) {
-                    c2 = 0;
-                }
-                c2 = 65535;
+                aVar = (a) view2.getTag();
             }
-            int i2 = R.string.obfuscated_res_0x7f0f14fc;
-            if (c2 != 0) {
-                if (c2 == 1) {
-                    i2 = R.string.obfuscated_res_0x7f0f14fd;
-                }
-            } else {
-                i2 = R.string.obfuscated_res_0x7f0f14fb;
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081474));
+            hz2 hz2Var = this.c.get(i);
+            if (hz2Var == null) {
+                return view2;
             }
-            return context.getResources().getString(i2);
+            aVar.b.setText(hz2Var.c());
+            ArrayList<MediaModel> arrayList = hz2Var.d;
+            if (arrayList == null) {
+                return view2;
+            }
+            aVar.c.setText(a(arrayList.size()));
+            if (hz2Var.d.get(0) != null && !TextUtils.isEmpty(hz2Var.d.get(0).getPath())) {
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(hz2Var.d.get(0).getPath())));
+                int i2 = this.d;
+                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
+                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
+                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
+            }
+            return view2;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            String str2 = options.outMimeType;
-            if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase("image/gif")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void i(ArrayList<MediaModel> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, arrayList) == null) {
-            if (a == null) {
-                a = new ArrayList<>();
-            }
-            a.clear();
-            a.addAll(arrayList);
-        }
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            float f2 = options.outWidth;
-            float f3 = options.outHeight;
-            if (!d(str)) {
-                float f4 = sy2.c;
-                if (f2 > f4 && f3 > f4) {
-                    float f5 = f2 / f3;
-                    float f6 = sy2.b;
-                    if (f5 > f6 || 1.0f / f5 > f6) {
-                        return true;
-                    }
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(String str, MediaModel mediaModel) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, mediaModel)) == null) {
-            if (uy2.d() >= c && !uy2.g(mediaModel)) {
-                return true;
-            }
-            if (TextUtils.equals(str, "single") && uy2.d() > 0 && !TextUtils.equals(uy2.b(), mediaModel.getType())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void g(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, activity, bundle) == null) {
-            if (sy2.a) {
-                Log.d("SwanAppChooseHelper", "selectCompleted");
-            }
-            if (uy2.d() <= 0) {
-                return;
-            }
-            ku2.k().a(activity, bundle, new b(activity));
-        }
-    }
-
-    public static void k(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, activity, bundle) == null) {
-            Intent intent = new Intent(activity, SwanAppAlbumPreviewActivity.class);
-            intent.putExtra("launchParams", bundle);
-            activity.startActivityForResult(intent, 32770);
-            activity.overridePendingTransition(R.anim.obfuscated_res_0x7f010172, R.anim.obfuscated_res_0x7f01001d);
-        }
-    }
-
-    public static void h(Activity activity, Bundle bundle, zy2 zy2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, activity, bundle, zy2Var) == null) {
-            if (sy2.a) {
-                Log.d("SwanAppChooseHelper", "selectCompleted");
-            }
-            if (uy2.d() <= 0) {
-                return;
-            }
-            ku2.k().a(activity, bundle, zy2Var);
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, str) != null) || uy2.d() == 0) {
-            return;
-        }
-        Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(R.string.obfuscated_res_0x7f0f1509, Integer.valueOf(c));
-        if (TextUtils.equals(str, "single")) {
-            if (uy2.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f150a, Integer.valueOf(c));
-            } else {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f150b, Integer.valueOf(c));
-            }
-        } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(R.string.obfuscated_res_0x7f0f1509, Integer.valueOf(c));
-        }
-        va3.g(appContext, string).G();
-    }
-
-    public static void l(Context context, Bundle bundle, yy2 yy2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, bundle, yy2Var) == null) {
-            Intent intent = new Intent(context, SwanAppAlbumActivity.class);
-            intent.putExtra("launchParams", bundle);
-            if (!(context instanceof ActivityResultDispatcherHolder)) {
-                yy2Var.e("choose: context error");
-                return;
-            }
-            ActivityResultDispatcher resultDispatcher = ((ActivityResultDispatcherHolder) context).getResultDispatcher();
-            if (resultDispatcher == null) {
-                yy2Var.e("choose: ActivityResultDispatcher null");
-                return;
-            }
-            resultDispatcher.addConsumer(new a(yy2Var));
-            qw2.T().p();
-            resultDispatcher.startActivityForResult(intent);
-            ((Activity) context).overridePendingTransition(R.anim.obfuscated_res_0x7f010176, 0);
-        }
-    }
-
-    public static JSONObject m(List<MediaModel> list, db3 db3Var, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, list, db3Var, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                for (MediaModel mediaModel : list) {
-                    if (mediaModel != null) {
-                        String str2 = null;
-                        if (db3Var.w0()) {
-                            ss1 m = lu2.m();
-                            if (m != null) {
-                                str2 = m.h(mediaModel.getTempPath());
-                            }
-                        } else {
-                            str2 = li3.J(mediaModel.getTempPath(), db3Var.b);
-                        }
-                        jSONArray.put(str2);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", str2);
-                        if (TextUtils.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER, str)) {
-                            jSONObject2.put("type", mediaModel.getType());
-                        }
-                        jSONObject2.put("size", mediaModel.getSize());
-                        if (mediaModel instanceof VideoModel) {
-                            VideoModel videoModel = (VideoModel) mediaModel;
-                            jSONObject2.put("duration", videoModel.getDuration());
-                            jSONObject2.put("height", videoModel.getHeight());
-                            jSONObject2.put("width", videoModel.getWidth());
-                        }
-                        jSONArray2.put(jSONObject2);
-                    }
-                }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e2) {
-                if (sy2.a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (sy2.a) {
-                Log.d("SwanAppChooseHelper", jSONObject.toString());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static JSONObject n(List<MediaModel> list, db3 db3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, list, db3Var)) == null) {
-            String str = null;
-            if (list == null || !(list.get(0) instanceof VideoModel)) {
-                return null;
-            }
-            VideoModel videoModel = (VideoModel) list.get(0);
-            if (db3Var.w0()) {
-                ss1 m = lu2.m();
-                if (m != null) {
-                    str = m.h(videoModel.getTempPath());
-                }
-            } else {
-                str = li3.J(videoModel.getTempPath(), db3Var.b);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("tempFilePath", str);
-                jSONObject.put("duration", videoModel.getDuration() / 1000);
-                jSONObject.put("height", videoModel.getHeight());
-                jSONObject.put("width", videoModel.getWidth());
-                jSONObject.put("size", videoModel.getSize());
-            } catch (JSONException e2) {
-                if (sy2.a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (sy2.a) {
-                Log.d("SwanAppChooseHelper", jSONObject.toString());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
+        return (View) invokeILL.objValue;
     }
 }

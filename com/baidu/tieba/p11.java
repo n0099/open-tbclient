@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,29 +10,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class p11 implements o11 {
+public class p11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final p11 a;
+    public static volatile b a;
+    public static final b b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.s11
-    public void end(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(Context context);
 
-    @Override // com.baidu.tieba.s11
-    public void stop(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
+        long getNetHandle();
     }
 
     /* loaded from: classes7.dex */
-    public class a extends p11 {
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.p11.b
+        public void a(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.p11.b
+        public long getNetHandle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,6 +60,21 @@ public class p11 implements o11 {
         }
     }
 
+    /* loaded from: classes7.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return p11.a != null ? p11.a : p11.b;
+            }
+            return (b) invokeV.objValue;
+        }
+    }
+
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
@@ -61,20 +88,6 @@ public class p11 implements o11 {
                 return;
             }
         }
-        a = new a();
-    }
-
-    public p11() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        b = new a();
     }
 }

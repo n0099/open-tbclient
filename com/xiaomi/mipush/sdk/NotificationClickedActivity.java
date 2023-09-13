@@ -15,7 +15,7 @@ public final class NotificationClickedActivity extends Activity {
     public BroadcastReceiver a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f47a;
+    public Handler f46a;
 
     private void a(Intent intent) {
         if (intent != null) {
@@ -43,7 +43,7 @@ public final class NotificationClickedActivity extends Activity {
         attributes.gravity = BadgeDrawable.TOP_START;
         window.setAttributes(attributes);
         Handler handler = new Handler();
-        this.f47a = handler;
+        this.f46a = handler;
         handler.postDelayed(new ac(this), 3000L);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("action_clicked_activity_finish");
@@ -58,7 +58,7 @@ public final class NotificationClickedActivity extends Activity {
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.f47a.removeCallbacksAndMessages(null);
+        this.f46a.removeCallbacksAndMessages(null);
         try {
             unregisterReceiver(this.a);
         } catch (Exception unused) {

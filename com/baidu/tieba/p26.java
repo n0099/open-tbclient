@@ -1,42 +1,110 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ViewHelper;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.ViewGroup;
+import com.baidu.spswitch.utils.BDEmotionPanelManager;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes7.dex */
 public class p26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context A;
+    public String B;
+    public String C;
+    public String D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public float Q;
+    public boolean R;
+    public boolean S;
 
-    public static void a(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+    /* renamed from: T  reason: collision with root package name */
+    public boolean f1139T;
+    public WheelView.DividerType U;
+    public OnTimeSelectListener a;
+    public u26 b;
+    public q26 c;
+    public boolean[] d;
+    public Calendar e;
+    public Calendar f;
+    public Calendar g;
+    public int h;
+    public int i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public ViewGroup y;
+    public int z;
+
+    public p26(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, str, str2, str3) == null) && tbPageContext != null && !TextUtils.isEmpty(str)) {
-            if (!TbadkCoreApplication.isLogin()) {
-                ViewHelper.skipToLoginActivity(tbPageContext.getPageActivity());
-            } else if (str.equals(TbadkCoreApplication.getCurrentPortrait())) {
-                BdToast.makeText(tbPageContext.getPageActivity(), tbPageContext.getPageActivity().getString(R.string.can_not_raise_self)).show();
-            } else {
-                try {
-                    String str4 = "https://tieba.baidu.com/mo/q/hybrid-main-activity/worldcupPortrait?support_cache=1&thrown_flag_portrait=" + URLEncoder.encode(str, "utf-8");
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                        str4 = str4 + "&figure_url=" + URLEncoder.encode(str2, "utf-8") + "&background_value=" + URLEncoder.encode(str3, "utf-8");
-                    }
-                    TbWebViewActivityConfig activityConfig = BrowserHelper.getActivityConfig(tbPageContext.getPageActivity(), "", str4, false, true, true);
-                    activityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                    activityConfig.setTranslucentAutoClose(true);
-                    activityConfig.setWebDialogName("WorldCupRaiseFlag");
-                    activityConfig.start();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = new boolean[]{true, true, true, false, false, false};
+        this.j = false;
+        this.k = false;
+        this.z = 17;
+        this.E = -16417281;
+        this.F = -16417281;
+        this.G = -16777216;
+        this.H = -1;
+        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
+        this.J = 17;
+        this.K = 18;
+        this.L = 18;
+        this.M = -5723992;
+        this.N = -14013910;
+        this.O = -2763307;
+        this.P = -1;
+        this.Q = 1.6f;
+        this.S = true;
+        this.f1139T = false;
+        Typeface typeface = Typeface.MONOSPACE;
+        this.U = WheelView.DividerType.FILL;
+        if (i == 1) {
+            this.x = R.layout.pickerview_options;
+        } else {
+            this.x = R.layout.pickerview_time;
         }
     }
 }

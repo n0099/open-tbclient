@@ -11,14 +11,14 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.cb7;
+import com.baidu.tieba.av6;
 import com.baidu.tieba.compact.RecommendBannerCardView;
-import com.baidu.tieba.db7;
-import com.baidu.tieba.di;
-import com.baidu.tieba.j58;
-import com.baidu.tieba.r68;
-import com.baidu.tieba.w58;
-import com.baidu.tieba.wt6;
+import com.baidu.tieba.d88;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.h78;
+import com.baidu.tieba.ic7;
+import com.baidu.tieba.jc7;
+import com.baidu.tieba.u68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,10 +30,10 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u000e\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rJ\b\u0010\u000e\u001a\u00020\u000bH\u0016J\u000e\u0010\u000f\u001a\u00020\u000b2\u0006\u0010\u0010\u001a\u00020\u0011R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u0012"}, d2 = {"Lcom/baidu/tieba/compact/RecommendBannerCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "realView", "Lcom/baidu/tieba/homepage/personalize/adapter/QuizEntranceAdapter$QuizEntranceView;", "bindToParent", "", "parent", "Landroid/view/ViewGroup;", "onChangeSkin", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/homepage/personalize/data/QuizEntranceData;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendBannerCardView extends LinearLayout implements cb7 {
+public final class RecommendBannerCardView extends LinearLayout implements ic7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j58.b a;
+    public u68.b a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -84,7 +84,7 @@ public final class RecommendBannerCardView extends LinearLayout implements cb7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void b(View view2) {
+    public static final void c(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
             TbSingleton.getInstance().isAddBanner = false;
@@ -92,15 +92,15 @@ public final class RecommendBannerCardView extends LinearLayout implements cb7 {
         }
     }
 
-    public final void update(final w58 state) {
+    public final void update(final h78 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            j58.b bVar = this.a;
+            u68.b bVar = this.a;
             if (bVar != null) {
-                r68.b(state.f);
+                d88.b(state.f);
                 bVar.i(state);
-                bVar.y(new View.OnClickListener() { // from class: com.baidu.tieba.wp6
+                bVar.y(new View.OnClickListener() { // from class: com.baidu.tieba.ar6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,26 +108,26 @@ public final class RecommendBannerCardView extends LinearLayout implements cb7 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            RecommendBannerCardView.d(w58.this, this, view2);
+                            RecommendBannerCardView.d(h78.this, this, view2);
                         }
                     }
                 });
-                c();
+                b();
             }
         }
     }
 
-    public static final void d(w58 state, RecommendBannerCardView this$0, View view2) {
+    public static final void d(h78 state, RecommendBannerCardView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (!di.isEmpty(state.e) && (this$0.getContext() instanceof wt6)) {
-                r68.a(state.g);
+            if (!ei.isEmpty(state.e) && (this$0.getContext() instanceof av6)) {
+                d88.a(state.g);
                 UrlManager urlManager = UrlManager.getInstance();
                 Context context = this$0.getContext();
                 if (context != null) {
-                    urlManager.dealOneLink(((wt6) context).getPageContext(), new String[]{state.e});
+                    urlManager.dealOneLink(((av6) context).getPageContext(), new String[]{state.e});
                     return;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.core.widget.PageContextWrapper");
@@ -139,16 +139,16 @@ public final class RecommendBannerCardView extends LinearLayout implements cb7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parent) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            if (!(getContext() instanceof wt6)) {
+            if (!(getContext() instanceof av6)) {
                 return;
             }
             Context context = getContext();
             if (context != null) {
-                j58.b bVar = new j58.b(((wt6) context).getPageContext(), parent);
+                u68.b bVar = new u68.b(((av6) context).getPageContext(), parent);
                 this.a = bVar;
                 if (bVar != null) {
                     addView(bVar.h());
-                    bVar.x(new View.OnClickListener() { // from class: com.baidu.tieba.xp6
+                    bVar.x(new View.OnClickListener() { // from class: com.baidu.tieba.br6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -156,11 +156,11 @@ public final class RecommendBannerCardView extends LinearLayout implements cb7 {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                RecommendBannerCardView.b(view2);
+                                RecommendBannerCardView.c(view2);
                             }
                         }
                     });
-                    c();
+                    b();
                     return;
                 }
                 return;
@@ -169,14 +169,14 @@ public final class RecommendBannerCardView extends LinearLayout implements cb7 {
         }
     }
 
-    @Override // com.baidu.tieba.cb7
-    public void c() {
-        j58.b bVar;
+    @Override // com.baidu.tieba.ic7
+    public void b() {
+        u68.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !db7.a(this) && (getContext() instanceof wt6) && (bVar = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !jc7.a(this) && (getContext() instanceof av6) && (bVar = this.a) != null) {
             Context context = getContext();
             if (context != null) {
-                bVar.j(((wt6) context).getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                bVar.j(((av6) context).getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.core.widget.PageContextWrapper");

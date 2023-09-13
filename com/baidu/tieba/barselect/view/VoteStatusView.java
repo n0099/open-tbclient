@@ -11,7 +11,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uh6;
+import com.baidu.tieba.si6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -151,19 +151,19 @@ public class VoteStatusView extends View {
                 this.d = new LinearGradient(f, 0.0f, f4, 0.0f, this.e, this.f, Shader.TileMode.CLAMP);
                 this.b = false;
             }
-            if (this.a == uh6.c) {
+            if (this.a == si6.c) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.n, this.c);
             canvas.drawPath(this.k, this.c);
-            if (this.a == uh6.b) {
+            if (this.a == si6.b) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.m, this.c);
             canvas.drawPath(this.j, this.c);
             canvas.drawPath(this.l, this.c);
             canvas.drawPath(this.i, this.c);
-            if (this.a == uh6.a) {
+            if (this.a == si6.a) {
                 this.c.setShader(this.d);
             }
             canvas.drawPath(this.h, this.c);

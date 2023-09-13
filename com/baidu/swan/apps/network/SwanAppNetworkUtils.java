@@ -11,19 +11,19 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.m73;
-import com.baidu.tieba.nr1;
-import com.baidu.tieba.q23;
+import com.baidu.tieba.bi2;
+import com.baidu.tieba.bp3;
 import com.baidu.tieba.q73;
-import com.baidu.tieba.xh2;
-import com.baidu.tieba.xo3;
+import com.baidu.tieba.rr1;
+import com.baidu.tieba.u23;
+import com.baidu.tieba.u73;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SwanAppNetworkUtils {
-    public static final boolean a = nr1.a;
+    public static final boolean a = rr1.a;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -31,7 +31,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements m73<Bundle> {
+    public static class a implements q73<Bundle> {
         public final /* synthetic */ b a;
 
         public a(b bVar) {
@@ -39,7 +39,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m73
+        @Override // com.baidu.tieba.q73
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar = this.a;
@@ -50,7 +50,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String g() {
-        String f = xo3.f(xh2.U().g0());
+        String f = bp3.f(bi2.U().g0());
         if (TextUtils.isEmpty(f)) {
             return "";
         }
@@ -139,7 +139,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        q73.a(q23.class, null, new a(bVar));
+        u73.a(u23.class, null, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {

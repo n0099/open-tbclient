@@ -1,38 +1,117 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.k81;
-import com.baidu.tieba.la1;
+import com.baidu.tieba.eb1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public final class aa1 extends x91 {
+public class aa1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kj0 a;
-    public final ba1 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947608344, "Lcom/baidu/tieba/aa1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947608344, "Lcom/baidu/tieba/aa1;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public static final class a implements kj0 {
+    public class a implements eb1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aa1 a;
+        public final /* synthetic */ eb1.b a;
 
-        public a(aa1 aa1Var) {
+        /* renamed from: com.baidu.tieba.aa1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0224a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0224a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                eb1.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a();
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                eb1.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        public a(eb1.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aa1Var};
+                Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,102 +121,193 @@ public final class aa1 extends x91 {
                     return;
                 }
             }
-            this.a = aa1Var;
+            this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.kj0
-        public final void a(boolean z, Map<String, String> map) {
-            AbsNadBrowserView m;
+        @Override // com.baidu.tieba.eb1.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = pj0.p(map);
-                if (!TextUtils.isEmpty(p) && (m = this.a.b.m()) != null) {
-                    AbsNadBrowserView.C(m, p, null, 2, null);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                jb1.a("WebViewInit", "内核在宿主内成功初始化");
+                int unused = aa1.a = 3;
+                ik0.c(new RunnableC0224a(this));
+            }
+        }
+
+        @Override // com.baidu.tieba.eb1.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                ik0.c(new b(this));
             }
         }
     }
 
-    public aa1(ba1 container) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {container};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.b = container;
-        this.a = new a(this);
-    }
+    /* loaded from: classes5.dex */
+    public class b implements eb1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eb1.b a;
 
-    @Override // com.baidu.tieba.x91
-    public boolean f(AbsNadBrowserView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            String e = h71.e(str);
-            Intrinsics.checkNotNullExpressionValue(e, "UrlUtil.handleAbnormalUrlIfNeeded(url)");
-            if (!TextUtils.isEmpty(e) && (StringsKt__StringsJVMKt.startsWith$default(e, "http://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "https://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "sftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftps://", false, 2, null))) {
-                return false;
-            }
-            if (str != null && this.b.a(str)) {
-                return true;
-            }
-            o(webView, str);
-            if (this.b.l() != null) {
-                la1.d l = this.b.l();
-                Intrinsics.checkNotNull(l);
-                if (!l.a()) {
-                    return true;
-                }
-            }
-            if (!nj0.a(this.b.b(), str) || zi0.b(this.b.b(), str, false) || k81.b.a().a(this.b.b(), str, webView.getUrl(), this.a) || bj0.c(str, this.b.b())) {
-                return true;
-            }
-            if (xa1.b() && jj0.b.a(this.b.b(), str, null, this.a)) {
-                return true;
-            }
-            AbsNadBrowserView m = this.b.m();
-            if (m != null) {
-                m.U();
-            }
-            return super.f(webView, str);
-        }
-        return invokeLL.booleanValue;
-    }
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
 
-    public final void o(AbsNadBrowserView absNadBrowserView, String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absNadBrowserView, str) == null) && str != null) {
-            String str3 = null;
-            if (StringsKt__StringsJVMKt.startsWith$default(str, "tel:", false, 2, null) && this.b.b() != null) {
-                la1.d l = this.b.l();
-                if (l != null) {
-                    str2 = l.f();
-                } else {
-                    str2 = null;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    wd1 wd1Var = new wd1();
-                    Activity b = this.b.b();
-                    Intrinsics.checkNotNull(b);
-                    la1.d l2 = this.b.l();
-                    if (l2 != null) {
-                        str3 = l2.f();
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    wd1Var.p(b, str3, "tel");
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                eb1.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.a();
                 }
             }
         }
+
+        /* renamed from: com.baidu.tieba.aa1$b$b  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0225b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public RunnableC0225b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                eb1.b bVar;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
+                    bVar.b();
+                }
+            }
+        }
+
+        public b(eb1.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.tieba.eb1.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                jb1.a("WebViewInit", "内核在SDK内成功初始化");
+                int unused = aa1.a = 3;
+                ik0.c(new a(this));
+            }
+        }
+
+        @Override // com.baidu.tieba.eb1.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                jb1.a("WebViewInit", "内核在SDK内初始化失败");
+                int unused = aa1.a = 4;
+                ik0.c(new RunnableC0225b(this));
+            }
+        }
+    }
+
+    public static int b(Context context, eb1.b bVar) {
+        InterceptResult invokeLL;
+        String str;
+        int c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
+            if (3 != a && 4 != a) {
+                int a2 = bb1.h().a(context, new a(bVar));
+                if (3 != a2 && 1 != a2 && 2 != a2 && 5 != a2) {
+                    if (a2 == 0 || 4 == a2) {
+                        a = 2;
+                        try {
+                            boolean g = bb1.g();
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("内核在sdk初始化，类型为 ");
+                            String str2 = "t7";
+                            if (g) {
+                                str = "t7";
+                            } else {
+                                str = "native";
+                            }
+                            sb.append(str);
+                            jb1.c(context, sb.toString());
+                            StringBuilder sb2 = new StringBuilder();
+                            sb2.append("内核在SDK内完成初始化，类型为 ");
+                            if (!g) {
+                                str2 = "native";
+                            }
+                            sb2.append(str2);
+                            jb1.a("WebViewInit", sb2.toString());
+                            if (g) {
+                                c = w91.b();
+                            } else {
+                                c = w91.c();
+                            }
+                            w91.a().d(context, g, c, new b(bVar));
+                        } catch (Throwable unused) {
+                            jb1.a("WebViewInit", "SDK初始化内核时发生异常，初始化失败");
+                            if (bVar != null) {
+                                bVar.b();
+                            }
+                            a = 4;
+                        }
+                    }
+                    return a;
+                }
+                a = a2;
+                return a;
+            }
+            return a;
+        }
+        return invokeLL.intValue;
     }
 }

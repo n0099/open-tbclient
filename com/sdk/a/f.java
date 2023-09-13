@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.sdk.base.module.manager.SDKManager;
 import com.sdk.p.f;
 import java.io.ByteArrayOutputStream;
@@ -269,7 +270,7 @@ public class f<T> {
                     httpURLConnection2.setInstanceFollowRedirects(false);
                     httpURLConnection2.setRequestProperty("user-agent", com.sdk.m.a.a(this.d));
                     httpURLConnection2.setRequestProperty("netType", a3 + "");
-                    httpURLConnection2.setRequestProperty("os", "android");
+                    httpURLConnection2.setRequestProperty(TtsLogLoad.KEY_OS, "android");
                     String str3 = a;
                     StringBuilder sb = new StringBuilder();
                     sb.append("connection==: ");

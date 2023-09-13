@@ -54,7 +54,7 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void N(String str) {
+    public void M(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_FACE_GROUP);

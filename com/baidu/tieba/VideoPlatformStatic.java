@@ -50,7 +50,7 @@ public class VideoPlatformStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,14 +79,14 @@ public class VideoPlatformStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                joa.h().o();
-                goa.d().k();
+                hqa.h().o();
+                eqa.d().k();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<jb9> {
+    public class b implements CustomMessageTask.CustomRunnable<lc9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,11 +106,11 @@ public class VideoPlatformStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<jb9> run(CustomMessage<jb9> customMessage) {
+        public CustomResponsedMessage<lc9> run(CustomMessage<lc9> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921309, new kb9());
+                return new CustomResponsedMessage<>(2921309, new mc9());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -261,21 +261,21 @@ public class VideoPlatformStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             switch (i) {
                 case 101:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f111a);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1131);
                 case 102:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1119);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1130);
                 case 103:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1116);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112d);
                 case 104:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1115);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112c);
                 case 105:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f111b);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1132);
                 case 106:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1117);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112e);
                 case 107:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1118);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f112f);
                 default:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06a1) + i;
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06a4) + i;
             }
         }
         return (String) invokeI.objValue;

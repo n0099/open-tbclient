@@ -1,108 +1,88 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class gn8 {
+public class gn8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final gn8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BotsDTO.BotListDTO.UserDTO a;
+    public BotsDTO.BotListDTO.SkillDTO b;
+    public List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> c;
+    @NonNull
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947799800, "Lcom/baidu/tieba/gn8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947799800, "Lcom/baidu/tieba/gn8;");
-                return;
-            }
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
-        a = new gn8();
     }
 
     public gn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = true;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = false;
         }
     }
 
-    @JvmStatic
-    public static final long a() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return j05.t().j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final String b() {
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String h = j05.t().h();
-            if (h == null) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = this.c;
+            if (list != null && !list.isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : this.c) {
+                    if (itemsDTO.isFileType()) {
+                        return itemsDTO;
+                    }
+                }
             }
-            return h;
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final boolean c(long j) {
-        InterceptResult invokeJ;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
-            if (j == a()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
         }
-        return invokeJ.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean d(String uid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uid)) == null) {
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            return c(JavaTypesHelper.toLong(uid, 0L));
-        }
-        return invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean e(String uk) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uk)) == null) {
-            Intrinsics.checkNotNullParameter(uk, "uk");
-            return c(jn8.a(uk));
-        }
-        return invokeL.booleanValue;
     }
 }

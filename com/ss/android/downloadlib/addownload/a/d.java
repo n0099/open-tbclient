@@ -23,15 +23,15 @@ public class d extends Dialog {
     public String i;
 
     public int a() {
-        return R.layout.obfuscated_res_0x7f0d09b1;
+        return R.layout.obfuscated_res_0x7f0d09c2;
     }
 
     public int b() {
-        return R.id.obfuscated_res_0x7f0907ae;
+        return R.id.obfuscated_res_0x7f0907a2;
     }
 
     public int c() {
-        return R.id.obfuscated_res_0x7f090548;
+        return R.id.obfuscated_res_0x7f09054d;
     }
 
     /* loaded from: classes10.dex */
@@ -78,7 +78,7 @@ public class d extends Dialog {
     }
 
     public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
-        super(activity, R.style.obfuscated_res_0x7f100444);
+        super(activity, R.style.obfuscated_res_0x7f10044d);
         this.f = activity;
         this.d = cVar;
         this.g = str;
@@ -100,7 +100,7 @@ public class d extends Dialog {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
         this.b = (TextView) findViewById(c());
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09176f);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091778);
         if (!TextUtils.isEmpty(this.h)) {
             this.a.setText(this.h);
         }

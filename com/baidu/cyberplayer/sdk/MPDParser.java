@@ -8,6 +8,9 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes3.dex */
 public class MPDParser {
+    public static final String MPD_PREFIX = "mpd://";
+    public static final String MPD_SCHEME = "mpd";
+    public static final String TAG = "sdk_MPDParser";
 
     @Keep
     /* loaded from: classes3.dex */
@@ -38,7 +41,7 @@ public class MPDParser {
         try {
             return getDefaultUrlFromMPDURL(Uri.parse(str)).toString();
         } catch (Exception e) {
-            CyberLog.d("sdk_MPDParser", "mpd parse exception " + e.getMessage());
+            CyberLog.d(TAG, "mpd parse exception " + e.getMessage());
             return str;
         }
     }
@@ -48,13 +51,13 @@ public class MPDParser {
         if (uri == null) {
             return false;
         }
-        return "mpd".equalsIgnoreCase(uri.getScheme());
+        return MPD_SCHEME.equalsIgnoreCase(uri.getScheme());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0060, code lost:
         r1 = android.net.Uri.parse(r6.getString("url"));
         r3 = java.lang.Boolean.TRUE;
-        com.baidu.cyberplayer.sdk.CyberLog.d("sdk_MPDParser", "mpd parsed uri is => " + r1);
+        com.baidu.cyberplayer.sdk.CyberLog.d(com.baidu.cyberplayer.sdk.MPDParser.TAG, "mpd parsed uri is => " + r1);
         r9 = r1;
      */
     /* JADX WARN: Removed duplicated region for block: B:29:0x00af  */
@@ -99,7 +102,7 @@ public class MPDParser {
                         i2++;
                     } catch (Exception e2) {
                         e = e2;
-                        CyberLog.d("sdk_MPDParser", "mpd urlWithMPDURL parse exception " + e.getMessage());
+                        CyberLog.d(TAG, "mpd urlWithMPDURL parse exception " + e.getMessage());
                         if (bool.booleanValue()) {
                         }
                     }
@@ -121,24 +124,24 @@ public class MPDParser {
             String queryParameter = parse.getQueryParameter("content");
             String queryParameter2 = parse.getQueryParameter("clarity");
             String queryParameter3 = parse.getQueryParameter("auto");
-            CyberLog.d("sdk_MPDParser", "mpd autoMode: " + queryParameter3 + " selectedClarity:" + queryParameter2);
+            CyberLog.d(TAG, "mpd autoMode: " + queryParameter3 + " selectedClarity:" + queryParameter2);
             StringBuilder sb = new StringBuilder();
             sb.append("mpd uri content is => ");
             sb.append(queryParameter);
-            CyberLog.d("sdk_MPDParser", sb.toString());
+            CyberLog.d(TAG, sb.toString());
             try {
                 mPDInfo.mpdClarity = Integer.parseInt(queryParameter2);
             } catch (Exception e) {
-                CyberLog.d("sdk_MPDParser", "mpd parse exception " + e.getMessage());
+                CyberLog.d(TAG, "mpd parse exception " + e.getMessage());
             }
             try {
                 mPDInfo.mpdAuto = Integer.parseInt(queryParameter3);
             } catch (Exception e2) {
-                CyberLog.d("sdk_MPDParser", "mpd parse exception " + e2.getMessage());
+                CyberLog.d(TAG, "mpd parse exception " + e2.getMessage());
             }
             mPDInfo.urlStr = queryParameter;
         } catch (Exception e3) {
-            CyberLog.d("sdk_MPDParser", "mpd parse exception " + e3.getMessage());
+            CyberLog.d(TAG, "mpd parse exception " + e3.getMessage());
         }
         return mPDInfo;
     }
@@ -148,6 +151,6 @@ public class MPDParser {
         if (str == null) {
             return false;
         }
-        return str.startsWith("mpd://");
+        return str.startsWith(MPD_PREFIX);
     }
 }

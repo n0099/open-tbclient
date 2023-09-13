@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f1c {
+public final class f1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public transient j3c j;
-    public transient i3c k;
-    public int l;
-    public boolean m;
-    public int n;
-    public int o;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public boolean e;
 
     public f1c() {
         Interceptable interceptable = $ic;
@@ -41,86 +30,165 @@ public class f1c {
                 return;
             }
         }
-        this.a = null;
-        this.b = 1;
-        this.c = 1;
-        this.d = 0;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.k = null;
-        this.l = 0;
-        this.m = false;
-        this.n = 1;
-        this.o = 4000;
+        this.c = 1.0f;
+        this.d = 1.0f;
     }
 
-    public static f1c a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            f1c f1cVar = new f1c();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                f1cVar.a = jSONObject.optString("cacheDirectory");
-                f1cVar.b = jSONObject.optInt("avcCodec");
-                f1cVar.c = jSONObject.optInt("hevcCodec");
-                f1cVar.d = jSONObject.optInt("audioCodec");
-                f1cVar.e = jSONObject.optInt("videoSeekMode");
-                f1cVar.f = jSONObject.optBoolean("clearRender");
-                f1cVar.g = jSONObject.optBoolean("usingSurfaceView");
-                f1cVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
-                f1cVar.i = jSONObject.optBoolean("forceNotCrop");
-                f1cVar.l = jSONObject.optInt("samplerFilter");
-                f1cVar.m = jSONObject.optBoolean("isSubProcess");
-                f1cVar.n = jSONObject.optInt("pcdnCatonTime");
-                f1cVar.o = jSONObject.optInt("pcdnCatonCount");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return f1cVar;
-        }
-        return (f1c) invokeL.objValue;
-    }
-
-    public static String b(f1c f1cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, f1cVar)) == null) {
-            if (f1cVar == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cacheDirectory", f1cVar.a);
-                jSONObject.put("avcCodec", f1cVar.b);
-                jSONObject.put("hevcCodec", f1cVar.c);
-                jSONObject.put("audioCodec", f1cVar.d);
-                jSONObject.put("videoSeekMode", f1cVar.e);
-                jSONObject.put("clearRender", f1cVar.f);
-                jSONObject.put("usingSurfaceView", f1cVar.g);
-                jSONObject.put("hardDecodeOutputToBuffer", f1cVar.h);
-                jSONObject.put("forceNotCrop", f1cVar.i);
-                jSONObject.put("samplerFilter", f1cVar.l);
-                jSONObject.put("isSubProcess", f1cVar.m);
-                jSONObject.put("pcdnCatonTime", f1cVar.n);
-                jSONObject.put("pcdnCatonCount", f1cVar.o);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String toString() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 1.0f;
+            this.d = 1.0f;
+            this.e = false;
+        }
+    }
+
+    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
+            g();
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f2 - f4) / 2.0f;
+            float f7 = f3 / f4;
+            float f8 = f / f2;
+            float f9 = f2 / f4;
+            float f10 = f / f3;
+            boolean z = false;
+            switch (e1c.$EnumSwitchMapping$0[scaleType.ordinal()]) {
+                case 1:
+                    this.a = f5;
+                    this.b = f6;
+                    return;
+                case 2:
+                    if (f7 > f8) {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    this.b = (f2 - (f4 * f10)) / 2.0f;
+                    return;
+                case 3:
+                    if (f3 < f && f4 < f2) {
+                        this.a = f5;
+                        this.b = f6;
+                        return;
+                    } else if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    } else {
+                        this.e = false;
+                        this.c = f9;
+                        this.d = f9;
+                        this.a = (f - (f3 * f9)) / 2.0f;
+                        return;
+                    }
+                case 4:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = (f2 - (f4 * f10)) / 2.0f;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = (f - (f3 * f9)) / 2.0f;
+                    return;
+                case 5:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    return;
+                case 6:
+                    if (f7 > f8) {
+                        this.e = true;
+                        this.c = f10;
+                        this.d = f10;
+                        this.b = f2 - (f4 * f10);
+                        return;
+                    }
+                    this.e = false;
+                    this.c = f9;
+                    this.d = f9;
+                    this.a = f - (f3 * f9);
+                    return;
+                case 7:
+                    Math.max(f10, f9);
+                    if (f10 > f9) {
+                        z = true;
+                    }
+                    this.e = z;
+                    this.c = f10;
+                    this.d = f9;
+                    return;
+                default:
+                    this.e = true;
+                    this.c = f10;
+                    this.d = f10;
+                    return;
+            }
+        }
     }
 }

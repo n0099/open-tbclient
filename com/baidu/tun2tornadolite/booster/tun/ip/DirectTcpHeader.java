@@ -133,7 +133,7 @@ public final class DirectTcpHeader extends DirectHeader {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i3)) == null) {
-                    return Integer.valueOf(((UByte.m867constructorimpl(this.this$0.getBuffer()[i3]) & 255) >>> 4) * 4);
+                    return Integer.valueOf(((UByte.m868constructorimpl(this.this$0.getBuffer()[i3]) & 255) >>> 4) * 4);
                 }
                 return (Integer) invokeI.objValue;
             }
@@ -181,7 +181,7 @@ public final class DirectTcpHeader extends DirectHeader {
             public final void invoke(int i3, int i4) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, i4) == null) {
-                    this.this$0.getBuffer()[i3] = (byte) ((((i4 * 4) >>> 4) << 4) | (((UByte.m867constructorimpl(this.this$0.getBuffer()[i3]) & 255) << 4) >>> 4));
+                    this.this$0.getBuffer()[i3] = (byte) ((((i4 * 4) >>> 4) << 4) | (((UByte.m868constructorimpl(this.this$0.getBuffer()[i3]) & 255) << 4) >>> 4));
                 }
             }
         });

@@ -12,30 +12,30 @@ import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.aw2;
 import com.baidu.tieba.b73;
-import com.baidu.tieba.c73;
-import com.baidu.tieba.db3;
-import com.baidu.tieba.ek4;
-import com.baidu.tieba.f32;
-import com.baidu.tieba.hr4;
-import com.baidu.tieba.iu2;
-import com.baidu.tieba.ju2;
-import com.baidu.tieba.k63;
-import com.baidu.tieba.ku2;
-import com.baidu.tieba.nr1;
-import com.baidu.tieba.ob3;
-import com.baidu.tieba.q92;
-import com.baidu.tieba.qb3;
-import com.baidu.tieba.qw2;
-import com.baidu.tieba.rb3;
+import com.baidu.tieba.d73;
+import com.baidu.tieba.ew2;
+import com.baidu.tieba.f73;
+import com.baidu.tieba.g73;
+import com.baidu.tieba.hb3;
+import com.baidu.tieba.ik4;
+import com.baidu.tieba.j32;
+import com.baidu.tieba.lr4;
+import com.baidu.tieba.mu2;
+import com.baidu.tieba.nu2;
+import com.baidu.tieba.o63;
+import com.baidu.tieba.ou2;
+import com.baidu.tieba.rr1;
 import com.baidu.tieba.sb3;
-import com.baidu.tieba.u82;
+import com.baidu.tieba.u92;
+import com.baidu.tieba.ub3;
+import com.baidu.tieba.uw2;
 import com.baidu.tieba.vb3;
-import com.baidu.tieba.ve3;
-import com.baidu.tieba.vo3;
-import com.baidu.tieba.x63;
-import com.baidu.tieba.z63;
+import com.baidu.tieba.wb3;
+import com.baidu.tieba.y82;
+import com.baidu.tieba.zb3;
+import com.baidu.tieba.ze3;
+import com.baidu.tieba.zo3;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.io.File;
@@ -50,22 +50,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class SwanAppConfigData {
-    public static final boolean v = nr1.a;
-    public static final rb3<SwanAppConfigData> w = new a();
-    public static final qb3<SwanAppConfigData> x = new b();
+    public static final boolean v = rr1.a;
+    public static final vb3<SwanAppConfigData> w = new a();
+    public static final ub3<SwanAppConfigData> x = new b();
     public static final HashMap<String, Integer> y;
     public boolean a;
     public e b;
     public l c;
     public m d;
-    public sb3 e;
+    public wb3 e;
     public n f;
     public j g;
-    public ob3.a h;
+    public sb3.a h;
     public g i;
     public g j;
     public d k;
-    public List<ek4> l;
+    public List<ik4> l;
     public String m;
     public String n;
     public i o;
@@ -79,56 +79,56 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class f {
-        public static final rb3<f> b = new a();
-        public static final qb3<f> c = new b();
+        public static final vb3<f> b = new a();
+        public static final ub3<f> c = new b();
         public Map<String, Map<String, String>> a;
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<f> {
+        public static class a extends vb3<f> {
 
             /* renamed from: com.baidu.swan.apps.runtime.config.SwanAppConfigData$f$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0215a extends rb3<Map<String, String>> {
-                public C0215a(a aVar) {
+            public class C0204a extends vb3<Map<String, String>> {
+                public C0204a(a aVar) {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.rb3
+                @Override // com.baidu.tieba.vb3
                 /* renamed from: b */
-                public void a(@NonNull Map<String, String> map, @NonNull ju2 ju2Var) throws Exception {
-                    ju2Var.h(map);
+                public void a(@NonNull Map<String, String> map, @NonNull nu2 nu2Var) throws Exception {
+                    nu2Var.h(map);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull f fVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.e(fVar.a, new C0215a(this));
+            public void a(@NonNull f fVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.e(fVar.a, new C0204a(this));
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<f> {
+        public static class b extends ub3<f> {
 
             /* loaded from: classes4.dex */
-            public class a extends qb3<Map<String, String>> {
+            public class a extends ub3<Map<String, String>> {
                 public a(b bVar) {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.qb3
+                @Override // com.baidu.tieba.ub3
                 /* renamed from: b */
-                public Map<String, String> a(@NonNull iu2 iu2Var) throws Exception {
-                    return iu2Var.l();
+                public Map<String, String> a(@NonNull mu2 mu2Var) throws Exception {
+                    return mu2Var.l();
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public f a(@NonNull iu2 iu2Var) throws Exception {
-                Map<String, Map<String, String>> f = iu2Var.f(new a(this));
+            public f a(@NonNull mu2 mu2Var) throws Exception {
+                Map<String, Map<String, String>> f = mu2Var.f(new a(this));
                 if (f == null) {
                     return f.b();
                 }
@@ -178,8 +178,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class e {
-        public static final qb3<e> b = new a();
-        public static final rb3<e> c = new b();
+        public static final ub3<e> b = new a();
+        public static final vb3<e> c = new b();
         public List<String> a;
 
         public static e d() {
@@ -192,24 +192,24 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<e> {
+        public static class a extends ub3<e> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public e a(@NonNull iu2 iu2Var) throws Exception {
+            public e a(@NonNull mu2 mu2Var) throws Exception {
                 e eVar = new e();
-                eVar.a = iu2Var.k(Collections.emptyList());
+                eVar.a = mu2Var.k(Collections.emptyList());
                 return eVar;
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<e> {
+        public static class b extends vb3<e> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull e eVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.g(eVar.a);
+            public void a(@NonNull e eVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.g(eVar.a);
             }
         }
 
@@ -240,8 +240,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class i {
-        public static final qb3<i> b = new a();
-        public static final rb3<i> c = new b();
+        public static final ub3<i> b = new a();
+        public static final vb3<i> c = new b();
         public Map<String, String> a;
 
         public static /* synthetic */ i a() {
@@ -255,12 +255,12 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<i> {
+        public static class a extends ub3<i> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public i a(@NonNull iu2 iu2Var) throws Exception {
-                Map<String, String> l = iu2Var.l();
+            public i a(@NonNull mu2 mu2Var) throws Exception {
+                Map<String, String> l = mu2Var.l();
                 if (l == null) {
                     return i.a();
                 }
@@ -271,12 +271,12 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<i> {
+        public static class b extends vb3<i> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull i iVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.h(iVar.a);
+            public void a(@NonNull i iVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.h(iVar.a);
             }
         }
 
@@ -305,8 +305,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class j {
-        public static final rb3<j> b = new a();
-        public static final qb3<j> c = new b();
+        public static final vb3<j> b = new a();
+        public static final ub3<j> c = new b();
         public boolean a;
 
         public static j c() {
@@ -319,23 +319,23 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<j> {
+        public static class a extends vb3<j> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull j jVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.writeBoolean(jVar.a);
+            public void a(@NonNull j jVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.writeBoolean(jVar.a);
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<j> {
+        public static class b extends ub3<j> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public j a(@NonNull iu2 iu2Var) throws Exception {
+            public j a(@NonNull mu2 mu2Var) throws Exception {
                 j jVar = new j();
-                jVar.a = iu2Var.readBoolean();
+                jVar.a = mu2Var.readBoolean();
                 return jVar;
             }
         }
@@ -349,7 +349,7 @@ public class SwanAppConfigData {
             if (optJSONObject == null) {
                 return c();
             }
-            db3 M = db3.M();
+            hb3 M = hb3.M();
             if (M == null) {
                 str = "";
             } else {
@@ -359,31 +359,31 @@ public class SwanAppConfigData {
             jVar.a = optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("swan_conf");
             if (optJSONObject2 != null) {
-                vb3.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
+                zb3.u(str, "", optJSONObject2.optJSONArray("web_view_domains"));
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("domains");
                 if (optJSONObject3 != null) {
-                    vb3.s(str, optJSONObject3);
+                    zb3.s(str, optJSONObject3);
                 }
             }
             return jVar;
         }
 
         public static boolean d() {
-            SwanAppConfigData s = qw2.T().s();
+            SwanAppConfigData s = uw2.T().s();
             if (s == null) {
                 return true;
             }
             j jVar = s.g;
-            db3 M = db3.M();
-            aw2.a aVar = null;
+            hb3 M = hb3.M();
+            ew2.a aVar = null;
             if (M != null) {
                 aVar = M.Y();
             }
-            boolean d = f32.d(aVar);
-            boolean d2 = u82.d();
-            boolean d3 = q92.d();
-            boolean H = c73.H();
-            boolean D = c73.D();
+            boolean d = j32.d(aVar);
+            boolean d2 = y82.d();
+            boolean d3 = u92.d();
+            boolean H = g73.H();
+            boolean D = g73.D();
             if (SwanAppConfigData.v) {
                 Log.d("SwanAppConfigData", "isDevelop: " + d + " isRemoteDebug: " + d2 + " isMobileDebug: " + d3 + " urlCheck: " + jVar.a);
             }
@@ -397,8 +397,8 @@ public class SwanAppConfigData {
     /* loaded from: classes4.dex */
     public static class k {
         public static final String d = File.separator;
-        public static final qb3<k> e = new a();
-        public static final rb3<k> f = new b();
+        public static final ub3<k> e = new a();
+        public static final vb3<k> f = new b();
         public String a;
         public List<String> b;
         public boolean c = false;
@@ -410,28 +410,28 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<k> {
+        public static class a extends ub3<k> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public k a(@NonNull iu2 iu2Var) throws Exception {
+            public k a(@NonNull mu2 mu2Var) throws Exception {
                 k kVar = new k();
-                kVar.a = iu2Var.g();
-                kVar.b = iu2Var.k(Collections.emptyList());
-                kVar.c = iu2Var.readBoolean();
+                kVar.a = mu2Var.g();
+                kVar.b = mu2Var.k(Collections.emptyList());
+                kVar.c = mu2Var.readBoolean();
                 return kVar;
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<k> {
+        public static class b extends vb3<k> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull k kVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.f(kVar.a);
-                ju2Var.g(kVar.b);
-                ju2Var.writeBoolean(kVar.c);
+            public void a(@NonNull k kVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.f(kVar.a);
+                nu2Var.g(kVar.b);
+                nu2Var.writeBoolean(kVar.c);
             }
         }
 
@@ -485,8 +485,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class l {
-        public static final qb3<l> e = new a();
-        public static final rb3<l> f = new b();
+        public static final ub3<l> e = new a();
+        public static final vb3<l> f = new b();
         public List<k> a;
         public Map<String, Boolean> b;
         public Map<String, String> c;
@@ -506,15 +506,15 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<l> {
+        public static class b extends vb3<l> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull l lVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.d(lVar.a, k.f);
-                ju2Var.a(lVar.b);
-                ju2Var.h(lVar.c);
-                ju2Var.h(lVar.d);
+            public void a(@NonNull l lVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.d(lVar.a, k.f);
+                nu2Var.a(lVar.b);
+                nu2Var.h(lVar.c);
+                nu2Var.h(lVar.d);
             }
         }
 
@@ -526,28 +526,28 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<l> {
+        public static class a extends ub3<l> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public l a(@NonNull iu2 iu2Var) throws Exception {
+            public l a(@NonNull mu2 mu2Var) throws Exception {
                 l lVar = new l();
-                List<k> e = iu2Var.e(k.e);
+                List<k> e = mu2Var.e(k.e);
                 lVar.a = e;
                 if (e == null) {
                     lVar.a = new ArrayList();
                 }
-                Map<String, Boolean> a = iu2Var.a();
+                Map<String, Boolean> a = mu2Var.a();
                 lVar.b = a;
                 if (a == null) {
                     lVar.b = new HashMap();
                 }
-                Map<String, String> l = iu2Var.l();
+                Map<String, String> l = mu2Var.l();
                 lVar.c = l;
                 if (l == null) {
                     lVar.c = new HashMap();
                 }
-                Map<String, String> l2 = iu2Var.l();
+                Map<String, String> l2 = mu2Var.l();
                 lVar.d = l2;
                 if (l2 == null) {
                     lVar.d = new HashMap();
@@ -577,8 +577,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class m {
-        public static final rb3<m> b = new a();
-        public static final qb3<m> c = new b();
+        public static final vb3<m> b = new a();
+        public static final ub3<m> c = new b();
         public Map<String, String> a;
 
         public static /* synthetic */ m a() {
@@ -592,22 +592,22 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<m> {
+        public static class a extends vb3<m> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull m mVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.h(mVar.a);
+            public void a(@NonNull m mVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.h(mVar.a);
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<m> {
+        public static class b extends ub3<m> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public m a(@NonNull iu2 iu2Var) throws Exception {
-                Map<String, String> l = iu2Var.l();
+            public m a(@NonNull mu2 mu2Var) throws Exception {
+                Map<String, String> l = mu2Var.l();
                 if (l == null) {
                     return m.a();
                 }
@@ -641,8 +641,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class n {
-        public static final rb3<n> f = new a();
-        public static final qb3<n> g = new b();
+        public static final vb3<n> f = new a();
+        public static final ub3<n> g = new b();
         public int a;
         public int b;
         public int c;
@@ -667,31 +667,31 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<n> {
+        public static class a extends vb3<n> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull n nVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.writeInt(nVar.a);
-                ju2Var.writeInt(nVar.b);
-                ju2Var.writeInt(nVar.c);
-                ju2Var.writeInt(nVar.d);
-                ju2Var.d(nVar.e, o.e);
+            public void a(@NonNull n nVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.writeInt(nVar.a);
+                nu2Var.writeInt(nVar.b);
+                nu2Var.writeInt(nVar.c);
+                nu2Var.writeInt(nVar.d);
+                nu2Var.d(nVar.e, o.e);
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<n> {
+        public static class b extends ub3<n> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public n a(@NonNull iu2 iu2Var) throws Exception {
+            public n a(@NonNull mu2 mu2Var) throws Exception {
                 n nVar = new n();
-                nVar.a = iu2Var.readInt();
-                nVar.b = iu2Var.readInt();
-                nVar.c = iu2Var.readInt();
-                nVar.d = iu2Var.readInt();
-                List<o> e = iu2Var.e(o.f);
+                nVar.a = mu2Var.readInt();
+                nVar.b = mu2Var.readInt();
+                nVar.c = mu2Var.readInt();
+                nVar.d = mu2Var.readInt();
+                List<o> e = mu2Var.e(o.f);
                 nVar.e = e;
                 if (e == null) {
                     nVar.e = new ArrayList();
@@ -742,8 +742,8 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class o {
-        public static final rb3<o> e = new a();
-        public static final qb3<o> f = new b();
+        public static final vb3<o> e = new a();
+        public static final ub3<o> f = new b();
         public String a;
         public String b;
         public String c;
@@ -757,29 +757,29 @@ public class SwanAppConfigData {
         }
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<o> {
+        public static class a extends vb3<o> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull o oVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.f(oVar.a);
-                ju2Var.f(oVar.b);
-                ju2Var.f(oVar.c);
-                ju2Var.f(oVar.d);
+            public void a(@NonNull o oVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.f(oVar.a);
+                nu2Var.f(oVar.b);
+                nu2Var.f(oVar.c);
+                nu2Var.f(oVar.d);
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<o> {
+        public static class b extends ub3<o> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public o a(@NonNull iu2 iu2Var) throws Exception {
+            public o a(@NonNull mu2 mu2Var) throws Exception {
                 o oVar = new o();
-                oVar.a = iu2Var.g();
-                oVar.b = iu2Var.g();
-                oVar.c = iu2Var.g();
-                oVar.d = iu2Var.g();
+                oVar.a = mu2Var.g();
+                oVar.b = mu2Var.g();
+                oVar.c = mu2Var.g();
+                oVar.d = mu2Var.g();
                 return oVar;
             }
         }
@@ -808,7 +808,7 @@ public class SwanAppConfigData {
         this.q = new ArrayList(1);
     }
 
-    public List<x63> e() {
+    public List<b73> e() {
         ArrayList arrayList = new ArrayList();
         d dVar = this.k;
         if (dVar != null && dVar.a.size() > 0) {
@@ -859,29 +859,29 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class c {
-        public static final qb3<c> b = new a();
-        public static final rb3<c> c = new b();
+        public static final ub3<c> b = new a();
+        public static final vb3<c> c = new b();
         public boolean a;
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<c> {
+        public static class a extends ub3<c> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public c a(@NonNull iu2 iu2Var) throws Exception {
+            public c a(@NonNull mu2 mu2Var) throws Exception {
                 c cVar = new c();
-                cVar.a = iu2Var.readBoolean();
+                cVar.a = mu2Var.readBoolean();
                 return cVar;
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<c> {
+        public static class b extends vb3<c> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull c cVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.writeBoolean(cVar.a);
+            public void a(@NonNull c cVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.writeBoolean(cVar.a);
             }
         }
 
@@ -901,27 +901,27 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class d {
-        public static final rb3<d> b = new a();
-        public static final qb3<d> c = new b();
-        public List<x63> a;
+        public static final vb3<d> b = new a();
+        public static final ub3<d> c = new b();
+        public List<b73> a;
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<d> {
+        public static class a extends vb3<d> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull d dVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.d(dVar.a, x63.l);
+            public void a(@NonNull d dVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.d(dVar.a, b73.l);
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<d> {
+        public static class b extends ub3<d> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public d a(@NonNull iu2 iu2Var) throws Exception {
-                List<x63> e = iu2Var.e(x63.k);
+            public d a(@NonNull mu2 mu2Var) throws Exception {
+                List<b73> e = mu2Var.e(b73.k);
                 if (e == null) {
                     return null;
                 }
@@ -941,11 +941,11 @@ public class SwanAppConfigData {
             dVar.a = new ArrayList();
             while (keys.hasNext()) {
                 String next = keys.next();
-                x63 x63Var = new x63(optJSONObject.optJSONObject(next), next);
-                if (file != null && !TextUtils.isEmpty(x63Var.e)) {
-                    x63Var.e = new File(file, x63Var.e).getAbsolutePath();
+                b73 b73Var = new b73(optJSONObject.optJSONObject(next), next);
+                if (file != null && !TextUtils.isEmpty(b73Var.e)) {
+                    b73Var.e = new File(file, b73Var.e).getAbsolutePath();
                 }
-                dVar.a.add(x63Var);
+                dVar.a.add(b73Var);
             }
             return dVar;
         }
@@ -953,27 +953,27 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class g {
-        public static final rb3<g> b = new a();
-        public static final qb3<g> c = new b();
-        public List<z63> a;
+        public static final vb3<g> b = new a();
+        public static final ub3<g> c = new b();
+        public List<d73> a;
 
         /* loaded from: classes4.dex */
-        public static class a extends rb3<g> {
+        public static class a extends vb3<g> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull g gVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.d(gVar.a, z63.i);
+            public void a(@NonNull g gVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.d(gVar.a, d73.i);
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends qb3<g> {
+        public static class b extends ub3<g> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public g a(@NonNull iu2 iu2Var) throws Exception {
-                List<z63> e = iu2Var.e(z63.h);
+            public g a(@NonNull mu2 mu2Var) throws Exception {
+                List<d73> e = mu2Var.e(d73.h);
                 if (e == null) {
                     return null;
                 }
@@ -1003,12 +1003,12 @@ public class SwanAppConfigData {
                 gVar.a = new ArrayList();
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    z63 z63Var = new z63(optJSONObject.optJSONObject(next), i);
-                    z63Var.g = next;
-                    if (file != null && !TextUtils.isEmpty(z63Var.e)) {
-                        z63Var.e = new File(file, z63Var.e).getAbsolutePath();
+                    d73 d73Var = new d73(optJSONObject.optJSONObject(next), i);
+                    d73Var.g = next;
+                    if (file != null && !TextUtils.isEmpty(d73Var.e)) {
+                        d73Var.e = new File(file, d73Var.e).getAbsolutePath();
                     }
-                    gVar.a.add(z63Var);
+                    gVar.a.add(d73Var);
                 }
             }
             return gVar;
@@ -1017,29 +1017,29 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class h {
-        public static final qb3<h> c = new a();
-        public static final rb3<h> d = new b();
+        public static final ub3<h> c = new a();
+        public static final vb3<h> d = new b();
         public final boolean a;
         public final String b;
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<h> {
+        public static class a extends ub3<h> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public h a(@NonNull iu2 iu2Var) throws Exception {
-                return new h(iu2Var.readBoolean(), iu2Var.g());
+            public h a(@NonNull mu2 mu2Var) throws Exception {
+                return new h(mu2Var.readBoolean(), mu2Var.g());
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<h> {
+        public static class b extends vb3<h> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull h hVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.writeBoolean(hVar.a);
-                ju2Var.f(hVar.b);
+            public void a(@NonNull h hVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.writeBoolean(hVar.a);
+                nu2Var.f(hVar.b);
             }
         }
 
@@ -1074,29 +1074,29 @@ public class SwanAppConfigData {
 
     /* loaded from: classes4.dex */
     public static class p {
-        public static final qb3<p> b = new a();
-        public static final rb3<p> c = new b();
+        public static final ub3<p> b = new a();
+        public static final vb3<p> c = new b();
         public boolean a;
 
         /* loaded from: classes4.dex */
-        public static class a extends qb3<p> {
+        public static class a extends ub3<p> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qb3
+            @Override // com.baidu.tieba.ub3
             /* renamed from: b */
-            public p a(@NonNull iu2 iu2Var) throws Exception {
+            public p a(@NonNull mu2 mu2Var) throws Exception {
                 p pVar = new p();
-                pVar.a = iu2Var.readBoolean();
+                pVar.a = mu2Var.readBoolean();
                 return pVar;
             }
         }
 
         /* loaded from: classes4.dex */
-        public static class b extends rb3<p> {
+        public static class b extends vb3<p> {
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rb3
+            @Override // com.baidu.tieba.vb3
             /* renamed from: b */
-            public void a(@NonNull p pVar, @NonNull ju2 ju2Var) throws Exception {
-                ju2Var.writeBoolean(pVar.a);
+            public void a(@NonNull p pVar, @NonNull nu2 nu2Var) throws Exception {
+                nu2Var.writeBoolean(pVar.a);
             }
         }
 
@@ -1157,9 +1157,9 @@ public class SwanAppConfigData {
     }
 
     public String h(String str) {
-        String b2 = ve3.b(vo3.f(str));
+        String b2 = ze3.b(zo3.f(str));
         if (!TextUtils.isEmpty(b2)) {
-            if (k63.k(b2)) {
+            if (o63.k(b2)) {
                 return "dynamicLib";
             }
             if (q(b2)) {
@@ -1172,7 +1172,7 @@ public class SwanAppConfigData {
         return "main";
     }
 
-    public List<z63> i(int i2) {
+    public List<d73> i(int i2) {
         if (i2 == 3) {
             ArrayList arrayList = new ArrayList();
             b(this.j, arrayList);
@@ -1189,7 +1189,7 @@ public class SwanAppConfigData {
     public String j(String str) {
         i iVar = this.o;
         if (iVar != null && iVar.a != null) {
-            String f2 = vo3.f(str);
+            String f2 = zo3.f(str);
             String str2 = this.o.a.get(f2);
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -1229,65 +1229,65 @@ public class SwanAppConfigData {
     }
 
     /* loaded from: classes4.dex */
-    public static class a extends rb3<SwanAppConfigData> {
+    public static class a extends vb3<SwanAppConfigData> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rb3
+        @Override // com.baidu.tieba.vb3
         /* renamed from: b */
-        public void a(@NonNull SwanAppConfigData swanAppConfigData, @NonNull ju2 ju2Var) throws Exception {
-            ju2Var.writeBoolean(swanAppConfigData.a);
-            ju2Var.c(swanAppConfigData.b, e.c);
-            ju2Var.c(swanAppConfigData.c, l.f);
-            ju2Var.c(swanAppConfigData.d, m.b);
-            ju2Var.c(swanAppConfigData.e, sb3.u);
-            ju2Var.c(swanAppConfigData.f, n.f);
-            ju2Var.c(swanAppConfigData.g, j.b);
-            ju2Var.c(swanAppConfigData.h, ob3.a.e);
-            ju2Var.c(swanAppConfigData.i, g.b);
-            ju2Var.c(swanAppConfigData.j, g.b);
-            ju2Var.c(swanAppConfigData.k, d.b);
-            ju2Var.f(swanAppConfigData.m);
-            ju2Var.c(swanAppConfigData.o, i.c);
-            ju2Var.c(swanAppConfigData.p, f.b);
-            ju2Var.g(swanAppConfigData.q);
-            ju2Var.c(swanAppConfigData.r, c.c);
-            ju2Var.c(swanAppConfigData.s, p.c);
-            ju2Var.c(swanAppConfigData.t, h.d);
+        public void a(@NonNull SwanAppConfigData swanAppConfigData, @NonNull nu2 nu2Var) throws Exception {
+            nu2Var.writeBoolean(swanAppConfigData.a);
+            nu2Var.c(swanAppConfigData.b, e.c);
+            nu2Var.c(swanAppConfigData.c, l.f);
+            nu2Var.c(swanAppConfigData.d, m.b);
+            nu2Var.c(swanAppConfigData.e, wb3.u);
+            nu2Var.c(swanAppConfigData.f, n.f);
+            nu2Var.c(swanAppConfigData.g, j.b);
+            nu2Var.c(swanAppConfigData.h, sb3.a.e);
+            nu2Var.c(swanAppConfigData.i, g.b);
+            nu2Var.c(swanAppConfigData.j, g.b);
+            nu2Var.c(swanAppConfigData.k, d.b);
+            nu2Var.f(swanAppConfigData.m);
+            nu2Var.c(swanAppConfigData.o, i.c);
+            nu2Var.c(swanAppConfigData.p, f.b);
+            nu2Var.g(swanAppConfigData.q);
+            nu2Var.c(swanAppConfigData.r, c.c);
+            nu2Var.c(swanAppConfigData.s, p.c);
+            nu2Var.c(swanAppConfigData.t, h.d);
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends qb3<SwanAppConfigData> {
+    public static class b extends ub3<SwanAppConfigData> {
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qb3
+        @Override // com.baidu.tieba.ub3
         /* renamed from: b */
-        public SwanAppConfigData a(@NonNull iu2 iu2Var) throws Exception {
+        public SwanAppConfigData a(@NonNull mu2 mu2Var) throws Exception {
             SwanAppConfigData swanAppConfigData = new SwanAppConfigData(null);
-            swanAppConfigData.a = iu2Var.readBoolean();
-            swanAppConfigData.b = (e) iu2Var.d(e.b);
-            l lVar = (l) iu2Var.d(l.e);
+            swanAppConfigData.a = mu2Var.readBoolean();
+            swanAppConfigData.b = (e) mu2Var.d(e.b);
+            l lVar = (l) mu2Var.d(l.e);
             swanAppConfigData.c = lVar;
             if (lVar == null) {
                 swanAppConfigData.c = l.a();
             }
-            swanAppConfigData.d = (m) iu2Var.d(m.c);
-            swanAppConfigData.e = (sb3) iu2Var.d(sb3.v);
-            swanAppConfigData.f = (n) iu2Var.d(n.g);
-            swanAppConfigData.g = (j) iu2Var.d(j.c);
-            swanAppConfigData.h = (ob3.a) iu2Var.d(ob3.a.f);
-            swanAppConfigData.i = (g) iu2Var.d(g.c);
-            swanAppConfigData.j = (g) iu2Var.d(g.c);
-            swanAppConfigData.k = (d) iu2Var.d(d.c);
-            String g = iu2Var.g();
+            swanAppConfigData.d = (m) mu2Var.d(m.c);
+            swanAppConfigData.e = (wb3) mu2Var.d(wb3.v);
+            swanAppConfigData.f = (n) mu2Var.d(n.g);
+            swanAppConfigData.g = (j) mu2Var.d(j.c);
+            swanAppConfigData.h = (sb3.a) mu2Var.d(sb3.a.f);
+            swanAppConfigData.i = (g) mu2Var.d(g.c);
+            swanAppConfigData.j = (g) mu2Var.d(g.c);
+            swanAppConfigData.k = (d) mu2Var.d(d.c);
+            String g = mu2Var.g();
             swanAppConfigData.m = g;
             if (!TextUtils.isEmpty(g)) {
-                swanAppConfigData.l = b73.k(swanAppConfigData.m, false);
+                swanAppConfigData.l = f73.k(swanAppConfigData.m, false);
             }
-            swanAppConfigData.o = (i) iu2Var.d(i.b);
-            swanAppConfigData.p = (f) iu2Var.d(f.c);
-            swanAppConfigData.q = iu2Var.k(Collections.emptyList());
-            swanAppConfigData.r = (c) iu2Var.d(c.b);
-            swanAppConfigData.s = (p) iu2Var.d(p.b);
-            swanAppConfigData.t = (h) iu2Var.d(h.c);
+            swanAppConfigData.o = (i) mu2Var.d(i.b);
+            swanAppConfigData.p = (f) mu2Var.d(f.c);
+            swanAppConfigData.q = mu2Var.k(Collections.emptyList());
+            swanAppConfigData.r = (c) mu2Var.d(c.b);
+            swanAppConfigData.s = (p) mu2Var.d(p.b);
+            swanAppConfigData.t = (h) mu2Var.d(h.c);
             return swanAppConfigData;
         }
     }
@@ -1307,17 +1307,17 @@ public class SwanAppConfigData {
             swanAppConfigData.m = jSONObject.optString("remote_debug_plugins");
             JSONArray optJSONArray = jSONObject.optJSONArray("remote_debug_plugins");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                swanAppConfigData.l = b73.k(optJSONArray.toString(), false);
+                swanAppConfigData.l = f73.k(optJSONArray.toString(), false);
             }
             swanAppConfigData.a = jSONObject.optBoolean("debug");
             swanAppConfigData.b = e.b(jSONObject);
             l d2 = l.d(jSONObject, file);
             swanAppConfigData.c = d2;
             swanAppConfigData.d = m.c(jSONObject, d2);
-            swanAppConfigData.e = sb3.a(jSONObject);
+            swanAppConfigData.e = wb3.a(jSONObject);
             swanAppConfigData.f = n.b(jSONObject);
             swanAppConfigData.g = j.b(jSONObject);
-            swanAppConfigData.h = ob3.a.a(jSONObject);
+            swanAppConfigData.h = sb3.a.a(jSONObject);
             swanAppConfigData.o = i.c(jSONObject);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("requiredBackgroundModes");
             if (optJSONArray2 != null) {
@@ -1375,11 +1375,11 @@ public class SwanAppConfigData {
     }
 
     public static void s(@NonNull SwanAppConfigData swanAppConfigData, @NonNull JSONObject jSONObject, @NonNull File file) {
-        File file2 = new File(file, ku2.n().a() + "_app.json");
+        File file2 = new File(file, ou2.n().a() + "_app.json");
         if (!file2.exists()) {
             return;
         }
-        String E = hr4.E(file2);
+        String E = lr4.E(file2);
         if (TextUtils.isEmpty(E)) {
             return;
         }
@@ -1387,7 +1387,7 @@ public class SwanAppConfigData {
             JSONObject jSONObject2 = new JSONObject(E);
             JSONObject optJSONObject = jSONObject2.optJSONObject(ApkCheckUBCManagerKt.VALUE_WINDOW);
             if (optJSONObject != null && optJSONObject.length() > 0) {
-                swanAppConfigData.e = sb3.a(jSONObject2);
+                swanAppConfigData.e = wb3.a(jSONObject2);
                 jSONObject.put(ApkCheckUBCManagerKt.VALUE_WINDOW, optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject2.optJSONObject("tabBar");
@@ -1403,8 +1403,8 @@ public class SwanAppConfigData {
         }
     }
 
-    public final void b(g gVar, List<z63> list) {
-        List<z63> list2;
+    public final void b(g gVar, List<d73> list) {
+        List<d73> list2;
         if (gVar != null && list != null && (list2 = gVar.a) != null && list2.size() > 0) {
             list.addAll(list2);
         }

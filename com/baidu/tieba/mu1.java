@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,53 +8,51 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mu1 implements dx1 {
+public class mu1 implements zw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.dx1
-    public void a(@NonNull Object obj, String str, String str2) {
+    @Override // com.baidu.tieba.zw1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, obj, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public void b(@NonNull Object obj) {
+    @Override // com.baidu.tieba.zw1
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public Object beginFlow(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zw1
+    public zw1 create() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return invokeL.objValue;
+        return (zw1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dx1
-    public void c(@NonNull Object obj) {
+    @Override // com.baidu.tieba.zw1
+    public void d(r03 r03Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, r03Var, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public void d(String str, Map<String, String> map) {
+    @Override // com.baidu.tieba.zw1
+    public void e(r03 r03Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, r03Var, context) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public boolean e() {
+    @Override // com.baidu.tieba.zw1
+    public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -63,31 +61,34 @@ public class mu1 implements dx1 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dx1
-    public void f(String str, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.zw1
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zw1
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public void g(@NonNull Object obj, String str, String str2, long j) {
+    @Override // com.baidu.tieba.zw1
+    public void resume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.dx1
-    public void h(@NonNull Object obj, String str) {
+    @Override // com.baidu.tieba.zw1
+    public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dx1
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 

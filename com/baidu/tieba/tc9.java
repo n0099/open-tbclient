@@ -1,38 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.collectTab.CollectFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ny;
-import com.baidu.tieba.yy;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.mainTab.FragmentDelegate;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.FragmentTabStructure;
+import com.baidu.tieba.myCollection.CollectTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class tc9 extends oc9<c45, ThreadCardViewHolder<ThreadData>> {
+public class tc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId c;
-    public TbPageContext<?> d;
-    public boolean e;
-    public hn f;
-    public jo6<ThreadData> g;
+    public final TextView a;
+    public final FragmentTabHost b;
+    public int c;
+    public Fragment d;
+    public final NavigationBar e;
+    public final NoNetworkView f;
+    public CollectTabActivity g;
+    public boolean h;
+    public List i;
+    public ViewPager.OnPageChangeListener j;
 
     /* loaded from: classes8.dex */
-    public class a extends jo6<ThreadData> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc9 b;
+        public final /* synthetic */ tc9 a;
 
         public a(tc9 tc9Var) {
             Interceptable interceptable = $ic;
@@ -49,26 +65,41 @@ public class tc9 extends oc9<c45, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.b = tc9Var;
+            this.a = tc9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jo6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                co6.b().d(true);
-                this.b.B(view2, threadData);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.j()) {
+                    BdUtilHelper.showToast(this.a.g, "请先退出编辑状态");
+                } else if (this.a.g != null) {
+                    this.a.g.finish();
+                }
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements ln {
+    public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tc9 a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
 
         public b(tc9 tc9Var) {
             Interceptable interceptable = $ic;
@@ -88,110 +119,215 @@ public class tc9 extends oc9<c45, ThreadCardViewHolder<ThreadData>> {
             this.a = tc9Var;
         }
 
-        @Override // com.baidu.tieba.ln
-        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            String str;
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof c45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((c45) bnVar).t;
-                threadData.objType = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), threadData);
-                }
-                Context context = view2.getContext();
-                String v1 = this.a.b.getOrignalPage().v1();
-                if (this.a.s()) {
-                    str = "3";
-                } else {
-                    str = "2";
-                }
-                ThreadCardUtils.jumpToPB(threadData, context, 17, false, v1, str);
-                threadCardViewHolder.b().p(new yy.a(1));
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
             }
+            this.a.m(i);
+            this.a.c(false);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tc9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    @SuppressLint({"ResourceAsColor"})
+    public tc9(CollectTabActivity collectTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {collectTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = true;
-        this.g = new a(this);
-        this.d = tbPageContext;
-        this.c = bdUniqueId2;
+        this.c = -1;
+        this.h = false;
+        this.j = new b(this);
+        this.g = collectTabActivity;
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f0923bb);
+        this.b = fragmentTabHost;
+        fragmentTabHost.setup(this.g.getSupportFragmentManager());
+        this.b.setOnPageChangeListener(this.j);
+        this.e = (NavigationBar) this.g.findViewById(R.id.navigation_bar);
+        this.f = (NoNetworkView) this.g.findViewById(R.id.view_no_network);
+        this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+        this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.my_mark));
+        TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.g).findViewById(R.id.right_textview);
+        this.a = textView;
+        textView.setText(R.string.obfuscated_res_0x7f0f0618);
+        this.a.setOnClickListener(this.g);
+        this.e.onChangeSkinType(this.g.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        k(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void C(hn hnVar) {
+    @SuppressLint({"ResourceAsColor"})
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hnVar) == null) {
-            this.f = hnVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: A */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c45 c45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c45Var, threadCardViewHolder})) == null) {
-            if (c45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = c45Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.b().r(i);
-                threadCardViewHolder.f(c45Var.t);
-                threadCardViewHolder.b().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.b().q(this.g);
-                kc9.c(this, c45Var);
-                return threadCardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a.setEnabled(z);
+            if (!z) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f0618);
+                SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
             }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void B(View view2, ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-            kc9.b(this, threadData);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: z */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            ny.b bVar = new ny.b(this.d.getPageActivity(), false);
-            cy cyVar = new cy(this.d.getPageActivity());
-            cyVar.setFrom("index");
-            cyVar.y(this.e);
-            bVar.n(cyVar);
-            ny k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
-            k.s(17);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.j(this.c);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            FragmentTabHost.c g = this.b.g(i);
+            this.c = g.a;
+            this.d = g.c;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void c(boolean z) {
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Fragment fragment = this.d;
+            if (fragment instanceof CollectFragment) {
+                CollectFragment collectFragment = (CollectFragment) fragment;
+                if (!collectFragment.X1()) {
+                    z = false;
+                }
+                l(collectFragment.X1());
+                i = collectFragment.getType();
+            } else {
+                i = -1;
+            }
+            this.h = z;
+            TextView textView = this.a;
+            if (z) {
+                i2 = R.string.obfuscated_res_0x7f0f05ac;
+            } else {
+                i2 = R.string.obfuscated_res_0x7f0f0618;
+            }
+            textView.setText(i2);
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            int i3 = R.color.navi_op_text;
+            if (skinType == 2) {
+                SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            } else {
+                TextView textView2 = this.a;
+                if (this.h) {
+                    i3 = R.color.CAM_X0302;
+                }
+                SkinManager.setNavbarTitleColor(textView2, i3, R.color.navi_op_text_skin);
+            }
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("is_edit_state", this.h);
+            bundle.putInt("fragment_type", i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
+        }
+    }
+
+    public void i(ArrayList<FragmentDelegate> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            this.i = arrayList;
+            this.b.s();
+            for (int i = 0; i < arrayList.size(); i++) {
+                FragmentDelegate fragmentDelegate = arrayList.get(i);
+                if (fragmentDelegate != null && fragmentDelegate.isAvailable()) {
+                    d(fragmentDelegate, (FragmentTabIndicator) fragmentDelegate.getTabIndicator(this.g.getPageContext().getPageActivity()));
+                }
+            }
+            this.b.j(0);
+            this.b.setCurrentTab(0);
+            if (arrayList.size() == 1) {
+                this.b.getFragmentTabWidget().setVisibility(8);
+            }
+            m(0);
+        }
+    }
+
+    public final void d(FragmentDelegate fragmentDelegate, FragmentTabIndicator fragmentTabIndicator) {
+        FragmentTabStructure fragmentTabStructure;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentDelegate, fragmentTabIndicator) != null) || (fragmentTabStructure = fragmentDelegate.getFragmentTabStructure()) == null) {
+            return;
+        }
+        FragmentTabHost.c cVar = new FragmentTabHost.c();
+        cVar.c = fragmentTabStructure.frag;
+        cVar.a = fragmentTabStructure.type;
+        fragmentTabIndicator.setText(fragmentTabStructure.textResId);
+        fragmentTabIndicator.setTextSize(0, this.g.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
+        fragmentTabIndicator.setTextColorResId(R.color.s_actionbar_text_color);
+        fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+        fragmentTabIndicator.setTipPosType(1);
+        cVar.b = fragmentTabIndicator;
+        cVar.d = fragmentDelegate;
+        this.b.b(cVar);
+    }
+
+    public TextView e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public Fragment f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Fragment) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ListUtils.getCount(this.i);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b.r(i);
+            if (this.b.getTabWrapper() != null) {
+                if (h() <= 1) {
+                    this.b.getTabWrapper().setVisibility(8);
+                } else {
+                    this.b.getTabWrapper().setVisibility(0);
+                }
+            }
+            SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
+            this.e.onChangeSkinType(this.g.getPageContext(), i);
+            this.f.onChangeSkinType(this.g.getPageContext(), i);
+        }
     }
 }

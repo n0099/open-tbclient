@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class iea {
+public class iea extends xda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public String d;
-    public long e;
+    public jea c;
 
     public iea() {
         Interceptable interceptable = $ic;
@@ -27,34 +23,35 @@ public class iea {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = 0;
-        this.d = "";
-        this.e = 0L;
     }
 
-    public static iea a(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        boolean z;
+    public jea h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
-            iea ieaVar = new iea();
-            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ieaVar.a = z;
-            ieaVar.b = !responsedMessage.hasError();
-            ieaVar.c = responsedMessage.getError();
-            ieaVar.d = responsedMessage.getErrorString();
-            ieaVar.e = responsedMessage.getDownSize();
-            return ieaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (iea) invokeL.objValue;
+        return (jea) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xda
+    public void d(JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
+            jea jeaVar = new jea();
+            jeaVar.a(optJSONObject);
+            i(jeaVar);
+        }
+    }
+
+    public void i(jea jeaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jeaVar) == null) {
+            this.c = jeaVar;
+            g(null);
+        }
     }
 }

@@ -4,7 +4,7 @@ import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ei;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +82,7 @@ public final class VoiceMsgContent {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     VoiceMsgContent voiceMsgContent = this.this$0;
                     voiceModel.setDuration(voiceMsgContent.a());
-                    if (!di.isEmpty(voiceMsgContent.f()) && (parse = Uri.parse(voiceMsgContent.f())) != null) {
+                    if (!ei.isEmpty(voiceMsgContent.f()) && (parse = Uri.parse(voiceMsgContent.f())) != null) {
                         String lastPathSegment = parse.getLastPathSegment();
                         if (lastPathSegment == null) {
                             lastPathSegment = "";
@@ -95,7 +95,7 @@ public final class VoiceMsgContent {
                     voiceModel.voice_status = Integer.valueOf(voiceMsgContent.e());
                     voiceModel.isLocal = voiceMsgContent.g();
                     voiceModel.setVoiceUrl(voiceMsgContent.f());
-                    voiceModel.isGroupChat = true;
+                    voiceModel.isUseUrl = true;
                     return voiceModel;
                 }
                 return (VoiceData.VoiceModel) invokeV.objValue;

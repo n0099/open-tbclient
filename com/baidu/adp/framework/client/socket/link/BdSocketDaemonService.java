@@ -10,8 +10,8 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ig;
-import com.baidu.tieba.qa;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.ra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
-    public static qa sCallBack;
+    public static ra sCallBack;
     public transient /* synthetic */ FieldHolder $fh;
     public ServiceConnection conn;
     public b myBinder;
@@ -124,14 +124,14 @@ public class BdSocketDaemonService extends BdBaseService {
     public static void startService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            ig.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+            jg.startService(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
         }
     }
 
     public void bindServiceInternal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ig.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+            jg.bindService(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
         }
     }
 
@@ -168,10 +168,10 @@ public class BdSocketDaemonService extends BdBaseService {
         }
     }
 
-    public static void setLinkServiceDisconnectCallBack(qa qaVar) {
+    public static void setLinkServiceDisconnectCallBack(ra raVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, qaVar) == null) {
-            sCallBack = qaVar;
+        if (interceptable == null || interceptable.invokeL(65538, null, raVar) == null) {
+            sCallBack = raVar;
         }
     }
 

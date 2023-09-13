@@ -34,8 +34,8 @@ public class VoiceData {
         public int duration2;
         public int elapse;
         public String from;
-        public boolean isGroupChat;
         public boolean isLocal;
+        public boolean isUseUrl;
         public String voiceId;
         public String voiceUrl;
         public Integer voice_status;
@@ -53,7 +53,7 @@ public class VoiceData {
                     return;
                 }
             }
-            this.isGroupChat = false;
+            this.isUseUrl = false;
             this.isLocal = false;
             this.elapse = 0;
             this.curr_time = 0;

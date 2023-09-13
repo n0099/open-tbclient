@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppConfigConstant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface AppConfig {
         public static final int APP_CONFIG_NOTIFICATION_SWITCH_CLOSE = 1;
         public static final int APP_CONFIG_NOTIFICATION_SWITCH_NO_DEFINE = 0;

@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh6;
+import com.baidu.tieba.ei6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public gh6 g;
+    public ei6 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -130,50 +130,39 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918b7);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919d4);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090171);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904fb);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918cf);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919ee);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09016d);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090504);
         this.itemView.setOnClickListener(this.j);
         this.e.setOnClickListener(this.j);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09054a);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09054f);
         this.i = findViewById;
         findViewById.setOnClickListener(this.j);
     }
 
-    public void h(gh6 gh6Var) {
+    public void g(ei6 ei6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gh6Var) == null) {
-            this.g = gh6Var;
-            if (gh6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ei6Var) == null) {
+            this.g = ei6Var;
+            if (ei6Var == null) {
                 return;
             }
-            this.a.startLoad(gh6Var.c, 12, false);
-            this.b.setText(gh6Var.d);
-            String valueOf = String.valueOf(gh6Var.e);
+            this.a.startLoad(ei6Var.c, 12, false);
+            this.b.setText(ei6Var.d);
+            String valueOf = String.valueOf(ei6Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(gh6Var.e));
+                valueOf = String.format("%04d", Long.valueOf(ei6Var.e));
             }
-            i(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0ec3), valueOf, Integer.valueOf(gh6Var.f)), gh6Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0116), StringHelper.numFormatOverWanWithNegative(gh6Var.g), StringHelper.numFormatOverWanWithNegative(gh6Var.h), StringHelper.numFormatOverWanWithNegative(gh6Var.i)));
-            a();
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0eda), valueOf, Integer.valueOf(ei6Var.f)), ei6Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0116), StringHelper.numFormatOverWanWithNegative(ei6Var.g), StringHelper.numFormatOverWanWithNegative(ei6Var.h), StringHelper.numFormatOverWanWithNegative(ei6Var.i)));
+            onChangeSkinType();
         }
     }
 
-    public final void a() {
+    public void h(TextView textView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().getSkinType() != this.f) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
-            SkinManager.setBackgroundResource(this.e, R.drawable.shape_vote_button);
-        }
-    }
-
-    public void i(TextView textView, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String lowerCase = str.toLowerCase();
             String lowerCase2 = str2.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
@@ -185,6 +174,17 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
             spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, str2.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
+        }
+    }
+
+    public final void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && TbadkCoreApplication.getInst().getSkinType() != this.f) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0302);
+            SkinManager.setBackgroundResource(this.e, R.drawable.shape_vote_button);
         }
     }
 }

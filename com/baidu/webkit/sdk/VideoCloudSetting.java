@@ -85,10 +85,10 @@ public class VideoCloudSetting {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
+            if (str.equals("close_all")) {
                 this.mIsCloseAll = true;
                 this.mIsEnableAll = false;
-            } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
+            } else if (str.equals("enable_all")) {
                 this.mIsEnableAll = true;
                 this.mIsCloseAll = false;
             } else if (!str.contains(str2)) {
@@ -231,21 +231,15 @@ public class VideoCloudSetting {
     }
 
     public static VideoSettings createVideoSetting() {
-        String str = DEFAULT_ERROR_LOG_CLOSE_ALL;
-        String videoCfgValue = getVideoCfgValue(PREF_KEY_ENABLE_CYBER_VERSION, DEFAULT_ERROR_LOG_CLOSE_ALL);
+        String videoCfgValue = getVideoCfgValue(PREF_KEY_ENABLE_CYBER_VERSION, "close_all");
         VideoCloudSettingItem videoCloudSettingItem = new VideoCloudSettingItem();
         videoCloudSettingItem.setType(0);
-        if (!TextUtils.isEmpty(videoCfgValue)) {
-            str = videoCfgValue;
-        }
+        String str = TextUtils.isEmpty(videoCfgValue) ? "close_all" : videoCfgValue;
         videoCloudSettingItem.parseSettingItem(str, "|", ParamableElem.DIVIDE_PARAM);
-        String str2 = DEFAULT_ERROR_LOG_ENABLE_ALL;
-        String videoCfgValue2 = getVideoCfgValue(PREF_KEY_ENABLE_HOST, DEFAULT_ERROR_LOG_ENABLE_ALL);
+        String videoCfgValue2 = getVideoCfgValue(PREF_KEY_ENABLE_HOST, "enable_all");
         VideoCloudSettingItem videoCloudSettingItem2 = new VideoCloudSettingItem();
         videoCloudSettingItem2.setType(1);
-        if (!TextUtils.isEmpty(videoCfgValue2)) {
-            str2 = videoCfgValue2;
-        }
+        String str2 = TextUtils.isEmpty(videoCfgValue2) ? "enable_all" : videoCfgValue2;
         videoCloudSettingItem2.parseSettingItem(str2, "|", ParamableElem.DIVIDE_PARAM);
         Log.d(TAG, "createVideoSetting videoEnableSdkVersion:" + str + " hostsStr:" + str2);
         VideoSettings videoSettings = new VideoSettings();
@@ -286,7 +280,7 @@ public class VideoCloudSetting {
         if (context == null) {
             return null;
         }
-        return context.getSharedPreferences(PREF_NAME, 0);
+        return context.getSharedPreferences("video_cfg_", 0);
     }
 
     public static String getVideoCfgValue(String str, String str2) {
@@ -362,7 +356,7 @@ public class VideoCloudSetting {
         String GetCloudSettingsValue14 = WebSettingsGlobalBlink.GetCloudSettingsValue(PREF_KEY_ZEUS_VIDEO_PRELOAD_ENABLE_VERSION);
         String GetCloudSettingsValue15 = WebSettingsGlobalBlink.GetCloudSettingsValue(PREF_KEY_SPRING_FESTIVAL_SWITCH);
         String GetCloudSettingsValue16 = WebSettingsGlobalBlink.GetCloudSettingsValue("pcdn_forbidden");
-        String GetCloudSettingsValue17 = WebSettingsGlobalBlink.GetCloudSettingsValue(PREF_KEY_SESSION_LOG_COLLECT_PERCENT);
+        String GetCloudSettingsValue17 = WebSettingsGlobalBlink.GetCloudSettingsValue("session_log_collect_percent");
         Log.d(TAG, "saveVideoSettingToCfg logEnableCyberVersion:" + GetCloudSettingsValue + " logEnableHost:" + GetCloudSettingsValue2);
         Log.d(TAG, "VideoBlackUrlForFileCache = ".concat(String.valueOf(GetCloudSettingsValue3)));
         Log.d(TAG, "videoBlackDevicesList = ".concat(String.valueOf(GetCloudSettingsValue6)));
@@ -459,9 +453,9 @@ public class VideoCloudSetting {
             removeVideoCfgValue("pcdn_forbidden");
         }
         if (GetCloudSettingsValue17 != null) {
-            setVideoCfgValue(PREF_KEY_SESSION_LOG_COLLECT_PERCENT, GetCloudSettingsValue17);
+            setVideoCfgValue("session_log_collect_percent", GetCloudSettingsValue17);
         } else {
-            removeVideoCfgValue(PREF_KEY_SESSION_LOG_COLLECT_PERCENT);
+            removeVideoCfgValue("session_log_collect_percent");
         }
     }
 

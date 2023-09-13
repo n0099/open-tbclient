@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ed0;
-import com.baidu.tieba.id0;
-import com.baidu.tieba.xa0;
+import com.baidu.tieba.fd0;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.ya0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -34,7 +35,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
         void b();
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\n\u0018\u00002\u00020\u0001B\u0017\u0012\u0006\u0010\u001a\u001a\u00020\u0012\u0012\u0006\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J'\u0010\n\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u00052\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bR\u0018\u0010\r\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\r\u0010\u000eR\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011R\u0018\u0010\u0013\u001a\u0004\u0018\u00010\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u0019\u0010\u0016\u001a\u00020\u00158\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0018\u0010\u0019R\u0019\u0010\u001a\u001a\u00020\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u0014\u001a\u0004\b\u001b\u0010\u001c¨\u0006\u001f"}, d2 = {"Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "", "adapterFontSize", "()V", "", CriusAttrConstants.POSITION, "selectPos", "Lcom/baidu/live/business/model/data/LiveTabEntity;", "tabEntity", "bind", "(IILcom/baidu/live/business/model/data/LiveTabEntity;)V", "Landroid/widget/TextView;", "content", "Landroid/widget/TextView;", "Landroid/widget/ImageView;", "icon", "Landroid/widget/ImageView;", "Landroid/view/View;", "rootView", "Landroid/view/View;", "", "scene", "Ljava/lang/String;", "getScene", "()Ljava/lang/String;", "view", "getView", "()Landroid/view/View;", "<init>", "(Landroid/view/View;Ljava/lang/String;)V", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\n\u0018\u00002\u00020\u0001B\u0017\u0012\u0006\u0010\u001a\u001a\u00020\u0012\u0012\u0006\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0003\u0010\u0004J'\u0010\n\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u00052\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bR\u0018\u0010\r\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\r\u0010\u000eR\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011R\u0018\u0010\u0013\u001a\u0004\u0018\u00010\u00128\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0013\u0010\u0014R\u0019\u0010\u0016\u001a\u00020\u00158\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0018\u0010\u0019R\u0019\u0010\u001a\u001a\u00020\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u0014\u001a\u0004\b\u001b\u0010\u001c¨\u0006\u001f"}, d2 = {"Lcom/baidu/live/business/view/expandtab/LiveExpandTabAdapter$ExpandTabViewHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "", "adapterFontSize", "()V", "", CriusAttrConstants.POSITION, "selectPos", "Lcom/baidu/live/business/model/data/LiveTabEntity;", "tabEntity", UbcRemoteStat.BIND_SERVICE, "(IILcom/baidu/live/business/model/data/LiveTabEntity;)V", "Landroid/widget/TextView;", "content", "Landroid/widget/TextView;", "Landroid/widget/ImageView;", "icon", "Landroid/widget/ImageView;", "Landroid/view/View;", "rootView", "Landroid/view/View;", "", "scene", "Ljava/lang/String;", "getScene", "()Ljava/lang/String;", "view", "getView", "()Landroid/view/View;", "<init>", "(Landroid/view/View;Ljava/lang/String;)V", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes3.dex */
     public static final class ExpandTabViewHolder extends RecyclerView.ViewHolder {
         public View a;
@@ -47,35 +48,35 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             super(view2);
             this.d = view2;
             this.e = str;
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091577);
-            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091576);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091578);
-            b();
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f09157f);
+            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09157e);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091580);
+            a();
         }
 
-        public final void b() {
+        public final void a() {
             Drawable drawable;
             Context context;
             Resources resources;
             TextView textView = this.c;
             if (textView != null) {
-                ed0.k(textView, 1, 12.0f, 0, 0, 12, null);
+                fd0.k(textView, 1, 12.0f, 0, 0, 12, null);
             }
             View view2 = this.a;
             if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null) {
-                drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080f36);
+                drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080f51);
             } else {
                 drawable = null;
             }
             ImageView imageView = this.b;
             if (imageView != null) {
-                imageView.setImageDrawable(ed0.b(drawable, 0, 0, 6, null));
+                imageView.setImageDrawable(fd0.b(drawable, 0, 0, 6, null));
             }
         }
 
-        public final void c(int i, int i2, LiveTabEntity liveTabEntity) {
+        public final void b(int i, int i2, LiveTabEntity liveTabEntity) {
             String str;
-            b();
+            a();
             if (i == 3) {
                 ImageView imageView = this.b;
                 if (imageView != null) {
@@ -107,28 +108,28 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             if (i2 == i) {
                 View view2 = this.a;
                 if (view2 != null) {
-                    xa0 xa0Var = xa0.a;
+                    ya0 ya0Var = ya0.a;
                     Context context = this.d.getContext();
                     Intrinsics.checkExpressionValueIsNotNull(context, "view.context");
-                    view2.setBackgroundDrawable(xa0Var.e(context, this.e));
+                    view2.setBackgroundDrawable(ya0Var.e(context, this.e));
                 }
                 TextView textView4 = this.c;
                 if (textView4 != null) {
-                    textView4.setTextColor(id0.f().a(this.d.getContext(), this.e, "color_FF33551"));
+                    textView4.setTextColor(jd0.f().a(this.d.getContext(), this.e, "color_FF33551"));
                     return;
                 }
                 return;
             }
             View view3 = this.a;
             if (view3 != null) {
-                xa0 xa0Var2 = xa0.a;
+                ya0 ya0Var2 = ya0.a;
                 Context context2 = this.d.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context2, "view.context");
-                view3.setBackgroundDrawable(xa0Var2.b(context2, this.e));
+                view3.setBackgroundDrawable(ya0Var2.b(context2, this.e));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(id0.f().a(this.d.getContext(), this.e, "color_525252"));
+                textView5.setTextColor(jd0.f().a(this.d.getContext(), this.e, "color_525252"));
             }
         }
     }
@@ -200,7 +201,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: o */
     public void onBindViewHolder(ExpandTabViewHolder expandTabViewHolder, int i) {
-        expandTabViewHolder.c(i, this.c, n(i));
+        expandTabViewHolder.b(i, this.c, n(i));
         expandTabViewHolder.itemView.setOnClickListener(new b(i));
     }
 
@@ -208,7 +209,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: p */
     public ExpandTabViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05c7, viewGroup, false);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d7, viewGroup, false);
         Intrinsics.checkExpressionValueIsNotNull(inflate, "LayoutInflater.from(pare…rent, false\n            )");
         return new ExpandTabViewHolder(inflate, this.d);
     }

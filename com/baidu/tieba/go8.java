@@ -1,147 +1,143 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.MaxHeightRecycleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class go8 {
+public class go8 extends SingleTextImageAdapter<TextGenImageMsg> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947800761, "Lcom/baidu/tieba/go8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TextGenImageMsg a;
+        public final /* synthetic */ go8 b;
+
+        public a(go8 go8Var, TextGenImageMsg textGenImageMsg) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {go8Var, textGenImageMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947800761, "Lcom/baidu/tieba/go8;");
+            this.b = go8Var;
+            this.a = textGenImageMsg;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            TaskInfo taskInfo;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090e99 && (taskInfo = this.a.getTaskInfo()) != null && taskInfo.isComplete()) {
+                this.b.d0(view2.getContext(), this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public go8(@NonNull TbPageContext<?> tbPageContext, @NonNull BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
-        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
-        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
+    public void M(@NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (BdUtilHelper.getEquipmentWidth(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, frameLayout) == null) {
+            super.M(frameLayout);
+            MaxHeightRecycleView g = zo8.g(this.mContext);
+            frameLayout.addView(g);
+            Context context = this.mContext;
+            frameLayout.setTag(R.id.obfuscated_res_0x7f092437, er8.c(context, g, BdUtilHelper.getDimens(context, R.dimen.M_W_X004)));
         }
-        return invokeV.intValue;
     }
 
-    @Nullable
-    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter
+    public void h0(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            try {
-                URL url = new URL(str);
-                for (EmojiData emojiData : list) {
-                    URL url2 = new URL(emojiData.getContent());
-                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
-                        return emojiData;
-                    }
-                }
-                return null;
-            } catch (Exception unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            TiebaStatic.log(new StatisticItem("c15135").param("obj_type", 2).param("fid", j2).param("room_id", j).param("fname", str).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter
+    public void i0(long j, long j2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            TiebaStatic.log(new StatisticItem("c15135").param("obj_type", 1).param("fid", j2).param("room_id", j).param("fname", str).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
+    /* renamed from: k0 */
+    public void T(int i, @NonNull TextGenImageMsg textGenImageMsg, @NonNull FrameLayout frameLayout, @NonNull List<Object> list, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), textGenImageMsg, frameLayout, list, Integer.valueOf(i2)}) == null) {
+            super.T(i, textGenImageMsg, frameLayout, list, i2);
+            fs8 fs8Var = (fs8) frameLayout.getTag(R.id.obfuscated_res_0x7f092437);
+            if (fs8Var != null && textGenImageMsg.getSubSkillConfig() != null && !textGenImageMsg.getSubSkillConfig().a.isEmpty()) {
+                frameLayout.setVisibility(0);
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(textGenImageMsg);
+                fs8Var.d(arrayList);
+                return;
             }
-        }
-        return (EmojiData) invokeLL.objValue;
-    }
-
-    public static boolean c(@NonNull GroupInputViewController groupInputViewController) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, groupInputViewController)) == null) {
-            return !groupInputViewController.k1(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
-            EmojiData b2 = b(reaction.getContent(), list);
-            if (b2 != null) {
-                return b2.hasReplied();
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void e(@NonNull fn8 fn8Var, int i, @NonNull BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65541, null, fn8Var, i, baseMsg) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", Integer.valueOf(i));
-            fn8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseMsg, null);
+            frameLayout.setVisibility(8);
         }
     }
 
-    public static void f(@NonNull fn8 fn8Var, @NonNull EmojiData emojiData, @NonNull BaseMsg baseMsg, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter
+    /* renamed from: l0 */
+    public void g0(int i, @NonNull ViewGroup viewGroup, @NonNull TextGenImageMsg textGenImageMsg, @NonNull SingleTextImageAdapter.Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65542, null, fn8Var, emojiData, baseMsg, i) == null) {
-            g(fn8Var, new Reaction("", emojiData.getContent()), baseMsg, i);
-        }
-    }
-
-    public static void g(@NonNull fn8 fn8Var, @NonNull Reaction reaction, @NonNull BaseMsg baseMsg, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65543, null, fn8Var, reaction, baseMsg, i) == null) {
-            List<EmojiData> emojiList = baseMsg.getCommonMsgField().getEmojiList();
-            boolean z = true;
-            if (emojiList != null) {
-                boolean d = d(reaction, emojiList);
-                if (i != 1) {
-                    int i2 = 2;
-                    if (i == 2) {
-                        z = true ^ d;
-                        if (!z) {
-                            i2 = 3;
-                        }
-                        yq8.h(i2);
-                    }
-                } else if (d) {
-                    return;
-                } else {
-                    yq8.h(1);
-                }
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("content", reaction.getContent());
-            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
-            fn8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseMsg, null);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, textGenImageMsg, holder, list, Integer.valueOf(i2)}) == null) {
+            super.U(i, viewGroup, textGenImageMsg, holder, list, i2);
+            holder.a(new a(this, textGenImageMsg));
         }
     }
 }

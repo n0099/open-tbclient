@@ -1,172 +1,121 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class rn3 {
+public class rn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127346, "Lcom/baidu/tieba/rn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948127346, "Lcom/baidu/tieba/rn3;");
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
+            }
+        }
+    }
+
+    public static void a(qa2 qa2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, qa2Var, context) == null) {
+            b(qa2Var, context, 2);
+        }
+    }
+
+    public static void b(qa2 qa2Var, Context context, int i) {
+        View b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, qa2Var, context, i) == null) && qa2Var != null && qa2Var.k() >= i) {
+            na2 j = qa2Var.j(qa2Var.k() - i);
+            na2 m = qa2Var.m();
+            if (m != null && m.E0) {
                 return;
             }
-        }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
-    }
-
-    public static Date a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Date();
-        }
-        return (Date) invokeV.objValue;
-    }
-
-    public static String b(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
-            if (date == null) {
-                return "";
+            float o = yo3.o(context) >> 2;
+            if (j != null && (b0 = j.b0()) != null) {
+                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
             }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
+        }
+    }
+
+    public static void c(qa2 qa2Var, Context context) {
+        View b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, qa2Var, context) == null) && qa2Var != null && qa2Var.k() >= 2) {
+            na2 j = qa2Var.j(qa2Var.k() - 2);
+            float o = yo3.o(context) >> 2;
+            if (j != null && (b0 = j.b0()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new a(b0));
+            }
+        }
+    }
+
+    public static void d(@NonNull fp4 fp4Var, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, fp4Var, str, i, i2) != null) || fp4Var == null) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
                 }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
             }
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Date c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (str == null) {
-                return null;
+        if (c != 0) {
+            if (c != 1 && c != 2) {
+                fp4Var.i(i, i2);
+                return;
             }
-            try {
-                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
+            return;
         }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static Date d(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            Date date = null;
-            if (!TextUtils.isEmpty(str) && strArr != null) {
-                for (String str2 : strArr) {
-                    try {
-                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (date != null) {
-                        break;
-                    }
-                }
-            }
-            return date;
+        qa2 U = uw2.T().U();
+        na2 j = U.j(U.k() - 1);
+        if (j != null && j.E0) {
+            return;
         }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static String e(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String g(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
-            try {
-                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
-            } catch (NumberFormatException e) {
-                if (nr1.a) {
-                    e.printStackTrace();
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    public static boolean f(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        fp4Var.i(i, i2);
     }
 }

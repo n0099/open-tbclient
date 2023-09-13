@@ -11,6 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imrtc.utils.LogUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.track.Request;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -169,7 +170,7 @@ public class BIMRtcTrackDatabase {
             requestId = new RequestEnum("requestId", 2);
             timestamp = new RequestEnum("timestamp", 3);
             responseTime = new RequestEnum("responseTime", 4);
-            errorCode = new RequestEnum("errorCode", 5);
+            errorCode = new RequestEnum(CloudStabilityUBCUtils.KEY_ERROR_CODE, 5);
             ext = new RequestEnum("ext", 6);
             RequestEnum requestEnum = new RequestEnum("aliasId", 7);
             aliasId = requestEnum;

@@ -16,39 +16,39 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi5;
-import com.baidu.tieba.li5;
-import com.baidu.tieba.zh5;
+import com.baidu.tieba.aj5;
+import com.baidu.tieba.ej5;
+import com.baidu.tieba.si5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BLauncher extends ImageView implements hi5 {
+public class BLauncher extends ImageView implements aj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public li5 d;
+    public ej5 d;
     public Drawable e;
     public boolean f;
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, li5 li5Var) {
+    public BLauncher(Context context, ej5 ej5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, li5Var};
+            Object[] objArr = {context, ej5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,19 +61,82 @@ public class BLauncher extends ImageView implements hi5 {
         }
         this.c = 0;
         this.f = false;
-        if (li5Var == null) {
+        if (ej5Var == null) {
             return;
         }
-        this.d = li5Var;
+        this.d = ej5Var;
         setIcon();
-        setToolId(li5Var.c);
+        setToolId(ej5Var.c);
     }
 
-    @Override // com.baidu.tieba.ai5
-    public void E(zh5 zh5Var) {
+    @Override // com.baidu.tieba.aj5
+    public void A0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, zh5Var) == null) && zh5Var != null && zh5Var.a == 2) {
-            Object obj = zh5Var.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.q = false;
+            invalidate();
+        }
+    }
+
+    public void b() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.a) != null) {
+            textView.setVisibility(8);
+            A0();
+        }
+    }
+
+    @Override // com.baidu.tieba.aj5
+    public void display() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            setVisibility(0);
+        }
+    }
+
+    public boolean getIsOutSetVisibility() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public TextView getNotice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aj5
+    public int getToolId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.aj5
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            b();
+            setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.ti5
+    public void G(si5 si5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, si5Var) == null) && si5Var != null && si5Var.a == 2) {
+            Object obj = si5Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -84,21 +147,21 @@ public class BLauncher extends ImageView implements hi5 {
 
     public void setOutSetVisibilty(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.f = z;
         }
     }
 
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.b = i;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || getVisibility() == 8 || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || getVisibility() == 8 || TextUtils.isEmpty(str)) {
             return;
         }
         TextView textView = this.a;
@@ -131,73 +194,10 @@ public class BLauncher extends ImageView implements hi5 {
         invalidate();
     }
 
-    public void b() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (textView = this.a) != null) {
-            textView.setVisibility(8);
-            z0();
-        }
-    }
-
-    @Override // com.baidu.tieba.hi5
-    public void display() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    public boolean getIsOutSetVisibility() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public TextView getNotice() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hi5
-    public int getToolId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hi5
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            b();
-            setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.hi5
-    public void z0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.d.q = false;
-            invalidate();
-        }
-    }
-
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.draw(canvas);
             if (this.d.q) {
                 this.e = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
@@ -214,10 +214,10 @@ public class BLauncher extends ImageView implements hi5 {
         }
     }
 
-    @Override // com.baidu.tieba.hi5
+    @Override // com.baidu.tieba.aj5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.c = i;
             setIcon();
             TextView textView = this.a;
@@ -235,7 +235,7 @@ public class BLauncher extends ImageView implements hi5 {
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
             super.onMeasure(i, i2);
             TextView textView = this.a;
             if (textView != null && textView.getVisibility() == 0 && this.a.getParent() == null) {
@@ -248,19 +248,19 @@ public class BLauncher extends ImageView implements hi5 {
     }
 
     public void setIcon() {
-        li5 li5Var;
+        ej5 ej5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (li5Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (ej5Var = this.d) == null) {
             return;
         }
-        if (li5Var.i) {
+        if (ej5Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            li5 li5Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(li5Var2.d, li5Var2.e, this.c));
-        } else if (li5Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(li5Var.d, li5Var.e, li5Var.f, li5Var.g, this.c));
+            ej5 ej5Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(ej5Var2.d, ej5Var2.e, this.c));
+        } else if (ej5Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(ej5Var.d, ej5Var.e, ej5Var.f, ej5Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, li5Var.d, this.c);
+            SkinManager.setImageResource(this, ej5Var.d, this.c);
         }
         if (!this.d.c()) {
             setEnabled(false);

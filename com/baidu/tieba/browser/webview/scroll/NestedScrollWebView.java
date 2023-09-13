@@ -18,8 +18,8 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.am6;
-import com.baidu.tieba.hm6;
+import com.baidu.tieba.fn6;
+import com.baidu.tieba.ym6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,10 +38,10 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
     public OverScroller g;
     public int h;
     public NestedScrollingChildHelper i;
-    public hm6 j;
+    public fn6 j;
     public boolean k;
     public long l;
-    public am6 m;
+    public ym6 m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NestedScrollWebView(Context context) {
@@ -321,17 +321,17 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
         }
     }
 
-    public void setOnDoubleClickListener(am6 am6Var) {
+    public void setOnDoubleClickListener(ym6 ym6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, am6Var) == null) {
-            this.m = am6Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, ym6Var) == null) {
+            this.m = ym6Var;
         }
     }
 
-    public void setOnScrollChangeListener(hm6 hm6Var) {
+    public void setOnScrollChangeListener(fn6 fn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, hm6Var) == null) {
-            this.j = hm6Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, fn6Var) == null) {
+            this.j = fn6Var;
         }
     }
 
@@ -411,9 +411,9 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
             super.onScrollChanged(i, i2, i3, i4);
             if (this.j != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.j.d(i, i2, i3, i4);
-                } else if (getScrollY() == 0) {
                     this.j.c(i, i2, i3, i4);
+                } else if (getScrollY() == 0) {
+                    this.j.b(i, i2, i3, i4);
                 } else {
                     this.j.onScrollChanged(i, i2, i3, i4);
                 }

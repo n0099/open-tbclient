@@ -29,9 +29,9 @@ import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.gea;
-import com.baidu.tieba.kn5;
+import com.baidu.tieba.do5;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public boolean q;
     public DynamicIconData r;
     public boolean s;
-    public kn5 t;
+    public do5 t;
     public String u;
 
     public void setShowIconType(int i) {
@@ -170,7 +170,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 if (this.b.r == null || !MainTabBottomDynamicIconManager.getInstance().canShowDynamicIcon()) {
                     this.b.g.setVisibility(0);
                 }
-                if (!di.isEmpty(this.a)) {
+                if (!ei.isEmpty(this.a)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921491, this.a));
                 }
                 this.b.g.setEvent(null);
@@ -250,9 +250,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         i();
     }
 
-    public void l(int i, kn5 kn5Var) {
+    public void l(int i, do5 do5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i, kn5Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, do5Var) == null) {
             if (this.t != null) {
                 o();
                 SkinManager.setBackgroundColor(this.i, R.color.transparent, i);
@@ -380,12 +380,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            kn5 kn5Var = this.t;
-            if (kn5Var != null) {
+            do5 do5Var = this.t;
+            if (do5Var != null) {
                 if (this.s) {
-                    return kn5Var.g();
+                    return do5Var.g();
                 }
-                return kn5Var.f();
+                return do5Var.f();
             }
             return null;
         }
@@ -473,7 +473,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void addTip(String str, TbFragmentTabIndicator.FragmentTapTip fragmentTapTip) {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, fragmentTapTip) == null) && fragmentTapTip != null && (view2 = fragmentTapTip.f1084view) != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, fragmentTapTip) == null) && fragmentTapTip != null && (view2 = fragmentTapTip.f1082view) != null) {
             addView(view2);
             this.o.put(str, fragmentTapTip);
         }
@@ -483,20 +483,20 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void addTipWrapContent(String str, TbFragmentTabIndicator.FragmentTapTip fragmentTapTip) {
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fragmentTapTip) == null) && fragmentTapTip != null && (view2 = fragmentTapTip.f1084view) != null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fragmentTapTip) == null) && fragmentTapTip != null && (view2 = fragmentTapTip.f1082view) != null) {
             addView(view2, -2, -2);
             this.o.put(str, fragmentTapTip);
         }
     }
 
-    public void k(boolean z, kn5 kn5Var) {
+    public void k(boolean z, do5 do5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048588, this, z, kn5Var) == null) {
-            this.t = kn5Var;
+        if (interceptable == null || interceptable.invokeZL(1048588, this, z, do5Var) == null) {
+            this.t = do5Var;
             if (z) {
-                l(4, kn5Var);
+                l(4, do5Var);
             } else {
-                l(this.k, kn5Var);
+                l(this.k, do5Var);
             }
         }
     }
@@ -530,7 +530,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.e != null) {
-            int f = gea.f(getDynamicTextColor());
+            int f = zfa.f(getDynamicTextColor());
             if (f == 0 || f == Integer.MAX_VALUE) {
                 if (this.s) {
                     f = SkinManager.getColor(R.color.CAM_X0622);
@@ -659,8 +659,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 HashMap<String, TbFragmentTabIndicator.FragmentTapTip> hashMap = this.o;
                 if (hashMap != null) {
                     for (TbFragmentTabIndicator.FragmentTapTip fragmentTapTip : hashMap.values()) {
-                        if (fragmentTapTip != null && (view2 = fragmentTapTip.f1084view) != null && view2.isClickable()) {
-                            fragmentTapTip.f1084view.performClick();
+                        if (fragmentTapTip != null && (view2 = fragmentTapTip.f1082view) != null && view2.isClickable()) {
+                            fragmentTapTip.f1082view.performClick();
                         }
                     }
                 }
@@ -681,7 +681,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             return;
         }
         String string = SharedPrefHelper.getInstance().getString("sync_send_maintab_my_tab_lottie_url", "");
-        if (di.isEmpty(string) && z) {
+        if (ei.isEmpty(string) && z) {
             return;
         }
         j();
@@ -711,8 +711,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             while (it.hasNext() && this.e != null && this.d != null) {
                 TbFragmentTabIndicator.FragmentTapTip value = it.next().getValue();
                 if (value != null) {
-                    int measuredWidth = value.f1084view.getMeasuredWidth();
-                    int measuredHeight3 = value.f1084view.getMeasuredHeight();
+                    int measuredWidth = value.f1082view.getMeasuredWidth();
+                    int measuredHeight3 = value.f1082view.getMeasuredHeight();
                     if (value.isRight) {
                         left = (this.e.getRight() - this.m) + value.offsetX;
                     } else {
@@ -723,10 +723,10 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                         measuredHeight2 = this.n;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
-                        measuredHeight2 = value.f1084view.getMeasuredHeight() / 2;
+                        measuredHeight2 = value.f1082view.getMeasuredHeight() / 2;
                     }
                     int i5 = measuredHeight - measuredHeight2;
-                    value.f1084view.layout(left, i5, measuredWidth + left, measuredHeight3 + i5);
+                    value.f1082view.layout(left, i5, measuredWidth + left, measuredHeight3 + i5);
                 }
             }
         }
@@ -746,10 +746,10 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             for (Map.Entry<String, TbFragmentTabIndicator.FragmentTapTip> entry : entrySet) {
                 TbFragmentTabIndicator.FragmentTapTip value = entry.getValue();
                 if (value != null) {
-                    ViewGroup.LayoutParams layoutParams = value.f1084view.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = value.f1082view.getLayoutParams();
                     int i3 = layoutParams.width;
                     if (i3 == -2) {
-                        value.f1084view.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+                        value.f1082view.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
                     } else {
                         if (i3 > size) {
                             i3 = size;
@@ -758,7 +758,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                         if (i4 > size2) {
                             i4 = size2;
                         }
-                        value.f1084view.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
+                        value.f1082view.measure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), View.MeasureSpec.makeMeasureSpec(i4, 1073741824));
                     }
                 }
             }
@@ -771,7 +771,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
             if (this.o.containsKey(str)) {
-                removeView(this.o.get(str).f1084view);
+                removeView(this.o.get(str).f1082view);
                 return this.o.remove(str);
             }
             return null;
@@ -782,7 +782,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setImageIconUrl(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, str, str2) == null) {
-            if (!di.isEmpty(str)) {
+            if (!ei.isEmpty(str)) {
                 this.g.setVisibility(8);
                 this.g.setEvent(new b(this, str2));
                 this.g.startLoad(str, 10, false);

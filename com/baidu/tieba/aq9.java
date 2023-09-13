@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface aq9 {
-    PbFragment M1();
+public class aq9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    AbsVideoPbFragment Q();
-
-    PbModel.h V0();
-
-    PbModel W();
-
-    AbsPbActivity d0();
-
-    void finish();
-
-    TbPageContext getPageContext();
-
-    void registerListener(MessageListener<?> messageListener);
+    public static void a(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, tbPageContext) == null) {
+            PayPanelUtils.launchPayPanel(tbPageContext, IMConstants.IM_MSG_TYPE_ADVISORY_EVALUATION, MemberPayStatistic.REFER_PAGE_POSTING);
+        }
+    }
 }

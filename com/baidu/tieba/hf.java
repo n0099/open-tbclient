@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.lbs.BdLocationMananger;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface hf {
-    void a(boolean z);
-
-    void b(BdLocationMananger.c cVar);
-
-    void c();
-
-    void destroy();
+    void L(View view2, int i, int i2, long j);
 }

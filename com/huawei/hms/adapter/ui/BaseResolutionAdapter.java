@@ -21,7 +21,7 @@ import com.huawei.hms.adapter.sysobs.SystemManager;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.update.kpms.KpmsConstant;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseResolutionAdapter implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

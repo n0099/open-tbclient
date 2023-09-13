@@ -1,68 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zz7 extends kz7 {
+public class zz7 extends bb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public BdUniqueId j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zz7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, BdUniqueId bdUniqueId3) {
-        super(tbPageContext, bdUniqueId);
+    public zz7() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, bdUniqueId3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = bdUniqueId2;
-        this.j = bdUniqueId3;
     }
 
-    @Override // com.baidu.tieba.kz7, com.baidu.tieba.om
-    public BdUniqueId getContentId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BdUniqueId bdUniqueId = this.j;
-            if (bdUniqueId == null) {
-                return super.getContentId();
-            }
-            return bdUniqueId;
-        }
-        return (BdUniqueId) invokeV.objValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.ya
+    public /* bridge */ /* synthetic */ SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        i(socketResponsedMessage2);
+        return socketResponsedMessage2;
     }
 
-    @Override // com.baidu.tieba.kz7, com.baidu.tieba.om
-    public BdUniqueId getHeaderId() {
-        InterceptResult invokeV;
+    public SocketResponsedMessage i(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdUniqueId bdUniqueId = this.i;
-            if (bdUniqueId == null) {
-                return super.getHeaderId();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage == null) {
+                return socketResponsedMessage;
             }
-            return bdUniqueId;
+            if (socketResponsedMessage.getError() == 1990055 && !xz7.c(socketResponsedMessage.getCmd())) {
+                xz7.d();
+            }
+            return socketResponsedMessage;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

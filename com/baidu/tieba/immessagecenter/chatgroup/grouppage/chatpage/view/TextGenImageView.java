@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b37;
+import com.baidu.tieba.f47;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
-import com.baidu.tieba.sq8;
-import com.baidu.tieba.xc8;
+import com.baidu.tieba.ur8;
+import com.baidu.tieba.zd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class TextGenImageView extends LinearLayout {
     public ChatImageWithTailView c;
 
     /* loaded from: classes6.dex */
-    public class a implements b37.i {
+    public class a implements f47.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleTextImageMsg a;
@@ -60,11 +60,11 @@ public class TextGenImageView extends LinearLayout {
             this.a = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.b37.i
+        @Override // com.baidu.tieba.f47.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                sq8.a(spannableStringBuilder);
+                ur8.a(spannableStringBuilder);
                 this.a.setCacheText(spannableStringBuilder);
                 this.b.b.setText(this.a.getCacheText());
             }
@@ -126,12 +126,12 @@ public class TextGenImageView extends LinearLayout {
     public void b(@NonNull SingleTextImageAdapter.Holder holder, @NonNull SingleTextImageMsg singleTextImageMsg, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, holder, singleTextImageMsg, i) == null) {
-            sq8.b(singleTextImageMsg.getAtUserInfoList());
+            ur8.b(singleTextImageMsg.getAtUserInfoList());
             CharSequence cacheText = singleTextImageMsg.getCacheText();
             if (cacheText != null) {
                 this.b.setText(cacheText);
             } else {
-                b37.e(getContext(), singleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, singleTextImageMsg));
+                f47.e(getContext(), singleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, singleTextImageMsg));
             }
             c(this.c, singleTextImageMsg);
         }
@@ -143,7 +143,7 @@ public class TextGenImageView extends LinearLayout {
             String thumbUrl = baseImageMsg.getThumbUrl();
             String thumbSize = baseImageMsg.getThumbSize();
             if (!StringUtils.isNull(thumbSize) && !StringUtils.isNull(thumbUrl)) {
-                baseImageMsg.setThumbSize(xc8.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
+                baseImageMsg.setThumbSize(zd8.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
             }
         }
     }
@@ -153,7 +153,7 @@ public class TextGenImageView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = new TextView(this.a);
             this.b.setLayoutParams(new LinearLayout.LayoutParams(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
-            this.b.setId(R.id.obfuscated_res_0x7f090ebe);
+            this.b.setId(R.id.obfuscated_res_0x7f090ebd);
             this.b.setLineSpacing(1.0f, 1.2f);
             EMManager.from(this.b).setTextSize(R.dimen.T_X05);
             addView(this.b);
@@ -164,7 +164,7 @@ public class TextGenImageView extends LinearLayout {
             this.c.e(false);
             this.c.setErrorResId(R.drawable.icon_pic_placeholder);
             this.c.setErrorBgResId(R.drawable.transparent_bg);
-            this.c.getImage().setId(R.id.obfuscated_res_0x7f090e9a);
+            this.c.getImage().setId(R.id.obfuscated_res_0x7f090e99);
             addView(this.c);
         }
     }

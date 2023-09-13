@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface ss1 {
-    String a(String str);
+    JSONObject a();
 
-    mj2 b();
+    void b(String str);
 
-    void c();
+    void c(CallbackHandler callbackHandler, String str);
 
-    File[] d();
+    void d(CallbackHandler callbackHandler, String str);
 
-    String e();
+    void e(String str);
 
-    void f();
+    void f(CallbackHandler callbackHandler, String str);
 
-    void g();
-
-    String h(String str);
-
-    void i();
+    void g(CallbackHandler callbackHandler, String str);
 }

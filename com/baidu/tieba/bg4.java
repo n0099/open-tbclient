@@ -1,40 +1,43 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.xx2;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.hv2;
+import com.baidu.tieba.ig4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bg4 {
+public class bg4 extends tf4<tx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
+    public class a implements ig4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ng4 a;
-        public final /* synthetic */ xx2 b;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ rg4 b;
+        public final /* synthetic */ pf4 c;
+        public final /* synthetic */ bg4 d;
 
-        public a(ng4 ng4Var, xx2 xx2Var) {
+        public a(bg4 bg4Var, Context context, rg4 rg4Var, pf4 pf4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ng4Var, xx2Var};
+                Object[] objArr = {bg4Var, context, rg4Var, pf4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,73 +47,167 @@ public class bg4 {
                     return;
                 }
             }
-            this.a = ng4Var;
-            this.b = xx2Var;
+            this.d = bg4Var;
+            this.a = context;
+            this.b = rg4Var;
+            this.c = pf4Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.ig4.c
+        public void onFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ig4.a(this.a, this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                h82.o("map", "location permission fail");
+            }
+        }
+
+        @Override // com.baidu.tieba.ig4.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                h82.o("map", "location permission success");
+                this.d.e(this.a, this.b, this.c);
             }
         }
     }
 
-    public static View a(ng4 ng4Var, xx2 xx2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ng4Var, xx2Var)) == null) {
-            d82.i("map", "creatCallout start");
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            paint.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint.setColor(xx2Var.i.b);
-            paint.setTextSize(xx2Var.i.c);
-            xx2.b bVar = xx2Var.i;
-            float f = bVar.e;
-            float f2 = bVar.f;
-            Paint paint2 = new Paint();
-            paint2.setAntiAlias(true);
-            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-            paint2.setColor(xx2Var.i.h);
-            String str = xx2Var.i.a;
-            int g = uo3.g(6.0f);
-            float f3 = f * 2.0f;
-            float measureText = paint.measureText(str) + f3;
-            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
-            float f5 = g + f4 + f3;
-            if (f5 > 0.0f && measureText > 0.0f) {
-                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
-                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                RectF rectF = new RectF();
-                rectF.left = 0.0f;
-                rectF.top = 0.0f;
-                float f6 = f4 + f3;
-                rectF.bottom = f6;
-                rectF.right = measureText;
-                canvas.drawRoundRect(rectF, f2, f2, paint2);
-                Path path = new Path();
-                float f7 = measureText / 2.0f;
-                float f8 = g / 2;
-                path.moveTo(f7 - f8, f6);
-                path.lineTo(f7, f5);
-                path.lineTo(f7 + f8, f6);
-                path.close();
-                canvas.drawPath(path, paint2);
-                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
-                ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                imageView.setImageBitmap(createBitmap);
-                imageView.setOnClickListener(new a(ng4Var, xx2Var));
-                d82.i("map", "creatCallout end");
-                return imageView;
+    /* loaded from: classes5.dex */
+    public class b implements hv2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rg4 a;
+        public final /* synthetic */ pf4 b;
+
+        public b(bg4 bg4Var, rg4 rg4Var, pf4 pf4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bg4Var, rg4Var, pf4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            d82.o("map", "callout height or wodth is 0");
-            return new ImageView(AppRuntime.getAppContext());
+            this.a = rg4Var;
+            this.b = pf4Var;
         }
-        return (View) invokeLL.objValue;
+
+        @Override // com.baidu.tieba.hv2.a
+        public void a(ge3 ge3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, ge3Var) == null) {
+                h82.i("map", "get location " + ge3Var.a().toString());
+                BaiduMap map = this.a.l.getMap();
+                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(ge3Var.c, ge3Var.b)));
+                map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                map.setMyLocationEnabled(true);
+                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) ge3Var.e).latitude(ge3Var.c).longitude(ge3Var.b).build());
+                this.b.p(true);
+            }
+        }
+
+        @Override // com.baidu.tieba.hv2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                h82.i("map", "get location error " + i);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947643994, "Lcom/baidu/tieba/bg4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947643994, "Lcom/baidu/tieba/bg4;");
+                return;
+            }
+        }
+        boolean z = rr1.a;
+    }
+
+    public bg4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static bg4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new bg4();
+        }
+        return (bg4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tf4
+    public boolean b(Context context, tx2 tx2Var, qx2 qx2Var, hb3 hb3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tx2Var, qx2Var, hb3Var, jSONObject)) == null) {
+            return g(context, tx2Var, qx2Var, hb3Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void e(Context context, rg4 rg4Var, pf4 pf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, rg4Var, pf4Var) == null) {
+            ou2.I().b("gcj02", true, false, new b(this, rg4Var, pf4Var));
+        }
+    }
+
+    public final boolean g(Context context, tx2 tx2Var, qx2 qx2Var, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tx2Var, qx2Var, hb3Var)) == null) {
+            h82.i("map", "MoveToLocationAction start");
+            px1 A = uw2.T().A(tx2Var.c);
+            if (!(A instanceof nx1)) {
+                h82.c("map", "WebViewManager is null");
+                return false;
+            }
+            pf4 c = qf4.b().c((nx1) A);
+            rg4 d = c.d(tx2Var.b);
+            if (d == null) {
+                h82.c("map", "can not find map by id " + tx2Var.b);
+                return false;
+            } else if (!d.k) {
+                h82.o("map", "can not move to location because showLocation is not set");
+                return false;
+            } else {
+                BDLocation e = c.e();
+                if (e != null && c.g()) {
+                    d.l.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(e.getLatitude(), e.getLongitude())));
+                    d.l.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                    d.l.getMap().setMyLocationEnabled(true);
+                    d.l.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(e.getRadius()).latitude(e.getLatitude()).longitude(e.getLongitude()).build());
+                    h82.i("map", "MoveToLocationAction end");
+                    return true;
+                }
+                ig4.b(context, new a(this, context, d, c));
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.bj6;
-import com.baidu.tieba.i8c;
+import com.baidu.tieba.lbc;
+import com.baidu.tieba.zj6;
 /* loaded from: classes4.dex */
 public class InitWebViewTask extends LaunchTask {
     public static final String KEY_UA_SKIN = "skin/";
@@ -29,16 +29,16 @@ public class InitWebViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            bj6 bj6Var = new bj6();
-            bj6Var.j(TbadkCoreApplication.getInst().isDebugMode());
-            bj6.d(new i8c<String, Pair<Boolean, String>>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
+            zj6 zj6Var = new zj6();
+            zj6Var.j(TbadkCoreApplication.getInst().isDebugMode());
+            zj6.d(new lbc<String, Pair<Boolean, String>>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.i8c
+                @Override // com.baidu.tieba.lbc
                 public Pair<Boolean, String> call(String str) {
                     return InitWebViewTask.updateUA(str);
                 }
             });
-            bj6.b(TbadkCoreApplication.getInst(), bj6Var);
+            zj6.b(TbadkCoreApplication.getInst(), zj6Var);
         } catch (Exception e) {
             BdLog.e(e);
         }

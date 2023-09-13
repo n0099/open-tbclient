@@ -33,7 +33,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
-    public static final int DEF_STYLE_RES = 2131755899;
+    public static final int DEF_STYLE_RES = 2131755907;
     public int animState;
     @NonNull
     public final CoordinatorLayout.Behavior<ExtendedFloatingActionButton> behavior;

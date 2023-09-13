@@ -28,25 +28,25 @@ public final class aa implements e.b {
         }
     }
 
-    public static boolean a(List<a.InterfaceC0699a> list, MessageSnapshot messageSnapshot) {
+    public static boolean a(List<a.InterfaceC0694a> list, MessageSnapshot messageSnapshot) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, list, messageSnapshot)) == null) {
             if (list.size() > 1 && messageSnapshot.Ca() == -3) {
-                for (a.InterfaceC0699a interfaceC0699a : list) {
-                    if (interfaceC0699a.Cj().c(messageSnapshot)) {
+                for (a.InterfaceC0694a interfaceC0694a : list) {
+                    if (interfaceC0694a.Cj().c(messageSnapshot)) {
                         return true;
                     }
                 }
             }
-            for (a.InterfaceC0699a interfaceC0699a2 : list) {
-                if (interfaceC0699a2.Cj().b(messageSnapshot)) {
+            for (a.InterfaceC0694a interfaceC0694a2 : list) {
+                if (interfaceC0694a2.Cj().b(messageSnapshot)) {
                     return true;
                 }
             }
             if (-4 == messageSnapshot.Ca()) {
-                for (a.InterfaceC0699a interfaceC0699a3 : list) {
-                    if (interfaceC0699a3.Cj().d(messageSnapshot)) {
+                for (a.InterfaceC0694a interfaceC0694a3 : list) {
+                    if (interfaceC0694a3.Cj().d(messageSnapshot)) {
                         return true;
                     }
                 }
@@ -64,7 +64,7 @@ public final class aa implements e.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             synchronized (Integer.toString(messageSnapshot.getId()).intern()) {
-                List<a.InterfaceC0699a> bT = h.CG().bT(messageSnapshot.getId());
+                List<a.InterfaceC0694a> bT = h.CG().bT(messageSnapshot.getId());
                 if (bT.size() > 0) {
                     a Ci = bT.get(0).Ci();
                     if (com.kwai.filedownloader.e.d.awL) {
@@ -72,9 +72,9 @@ public final class aa implements e.b {
                     }
                     if (!a(bT, messageSnapshot)) {
                         StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.getId() + " status:" + ((int) messageSnapshot.Ca()) + " task-count:" + bT.size());
-                        for (a.InterfaceC0699a interfaceC0699a : bT) {
+                        for (a.InterfaceC0694a interfaceC0694a : bT) {
                             sb.append(" | ");
-                            sb.append((int) interfaceC0699a.Ci().Ca());
+                            sb.append((int) interfaceC0694a.Ci().Ca());
                         }
                         com.kwai.filedownloader.e.d.d(this, sb.toString(), new Object[0]);
                     }

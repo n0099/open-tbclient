@@ -1,123 +1,72 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.tieba.it2;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j53 implements wp3<HybridUbcFlow> {
+public class j53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements wp3<HybridUbcFlow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(j53 j53Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834241, "Lcom/baidu/tieba/j53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || j53.b(hybridUbcFlow)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947834241, "Lcom/baidu/tieba/j53;");
                 return;
             }
-            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_first_paint", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("fe_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_page_show", "naStart");
-            }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_receive_intent", "naStart");
-            }
-            if (f <= 0) {
-                f = System.currentTimeMillis();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putLong("property_launch_cost", f);
-            t73 e = t73.e();
-            v73 v73Var = new v73(20, bundle);
-            v73Var.f(true);
-            e.h(v73Var);
-            q43.h().end(f);
-            g53.e().f();
+        }
+        a = rr1.a;
+        b = c("swan_perf_stat_rectify", 0);
+        c = c("swan_perf_stat_overlay_rectify", 0);
+        if (a) {
+            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
+            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
         }
     }
 
-    public j53() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c;
         }
+        return invokeV.booleanValue;
     }
 
-    public static boolean b(HybridUbcFlow hybridUbcFlow) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
-            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            ou2.g0().getSwitch(str, i);
+            if (a) {
+                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
+            }
+            if (i == 1) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wp3
-    /* renamed from: c */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("670");
-            hybridUbcFlow.D("preload_scene", "1");
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.H("component_reporter", new e43());
-            hybridUbcFlow.H("component_reporter", new h33());
-            hybridUbcFlow.H("component_reporter", new b43());
-            hybridUbcFlow.H("component_reporter", new g43());
-            hybridUbcFlow.H("callback_on_submit", new it2.a());
-            hybridUbcFlow.H("fmp_callback", new m53("fmp_callback"));
-            hybridUbcFlow.H("fmp_callback", new a63());
-            hybridUbcFlow.H("callback_on_submit", new m53("callback_on_submit"));
-            hybridUbcFlow.H("callback_on_submit", new bn3());
-            hybridUbcFlow.H("callback_on_submit", new a(this));
-        }
+        return invokeLI.booleanValue;
     }
 }

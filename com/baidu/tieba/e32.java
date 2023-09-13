@@ -3,21 +3,24 @@ package com.baidu.tieba;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.security.SchemeCheckerHelperImpl;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class e32 {
+public class e32 implements d32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, p43> a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,82 +35,70 @@ public class e32 {
                 return;
             }
         }
-        a = nr1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        b = rr1.a;
     }
 
-    @NonNull
-    public static Pair<Boolean, c32> a(dz1 dz1Var, String str) {
-        InterceptResult invokeLL;
+    public e32() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dz1Var, str)) == null) {
-            d32 d32Var = new d32();
-            boolean b2 = b(str, dz1Var.a().e());
-            if (b2) {
-                d32Var.b = 402;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new Pair<>(Boolean.valueOf(b2), d32Var);
         }
-        return (Pair) invokeLL.objValue;
+        this.a = new ConcurrentHashMap();
     }
 
+    @Override // com.baidu.tieba.d32
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
+            return;
+        }
+        if (b) {
+            Log.d("Api-FirstRecorder", "markStart: " + str);
+        }
+        p43 p43Var = new p43();
+        this.a.put(str, p43Var);
+        p43Var.i(System.currentTimeMillis());
+        p43Var.f(str);
+    }
+
+    @Override // com.baidu.tieba.d32
     @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof lx1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            p43 p43Var = this.a.get(str);
+            if (p43Var == null) {
+                if (!b) {
+                    return;
                 }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (!a) {
-                    return false;
-                }
-                throw new RuntimeException("whitelistName is empty");
+                throw new RuntimeException(str + " markEnd before markStart");
+            } else if (p43Var.d() > 0) {
             } else {
-                String Z = ((lx1) callbackHandler).Z();
-                if (SchemeCheckerHelperImpl.FRAME_WHITE_LIST_SWAN_APP_WIDGET.equals(Z)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(Z)) {
-                    z = !ub3.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(Z) && !"swan_app_alliance_choose_address_widget".equals(Z) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                p43Var.h(System.currentTimeMillis());
+                if (b) {
+                    Log.d("Api-FirstRecorder", str + " first called cost " + p43Var.c());
+                }
+                if (TextUtils.equals(str, "request")) {
+                    if (b) {
+                        Log.d("Api-FirstRecorder", "record first request api called " + p43Var.toString());
                     }
-                    return false;
+                    HybridUbcFlow p = m43.p("startup");
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
+                    ubcFlowEvent.h(p43Var.e());
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
+                    ubcFlowEvent2.h(p43Var.d());
+                    p.F(ubcFlowEvent2);
                 }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
             }
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
-            }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (ub3.g(str2 + "/" + substring)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return !ub3.g(str);
-        }
-        return invokeL.booleanValue;
     }
 }

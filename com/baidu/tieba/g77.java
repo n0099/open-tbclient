@@ -6,15 +6,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class g77 {
+public final class g77 implements pc7<g77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
+    public final List<j97> a;
+
+    @Override // com.baidu.tieba.pc7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "card_multi_link" : (String) invokeV.objValue;
+    }
+
+    public g77 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (g77) invokeV.objValue;
+    }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -23,11 +34,7 @@ public final class g77 {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof g77) {
-                g77 g77Var = (g77) obj;
-                return Intrinsics.areEqual(this.a, g77Var.a) && Intrinsics.areEqual(this.b, g77Var.b) && this.c == g77Var.c && Intrinsics.areEqual(this.d, g77Var.d);
-            }
-            return false;
+            return (obj instanceof g77) && Intrinsics.areEqual(this.a, ((g77) obj).a);
         }
         return invokeL.booleanValue;
     }
@@ -35,79 +42,50 @@ public final class g77 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31;
-            String str = this.d;
-            return hashCode + (str == null ? 0 : str.hashCode());
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardVirtualHeadImageData(imgUrl=" + this.a + ", bgValue=" + this.b + ", bgType=" + this.c + ", cornerUrl=" + this.d + ')';
+            return "CardMultiLinkUiState(data=" + this.a + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public g77(String imgUrl, String bgValue, int i, String str) {
+    public g77(List<j97> data) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {imgUrl, bgValue, Integer.valueOf(i), str};
+            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
-        Intrinsics.checkNotNullParameter(bgValue, "bgValue");
-        this.a = imgUrl;
-        this.b = bgValue;
-        this.c = i;
-        this.d = str;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.pc7
+    public /* bridge */ /* synthetic */ g77 b() {
+        c();
+        return this;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String d() {
+    public final List<j97> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 }

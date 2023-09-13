@@ -14,13 +14,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.nr1;
-import com.baidu.tieba.uo3;
-import com.baidu.tieba.xn3;
+import com.baidu.tieba.bo3;
+import com.baidu.tieba.rr1;
+import com.baidu.tieba.yo3;
 /* loaded from: classes4.dex */
 public class NeutralRefreshAnimView extends View {
-    public static final boolean s = nr1.a;
-    public static final int t = uo3.g(3.5f);
+    public static final boolean s = rr1.a;
+    public static final int t = yo3.g(3.5f);
     public static final int u = Color.parseColor("#000000");
     public static final int v;
     public static final int w;
@@ -157,7 +157,7 @@ public class NeutralRefreshAnimView extends View {
     }
 
     static {
-        int g = uo3.g(18.0f);
+        int g = yo3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -272,7 +272,7 @@ public class NeutralRefreshAnimView extends View {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            xn3.j(new a(i, i2), com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.CREATEBITMAP_RUNNABLE_NAME);
+            bo3.j(new a(i, i2), com.baidu.searchbox.ui.pullrefresh.NeutralRefreshAnimView.CREATEBITMAP_RUNNABLE_NAME);
         }
     }
 

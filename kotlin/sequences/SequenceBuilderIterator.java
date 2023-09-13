@@ -103,7 +103,7 @@ public final class SequenceBuilderIterator<T> extends SequenceScope<T> implement
             Intrinsics.checkNotNull(continuation);
             this.nextStep = null;
             Result.Companion companion = Result.Companion;
-            continuation.resumeWith(Result.m849constructorimpl(Unit.INSTANCE));
+            continuation.resumeWith(Result.m850constructorimpl(Unit.INSTANCE));
         }
     }
 

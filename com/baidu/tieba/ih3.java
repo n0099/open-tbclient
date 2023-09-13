@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ih3 implements gh3<JSONObject> {
+public final class ih3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray b;
 
     public ih3() {
         Interceptable interceptable = $ic;
@@ -30,40 +24,12 @@ public class ih3 implements gh3<JSONObject> {
         }
     }
 
-    public void b() {
+    public static il2 a(ih3 ih3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ih3Var)) == null) {
+            return new il2("CollectTraceError", null);
         }
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("stageError", this.b);
-            } catch (JSONException e) {
-                if (gh3.a) {
-                    Log.e("WhiteCollector", Log.getStackTraceString(e));
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
-            if (this.b == null) {
-                this.b = new JSONArray();
-            }
-            this.b.put(jSONObject);
-            if (gh3.a) {
-                Log.d("WhiteCollector", "FEStage: " + jSONObject);
-            }
-        }
+        return (il2) invokeL.objValue;
     }
 }

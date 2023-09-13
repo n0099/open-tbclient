@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
-import org.json.JSONObject;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 /* loaded from: classes8.dex */
 public interface xm6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewDebug");
+    void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
 
-    JSONObject a();
+    void b(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
 
-    void b();
+    void c(WebView webView, String str);
 
-    void c();
+    void d(WebView webView, String str);
+
+    void onPageFinished(WebView webView, String str);
+
+    boolean shouldOverrideUrlLoading(WebView webView, String str);
 }

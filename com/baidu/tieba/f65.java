@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f65 extends x55 {
+public class f65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject
+    public pk1<g65> a;
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            nk1 b = nk1.b();
+            this.a = b;
+            b.a(new h65());
+        }
+    }
 
     public f65() {
         Interceptable interceptable = $ic;
@@ -29,21 +31,9 @@ public class f65 extends x55 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.x55
-    public void a(@NonNull Context context, @NonNull p55 p55Var) {
-        JSONObject syncJson;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, p55Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
-            return;
-        }
-        VersionData versionData = new VersionData();
-        versionData.parserJson(syncJson.optJSONObject("version"));
-        CombineDownload combineDownload = new CombineDownload();
-        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
+        a();
     }
 }

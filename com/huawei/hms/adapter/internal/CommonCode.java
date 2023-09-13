@@ -4,14 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int OK = 0;
     public static final int UNBIND_SERVICE = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface BusInterceptor {
         public static final int INDETERMINATE = 2;
         public static final int PRIVACY_AGREE = 1001;
@@ -19,7 +19,7 @@ public class CommonCode {
         public static final int PRIVACY_CNCEL_ERROR_CODE = 907135705;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MapKey {
         public static final String API_NAME = "api_name";
         public static final String HAS_RESOLUTION = "resolution";

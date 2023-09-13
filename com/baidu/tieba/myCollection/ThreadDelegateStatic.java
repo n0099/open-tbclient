@@ -13,7 +13,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.b05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ public class ThreadDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,13 +66,13 @@ public class ThreadDelegateStatic extends FragmentDelegate {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             FragmentTabStructure fragmentTabStructure;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof wz4)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof b05)) {
                 return;
             }
-            wz4 wz4Var = (wz4) customResponsedMessage.getData();
+            b05 b05Var = (b05) customResponsedMessage.getData();
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            wz4Var.a(threadDelegateStatic);
-            if (wz4Var.getContext() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
+            b05Var.a(threadDelegateStatic);
+            if (b05Var.getContext() == null || (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
             fragmentTabStructure.frag.setArguments(new Bundle());
@@ -117,9 +117,9 @@ public class ThreadDelegateStatic extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
-            fragmentTabStructure.frag = ThreadFragment.i2();
+            fragmentTabStructure.frag = ThreadFragment.k2();
             fragmentTabStructure.type = 1;
-            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f047b;
+            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f047d;
             return fragmentTabStructure;
         }
         return (FragmentTabStructure) invokeV.objValue;

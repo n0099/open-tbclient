@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mka extends CustomMessageListener {
+public abstract class mka implements Comparable<mka> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mka(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public mka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(mka mkaVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            fj5 fj5Var = null;
-            if (customResponsedMessage.getData() instanceof fj5) {
-                fj5Var = (fj5) customResponsedMessage.getData();
-            }
-            if (fj5Var != null && fj5Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new ej5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09237b), fj5Var).m();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mkaVar)) == null) {
+            return this.a - mkaVar.a;
         }
+        return invokeL.intValue;
     }
 }

@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.report.m;
@@ -77,7 +78,7 @@ public final class em implements com.kwad.sdk.core.d<com.kwad.sdk.core.report.m>
         if (jSONObject.opt("errorMsg") == JSONObject.NULL) {
             mVar.errorMsg = "";
         }
-        mVar.errorCode = jSONObject.optInt("errorCode", new Integer("0").intValue());
+        mVar.errorCode = jSONObject.optInt(CloudStabilityUBCUtils.KEY_ERROR_CODE, new Integer("0").intValue());
         mVar.creativeId = jSONObject.optLong("creativeId");
         mVar.aaF = jSONObject.optString("cacheFailedReason");
         if (jSONObject.opt("cacheFailedReason") == JSONObject.NULL) {
@@ -294,7 +295,7 @@ public final class em implements com.kwad.sdk.core.d<com.kwad.sdk.core.report.m>
         if (str6 != null && !str6.equals("")) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "errorMsg", mVar.errorMsg);
         }
-        com.kwad.sdk.utils.r.putValue(jSONObject, "errorCode", mVar.errorCode);
+        com.kwad.sdk.utils.r.putValue(jSONObject, CloudStabilityUBCUtils.KEY_ERROR_CODE, mVar.errorCode);
         long j19 = mVar.creativeId;
         if (j19 != 0) {
             com.kwad.sdk.utils.r.putValue(jSONObject, "creativeId", j19);

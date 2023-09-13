@@ -24,11 +24,11 @@ public class bb {
             int a = hsVar.a();
             ho a2 = ho.a(hsVar.b());
             if (a2 != null) {
-                if (z && hsVar.f515a) {
+                if (z && hsVar.f514a) {
                     arrayList.add(new Pair(Integer.valueOf(a), null));
                 } else {
                     int i = bc.b[a2.ordinal()];
-                    arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hsVar.g())) : new Pair(Integer.valueOf(a), hsVar.m570a()) : new Pair(Integer.valueOf(a), Long.valueOf(hsVar.m569a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hsVar.c())));
+                    arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hsVar.g())) : new Pair(Integer.valueOf(a), hsVar.m571a()) : new Pair(Integer.valueOf(a), Long.valueOf(hsVar.m570a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hsVar.c())));
                 }
             }
         }
@@ -44,8 +44,8 @@ public class bb {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (hq hqVar : cif.a()) {
-            arrayList.add(new Pair<>(hqVar.m565a(), Integer.valueOf(hqVar.a())));
-            List<Pair<Integer, Object>> a = a(hqVar.f507a, false);
+            arrayList.add(new Pair<>(hqVar.m566a(), Integer.valueOf(hqVar.a())));
+            List<Pair<Integer, Object>> a = a(hqVar.f506a, false);
             if (!com.xiaomi.push.ad.a(a)) {
                 arrayList2.addAll(a);
             }

@@ -2,14 +2,11 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.oa3;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,89 +14,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
 @Service
 /* loaded from: classes7.dex */
-public class ow3 implements ww1 {
+public class ow3 implements lv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final qy3<JSONObject> b;
+    public static final long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qq3 a;
 
-    @Override // com.baidu.tieba.ww1
-    public void d(String str, Context context) {
+    @Override // com.baidu.tieba.lv1
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements oa3.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
-
-        public a(ow3 ow3Var, SwanAppActivity swanAppActivity, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ow3Var, swanAppActivity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppActivity;
-            this.b = str;
+    @Override // com.baidu.tieba.lv1
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.oa3.a
-        public void a(oa3 oa3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oa3Var) == null) {
-                cz2.d(oa3Var.c(), this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends ao2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ ow3 b;
-
-        public b(ow3 ow3Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ow3Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ow3Var;
-            this.a = swanAppActivity;
-        }
-
-        @Override // com.baidu.tieba.ao2, com.baidu.tieba.bo2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.j();
-                this.a.G0(this);
-            }
-        }
+        return (File) invokeLL.objValue;
     }
 
     static {
@@ -115,7 +64,9 @@ public class ow3 implements ww1 {
                 return;
             }
         }
-        boolean z = nr1.a;
+        a = rr1.a;
+        b = new qy3<>();
+        c = TimeUnit.MINUTES.toMillis(2L);
     }
 
     public ow3() {
@@ -132,96 +83,149 @@ public class ow3 implements ww1 {
         }
     }
 
-    @Override // com.baidu.tieba.ww1
-    public void a(NgWebView ngWebView) {
+    @Override // com.baidu.tieba.lv1
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
-            ngWebView.doSelectionCancel();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b.b();
         }
     }
 
-    @Override // com.baidu.tieba.ww1
-    public void b(NgWebView ngWebView, String str) {
-        SwanAppActivity w;
+    @Override // com.baidu.tieba.lv1
+    public JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) && (w = cb3.K().w()) != null && !TextUtils.isEmpty(str)) {
-            this.a = new qq3(ngWebView.covertToView());
-            int[] g = g(w);
-            int[] h = h(w);
-            for (int i = 0; i < g.length; i++) {
-                this.a.e(g[i], h[i]);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            if (a) {
+                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList params=" + str);
             }
-            this.a.r(new a(this, w, str));
-            this.a.t();
-            w.u0(new b(this, w));
-        }
-    }
-
-    @Override // com.baidu.tieba.ww1
-    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
-            if (z) {
-                i("show", null, null);
+            String str2 = gb3.K().getAppId() + gb3.K().q().N().c(context);
+            JSONObject c2 = b.c(str2);
+            if (a) {
+                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList k=" + str2);
+            }
+            if (c2 != null) {
+                if (a) {
+                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with cache=" + c2);
+                }
+                return c2;
+            } else if (bp3.O()) {
+                return null;
+            } else {
+                JSONObject f = f(context, str);
+                if (a) {
+                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with request=" + f);
+                }
+                return b.a(str2, f, c);
             }
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ww1
-    public void e(String str, Context context) {
+    public final JSONObject e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, context) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject2 = new JSONObject();
+            ho3.f(jSONObject2, Constants.EXTRA_PA_TYPE, 7);
+            ho3.f(jSONObject2, "pa_unread_sums", Integer.valueOf(i));
+            jSONArray.put(jSONObject2);
+            ho3.f(jSONObject, "un_read_list", jSONArray);
+            return jSONObject;
         }
-        yo3.b(context).c(str);
-        i("click", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, null);
+        return (JSONObject) invokeI.objValue;
     }
 
-    public int[] g(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0026, code lost:
+        r9 = r4.optString(com.baidu.android.imsdk.internal.Constants.EXTRA_PAUID_TYPE);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject f(Context context, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        ResponseBody responseBody;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            int[] iArr = {7, 6, 8};
-            if (!fo3.a(context, "android.permission.SET_WALLPAPER")) {
-                int[] iArr2 = new int[2];
-                System.arraycopy(iArr, 0, iArr2, 0, 2);
-                return iArr2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, str)) == null) {
+            hb3 b0 = hb3.b0();
+            ResponseBody responseBody2 = null;
+            if (b0 == null) {
+                return null;
             }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public int[] h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f14b3, R.string.obfuscated_res_0x7f0f14b5, R.string.obfuscated_res_0x7f0f14b9};
-            if (!fo3.a(context, "android.permission.SET_WALLPAPER")) {
-                int[] iArr2 = new int[2];
-                System.arraycopy(iArr, 0, iArr2, 0, 2);
-                return iArr2;
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                int i = 0;
+                int i2 = 0;
+                while (true) {
+                    if (i2 < length) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                        if (optJSONObject.optInt(Constants.EXTRA_PA_TYPE) == 7) {
+                            break;
+                        }
+                        i2++;
+                    } else {
+                        str2 = null;
+                        break;
+                    }
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return null;
+                }
+                String n = ou2.o().n();
+                ki4 ki4Var = new ki4(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", b0.O()).add("pa", str2).build()).build().body(), null);
+                ki4Var.f = true;
+                ki4Var.g = true;
+                ki4Var.h = true;
+                ki4Var.b = "POST";
+                HttpRequestBuilder a2 = mi4.a(ki4Var);
+                li4.g().u(a2, ki4Var);
+                try {
+                    Response executeSync = a2.build().executeSync();
+                    if (!executeSync.isSuccessful()) {
+                        lr4.d(null);
+                        return null;
+                    }
+                    responseBody = executeSync.body();
+                    if (responseBody == null) {
+                        lr4.d(responseBody);
+                        return null;
+                    }
+                    try {
+                        JSONObject jSONObject = new JSONObject(responseBody.string());
+                        if (!"0".equals(jSONObject.optString("errno"))) {
+                            lr4.d(responseBody);
+                            return null;
+                        }
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                        if (optJSONObject2 != null) {
+                            i = optJSONObject2.optInt("num");
+                        }
+                        JSONObject e = e(i);
+                        ou2.K().i(e);
+                        lr4.d(responseBody);
+                        return e;
+                    } catch (IOException | JSONException unused) {
+                        lr4.d(responseBody);
+                        return null;
+                    } catch (Throwable th) {
+                        th = th;
+                        responseBody2 = responseBody;
+                        lr4.d(responseBody2);
+                        throw th;
+                    }
+                } catch (IOException | JSONException unused2) {
+                    responseBody = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (JSONException unused3) {
             }
-            return iArr;
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            fi3 fi3Var = new fi3();
-            fi3Var.a = "tool";
-            fi3Var.f = cb3.K().getAppId();
-            fi3Var.c = "miniapp";
-            fi3Var.g = "text";
-            fi3Var.b = str;
-            fi3Var.e = str2;
-            if (!TextUtils.isEmpty(str3)) {
-                fi3Var.a("query", str3);
-            }
-            wh3.x("810", fi3Var);
+        } else {
+            return (JSONObject) invokeLL.objValue;
         }
     }
 }

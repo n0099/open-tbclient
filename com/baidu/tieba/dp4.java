@@ -1,23 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.List;
 /* loaded from: classes5.dex */
 public abstract class dp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public interface a<D> {
-        void a(jp4<D> jp4Var);
-
-        void b(jp4<D> jp4Var, D d);
-
-        jp4<D> onCreateLoader(int i, Bundle bundle);
+    public interface a {
+        void onBackStackChanged();
     }
+
+    public abstract fp4 a();
+
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
+
+    public abstract boolean c();
+
+    public abstract List<Fragment> d();
+
+    public abstract void e(int i, int i2);
+
+    public abstract boolean f();
 
     public dp4() {
         Interceptable interceptable = $ic;

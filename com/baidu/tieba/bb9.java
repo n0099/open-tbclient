@@ -1,27 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface bb9 {
-    public static final String a = File.separator;
-    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String c = b + a + ".tieba_video_monitor";
-    public static final String d = c + a + "v1";
-    public static final String e;
-    public static final String f;
-    public static final String g;
+public class bb9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public String b;
 
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(d);
-        sb.append(a);
-        e = sb.toString();
-        f = b + a + ".tieba_video_monitor_log";
-        g = f + a + "v1";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(g);
-        sb2.append(a);
-        sb2.toString();
+    public bb9(BdPageContext<?> bdPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = "7a7c80";
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add("7a7c80");
+        this.a.add("f55925");
+        this.a.add("ff5460");
+        this.a.add("cc3314");
+        this.a.add("26bf85");
+        this.a.add("33aaff");
+        this.a.add("3385ff");
+        this.a.add("3668b2");
+        this.a.add("673699");
+    }
+
+    public List<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
     }
 }

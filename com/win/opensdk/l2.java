@@ -45,7 +45,7 @@ public class l2 implements DownloadListener {
             Context context = m2Var.a;
             Info info2 = m2Var.c;
             if (!M.e(context)) {
-                Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f18a0) + info2.getDl_name(), 0).show();
+                Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f18be) + info2.getDl_name(), 0).show();
                 e1.a(context).c(new f1(info2), 1).a();
                 return;
             }

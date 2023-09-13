@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y6b;
+import com.baidu.tieba.g9b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -259,7 +259,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             synchronized (this.i) {
-                this.j = y6b.d().c(this, j, this.d);
+                this.j = g9b.d().c(this, j, this.d);
             }
         }
     }
@@ -347,7 +347,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
                     if (this.j == 0) {
                         return;
                     }
-                    y6b.d().b(this.j, this, position, z);
+                    g9b.d().b(this.j, this, position, z);
                     return;
                 }
                 throw new IllegalStateException("ByteBuffer limit changed");
@@ -366,7 +366,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
                 if (this.j == 0) {
                     return;
                 }
-                y6b.d().a(this.j, this);
+                g9b.d().a(this.j, this);
             }
         }
     }
@@ -379,7 +379,7 @@ public final class CronetUploadDataStream extends UploadDataSink {
                     this.l = true;
                 } else if (this.j == 0) {
                 } else {
-                    y6b.d().destroy(this.j);
+                    g9b.d().destroy(this.j);
                     this.j = 0L;
                     if (this.m != null) {
                         this.m.run();

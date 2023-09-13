@@ -26,23 +26,24 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.j65;
-import com.baidu.tieba.l65;
-import com.baidu.tieba.lk1;
+import com.baidu.tieba.a75;
+import com.baidu.tieba.b75;
+import com.baidu.tieba.c75;
+import com.baidu.tieba.d75;
+import com.baidu.tieba.e75;
+import com.baidu.tieba.f75;
+import com.baidu.tieba.g75;
+import com.baidu.tieba.h75;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m65;
-import com.baidu.tieba.n55;
-import com.baidu.tieba.n65;
-import com.baidu.tieba.p65;
-import com.baidu.tieba.q65;
+import com.baidu.tieba.pk1;
 import com.baidu.tieba.r65;
-import com.baidu.tieba.s65;
+import com.baidu.tieba.t55;
 import com.baidu.tieba.t65;
 import com.baidu.tieba.u65;
 import com.baidu.tieba.v65;
-import com.baidu.tieba.w65;
 import com.baidu.tieba.x65;
 import com.baidu.tieba.y65;
+import com.baidu.tieba.z65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +78,7 @@ public class YunDialogManager {
     @NonNull
     public final Set<String> showingH5DialogList;
     @NonNull
-    public final Map<String, l65> strategyMap;
+    public final Map<String, t65> strategyMap;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -119,18 +120,18 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ n55 b;
+        public final /* synthetic */ t55 b;
 
-        public b(Context context, n55 n55Var) {
+        public b(Context context, t55 t55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, n55Var};
+                Object[] objArr = {context, t55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -141,7 +142,7 @@ public class YunDialogManager {
                 }
             }
             this.a = context;
-            this.b = n55Var;
+            this.b = t55Var;
         }
 
         @Override // java.lang.Runnable
@@ -154,18 +155,18 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements YunDialogDataManager.d {
+    public class c implements YunDialogDataManager.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ n55 b;
+        public final /* synthetic */ t55 b;
 
-        public c(Context context, n55 n55Var) {
+        public c(Context context, t55 t55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, n55Var};
+                Object[] objArr = {context, t55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -176,7 +177,7 @@ public class YunDialogManager {
                 }
             }
             this.a = context;
-            this.b = n55Var;
+            this.b = t55Var;
         }
 
         @Override // com.baidu.tbadk.core.dialog.yun.YunDialogDataManager.d
@@ -191,7 +192,7 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements Runnable {
+    public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -228,7 +229,7 @@ public class YunDialogManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class e implements YunDialogDataManager.d {
+    public class e implements YunDialogDataManager.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -307,25 +308,26 @@ public class YunDialogManager {
         this.currentPageName = "";
         this.isBackFromYunDialog = false;
         this.dialogDismissListener = new a(this, 2921753);
-        m65 m65Var = new m65();
-        lk1<n65> lk1Var = m65Var.a;
-        if (lk1Var != null && !ListUtils.isEmpty(lk1Var.getList())) {
-            for (n65 n65Var : m65Var.a.getList()) {
-                this.strategyMap.put(n65Var.name(), n65Var.a());
+        u65 u65Var = new u65();
+        pk1<v65> pk1Var = u65Var.a;
+        if (pk1Var != null && !ListUtils.isEmpty(pk1Var.getList())) {
+            for (v65 v65Var : u65Var.a.getList()) {
+                this.strategyMap.put(v65Var.name(), v65Var.a());
             }
         }
-        this.strategyMap.put("NEW_FREQUENCE_STRATEGY", new w65());
+        this.strategyMap.put("NEW_FREQUENCE_STRATEGY", new f75());
         this.strategyMap.put("FREQUENCE_STRATEGY", new FrequenceDialogStrategy());
         this.strategyMap.put("PAGE_STRATEGY", new PageDialogStrategy());
         this.strategyMap.put("EXCLUDE_STRATEGY", new ExcludeDialogStrategy());
         this.strategyMap.put("UNIQUE_STRATEGY", new UniqueDialogStrategy());
-        this.strategyMap.put("HYBRID_CHECK_STRATEGY", new p65());
-        this.strategyMap.put("NA_USER_ICON_STRATEGY", new v65());
-        this.strategyMap.put("NA_USER_GROWTH_STRATEGY", new u65());
-        this.strategyMap.put("NA_NEW_GOD_STRATEGY", new q65());
-        this.strategyMap.put("NA_OPERATION_STRATEGY", new s65());
-        this.strategyMap.put("NA_LIVE_REMIND_STRATEGY", new r65());
-        this.strategyMap.put("NA_UPDATE_STRATEGY", new t65());
+        this.strategyMap.put("HYBRID_CHECK_STRATEGY", new x65());
+        this.strategyMap.put("NA_USER_ICON_STRATEGY", new e75());
+        this.strategyMap.put("NA_USER_GROWTH_STRATEGY", new d75());
+        this.strategyMap.put("NA_NEW_GOD_STRATEGY", new y65());
+        this.strategyMap.put("NA_OPERATION_STRATEGY", new a75());
+        this.strategyMap.put("NA_LIVE_REMIND_STRATEGY", new z65());
+        this.strategyMap.put("NA_COMMON_NOTIFY_STRATEGY", new b75());
+        this.strategyMap.put("NA_UPDATE_STRATEGY", new c75());
         TbLog yunDialogLog = YunDialogLog.getInstance();
         yunDialogLog.i(LOG_KEY, "strategyMap:" + this.strategyMap);
         MessageManager.getInstance().registerListener(this.dialogDismissListener);
@@ -393,17 +395,17 @@ public class YunDialogManager {
         return invokeV.booleanValue;
     }
 
-    public static boolean canShowDialog(@Nullable n55 n55Var) {
+    public static boolean canShowDialog(@Nullable t55 t55Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, n55Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t55Var)) == null) {
             String str = null;
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                 TbLog yunDialogLog = YunDialogLog.getInstance();
                 StringBuilder sb = new StringBuilder();
                 sb.append("云弹窗 ");
-                if (n55Var != null) {
-                    str = n55Var.b();
+                if (t55Var != null) {
+                    str = t55Var.b();
                 }
                 sb.append(str);
                 sb.append(" 不可显示：当前冷启动开屏展示中");
@@ -413,8 +415,8 @@ public class YunDialogManager {
                 TbLog yunDialogLog2 = YunDialogLog.getInstance();
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("云弹窗 ");
-                if (n55Var != null) {
-                    str = n55Var.b();
+                if (t55Var != null) {
+                    str = t55Var.b();
                 }
                 sb2.append(str);
                 sb2.append(" 不可显示：当前热启动开屏展示中");
@@ -424,16 +426,16 @@ public class YunDialogManager {
                 TbLog yunDialogLog3 = YunDialogLog.getInstance();
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("云弹窗 ");
-                if (n55Var != null) {
-                    str = n55Var.b();
+                if (t55Var != null) {
+                    str = t55Var.b();
                 }
                 sb3.append(str);
                 sb3.append(" 不可显示：当前网络异常");
                 yunDialogLog3.i(LOG_KEY, sb3.toString());
                 return false;
-            } else if (n55Var != null && n55Var.c() && getInstance().isBackFromYunDialog) {
+            } else if (t55Var != null && t55Var.c() && getInstance().isBackFromYunDialog) {
                 TbLog yunDialogLog4 = YunDialogLog.getInstance();
-                yunDialogLog4.i(LOG_KEY, "云弹窗 " + n55Var.b() + " 不可显示：从云弹窗返回");
+                yunDialogLog4.i(LOG_KEY, "云弹窗 " + t55Var.b() + " 不可显示：从云弹窗返回");
                 return false;
             } else if (TbadkCoreApplication.getInst().isInBackground()) {
                 YunDialogLog.getInstance().i(LOG_KEY, "isInBackground");
@@ -450,12 +452,12 @@ public class YunDialogManager {
         if (interceptable == null || interceptable.invokeLLLL(65543, this, context, str, list, str2) == null) {
             this.currentShowingDialogList.add(str);
             this.showingH5DialogList.add(str);
-            j65.a(context, str, str2);
+            r65.a(context, str, str2);
             TbLog yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.i(LOG_KEY, "云弹窗 " + str + " 弹出显示，展示链接：" + str2);
-            y65.a.c(str);
+            h75.a.c(str);
             if (hasNewFrequenceStrategy(list)) {
-                x65.a.g(str, readFrequencyVersion(list));
+                g75.a.g(str, readFrequencyVersion(list));
             }
             this.alreadyShownDialogs.add(str);
         }
@@ -495,12 +497,12 @@ public class YunDialogManager {
         return invokeL.booleanValue;
     }
 
-    public static void onHidden(@NonNull n55 n55Var) {
+    public static void onHidden(@NonNull t55 t55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, n55Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65552, null, t55Var) == null) {
             TbLog yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.i(LOG_KEY, "云弹窗时机消失:" + n55Var.b());
-            if (n55Var.c()) {
+            yunDialogLog.i(LOG_KEY, "云弹窗时机消失:" + t55Var.b());
+            if (t55Var.c()) {
                 getInstance().currentPageName = "";
             }
         }
@@ -516,22 +518,22 @@ public class YunDialogManager {
         }
     }
 
-    public static void onShow(@NonNull Context context, @NonNull n55 n55Var) {
+    public static void onShow(@NonNull Context context, @NonNull t55 t55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, context, n55Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(65553, null, context, t55Var) == null) {
             if (!BdUtilHelper.isMainThread()) {
-                SafeHandler.getInst().postAtFrontOfQueue(new b(context, n55Var));
+                SafeHandler.getInst().postAtFrontOfQueue(new b(context, t55Var));
                 return;
             }
             TbLog yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.i(LOG_KEY, "云弹窗时机触发:" + n55Var.b());
-            if (n55Var.c()) {
-                getInstance().currentPageName = n55Var.b();
+            yunDialogLog.i(LOG_KEY, "云弹窗时机触发:" + t55Var.b());
+            if (t55Var.c()) {
+                getInstance().currentPageName = t55Var.b();
             }
-            if (!canShowDialog(n55Var)) {
+            if (!canShowDialog(t55Var)) {
                 return;
             }
-            YunDialogDataManager.j().g(n55Var.b(), new c(context, n55Var));
+            YunDialogDataManager.j().g(t55Var.b(), new c(context, t55Var));
         }
     }
 
@@ -575,10 +577,10 @@ public class YunDialogManager {
             for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : list) {
                 if ("NEW_FREQUENCE_STRATEGY".equals(strategiesConfigData.getType())) {
                     try {
-                        return ((FrequenceDialogStrategy.Data) DataExt.toEntity(strategiesConfigData.O(), FrequenceDialogStrategy.Data.class)).frequenceClearVersion;
+                        return ((FrequenceDialogStrategy.Data) DataExt.toEntity(strategiesConfigData.N(), FrequenceDialogStrategy.Data.class)).frequenceClearVersion;
                     } catch (Exception e2) {
                         TbLog yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.e(LOG_KEY, "新版频次版本读取失败 " + strategiesConfigData.O());
+                        yunDialogLog.e(LOG_KEY, "新版频次版本读取失败 " + strategiesConfigData.N());
                         e2.printStackTrace();
                         if (!TbadkCoreApplication.getInst().isDebugMode()) {
                             return 0;
@@ -612,12 +614,12 @@ public class YunDialogManager {
                 if (dialogStrategy == null) {
                     dialogStrategy = new ArrayList<>();
                 }
-                dialogStrategy.add(DialogStrategiesData.StrategiesConfigData.N());
+                dialogStrategy.add(DialogStrategiesData.StrategiesConfigData.M());
             }
             if (dialogStrategy != null) {
                 for (DialogStrategiesData.StrategiesConfigData strategiesConfigData : dialogStrategy) {
-                    l65 l65Var = this.strategyMap.get(strategiesConfigData.getType());
-                    if (l65Var != null && !l65Var.b(l65Var.a(dialogStrategiesData, strategiesConfigData.O(), hashMap))) {
+                    t65 t65Var = this.strategyMap.get(strategiesConfigData.getType());
+                    if (t65Var != null && !t65Var.b(t65Var.a(dialogStrategiesData, strategiesConfigData.N(), hashMap))) {
                         return;
                     }
                 }

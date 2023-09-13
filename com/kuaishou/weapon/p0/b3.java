@@ -56,7 +56,7 @@ public class b3 {
                         long currentTimeMillis = System.currentTimeMillis();
                         long a3 = a.a(f3.R, 1) * 3600000;
                         long a4 = a.a(f3.S, 5) * 60000;
-                        int a5 = a.a(f3.f1215T, 0);
+                        int a5 = a.a(f3.f1211T, 0);
                         if (a2 > 0 && currentTimeMillis - a2 < WeaponHI.ii * 3600000 && WeaponHI.isList != null) {
                             int hours = new Date(currentTimeMillis).getHours();
                             List<Integer> list = WeaponHI.isList;

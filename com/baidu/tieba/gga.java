@@ -1,163 +1,203 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.StarEnter;
 /* loaded from: classes6.dex */
-public class gga {
+public class gga implements cn {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdStatsItem a;
-    public String b;
-    public boolean c;
+    public String a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
+    public int g;
 
-    public gga(String str) {
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947794344, "Lcom/baidu/tieba/gga;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947794344, "Lcom/baidu/tieba/gga;");
+                return;
+            }
+        }
+        h = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
+    }
+
+    public gga() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.c = false;
-        e(str, false);
-    }
-
-    public void a() {
-        jga c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long timeCost = this.a.getTimeCost();
-            if (timeCost > 3000) {
-                iga igaVar = c.f;
-                igaVar.a += timeCost;
-                igaVar.b++;
-                hga.b(c, 10);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        jga c;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
-            return;
-        }
-        if (z) {
-            iga igaVar = c.d;
-            if (igaVar == null) {
-                return;
-            }
-            igaVar.b++;
-            if (z2) {
-                igaVar.a += j2;
-                igaVar.d += j;
-            } else {
-                igaVar.c++;
-            }
-        } else {
-            iga igaVar2 = c.e;
-            if (igaVar2 == null) {
-                return;
-            }
-            igaVar2.b++;
-            if (z2) {
-                igaVar2.a += j3;
-                igaVar2.d += j;
-            } else {
-                igaVar2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            hga.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
-                bdStatsItem.append("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
-                }
-                bdStatsItem.append("result", str2);
-                if (z) {
-                    str3 = "1";
-                }
-                bdStatsItem.append("isHttp", str3);
-                bdStatsItem.append("timeCost", String.valueOf(j2));
-                bdStatsItem.append(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                bdStatsItem.append(StatConstants.KEY_EXT_ERR_MSG, str);
-                bdStatsItem.append("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
-            }
-        }
-    }
-
-    public final jga c() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return hga.e(this.b, d(), this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return (jga) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final String d() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
-            }
-            if (netType == 1) {
-                return "WIFI";
-            }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public void f() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.startTimer();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return BdUniqueId.gen();
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(StarEnter starEnter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, starEnter) == null) {
+            l(starEnter.icon);
+            o(starEnter.time.intValue());
+            p(starEnter.title);
+            t(starEnter.type.intValue());
+            q(starEnter.url);
+            s(starEnter.weight.intValue());
+            m(starEnter.rank_num.intValue());
+            i(starEnter.bazhu_mark.intValue());
+            if (StringUtils.isNull(this.a) && this.g == 1) {
+                this.a = h;
+            }
+            this.d = starEnter.obj_id;
+            this.e = starEnter.text;
         }
     }
 
-    public void e(String str, boolean z) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new BdStatsItem("dbg");
-            hga.c(str, d(), z);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.b = i;
         }
     }
 }

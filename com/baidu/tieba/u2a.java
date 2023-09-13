@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class u2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public double b;
-    public List<String> c;
+    public String a;
+    public int b;
+    public int c;
     public int d;
     public int e;
 
@@ -29,42 +28,94 @@ public class u2a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+    }
+
+    public u2a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+        if (jSONObject != null) {
+            this.a = jSONObject.optString("forum_name");
+            this.b = jSONObject.optInt("refresh_count");
+            this.c = jSONObject.optInt("loadmore_count");
+            this.d = jSONObject.optInt("loadmore_count_pb");
+            this.e = jSONObject.optInt("refresh_count_pb");
+        }
+    }
+
+    public void a(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z2) {
+                if (z) {
+                    this.e++;
+                } else {
+                    this.d++;
+                }
+            } else if (z) {
+                this.b++;
+            } else {
+                this.c++;
             }
         }
     }
 
-    public static u2a a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        boolean z;
+    public int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z2) {
+                if (z) {
+                    return this.e;
+                }
+                return this.d;
+            } else if (z) {
+                return this.b;
+            } else {
+                return this.c;
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("forum_name", this.a);
+                jSONObject.put("refresh_count", this.b);
+                jSONObject.put("loadmore_count", this.c);
+                jSONObject.put("loadmore_count_pb", this.d);
+                jSONObject.put("refresh_count_pb", this.e);
+                return jSONObject;
+            } catch (JSONException unused) {
                 return null;
             }
-            u2a u2aVar = new u2a();
-            if (jSONObject.optInt("label_measure") == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            u2aVar.a = z;
-            u2aVar.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        g29.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
-            }
-            u2aVar.c = arrayList;
-            u2aVar.d = jSONObject.optInt("width");
-            u2aVar.e = jSONObject.optInt("height");
-            return u2aVar;
         }
-        return (u2a) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

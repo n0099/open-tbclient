@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gf9;
-import com.baidu.tieba.hf9;
-import com.baidu.tieba.if9;
-import com.baidu.tieba.jf9;
-import com.baidu.tieba.kf9;
-import com.baidu.tieba.lf9;
-import com.baidu.tieba.mf9;
+import com.baidu.tieba.ig9;
+import com.baidu.tieba.jg9;
+import com.baidu.tieba.kg9;
+import com.baidu.tieba.lg9;
+import com.baidu.tieba.mg9;
+import com.baidu.tieba.ng9;
+import com.baidu.tieba.og9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,9 +25,9 @@ public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public if9 b;
-    public hf9 c;
-    public gf9 d;
+    public kg9 b;
+    public jg9 c;
+    public ig9 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            if9 if9Var = new if9();
-            this.b = if9Var;
-            if9Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            kg9 kg9Var = new kg9();
+            this.b = kg9Var;
+            kg9Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -82,14 +82,14 @@ public class OneKeyLoginActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d004a);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091fac);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091fec);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new kf9(getPageContext(), findViewById);
-                this.d = new jf9(getPageContext(), this.c);
+                this.c = new mg9(getPageContext(), findViewById);
+                this.d = new lg9(getPageContext(), this.c);
             } else {
-                this.c = new mf9(getPageContext(), findViewById);
-                this.d = new lf9(getPageContext(), this.c);
+                this.c = new og9(getPageContext(), findViewById);
+                this.d = new ng9(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

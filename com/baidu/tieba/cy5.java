@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.hybrid.BridgeWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class cy5 {
+public class cy5<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static cy5 b;
+    @Nullable
+    public static Object a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, by5> a;
 
     static {
         InterceptResult invokeClinit;
@@ -38,47 +31,6 @@ public class cy5 {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements pga {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nga a;
-        public final /* synthetic */ WebView b;
-
-        public a(cy5 cy5Var, nga ngaVar, WebView webView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cy5Var, ngaVar, webView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ngaVar;
-            this.b = webView;
-        }
-
-        @Override // com.baidu.tieba.pga
-        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                nga ngaVar = this.a;
-                if (ngaVar != null) {
-                    return ngaVar.c(this.b, str, jsPromptResult);
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
     public cy5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -89,107 +41,24 @@ public class cy5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static cy5 b() {
+    @Nullable
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (cy5.class) {
-                    if (b == null) {
-                        b = new cy5();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (T) a;
         }
-        return (cy5) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public by5 a(Context context, String str) {
-        InterceptResult invokeLL;
+    public void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.a.size() >= 8) {
-                f();
-            }
-            by5 by5Var = new by5();
-            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
-            bridgeWebView.setBackgroundColor(R.color.transparent);
-            dy5.b(bridgeWebView);
-            nga ngaVar = new nga();
-            ngaVar.a(new CommonTbJsBridge(context, bridgeWebView));
-            zw4 zw4Var = new zw4();
-            zw4Var.b(new a(this, ngaVar, bridgeWebView));
-            bridgeWebView.setWebChromeClient(zw4Var);
-            by5Var.a = bridgeWebView;
-            by5Var.b = str;
-            by5Var.c = 0;
-            this.a.put(str, by5Var);
-            return by5Var;
-        }
-        return (by5) invokeLL.objValue;
-    }
-
-    public by5 c(Activity activity, String str) {
-        InterceptResult invokeLL;
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
-            by5 by5Var = this.a.get(str);
-            if (by5Var != null && (webView = by5Var.a) != null) {
-                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
-                this.a.remove(str);
-                return by5Var;
-            }
-            return null;
-        }
-        return (by5) invokeLL.objValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.a.containsKey(str) && this.a.get(str) != null && this.a.get(str).a()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long j = 0;
-            String str = null;
-            for (String str2 : this.a.keySet()) {
-                by5 by5Var = this.a.get(str2);
-                if (by5Var != null) {
-                    if (by5Var.d < j) {
-                        str = by5Var.b;
-                    }
-                    j = by5Var.d;
-                }
-            }
-            if (str != null) {
-                this.a.remove(str);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            a = t;
         }
     }
 }

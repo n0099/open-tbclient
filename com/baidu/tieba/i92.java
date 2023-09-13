@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.LocalServerSocket;
-import android.net.LocalSocket;
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.e92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,78 +10,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TimeZone;
 /* loaded from: classes6.dex */
-public class i92 implements e92.c {
+public class i92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public e92.b a;
-    public LocalServerSocket b;
-    public g92 c;
-    public String d;
-    public boolean e;
+    public Context a;
+    public b b;
+    public c c;
 
     /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, String> a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashMap();
-        }
+    public interface b {
+        void onConnected();
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class b {
+    public interface c {
+        void start();
+
+        void stop();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public a a;
+        public final /* synthetic */ i92 a;
 
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        public abstract Map<String, String> b();
-
-        public abstract String c();
-
-        public b(a aVar) {
+        public a(i92 i92Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
+                Object[] objArr = {i92Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,34 +52,23 @@ public class i92 implements e92.c {
                     return;
                 }
             }
-            this.a = aVar;
+            this.a = i92Var;
         }
 
-        public final void d(PrintWriter printWriter, String str, String str2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, printWriter, str, str2) == null) {
-                printWriter.append((CharSequence) str).append(": ").append((CharSequence) str2).append("\r\n");
-            }
-        }
-
-        public void e(OutputStream outputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, outputStream) == null) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-                printWriter.append("HTTP/1.1").append(WebvttCueParser.CHAR_SPACE).append((CharSequence) c()).append(" \r\n");
-                d(printWriter, "Date", simpleDateFormat.format(new Date()));
-                printWriter.print("Content-Length: " + a().getBytes().length + "\r\n");
-                Map<String, String> b = b();
-                if (b != null && b.size() > 0) {
-                    for (Map.Entry<String, String> entry : b.entrySet()) {
-                        d(printWriter, entry.getKey(), entry.getValue());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!k82.e() && i92.e() == 0) {
+                    if (!k82.f()) {
+                        h82.c("V8Inspector", "Unknown inspect mode");
+                        return;
                     }
+                    this.a.c = new l92(c92.e(), this.a.b);
+                } else {
+                    this.a.c = new m92(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
                 }
-                printWriter.append("\r\n");
-                printWriter.append((CharSequence) a());
-                printWriter.flush();
+                this.a.c.start();
             }
         }
     }
@@ -139,38 +86,44 @@ public class i92 implements e92.c {
                 return;
             }
         }
-        f = nr1.a;
+        int i = 0;
+        if (vj3.a().getBoolean("Inspector", false)) {
+            i = 2;
+        }
+        d = i;
     }
 
-    @Override // com.baidu.tieba.e92.c
-    public void stop() {
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = false;
-            LocalServerSocket localServerSocket = this.b;
-            if (localServerSocket != null) {
-                try {
-                    localServerSocket.close();
-                } catch (IOException e) {
-                    d82.d("V8InspectorServer", "stop local server fail", e);
-                }
-                this.b = null;
-            }
-            g92 g92Var = this.c;
-            if (g92Var != null) {
-                g92Var.l();
-                this.c = null;
-            }
-            this.a = null;
+            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
         }
     }
 
-    public i92(String str, e92.b bVar) {
+    public void i() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
+            cVar.stop();
+            this.c = null;
+        }
+    }
+
+    public i92(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -180,36 +133,28 @@ public class i92 implements e92.c {
                 return;
             }
         }
-        this.d = str;
-        this.a = bVar;
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.e92.c
-    public void start() {
+    public static void g(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e) {
-            return;
-        }
-        try {
-            this.b = new LocalServerSocket(this.d);
-            this.e = true;
-            int i = 0;
-            while (this.e) {
-                LocalSocket accept = this.b.accept();
-                g92 g92Var = new g92(accept.getInputStream(), accept.getOutputStream());
-                this.c = g92Var;
-                g92Var.o(this.a);
-                ExecutorUtilsExt.postOnSerial(this.c, "V8InspectorServer");
-                if (c73.H() && (i = i + 1) > 10) {
-                    if (f) {
-                        Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
-                        return;
-                    }
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            pj3 a2 = vj3.a();
+            if (i == 2) {
+                z = true;
+            } else {
+                z = false;
             }
-        } catch (IOException e) {
-            d82.d("V8InspectorServer", "launch local server fail", e);
+            a2.putBoolean("Inspector", z);
+            d = i;
+        }
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

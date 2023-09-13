@@ -5,7 +5,7 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.boxes.AbstractTrackEncryptionBox;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
 

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d26;
-import com.baidu.tieba.dt5;
-import com.baidu.tieba.w16;
+import com.baidu.tieba.a36;
+import com.baidu.tieba.t26;
+import com.baidu.tieba.xt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,23 +21,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class SelectClassDialogView extends ViewGroup implements dt5 {
+public class SelectClassDialogView extends ViewGroup implements xt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public d26<String> b;
+    public a36<String> b;
 
-    @Override // com.baidu.tieba.dt5
-    public boolean Z0() {
+    @Override // com.baidu.tieba.xt5
+    public boolean a1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dt5
+    @Override // com.baidu.tieba.xt5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,8 +76,8 @@ public class SelectClassDialogView extends ViewGroup implements dt5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.dt5
-    public boolean C() {
+    @Override // com.baidu.tieba.xt5
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -91,11 +91,11 @@ public class SelectClassDialogView extends ViewGroup implements dt5 {
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020a, this.a, true);
-            d26<String> d26Var = new d26<>(this.a, true);
-            this.b = d26Var;
-            d26Var.t(9);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020d, this.a, true);
+            a36<String> a36Var = new a36<>(this.a, true);
+            this.b = a36Var;
+            a36Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -108,7 +108,7 @@ public class SelectClassDialogView extends ViewGroup implements dt5 {
         }
     }
 
-    @Override // com.baidu.tieba.dt5
+    @Override // com.baidu.tieba.xt5
     public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -133,11 +133,11 @@ public class SelectClassDialogView extends ViewGroup implements dt5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(w16 w16Var) {
-        d26<String> d26Var;
+    public void setOnOptionsSelectChangeListener(t26 t26Var) {
+        a36<String> a36Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, w16Var) == null) && (d26Var = this.b) != null) {
-            d26Var.w(w16Var);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, t26Var) == null) && (a36Var = this.b) != null) {
+            a36Var.w(t26Var);
         }
     }
 }

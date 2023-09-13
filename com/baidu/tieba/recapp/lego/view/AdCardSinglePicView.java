@@ -9,10 +9,10 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g29;
+import com.baidu.tieba.i39;
+import com.baidu.tieba.l4a;
+import com.baidu.tieba.p4a;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.u2a;
-import com.baidu.tieba.y2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,14 +29,14 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a6 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d019f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a4 : invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
@@ -67,7 +67,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.Y("image");
+                this.a.X("image");
             }
         }
     }
@@ -92,33 +92,17 @@ public class AdCardSinglePicView extends AdCardBaseView {
         }
     }
 
-    public void A0(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(1048576, this, view2, i, i2) != null) || view2 == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(i2, i);
-        } else {
-            layoutParams.height = i;
-            layoutParams.width = i2;
-        }
-        this.f0.setLayoutParams(layoutParams);
-        view2.setLayoutParams(layoutParams);
-    }
-
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void V(AdCard adCard) {
+    public void U(AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
-            u2a u2aVar = adCard.picInfo;
-            if (u2aVar != null && !g29.e(u2aVar.c)) {
-                String str = u2aVar.c.get(0);
-                boolean z0 = z0(this.g0, adCard, u2aVar);
-                if (!TextUtils.isEmpty(str) && z0) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
+            l4a l4aVar = adCard.picInfo;
+            if (l4aVar != null && !i39.e(l4aVar.c)) {
+                String str = l4aVar.c.get(0);
+                boolean y0 = y0(this.g0, adCard, l4aVar);
+                if (!TextUtils.isEmpty(str) && y0) {
                     this.o.setVisibility(0);
-                    this.g0.b(str);
+                    this.g0.r(str);
                 } else {
                     this.o.setVisibility(8);
                 }
@@ -130,25 +114,25 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void d0(View view2) {
+    public void c0(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            float[] X = X(R.string.J_X05);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            float[] W = W(R.string.J_X05);
             if (view2 instanceof XfremodeRoundLayout) {
-                ((XfremodeRoundLayout) view2).setRoundLayoutRadius(X);
+                ((XfremodeRoundLayout) view2).setRoundLayoutRadius(W);
             }
-            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f5e);
-            AdImageView adImageView = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f091887);
+            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f9d);
+            AdImageView adImageView = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f09189f);
             this.g0 = adImageView;
             adImageView.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
-            this.f0.setRoundLayoutRadius(X);
+            this.f0.setRoundLayoutRadius(W);
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public void setCustomViewRadius(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fArr) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) {
             View view2 = this.o;
             if (view2 instanceof XfremodeRoundLayout) {
                 ((XfremodeRoundLayout) view2).setRoundLayoutRadius(fArr);
@@ -159,10 +143,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
         }
     }
 
-    public boolean z0(View view2, AdCard adCard, @NonNull u2a u2aVar) {
+    public boolean y0(View view2, AdCard adCard, @NonNull l4a l4aVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, view2, adCard, u2aVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, view2, adCard, l4aVar)) == null) {
             if (adCard == null || view2 == null) {
                 return false;
             }
@@ -172,25 +156,41 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i = this.x;
             int i2 = (int) (i * d);
-            int b = (int) (y2a.b(i) * d);
+            int b = (int) (p4a.b(i) * d);
             if (!adCard.isNeedResize()) {
-                A0(view2, b, i2);
+                z0(view2, b, i2);
                 return true;
             }
-            int i3 = u2aVar.e;
-            int i4 = u2aVar.d;
+            int i3 = l4aVar.e;
+            int i4 = l4aVar.d;
             if (i2 > 0 && i3 > 0 && i4 > 0) {
                 int i5 = (i3 * i2) / i4;
                 if (i5 > i2) {
                     return false;
                 }
-                A0(view2, i5, i2);
+                z0(view2, i5, i2);
                 return true;
             }
             int i6 = this.x;
-            A0(view2, (int) (i6 * 0.75f), i6);
+            z0(view2, (int) (i6 * 0.75f), i6);
             return true;
         }
         return invokeLLL.booleanValue;
+    }
+
+    public void z0(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLII(1048582, this, view2, i, i2) != null) || view2 == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(i2, i);
+        } else {
+            layoutParams.height = i;
+            layoutParams.width = i2;
+        }
+        this.f0.setLayoutParams(layoutParams);
+        view2.setLayoutParams(layoutParams);
     }
 }

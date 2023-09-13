@@ -18,18 +18,18 @@ public final class GapWorker implements Runnable {
         public int compare(Task task, Task task2) {
             boolean z;
             boolean z2;
-            if (task.f1028view == null) {
+            if (task.f1027view == null) {
                 z = true;
             } else {
                 z = false;
             }
-            if (task2.f1028view == null) {
+            if (task2.f1027view == null) {
                 z2 = true;
             } else {
                 z2 = false;
             }
             if (z != z2) {
-                if (task.f1028view == null) {
+                if (task.f1027view == null) {
                     return 1;
                 }
                 return -1;
@@ -148,14 +148,14 @@ public final class GapWorker implements Runnable {
         public int position;
 
         /* renamed from: view  reason: collision with root package name */
-        public RecyclerView f1028view;
+        public RecyclerView f1027view;
         public int viewVelocity;
 
         public void clear() {
             this.immediate = false;
             this.viewVelocity = 0;
             this.distanceToItem = 0;
-            this.f1028view = null;
+            this.f1027view = null;
             this.position = 0;
         }
     }
@@ -195,7 +195,7 @@ public final class GapWorker implements Runnable {
                     task.immediate = z;
                     task.viewVelocity = abs;
                     task.distanceToItem = i6;
-                    task.f1028view = recyclerView2;
+                    task.f1027view = recyclerView2;
                     task.position = layoutPrefetchRegistryImpl.mPrefetchArray[i5];
                     i3++;
                 }
@@ -211,7 +211,7 @@ public final class GapWorker implements Runnable {
         } else {
             j2 = j;
         }
-        RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1028view, task.position, j2);
+        RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.f1027view, task.position, j2);
         if (prefetchPositionWithDeadline != null && prefetchPositionWithDeadline.mNestedRecyclerView != null && prefetchPositionWithDeadline.isBound() && !prefetchPositionWithDeadline.isInvalid()) {
             prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
         }
@@ -231,7 +231,7 @@ public final class GapWorker implements Runnable {
     private void flushTasksWithDeadline(long j) {
         for (int i = 0; i < this.mTasks.size(); i++) {
             Task task = this.mTasks.get(i);
-            if (task.f1028view != null) {
+            if (task.f1027view != null) {
                 flushTaskWithDeadline(task, j);
                 task.clear();
             } else {

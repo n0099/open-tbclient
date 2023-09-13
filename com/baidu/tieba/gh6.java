@@ -1,107 +1,118 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Search.DataRes;
 /* loaded from: classes6.dex */
 public class gh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public boolean k;
-    public long l;
+    public TbPageContext a;
+    public b b;
+    public HttpMessageListener c;
 
-    public gh6() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gh6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gh6 gh6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gh6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gh6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
+                return;
+            }
+            AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
+            if (alaTDouBuyPrivilegeResponsedMessage.getError() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
+            if (this.a.b != null) {
+                this.a.b.a(z, errorString);
+            }
+        }
+    }
+
+    public gh6(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.c = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
+    }
+
+    public void b(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i);
+            httpMessage.addParam("effect_id", str);
+            httpMessage.addParam("buy_action", 0);
+            this.a.sendMessage(httpMessage);
         }
     }
 
-    public void a(DataRes dataRes) {
-        long longValue;
-        long longValue2;
-        int intValue;
-        int intValue2;
-        int intValue3;
-        int intValue4;
+    public void c(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i2);
+            httpMessage.addParam("mark_id", i);
+            httpMessage.addParam("buy_action", z ? 1 : 0);
+            this.a.sendMessage(httpMessage);
         }
-        Long l = dataRes.uid;
-        long j = 0;
-        if (l == null) {
-            longValue = 0;
-        } else {
-            longValue = l.longValue();
-        }
-        this.b = longValue;
-        this.c = dataRes.portrait;
-        this.d = dataRes.name_show;
-        Long l2 = dataRes.apply_id;
-        if (l2 == null) {
-            longValue2 = 0;
-        } else {
-            longValue2 = l2.longValue();
-        }
-        this.e = longValue2;
-        Integer num = dataRes.vote_num;
-        boolean z = false;
-        if (num == null) {
-            intValue = 0;
-        } else {
-            intValue = num.intValue();
-        }
-        this.f = intValue;
-        Integer num2 = dataRes.agree_num;
-        if (num2 == null) {
-            intValue2 = 0;
-        } else {
-            intValue2 = num2.intValue();
-        }
-        this.g = intValue2;
-        Integer num3 = dataRes.thread_num;
-        if (num3 == null) {
-            intValue3 = 0;
-        } else {
-            intValue3 = num3.intValue();
-        }
-        this.h = intValue3;
-        Integer num4 = dataRes.post_num;
-        if (num4 == null) {
-            intValue4 = 0;
-        } else {
-            intValue4 = num4.intValue();
-        }
-        this.i = intValue4;
-        Boolean bool = dataRes.is_vote;
-        if (bool != null) {
-            z = bool.booleanValue();
-        }
-        this.k = z;
-        Long l3 = dataRes.tid;
-        if (l3 != null) {
-            j = l3.longValue();
-        }
-        this.l = j;
     }
 }

@@ -10,8 +10,8 @@ import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.by6;
-import com.baidu.tieba.ox9;
+import com.baidu.tieba.fz6;
+import com.baidu.tieba.fz9;
 import com.baidu.tieba.play.AutoPlayController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,16 +25,16 @@ import kotlin.jvm.internal.Intrinsics;
 public final class AutoPlayController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ox9 a;
+    public final fz9 a;
     public int b;
     public int c;
     public boolean d;
     public boolean e;
     public boolean f;
-    public final by6 g;
+    public final fz6 g;
     public a h;
     public final AutoPlayController$onScrollListener$1 i;
-    public final by6.b j;
+    public final fz6.b j;
     public final View.OnTouchListener k;
 
     /* loaded from: classes7.dex */
@@ -43,19 +43,19 @@ public final class AutoPlayController {
     }
 
     /* loaded from: classes7.dex */
-    public static final class b implements by6.b {
+    public static final class b implements fz6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoPlayController a;
 
-        @Override // com.baidu.tieba.by6.b
+        @Override // com.baidu.tieba.fz6.b
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.by6.b
+        @Override // com.baidu.tieba.fz6.b
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -80,7 +80,7 @@ public final class AutoPlayController {
             this.a = autoPlayController;
         }
 
-        @Override // com.baidu.tieba.by6.b
+        @Override // com.baidu.tieba.fz6.b
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeII(1048576, this, i, i2) != null) {
@@ -89,7 +89,7 @@ public final class AutoPlayController {
             this.a.f = false;
         }
 
-        @Override // com.baidu.tieba.by6.b
+        @Override // com.baidu.tieba.fz6.b
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) {
@@ -117,9 +117,9 @@ public final class AutoPlayController {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(recyclerView, "recyclerView");
-        this.a = new ox9(context, recyclerView);
+        this.a = new fz9(context, recyclerView);
         this.e = true;
-        this.g = new by6();
+        this.g = new fz6();
         this.i = new RecyclerView.OnScrollListener(this) { // from class: com.baidu.tieba.play.AutoPlayController$onScrollListener$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -145,8 +145,8 @@ public final class AutoPlayController {
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView2, int i3) {
-                ox9 ox9Var;
-                ox9 ox9Var2;
+                fz9 fz9Var;
+                fz9 fz9Var2;
                 int i4;
                 int i5;
                 boolean z;
@@ -154,13 +154,13 @@ public final class AutoPlayController {
                 if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView2, i3) == null) {
                     Intrinsics.checkNotNullParameter(recyclerView2, "recyclerView");
                     if (i3 == 0) {
-                        ox9Var = this.a.a;
-                        if (ox9Var != null && this.a.j() && !this.a.i()) {
-                            ox9Var2 = this.a.a;
+                        fz9Var = this.a.a;
+                        if (fz9Var != null && this.a.j() && !this.a.i()) {
+                            fz9Var2 = this.a.a;
                             i4 = this.a.b;
                             i5 = this.a.c;
                             z = this.a.f;
-                            ox9Var2.m(i4, i5, z, 1);
+                            fz9Var2.m(i4, i5, z, 1);
                         }
                     }
                 }
@@ -180,7 +180,7 @@ public final class AutoPlayController {
             }
         };
         this.j = new b(this);
-        this.k = new View.OnTouchListener() { // from class: com.baidu.tieba.cx9
+        this.k = new View.OnTouchListener() { // from class: com.baidu.tieba.ty9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,10 +272,10 @@ public final class AutoPlayController {
     }
 
     public final void r() {
-        ox9 ox9Var;
+        fz9 fz9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (ox9Var = this.a) != null && !this.d && this.e) {
-            ox9Var.n(this.b, this.c, this.f, true);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (fz9Var = this.a) != null && !this.d && this.e) {
+            fz9Var.n(this.b, this.c, this.f, true);
         }
     }
 

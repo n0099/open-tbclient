@@ -5,10 +5,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ag8;
-import com.baidu.tieba.bg8;
-import com.baidu.tieba.cw5;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.dh8;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ public class TbSingleTextImageMsg extends TbBaseImageMsg {
     public static final int MSG_TYPE = 102;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public CharSequence cacheText;
     @Nullable
     public BotsDTO.BotListDTO.SkillDTO.ItemsDTO fileItem;
     @Nullable
     @SerializedName("robot_params")
-    @ag8
+    @ch8
     public Map<String, Object> robotParams;
-    @bg8
+    @dh8
     public String text;
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     public TbSingleTextImageMsg() {

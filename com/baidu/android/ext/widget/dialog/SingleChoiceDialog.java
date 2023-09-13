@@ -227,7 +227,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SingleChoiceDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10014f);
+        super(context, R.style.obfuscated_res_0x7f100151);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -310,7 +310,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
             this.mListView.setAdapter((ListAdapter) new SingleChoiceAdapter());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             Resources resources = getContext().getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707d4);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0707da);
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.single_choice_dialog_bottom_margin);
             layoutParams.leftMargin = dimensionPixelSize;
             layoutParams.rightMargin = dimensionPixelSize;
@@ -379,7 +379,7 @@ public class SingleChoiceDialog extends BoxAlertDialog {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView ifOnlyOneBtnGetIt = getBuilder().ifOnlyOneBtnGetIt();
             if (ifOnlyOneBtnGetIt != null) {
-                ifOnlyOneBtnGetIt.setBackgroundResource(R.drawable.obfuscated_res_0x7f080209);
+                ifOnlyOneBtnGetIt.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020a);
             }
             super.show();
         }

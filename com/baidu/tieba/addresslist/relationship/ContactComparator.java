@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import com.baidu.tieba.df5;
+import com.baidu.tieba.nf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes5.dex */
-public class ContactComparator implements Comparator<df5>, Serializable {
+public class ContactComparator implements Comparator<nf5>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 5856247139420779621L;
@@ -32,18 +32,18 @@ public class ContactComparator implements Comparator<df5>, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(df5 df5Var, df5 df5Var2) {
+    public int compare(nf5 nf5Var, nf5 nf5Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, df5Var, df5Var2)) == null) {
-            if (df5Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, nf5Var, nf5Var2)) == null) {
+            if (nf5Var == null) {
                 return -1;
             }
-            if (df5Var2 == null) {
+            if (nf5Var2 == null) {
                 return 1;
             }
-            String a = df5Var.a();
-            String a2 = df5Var2.a();
+            String a = nf5Var.a();
+            String a2 = nf5Var2.a();
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2) && !a.equals(a2)) {
                 if ("#".equals(a)) {
                     return 1;
@@ -53,16 +53,16 @@ public class ContactComparator implements Comparator<df5>, Serializable {
                 }
                 return a.compareToIgnoreCase(a2);
             }
-            String e = df5Var.e();
-            String e2 = df5Var2.e();
+            String e = nf5Var.e();
+            String e2 = nf5Var2.e();
             if (TextUtils.isEmpty(e)) {
                 return -1;
             }
             if (TextUtils.isEmpty(e2)) {
                 return 1;
             }
-            String c = df5Var.c();
-            String c2 = df5Var2.c();
+            String c = nf5Var.c();
+            String c2 = nf5Var2.c();
             if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
                 return c.compareToIgnoreCase(c2);
             }

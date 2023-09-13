@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface yu1 {
-    void a(String str, c83 c83Var);
+    boolean a(@NonNull JSONObject jSONObject);
 }

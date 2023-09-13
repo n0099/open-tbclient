@@ -3,7 +3,7 @@ package com.baidu.bdtask.component.buoy.times;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.TaskState;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.up;
+import com.baidu.tieba.vp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,16 +18,16 @@ public final class TimesBuoyComponent$addOnce$2$onInvoke$1 extends Lambda implem
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ TaskState $taskState;
-    public final /* synthetic */ up this$0;
+    public final /* synthetic */ vp this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TimesBuoyComponent$addOnce$2$onInvoke$1(up upVar, TaskState taskState) {
+    public TimesBuoyComponent$addOnce$2$onInvoke$1(vp vpVar, TaskState taskState) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {upVar, taskState};
+            Object[] objArr = {vpVar, taskState};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class TimesBuoyComponent$addOnce$2$onInvoke$1 extends Lambda implem
                 return;
             }
         }
-        this.this$0 = upVar;
+        this.this$0 = vpVar;
         this.$taskState = taskState;
     }
 

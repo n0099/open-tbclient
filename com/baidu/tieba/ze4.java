@@ -1,76 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ye4;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
 /* loaded from: classes9.dex */
 public class ze4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
-    public static class a implements ye4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ye4.a
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
-                return;
-            }
-            view2.setAlpha(1.0f);
-        }
-
-        @Override // com.baidu.tieba.ye4.a
-        public void b(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
-                return;
-            }
-            view2.setAlpha(0.2f);
+    public static void a(Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
+            b(callback, "6");
         }
     }
 
-    public static void a(View view2) {
+    public static void b(Callback callback, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
-            b(view2, null);
-        }
-    }
-
-    public static void b(View view2, Drawable drawable) {
-        ye4 ye4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, view2, drawable) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || hb3.M() == null) {
             return;
         }
-        if (drawable == null) {
-            ye4Var = new ye4();
-        } else {
-            ye4Var = new ye4(drawable);
-        }
-        ye4Var.b(view2);
-        ye4Var.a(new a());
-        view2.setBackground(ye4Var);
+        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
+        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
+        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, hb3.M().O());
+        newBuilder.addQueryParameter("source", "4");
+        ((o94) hb3.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
     }
 }

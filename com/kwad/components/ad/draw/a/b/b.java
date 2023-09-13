@@ -31,13 +31,13 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         FrameLayout frameLayout = this.bS;
         com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
         bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
-        this.bb.a((b.InterfaceC0610b) null);
+        this.bb.a((b.InterfaceC0605b) null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09133e);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091344);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

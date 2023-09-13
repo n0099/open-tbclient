@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.s45;
+import com.baidu.tieba.ei;
 import com.baidu.tieba.wallet.CurrencySwitchModel;
+import com.baidu.tieba.y45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ public class CurrencySwitchTDouYBeanDialog {
     public static final int MAX_RETRY_TIME = 3;
     public transient /* synthetic */ FieldHolder $fh;
     public int countNum;
-    public s45 dialog;
+    public y45 dialog;
     public CurrencySwitchModel mCurrencySwitchModel;
     public TbPageContext mPageContext;
 
@@ -85,15 +85,15 @@ public class CurrencySwitchTDouYBeanDialog {
                 if (i == 0) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_SUCCESS).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                     TbSingleton.getInstance().getYYLiveConfig().updateStatusAndCache(1);
-                    s45 s45Var = this.dialog;
-                    if (s45Var != null && s45Var.isShowing()) {
+                    y45 y45Var = this.dialog;
+                    if (y45Var != null && y45Var.isShowing()) {
                         this.dialog.dismiss();
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 1));
-                if (di.isEmpty(str)) {
+                if (ei.isEmpty(str)) {
                     BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.default_t_dou_switching_fail_toast);
                 } else {
                     BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), str);
@@ -102,7 +102,7 @@ public class CurrencySwitchTDouYBeanDialog {
                 return;
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", 2));
-            if (di.isEmpty(str)) {
+            if (ei.isEmpty(str)) {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.default_t_dou_switching_fail_toast);
             } else {
                 BdUtilHelper.showToast(TbadkCoreApplication.getInst().getContext(), str);
@@ -119,8 +119,8 @@ public class CurrencySwitchTDouYBeanDialog {
                 currencySwitchModel.onDestroy();
                 this.mCurrencySwitchModel = null;
             }
-            s45 s45Var = this.dialog;
-            if (s45Var != null && s45Var.isShowing()) {
+            y45 y45Var = this.dialog;
+            if (y45Var != null && y45Var.isShowing()) {
                 this.dialog.dismiss();
             }
         }
@@ -129,9 +129,9 @@ public class CurrencySwitchTDouYBeanDialog {
     public void showDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            s45 s45Var = this.dialog;
-            if (s45Var != null) {
-                s45Var.dismiss();
+            y45 y45Var = this.dialog;
+            if (y45Var != null) {
+                y45Var.dismiss();
                 this.dialog = null;
             }
             int i = this.countNum;
@@ -140,12 +140,12 @@ public class CurrencySwitchTDouYBeanDialog {
             }
             this.countNum = i + 1;
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_SHOW).param("uid", TbadkCoreApplication.getCurrentAccountId()));
-            s45 s45Var2 = new s45(this.mPageContext.getPageActivity());
-            this.dialog = s45Var2;
-            s45Var2.setCanceledOnTouchOutside(false);
+            y45 y45Var2 = new y45(this.mPageContext.getPageActivity());
+            this.dialog = y45Var2;
+            y45Var2.setCanceledOnTouchOutside(false);
             this.dialog.setMessageShowCenter(true);
             this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.wallet_t_dou_switch_to_y_bean_tip));
-            this.dialog.setPositiveButton(R.string.wallet_t_dou_switch_to_y_bean_i_know, new s45.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
+            this.dialog.setPositiveButton(R.string.wallet_t_dou_switch_to_y_bean_i_know, new y45.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CurrencySwitchTDouYBeanDialog this$0;
@@ -168,10 +168,10 @@ public class CurrencySwitchTDouYBeanDialog {
                     this.this$0 = this;
                 }
 
-                @Override // com.baidu.tieba.s45.e
-                public void onClick(s45 s45Var3) {
+                @Override // com.baidu.tieba.y45.e
+                public void onClick(y45 y45Var3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, s45Var3) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, y45Var3) == null) {
                         TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_CURRENCY_SWITCH_DIALOG_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
                         if (this.this$0.mCurrencySwitchModel != null) {
                             this.this$0.mCurrencySwitchModel.sendSwitchRequest();

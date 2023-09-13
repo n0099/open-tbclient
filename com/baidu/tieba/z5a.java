@@ -1,161 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.ActivityLog;
-import com.baidu.tieba.a6a;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class z5a {
+public final class z5a implements tc7, e97, rc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.rc7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "position_from_1" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tc7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes9.dex */
-    public static class a implements a6a.c {
+    public static final class a implements v97 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<Context> a;
-        public final String b;
-        public final Uri c;
 
-        public a(Context context, Uri uri, String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, uri, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = new WeakReference<>(context);
-            this.b = str;
-            this.c = uri;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:43:0x00a9 A[ORIG_RETURN, RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:51:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        @Override // com.baidu.tieba.a6a.c
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(HashMap<String, String> hashMap) {
-            JSONObject jSONObject;
-            String str;
+        @Override // com.baidu.tieba.v97
+        public void a(Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
-                return;
-            }
-            Class<?> cls = null;
-            try {
-                JSONObject jSONObject2 = new JSONObject(this.b);
-                str = jSONObject2.optString("page");
-                try {
-                    String optString = jSONObject2.optString("refre");
-                    jSONObject = jSONObject2.optJSONObject(YunDialogManager.PAGE_PARAMS_KEY);
-                    if (jSONObject == null) {
-                        try {
-                            jSONObject = new JSONObject();
-                        } catch (Exception e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (jSONObject == null) {
-                            }
-                        }
-                    }
-                    jSONObject.put("page", str);
-                    jSONObject.put("refre", optString);
-                    jSONObject.put("from", 1);
-                    for (String str2 : this.c.getQueryParameterNames()) {
-                        if (!"params".equals(str2)) {
-                            jSONObject.put(str2, this.c.getQueryParameter(str2));
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    jSONObject = null;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                jSONObject = null;
-                str = null;
-            }
-            if (jSONObject == null) {
-                try {
-                    cls = Class.forName(hashMap.get(str));
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                if (cls == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+                Intrinsics.checkNotNullParameter(map, "map");
+                if (!Intrinsics.areEqual(map.get("has_du_xin_xuan_reply"), "1")) {
                     return;
                 }
-                for (Class<?> cls2 : cls.getInterfaces()) {
-                    if (cls2.isAssignableFrom(y5a.class)) {
-                        try {
-                            ((y5a) cls.newInstance()).dispatch(jSONObject, this.a.get());
-                            return;
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                            return;
-                        }
-                    }
-                }
+                x78.e("c15196", c7a.a(map), JavaTypesHelper.toInt(map.get("position_from_1"), 0));
             }
         }
     }
 
-    public static int a(Context context, String[] strArr) {
-        InterceptResult invokeLL;
+    public z5a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, strArr)) == null) {
-            if (context != null && strArr != null && strArr.length != 0) {
-                String str = strArr[0];
-                if (TextUtils.isEmpty(str)) {
-                    return 3;
-                }
-                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith("com.baidu.tieba://unidispatch/router/portal") && ((str = di.getUrlDecode(str)) == null || !str.startsWith("com.baidu.tieba://unidispatch/router/portal"))) {
-                    str = null;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    Uri parse = Uri.parse(str);
-                    ActivityLog.getInstance().i("scheme", "SchemaHelper:" + str);
-                    try {
-                        a6a.c().b(new a(context, parse, parse.getQueryParameter("params")));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return 0;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 3;
         }
-        return invokeLL.intValue;
     }
 
-    public static int b(TbPageContext<?> tbPageContext, String[] strArr) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.e97
+    public v97 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, strArr)) == null) {
-            if (tbPageContext != null && strArr != null && strArr.length != 0) {
-                return a(tbPageContext.getPageActivity(), strArr);
-            }
-            return 3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a();
         }
-        return invokeLL.intValue;
+        return (v97) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tc7
+    public Map<String, String> a(f87 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(businessInfo.a());
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

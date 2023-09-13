@@ -1,135 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.rotation.NadSensorAbsHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class f31 {
+public final class f31 extends NadSensorAbsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float g;
+    public int h;
 
-    public static boolean d(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
-    public static void i(Exception exc) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f31(Context context, d31 listener) {
+        super(context, listener);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (d31) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(listener, "listener");
+        this.g = 1.0f;
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int c = c().c();
+            if (c >= 0 && 66 >= c) {
+                return 1;
+            }
+            if ((67 <= c && 199 >= c) || c < 200) {
+                return 2;
+            }
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void i(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            float f = fArr[0];
+            if (Math.pow(f, 2.0d) + Math.pow(fArr[1], 2.0d) + Math.pow(fArr[2], 2.0d) < Math.pow(c().b(), 2.0d)) {
+                return;
+            }
+            if (this.g * f >= 0) {
+                this.g = f;
+                return;
+            }
+            this.g = f;
+            int i = this.h + 1;
+            this.h = i;
+            if (i >= c().a()) {
+                b().h();
+            }
         }
     }
 
-    public static <K, V> boolean a(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, k)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                return map.containsKey(k);
-            } catch (Exception e) {
-                i(e);
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.o();
+            this.h = 0;
+            this.g = 1.0f;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static <K, V> V b(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, k)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.get(k);
-            } catch (Exception e) {
-                i(e);
-                return null;
-            }
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public static <K, V> boolean f(Map<K, V> map, Map<? extends K, ? extends V> map2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.putAll(map2);
-                return true;
-            } catch (Exception e) {
-                i(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <K, V> V g(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, k)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.remove(k);
-            } catch (Exception e) {
-                i(e);
-                return null;
-            }
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public static <K, V> boolean c(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            if (!d(map) && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <K, V> int h(Map<K, V> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
-            if (d(map)) {
-                return 0;
-            }
-            return map.size();
-        }
-        return invokeL.intValue;
-    }
-
-    public static <K, V> boolean e(Map<K, V> map, K k, V v) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, k, v)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.put(k, v);
-                return true;
-            } catch (Exception e) {
-                i(e);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
     }
 }

@@ -39,7 +39,7 @@ public final class FrsGroupCardLayoutHolder extends TypeAdapter.ViewHolder {
         this.a = mView;
     }
 
-    public final FrsGroupCardLayout b() {
+    public final FrsGroupCardLayout a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

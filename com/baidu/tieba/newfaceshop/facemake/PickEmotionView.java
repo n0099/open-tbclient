@@ -95,8 +95,8 @@ public class PickEmotionView extends FrameLayout {
             this.b = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 53;
-            layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07041c);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07041c);
+            layoutParams.topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070420);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070420);
             addView(this.b, layoutParams);
         }
     }

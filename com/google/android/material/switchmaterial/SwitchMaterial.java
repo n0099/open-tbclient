@@ -15,7 +15,7 @@ import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class SwitchMaterial extends SwitchCompat {
-    public static final int DEF_STYLE_RES = 2131755897;
+    public static final int DEF_STYLE_RES = 2131755905;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @NonNull
     public final ElevationOverlayProvider elevationOverlayProvider;
@@ -57,7 +57,7 @@ public class SwitchMaterial extends SwitchCompat {
         if (this.materialThemeColorsThumbTintList == null) {
             int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190);
             int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017b);
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070630);
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f070636);
             if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                 dimension += ViewUtils.getParentAbsoluteElevation(this);
             }

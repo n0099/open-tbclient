@@ -1,20 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
+import com.baidu.tbadk.mutiprocess.write.NewWritePageStateEvent;
+import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class lr5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class lr5 implements eq5<NewWritePageStateEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j, String str) {
+    public lr5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65536, null, j, str) == null) {
-            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
-            requestPassFriendMessage.setFriendId(j, str);
-            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eq5
+    /* renamed from: a */
+    public boolean onEvent(NewWritePageStateEvent newWritePageStateEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, newWritePageStateEvent)) == null) {
+            if (newWritePageStateEvent == null) {
+                return false;
+            }
+            WriteMsgHolder.isH5PageShowing = newWritePageStateEvent.isShowing;
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

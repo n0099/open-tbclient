@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.databinding.MsgTabGuideViewBinding;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide;
-import com.baidu.tieba.lt8;
-import com.baidu.tieba.qta;
-import com.baidu.tieba.sta;
+import com.baidu.tieba.nu8;
+import com.baidu.tieba.ova;
+import com.baidu.tieba.qva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public final class MsgTabGuide {
     public final List<Conf> c;
     public final MsgTabGuideViewBinding d;
     public long e;
-    public Function2<? super qta, ? super Integer, Unit> f;
+    public Function2<? super ova, ? super Integer, Unit> f;
     public Function0<Unit> g;
     public boolean h;
     public boolean i;
@@ -330,7 +330,7 @@ public final class MsgTabGuide {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (!f() && lt8.a.a() && SharedPrefHelper.getInstance().getBoolean("key_show_msg_tab_guide_step3", true)) {
+                if (!f() && nu8.a.a() && SharedPrefHelper.getInstance().getBoolean("key_show_msg_tab_guide_step3", true)) {
                     return true;
                 }
                 return false;
@@ -378,7 +378,7 @@ public final class MsgTabGuide {
         }
         this.a = baseFragmentActivity;
         this.b = 3;
-        this.c = CollectionsKt__CollectionsKt.listOf((Object[]) new Conf[]{new Conf(R.drawable.obfuscated_res_0x7f080a70, n(R.dimen.tbds260), n(R.dimen.tbds190), R.string.obfuscated_res_0x7f0f0cb6, 0), new Conf(R.drawable.obfuscated_res_0x7f080a71, n(R.dimen.tbds177), n(R.dimen.tbds338), R.string.obfuscated_res_0x7f0f0cb7, 0), new Conf(R.drawable.obfuscated_res_0x7f080a72, n(R.dimen.tbds145), n(R.dimen.tbds160), R.string.obfuscated_res_0x7f0f0cb8, 0), new Conf(R.drawable.obfuscated_res_0x7f080a73, n(R.dimen.tbds796), n(R.dimen.tbds450), 0, 0)});
+        this.c = CollectionsKt__CollectionsKt.listOf((Object[]) new Conf[]{new Conf(R.drawable.obfuscated_res_0x7f080a7b, n(R.dimen.tbds260), n(R.dimen.tbds190), R.string.obfuscated_res_0x7f0f0ccc, 0), new Conf(R.drawable.obfuscated_res_0x7f080a7c, n(R.dimen.tbds177), n(R.dimen.tbds338), R.string.obfuscated_res_0x7f0f0ccd, 0), new Conf(R.drawable.obfuscated_res_0x7f080a7d, n(R.dimen.tbds145), n(R.dimen.tbds160), R.string.obfuscated_res_0x7f0f0cce, 0), new Conf(R.drawable.obfuscated_res_0x7f080a7e, n(R.dimen.tbds796), n(R.dimen.tbds450), 0, 0)});
         MsgTabGuideViewBinding c = MsgTabGuideViewBinding.c(LayoutInflater.from(this.a));
         Intrinsics.checkNotNullExpressionValue(c, "inflate(LayoutInflater.from(activity))");
         this.d = c;
@@ -458,9 +458,9 @@ public final class MsgTabGuide {
         Conf conf = this.c.get(i);
         boolean z = !r(i);
         if (o(i)) {
-            i2 = R.string.obfuscated_res_0x7f0f0cb4;
+            i2 = R.string.obfuscated_res_0x7f0f0cca;
         } else {
-            i2 = R.string.obfuscated_res_0x7f0f0cb5;
+            i2 = R.string.obfuscated_res_0x7f0f0ccb;
         }
         if (z) {
             this.d.c.setVisibility(0);
@@ -485,8 +485,8 @@ public final class MsgTabGuide {
             } else {
                 this.d.h.setVisibility(8);
                 ConstraintLayout.LayoutParams layoutParams3 = new ConstraintLayout.LayoutParams(BdUtilHelper.getDimens(this.a, R.dimen.tbds280), BdUtilHelper.getDimens(this.a, R.dimen.tbds114));
-                layoutParams3.rightToRight = R.id.obfuscated_res_0x7f091005;
-                layoutParams3.topToBottom = R.id.obfuscated_res_0x7f091005;
+                layoutParams3.rightToRight = R.id.obfuscated_res_0x7f091004;
+                layoutParams3.topToBottom = R.id.obfuscated_res_0x7f091004;
                 ((ViewGroup.MarginLayoutParams) layoutParams3).topMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds21);
                 layoutParams3.setMarginEnd(BdUtilHelper.getDimens(this.a, R.dimen.tbds32));
                 this.d.b.setLayoutParams(layoutParams3);
@@ -550,8 +550,8 @@ public final class MsgTabGuide {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && !this.h && k.f()) {
             this.h = true;
-            qta a2 = qta.i.a(this.a);
-            a2.d(new Function0<sta>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$1
+            ova a2 = ova.i.a(this.a);
+            a2.d(new Function0<qva>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MsgTabGuide this$0;
@@ -580,22 +580,22 @@ public final class MsgTabGuide {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // kotlin.jvm.functions.Function0
-                public final sta invoke() {
+                public final qva invoke() {
                     InterceptResult invokeV;
                     MsgTabGuideViewBinding msgTabGuideViewBinding;
                     int n;
                     int n2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                        return (sta) invokeV.objValue;
+                        return (qva) invokeV.objValue;
                     }
                     this.this$0.j(0);
-                    sta.a aVar = new sta.a();
+                    qva.a aVar = new qva.a();
                     msgTabGuideViewBinding = this.this$0.d;
                     ConstraintLayout root = msgTabGuideViewBinding.getRoot();
                     Intrinsics.checkNotNullExpressionValue(root, "binding.root");
                     aVar.d(root);
-                    aVar.c(R.id.obfuscated_res_0x7f091005);
+                    aVar.c(R.id.obfuscated_res_0x7f091004);
                     aVar.b(-1L);
                     n = this.this$0.n(R.dimen.tbds4);
                     aVar.e(-n);
@@ -604,7 +604,7 @@ public final class MsgTabGuide {
                     return aVar.a();
                 }
             });
-            a2.f(new Function2<qta, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2
+            a2.f(new Function2<ova, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MsgTabGuide this$0;
@@ -633,12 +633,12 @@ public final class MsgTabGuide {
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function2
-                public /* bridge */ /* synthetic */ Unit invoke(qta qtaVar, Integer num) {
-                    invoke(qtaVar, num.intValue());
+                public /* bridge */ /* synthetic */ Unit invoke(ova ovaVar, Integer num) {
+                    invoke(ovaVar, num.intValue());
                     return Unit.INSTANCE;
                 }
 
-                public final void invoke(qta helper, int i) {
+                public final void invoke(ova helper, int i) {
                     boolean p;
                     boolean q;
                     boolean l;
@@ -649,7 +649,7 @@ public final class MsgTabGuide {
                         p = this.this$0.p(i);
                         if (p) {
                             this.this$0.j(i + 1);
-                            helper.d(new Function0<sta>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2.1
+                            helper.d(new Function0<qva>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ MsgTabGuide this$0;
@@ -678,19 +678,19 @@ public final class MsgTabGuide {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 /* JADX WARN: Can't rename method to resolve collision */
                                 @Override // kotlin.jvm.functions.Function0
-                                public final sta invoke() {
+                                public final qva invoke() {
                                     InterceptResult invokeV;
                                     MsgTabGuideViewBinding msgTabGuideViewBinding;
                                     int n;
                                     int n2;
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
-                                        sta.a aVar = new sta.a();
+                                        qva.a aVar = new qva.a();
                                         msgTabGuideViewBinding = this.this$0.d;
                                         ConstraintLayout root = msgTabGuideViewBinding.getRoot();
                                         Intrinsics.checkNotNullExpressionValue(root, "binding.root");
                                         aVar.d(root);
-                                        aVar.c(R.id.obfuscated_res_0x7f091005);
+                                        aVar.c(R.id.obfuscated_res_0x7f091004);
                                         aVar.b(-2L);
                                         n = this.this$0.n(R.dimen.tbds4);
                                         aVar.e(-n);
@@ -698,7 +698,7 @@ public final class MsgTabGuide {
                                         aVar.f(n2);
                                         return aVar.a();
                                     }
-                                    return (sta) invokeV.objValue;
+                                    return (qva) invokeV.objValue;
                                 }
                             });
                             return;
@@ -710,7 +710,7 @@ public final class MsgTabGuide {
                         l = this.this$0.l();
                         if (l) {
                             this.this$0.j(i + 1);
-                            helper.d(new Function0<sta>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2.2
+                            helper.d(new Function0<qva>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ MsgTabGuide this$0;
@@ -739,7 +739,7 @@ public final class MsgTabGuide {
                                 /* JADX DEBUG: Method merged with bridge method */
                                 /* JADX WARN: Can't rename method to resolve collision */
                                 @Override // kotlin.jvm.functions.Function0
-                                public final sta invoke() {
+                                public final qva invoke() {
                                     InterceptResult invokeV;
                                     MsgTabGuideViewBinding msgTabGuideViewBinding;
                                     long j;
@@ -747,12 +747,12 @@ public final class MsgTabGuide {
                                     int n2;
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
-                                        sta.a aVar = new sta.a();
+                                        qva.a aVar = new qva.a();
                                         msgTabGuideViewBinding = this.this$0.d;
                                         ConstraintLayout root = msgTabGuideViewBinding.getRoot();
                                         Intrinsics.checkNotNullExpressionValue(root, "binding.root");
                                         aVar.d(root);
-                                        aVar.c(R.id.obfuscated_res_0x7f091005);
+                                        aVar.c(R.id.obfuscated_res_0x7f091004);
                                         j = this.this$0.e;
                                         aVar.b(Long.valueOf(j));
                                         n = this.this$0.n(R.dimen.tbds3);
@@ -761,7 +761,7 @@ public final class MsgTabGuide {
                                         aVar.f(n2);
                                         return aVar.a();
                                     }
-                                    return (sta) invokeV.objValue;
+                                    return (qva) invokeV.objValue;
                                 }
                             });
                         }
@@ -820,8 +820,8 @@ public final class MsgTabGuide {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !this.h && k.g() && m()) {
             this.h = true;
-            qta a2 = qta.i.a(this.a);
-            a2.d(new Function0<sta>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$1
+            ova a2 = ova.i.a(this.a);
+            a2.d(new Function0<qva>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MsgTabGuide this$0;
@@ -850,7 +850,7 @@ public final class MsgTabGuide {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // kotlin.jvm.functions.Function0
-                public final sta invoke() {
+                public final qva invoke() {
                     InterceptResult invokeV;
                     int i;
                     MsgTabGuideViewBinding msgTabGuideViewBinding;
@@ -861,7 +861,7 @@ public final class MsgTabGuide {
                         MsgTabGuide msgTabGuide = this.this$0;
                         i = msgTabGuide.b;
                         msgTabGuide.j(i);
-                        sta.a aVar = new sta.a();
+                        qva.a aVar = new qva.a();
                         msgTabGuideViewBinding = this.this$0.d;
                         ConstraintLayout root = msgTabGuideViewBinding.getRoot();
                         Intrinsics.checkNotNullExpressionValue(root, "binding.root");
@@ -872,10 +872,10 @@ public final class MsgTabGuide {
                         aVar.f(n2);
                         return aVar.a();
                     }
-                    return (sta) invokeV.objValue;
+                    return (qva) invokeV.objValue;
                 }
             });
-            a2.f(new Function2<qta, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$2
+            a2.f(new Function2<ova, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MsgTabGuide this$0;
@@ -904,16 +904,16 @@ public final class MsgTabGuide {
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
                 /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
                 @Override // kotlin.jvm.functions.Function2
-                public /* bridge */ /* synthetic */ Unit invoke(qta qtaVar, Integer num) {
-                    invoke(qtaVar, num.intValue());
+                public /* bridge */ /* synthetic */ Unit invoke(ova ovaVar, Integer num) {
+                    invoke(ovaVar, num.intValue());
                     return Unit.INSTANCE;
                 }
 
-                public final void invoke(qta qtaVar, int i) {
+                public final void invoke(ova ovaVar, int i) {
                     int i2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qtaVar, i) == null) {
-                        Intrinsics.checkNotNullParameter(qtaVar, "<anonymous parameter 0>");
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ovaVar, i) == null) {
+                        Intrinsics.checkNotNullParameter(ovaVar, "<anonymous parameter 0>");
                         MsgTabGuide.a aVar = MsgTabGuide.k;
                         i2 = this.this$0.b;
                         aVar.h(i2);

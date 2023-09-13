@@ -52,6 +52,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         builder.app_privacy = jSONObject.optString("app_privacy");
         builder.app_power = jSONObject.optString("app_power");
         builder.app_company = jSONObject.optString("app_company");
+        builder.app_effect = jSONObject.optString("app_effect");
         builder.target_type = Integer.valueOf(jSONObject.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE));
         builder.h5_jump_type = Integer.valueOf(jSONObject.optInt("h5_jump_type"));
         builder.h5_jump_number = jSONObject.optString("h5_jump_number");
@@ -94,7 +95,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         this.b = i;
     }
 
-    public String N() {
+    public String M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -107,7 +108,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String O() {
+    public String N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -116,7 +117,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public TiebaPlusInfo P() {
+    public TiebaPlusInfo O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -152,7 +153,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void Q(TiebaPlusInfo tiebaPlusInfo) {
+    public void P(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tiebaPlusInfo) == null) {
             this.a = tiebaPlusInfo;

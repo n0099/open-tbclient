@@ -2,16 +2,16 @@ package com.baidu.cyberplayer.sdk;
 @Keep
 /* loaded from: classes3.dex */
 public class MultiInstanceManager {
-    public static volatile MediaInstanceManagerProvider a;
+    public static volatile MediaInstanceManagerProvider sInstanceManager;
 
     public static MediaInstanceManagerProvider getInstance() {
-        if (a == null) {
+        if (sInstanceManager == null) {
             synchronized (MediaInstanceManagerProvider.class) {
-                if (a == null && f.a(1)) {
-                    a = f.c();
+                if (sInstanceManager == null && CyberPlayerCoreInvoker.isLoaded(1)) {
+                    sInstanceManager = CyberPlayerCoreInvoker.createInstanceManager();
                 }
             }
         }
-        return a;
+        return sInstanceManager;
     }
 }

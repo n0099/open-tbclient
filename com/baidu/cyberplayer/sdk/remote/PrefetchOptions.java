@@ -10,20 +10,20 @@ import java.util.Map;
 public class PrefetchOptions implements Parcelable {
     public static final Parcelable.Creator<PrefetchOptions> CREATOR = new Parcelable.Creator<PrefetchOptions>() { // from class: com.baidu.cyberplayer.sdk.remote.PrefetchOptions.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
         public PrefetchOptions[] newArray(int i) {
             return new PrefetchOptions[0];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: a */
         public PrefetchOptions createFromParcel(Parcel parcel) {
             return new PrefetchOptions(parcel);
         }
     };
-    public Map<String, String> a = new HashMap();
+    public Map<String, String> options = new HashMap();
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -34,7 +34,7 @@ public class PrefetchOptions implements Parcelable {
     }
 
     public Map<String, String> getOptions() {
-        return this.a;
+        return this.options;
     }
 
     public PrefetchOptions(Parcel parcel) {
@@ -42,30 +42,30 @@ public class PrefetchOptions implements Parcelable {
     }
 
     public void readFromParcel(Parcel parcel) {
-        this.a = parcel.readHashMap(HashMap.class.getClassLoader());
+        this.options = parcel.readHashMap(HashMap.class.getClassLoader());
     }
 
     public void setOption(String str, int i) {
         if (str == null) {
             return;
         }
-        if (this.a == null) {
-            this.a = new HashMap();
+        if (this.options == null) {
+            this.options = new HashMap();
         }
-        this.a.put(str, String.valueOf(i));
+        this.options.put(str, String.valueOf(i));
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeMap(this.a);
+        parcel.writeMap(this.options);
     }
 
     public void setOption(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.a == null) {
-                this.a = new HashMap();
+            if (this.options == null) {
+                this.options = new HashMap();
             }
-            this.a.put(str, str2);
+            this.options.put(str, str2);
         }
     }
 }

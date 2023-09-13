@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.video.editvideo.data.PendantData;
-import java.util.List;
+import android.view.View;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
 public interface spa {
-    void P();
+    void a(int i);
 
-    void W(String str);
+    void b(int i, @NonNull View view2);
 
-    void g();
+    @NonNull
+    View getView();
 
-    void h0(String str);
+    void removeAllViews();
 
-    void h1(Bitmap bitmap);
-
-    void l();
-
-    void onNext();
-
-    void r(List<PendantData> list);
-
-    void x();
+    void setItemParams(int i, int i2);
 }

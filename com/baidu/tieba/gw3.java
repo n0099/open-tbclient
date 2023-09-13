@@ -1,103 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public interface gw3 {
-    String a(Context context);
+public class gw3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String getDeviceId(Context context);
-
-    /* loaded from: classes6.dex */
-    public static class a implements gw3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final gw3 a;
-
-        @Override // com.baidu.tieba.gw3
-        public String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.a(context);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String str = a;
+            if (str != null) {
+                return TextUtils.equals(str, "HUAWEI");
             }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.gw3
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.b(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.gw3
-        public String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.c(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.gw3
-        public String d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.d(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.gw3
-        public String getDeviceId(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.getDeviceId(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public a(gw3 delegation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            String upperCase = Build.BRAND.toUpperCase();
+            if (!TextUtils.equals("HUAWEI", upperCase) && !TextUtils.equals("HONOR", upperCase)) {
+                String upperCase2 = Build.MANUFACTURER.toUpperCase();
+                if (!upperCase2.contains("HUAWEI") && !upperCase2.contains("HONOR")) {
+                    return false;
                 }
+                a = "HUAWEI";
+                return true;
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
+            a = "HUAWEI";
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = a;
+            if (str != null) {
+                return TextUtils.equals(str, "OPPO");
+            }
+            if (TextUtils.equals("OPPO", Build.BRAND.toUpperCase())) {
+                a = "OPPO";
+                return true;
+            } else if (Build.MANUFACTURER.toUpperCase().contains("OPPO")) {
+                a = "OPPO";
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

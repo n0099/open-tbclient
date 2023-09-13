@@ -102,7 +102,7 @@ public final class CSJNativeAdVerticalImgView extends f0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bf);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bb);
         }
     }
 }

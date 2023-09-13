@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.List;
+/* loaded from: classes5.dex */
 public class fya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ErrorData a;
-    public String b;
-    public String c;
+    public String a;
+    public float b;
+    public int c;
+    public int d;
+    public List<zxa> e;
 
     public fya() {
         Interceptable interceptable = $ic;

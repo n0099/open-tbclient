@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
-import com.baidu.tieba.q73;
+import com.baidu.tieba.u73;
 /* loaded from: classes4.dex */
 public class SwanProcessCallStub extends IProcessBridge.Stub {
     public final Handler mHandler;
@@ -37,6 +37,6 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return q73.e(str, bundle);
+        return u73.e(str, bundle);
     }
 }

@@ -11,9 +11,10 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class mn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mn4 b;
+    public static volatile mn4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final int a;
+    public int b;
 
     public mn4() {
         Interceptable interceptable = $ic;
@@ -25,59 +26,84 @@ public class mn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.a = si4.b().i().getInt("max_emit_app_close_num", 1);
     }
 
-    public static mn4 b() {
+    public static mn4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+            if (c == null) {
                 synchronized (mn4.class) {
-                    if (b == null) {
-                        b = new mn4();
+                    if (c == null) {
+                        c = new mn4();
                     }
                 }
             }
-            return b;
+            return c;
         }
         return (mn4) invokeV.objValue;
     }
 
-    public String a() {
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c == null) {
+            return;
+        }
+        c = null;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = oi4.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
+            return si4.b().i().getString("simple_control_item_version", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public synchronized void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return oi4.b().i().getString("tts_node_version", "0");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b++;
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public void d(JSONObject jSONObject) {
+    public synchronized boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.b < this.a) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
             return;
         }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        oi4.b().i().putString("tts_node_version", optString);
-        oi4.b().i().putString("extract_js_url", optString2);
+        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
+        si4.b().i().putString("simple_control_item_version", optString);
+        si4.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

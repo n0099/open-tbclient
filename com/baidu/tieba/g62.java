@@ -1,160 +1,141 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.util.Base64;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.apps.commonsync.CommonSyncServerData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g62 {
+public class g62 extends e62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ResponseCallback<CommonSyncServerData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i62 a;
-
-        public a(i62 i62Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i62Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i62Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            i62 i62Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (i62Var = this.a) != null) {
-                i62Var.onFail();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
-            i62 i62Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) && (i62Var = this.a) != null) {
-                i62Var.a(commonSyncServerData);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    String string = response.body().string();
-                    if (TextUtils.isEmpty(string)) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject(string);
-                    int optInt = jSONObject.optInt("errno");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == g62.b && optJSONObject != null) {
-                        return CommonSyncServerData.parseFromJson(optJSONObject);
-                    }
-                }
-                return null;
-            }
-            return (CommonSyncServerData) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745798, "Lcom/baidu/tieba/g62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947745798, "Lcom/baidu/tieba/g62;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g62(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = nr1.a;
-        b = 0;
-    }
-
-    public static void b(i62 i62Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, i62Var) == null) {
-            if (SwanAppNetworkUtils.h()) {
-                hi4.g().getRequest().cookieManager(ku2.q().a()).url(ku2.m().processUrl(h62.a())).build().executeAsync(new a(i62Var));
-            } else if (i62Var != null) {
-                i62Var.onFail();
-            }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.k = yo3.g((float) jSONObject.optDouble("x"));
+            this.l = yo3.g((float) jSONObject.optDouble("y"));
+            this.m = yo3.g((float) jSONObject.optDouble("width"));
+            this.n = yo3.g((float) jSONObject.optDouble("height"));
+        } catch (Exception e) {
+            h82.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
         }
     }
 
-    public static RequestBody c(Map<String, Object> map) {
+    public final byte[] h(@NonNull Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map != null && map.size() > 0) {
-                for (String str : map.keySet()) {
-                    try {
-                        jSONObject.put(str, map.get(str));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int i = width * height;
+            int[] iArr = new int[i];
+            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+            byte[] bArr = new byte[i * 4];
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = iArr[i2];
+                int i4 = i2 * 4;
+                bArr[i4] = (byte) Color.red(i3);
+                bArr[i4 + 1] = (byte) Color.green(i3);
+                bArr[i4 + 2] = (byte) Color.blue(i3);
+                bArr[i4 + 3] = (byte) Color.alpha(i3);
             }
-            return RequestBody.create(k23.a, jSONObject.toString());
+            return bArr;
         }
-        return (RequestBody) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static void d(Map<String, Object> map) {
+    public JSONObject i(@NonNull View view2) {
+        InterceptResult invokeL;
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) hi4.g().postRequest().cookieManager(ku2.q().a())).url(ku2.m().processUrl(h62.b()))).requestBody(c(map)).build().executeAsync(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            int measuredWidth = view2.getMeasuredWidth();
+            int measuredHeight = view2.getMeasuredHeight();
+            int i2 = 0;
+            if (measuredWidth > 0 && measuredHeight > 0) {
+                int i3 = this.k;
+                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
+                int i4 = this.l;
+                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
+                int i5 = this.m;
+                if (i5 <= 0 || this.k + i5 > measuredWidth) {
+                    i5 = measuredWidth - this.k;
+                }
+                this.m = i5;
+                int i6 = this.n;
+                if (i6 <= 0 || this.l + i6 > measuredHeight) {
+                    i6 = measuredHeight - this.l;
+                }
+                this.n = i6;
+                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawARGB(0, 0, 0, 0);
+                canvas.translate(-this.k, -this.l);
+                view2.draw(canvas);
+                Bitmap j = j(createBitmap);
+                str = Base64.encodeToString(h(j), 2);
+                i2 = j.getWidth();
+                i = j.getHeight();
+            } else {
+                h82.b("canvasGetImageData", "canvas size is invalid.");
+                str = "";
+                i = 0;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i);
+                jSONObject.put("data", str);
+            } catch (Exception e) {
+                h82.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static void e(Map<String, Object> map) {
+    @NonNull
+    public final Bitmap j(@NonNull Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) hi4.g().postRequest().cookieManager(ku2.q().a())).url(ku2.m().processUrl(h62.c()))).requestBody(c(map)).build().executeAsync(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
+            float l = 1.0f / yo3.l(ou2.c());
+            Matrix matrix = new Matrix();
+            matrix.postScale(l, l);
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
+        return (Bitmap) invokeL.objValue;
     }
 }

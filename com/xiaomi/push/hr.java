@@ -66,14 +66,14 @@ public enum hr {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f509a;
+    public final String f508a;
 
     hr(String str) {
-        this.f509a = str;
+        this.f508a = str;
     }
 
     @Override // java.lang.Enum
     public String toString() {
-        return this.f509a;
+        return this.f508a;
     }
 }

@@ -1,126 +1,153 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.os.Build;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Set;
 /* loaded from: classes5.dex */
 public class fk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Object> a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fk6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-801611558, "Lcom/baidu/tieba/fk6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-801611558, "Lcom/baidu/tieba/fk6$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947767064, "Lcom/baidu/tieba/fk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new fk6(null);
-        }
-    }
-
-    public fk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947767064, "Lcom/baidu/tieba/fk6;");
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        a = new HashMap<>();
     }
 
-    public static fk6 b() {
+    @NonNull
+    public static Map<String, String> a(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            HashMap hashMap = new HashMap();
+            Set<String> queryParameterNames = uri.getQueryParameterNames();
+            if (!mn6.a(queryParameterNames)) {
+                for (String str : queryParameterNames) {
+                    hashMap.put("{" + str + "}", uri.getQueryParameter(str));
+                }
+            }
+            hashMap.putAll(b());
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static Map<String, String> b() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+            if (mn6.b(a)) {
+                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                a.put("{device.cuid}", inst.getCuid());
+                a.put("{device.imei}", inst.getImei());
+                a.put("{device.shoubaiCuid}", inst.getCuidGalaxy2());
+                a.put("{device.brand}", Build.BRAND);
+                a.put("{device.platform}", "Android");
+                a.put("{device.clientVersion}", TbConfig.getVersion());
+                a.put("{device.zid}", inst.getZid());
+                a.put("{device.sign}", "tiebaclient!!!");
+                a.put("{device.clientType}", "2");
+                HashMap<String, String> hashMap = a;
+                String str2 = "1";
+                if (TbSingleton.getInstance().getSyncYYSwitch()) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                hashMap.put("{device.is_yy_user}", str);
+                a.put("{device.androidId}", inst.getAndroidId());
+                a.put("{device.imsi}", inst.getIMsi());
+                a.put("{device.model}", DeviceInfoHelper.getModel());
+                a.put("{device.pkgName}", inst.getPackageName());
+                HashMap<String, String> hashMap2 = a;
+                hashMap2.put("{device.network}", BdNetTypeUtil.netType() + "");
+                HashMap<String, String> hashMap3 = a;
+                hashMap3.put("{device.carrier}", BdNetTypeUtil.curOperatorType() + "");
+                a.put("{device.manufacturer}", DeviceInfoUtil.getDevicesManufacturer());
+                a.put("{device.hardware}", Build.HARDWARE);
+                a.put("{device.board}", Build.BOARD);
+                HashMap<String, String> hashMap4 = a;
+                if (!DeviceInfoUtil.isSupportGyroScope(inst)) {
+                    str2 = "0";
+                }
+                hashMap4.put("{device.imu}", str2);
+                a.put("{baiduId}", TbSingleton.getInstance().getBaiduIdForAnti());
+                a.put("{user.tbs}", inst.getTbs());
+                a.put("{client_version}", TbConfig.getVersion());
+                a.put("{client_type}", "2");
+                a.put("{User-Agent}", WebviewHelper.getGlobalUserAgent());
+            }
+            return a;
         }
-        return (fk6) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public /* synthetic */ fk6(a aVar) {
-        this();
-    }
-
-    public synchronized void a(String str) {
+    public static String c(Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, new Object());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, str)) == null) {
+            String str3 = "";
+            if (map != null) {
+                try {
+                    if (Build.VERSION.SDK_INT >= 24) {
+                        str2 = map.getOrDefault(str, "");
+                    } else if (map.containsKey(str)) {
+                        str2 = map.get(str);
+                    }
+                    str3 = str2;
+                } catch (Exception unused) {
+                    return str3;
                 }
             }
+            return Uri.encode(str3);
         }
+        return (String) invokeLL.objValue;
     }
 
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    public static String d(Map<String, String> map, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, str)) == null) {
+            if (map == null) {
+                return "";
             }
-            return containsKey;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(String str) {
-        Object remove;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
-            try {
-                synchronized (remove) {
-                    remove.notifyAll();
-                }
-            } catch (Exception unused) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return map.getOrDefault(str, "");
             }
-        }
-    }
-
-    public void d(String str, long j) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
-            try {
-                synchronized (obj) {
-                    obj.wait(j);
-                }
-            } catch (InterruptedException unused) {
+            if (!map.containsKey(str)) {
+                return "";
             }
+            return map.get(str);
         }
+        return (String) invokeLL.objValue;
     }
 }

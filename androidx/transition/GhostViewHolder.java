@@ -19,13 +19,13 @@ public class GhostViewHolder extends FrameLayout {
         super(viewGroup.getContext());
         setClipChildren(false);
         this.mParent = viewGroup;
-        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090e2c, this);
+        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090e28, this);
         ViewGroupUtils.getOverlay(this.mParent).add(this);
         this.mAttached = true;
     }
 
     public static GhostViewHolder getHolder(@NonNull ViewGroup viewGroup) {
-        return (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090e2c);
+        return (GhostViewHolder) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090e28);
     }
 
     private int getInsertIndex(ArrayList<View> arrayList) {
@@ -69,7 +69,7 @@ public class GhostViewHolder extends FrameLayout {
     public void onViewRemoved(View view2) {
         super.onViewRemoved(view2);
         if ((getChildCount() == 1 && getChildAt(0) == view2) || getChildCount() == 0) {
-            this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090e2c, null);
+            this.mParent.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f090e28, null);
             ViewGroupUtils.getOverlay(this.mParent).remove(this);
             this.mAttached = false;
         }

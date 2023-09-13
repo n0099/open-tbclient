@@ -10,8 +10,8 @@ import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.feed.search.view.LiveBaseLottieView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.id0;
-import com.baidu.tieba.ra0;
+import com.baidu.tieba.jd0;
+import com.baidu.tieba.sa0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes3.dex */
 public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
@@ -25,14 +25,14 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchHotRankItemViewHolder(@NonNull View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092796);
-        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09168f);
-        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09120a);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092771);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092744);
-        this.e.setTextColor(id0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        this.f.setTextColor(id0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
-        if (!"night".equals(id0.f().r()) && !"dark".equals(id0.f().r())) {
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927c9);
+        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091698);
+        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091210);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a3);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092776);
+        this.e.setTextColor(jd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        this.f.setTextColor(jd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+        if (!"night".equals(jd0.f().r()) && !"dark".equals(jd0.f().r())) {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning.json");
         } else {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning_night.json");
@@ -40,7 +40,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         this.c.setRepeatCount(-1);
     }
 
-    public void b(LiveRoomEntity liveRoomEntity) {
+    public void a(LiveRoomEntity liveRoomEntity) {
         int i;
         int i2;
         int i3;
@@ -54,10 +54,10 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             if (i4 != 1) {
                 if (i4 != 2) {
                     if (i4 != 3) {
-                        this.b.setTextColor(id0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+                        this.b.setTextColor(jd0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
                     } else {
                         TextView textView2 = this.b;
-                        if ("night".equals(id0.f().r())) {
+                        if ("night".equals(jd0.f().r())) {
                             i3 = -8760559;
                         } else {
                             i3 = -349938;
@@ -66,7 +66,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                     }
                 } else {
                     TextView textView3 = this.b;
-                    if ("night".equals(id0.f().r())) {
+                    if ("night".equals(jd0.f().r())) {
                         i2 = -8375552;
                     } else {
                         i2 = -39424;
@@ -75,7 +75,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                 }
             } else {
                 TextView textView4 = this.b;
-                if ("night".equals(id0.f().r())) {
+                if ("night".equals(jd0.f().r())) {
                     i = -8447719;
                 } else {
                     i = -52429;
@@ -89,7 +89,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                     this.c.playAnimation();
                 }
             } else {
-                c();
+                b();
             }
         }
         LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
@@ -98,7 +98,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                 if (!TextUtils.isEmpty(liveHostInfo.avatar)) {
                     this.d.setImageURI(liveRoomEntity.hostInfo.avatar);
                 } else {
-                    e();
+                    d();
                 }
             }
             TextView textView5 = this.e;
@@ -111,27 +111,27 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         } else {
-            e();
+            d();
         }
         TextView textView6 = this.f;
         if (textView6 != null) {
-            textView6.setText(ra0.a(textView6.getContext(), liveRoomEntity.audienceCount));
+            textView6.setText(sa0.a(textView6.getContext(), liveRoomEntity.audienceCount));
         }
     }
 
-    public final void c() {
+    public final void b() {
         LiveBaseLottieView liveBaseLottieView = this.c;
         if (liveBaseLottieView != null) {
             liveBaseLottieView.cancelAnimation();
         }
     }
 
-    public void d() {
-        c();
-        e();
+    public void c() {
+        b();
+        d();
     }
 
-    public final void e() {
+    public final void d() {
         SimpleDraweeView simpleDraweeView = this.d;
         if (simpleDraweeView != null) {
             simpleDraweeView.setImageDrawable(null);

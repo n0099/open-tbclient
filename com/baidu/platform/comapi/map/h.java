@@ -13,7 +13,6 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -306,7 +305,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                 try {
                     return egl10.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, null);
                 } catch (IllegalArgumentException e) {
-                    Log.e(GLTextureView.TAG, "eglCreateWindowSurface", e);
+                    Log.e("GLTextureView", "eglCreateWindowSurface", e);
                     return null;
                 }
             }
@@ -478,14 +477,14 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                     }
                     if ((hVar.l & 3) != 0) {
                         int i = 0;
-                        C0136h c0136h = null;
+                        C0125h c0125h = null;
                         if ((hVar.l & 1) != 0) {
                             i = 1;
                         }
                         if ((hVar.l & 2) != 0) {
-                            c0136h = new C0136h();
+                            c0125h = new C0125h();
                         }
-                        return GLDebugHelper.wrap(gl, i, c0136h);
+                        return GLDebugHelper.wrap(gl, i, c0125h);
                     }
                     return gl;
                 }
@@ -1265,7 +1264,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                         String glGetString = gl10.glGetString(7937);
                         boolean z2 = false;
                         if (this.e < 131072) {
-                            if (!glGetString.startsWith(GLTextureView.GLThreadManager.kMSM7K_RENDERER_PREFIX)) {
+                            if (!glGetString.startsWith("Q3Dimension MSM7500 ")) {
                                 z = true;
                             } else {
                                 z = false;
@@ -1288,12 +1287,12 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
 
     /* renamed from: com.baidu.platform.comapi.map.h$h  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0136h extends Writer {
+    public static class C0125h extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public StringBuilder a;
 
-        public C0136h() {
+        public C0125h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1472,7 +1471,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Log.d(GLTextureView.TAG, "onDetachedFromWindow");
+            Log.d("GLTextureView", "onDetachedFromWindow");
             f fVar = this.e;
             if (fVar != null) {
                 fVar.h();
@@ -1736,7 +1735,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            Log.d(GLTextureView.TAG, "onAttachedToWindow reattach =" + this.g);
+            Log.d("GLTextureView", "onAttachedToWindow reattach =" + this.g);
             if (this.g && this.f != null) {
                 f fVar = this.e;
                 if (fVar != null) {

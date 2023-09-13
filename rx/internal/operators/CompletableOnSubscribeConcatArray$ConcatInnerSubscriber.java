@@ -1,54 +1,54 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.n7c;
-import com.baidu.tieba.o7c;
-import com.baidu.tieba.scc;
-import com.baidu.tieba.w7c;
+import com.baidu.tieba.qac;
+import com.baidu.tieba.rac;
+import com.baidu.tieba.vfc;
+import com.baidu.tieba.zac;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements o7c {
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements rac {
     public static final long serialVersionUID = -7965400327305809232L;
-    public final o7c actual;
+    public final rac actual;
     public int index;
-    public final scc sd = new scc();
-    public final n7c[] sources;
+    public final vfc sd = new vfc();
+    public final qac[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(o7c o7cVar, n7c[] n7cVarArr) {
-        this.actual = o7cVar;
-        this.sources = n7cVarArr;
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(rac racVar, qac[] qacVarArr) {
+        this.actual = racVar;
+        this.sources = qacVarArr;
     }
 
     public void next() {
         if (this.sd.isUnsubscribed() || getAndIncrement() != 0) {
             return;
         }
-        n7c[] n7cVarArr = this.sources;
+        qac[] qacVarArr = this.sources;
         while (!this.sd.isUnsubscribed()) {
             int i = this.index;
             this.index = i + 1;
-            if (i == n7cVarArr.length) {
+            if (i == qacVarArr.length) {
                 this.actual.onCompleted();
                 return;
             }
-            n7cVarArr[i].j(this);
+            qacVarArr[i].j(this);
             if (decrementAndGet() == 0) {
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.o7c
+    @Override // com.baidu.tieba.rac
     public void onCompleted() {
         next();
     }
 
-    @Override // com.baidu.tieba.o7c
+    @Override // com.baidu.tieba.rac
     public void onError(Throwable th) {
         this.actual.onError(th);
     }
 
-    @Override // com.baidu.tieba.o7c
-    public void onSubscribe(w7c w7cVar) {
-        this.sd.a(w7cVar);
+    @Override // com.baidu.tieba.rac
+    public void onSubscribe(zac zacVar) {
+        this.sd.a(zacVar);
     }
 }

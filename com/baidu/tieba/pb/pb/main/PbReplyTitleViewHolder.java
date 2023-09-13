@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cga;
-import com.baidu.tieba.hm9;
-import com.baidu.tieba.ni9;
 import com.baidu.tieba.pb.pb.main.view.TextLineView;
+import com.baidu.tieba.pj9;
 import com.baidu.tieba.view.SortSwitchButton;
+import com.baidu.tieba.wha;
+import com.baidu.tieba.xn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
     public List<TextLineView> n;
     public View.OnClickListener o;
     public SortSwitchButton.f p;
-    public ni9 q;
+    public pj9 q;
     public BdUniqueId r;
     public boolean s;
     public BdUniqueId t;
@@ -212,8 +212,8 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.q != null && this.a.q.a == ni9.g && customResponsedMessage != null && getTag() == this.a.r && (customResponsedMessage.getData() instanceof hm9.g1)) {
-                hm9.g1 g1Var = (hm9.g1) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.q != null && this.a.q.a == pj9.g && customResponsedMessage != null && getTag() == this.a.r && (customResponsedMessage.getData() instanceof xn9.g1)) {
+                xn9.g1 g1Var = (xn9.g1) customResponsedMessage.getData();
                 if (this.a.u != null && this.a.u.getUniqueId() == g1Var.b) {
                     g1Var.a = this.a;
                 }
@@ -252,7 +252,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.q == null || this.a.q.a != ni9.h || customResponsedMessage == null || getTag() != this.a.t || !(customResponsedMessage.getData() instanceof hm9.g1)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.q == null || this.a.q.a != pj9.h || customResponsedMessage == null || getTag() != this.a.t || !(customResponsedMessage.getData() instanceof xn9.g1)) {
             }
         }
     }
@@ -287,37 +287,37 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         this.b = view2;
         this.u = tbPageContext;
         view2.setOnClickListener(new b(this));
-        TextLineView textLineView = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091f01);
+        TextLineView textLineView = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091f2a);
         this.c = textLineView;
         textLineView.setOnClickListener(this.x);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f091ef4);
-        TextLineView textLineView2 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091ef3);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f091f1d);
+        TextLineView textLineView2 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f091f1c);
         this.j = textLineView2;
         textLineView2.setSelected(false);
-        this.l = view2.findViewById(R.id.obfuscated_res_0x7f091ee5);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091ee4);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f02);
-        TextLineView textLineView3 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f090b80);
+        this.l = view2.findViewById(R.id.obfuscated_res_0x7f091f0e);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f2b);
+        TextLineView textLineView3 = (TextLineView) view2.findViewById(R.id.obfuscated_res_0x7f090b7b);
         this.d = textLineView3;
         textLineView3.setOnClickListener(this.x);
-        SortSwitchButton sortSwitchButton = (SortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f091b48);
+        SortSwitchButton sortSwitchButton = (SortSwitchButton) view2.findViewById(R.id.obfuscated_res_0x7f091b61);
         this.e = sortSwitchButton;
         sortSwitchButton.setOnSwitchChangeListener(this.w);
         this.e.setVisibility(0);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ae1);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091afa);
         this.c.setSelected(true);
         this.d.setSelected(false);
         ArrayList arrayList = new ArrayList();
         this.n = arrayList;
         arrayList.add(this.c);
         this.n.add(this.d);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090925);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f09091d);
         this.h = view2.findViewById(R.id.divider_bottom);
-        this.e.w(2);
-        n(TbadkCoreApplication.getInst().getSkinType());
+        this.e.x(2);
+        m(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void k(boolean z) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
@@ -330,7 +330,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void o(BdUniqueId bdUniqueId) {
+    public void n(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
             this.t = bdUniqueId;
@@ -340,7 +340,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void p(BdUniqueId bdUniqueId) {
+    public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
@@ -350,7 +350,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void q(boolean z) {
+    public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.s = z;
@@ -361,21 +361,21 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void r(SortSwitchButton.f fVar) {
+    public void q(SortSwitchButton.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
             this.p = fVar;
         }
     }
 
-    public void s(View.OnClickListener onClickListener) {
+    public void r(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             this.o = onClickListener;
         }
     }
 
-    public void t(BdUniqueId bdUniqueId) {
+    public void s(BdUniqueId bdUniqueId) {
         SortSwitchButton sortSwitchButton;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) && (sortSwitchButton = this.e) != null) {
@@ -384,7 +384,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void u(int i) {
+    public void t(int i) {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (view2 = this.b) != null) {
@@ -392,44 +392,44 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void j(ni9 ni9Var) {
+    public void i(pj9 pj9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ni9Var) == null) {
-            this.q = ni9Var;
-            if (ni9Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, pj9Var) == null) {
+            this.q = pj9Var;
+            if (pj9Var == null) {
                 return;
             }
-            BdUniqueId bdUniqueId = ni9Var.a;
-            if (bdUniqueId == ni9.h) {
+            BdUniqueId bdUniqueId = pj9Var.a;
+            if (bdUniqueId == pj9.h) {
                 this.l.setVisibility(0);
                 this.i.setVisibility(8);
                 this.c.setVisibility(0);
                 this.c.setSelected(false);
                 this.c.setClickable(false);
-                this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0916));
+                this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f091b));
                 this.e.setVisibility(8);
                 this.d.setVisibility(8);
                 this.h.setVisibility(8);
-            } else if (bdUniqueId == ni9.g) {
+            } else if (bdUniqueId == pj9.g) {
                 this.i.setVisibility(8);
                 this.l.setVisibility(0);
                 if (this.q.f) {
                     this.d.setVisibility(8);
                     this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029f));
                     this.c.setClickable(false);
-                    k(false);
+                    j(false);
                 } else {
                     this.d.setVisibility(0);
                     this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a8));
                     this.c.setClickable(true);
-                    k(ni9Var.c);
+                    j(pj9Var.c);
                 }
-                if (ni9Var.e != null) {
+                if (pj9Var.e != null) {
                     this.e.setVisibility(0);
                     int i = 0;
                     while (true) {
-                        if (i < ni9Var.e.size()) {
-                            if (ni9Var.e.get(i) != null && ni9Var.b == ni9Var.e.get(i).sort_type.intValue()) {
+                        if (i < pj9Var.e.size()) {
+                            if (pj9Var.e.get(i) != null && pj9Var.b == pj9Var.e.get(i).sort_type.intValue()) {
                                 break;
                             }
                             i++;
@@ -438,7 +438,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                             break;
                         }
                     }
-                    m(ni9Var.e, i);
+                    l(pj9Var.e, i);
                 }
                 this.h.setVisibility(0);
             }
@@ -449,18 +449,18 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.h.getLayoutParams().height = 0;
                 SkinManager.setBackgroundColor(this.l, R.color.CAM_X0205);
             }
-            if (ni9Var.d) {
+            if (pj9Var.d) {
                 this.m.setVisibility(0);
                 this.k.setVisibility(8);
             } else {
                 this.m.setVisibility(8);
                 this.k.setVisibility(0);
             }
-            n(TbadkCoreApplication.getInst().getSkinType());
+            m(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public View l() {
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -469,7 +469,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         return (View) invokeV.objValue;
     }
 
-    public void m(List<PbSortType> list, int i) {
+    public void l(List<PbSortType> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, list, i) == null) {
             if (ListUtils.isEmpty(list)) {
@@ -478,17 +478,17 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
             }
             ArrayList arrayList = new ArrayList();
             for (PbSortType pbSortType : list) {
-                cga cgaVar = new cga();
-                cgaVar.c(pbSortType.sort_type.intValue());
-                cgaVar.d(pbSortType.sort_name);
-                arrayList.add(cgaVar);
+                wha whaVar = new wha();
+                whaVar.c(pbSortType.sort_type.intValue());
+                whaVar.d(pbSortType.sort_name);
+                arrayList.add(whaVar);
             }
             this.e.setVisibility(0);
             this.e.setData(arrayList, i);
         }
     }
 
-    public void n(int i) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (this.a != i) {
@@ -497,13 +497,13 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
                 this.c.b(i);
                 this.d.b(i);
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-                ni9 ni9Var = this.q;
-                if (ni9Var != null && ni9Var.a == ni9.h) {
+                pj9 pj9Var = this.q;
+                if (pj9Var != null && pj9Var.a == pj9.h) {
                     SkinManager.setViewTextColor(this.c, R.color.CAM_X0107, 1);
                 }
                 SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
                 this.f.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_gob_reply_jump), (Drawable) null);
-                this.e.H();
+                this.e.I();
                 SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
                 if (this.v) {
                     SkinManager.setBackgroundColor(this.h, R.color.CAM_X0203);
@@ -517,7 +517,7 @@ public class PbReplyTitleViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void x(boolean z) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {

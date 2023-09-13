@@ -172,14 +172,14 @@ public class GroupChatUserReplyView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (context = this.a) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03e9, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09287e);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09287d);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091eef);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03f0, (ViewGroup) this, true);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0928b1);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0928b0);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f18);
         this.d = textView;
         textView.setTextSize(UtilHelper.getDimenPixelSize(R.dimen.T_X08));
-        this.e = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09287c);
-        this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09287b);
+        this.e = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0928af);
+        this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0928ae);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 }

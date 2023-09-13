@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.os.MessageQueue;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,42 +14,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v43 implements hw2 {
+public class v43 implements lw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public boolean d;
-    public List<Runnable> e;
-    public z53 f;
+    public long c;
+    public ConcurrentHashMap<String, JSONObject> d;
+    public ConcurrentHashMap<String, Integer> e;
+    public d63 f;
 
     /* loaded from: classes8.dex */
-    public class a implements z53 {
+    public class a implements d63 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v43 c;
 
-        @Override // com.baidu.tieba.z53
+        @Override // com.baidu.tieba.d63
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.z53
+        @Override // com.baidu.tieba.d63
         public void c(@NonNull Runnable runnable, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.z53
+        @Override // com.baidu.tieba.d63
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "IdleHandler" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
         }
 
         public a(v43 v43Var) {
@@ -68,82 +71,34 @@ public class v43 implements hw2 {
             this.c = v43Var;
         }
 
-        @Override // com.baidu.tieba.z53
+        @Override // com.baidu.tieba.d63
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
                 return;
             }
-            this.c.c = false;
-            this.c.k();
-            this.c.o();
+            this.c.g();
         }
 
-        @Override // com.baidu.tieba.z53
+        @Override // com.baidu.tieba.d63
         public void e(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048580, this, str) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.c.c = System.currentTimeMillis();
             }
-            this.c.c = true;
-            this.c.n();
-            this.c.p();
         }
 
-        @Override // com.baidu.tieba.z53
+        @Override // com.baidu.tieba.d63
         public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.g();
             }
-            this.c.c = false;
-            this.c.k();
-            this.c.d = false;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v43 a;
-
-        public b(v43 v43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v43Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v43Var;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.c) {
-                    this.a.l();
-                } else {
-                    this.a.k();
-                }
-                return this.a.c;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final v43 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,13 +106,13 @@ public class v43 implements hw2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-394428139, "Lcom/baidu/tieba/v43$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-394428170, "Lcom/baidu/tieba/v43$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-394428139, "Lcom/baidu/tieba/v43$c;");
+                    classClinitInterceptable.invokePostClinit(-394428170, "Lcom/baidu/tieba/v43$b;");
                     return;
                 }
             }
@@ -178,110 +133,90 @@ public class v43 implements hw2 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.e = new CopyOnWriteArrayList();
+        this.c = -1L;
+        this.d = new ConcurrentHashMap<>(10);
+        this.e = new ConcurrentHashMap<>(10);
         this.f = new a(this);
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.d) {
-            this.d = true;
-            ku2.p0().b(3000);
-            if (hw2.a) {
-                Log.d("SwanPerformance", "YaLog block time = 3000");
-            }
-        }
     }
 
     public /* synthetic */ v43(a aVar) {
         this();
     }
 
-    public boolean i(Runnable runnable) {
-        InterceptResult invokeL;
+    public void h(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            if (runnable == null) {
-                return false;
-            }
-            if (this.c) {
-                this.e.add(runnable);
-                return true;
-            }
-            xo3.a0(runnable);
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, jSONObject) != null) || TextUtils.isEmpty(str) || !e()) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.d.put(str, jSONObject);
     }
 
-    public static v43 j() {
+    public static v43 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
         }
         return (v43) invokeV.objValue;
     }
 
-    public void m() {
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c == -1 || System.currentTimeMillis() - this.c > TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b63.g().i(this.f, 2500);
+        }
+    }
+
+    public JSONObject d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !e()) {
+                return null;
+            }
+            JSONObject jSONObject = this.d.get(str);
+            if (lw2.a && jSONObject != null) {
+                Integer num = this.e.get(str);
+                if (num == null) {
+                    num = 0;
+                }
+                this.e.put(str, Integer.valueOf(num.intValue() + 1));
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            x53.g().i(this.f, 5000);
-            this.c = true;
-            p();
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Looper.getMainLooper();
-            Looper.myQueue().addIdleHandler(new b(this));
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d) {
-            this.d = false;
-            ku2.p0().c();
-            if (hw2.a) {
-                Log.d("SwanPerformance", "YaLog notify");
+            this.c = -1L;
+            if (lw2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("adopt cache api = [ ");
+                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
+                    sb.append((Object) entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append(" ");
+                }
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
+                Log.d("SwanPerformance", sb.toString());
             }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.e.isEmpty()) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        for (Runnable runnable : this.e) {
-            cb3.M().post(runnable);
-        }
-        if (hw2.a) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            Log.d("SwanPerformance", "idle handle all, cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + this.e.size());
-        }
-        this.e.clear();
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e.isEmpty()) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        Runnable remove = this.e.remove(0);
-        if (remove != null) {
-            cb3.M().post(remove);
-        }
-        if (hw2.a) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            Log.d("SwanPerformance", "idle handle one, cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + this.e.size());
+            this.e.clear();
+            this.d.clear();
         }
     }
 }

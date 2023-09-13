@@ -1,49 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
-            if (jSONObject != null) {
-                return jSONObject.optString(str, str2);
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static JSONObject b(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "NA";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803520, "Lcom/baidu/tieba/gr4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947803520, "Lcom/baidu/tieba/gr4;");
+                return;
             }
-            try {
-                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
-                    jSONObject.put("pre_source", str);
-                }
-                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
-                    jSONObject.put("pre_appid", "NA");
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
+        String str = nq4.g().t() + "/ma/log/token";
     }
 }

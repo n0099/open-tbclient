@@ -87,44 +87,44 @@ public final class FragmentPersonalChatBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0906bf;
-            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bf);
+            int i = R.id.obfuscated_res_0x7f0906b2;
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906b2);
             if (frameLayout != null) {
-                i = R.id.obfuscated_res_0x7f0907ec;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907ec);
+                i = R.id.obfuscated_res_0x7f0907e1;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907e1);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f090b7b;
-                    TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090b7b);
+                    i = R.id.obfuscated_res_0x7f090b75;
+                    TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090b75);
                     if (tbImage != null) {
-                        i = R.id.obfuscated_res_0x7f09113c;
-                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09113c);
+                        i = R.id.obfuscated_res_0x7f09113e;
+                        FrameLayout frameLayout2 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09113e);
                         if (frameLayout2 != null) {
-                            i = R.id.obfuscated_res_0x7f091900;
-                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091900);
+                            i = R.id.obfuscated_res_0x7f091918;
+                            FrameLayout frameLayout3 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091918);
                             if (frameLayout3 != null) {
-                                i = R.id.obfuscated_res_0x7f09191f;
-                                FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09191f);
+                                i = R.id.obfuscated_res_0x7f091939;
+                                FrameLayout frameLayout4 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091939);
                                 if (frameLayout4 != null) {
-                                    i = R.id.obfuscated_res_0x7f091922;
-                                    Group group = (Group) view2.findViewById(R.id.obfuscated_res_0x7f091922);
+                                    i = R.id.obfuscated_res_0x7f09193c;
+                                    Group group = (Group) view2.findViewById(R.id.obfuscated_res_0x7f09193c);
                                     if (group != null) {
-                                        i = R.id.obfuscated_res_0x7f091eee;
-                                        FrameLayout frameLayout5 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091eee);
+                                        i = R.id.obfuscated_res_0x7f091f17;
+                                        FrameLayout frameLayout5 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f17);
                                         if (frameLayout5 != null) {
-                                            i = R.id.obfuscated_res_0x7f09226a;
-                                            Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f09226a);
+                                            i = R.id.obfuscated_res_0x7f0922aa;
+                                            Space space = (Space) view2.findViewById(R.id.obfuscated_res_0x7f0922aa);
                                             if (space != null) {
-                                                i = R.id.obfuscated_res_0x7f09226b;
-                                                Space space2 = (Space) view2.findViewById(R.id.obfuscated_res_0x7f09226b);
+                                                i = R.id.obfuscated_res_0x7f0922ab;
+                                                Space space2 = (Space) view2.findViewById(R.id.obfuscated_res_0x7f0922ab);
                                                 if (space2 != null) {
-                                                    i = R.id.obfuscated_res_0x7f092294;
-                                                    FrameLayout frameLayout6 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092294);
+                                                    i = R.id.obfuscated_res_0x7f0922d4;
+                                                    FrameLayout frameLayout6 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922d4);
                                                     if (frameLayout6 != null) {
-                                                        i = R.id.obfuscated_res_0x7f092295;
-                                                        TbImage tbImage2 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f092295);
+                                                        i = R.id.obfuscated_res_0x7f0922d5;
+                                                        TbImage tbImage2 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0922d5);
                                                         if (tbImage2 != null) {
-                                                            i = R.id.obfuscated_res_0x7f092a0e;
-                                                            TbImage tbImage3 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f092a0e);
+                                                            i = R.id.obfuscated_res_0x7f092a44;
+                                                            TbImage tbImage3 = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f092a44);
                                                             if (tbImage3 != null) {
                                                                 return new FragmentPersonalChatBinding((ConstraintLayout) view2, frameLayout, textView, tbImage, frameLayout2, frameLayout3, frameLayout4, group, frameLayout5, space, space2, frameLayout6, tbImage2, tbImage3);
                                                             }
@@ -150,7 +150,7 @@ public final class FragmentPersonalChatBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0331, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0336, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

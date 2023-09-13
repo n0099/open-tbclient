@@ -2,9 +2,7 @@ package com.baidu.tieba;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class kj4 extends dj4<fk4> implements Object {
+public class kj4 extends hj4<ek4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,78 +29,54 @@ public class kj4 extends dj4<fk4> implements Object {
         }
     }
 
-    public static int f(@NonNull Cursor cursor, @NonNull String str) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hj4
+    /* renamed from: f */
+    public ContentValues c(ek4 ek4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
-            return cursor.getColumnIndex(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ek4Var)) == null) {
+            return a(ek4Var);
         }
-        return invokeLL.intValue;
+        return (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dj4
-    /* renamed from: h */
-    public fk4 d(Cursor cursor) {
+    @Override // com.baidu.tieba.hj4
+    /* renamed from: g */
+    public ek4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return i(cursor);
+                ek4 ek4Var = new ek4();
+                if (b(cursor, ek4Var)) {
+                    return ek4Var;
+                }
+                return null;
             }
             return null;
         }
-        return (fk4) invokeL.objValue;
+        return (ek4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dj4
-    public List<fk4> e(Cursor cursor) {
+    @Override // com.baidu.tieba.hj4
+    public List<ek4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
             ArrayList arrayList = new ArrayList();
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 do {
-                    arrayList.add(i(cursor));
+                    ek4 ek4Var = new ek4();
+                    if (b(cursor, ek4Var)) {
+                        arrayList.add(ek4Var);
+                    }
                 } while (cursor.moveToNext());
                 return arrayList;
             }
             return arrayList;
         }
         return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dj4
-    /* renamed from: g */
-    public ContentValues c(fk4 fk4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fk4Var)) == null) {
-            ContentValues a = super.a(fk4Var);
-            a.put("max_age", Long.valueOf(fk4Var.o));
-            a.put("abi", fk4Var.q.id);
-            a.put("lib_name", fk4Var.p);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final fk4 i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                fk4 fk4Var = new fk4();
-                if (b(cursor, fk4Var)) {
-                    fk4Var.o = cursor.getLong(f(cursor, "max_age"));
-                    fk4Var.q = AbiType.findById(cursor.getString(f(cursor, "abi")), null);
-                    fk4Var.p = cursor.getString(f(cursor, "lib_name"));
-                    return fk4Var;
-                }
-            }
-            return null;
-        }
-        return (fk4) invokeL.objValue;
     }
 }

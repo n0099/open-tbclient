@@ -1,100 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collection;
-import java.util.Map;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class ju2 extends DataOutputStream {
+public class ju2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final hu2<byte[], String> a;
+    public static final int a;
+    public static final int b;
+    public static final ThreadPoolExecutor c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements hu2<byte[], String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hu2
-        @Nullable
-        public byte[] call(@Nullable String str) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str == null) {
-                    return null;
-                }
-                return str.getBytes();
-            }
-            return (byte[]) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements hu2<byte[], Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ju2 a;
-
-        public b(ju2 ju2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ju2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ju2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hu2
-        @Nullable
-        public byte[] call(@Nullable Boolean bool) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
-                if (bool != null && bool.booleanValue()) {
-                    return new byte[0];
-                }
-                return null;
-            }
-            return (byte[]) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -109,114 +29,19 @@ public class ju2 extends DataOutputStream {
                 return;
             }
         }
-        a = new a();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        a = availableProcessors;
+        b = (availableProcessors * 2) + 1;
+        int i = b;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        c = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ju2(OutputStream outputStream) throws IOException {
-        super(outputStream);
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((OutputStream) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void a(Map<String, Boolean> map) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            e(map, new b(this));
-        }
-    }
-
-    public void b(byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            if (bArr == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(bArr.length);
-            if (bArr.length > 0) {
-                write(bArr);
-            }
-        }
-    }
-
-    public void f(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                b(a.call(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(Collection<String> collection) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            d(collection, a);
-        }
-    }
-
-    public void h(Map<String, String> map) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            e(map, a);
-        }
-    }
-
-    public <T> void c(@Nullable T t, @NonNull hu2<byte[], T> hu2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, hu2Var) == null) {
-            try {
-                b(hu2Var.call(t));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public <T> void e(Map<String, T> map, hu2<byte[], T> hu2Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, hu2Var) == null) {
-            if (map == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(map.size());
-            g(map.keySet());
-            d(map.values(), hu2Var);
-        }
-    }
-
-    public <T> void d(@Nullable Collection<T> collection, hu2<byte[], T> hu2Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, collection, hu2Var) == null) {
-            if (collection == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(collection.size());
-            for (T t : collection) {
-                try {
-                    b(hu2Var.call(t));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            c.execute(runnable);
         }
     }
 }

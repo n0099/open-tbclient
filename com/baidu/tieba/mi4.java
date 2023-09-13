@@ -2,89 +2,123 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.gk4;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import okhttp3.RequestBody;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpOptions;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes7.dex */
-public interface mi4 {
-    nl4 A();
+public class mi4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int B();
+    public static HttpRequestBuilder a(@NonNull ki4 ki4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ki4Var)) == null) {
+            return b(ki4Var, null);
+        }
+        return (HttpRequestBuilder) invokeL.objValue;
+    }
 
-    void C();
-
-    void D(sm4 sm4Var);
-
-    String E();
-
-    int F(String str, int i);
-
-    void G(String str, String str2, Throwable th);
-
-    void H(gn4 gn4Var);
-
-    String I();
-
-    String J(int i);
-
-    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
-
-    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
-
-    mk4 M();
-
-    float a();
-
-    String b();
-
-    String c();
-
-    void d(byte[] bArr);
-
-    String e();
-
-    CookieManager f();
-
-    String g();
-
-    String h();
-
-    fr4 i();
-
-    long j(int i);
-
-    void k(JSONArray jSONArray, String str, String str2);
-
-    List<wj4> l(String str, long j);
-
-    void m(String str, String str2, gk4.c cVar);
-
-    mk4 n();
-
-    boolean o(boolean z, @NonNull JSONArray jSONArray);
-
-    void p(String str, JSONObject jSONObject, ck4 ck4Var, List<dk4> list);
-
-    String q();
-
-    boolean r(@Nullable ek4 ek4Var);
-
-    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
-
-    void t(vn4 vn4Var, lo4 lo4Var);
-
-    String u();
-
-    String v(int i);
-
-    long w(int i);
-
-    boolean x();
-
-    void y(String str, String str2);
-
-    void z(String str, String str2, String str3, boolean z);
+    @NonNull
+    public static HttpRequestBuilder b(@NonNull ki4 ki4Var, @Nullable li4 li4Var) {
+        InterceptResult invokeLL;
+        HttpCommonRequestBuilder o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ki4Var, li4Var)) == null) {
+            if (li4Var == null) {
+                li4Var = li4.g();
+            }
+            String str = ki4Var.b;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -531492226:
+                    if (str.equals(HttpOptions.METHOD_NAME)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 70454:
+                    if (str.equals("GET")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 79599:
+                    if (str.equals(HttpPut.METHOD_NAME)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 2213344:
+                    if (str.equals("HEAD")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 2461856:
+                    if (str.equals("POST")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 80083237:
+                    if (str.equals(HttpTrace.METHOD_NAME)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 1669334218:
+                    if (str.equals("CONNECT")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 2012838315:
+                    if (str.equals(HttpDelete.METHOD_NAME)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    return li4Var.getRequest();
+                case 1:
+                    return li4Var.headerRequest();
+                case 2:
+                    o = li4Var.o();
+                    break;
+                case 3:
+                    o = li4Var.postRequest();
+                    break;
+                case 4:
+                    o = li4Var.putRequest();
+                    break;
+                case 5:
+                    o = li4Var.deleteRequest();
+                    break;
+                case 6:
+                    o = li4Var.y();
+                    break;
+                case 7:
+                    o = li4Var.a();
+                    break;
+                default:
+                    return li4Var.getRequest();
+            }
+            RequestBody requestBody = ki4Var.d;
+            if (requestBody != null) {
+                o.requestBody(requestBody);
+            }
+            return o;
+        }
+        return (HttpRequestBuilder) invokeLL.objValue;
+    }
 }

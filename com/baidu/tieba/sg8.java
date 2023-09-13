@@ -1,37 +1,74 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class sg8 {
+public final class sg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public sg8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 6) {
-                if (i != 8) {
-                    if (i != 30) {
-                        switch (i) {
-                            case 10:
-                                return 6;
-                            case 11:
-                                return 7;
-                            case 12:
-                                return 8;
-                            default:
-                                return -2;
-                        }
-                    }
-                    return -9;
-                }
-                return 5;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return -1;
         }
-        return invokeI.intValue;
+    }
+
+    public IChatRoomEnterListener.TaskInfo a(TbTaskInfo tbInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
+            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
+            IChatRoomEnterListener.TaskInfo taskInfo = new IChatRoomEnterListener.TaskInfo();
+            taskInfo.taskId = tbInfo.getTaskId();
+            taskInfo.taskType = tbInfo.getTaskType();
+            taskInfo.taskState = tbInfo.getTaskState();
+            taskInfo.taskResult = tbInfo.getTaskResult();
+            taskInfo.taskErrorMsg = tbInfo.getTaskErrorMsg();
+            taskInfo.originMsgId = tbInfo.getOriginMsgId();
+            taskInfo.originMsgKey = tbInfo.getOriginMsgKey();
+            taskInfo.taskProgress = tbInfo.getTaskProgress();
+            return taskInfo;
+        }
+        return (IChatRoomEnterListener.TaskInfo) invokeL.objValue;
+    }
+
+    public TbTaskInfo b(IChatRoomEnterListener.TaskInfo sdkInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
+            TbTaskInfo tbTaskInfo = new TbTaskInfo();
+            String taskId = sdkInfo.taskId;
+            Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
+            tbTaskInfo.setTaskId(taskId);
+            tbTaskInfo.setTaskType(sdkInfo.taskType);
+            tbTaskInfo.setTaskState(sdkInfo.taskState);
+            tbTaskInfo.setTaskResult(sdkInfo.taskResult);
+            String taskErrorMsg = sdkInfo.taskErrorMsg;
+            Intrinsics.checkNotNullExpressionValue(taskErrorMsg, "taskErrorMsg");
+            tbTaskInfo.setTaskErrorMsg(taskErrorMsg);
+            tbTaskInfo.setOriginMsgId(sdkInfo.originMsgId);
+            String originMsgKey = sdkInfo.originMsgKey;
+            Intrinsics.checkNotNullExpressionValue(originMsgKey, "originMsgKey");
+            tbTaskInfo.setOriginMsgKey(originMsgKey);
+            tbTaskInfo.setTaskProgress(sdkInfo.taskProgress);
+            return tbTaskInfo;
+        }
+        return (TbTaskInfo) invokeL.objValue;
     }
 }

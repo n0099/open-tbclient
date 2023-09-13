@@ -1,23 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.dialog.yun.strategy.FrequenceDialogStrategy;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public final class w65 implements l65 {
+public class w65 implements lk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,59 +25,28 @@ public final class w65 implements l65 {
         }
     }
 
-    @Override // com.baidu.tieba.l65
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.lk1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", dialogData.getDialogName());
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new pz6());
+            arrayList.add(new cu7());
+            arrayList.add(new gu7());
+            arrayList.add(new ku7());
+            arrayList.add(new ou7());
+            arrayList.add(new su7());
+            arrayList.add(new wu7());
+            arrayList.add(new av7());
+            arrayList.add(new ev7());
+            arrayList.add(new sh9());
+            arrayList.add(new xh9());
+            arrayList.add(new ci9());
+            arrayList.add(new jda());
+            arrayList.add(new hna());
+            return arrayList;
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l65
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            boolean z = false;
-            try {
-                FrequenceDialogStrategy.Data data = (FrequenceDialogStrategy.Data) DataExt.toEntity(map, FrequenceDialogStrategy.Data.class);
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis >= data.startTimestamp && currentTimeMillis <= data.endTimestamp) {
-                    if (data.frequence == 0) {
-                        return true;
-                    }
-                    x65 x65Var = x65.a;
-                    String str = data.dialogName;
-                    Intrinsics.checkNotNullExpressionValue(str, "data.dialogName");
-                    int a = x65Var.a(str);
-                    if (a < data.frequence) {
-                        z = true;
-                    }
-                    if (!z) {
-                        TbLog yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + a + "，配置展现次数：" + data.frequence);
-                    }
-                    return z;
-                }
-                TbLog yunDialogLog2 = YunDialogLog.getInstance();
-                yunDialogLog2.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
-                return false;
-            } catch (Exception e) {
-                if (!TbadkApplication.getInst().isDebugMode()) {
-                    YunDialogLog.getInstance().i(YunDialogManager.LOG_KEY, "云弹窗频次策略解析失败");
-                    return false;
-                }
-                throw e;
-            }
-        }
-        return invokeL.booleanValue;
+        return invokeV.objValue;
     }
 }

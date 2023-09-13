@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 /* loaded from: classes8.dex */
 public interface t19 {
-    void a(int i, HashMap<String, Object> hashMap);
+    void a(LabelRequestEnum labelRequestEnum, s19 s19Var, int i);
 }

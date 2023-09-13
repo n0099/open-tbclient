@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ew2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,198 +13,226 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ei3 extends gi3 {
+public class ei3 extends kz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
-    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public JSONObject w;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947735258, "Lcom/baidu/tieba/ei3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947735258, "Lcom/baidu/tieba/ei3;");
-                return;
-            }
-        }
-        x = nr1.a;
-        y = 35;
+    @Override // com.baidu.tieba.kz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StatisticEvent" : (String) invokeV.objValue;
     }
 
-    public ei3() {
+    @Override // com.baidu.tieba.kz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "UbcAndCeresStatisticEventApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ei3 b;
+
+        public a(ei3 ei3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ei3Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.z(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+
+        public b(ei3 ei3Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei3Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (TextUtils.equals(this.a, "671")) {
+                    h82.k("ubcAndCeresStatisticEvent", "671 event=" + this.b);
+                }
+                try {
+                    oh3.m(this.a, new JSONObject(this.b));
+                } catch (JSONException e) {
+                    h82.k("ubcAndCeresStatisticEvent", e.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
+
+        public c(ei3 ei3Var, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei3Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nq4.l(this.a, this.b);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ei3(@NonNull iz1 iz1Var) {
+        super(iz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = false;
-        this.c = "NA";
     }
 
-    @Override // com.baidu.tieba.gi3, com.baidu.tieba.fi3
-    public JSONObject f() {
-        InterceptResult invokeV;
+    public static void y(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                if (this.w != null) {
-                    if (this.v) {
-                        String z = xo3.z(y);
-                        if (!TextUtils.isEmpty(z)) {
-                            this.w.put("stacktrace", z);
-                        }
-                    }
-                    if (this.w.length() != 0) {
-                        this.h.put("info", this.w);
-                    }
-                }
-                ExtensionCore T2 = xh2.U().T();
-                if (T2 != null) {
-                    this.h.put("extension_ver", T2.extensionCoreVersionName);
-                }
-            } catch (JSONException e) {
-                if (x) {
-                    e.printStackTrace();
-                }
-            }
-            return super.f();
+        if ((interceptable != null && interceptable.invokeL(65538, null, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
+        ew2.a W = gb3.K().q().W();
+        ho3.f(jSONObject, "launchId", W.V());
+        ho3.f(jSONObject, "scheme", W.W());
+        ho3.f(jSONObject, "packageVersion", W.v1());
+        zh3.a(jSONObject);
     }
 
-    public ei3 l(String str, String str2) {
-        InterceptResult invokeLL;
+    public h32 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (str != null && str2 != null) {
-                if (this.w == null) {
-                    this.w = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!uw2.T().M() && i53.e()) {
+                a53.e().d(new a(this, str), "ubcAndCeresStatistic", false);
+                return h32.f();
+            }
+            return z(str);
+        }
+        return (h32) invokeL.objValue;
+    }
+
+    public final h32 z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (th3.b(str)) {
+                return new h32(202, "the params is over max limit");
+            }
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                return h32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("ubcId");
+            String optString2 = jSONObject.optString("bizId");
+            JSONObject optJSONObject = jSONObject.optJSONObject("content");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && optJSONObject != null) {
+                ho3.f(optJSONObject, "source", gb3.K().q().W().T());
+                y(optJSONObject.optJSONObject("ext"));
+                a53.e().d(new b(this, optString, optJSONObject.toString()), "UbcAndCeresStatisticEventApi", true);
+                u43.h().g().b(jSONObject);
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("content");
+                String str2 = null;
+                if (optJSONObject2 != null) {
+                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ext");
+                    String optString3 = optJSONObject2.optString("type");
+                    optJSONObject2.remove("type");
+                    optJSONObject2.remove("from");
+                    y(optJSONObject3);
+                    str2 = optString3;
                 }
+                jSONObject.remove("ubcId");
                 try {
-                    this.w.put(str, str2);
-                } catch (JSONException e) {
-                    if (x) {
-                        e.printStackTrace();
-                    }
+                    jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+                    jSONObject.putOpt("eventType", "0");
+                    jSONObject.putOpt("propagation", ho3.f(jSONObject.optJSONObject("propagation"), "source", gb3.K().q().W().T()));
+                    jSONObject.put("eventName", str2);
+                } catch (JSONException unused) {
                 }
+                h82.i("UbcAndCeresStatisticEventApi", "OpenStat : " + jSONObject);
+                a53.e().d(new c(this, optString2, jSONObject), "OpenStatisticEvent", true);
+                return h32.f();
             }
-            return this;
+            return new h32(202);
         }
-        return (ei3) invokeLL.objValue;
-    }
-
-    public ei3 m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (ei3) invokeL.objValue;
-    }
-
-    public ei3 n(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.v = z;
-            return this;
-        }
-        return (ei3) invokeZ.objValue;
-    }
-
-    public ei3 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.b = String.valueOf(i);
-            return this;
-        }
-        return (ei3) invokeI.objValue;
-    }
-
-    public ei3 p(@NonNull wm3 wm3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, wm3Var)) == null) {
-            this.b = String.valueOf(wm3Var.a());
-            String sb = wm3Var.g().toString();
-            if (!TextUtils.isEmpty(sb)) {
-                l("detail", sb);
-            }
-            return this;
-        }
-        return (ei3) invokeL.objValue;
-    }
-
-    public ei3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (ei3) invokeL.objValue;
-    }
-
-    public ei3 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.g = str;
-            return this;
-        }
-        return (ei3) invokeL.objValue;
-    }
-
-    public ei3 t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (ei3) invokeL.objValue;
-    }
-
-    public ei3 r(dw2 dw2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, dw2Var)) == null) {
-            if (dw2Var == null) {
-                return this;
-            }
-            if (!TextUtils.isEmpty(dw2Var.T())) {
-                this.c = dw2Var.T();
-            }
-            if (!TextUtils.isEmpty(dw2Var.H())) {
-                this.f = dw2Var.H();
-            }
-            if (!TextUtils.isEmpty(dw2Var.W())) {
-                this.p = dw2Var.W();
-            }
-            if (!TextUtils.isEmpty(dw2Var.e0())) {
-                this.s = dw2Var.e0();
-            }
-            return this;
-        }
-        return (ei3) invokeL.objValue;
+        return (h32) invokeL.objValue;
     }
 }

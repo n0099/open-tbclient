@@ -14,14 +14,14 @@ public final class gb {
     public static int a = 5000;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Vector<String> f428a = new Vector<>();
+    public static Vector<String> f427a = new Vector<>();
     public static int b = 330000;
     public static int c = 600000;
     public static int d = 330000;
 
     static {
         try {
-            for (ClassLoader classLoader : m523a()) {
+            for (ClassLoader classLoader : m524a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -40,7 +40,7 @@ public final class gb {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f428a.add(newPullParser.nextText());
+                                    f427a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -73,7 +73,7 @@ public final class gb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m522a() {
+    public static String m523a() {
         return "3.1.0";
     }
 
@@ -88,7 +88,7 @@ public final class gb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m523a() {
+    public static ClassLoader[] m524a() {
         ClassLoader[] classLoaderArr = {gb.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 2; i++) {

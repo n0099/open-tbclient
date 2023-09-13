@@ -1,15 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class ze5 implements hk1 {
+public class ze5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int[] d;
 
     public ze5() {
         Interceptable interceptable = $ic;
@@ -25,20 +32,69 @@ public class ze5 implements hk1 {
         }
     }
 
-    @Override // com.baidu.tieba.hk1
-    public Object get() {
+    public int[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new yj5());
-            arrayList.add(new hy6());
-            arrayList.add(new i99());
-            arrayList.add(new a0a());
-            arrayList.add(new qaa());
-            arrayList.add(new dea());
-            return arrayList;
+            return this.d;
         }
-        return invokeV.objValue;
+        return (int[]) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                f(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("conn_conf");
+        this.b = jSONObject.optInt("continuous_fail_count");
+        this.c = jSONObject.optInt("restart_time_interval");
+        JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
+        if (optJSONArray != null) {
+            this.d = new int[optJSONArray.length()];
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                this.d[i] = optJSONArray.optInt(i);
+            }
+            return;
+        }
+        this.d = new int[0];
     }
 }

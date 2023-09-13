@@ -2,61 +2,68 @@ package com.baidu.cyberplayer.sdk.mediainfo;
 
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.utils.c;
+import com.baidu.cyberplayer.sdk.utils.NumberUtils;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class MediaInfo {
-    public String a;
-    public int b = -1;
-    public int c = -1;
-    public int d = -1;
-    public int e = -1;
-    public String f = "";
-    public String g = "";
+    public static final String DPM_KEY_AUDIO_CODEC_NAME = "audio_codec_name";
+    public static final String DPM_KEY_AVG_FPS = "avg_fps";
+    public static final String DPM_KEY_BITRATE = "bitrate";
+    public static final String DPM_KEY_CODEC_AUDIO_BITRATE = "audio_bitrate";
+    public static final String DPM_KEY_CODEC_VIDEO_BITRATE = "video_bitrate";
+    public static final String DPM_KEY_VIDEO_CODEC_NAME = "video_codec_name";
+    public static final int VALUE_UNKNOWN = -1;
+    public String mMediaInfoJson;
+    public int mBitRate = -1;
+    public int mVideoBitRate = -1;
+    public int mAudioBitRate = -1;
+    public int mVideoFrameRate = -1;
+    public String mVideoCodecName = "";
+    public String mAudioCodecName = "";
 
     @Keep
     public int getAudioBitRate() {
-        return this.d;
+        return this.mAudioBitRate;
     }
 
     @Keep
     public String getAudioCodecName() {
-        return this.g;
+        return this.mAudioCodecName;
     }
 
     @Keep
     public int getBitRate() {
-        return this.b;
+        return this.mBitRate;
     }
 
     @Keep
     public int getVideoBitRate() {
-        return this.c;
+        return this.mVideoBitRate;
     }
 
     @Keep
     public String getVideoCodecName() {
-        return this.f;
+        return this.mVideoCodecName;
     }
 
     @Keep
     public int getVideoFrameRate() {
-        return this.e;
+        return this.mVideoFrameRate;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void setMediaInfoJson(String str) {
+        this.mMediaInfoJson = str;
         if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(this.a);
-            this.b = c.a(jSONObject.optString("bitrate"), -1);
-            this.c = c.a(jSONObject.optString("video_bitrate"), -1);
-            this.d = c.a(jSONObject.optString("audio_bitrate"), -1);
-            this.e = c.a(jSONObject.optString("avg_fps"), -1);
-            this.f = jSONObject.optString("video_codec_name");
-            this.g = jSONObject.optString("audio_codec_name");
+            JSONObject jSONObject = new JSONObject(this.mMediaInfoJson);
+            this.mBitRate = NumberUtils.parseIntSafely(jSONObject.optString(DPM_KEY_BITRATE), -1);
+            this.mVideoBitRate = NumberUtils.parseIntSafely(jSONObject.optString(DPM_KEY_CODEC_VIDEO_BITRATE), -1);
+            this.mAudioBitRate = NumberUtils.parseIntSafely(jSONObject.optString(DPM_KEY_CODEC_AUDIO_BITRATE), -1);
+            this.mVideoFrameRate = NumberUtils.parseIntSafely(jSONObject.optString(DPM_KEY_AVG_FPS), -1);
+            this.mVideoCodecName = jSONObject.optString(DPM_KEY_VIDEO_CODEC_NAME);
+            this.mAudioCodecName = jSONObject.optString(DPM_KEY_AUDIO_CODEC_NAME);
         } catch (Exception unused) {
         }
     }

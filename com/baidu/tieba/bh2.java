@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +14,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.channels.Channels;
 /* loaded from: classes5.dex */
-public class bh2 extends yg2 {
+public class bh2 extends ch2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,8 @@ public class bh2 extends yg2 {
                 return;
             }
         }
-        c = nr1.a;
+        b = rr1.a;
+        c = "swan_preset" + File.separator + "preset_list.json";
     }
 
     public bh2() {
@@ -48,68 +49,41 @@ public class bh2 extends yg2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = o();
     }
 
-    @Override // com.baidu.tieba.yg2
+    @Override // com.baidu.tieba.ch2
     public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
-                return null;
-            }
-            return hr4.E(file);
+            return sn3.b(ou2.c(), c);
         }
         return (String) invokeV.objValue;
     }
 
-    public final File o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yg2
-    public boolean e(zg2 zg2Var) {
+    @Override // com.baidu.tieba.ch2
+    public boolean e(dh2 dh2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zg2Var)) == null) {
-            if (zg2Var == null || !this.b.exists()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dh2Var)) == null) {
+            if (dh2Var == null) {
                 return false;
             }
-            File file = this.b;
-            File file2 = new File(file, zg2Var.g + File.separator + zg2Var.q);
-            if (!file2.exists()) {
-                return false;
-            }
+            Context appContext = AppRuntime.getAppContext();
+            String str = "swan_preset" + File.separator + dh2Var.g + File.separator + dh2Var.q;
             try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), zg2Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
-                    }
-                    return false;
-                }
-                File j = j(zg2Var.h, zg2Var.g, zg2Var.i);
+                File j = j(dh2Var.h, dh2Var.g, dh2Var.i);
                 if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
+                    if (b) {
+                        Log.e("AssetPresetController", "获取解压路径失败");
                     }
                     return false;
                 }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
+                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
             } catch (IOException e) {
-                if (c) {
+                if (b) {
                     e.printStackTrace();
                 }
                 return false;
@@ -118,20 +92,13 @@ public class bh2 extends yg2 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yg2
+    @Override // com.baidu.tieba.ch2
     public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return hr4.E(file2);
+            Application c2 = ou2.c();
+            return sn3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
         }
         return (String) invokeL.objValue;
     }

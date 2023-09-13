@@ -1,18 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
 import android.content.Context;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,21 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-@SuppressLint({"MissingPermission", "HardwareIds"})
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class ew3 implements gw3 {
+public class ew3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.gw3
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
-    }
+    public Method a;
+    public Method b;
+    public Object c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,119 +35,151 @@ public class ew3 implements gw3 {
                 return;
             }
         }
-        a = nr1.a;
+        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
     }
 
-    public ew3() {
+    public static Class<?> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String[] strArr = d;
+            for (int i = 0; i < strArr.length; i++) {
+                try {
+                    return lf4.a(strArr[i]);
+                } catch (Throwable unused) {
+                }
+            }
+            return null;
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != null && this.a != null && this.b != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                Object invoke = this.b.invoke(this.c, new Object[0]);
+                if (invoke == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public ew3(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.gw3
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        if (cls == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        try {
+            this.c = a(context, cls);
+            Method i3 = lf4.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+            Method i4 = lf4.i(cls, "perfLockRelease", new Class[0]);
+            this.b = i4;
+            if (i4 != null) {
+                i4.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
     }
 
-    @Override // com.baidu.tieba.gw3
-    public String c(Context context) {
+    public static ew3 b(@NonNull Context context) {
+        Class<?> cls;
         InterceptResult invokeL;
-        String meid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                cls = d();
                 try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null) {
-                        meid = "";
-                    } else {
-                        meid = telephonyManager.getMeid();
-                    }
-                    if (TextUtils.isEmpty(meid)) {
-                        return "";
-                    }
-                    return meid;
-                } catch (Exception e) {
-                    d82.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
+                    jf4.c(cls);
+                } catch (Throwable unused) {
                 }
+            } catch (Throwable unused2) {
+                cls = null;
             }
-            return "";
+            return new ew3(cls, context);
         }
-        return (String) invokeL.objValue;
+        return (ew3) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gw3
-    public String d(Context context) {
-        InterceptResult invokeL;
+    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
+            Object obj = null;
             try {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                    if (!TextUtils.isEmpty(deviceId)) {
-                        return deviceId;
-                    }
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        deviceId = ApiReplaceUtil.getImei(telephonyManager);
-                    }
-                    if (TextUtils.isEmpty(deviceId)) {
-                        return "";
-                    }
-                    return deviceId;
+                Constructor c = lf4.c(cls, Context.class);
+                if (c != null) {
+                    obj = c.newInstance(context);
                 }
-            } catch (Exception e) {
-                d82.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
+            } catch (Throwable unused) {
             }
-            return "";
+            if (obj == null) {
+                try {
+                    return lf4.m(cls);
+                } catch (Throwable unused2) {
+                    return obj;
+                }
+            }
+            return obj;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.gw3
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        String deviceId;
+    public int e(int i, int... iArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                if (a) {
-                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
-                }
-                return "";
-            }
-            Application c = ku2.c();
-            if (ContextCompat.checkSelfPermission(c, com.kuaishou.weapon.p0.h.c) != 0) {
-                return "";
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
+            if (!c()) {
+                return -1;
             }
             try {
-                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
-                if (telephonyManager == null) {
-                    deviceId = "";
-                } else {
-                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
+                if (invoke == null) {
+                    return -1;
                 }
-                if (TextUtils.isEmpty(deviceId)) {
-                    return "";
-                }
-                return deviceId;
-            } catch (Exception unused) {
-                return "";
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeIL.intValue;
     }
 }

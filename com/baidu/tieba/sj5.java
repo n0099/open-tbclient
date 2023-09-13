@@ -1,144 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sj5 implements pj5 {
+public class sj5 extends ej5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
+    public boolean t;
+    public boolean u;
 
-    public sj5(View view2, AttributeSet attributeSet) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sj5(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_link), 31, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, attributeSet};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.a = view2;
-        if (attributeSet != null) {
-            TypedArray typedArray = null;
-            try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, hia.KPSwitchPanelLayout);
-                this.c = typedArray.getBoolean(0, false);
-            } finally {
-                if (typedArray != null) {
-                    typedArray.recycle();
-                }
-            }
-        }
+        this.t = true;
+        this.u = true;
+        this.d = R.drawable.icon_pure_post_link24;
+        this.i = false;
+        this.j = true;
+        this.k = false;
+        this.p = new int[]{21};
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.ej5
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                this.b = false;
-            }
-            if (i == this.a.getVisibility()) {
-                return true;
-            }
-            if (!b() || i != 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.t;
         }
-        return invokeI.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.c) {
-            return;
-        }
-        xj5.d(this.a, i);
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public boolean b() {
+    @Override // com.baidu.tieba.ej5
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.u;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pj5
-    public void handleHide() {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.t = z;
         }
     }
 
-    @Override // com.baidu.tieba.pj5
-    public void handleShow() {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.u = z;
         }
-    }
-
-    @Override // com.baidu.tieba.pj5
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return !this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int[] c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            if (this.b) {
-                this.a.setVisibility(8);
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i = makeMeasureSpec;
-            }
-            return new int[]{i, i2};
-        }
-        return (int[]) invokeII.objValue;
     }
 }

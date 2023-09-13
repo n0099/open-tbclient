@@ -74,9 +74,9 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
 
     private final void setMuteIcon(boolean z) {
         if (z) {
-            getMuteButton().setImageResource(R.drawable.obfuscated_res_0x7f080275);
+            getMuteButton().setImageResource(R.drawable.obfuscated_res_0x7f08027a);
         } else {
-            getMuteButton().setImageResource(R.drawable.obfuscated_res_0x7f080274);
+            getMuteButton().setImageResource(R.drawable.obfuscated_res_0x7f080279);
         }
     }
 

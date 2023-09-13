@@ -1,319 +1,236 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.Signature;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.common.AudioSendStamp;
-import com.yy.transvod.player.common.VideoExtraInfo;
-import com.yy.transvod.player.core.TransVodProxy;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.SEIUtility;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes5.dex */
 public class e2c {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicReference<TransVodProxy> a;
-    public boolean b;
-    public boolean c;
-    public byte[] d;
-    public int e;
-    public long f;
-    public AtomicBoolean g;
-    public AtomicBoolean h;
-    public z1c i;
 
-    public e2c() {
+    public static String g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
+    }
+
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 444111001) {
+                switch (i) {
+                    case 444222000:
+                        return "参数为空，请检查";
+                    case 444222001:
+                        return "请求操作类型错误";
+                    case 444222002:
+                        return "请求操作附带参数为空";
+                    case 444222003:
+                        return "请求操作附带参数错误";
+                    default:
+                        switch (i) {
+                            case 444222104:
+                                return "授权APP返回的请求码出错";
+                            case 444222105:
+                                return "Json格式错误";
+                            default:
+                                return "未知错误";
+                        }
+                }
+            }
+            return "成功";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683891, "Lcom/baidu/tieba/e2c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683891, "Lcom/baidu/tieba/e2c;");
                 return;
             }
         }
-        this.a = new AtomicReference<>(null);
-        this.b = false;
-        this.c = false;
-        this.d = null;
-        this.e = -1;
-        this.f = 0L;
-        this.g = new AtomicBoolean(true);
-        this.h = new AtomicBoolean(false);
-        this.i = new z1c(200);
-        this.b = false;
-        this.f = System.currentTimeMillis();
+        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
     }
 
-    public static boolean a(ArrayList<VideoExtraInfo> arrayList) {
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        String[][] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                boolean z = false;
+                for (String[] strArr2 : a) {
+                    if (strArr2.length > 1) {
+                        String str = strArr2[0];
+                        try {
+                            if (d2c.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
+                                Intent intent = new Intent();
+                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                                if (d2c.e(context, intent)) {
+                                    return 0;
+                                }
+                            }
+                            z = true;
+                        } catch (Exception unused) {
+                            z = false;
+                        }
+                    }
+                }
+                if (!z) {
+                    return 1;
+                }
+                return 2;
+            } catch (Exception unused2) {
+                return 1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            try {
+                try {
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                for (Signature signature : signatureArr) {
+                    if (signature != null) {
+                        byteArrayOutputStream.write(signature.toByteArray());
+                    }
+                }
+                byteArrayOutputStream.flush();
+                String f = f(byteArrayOutputStream.toByteArray());
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return f;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                        return "";
+                    } catch (IOException unused2) {
+                        return "";
+                    }
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
-            for (int i = 0; i < arrayList.size(); i++) {
-                VideoExtraInfo videoExtraInfo = arrayList.get(i);
-                if (videoExtraInfo.a == VideoExtraInfo.d) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(new String(videoExtraInfo.c));
-                        if (jSONObject.has(DI.LIVE_PLAYER)) {
-                            JSONObject optJSONObject = jSONObject.optJSONObject(DI.LIVE_PLAYER);
-                            if (!optJSONObject.has("split")) {
-                                return false;
-                            }
-                            if (optJSONObject.optInt("split") != 1) {
-                                return false;
-                            }
-                            return true;
-                        }
-                        continue;
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length * 2];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
                 }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(TransVodProxy transVodProxy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, transVodProxy) == null) {
-            this.a.set(transVodProxy);
-        }
-    }
-
-    public void f(ArrayList<AudioSendStamp> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            TransVodProxy transVodProxy = this.a.get();
-            if (!arrayList.isEmpty() && transVodProxy != null) {
-                transVodProxy.g(arrayList);
+                return new String(cArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public synchronized void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            synchronized (this) {
-                this.b = z;
-            }
-        }
-    }
-
-    public final synchronized boolean c(int i, boolean z, byte[] bArr, int i2) {
+    public static String c(Context context, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), bArr, Integer.valueOf(i2)})) == null) {
-            synchronized (this) {
-            }
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) {
+            return String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), c2c.a(context), g(z), str2);
         }
-        return invokeCommon.booleanValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public final void d(MediaSample mediaSample, x1c x1cVar, String str) {
-        AVframe aVframe;
+    public static Bundle d(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaSample, x1cVar, str) == null) && (aVframe = mediaSample.g) != null && str != null && x1cVar != null) {
-            if (mediaSample.c) {
-                this.i.b(mediaSample.t);
-                AVframe aVframe2 = mediaSample.g;
-                e(str, aVframe2.p, aVframe2.n, x1cVar, aVframe2.e);
-            } else if (aVframe.p != null) {
-                g(str, mediaSample, x1cVar);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appid", str);
+            bundle.putString("appname", d2c.b(context, context.getPackageName()));
+            bundle.putString("appver", d2c.c(context));
+            bundle.putString("appdeviceid", c2c.a(context));
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
+            return bundle;
         }
+        return (Bundle) invokeLL.objValue;
     }
 
-    public void e(String str, byte[] bArr, int i, x1c x1cVar, int i2) {
+    public static Intent e(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, bArr, Integer.valueOf(i), x1cVar, Integer.valueOf(i2)}) == null) {
-            if (bArr == null) {
-                if (this.c) {
-                    TLog.g(this, "TransVodMisc[dse] send a empty dse message");
-                    i(i, null, x1cVar, i2);
-                }
-                this.c = false;
-                return;
-            }
-            boolean c = c(i2, false, bArr, i);
-            if (!c && System.currentTimeMillis() - this.f > 20000) {
-                TLog.g(this, "TransVodMisc[sei] processAudioSEIInfo, ignore same audio sei notification");
-                this.f = System.currentTimeMillis();
-            }
-            if (c) {
-                Message obtain = Message.obtain();
-                obtain.what = 69;
-                obtain.arg1 = i;
-                obtain.obj = bArr;
-                x1cVar.a(obtain, i2);
-            }
-            ArrayList arrayList = new ArrayList();
-            if (i == 1) {
-                ArrayList arrayList2 = new ArrayList();
-                if (SEIUtility.decodeDSEPayLoadV1(bArr, arrayList2, arrayList) > 0) {
-                    if (c) {
-                        i(i, arrayList2, x1cVar, i2);
-                    }
-                    this.c = true;
-                } else if (this.c) {
-                    i(i, null, x1cVar, i2);
-                    this.c = false;
-                }
-            } else if (SEIUtility.decodeDSEPayLoadV0(bArr, arrayList) > 0) {
-                if (c) {
-                    i(i, arrayList, x1cVar, i2);
-                }
-                this.c = true;
-            } else if (this.c) {
-                i(i, null, x1cVar, i2);
-                this.c = false;
-            }
-            ArrayList<AudioSendStamp> arrayList3 = new ArrayList<>();
-            if (!arrayList.isEmpty()) {
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    arrayList3.add(new AudioSendStamp(this.i.a(), ((Long) it.next()).longValue()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            for (String[] strArr : a) {
+                String str = strArr[0];
+                Intent intent = new Intent();
+                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                if (d2c.e(context, intent)) {
+                    return intent;
                 }
             }
-            f(arrayList3);
+            return null;
         }
-    }
-
-    public void g(String str, MediaSample mediaSample, x1c x1cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, str, mediaSample, x1cVar) == null) {
-            AVframe aVframe = mediaSample.g;
-            byte[] bArr = aVframe.p;
-            int i = aVframe.n;
-            int i2 = aVframe.e;
-            if (bArr != null && x1cVar != null) {
-                if (!c(i2, true, bArr, i)) {
-                    mediaSample.H = this.h.get();
-                    if (System.currentTimeMillis() - this.f > 20000) {
-                        TLog.g(this, "TransVodMisc[sei] processVideoSEIInfo, ignore same video sei notification");
-                        this.f = System.currentTimeMillis();
-                        return;
-                    }
-                    return;
-                }
-                Message obtain = Message.obtain();
-                obtain.what = 68;
-                obtain.arg1 = i;
-                obtain.obj = bArr;
-                x1cVar.a(obtain, i2);
-                if (i != 0 && i != 1) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                SEIUtility.decodeSEIPayload(i, bArr, arrayList, arrayList2, arrayList3);
-                boolean z = false;
-                if (!arrayList.isEmpty()) {
-                    if (this.b) {
-                        Message obtain2 = Message.obtain();
-                        obtain2.what = 63;
-                        obtain2.arg1 = i;
-                        obtain2.obj = arrayList;
-                        x1cVar.a(obtain2, i2);
-                    }
-                    if (!this.g.get() && (z = a(arrayList)) != this.h.get()) {
-                        TLog.g(this, "processVideoSEIInfo, isVideoInJoyPk: " + z + ", mVideoInJoyPk:" + this.h.get());
-                    }
-                }
-                this.h.set(z);
-                mediaSample.H = z;
-                if (!arrayList2.isEmpty()) {
-                    Message obtain3 = Message.obtain();
-                    obtain3.what = 64;
-                    obtain3.arg1 = i;
-                    obtain3.obj = arrayList2;
-                    x1cVar.a(obtain3, i2);
-                }
-                if (!arrayList3.isEmpty()) {
-                    Message obtain4 = Message.obtain();
-                    obtain4.what = 66;
-                    obtain4.arg1 = i;
-                    obtain4.obj = arrayList3;
-                    x1cVar.a(obtain4, i2);
-                }
-            }
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = false;
-            synchronized (this) {
-                this.d = null;
-                this.e = -1;
-            }
-        }
-    }
-
-    public final void i(int i, Object obj, x1c x1cVar, int i2) {
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), obj, x1cVar, Integer.valueOf(i2)}) == null) {
-            Message obtain = Message.obtain();
-            if (i == 1) {
-                obtain.what = 65;
-            } else {
-                obtain.what = 67;
-            }
-            if (obj == null) {
-                if (i == 1) {
-                    arrayList = new ArrayList();
-                } else {
-                    arrayList = new ArrayList();
-                }
-                obtain.obj = arrayList;
-            } else {
-                obtain.obj = obj;
-            }
-            x1cVar.a(obtain, i2);
-        }
-    }
-
-    public synchronized void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            synchronized (this) {
-                this.g.set(z);
-                if (!z) {
-                    synchronized (this) {
-                        if (this.d != null && this.e != -1) {
-                            byte[] bArr = this.d;
-                            int i = this.e;
-                            ArrayList arrayList = new ArrayList();
-                            SEIUtility.decodeSEIPayload(i, bArr, arrayList, new ArrayList(), new ArrayList());
-                            this.h.set(a(arrayList));
-                        }
-                    }
-                    return;
-                }
-                TLog.g(this, "updateForceEnablePipeFlag, flag: " + z + ", mVideoInJoyPk:" + this.h.get());
-            }
-        }
+        return (Intent) invokeL.objValue;
     }
 }

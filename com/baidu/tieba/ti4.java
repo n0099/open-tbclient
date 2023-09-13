@@ -1,85 +1,35 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mk4;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class ti4 implements mk4.a {
+public class ti4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final si4 a;
 
-    @Override // com.baidu.tieba.mk4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
+    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
+        String remove;
+        int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, map) != null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.mk4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public ti4(@Nullable si4 si4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {si4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = si4Var;
-    }
-
-    @Override // com.baidu.tieba.mk4.a
-    public void onFail(Exception exc) {
-        si4 si4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (si4Var = this.a) != null) {
-            si4Var.onFail(exc);
-        }
-    }
-
-    @Override // com.baidu.tieba.mk4.a
-    public void onSuccess(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            try {
-                HashMap hashMap = new HashMap();
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
-                    if (optJSONObject2 != null) {
-                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
-                    }
-                }
-                if (this.a != null) {
-                    this.a.a(hashMap);
-                }
-            } catch (Exception e) {
-                si4 si4Var = this.a;
-                if (si4Var != null) {
-                    si4Var.onFail(e);
-                }
-            }
+        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
+            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
+            postStringRequestBuilder.readTimeout(parseInt);
+            postStringRequestBuilder.writeTimeout(parseInt);
+            postStringRequestBuilder.connectionTimeout(parseInt);
+        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
+            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
+            postByteRequestBuilder.readTimeout(parseInt);
+            postByteRequestBuilder.writeTimeout(parseInt);
+            postByteRequestBuilder.connectionTimeout(parseInt);
         }
     }
 }

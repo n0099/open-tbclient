@@ -1,46 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import android.webkit.CookieManager;
+import android.webkit.WebView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xk6 {
+public final class xk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public lk1<a> a;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        t0a getData();
-
-        String getKey();
-    }
-
-    public void a() {
+    public static void a(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jk1 b = jk1.b();
-            this.a = b;
-            b.a(new yk6());
+        if (interceptable == null || interceptable.invokeL(65536, null, webView) == null) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
+            webView.getSettings().setMixedContentMode(0);
+            CompatibleUtile.getInstance().WebViewNoDataBase(webView.getSettings());
         }
-    }
-
-    public xk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a();
     }
 }

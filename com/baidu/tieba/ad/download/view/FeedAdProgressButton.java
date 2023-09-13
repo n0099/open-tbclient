@@ -21,8 +21,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g46;
-import com.baidu.tieba.r56;
+import com.baidu.tieba.c56;
+import com.baidu.tieba.n66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes5.dex */
-public class FeedAdProgressButton extends View implements r56 {
+public class FeedAdProgressButton extends View implements n66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -94,7 +94,7 @@ public class FeedAdProgressButton extends View implements r56 {
         this.n = 0;
         this.q = getResources().getString(R.string.install_app);
         this.t = 0;
-        e(context, attributeSet);
+        d(context, attributeSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -129,24 +129,13 @@ public class FeedAdProgressButton extends View implements r56 {
         this.n = 0;
         this.q = getResources().getString(R.string.install_app);
         this.t = 0;
-        e(context, attributeSet);
+        d(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.r56
+    @Override // com.baidu.tieba.n66
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this, this.d);
-            this.f = SkinManager.getColor(this.a);
-            this.g = SkinManager.getColor(this.b);
-            this.k = SkinManager.getColor(this.c);
-        }
-    }
-
-    @Override // com.baidu.tieba.r56
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundResource(this, this.d);
             this.f = SkinManager.getColor(this.a);
             this.g = SkinManager.getColor(this.b);
@@ -155,22 +144,22 @@ public class FeedAdProgressButton extends View implements r56 {
         }
     }
 
-    public final void f() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Paint paint = new Paint();
             this.h = paint;
             paint.setAntiAlias(true);
             this.h.setStyle(Paint.Style.FILL);
             this.h.setColor(this.k);
-            g();
+            f();
         }
     }
 
     public int getMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.m;
         }
         return invokeV.intValue;
@@ -179,15 +168,26 @@ public class FeedAdProgressButton extends View implements r56 {
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public final void c(Canvas canvas) {
+    @Override // com.baidu.tieba.n66
+    public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SkinManager.setBackgroundResource(this, this.d);
+            this.f = SkinManager.getColor(this.a);
+            this.g = SkinManager.getColor(this.b);
+            this.k = SkinManager.getColor(this.c);
+        }
+    }
+
+    public final void b(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (this.o == null) {
                 this.o = new RectF();
             }
@@ -207,11 +207,11 @@ public class FeedAdProgressButton extends View implements r56 {
         }
     }
 
-    public final float d(int i, float f, boolean z) {
+    public final float c(int i, float f, boolean z) {
         InterceptResult invokeCommon;
         int suggestedMinimumHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)})) == null) {
             if (View.MeasureSpec.getMode(i) != Integer.MIN_VALUE && i != 0) {
                 if (z) {
                     suggestedMinimumHeight = getSuggestedMinimumWidth();
@@ -225,10 +225,10 @@ public class FeedAdProgressButton extends View implements r56 {
         return invokeCommon.floatValue;
     }
 
-    public final void e(Context context, AttributeSet attributeSet) {
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g46.feed_ad_progress);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c56.feed_ad_progress);
             int color = getResources().getColor(R.color.CAM_X0302);
             int color2 = getResources().getColor(R.color.CAM_X0302);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
@@ -245,7 +245,7 @@ public class FeedAdProgressButton extends View implements r56 {
             this.n = obtainStyledAttributes.getDimensionPixelSize(3, dimensionPixelSize);
             obtainStyledAttributes.recycle();
             this.o = new RectF();
-            f();
+            e();
         }
     }
 
@@ -279,14 +279,14 @@ public class FeedAdProgressButton extends View implements r56 {
             } else {
                 f = 0.0f;
             }
-            setMeasuredDimension((int) d(i, f2, true), (int) d(i2, f, false));
+            setMeasuredDimension((int) c(i, f2, true), (int) c(i2, f, false));
         }
     }
 
-    public final void g() {
+    public final void f() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.i == null) {
                 TextPaint textPaint = new TextPaint();
                 this.i = textPaint;
@@ -310,12 +310,12 @@ public class FeedAdProgressButton extends View implements r56 {
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
             if (this.e > 0) {
-                c(canvas);
+                b(canvas);
             }
             if (TextUtils.isEmpty(this.l)) {
                 return;
             }
-            g();
+            f();
             Paint.FontMetrics fontMetrics = this.i.getFontMetrics();
             float f = fontMetrics.descent;
             canvas.drawText(this.l, (getMeasuredWidth() - this.i.measureText(this.l)) / 2.0f, ((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f), this.i);
@@ -337,7 +337,7 @@ public class FeedAdProgressButton extends View implements r56 {
         }
     }
 
-    @Override // com.baidu.tieba.r56
+    @Override // com.baidu.tieba.n66
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -347,7 +347,7 @@ public class FeedAdProgressButton extends View implements r56 {
         }
     }
 
-    @Override // com.baidu.tieba.r56
+    @Override // com.baidu.tieba.n66
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -370,7 +370,7 @@ public class FeedAdProgressButton extends View implements r56 {
         }
     }
 
-    @Override // com.baidu.tieba.r56
+    @Override // com.baidu.tieba.n66
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -399,7 +399,7 @@ public class FeedAdProgressButton extends View implements r56 {
         }
     }
 
-    @Override // com.baidu.tieba.r56
+    @Override // com.baidu.tieba.n66
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {

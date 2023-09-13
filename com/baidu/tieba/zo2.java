@@ -1,25 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
+import java.io.File;
 /* loaded from: classes9.dex */
-public final class zo2<W extends ap2> {
+public class zo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static File a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, xo2<W>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,83 +38,31 @@ public final class zo2<W extends ap2> {
                 return;
             }
         }
-        b = nr1.a;
+        a = du2.g();
+        b = "swan_core";
+        c = "extension_core";
+        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        e = "cloneFolder_";
+        f = d + File.separator + e;
+        g = "clone_pkg_folder";
+        h = "clone_core_folder";
+        i = "clone_dynamic_lib_folder";
+        j = "clone_sp_folder";
+        k = "clone_db_folder";
+        l = "cloneZip.zip";
+        m = "clone_zipFiles";
     }
 
-    public zo2() {
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(pi3.w());
+            if (!lr4.l(file)) {
+                return null;
             }
+            return file;
         }
-        this.a = new HashMap<>();
-    }
-
-    public void a(xo2<W> xo2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xo2Var) == null) {
-            if (b) {
-                Log.v("CommandDispatcher", xo2Var.b() + " command added to supported command list");
-            }
-            this.a.put(xo2Var.b(), xo2Var);
-        }
-    }
-
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                if (w == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                xo2<W> xo2Var = this.a.get(command.what);
-                if (xo2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " command dispatched");
-                }
-                xo2Var.a(command, w);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
-            }
-        }
-    }
-
-    public void c(@Nullable ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                xo2<W> xo2Var = this.a.get(command.what);
-                if (xo2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
-                }
-                xo2Var.c(command);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
-            }
-        }
+        return (File) invokeV.objValue;
     }
 }

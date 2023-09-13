@@ -1,105 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tieba.frs.FrsActivity;
+import androidx.annotation.Nullable;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
-public class et7 implements l65 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface et7 extends kt7 {
+    @Nullable
+    <T> T a(@NonNull LogicField logicField);
 
-    public et7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(@NonNull ThemeElement themeElement);
 
-    @Override // com.baidu.tieba.l65
+    void c(@NonNull FrsFragment frsFragment, @NonNull View view2);
+
     @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsForumManage");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
+    it7 e();
 
-    @Override // com.baidu.tieba.l65
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z4 = false;
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "吧务管理弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            FrsFragment u1 = ((FrsActivity) currentActivity).u1();
-            if (u1 != null && !u1.z4() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                TbLog yunDialogLog = YunDialogLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("吧务管理弹窗策略校验失败：FrsFragment为空->");
-                if (u1 == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                sb.append("|");
-                sb.append("Frs是否展示过弹窗->");
-                if (u1 != null && u1.z4()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                sb.append(z3);
-                sb.append("|");
-                sb.append("是否存在FRS数据->");
-                if (TbSingleton.getInstance().getFrsResponseData() != null) {
-                    z4 = true;
-                }
-                sb.append(z4);
-                yunDialogLog.e(YunDialogManager.LOG_KEY, sb.toString());
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
+    void f(boolean z);
+
+    int l(@NonNull LogicField logicField);
 }

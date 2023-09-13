@@ -60,16 +60,16 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     @NonNull
     private Animator createElevationAnimator(float f, float f2) {
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(ObjectAnimator.ofFloat(this.f1210view, Key.ELEVATION, f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.f1210view, View.TRANSLATION_Z, f2).setDuration(100L));
+        animatorSet.play(ObjectAnimator.ofFloat(this.f1206view, Key.ELEVATION, f).setDuration(0L)).with(ObjectAnimator.ofFloat(this.f1206view, View.TRANSLATION_Z, f2).setDuration(100L));
         animatorSet.setInterpolator(FloatingActionButtonImpl.ELEVATION_ANIM_INTERPOLATOR);
         return animatorSet;
     }
 
     @NonNull
     public BorderDrawable createBorderDrawable(int i, ColorStateList colorStateList) {
-        Context context = this.f1210view.getContext();
+        Context context = this.f1206view.getContext();
         BorderDrawable borderDrawable = new BorderDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
-        borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060717), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060716), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060714), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060715));
+        borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060719), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060718), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060716), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060717));
         borderDrawable.setBorderWidth(i);
         borderDrawable.setBorderTint(colorStateList);
         return borderDrawable;
@@ -83,7 +83,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
     public float getElevation() {
-        return this.f1210view.getElevation();
+        return this.f1206view.getElevation();
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
@@ -104,7 +104,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         if (this.shadowViewDelegate.isCompatPaddingEnabled()) {
             super.getPadding(rect);
         } else if (!shouldExpandBoundsForA11y()) {
-            int sizeDimension = (this.minTouchTargetSize - this.f1210view.getSizeDimension()) / 2;
+            int sizeDimension = (this.minTouchTargetSize - this.f1206view.getSizeDimension()) / 2;
             rect.set(sizeDimension, sizeDimension, sizeDimension, sizeDimension);
         } else {
             rect.set(0, 0, 0, 0);
@@ -130,7 +130,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
         if (mode != null) {
             this.shapeDrawable.setTintMode(mode);
         }
-        this.shapeDrawable.initializeElevationOverlay(this.f1210view.getContext());
+        this.shapeDrawable.initializeElevationOverlay(this.f1206view.getContext());
         if (i > 0) {
             this.borderDrawable = createBorderDrawable(i, colorStateList);
             drawable = new LayerDrawable(new Drawable[]{(Drawable) Preconditions.checkNotNull(this.borderDrawable), (Drawable) Preconditions.checkNotNull(this.shapeDrawable)});
@@ -146,28 +146,28 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
     public void onDrawableStateChanged(int[] iArr) {
         if (Build.VERSION.SDK_INT == 21) {
-            if (this.f1210view.isEnabled()) {
-                this.f1210view.setElevation(this.elevation);
-                if (this.f1210view.isPressed()) {
-                    this.f1210view.setTranslationZ(this.pressedTranslationZ);
+            if (this.f1206view.isEnabled()) {
+                this.f1206view.setElevation(this.elevation);
+                if (this.f1206view.isPressed()) {
+                    this.f1206view.setTranslationZ(this.pressedTranslationZ);
                     return;
-                } else if (!this.f1210view.isFocused() && !this.f1210view.isHovered()) {
-                    this.f1210view.setTranslationZ(0.0f);
+                } else if (!this.f1206view.isFocused() && !this.f1206view.isHovered()) {
+                    this.f1206view.setTranslationZ(0.0f);
                     return;
                 } else {
-                    this.f1210view.setTranslationZ(this.hoveredFocusedTranslationZ);
+                    this.f1206view.setTranslationZ(this.hoveredFocusedTranslationZ);
                     return;
                 }
             }
-            this.f1210view.setElevation(0.0f);
-            this.f1210view.setTranslationZ(0.0f);
+            this.f1206view.setElevation(0.0f);
+            this.f1206view.setTranslationZ(0.0f);
         }
     }
 
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
     public void onElevationsChanged(float f, float f2, float f3) {
         if (Build.VERSION.SDK_INT == 21) {
-            this.f1210view.refreshDrawableState();
+            this.f1206view.refreshDrawableState();
         } else {
             StateListAnimator stateListAnimator = new StateListAnimator();
             stateListAnimator.addState(FloatingActionButtonImpl.PRESSED_ENABLED_STATE_SET, createElevationAnimator(f, f3));
@@ -176,18 +176,18 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
             stateListAnimator.addState(FloatingActionButtonImpl.HOVERED_ENABLED_STATE_SET, createElevationAnimator(f, f2));
             AnimatorSet animatorSet = new AnimatorSet();
             ArrayList arrayList = new ArrayList();
-            arrayList.add(ObjectAnimator.ofFloat(this.f1210view, Key.ELEVATION, f).setDuration(0L));
+            arrayList.add(ObjectAnimator.ofFloat(this.f1206view, Key.ELEVATION, f).setDuration(0L));
             int i = Build.VERSION.SDK_INT;
             if (i >= 22 && i <= 24) {
-                FloatingActionButton floatingActionButton = this.f1210view;
+                FloatingActionButton floatingActionButton = this.f1206view;
                 arrayList.add(ObjectAnimator.ofFloat(floatingActionButton, View.TRANSLATION_Z, floatingActionButton.getTranslationZ()).setDuration(100L));
             }
-            arrayList.add(ObjectAnimator.ofFloat(this.f1210view, View.TRANSLATION_Z, 0.0f).setDuration(100L));
+            arrayList.add(ObjectAnimator.ofFloat(this.f1206view, View.TRANSLATION_Z, 0.0f).setDuration(100L));
             animatorSet.playSequentially((Animator[]) arrayList.toArray(new Animator[0]));
             animatorSet.setInterpolator(FloatingActionButtonImpl.ELEVATION_ANIM_INTERPOLATOR);
             stateListAnimator.addState(FloatingActionButtonImpl.ENABLED_STATE_SET, animatorSet);
             stateListAnimator.addState(FloatingActionButtonImpl.EMPTY_STATE_SET, createElevationAnimator(0.0f, 0.0f));
-            this.f1210view.setStateListAnimator(stateListAnimator);
+            this.f1206view.setStateListAnimator(stateListAnimator);
         }
         if (shouldAddPadding()) {
             updatePadding();

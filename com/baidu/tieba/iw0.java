@@ -5,17 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class iw0 extends sw0 {
+public class iw0 extends ww0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static sw0 w(@NonNull String str) {
+    public static ww0 w(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return sw0.m(str, 3);
+            return ww0.m(str, 2);
         }
-        return (sw0) invokeL.objValue;
+        return (ww0) invokeL.objValue;
     }
 }

@@ -1,70 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes9.dex */
-public class ze3 extends cf3 {
+public class ze3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ze3(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/removeWebView");
+    public static void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ac3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, map) == null) && !TextUtils.isEmpty(str) && map != null) {
+            String f = zo3.f(str);
+            String o = zo3.o(str);
+            String b = b(f);
+            if (!TextUtils.equals(f, b)) {
+                if (!TextUtils.isEmpty(o)) {
+                    b = b + "?" + o;
+                }
+                map.put("pageRoutePath", b);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
-        InterceptResult invokeLLLL;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            if (ad3.b) {
-                Log.d("RemoveWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            bf3 h = bf3.h(unitedSchemeEntity);
-            if (!h.isValid()) {
-                d82.c("removeWebView", "params is invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return true;
-            }
-            jx1 jx1Var = (jx1) qw2.T().A(h.c);
-            if (jx1Var == null) {
-                d82.c("removeWebView", "viewManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return true;
-            } else if (!jx1Var.W(h)) {
-                d82.c("removeWebView", "remove webview widget fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return true;
-            } else {
-                d82.i("removeWebView", "remove webview widget success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return c(str, gb3.K().q().Q());
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, swanAppConfigData)) == null) {
+            if (swanAppConfigData == null) {
+                return str;
+            }
+            String f = o63.f(str);
+            if (!TextUtils.isEmpty(f)) {
+                return f;
+            }
+            return swanAppConfigData.j(str);
+        }
+        return (String) invokeLL.objValue;
     }
 }

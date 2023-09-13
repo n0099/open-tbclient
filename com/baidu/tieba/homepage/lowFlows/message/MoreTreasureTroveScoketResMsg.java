@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.lowFlows.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.q38;
-import com.baidu.tieba.v38;
+import com.baidu.tieba.b58;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.g58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes6.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements q38 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements b58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bn> mMoreTreasureTroveDataList;
+    public List<cn> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveScoketResMsg() {
@@ -39,8 +39,8 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // com.baidu.tieba.q38
-    public List<bn> getDataList() {
+    @Override // com.baidu.tieba.b58
+    public List<cn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -65,7 +65,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
                     setError(error.errorno.intValue());
                     setErrorString(moreTreasureTroveResIdl.error.usermsg);
                 }
-                this.mMoreTreasureTroveDataList = v38.b(moreTreasureTroveResIdl);
+                this.mMoreTreasureTroveDataList = g58.b(moreTreasureTroveResIdl);
             }
             return moreTreasureTroveResIdl;
         }

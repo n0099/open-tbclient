@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
@@ -32,8 +32,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.tm8;
-import com.baidu.tieba.um8;
+import com.baidu.tieba.vn8;
+import com.baidu.tieba.wn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class UpBubbleSlice extends Slice {
     public GroupChatRepo l;
     public GroupChatRepo.v<TreeSet<ChatMsg>> m;
     @NonNull
-    public final um8 n;
+    public final wn8 n;
     public String o;
     public boolean p;
     public long q;
@@ -59,7 +59,7 @@ public class UpBubbleSlice extends Slice {
     public final ChatPage s;
 
     /* loaded from: classes6.dex */
-    public class a implements tm8 {
+    public class a implements vn8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpBubbleSlice a;
@@ -82,19 +82,19 @@ public class UpBubbleSlice extends Slice {
             this.a = upBubbleSlice;
         }
 
-        @Override // com.baidu.tieba.tm8
+        @Override // com.baidu.tieba.vn8
         public void a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) {
                 int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-                List<bn> data = ((RecyclerViewTypeAdapter) bdTypeRecyclerView.getWrappedAdapter()).getData();
+                List<cn> data = ((RecyclerViewTypeAdapter) bdTypeRecyclerView.getWrappedAdapter()).getData();
                 if ((ListUtils.getItem(data, firstVisiblePosition) instanceof BaseMsg) && ((BaseMsg) ListUtils.getItem(data, firstVisiblePosition)).getCommonMsgField().getMsgId() == this.a.q) {
-                    this.a.p0();
+                    this.a.r0();
                 }
             }
         }
 
-        @Override // com.baidu.tieba.tm8
+        @Override // com.baidu.tieba.vn8
         public void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.v<TreeSet<ChatMsg>> vVar) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter;
             Interceptable interceptable = $ic;
@@ -103,11 +103,11 @@ public class UpBubbleSlice extends Slice {
                 this.a.m = vVar;
                 int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
                 if (this.a.p && (recyclerViewTypeAdapter = (RecyclerViewTypeAdapter) bdTypeRecyclerView.getWrappedAdapter()) != null) {
-                    List<bn> data = recyclerViewTypeAdapter.getData();
+                    List<cn> data = recyclerViewTypeAdapter.getData();
                     if (data.size() > 0 && firstVisiblePosition != -1) {
-                        bn bnVar = data.get(firstVisiblePosition);
-                        if ((bnVar instanceof BaseMsg) && ((BaseMsg) bnVar).getCommonMsgField().getMsgId() > this.a.q) {
-                            this.a.l0();
+                        cn cnVar = data.get(firstVisiblePosition);
+                        if ((cnVar instanceof BaseMsg) && ((BaseMsg) cnVar).getCommonMsgField().getMsgId() > this.a.q) {
+                            this.a.n0();
                         }
                     }
                 }
@@ -143,9 +143,9 @@ public class UpBubbleSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.l.Z(this.a.q, this.a.r, this.a.m);
-                this.a.p0();
-                this.a.s.J0();
+                this.a.l.Y(this.a.q, this.a.r, this.a.m);
+                this.a.r0();
+                this.a.s.L0();
             }
         }
     }
@@ -185,7 +185,7 @@ public class UpBubbleSlice extends Slice {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.j0();
+                this.a.l0();
             }
         }
 
@@ -227,9 +227,9 @@ public class UpBubbleSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d dVar = new d();
                 dVar.a = view2;
-                dVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09281a);
-                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090512);
-                dVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
+                dVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09284d);
+                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
+                dVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090526);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -254,86 +254,86 @@ public class UpBubbleSlice extends Slice {
         this.q = Long.MAX_VALUE;
         this.j = groupChatFragment;
         this.s = chatPage;
-        this.n = new um8();
+        this.n = new wn8();
     }
 
-    public void m0(ChatRoomDetail chatRoomDetail) {
+    public void o0(ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomDetail) == null) {
             this.n.c(chatRoomDetail);
-            k0();
+            m0();
         }
     }
 
-    public final void n0(boolean z) {
+    public final void p0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            FrameLayout M2 = this.j.M2();
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            FrameLayout O2 = this.j.O2();
             if (z) {
-                M2.setVisibility(0);
+                O2.setVisibility(0);
             } else {
-                M2.setVisibility(8);
+                O2.setVisibility(8);
             }
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void V(@Nullable View view2, @Nullable Bundle bundle) {
+    public void X(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.V(view2, bundle);
+            super.X(view2, bundle);
             if (view2 != null) {
                 this.k = d.a(view2);
             }
-            o0();
+            q0();
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View P(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View R(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09c0, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d09d1, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    public void i0() {
+    public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.p = this.n.b();
         }
     }
 
-    public void j0() {
+    public void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.k.d.getVisibility() == 0) {
                 this.k.d.setVisibility(8);
             }
-            n0(false);
+            p0(false);
         }
     }
 
-    public final void l0() {
+    public final void n0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.k.d.setVisibility(0);
-            n0(true);
+            p0(true);
             this.k.b.setText(this.o);
             this.k.d.setOnClickListener(new b(this));
         }
     }
 
-    public final void o0() {
+    public final void q0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.s.h1(new a(this));
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.s.j1(new a(this));
         }
     }
 
-    public void p0() {
+    public void r0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.p = false;
@@ -344,7 +344,7 @@ public class UpBubbleSlice extends Slice {
         }
     }
 
-    public final void k0() {
+    public final void m0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Map<String, AtInfoMsg> a2 = this.n.a();
@@ -365,7 +365,7 @@ public class UpBubbleSlice extends Slice {
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
             this.k.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.up_positioning_bubble_icon, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             EMManager.from(this.k.d).setCorner(R.string.deprecated_J_X20).setBackGroundColor(R.color.CAM_X0207);

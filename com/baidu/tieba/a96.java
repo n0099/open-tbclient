@@ -1,21 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,149 +12,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import org.json.JSONObject;
-@Singleton
-@Service
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class a96 implements fv2 {
+public class a96 extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdInfo a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947570059, "Lcom/baidu/tieba/a96;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947570059, "Lcom/baidu/tieba/a96;");
-        }
-    }
-
-    @Override // com.baidu.tieba.fv2
-    public void a(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fv2
-    public void f(Activity activity, String str, kg1<JSONObject> kg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, kg1Var) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yf1 a;
-
-        public a(a96 a96Var, yf1 yf1Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947570059, "Lcom/baidu/tieba/a96;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a96Var, yf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = yf1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                this.a.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c96 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yf1 a;
-
-        public b(a96 a96Var, yf1 yf1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a96Var, yf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yf1Var;
-        }
-
-        @Override // com.baidu.tieba.c96
-        public void a(Bundle bundle) {
-            yf1 yf1Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, bundle) != null) || (yf1Var = this.a) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947570059, "Lcom/baidu/tieba/a96;");
                 return;
             }
-            yf1Var.onPayResult(bundle.getInt("result_code"), bundle.getString("result_msg"));
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a96 this$0;
-        public final /* synthetic */ yf1 val$callback;
-
-        public c(a96 a96Var, yf1 yf1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a96Var, yf1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = a96Var;
-            this.val$callback = yf1Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                this.val$callback.onPayResult(intent.getExtras().getInt("errorCode", -1), intent.getExtras().getString("errorMsg"));
-            }
-        }
+        b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+        c = File.separator;
     }
 
     public a96() {
@@ -182,88 +56,83 @@ public class a96 implements fv2 {
         }
     }
 
-    @Override // com.baidu.tieba.fv2
-    public boolean b(Context context) {
-        InterceptResult invokeL;
+    public final void b(boolean z, File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (!WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
-                va3.g(context, "您没有安装微信，请选择其他支付方式").G();
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fv2
-    public void c(Activity activity, String str, yf1 yf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, str, yf1Var) == null) {
-            if (!cs5.c().d()) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
-                return;
-            }
-            db3 M = db3.M();
-            if (M != null && M.getActivity() != null) {
-                z86 z86Var = new z86();
-                z86Var.mParams.putInt("type", 2);
-                z86Var.mParams.putString("orderInfo", str);
-                z86Var.d(M.getActivity());
-                z86Var.e(new b(this, yf1Var));
-                z86Var.onExec();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fv2
-    public void d(Context context, JSONObject jSONObject, yf1 yf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, jSONObject, yf1Var) == null) {
-            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context.getApplicationContext(), TbConfig.WEIXIN_SHARE_APP_ID);
-            PayReq g = g(jSONObject);
-            createWXAPI.registerApp(g.appId);
-            if (!createWXAPI.isWXAppInstalled()) {
-                yf1Var.onPayResult(3, "wx_not_installed");
-                va3.g(context, "您没有安装微信，请选择其他支付方式").G();
-            } else if (db3.M() == null) {
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
+            if (z && file != null) {
+                File file2 = new File(b + c + (ki.c(this.a.adVideoUrl) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION));
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                if (file.renameTo(file2)) {
+                    this.a.videoLocalPath = file2.getAbsolutePath();
+                } else {
+                    this.a.videoLocalPath = "";
+                }
             } else {
-                if (!createWXAPI.sendReq(g)) {
-                    yf1Var.onPayResult(6, "wx_start_failed");
-                }
-                if (a != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(a);
-                }
-                a = new c(this, yf1Var);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(a, intentFilter);
+                this.a.videoLocalPath = "";
             }
+            g96.f(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.fv2
-    public void e(Activity activity, String str, yf1 yf1Var) {
+    public void c(AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, activity, str, yf1Var) == null) {
-            DelegateUtils.callOnMainWithActivity(qw2.T().getActivity(), MainProcessDelegateActivity.class, d96.class, d96.d(str), new a(this, yf1Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
+            this.a = adInfo;
         }
     }
 
-    public final PayReq g(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
+        if (r12.equalsIgnoreCase(r11.a.videoMd5) == false) goto L26;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Boolean doInBackground(Void... voidArr) {
         InterceptResult invokeL;
+        File file;
+        boolean z;
+        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("packagealias");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            return payReq;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
+            String str = b + c + "advideo.temp";
+            file = new File(str);
+            if (file.exists()) {
+                file.delete();
+            }
+            z = false;
+            try {
+                new File(b).mkdirs();
+                if (!file.createNewFile()) {
+                    b(false, null);
+                    return Boolean.FALSE;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            pf pfVar = new pf();
+            pfVar.b().s(this.a.adVideoUrl);
+            c2 = new mf(pfVar).c(str, null, 3, 3000, -1, -1, true, true);
+            try {
+                if (TextUtils.isEmpty(this.a.videoMd5)) {
+                    b(c2, file);
+                    return Boolean.valueOf(c2);
+                }
+                String b2 = ki.b(new FileInputStream(str));
+                if (TextUtils.isEmpty(b2)) {
+                    c2 = false;
+                }
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+            }
+        } else {
+            return (Boolean) invokeL.objValue;
         }
-        return (PayReq) invokeL.objValue;
+        z = c2;
+        b(z, file);
+        return Boolean.valueOf(z);
     }
 }

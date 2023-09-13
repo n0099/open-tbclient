@@ -150,7 +150,7 @@ public class BDEmotionTextLayout extends BDEmotionBaseLayout {
                                     EmotionVipHelper.doBuyVip(this.this$1.this$0.getContext(), this.this$1.this$0.mTypeModel.getAuth(), this.this$1.this$0.mTypeModel.getSchema(), new EmotionVipHelper.OnBuyVipListener(this) { // from class: com.baidu.spswitch.emotion.view.BDEmotionTextLayout.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C01991 this$2;
+                                        public final /* synthetic */ C01881 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;

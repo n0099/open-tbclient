@@ -4,18 +4,21 @@ import android.content.Intent;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dz4;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
-import com.baidu.tieba.rm0;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.pda;
+import com.baidu.tieba.sm0;
 import com.baidu.tieba.util.AdApkInstallHelper;
-import com.baidu.tieba.wba;
-import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +73,7 @@ public final class AdApkInstallHelper {
         }
     }
 
-    @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J \u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u0006H\u0002J\u001c\u0010\t\u001a\u00020\u00042\b\u0010\n\u001a\u0004\u0018\u00010\u00062\b\u0010\u000b\u001a\u0004\u0018\u00010\fH\u0007J\u0012\u0010\r\u001a\u00020\u00042\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fH\u0007¨\u0006\u0010"}, d2 = {"Lcom/baidu/tieba/util/AdApkInstallHelper$Companion;", "", "()V", "adApkStatistic", "", "statisticKey", "", "downloadDataId", "pkgName", "installApp", "path", "downloadData", "Lcom/baidu/tbadk/download/DownloadData;", "installSuccess", "intent", "Landroid/content/Intent;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J \u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\u0004H\u0002J\u001c\u0010\n\u001a\u00020\u00062\b\u0010\u000b\u001a\u0004\u0018\u00010\u00042\b\u0010\f\u001a\u0004\u0018\u00010\rH\u0007J\u0012\u0010\u000e\u001a\u00020\u00062\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010H\u0007R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/util/AdApkInstallHelper$Companion;", "", "()V", "TAG", "", "adApkStatistic", "", "statisticKey", "downloadDataId", "pkgName", "installApp", "path", "downloadData", "Lcom/baidu/tbadk/download/DownloadData;", "installSuccess", "intent", "Landroid/content/Intent;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes8.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
@@ -116,10 +119,10 @@ public final class AdApkInstallHelper {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
                     Intrinsics.checkNotNullParameter(params, "params");
-                    wba h = new TbDownloadManager().m().h(this.a, this.b);
+                    pda h = new TbDownloadManager().m().h(this.a, this.b);
                     ItemData itemData = new ItemData();
                     itemData.parseJson(h.c());
-                    zy4.b().a(this.c, String.valueOf(h.p()), itemData.mTitle, h.d(), itemData.mTbFileDownloaderType);
+                    dz4.b().a(this.c, String.valueOf(h.p()), itemData.mTitle, h.d(), itemData.mTbFileDownloaderType);
                     return 0L;
                 }
                 return (Long) invokeL.objValue;
@@ -154,6 +157,8 @@ public final class AdApkInstallHelper {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, downloadData) == null) {
+                TbLog downloaderLog = DownloaderLog.getInstance();
+                downloaderLog.i("AdApkInstallHelper", "下载器：函数 installApp，path is：" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + downloadData);
                 if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
                     z = false;
                 } else {
@@ -204,12 +209,14 @@ public final class AdApkInstallHelper {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                             if (!new File(this.$path).exists()) {
+                                DownloaderLog.getInstance().i("AdApkInstallHelper", "下载器：函数 installApp，文件不存在");
                                 String string = TbadkCoreApplication.getInst().getApp().getString(R.string.file_not_exist);
                                 Intrinsics.checkNotNullExpressionValue(string, "getInst().app.getString(R.string.file_not_exist)");
                                 BdUtilHelper.showToast(TbadkCoreApplication.getInst(), string);
                                 return;
                             }
-                            rm0.d(new File(this.$path));
+                            DownloaderLog.getInstance().i("AdApkInstallHelper", "下载器：函数 installApp，开始安装");
+                            sm0.d(new File(this.$path));
                             DownloadData downloadData2 = this.$downloadData;
                             if (downloadData2 != null) {
                                 String id = downloadData2.getId();
@@ -233,11 +240,25 @@ public final class AdApkInstallHelper {
 
         @JvmStatic
         public final void d(Intent intent) {
+            String str;
             Uri data;
             String schemeSpecificPart;
+            Uri data2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null && (data = intent.getData()) != null && (schemeSpecificPart = data.getSchemeSpecificPart()) != null && (!StringsKt__StringsJVMKt.isBlank(schemeSpecificPart))) {
-                AdApkInstallHelper.a.b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, "", schemeSpecificPart);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+                TbLog downloaderLog = DownloaderLog.getInstance();
+                StringBuilder sb = new StringBuilder();
+                sb.append("下载器：函数 installSuccess，安装完成 schemeSpecificPart is: ");
+                if (intent != null && (data2 = intent.getData()) != null) {
+                    str = data2.getSchemeSpecificPart();
+                } else {
+                    str = null;
+                }
+                sb.append(str);
+                downloaderLog.i("AdApkInstallHelper", sb.toString());
+                if (intent != null && (data = intent.getData()) != null && (schemeSpecificPart = data.getSchemeSpecificPart()) != null && (!StringsKt__StringsJVMKt.isBlank(schemeSpecificPart))) {
+                    AdApkInstallHelper.a.b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, "", schemeSpecificPart);
+                }
             }
         }
     }

@@ -6,22 +6,21 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.CyberPlayerCoreInvoker;
 import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.SDKVersion;
+import com.baidu.cyberplayer.sdk.MediaPlayerReduceHelper;
+import com.baidu.cyberplayer.sdk.Utils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.downloader.SilentDownloaderManager;
-import com.baidu.cyberplayer.sdk.f;
-import com.baidu.cyberplayer.sdk.q;
-import com.baidu.cyberplayer.sdk.remote.h;
+import com.baidu.cyberplayer.sdk.remote.RemotePlayerFactory;
+import com.baidu.cyberplayer.sdk.statistics.DpInitKernelSession;
+import com.baidu.cyberplayer.sdk.statistics.DpLibsInitSession;
 import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.cyberplayer.sdk.statistics.b;
-import com.baidu.cyberplayer.sdk.statistics.i;
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,14 +31,21 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public class CyberCoreLoaderManager {
-    public static Map<Integer, Object> a = new ConcurrentHashMap();
-    public static volatile CyberCoreLoaderManager b = null;
-    public Context g;
-    public final Object d = new Object();
-    public volatile int f = 0;
-    public long h = -1;
-    public long i = -1;
-    public Handler j = new Handler(Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.1
+    public static final String LATEST_SUCCESS_LOADED_PREF_NAME = "latest_success_loaded_";
+    public static final int MSG_TYPE_ERROR = 1;
+    public static final int MSG_TYPE_IS_LOADED = 3;
+    public static final int MSG_TYPE_LIB_PATH = 4;
+    public static final int MSG_TYPE_PROGRESS = 2;
+    public static final int MSG_TYPE_SUCCESS = 0;
+    public static final String TAG = "CyberCoreLoaderManager";
+    public static Map<Integer, Object> mLibPathMap = new ConcurrentHashMap();
+    public static volatile CyberCoreLoaderManager sInstance = null;
+    public Context mContext;
+    public final Object mLock = new Object();
+    public volatile int sCurLoadingLibs = 0;
+    public long mStartLoadTime = -1;
+    public long mInitDpTime = -1;
+    public Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i = message.what;
@@ -49,10 +55,10 @@ public class CyberCoreLoaderManager {
                     if (i != 2) {
                         if (i != 3) {
                             if (i == 4) {
-                                for (int i3 = 0; i3 < CyberCoreLoaderManager.this.c.size(); i3++) {
-                                    a aVar = (a) CyberCoreLoaderManager.this.c.get(i3);
-                                    if (aVar.c != null && (aVar.c instanceof CyberPlayerManager.InstallListener2)) {
-                                        ((CyberPlayerManager.InstallListener2) aVar.c).onInstallInfo(message.arg1, 0, message.obj);
+                                for (int i3 = 0; i3 < CyberCoreLoaderManager.this.mInstallObserversList.size(); i3++) {
+                                    CyberCoreInstallObserver cyberCoreInstallObserver = (CyberCoreInstallObserver) CyberCoreLoaderManager.this.mInstallObserversList.get(i3);
+                                    if (cyberCoreInstallObserver.mListener != null && (cyberCoreInstallObserver.mListener instanceof CyberPlayerManager.InstallListener2)) {
+                                        ((CyberPlayerManager.InstallListener2) cyberCoreInstallObserver.mListener).onInstallInfo(message.arg1, 0, message.obj);
                                     }
                                 }
                             }
@@ -63,87 +69,99 @@ public class CyberCoreLoaderManager {
                             }
                         }
                     } else {
-                        while (i2 < CyberCoreLoaderManager.this.c.size()) {
-                            a aVar2 = (a) CyberCoreLoaderManager.this.c.get(i2);
-                            if (aVar2.c != null) {
-                                aVar2.c.onInstallProgress(message.arg1, message.arg2);
-                                if (aVar2.c instanceof CyberPlayerManager.InstallListener2) {
-                                    ((CyberPlayerManager.InstallListener2) aVar2.c).onInstallInfo(103, message.arg2, null);
+                        while (i2 < CyberCoreLoaderManager.this.mInstallObserversList.size()) {
+                            CyberCoreInstallObserver cyberCoreInstallObserver2 = (CyberCoreInstallObserver) CyberCoreLoaderManager.this.mInstallObserversList.get(i2);
+                            if (cyberCoreInstallObserver2.mListener != null) {
+                                cyberCoreInstallObserver2.mListener.onInstallProgress(message.arg1, message.arg2);
+                                if (cyberCoreInstallObserver2.mListener instanceof CyberPlayerManager.InstallListener2) {
+                                    ((CyberPlayerManager.InstallListener2) cyberCoreInstallObserver2.mListener).onInstallInfo(103, message.arg2, null);
                                 }
                             }
                             i2++;
                         }
                     }
                 } else {
-                    synchronized (CyberCoreLoaderManager.this.d) {
-                        while (i2 < CyberCoreLoaderManager.this.c.size()) {
-                            a aVar3 = (a) CyberCoreLoaderManager.this.c.get(i2);
-                            if (aVar3.c != null) {
-                                aVar3.c.onInstallError(message.arg1, message.arg2, (String) message.obj);
+                    synchronized (CyberCoreLoaderManager.this.mLock) {
+                        while (i2 < CyberCoreLoaderManager.this.mInstallObserversList.size()) {
+                            CyberCoreInstallObserver cyberCoreInstallObserver3 = (CyberCoreInstallObserver) CyberCoreLoaderManager.this.mInstallObserversList.get(i2);
+                            if (cyberCoreInstallObserver3.mListener != null) {
+                                cyberCoreInstallObserver3.mListener.onInstallError(message.arg1, message.arg2, (String) message.obj);
                             }
                             i2++;
                         }
-                        CyberCoreLoaderManager.this.c(message.arg1);
+                        CyberCoreLoaderManager.this.removeListener(message.arg1);
                     }
                 }
             } else {
-                synchronized (CyberCoreLoaderManager.this.d) {
-                    while (i2 < CyberCoreLoaderManager.this.c.size()) {
-                        a aVar4 = (a) CyberCoreLoaderManager.this.c.get(i2);
-                        if (aVar4.c != null && CyberPlayerManager.isCoreLoaded(aVar4.b)) {
-                            aVar4.c.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
+                synchronized (CyberCoreLoaderManager.this.mLock) {
+                    while (i2 < CyberCoreLoaderManager.this.mInstallObserversList.size()) {
+                        CyberCoreInstallObserver cyberCoreInstallObserver4 = (CyberCoreInstallObserver) CyberCoreLoaderManager.this.mInstallObserversList.get(i2);
+                        if (cyberCoreInstallObserver4.mListener != null && CyberPlayerManager.isCoreLoaded(cyberCoreInstallObserver4.mType)) {
+                            cyberCoreInstallObserver4.mListener.onInstallSuccess(message.arg1, CyberPlayerManager.getCoreVersion());
                         }
                         i2++;
                     }
-                    CyberCoreLoaderManager.this.c(message.arg1);
+                    CyberCoreLoaderManager.this.removeListener(message.arg1);
                 }
             }
             super.handleMessage(message);
         }
     };
-    public List<a> c = new ArrayList();
-    public ExecutorService e = Executors.newSingleThreadExecutor();
+    public List<CyberCoreInstallObserver> mInstallObserversList = new ArrayList();
+    public ExecutorService mLoadServer = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes3.dex */
-    public class a {
-        public int b;
-        public CyberPlayerManager.InstallListener c;
+    public class CyberCoreInstallObserver {
+        public CyberPlayerManager.InstallListener mListener;
+        public int mType;
 
-        public a(int i, CyberPlayerManager.InstallListener installListener) {
-            this.b = i;
-            this.c = installListener;
+        public CyberCoreInstallObserver(int i, CyberPlayerManager.InstallListener installListener) {
+            this.mType = i;
+            this.mListener = installListener;
         }
     }
 
-    public static CyberCoreLoaderManager a() {
-        if (b == null) {
+    public static CyberCoreLoaderManager getInstance() {
+        if (sInstance == null) {
             synchronized (CyberCoreLoaderManager.class) {
-                if (b == null) {
-                    b = new CyberCoreLoaderManager();
+                if (sInstance == null) {
+                    sInstance = new CyberCoreLoaderManager();
                 }
             }
         }
-        return b;
+        return sInstance;
     }
 
-    public static Object a(int i) {
-        if (a.isEmpty()) {
-            CyberLog.i("CyberCoreLoaderManager", "getLibPath failed: mLibPathMap is empty");
-            return "";
+    /* JADX INFO: Access modifiers changed from: private */
+    public Map<String, String> addInstallOpts(Map<String, String> map) {
+        if (Utils.isMainProcess() && map != null) {
+            map.put(CyberCoreLoader.CYBER_MEDIA_DEX, CyberPlayerCoreInvoker.getCoreVersion());
+            Map<String, String> libsVersion = CyberPlayerCoreInvoker.getLibsVersion(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
+            if (libsVersion != null) {
+                map.putAll(libsVersion);
+            }
         }
-        return a.get(Integer.valueOf(i));
+        return map;
     }
 
     @Keep
     public static String getLatestLoadedVersion(String str) {
         CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-        return cyberCfgManager.getPrefStr("latest_success_loaded_" + str, "");
+        return cyberCfgManager.getPrefStr(LATEST_SUCCESS_LOADED_PREF_NAME + str, "");
     }
 
-    private boolean b(int i) {
-        synchronized (this.d) {
-            if (i != (this.f & i)) {
-                this.f = i | this.f;
+    public static Object getLibPath(int i) {
+        if (mLibPathMap.isEmpty()) {
+            CyberLog.i(TAG, "getLibPath failed: mLibPathMap is empty");
+            return "";
+        }
+        return mLibPathMap.get(Integer.valueOf(i));
+    }
+
+    private boolean isCreateLoadTask(int i) {
+        synchronized (this.mLock) {
+            if (i != (this.sCurLoadingLibs & i)) {
+                this.sCurLoadingLibs = i | this.sCurLoadingLibs;
                 return true;
             }
             return false;
@@ -151,130 +169,70 @@ public class CyberCoreLoaderManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(int i) {
-        Iterator<a> it = this.c.iterator();
+    public void removeListener(int i) {
+        Iterator<CyberCoreInstallObserver> it = this.mInstallObserversList.iterator();
         while (it.hasNext()) {
-            if (it.next().b == i) {
+            if (it.next().mType == i) {
                 it.remove();
             }
         }
-        this.f = (i ^ Integer.MAX_VALUE) & this.f;
+        this.sCurLoadingLibs = (i ^ Integer.MAX_VALUE) & this.sCurLoadingLibs;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, String> a(Map<String, String> map) {
-        if (q.o() && map != null) {
-            map.put("cyber-media-dex", f.a());
-            Map<String, String> a2 = f.a(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
-            if (a2 != null) {
-                map.putAll(a2);
-            }
-        }
-        return map;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str) {
-        Object obj;
-        Object obj2;
-        HashMap hashMap = new HashMap();
-        hashMap.put("loadcode", String.valueOf(i));
-        if (!TextUtils.isEmpty(str)) {
-            hashMap.put("detail", str);
-        }
-        hashMap.put(LokiService.Constant.LOG_PROCESS_NAME, q.n());
-        Map<String, String> a2 = f.a(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
-        if (a2 != null) {
-            hashMap.putAll(a2);
-        }
-        String prefStr = CyberCfgManager.getInstance().getPrefStr("update_type_black", "");
-        String prefStr2 = CyberCfgManager.getInstance().getPrefStr("update_version_black", "");
-        if (!TextUtils.isEmpty(prefStr) && !TextUtils.isEmpty(prefStr2)) {
-            hashMap.put("isallowupdate", "0");
-            hashMap.put("updatetype", prefStr);
-            hashMap.put("updateversion", prefStr2);
-        }
-        if (com.baidu.cyberplayer.sdk.loader.a.a().b()) {
-            if (!com.baidu.cyberplayer.sdk.loader.a.a().b()) {
-                obj2 = "0";
-            } else {
-                obj2 = "1";
-            }
-            hashMap.put("isdowngradled", obj2);
-        }
-        int e = com.baidu.cyberplayer.sdk.loader.a.a().e();
-        if (e > 0) {
-            hashMap.put("download_count", String.valueOf(e));
-            boolean cfgBoolValue = CyberCfgManager.getInstance().getCfgBoolValue("enable_download_zip_xcdn", true);
-            if (!cfgBoolValue) {
-                obj = "0";
-            } else {
-                obj = "1";
-            }
-            hashMap.put("cdn_type", obj);
-            if (cfgBoolValue) {
-                if (com.baidu.cyberplayer.sdk.loader.a.a().d()) {
-                    hashMap.put("xcdn_degrade", "0");
-                } else {
-                    hashMap.put("xcdn_degrade", "1");
-                    String c = com.baidu.cyberplayer.sdk.loader.a.a().c();
-                    if (!TextUtils.isEmpty(c)) {
-                        hashMap.put("xcdn_degrade_info", c);
+    public void removeCyberCoreInstallObserver(CyberPlayerManager.InstallListener installListener) {
+        synchronized (this.mLock) {
+            if (this.mInstallObserversList != null) {
+                CyberCoreInstallObserver cyberCoreInstallObserver = null;
+                Iterator<CyberCoreInstallObserver> it = this.mInstallObserversList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
+                    CyberCoreInstallObserver next = it.next();
+                    if (next.mListener == installListener) {
+                        cyberCoreInstallObserver = next;
+                        break;
+                    }
+                }
+                if (cyberCoreInstallObserver != null) {
+                    this.mInstallObserversList.remove(cyberCoreInstallObserver);
                 }
             }
         }
-        if (i == 0) {
-            long a3 = com.baidu.cyberplayer.sdk.loader.a.a().a(0);
-            long a4 = com.baidu.cyberplayer.sdk.loader.a.a().a(1);
-            long a5 = com.baidu.cyberplayer.sdk.loader.a.a().a(2);
-            if (this.h > 0) {
-                hashMap.put("install_t_ms", String.valueOf(System.currentTimeMillis() - this.h));
+    }
+
+    public void addCyberCoreInstallObserver(int i, CyberPlayerManager.InstallListener installListener) {
+        synchronized (this.mLock) {
+            if (this.mInstallObserversList != null) {
+                this.mInstallObserversList.add(0, new CyberCoreInstallObserver(i, installListener));
             }
-            long j = this.i;
-            if (j >= 0) {
-                hashMap.put("init_dp_t_ms", String.valueOf(j));
-            }
-            if (a5 >= 0) {
-                hashMap.put("init_cfg_t_ms", String.valueOf(a5));
-            }
-            if (a3 >= 0) {
-                hashMap.put("loadcore_t_ms", String.valueOf(a3));
-            }
-            if (a4 >= 0) {
-                hashMap.put("loadlibs_t_ms", String.valueOf(a4));
-            }
-            hashMap.put(HiAnalyticsConstant.BI_KEY_INSTALL_TYPE, String.valueOf(CyberPlayerManager.getInstallType()));
         }
-        this.h = -1L;
-        q.h();
-        b.a(this.g, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, int i, Map<String, String> map) {
+    public void installTask(String str, int i, Map<String, String> map) {
         if (CyberPlayerManager.isCoreLoaded(i)) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        DpSessionDatasUploader.getInstance().a(this.g);
-        com.baidu.cyberplayer.sdk.statistics.a.a().b();
-        this.i = System.currentTimeMillis() - currentTimeMillis;
-        com.baidu.cyberplayer.sdk.loader.a.a().a(str, i, map, new CyberPlayerManager.InstallListener2() { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.3
+        DpSessionDatasUploader.getInstance().init(this.mContext);
+        DpInitKernelSession.getInstance().init();
+        this.mInitDpTime = System.currentTimeMillis() - currentTimeMillis;
+        CyberCoreLoader.getInstance().install(str, i, map, new CyberPlayerManager.InstallListener2() { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
             public void onInstallError(int i2, int i3, String str2) {
-                CyberCoreLoaderManager.this.a(i3, str2);
-                Message obtainMessage = CyberCoreLoaderManager.this.j.obtainMessage();
+                CyberCoreLoaderManager.this.uploadSession(i3, str2);
+                Message obtainMessage = CyberCoreLoaderManager.this.mHandler.obtainMessage();
                 obtainMessage.what = 1;
                 obtainMessage.arg1 = i2;
                 obtainMessage.arg2 = i3;
                 obtainMessage.obj = str2;
-                CyberCoreLoaderManager.this.j.sendMessage(obtainMessage);
+                CyberCoreLoaderManager.this.mHandler.sendMessage(obtainMessage);
             }
 
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
             public void onInstallInfo(int i2, int i3, Object obj) {
-                Message obtainMessage = CyberCoreLoaderManager.this.j.obtainMessage();
+                Message obtainMessage = CyberCoreLoaderManager.this.mHandler.obtainMessage();
                 switch (i2) {
                     case 100:
                     case 101:
@@ -283,8 +241,8 @@ public class CyberCoreLoaderManager {
                         obtainMessage.arg1 = i2;
                         obtainMessage.arg2 = i3;
                         obtainMessage.obj = obj;
-                        CyberCoreLoaderManager.a.put(Integer.valueOf(i2), obtainMessage.obj);
-                        CyberCoreLoaderManager.this.j.sendMessage(obtainMessage);
+                        CyberCoreLoaderManager.mLibPathMap.put(Integer.valueOf(i2), obtainMessage.obj);
+                        CyberCoreLoaderManager.this.mHandler.sendMessage(obtainMessage);
                         return;
                     default:
                         return;
@@ -293,116 +251,179 @@ public class CyberCoreLoaderManager {
 
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
             public void onInstallProgress(int i2, int i3) {
-                Message obtainMessage = CyberCoreLoaderManager.this.j.obtainMessage();
+                Message obtainMessage = CyberCoreLoaderManager.this.mHandler.obtainMessage();
                 obtainMessage.what = 2;
                 obtainMessage.arg1 = i2;
                 obtainMessage.arg2 = i3;
-                CyberCoreLoaderManager.this.j.sendMessage(obtainMessage);
+                CyberCoreLoaderManager.this.mHandler.sendMessage(obtainMessage);
             }
 
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
             public void onInstallSuccess(int i2, String str2) {
-                CyberCoreLoaderManager.this.a(0, "");
-                if (q.o() && CyberPlayerManager.getRemoteServiceClass() != null && !CyberCfgManager.getInstance().getCfgBoolValue("remote_forbidden", false)) {
-                    h.a().a(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), CyberCoreLoaderManager.this.a(CyberPlayerManager.getInstallOpts()), CyberPlayerManager.getPcdnType());
+                boolean isMpReduceEnable = MediaPlayerReduceHelper.isMpReduceEnable();
+                if (isMpReduceEnable) {
+                    Message obtainMessage = CyberCoreLoaderManager.this.mHandler.obtainMessage();
+                    obtainMessage.what = 0;
+                    obtainMessage.arg1 = i2;
+                    CyberCoreLoaderManager.this.mHandler.sendMessageAtFrontOfQueue(obtainMessage);
                 }
-                CyberCoreLoaderManager.this.e();
-                Message obtainMessage = CyberCoreLoaderManager.this.j.obtainMessage();
-                obtainMessage.what = 0;
-                obtainMessage.arg1 = i2;
-                CyberCoreLoaderManager.this.j.sendMessage(obtainMessage);
+                CyberCoreLoaderManager.this.uploadSession(0, "");
+                if (Utils.isMainProcess() && CyberPlayerManager.getRemoteServiceClass() != null && !CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_REMOTE_FORBIDDEN, false)) {
+                    RemotePlayerFactory.getInstance().connectRemote(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), CyberCoreLoaderManager.this.addInstallOpts(CyberPlayerManager.getInstallOpts()), CyberPlayerManager.getPcdnType());
+                }
+                CyberCoreLoaderManager.this.saveSuccessLoadedVersion();
+                if (!isMpReduceEnable) {
+                    Message obtainMessage2 = CyberCoreLoaderManager.this.mHandler.obtainMessage();
+                    obtainMessage2.what = 0;
+                    obtainMessage2.arg1 = i2;
+                    CyberCoreLoaderManager.this.mHandler.sendMessage(obtainMessage2);
+                }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (q.o()) {
+    public void saveSuccessLoadedVersion() {
+        if (Utils.isMainProcess()) {
             CyberCfgManager.getInstance().removePref("latest_success_loaded_cyber-media-dex");
-            CyberCfgManager.getInstance().setPrefStr("latest_success_loaded_cyber-media-dex", f.a());
-            Map<String, String> a2 = f.a(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
-            Map<String, String> a3 = f.a(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
-            if (a2 != null && a3 != null) {
-                for (Map.Entry<String, String> entry : a2.entrySet()) {
+            CyberCfgManager.getInstance().setPrefStr("latest_success_loaded_cyber-media-dex", CyberPlayerCoreInvoker.getCoreVersion());
+            Map<String, String> libsVersion = CyberPlayerCoreInvoker.getLibsVersion(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
+            Map<String, String> libsVersion2 = CyberPlayerCoreInvoker.getLibsVersion(CyberPlayerCoreProvider.LibsVersionType.SUCCESS_LOADED_VERSION);
+            if (libsVersion != null && libsVersion2 != null) {
+                for (Map.Entry<String, String> entry : libsVersion.entrySet()) {
                     CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-                    cyberCfgManager.removePref("latest_success_loaded_" + entry.getKey());
-                    if (!TextUtils.isEmpty(a3.get(entry.getKey()))) {
+                    cyberCfgManager.removePref(LATEST_SUCCESS_LOADED_PREF_NAME + entry.getKey());
+                    if (!TextUtils.isEmpty(libsVersion2.get(entry.getKey()))) {
                         CyberCfgManager cyberCfgManager2 = CyberCfgManager.getInstance();
-                        cyberCfgManager2.setPrefStr("latest_success_loaded_" + entry.getKey(), a3.get(entry.getKey()));
+                        cyberCfgManager2.setPrefStr(LATEST_SUCCESS_LOADED_PREF_NAME + entry.getKey(), libsVersion2.get(entry.getKey()));
                     }
                 }
             }
         }
     }
 
-    public String c() {
-        CyberCfgManager cyberCfgManager = CyberCfgManager.getInstance();
-        String str = SDKVersion.VERSION;
-        String cfgValue = cyberCfgManager.getCfgValue("update_core_ver", SDKVersion.VERSION);
-        if (SilentDownloaderManager.getInstance().a(cfgValue)) {
-            String latestLoadedVersion = getLatestLoadedVersion("cyber-media-dex");
-            if (CyberCfgManager.compareVersion(latestLoadedVersion, SDKVersion.VERSION) == 1) {
-                str = latestLoadedVersion;
-            }
-            CyberLog.i("CyberCoreLoaderManager", "need silent download, last success loaded:" + latestLoadedVersion + " loadableVersion:" + str);
-            cfgValue = str;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void uploadSession(int i, String str) {
+        Object obj;
+        Object obj2;
+        HashMap hashMap = new HashMap();
+        hashMap.put("loadcode", String.valueOf(i));
+        if (!TextUtils.isEmpty(str)) {
+            hashMap.put("detail", str);
         }
-        String cfgValue2 = CyberCfgManager.getInstance().getCfgValue("core_external_path", "");
-        if (!TextUtils.isEmpty(cfgValue2) && new File(cfgValue2).exists()) {
-            String b2 = com.baidu.cyberplayer.sdk.utils.a.b(cfgValue2, q.b());
-            if (!TextUtils.isEmpty(b2)) {
-                return b2;
-            }
-            return cfgValue;
+        hashMap.put(LokiService.Constant.LOG_PROCESS_NAME, Utils.getProcessName());
+        Map<String, String> libsVersion = CyberPlayerCoreInvoker.getLibsVersion(CyberPlayerCoreProvider.LibsVersionType.ALL_VERSION);
+        if (libsVersion != null) {
+            hashMap.putAll(libsVersion);
         }
-        return cfgValue;
+        String prefStr = CyberCfgManager.getInstance().getPrefStr(CyberCfgManager.SP_KEY_UPDATE_TYPE_BLACK, "");
+        String prefStr2 = CyberCfgManager.getInstance().getPrefStr(CyberCfgManager.SP_KEY_UPDATE_VERSION_BLACK, "");
+        if (!TextUtils.isEmpty(prefStr) && !TextUtils.isEmpty(prefStr2)) {
+            hashMap.put("isallowupdate", "0");
+            hashMap.put("updatetype", prefStr);
+            hashMap.put("updateversion", prefStr2);
+        }
+        if (CyberCoreLoader.getInstance().getIsDowngradled()) {
+            if (!CyberCoreLoader.getInstance().getIsDowngradled()) {
+                obj2 = "0";
+            } else {
+                obj2 = "1";
+            }
+            hashMap.put("isdowngradled", obj2);
+        }
+        int downloadCount = CyberCoreLoader.getInstance().getDownloadCount();
+        if (downloadCount > 0) {
+            hashMap.put("download_count", String.valueOf(downloadCount));
+            boolean cfgBoolValue = CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_DOWNLOAD_ZIP_XCDN, true);
+            if (!cfgBoolValue) {
+                obj = "0";
+            } else {
+                obj = "1";
+            }
+            hashMap.put("cdn_type", obj);
+            if (cfgBoolValue) {
+                if (CyberCoreLoader.getInstance().getIsXCDNDownload()) {
+                    hashMap.put("xcdn_degrade", "0");
+                } else {
+                    hashMap.put("xcdn_degrade", "1");
+                    String xCDNFailInfo = CyberCoreLoader.getInstance().getXCDNFailInfo();
+                    if (!TextUtils.isEmpty(xCDNFailInfo)) {
+                        hashMap.put("xcdn_degrade_info", xCDNFailInfo);
+                    }
+                }
+            }
+        }
+        if (i == 0) {
+            long installTime = CyberCoreLoader.getInstance().getInstallTime(0);
+            long installTime2 = CyberCoreLoader.getInstance().getInstallTime(1);
+            long installTime3 = CyberCoreLoader.getInstance().getInstallTime(2);
+            if (this.mStartLoadTime > 0) {
+                hashMap.put("install_t_ms", String.valueOf(System.currentTimeMillis() - this.mStartLoadTime));
+            }
+            long j = this.mInitDpTime;
+            if (j >= 0) {
+                hashMap.put("init_dp_t_ms", String.valueOf(j));
+            }
+            if (installTime3 >= 0) {
+                hashMap.put("init_cfg_t_ms", String.valueOf(installTime3));
+            }
+            if (installTime >= 0) {
+                hashMap.put("loadcore_t_ms", String.valueOf(installTime));
+            }
+            if (installTime2 >= 0) {
+                hashMap.put("loadlibs_t_ms", String.valueOf(installTime2));
+            }
+            hashMap.put(HiAnalyticsConstant.BI_KEY_INSTALL_TYPE, String.valueOf(CyberPlayerManager.getInstallType()));
+        }
+        this.mStartLoadTime = -1L;
+        Utils.updateCyberVersionInfo();
+        DpLibsInitSession.uploadSession(this.mContext, DpStatConstants.ACTION_LIB_LOAD_RESULT, hashMap);
     }
 
-    public void a(final String str, final int i, final Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
-        if (this.h == -1) {
-            this.h = System.currentTimeMillis();
-            if (q.o()) {
-                i.a().a(System.currentTimeMillis());
+    public void load(final String str, final int i, final Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
+        if (this.mStartLoadTime == -1) {
+            this.mStartLoadTime = System.currentTimeMillis();
+            if (Utils.isMainProcess()) {
+                UbcRemoteStat.getInstance().setMainProcTag(System.currentTimeMillis());
             }
         }
-        this.g = CyberPlayerManager.getApplicationContext();
-        synchronized (this.d) {
+        this.mContext = CyberPlayerManager.getApplicationContext();
+        synchronized (this.mLock) {
             if (CyberPlayerManager.isCoreLoaded(i)) {
                 if (installListener != null) {
-                    Message obtainMessage = this.j.obtainMessage();
+                    Message obtainMessage = this.mHandler.obtainMessage();
                     obtainMessage.what = 3;
                     obtainMessage.arg1 = i;
                     obtainMessage.obj = installListener;
-                    this.j.sendMessage(obtainMessage);
+                    this.mHandler.sendMessage(obtainMessage);
                 }
                 if (installListener != null) {
-                    b();
+                    notifyLibPath();
                 }
                 return;
             }
             if (installListener != null) {
-                this.c.add(new a(i, installListener));
+                this.mInstallObserversList.add(new CyberCoreInstallObserver(i, installListener));
             }
-            if (b(i)) {
-                this.e.submit(new Runnable() { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.2
+            if (isCreateLoadTask(i)) {
+                this.mLoadServer.submit(new Runnable() { // from class: com.baidu.cyberplayer.sdk.loader.CyberCoreLoaderManager.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        CyberCoreLoaderManager.this.a(str, i, map);
-                        SilentDownloaderManager.getInstance().a();
+                        CyberCoreLoaderManager.this.installTask(str, i, map);
                     }
                 });
             }
         }
     }
 
-    public void b() {
+    public void notifyLibPath() {
         try {
-            for (Map.Entry<Integer, Object> entry : a.entrySet()) {
-                Message obtainMessage = this.j.obtainMessage();
+            for (Map.Entry<Integer, Object> entry : mLibPathMap.entrySet()) {
+                Message obtainMessage = this.mHandler.obtainMessage();
                 obtainMessage.what = 4;
                 obtainMessage.arg1 = entry.getKey().intValue();
                 obtainMessage.obj = entry.getValue();
-                this.j.sendMessage(obtainMessage);
+                this.mHandler.sendMessage(obtainMessage);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gva;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.exa;
+import com.baidu.tieba.vx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes8.dex */
-public class RecommendCollectLayout extends RelativeLayout implements ux {
+public class RecommendCollectLayout extends RelativeLayout implements vx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext a;
@@ -63,14 +63,14 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
         a();
     }
 
-    public void setData(gva gvaVar) {
+    public void setData(exa exaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gvaVar) == null) && gvaVar != null && !ListUtils.isEmpty(gvaVar.getDataList())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exaVar) == null) && exaVar != null && !ListUtils.isEmpty(exaVar.getDataList())) {
             this.e.removeAllViews();
             this.f.clear();
-            this.b.t(gvaVar.getDataList());
+            this.b.t(exaVar.getDataList());
             this.b.u(this.c);
-            for (int i = 0; i < gvaVar.getDataList().size(); i++) {
+            for (int i = 0; i < exaVar.getDataList().size(); i++) {
                 ContentCollectListAdapter contentCollectListAdapter = this.b;
                 RecyclerView.ViewHolder onCreateViewHolder = contentCollectListAdapter.onCreateViewHolder(null, contentCollectListAdapter.getItemViewType(i));
                 this.e.addView(onCreateViewHolder.itemView);
@@ -96,7 +96,7 @@ public class RecommendCollectLayout extends RelativeLayout implements ux {
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.d != i) {

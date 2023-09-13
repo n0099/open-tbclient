@@ -1,47 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ik0 {
     public static /* synthetic */ Interceptable $ic;
-    public static fk0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ik0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Handler a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-715902882, "Lcom/baidu/tieba/ik0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-715902882, "Lcom/baidu/tieba/ik0$a;");
+                    return;
+                }
             }
+            a = new Handler(Looper.getMainLooper());
         }
     }
 
-    public static fk0 a() {
+    public static void a(@Nullable Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, runnable) == null) && runnable != null) {
+            a.a.removeCallbacks(runnable);
+        }
+    }
+
+    public static void c(@Nullable Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, runnable) == null) && runnable != null) {
+            a.a.post(runnable);
+        }
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ik0.class) {
-                    if (a == null) {
-                        a = (fk0) ServiceManager.getService(fk0.a);
-                    }
-                    if (a == null) {
-                        a = fk0.b;
-                    }
-                }
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                return true;
             }
-            return a;
+            return false;
         }
-        return (fk0) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static void d(@Nullable Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65539, null, runnable, j) == null) && runnable != null) {
+            a.a.postDelayed(runnable, j);
+        }
     }
 }

@@ -1,37 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.ghc;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface fec extends udc {
-    void a(Activity activity);
+public abstract class fec<E> extends bec<E> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
-
-    void c(PayFlowType payFlowType, boolean z);
-
-    void d(String str, PayFlowType payFlowType);
-
-    boolean e();
-
-    void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void g(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void h(Activity activity, ghc.b bVar, ofc ofcVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void i(Activity activity, IYYPayAmountView.ViewParams viewParams);
-
-    boolean k(PayFlowType payFlowType);
-
-    void l(String str, PayFlowType payFlowType);
-
-    void m(Activity activity);
-
-    void refreshWindow(WindowParams windowParams);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fec(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

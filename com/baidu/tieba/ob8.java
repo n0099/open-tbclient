@@ -1,92 +1,112 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.Hottopic.PkModule;
+import tbclient.Hottopic.PkView;
 /* loaded from: classes7.dex */
-public abstract class ob8 {
+public class ob8 implements cn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId k;
     public transient /* synthetic */ FieldHolder $fh;
-    public nb8 a;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public long e;
+    public int f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
 
-    public abstract void c(AbilityItem abilityItem, TbBaseMsg tbBaseMsg, Object obj);
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948026596, "Lcom/baidu/tieba/ob8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948026596, "Lcom/baidu/tieba/ob8;");
+                return;
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+        k = BdUniqueId.gen();
     }
 
     public ob8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public Set<String> f() {
+    @Override // com.baidu.tieba.cn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String e = e();
-            if (e.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
-            }
-            return SetsKt__SetsJVMKt.setOf(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return k;
         }
-        return (Set) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static /* synthetic */ void b(ob8 ob8Var, AbilityItem abilityItem, TbBaseMsg tbBaseMsg, int i, Object obj) {
-        if (obj == null) {
-            if ((i & 2) != 0) {
-                tbBaseMsg = null;
-            }
-            ob8Var.a(abilityItem, tbBaseMsg);
+    public void a(PkModule pkModule) {
+        int i;
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, pkModule) != null) || pkModule == null) {
             return;
         }
-        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: doDefaultHandle");
-    }
-
-    public final void a(AbilityItem abilityItem, TbBaseMsg tbBaseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, tbBaseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            nb8 nb8Var = this.a;
-            if (nb8Var != null) {
-                nb8Var.b(abilityItem, tbBaseMsg);
-            }
+        String str = pkModule.module_name;
+        this.a = pkModule.ques_desc;
+        PkView pkView = pkModule.pk_1;
+        this.b = pkView.pk_desc;
+        this.c = pkView.pk_num.longValue();
+        pkModule.pk_1.pk_index.intValue();
+        PkView pkView2 = pkModule.pk_2;
+        this.d = pkView2.pk_desc;
+        this.e = pkView2.pk_num.longValue();
+        pkModule.pk_2.pk_index.intValue();
+        if (pkModule.pk_1.has_clicked.intValue() == 1) {
+            i = 1;
+        } else if (pkModule.pk_2.has_clicked.intValue() == 1) {
+            i = 2;
+        } else {
+            i = 0;
         }
+        this.f = i;
+        pkModule.pk_type.intValue();
+        pkModule.user_pk_index.intValue();
+        this.g = pkModule.pk_id.longValue();
+        this.h = pkModule.user_pk_id.longValue();
+        int i2 = this.f;
+        long j2 = this.c;
+        if (i2 == 1) {
+            j2--;
+        }
+        this.i = j2;
+        if (this.f == 2) {
+            j = this.e - 1;
+        } else {
+            j = this.e;
+        }
+        this.j = j;
     }
 }

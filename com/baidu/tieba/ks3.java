@@ -1,193 +1,46 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fz1;
-import com.baidu.tieba.ig3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.tieba.au3;
+import com.baidu.tieba.ls3;
+import com.baidu.tieba.ps3;
+import com.baidu.tieba.tr3;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ks3 extends gz1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ks3 {
+    String a(Context context);
 
-    @Override // com.baidu.tieba.gz1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateAccount" : (String) invokeV.objValue;
-    }
+    String b(Context context);
 
-    @Override // com.baidu.tieba.gz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetBdussApi" : (String) invokeV.objValue;
-    }
+    void c(Context context, Bundle bundle, tr1 tr1Var);
 
-    /* loaded from: classes6.dex */
-    public class a extends fz1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ks3 d;
+    is3 d(Context context);
 
-        /* renamed from: com.baidu.tieba.ks3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0390a implements wp3<gg3<ig3.e>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ fz1.b a;
-            public final /* synthetic */ a b;
+    void e(Activity activity, String str, String str2, js3 js3Var);
 
-            public C0390a(a aVar, fz1.b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bVar;
-            }
+    void f(Context context, au3.d dVar);
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.wp3
-            /* renamed from: b */
-            public void a(gg3<ig3.e> gg3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
-                    if (!bg3.h(gg3Var)) {
-                        int b = gg3Var.b();
-                        this.a.a(new d32(b, bg3.f(b)));
-                        return;
-                    }
-                    this.a.a(this.b.d.z());
-                }
-            }
-        }
+    boolean g(Context context);
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ks3 ks3Var, String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ks3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ks3Var;
-        }
+    String getBduss(Context context);
 
-        @Override // com.baidu.tieba.fz1
-        @NonNull
-        public d32 d(@NonNull JSONObject jSONObject, @NonNull fz1.b bVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
-                db3 b0 = db3.b0();
-                if (b0 == null) {
-                    return new d32(1001, "null swan runtime");
-                }
-                b0.e0().g(cb3.K(), "mapp_i_get_bduss", new C0390a(this, bVar));
-                return d32.f();
-            }
-            return (d32) invokeLL.objValue;
-        }
+    void h(vr1 vr1Var);
 
-        @Override // com.baidu.tieba.fz1
-        @NonNull
-        public d32 e(@NonNull JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-                return this.d.z();
-            }
-            return (d32) invokeL.objValue;
-        }
+    void i(Context context, ls3.d dVar);
 
-        @Override // com.baidu.tieba.fz1
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (cb3.K().E() && cb3.K().q().e0().f("mapp_i_get_bduss")) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
+    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ks3(@NonNull ez1 ez1Var) {
-        super(ez1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ez1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ez1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    String k(Context context);
 
-    @SuppressLint({"SwanBindApiNote"})
-    public d32 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getBduss", false);
-            return m(str, new a(this, "getBDUSS"));
-        }
-        return (d32) invokeL.objValue;
-    }
+    void l(Activity activity, String str, String str2, js3 js3Var);
 
-    @NonNull
-    public final d32 z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String i = er3.i(cb3.K());
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", i);
-                return new d32(0, jSONObject);
-            } catch (JSONException e) {
-                p("#getBdussResult json put data fail", e, false);
-                return new d32(1001, "json put data fail");
-            }
-        }
-        return (d32) invokeV.objValue;
-    }
+    void m(Activity activity, String str, pt3 pt3Var);
+
+    void n(String str, ArrayList<String> arrayList, ps3.c cVar);
+
+    void o(tr3.a aVar, String str, List<String> list);
 }

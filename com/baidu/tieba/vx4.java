@@ -1,357 +1,685 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.download.unified.SourceConstant;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.event.TipEvent;
-import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.atomData.ReportThemeActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
+import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.u7a;
+import com.baidu.tieba.video.UserItemData;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vx4 implements vl6 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 5;
-    public static int b = 6;
-    public static int c = 7;
+public class vx4 implements tm6 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948256151, "Lcom/baidu/tieba/vx4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948256151, "Lcom/baidu/tieba/vx4;");
-        }
-    }
-
-    @Override // com.baidu.tieba.vl6
+    @Override // com.baidu.tieba.tm6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        ul6.a(this, webView, str, jSONObject);
+        sm6.a(this, webView, str, jSONObject);
     }
 
-    @Override // com.baidu.tieba.vl6
+    @Override // com.baidu.tieba.tm6
     public /* synthetic */ void onDestroy() {
-        ul6.b(this);
+        sm6.b(this);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends xx5<ImMessageCenterPojo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(vx4 vx4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vx4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xx5
+        /* renamed from: a */
+        public ImMessageCenterPojo doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return sf8.f().i(this.a);
+            }
+            return (ImMessageCenterPojo) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements cx5<ImMessageCenterPojo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ArrayList b;
+
+        public b(vx4 vx4Var, String str, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vx4Var, str, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = arrayList;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cx5
+        /* renamed from: a */
+        public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
+                return;
+            }
+            if (imMessageCenterPojo != null) {
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), JavaTypesHelper.toLong(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
+                personalChatActivityConfig.setRequestCode(12019);
+                personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                personalChatActivityConfig.setIsReportSelect(true);
+                personalChatActivityConfig.setSelectList(this.b);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig));
+                return;
+            }
+            PersonalChatActivityConfig personalChatActivityConfig2 = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), 0L, "", "", this.a, 0);
+            personalChatActivityConfig2.setRequestCode(12019);
+            personalChatActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
+            personalChatActivityConfig2.setIsReportSelect(true);
+            personalChatActivityConfig2.setSelectList(this.b);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig2));
+        }
     }
 
     public vx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.vl6
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x002d, code lost:
+        if (r4.optInt("isClose", 0) == 1) goto L14;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0045 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static /* synthetic */ void m(String str, String str2, String str3, WebView webView, HashMap hashMap) {
+        Class<?> cls;
+        int i;
+        JSONObject jSONObject;
+        boolean z;
+        if (hashMap == null) {
+            return;
+        }
+        cls = null;
+        try {
+            if (TextUtils.isEmpty(str)) {
+                jSONObject = new JSONObject();
+            } else {
+                jSONObject = new JSONObject(str);
+            }
+            try {
+                jSONObject.put("page", str2);
+                jSONObject.put("refre", str3);
+                jSONObject.put("from", 0);
+                z = true;
+            } catch (Exception unused) {
+            }
+        } catch (Exception unused2) {
+            jSONObject = null;
+        }
+        z = false;
+        if (jSONObject != null) {
+            try {
+                cls = Class.forName((String) hashMap.get(str2));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (cls != null) {
+                return;
+            }
+            Context a2 = im6.a(webView.getContext());
+            if (a2 == null && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
+                a2 = TbadkCoreApplication.getInst().getCurrentActivity();
+            }
+            if (a2 == null && webView.getContext() != null) {
+                a2 = webView.getContext();
+            }
+            if (a2 == null) {
+                HybridLog.getInstance().i("handlePortal", "通用路由端能力执行失败，activity为空");
+                return;
+            }
+            for (Class<?> cls2 : cls.getInterfaces()) {
+                if (cls2.isAssignableFrom(s7a.class)) {
+                    try {
+                        ((s7a) cls.newInstance()).dispatch(jSONObject, a2);
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    if (!z && (a2 instanceof Activity)) {
+                        ((Activity) a2).finish();
+                        return;
+                    }
+                }
+            }
+            return;
+        }
+        return;
+        if (cls != null) {
+        }
+        if (!z) {
+        }
+    }
+
+    @Override // com.baidu.tieba.tm6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.TOAST_POPUPVIEW.equals(str2)) {
+            if (CommonTbJsBridge.FINISH_THIS_PAGE.equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(h(webView, jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject.optInt("ahead_type"), jSONObject.optString("message"), jSONObject.optString("btn_text"), jSONObject.optInt("toast_duration"), jSONObject.optString("schema"), jSONObject.optString("token"), jSONObject.optDouble(NativeConstants.OPACITY), jSONObject.optString(BigdayActivityConfig.IMG_URL), jSONObject.optString("url"), jSONObject.optInt("mission_id"), jSONObject.optString("btn_color"), jSONObject.optString("message_color"), jSONObject.optString("btn_text_color"), jSONObject.optInt("status"), jSONObject.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
-                } catch (JSONException e) {
-                    BdLog.e(e);
+                    jsPromptResult.confirm(c(webView, jSONObject.optString("nextPage"), jSONObject.optString("source")).a());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
                 }
-            } else if (CommonTbJsBridge.SHOW_TIP_TOAST.equals(str2)) {
+            } else if (CommonTbJsBridge.JUMP_TO_HTML_PAGE.equals(str2)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str3);
-                    jsPromptResult.confirm(i(webView, jSONObject2.optString("content"), jSONObject2.optString(GameAssistConstKt.KEY_LINKURL), jSONObject2.optString("key"), jSONObject2.optInt("maxTimes"), jSONObject2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                    jsPromptResult.confirm(k(webView, jSONObject2.optString("url"), jSONObject2.optInt("finish_this_page", 1)).toString());
+                    return false;
                 } catch (JSONException e2) {
                     BdLog.e(e2);
+                    return false;
                 }
-            } else if (CommonTbJsBridge.GET_MODAL_DATA.equals(str2)) {
-                try {
-                    try {
-                        jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("url")).a());
-                        return false;
-                    } catch (JSONException e3) {
-                        e = e3;
-                        BdLog.e(e);
-                        return false;
-                    }
-                } catch (JSONException e4) {
-                    e = e4;
-                }
+            } else {
+                return false;
             }
-            return false;
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final void c(String str) {
-        TbPageContext<?> d;
+    public mia c(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !di.isEmpty(str) && (d = d(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            UrlManager.getInstance().dealOneLink(d, new String[]{str});
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
+            mia miaVar = new mia();
+            Activity a2 = im6.a(webView.getContext());
+            if (a2 != null) {
+                a2.finish();
+                if (ei.isEquals(str, "FictionalCharacterDetailsPage")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+                    hashMap.put("source", str2);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(a2, "FictionalCharacterDetailsPage", hashMap)));
+                }
+            }
+            return miaVar;
         }
+        return (mia) invokeLLL.objValue;
     }
 
-    public final TbPageContext d(Activity activity) {
-        InterceptResult invokeL;
+    public mia h(WebView webView, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, webView, str, i)) == null) {
+            mia miaVar = new mia();
+            if (!TextUtils.isEmpty(str)) {
+                ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(webView.getContext(), str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE);
+                if (i == 1 || i == 2 || i == 3) {
+                    forumDetailActivityConfig.setSelectHostTab(i);
+                }
+                forumDetailActivityConfig.setRequestCode(25070);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
-            }
-            return null;
+            return miaVar;
         }
-        return (TbPageContext) invokeL.objValue;
+        return (mia) invokeLLI.objValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(8:3|4|5|(5:7|(1:11)|13|14|15)(5:20|(2:22|23)|13|14|15)|12|13|14|15) */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0058, code lost:
-        r8 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0059, code lost:
-        com.baidu.adp.lib.util.BdLog.e(r8);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public sga e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        String signInfo;
-        JSONObject newGodDataJson;
+    public mia j(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            sga sgaVar = new sga();
-            JSONObject jSONObject = null;
-            int i = 0;
-            try {
-                signInfo = SignManager.getInstance().getSignInfo();
-                newGodDataJson = TbSingleton.getInstance().getNewGodDataJson();
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                ForumRuleEditActivityConfig forumRuleEditActivityConfig = new ForumRuleEditActivityConfig(webView.getContext(), str, str2, null, 0, null);
+                forumRuleEditActivityConfig.setRequestCode(25070);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumRuleEditActivityConfig));
             }
-            if (!di.isEmpty(str)) {
-                int indexOf = str.indexOf(WebViewActivityConfig.TAG_NEW_GOD_INVITE);
-                if (newGodDataJson != null && indexOf != -1) {
-                    jSONObject = newGodDataJson;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("resultCode", i);
-                jSONObject2.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-                sgaVar.o(jSONObject2.toString());
-                return sgaVar;
-            }
-            if (!TextUtils.isEmpty(signInfo)) {
-                jSONObject = new JSONObject(signInfo);
-            }
-            JSONObject jSONObject22 = new JSONObject();
-            jSONObject22.put("resultCode", i);
-            jSONObject22.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            sgaVar.o(jSONObject22.toString());
-            return sgaVar;
-            i = 1;
-            JSONObject jSONObject222 = new JSONObject();
-            jSONObject222.put("resultCode", i);
-            jSONObject222.put(SourceConstant.SOURCE_USER_INFO, jSONObject);
-            sgaVar.o(jSONObject222.toString());
-            return sgaVar;
+            return new mia();
         }
-        return (sga) invokeLL.objValue;
+        return (mia) invokeLLL.objValue;
     }
 
-    public sga f(@NonNull WebView webView, int i, String str, String str2) {
-        InterceptResult invokeLILL;
+    public mia t(WebView webView, String str, ArrayList<String> arrayList) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048581, this, webView, i, str, str2)) == null) {
-            sga sgaVar = new sga();
-            Activity a2 = kl6.a(webView.getContext());
-            if (a2 == null || !bz4.d(a2, webView, i, str, str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("resultCode", 0);
-                    jSONObject.put("dialogId", str2);
-                    sgaVar.o(jSONObject.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return sgaVar;
-        }
-        return (sga) invokeLILL.objValue;
-    }
-
-    public sga g(WebView webView, HashMap<String, Object> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
-            sga sgaVar = new sga();
-            JSONObject jSONObject = new JSONObject();
-            np6.a(jSONObject, "resultCode", hashMap.get("resultCode"));
-            np6.a(jSONObject, "dialogId", hashMap.get("dialogId"));
-            np6.a(jSONObject, "btnId", hashMap.get("btnId"));
-            sgaVar.o(jSONObject.toString());
-            return sgaVar;
-        }
-        return (sga) invokeLL.objValue;
-    }
-
-    public sga h(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            sga sgaVar = new sga();
-            iu4 iu4Var = new iu4();
-            iu4Var.c = i;
-            iu4Var.d = i2;
-            iu4Var.e = str;
-            iu4Var.f = str2;
-            iu4Var.i = i3;
-            iu4Var.l = str3;
-            iu4Var.n = d;
-            iu4Var.j = str5;
-            iu4Var.k = str6;
-            iu4Var.b = i4;
-            iu4Var.o = str7;
-            iu4Var.p = str8;
-            iu4Var.q = str9;
-            if (i == iu4.y) {
-                z45.h(TbadkCoreApplication.getInst().getCurrentActivity(), iu4Var).j();
-            } else if (i == iu4.z) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                s05 s05Var = new s05(currentActivity);
-                if (currentActivity != null) {
-                    s05Var.d(currentActivity, iu4Var);
-                    s05Var.i();
-                }
-            } else if (i == iu4.A) {
-                if (i2 == iu4.C) {
-                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), iu4Var.l) && !di.isEmpty(iu4Var.k)) {
-                        c(iu4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                    }
-                } else if (i2 == iu4.D && !di.isEmpty(str6)) {
-                    c(iu4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                }
-            } else if (i == a) {
-                Activity a2 = kl6.a(webView.getContext());
-                if (i6 == 1 && a2 != null) {
-                    a2.finish();
-                }
-                MutiProcessManager.publishEvent(new TopToastEvent(i5, str, 1500));
-            } else if (i == b) {
-                Activity a3 = kl6.a(webView.getContext());
-                if (i6 == 1 && a3 != null) {
-                    a3.finish();
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    BdToastData bdToastData = new BdToastData();
-                    bdToastData.parserJson(str);
-                    BdToastHelper.toast(bdToastData);
-                }
-            } else if (i == c) {
-                Toast.makeText(kl6.a(webView.getContext()), (int) R.string.too_many_face, 0).show();
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, webView, str, arrayList)) == null) {
+            mia miaVar = new mia();
+            ReportThemeActivityConfig reportThemeActivityConfig = new ReportThemeActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), str, arrayList);
+            reportThemeActivityConfig.setRequestCode(12018);
+            reportThemeActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, reportThemeActivityConfig));
             try {
                 JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 0);
+                miaVar.o(jSONObject.toString());
+                return miaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return miaVar;
+            }
+        }
+        return (mia) invokeLLL.objValue;
+    }
+
+    public mia d(WebView webView, HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
+            mia miaVar = new mia();
+            List<ReportPrivateMsgData> list = hashMap.get("private_msg");
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject = new JSONObject();
+                for (int i = 0; i < list.size(); i++) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("msgId", list.get(i).getMsgId());
+                    String content = list.get(i).getContent();
+                    if (!TextUtils.isEmpty(content)) {
+                        jSONObject2.put("reportContent", new String(Base64.encode(content.getBytes(StandardCharsets.UTF_8), 2), StandardCharsets.UTF_8));
+                    } else {
+                        jSONObject2.put("reportContent", "");
+                    }
+                    jSONObject2.put(FileMetaUtil.CREATE_TIME, list.get(i).getTime());
+                    jSONArray.put(jSONObject2);
+                }
                 jSONObject.put("resultCode", 1);
-                sgaVar.o(jSONObject.toString());
-                return sgaVar;
+                jSONObject.put("msgArray", jSONArray);
+                miaVar.o(jSONObject.toString());
+                return miaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return sgaVar;
+                return miaVar;
             }
         }
-        return (sga) invokeCommon.objValue;
+        return (mia) invokeLL.objValue;
     }
 
-    public sga i(WebView webView, String str, String str2, String str3, int i, int i2) {
-        InterceptResult invokeCommon;
+    public mia e(WebView webView, HashMap<String, ArrayList<String>> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            sga sgaVar = new sga();
-            Activity a2 = kl6.a(webView.getContext());
-            int i3 = 0;
-            boolean z = false;
-            boolean z2 = false;
-            i3 = 0;
-            if (!TextUtils.isEmpty(str) && a2 != null) {
-                if (!TextUtils.isEmpty(str3)) {
-                    String str4 = "showToast_" + str3;
-                    int i4 = SharedPrefHelper.getInstance().getInt(str4, 0);
-                    if (i4 < i) {
-                        SharedPrefHelper.getInstance().putInt(str4, i4);
-                        Intent intent = a2.getIntent();
-                        if (i2 == 1) {
-                            z = true;
-                        }
-                        MutiProcessManager.publishEvent(new TipEvent(intent, str, str2, z));
-                    }
-                } else {
-                    Intent intent2 = a2.getIntent();
-                    if (i2 == 1) {
-                        z2 = true;
-                    }
-                    MutiProcessManager.publishEvent(new TipEvent(intent2, str, str2, z2));
-                }
-                if (i2 == 1) {
-                    a2.finish();
-                }
-                i3 = 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
+            if (hashMap == null) {
+                return null;
             }
+            mia miaVar = new mia();
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i3);
-                sgaVar.o(jSONObject.toString());
-                return sgaVar;
+                ArrayList<String> arrayList = hashMap.get("tid");
+                JSONArray jSONArray = new JSONArray();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    jSONArray.put(arrayList.get(i));
+                }
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("threadArray", jSONArray);
+                miaVar.o(jSONObject.toString());
+                return miaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return sgaVar;
+                return miaVar;
             }
         }
-        return (sga) invokeCommon.objValue;
+        return (mia) invokeLL.objValue;
+    }
+
+    public mia q(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, hashMap)) == null) {
+            mia miaVar = new mia();
+            if (hashMap == null) {
+                return miaVar;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TailEditActivityConfig.TAIL_ID, hashMap.get("tailId"));
+                jSONObject.put(TailEditActivityConfig.TAIL_COLOR, hashMap.get("tailColor"));
+                jSONObject.put(TailEditActivityConfig.TAIL_CONTENT, hashMap.get("tailContent"));
+                jSONObject.put("font_key_name", webView.getContext().getString(R.string.tail_default_font));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.REFRESH_TAIL, jSONObject);
+            miaVar.o(jSONObject.toString());
+            return miaVar;
+        }
+        return (mia) invokeLL.objValue;
+    }
+
+    public mia f(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7})) == null) {
+            mia miaVar = new mia();
+            Context a2 = im6.a(webView.getContext());
+            if (a2 == null) {
+                a2 = webView.getContext();
+            }
+            if ("1".equals(str)) {
+                WriteActivityConfig.newInstance(a2).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
+            } else if ("2".equals(str)) {
+                PbActivityConfig createNormalCfg = new PbActivityConfig(a2).createNormalCfg(str2, null, null);
+                createNormalCfg.setJumpToCommentArea(true);
+                createNormalCfg.showOpenEditorTips(str5);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+            } else if ("3".equals(str)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(a2).createSubPbActivityConfig(str2, str4, "mention", false, "", false, str4, 0);
+                createSubPbActivityConfig.showOpenEditorTips(str5);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+            }
+            return miaVar;
+        }
+        return (mia) invokeCommon.objValue;
+    }
+
+    public mia g(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18) {
+        InterceptResult invokeCommon;
+        String str19;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18})) == null) {
+            mia miaVar = new mia();
+            ArrayList arrayList = new ArrayList();
+            VideoItemData videoItemData = new VideoItemData();
+            videoItemData.thread_id = str;
+            videoItemData.post_id = str2;
+            videoItemData.title = str3;
+            UserItemData userItemData = new UserItemData();
+            userItemData.user_name = str4;
+            userItemData.name_show = str5;
+            userItemData.portrait = str6;
+            videoItemData.author_info = userItemData;
+            videoItemData.thumbnail_url = str7;
+            videoItemData.video_url = str8;
+            videoItemData.video_width = str9;
+            videoItemData.video_height = str10;
+            videoItemData.video_duration = JavaTypesHelper.toInt(str11, 0);
+            if (JavaTypesHelper.toLong(str10, 0L) > JavaTypesHelper.toLong(str9, 0L)) {
+                z = true;
+                str19 = str12;
+            } else {
+                str19 = str12;
+                z = false;
+            }
+            videoItemData.comment_num = str19;
+            videoItemData.agree_num = str13;
+            videoItemData.is_agreed = str14;
+            videoItemData.share_num = str15;
+            videoItemData.forum_id = str16;
+            videoItemData.forum_name = str17;
+            arrayList.add(videoItemData);
+            ix5.d(im6.a(webView.getContext()), arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str18), false, JavaTypesHelper.toLong(str16, 0L));
+            return miaVar;
+        }
+        return (mia) invokeCommon.objValue;
+    }
+
+    public mia i(final WebView webView, final String str, final String str2, final String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, str2, str3)) == null) {
+            mia miaVar = new mia();
+            u7a.c().b(new u7a.c() { // from class: com.baidu.tieba.jx4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.u7a.c
+                public final void a(HashMap hashMap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
+                        vx4.m(str3, str, str2, webView, hashMap);
+                    }
+                }
+            });
+            return miaVar;
+        }
+        return (mia) invokeLLLL.objValue;
+    }
+
+    public mia k(WebView webView, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, webView, str, i)) == null) {
+            mia miaVar = new mia();
+            if (!TextUtils.isEmpty(str)) {
+                Context a2 = im6.a(webView.getContext());
+                if (a2 == null) {
+                    a2 = webView.getContext();
+                }
+                BrowserHelper.startWebActivity(a2, str);
+                if (i == 1 && (a2 instanceof Activity)) {
+                    ((Activity) a2).finish();
+                }
+            }
+            return miaVar;
+        }
+        return (mia) invokeLLI.objValue;
+    }
+
+    public mia n(WebView webView, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, webView, i, str)) == null) {
+            mia miaVar = new mia();
+            if (i == 1) {
+                Context a2 = im6.a(webView.getContext());
+                if (a2 == null) {
+                    a2 = webView.getContext();
+                }
+                if (xga.b(a2, "com.tencent.mobileqq")) {
+                    qf5.e(8, a2);
+                } else {
+                    BdToast.makeText(a2, a2.getText(R.string.share_qq_not_install)).show();
+                }
+            }
+            return miaVar;
+        }
+        return (mia) invokeLIL.objValue;
+    }
+
+    public mia l(WebView webView, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, webView, str, str2, str3)) == null) {
+            mia miaVar = new mia();
+            if (WriteActivityConfig.isAsyncWriting()) {
+                return miaVar;
+            }
+            int guideStatus = WriteVideoUtil.getGuideStatus();
+            if (WriteVideoUtil.isShowGuide(guideStatus)) {
+                Context a2 = im6.a(webView.getContext());
+                if (a2 == null) {
+                    a2 = webView.getContext();
+                }
+                WriteVideoUtil.jumpWorkVideoGuide(a2, guideStatus, 0);
+            }
+            if (WriteVideoUtil.hasDraft()) {
+                WriteVideoUtil.openBottomActionSheet(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            } else {
+                WriteVideoUtil.sendThread(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            }
+            return miaVar;
+        }
+        return (mia) invokeLLLL.objValue;
+    }
+
+    public mia o(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, webView, hashMap)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.RE_HIDE, jSONObject);
+            mia miaVar = new mia();
+            miaVar.o(jSONObject.toString());
+            return miaVar;
+        }
+        return (mia) invokeLL.objValue;
+    }
+
+    public mia p(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, hashMap)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("resultCode", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            a(webView, CommonTbJsBridge.RE_SHOW, jSONObject);
+            mia miaVar = new mia();
+            miaVar.o(jSONObject.toString());
+            return miaVar;
+        }
+        return (mia) invokeLL.objValue;
+    }
+
+    public mia s(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, webView, hashMap)) == null) {
+            mia miaVar = new mia();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", hashMap.get("resultCode"));
+                miaVar.o(jSONObject.toString());
+                return miaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return miaVar;
+            }
+        }
+        return (mia) invokeLL.objValue;
+    }
+
+    public mia r(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921804, null));
+            return new mia();
+        }
+        return (mia) invokeLL.objValue;
+    }
+
+    public mia u(WebView webView, String str, ArrayList<JSONObject> arrayList) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, webView, str, arrayList)) == null) {
+            mia miaVar = new mia();
+            ArrayList arrayList2 = new ArrayList();
+            if (!ListUtils.isEmpty(arrayList)) {
+                for (int i = 0; i < arrayList.size(); i++) {
+                    JSONObject jSONObject = arrayList.get(i);
+                    String optString = jSONObject.optString("reportContent");
+                    if (!TextUtils.isEmpty(optString)) {
+                        optString = new String(Base64.decode(optString, 2), StandardCharsets.UTF_8);
+                    }
+                    arrayList2.add(new ReportPrivateMsgData(jSONObject.optString("msgId"), optString, jSONObject.optString(FileMetaUtil.CREATE_TIME)));
+                }
+            }
+            by5.c(new a(this, str), new b(this, str, arrayList2));
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("resultCode", 0);
+                miaVar.o(jSONObject2.toString());
+                return miaVar;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return miaVar;
+            }
+        }
+        return (mia) invokeLLL.objValue;
     }
 }

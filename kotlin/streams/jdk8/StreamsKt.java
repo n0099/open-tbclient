@@ -43,7 +43,7 @@ public final class StreamsKt {
     @SinceKotlin(version = "1.2")
     public static final <T> Stream<T> asStream(final Sequence<? extends T> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
-        Stream<T> stream = StreamSupport.stream(new Supplier() { // from class: com.baidu.tieba.q4c
+        Stream<T> stream = StreamSupport.stream(new Supplier() { // from class: com.baidu.tieba.t7c
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public final class StreamsKt {
             public final Object get() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? StreamsKt.m2126asStream$lambda4(Sequence.this) : invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? StreamsKt.m2127asStream$lambda4(Sequence.this) : invokeV.objValue;
             }
         }, 16, false);
         Intrinsics.checkNotNullExpressionValue(stream, "stream({ Spliterators.sp…literator.ORDERED, false)");
@@ -59,7 +59,7 @@ public final class StreamsKt {
     }
 
     /* renamed from: asStream$lambda-4  reason: not valid java name */
-    public static final Spliterator m2126asStream$lambda4(Sequence this_asStream) {
+    public static final Spliterator m2127asStream$lambda4(Sequence this_asStream) {
         Intrinsics.checkNotNullParameter(this_asStream, "$this_asStream");
         return Spliterators.spliteratorUnknownSize(this_asStream.iterator(), 16);
     }

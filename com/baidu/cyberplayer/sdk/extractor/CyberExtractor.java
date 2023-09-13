@@ -14,14 +14,14 @@ public class CyberExtractor {
     public static final String KEY_WIDTH = "width";
     public static final int OPT_CATEGORY_FORMAT = 1;
     public static final String OPT_KEY_PREPARE_TIME_OUT = "prepare_time_out";
-    public ExtractorProvider a;
+    public ExtractorProvider mExtractorProvider;
 
     public CyberExtractor() {
         this(true);
     }
 
     public Bundle getMetaData() {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             return extractorProvider.getMediaMeta();
         }
@@ -29,47 +29,47 @@ public class CyberExtractor {
     }
 
     public void release() {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             extractorProvider.release();
-            this.a = null;
+            this.mExtractorProvider = null;
         }
     }
 
     public CyberExtractor(boolean z) {
-        this.a = a.a().a(z);
+        this.mExtractorProvider = ExtractorProviderFactory.getInstance().createExtractor(z);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(fileDescriptor);
         }
     }
 
     public void setDataSource(Context context, Uri uri) {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(context, uri);
         }
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(context, uri, map);
         }
     }
 
     public void setOption(int i, String str, long j) {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             extractorProvider.setOption(i, str, j);
         }
     }
 
     public void setDataSource(String str) {
-        ExtractorProvider extractorProvider = this.a;
+        ExtractorProvider extractorProvider = this.mExtractorProvider;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(str);
         }

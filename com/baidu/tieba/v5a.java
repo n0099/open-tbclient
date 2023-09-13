@@ -1,27 +1,65 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class v5a {
+public abstract class v5a implements tc7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile u5a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized u5a a() {
+    public abstract String b();
+
+    @Override // com.baidu.tieba.tc7
+    public String getKey() {
         InterceptResult invokeV;
-        u5a u5aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (v5a.class) {
-                if (a == null) {
-                    a = new u5a();
-                }
-                u5aVar = a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13696" : (String) invokeV.objValue;
+    }
+
+    public v5a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return u5aVar;
         }
-        return (u5a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tc7
+    public Map<String, String> a(f87 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            String str = a.get("is_video_work");
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put("obj_source", str);
+            hashMap.put(TiebaStatic.Params.IS_FOLLOW, b());
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

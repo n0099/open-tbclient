@@ -1,5 +1,10 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface q0c {
-    void onPlayerError(g1c g1cVar, String str, int i, int i2);
+public final class q0c {
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public transient /* synthetic */ FieldHolder $fh;
 }

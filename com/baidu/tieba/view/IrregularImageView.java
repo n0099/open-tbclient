@@ -151,7 +151,7 @@ public class IrregularImageView extends AppCompatImageView {
         }
     }
 
-    public final Bitmap k(Bitmap bitmap, int i, int i2) {
+    public final Bitmap A(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         int i3;
         float f;
@@ -205,7 +205,7 @@ public class IrregularImageView extends AppCompatImageView {
             try {
                 bitmap3 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
                 try {
-                    bitmap4 = k(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
+                    bitmap4 = A(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
                 } catch (Throwable th) {
                     th = th;
                     th.printStackTrace();

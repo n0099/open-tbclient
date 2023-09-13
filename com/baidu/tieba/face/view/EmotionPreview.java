@@ -67,7 +67,7 @@ public class EmotionPreview extends LinearLayout {
                     gifInfo.mDynamicUrl = str2;
                     gifInfo.mStaticUrl = this.b;
                     this.c.a.setTag(gifInfo.mSharpText);
-                    ((GifView) this.c.a).t(gifInfo);
+                    ((GifView) this.c.a).o(gifInfo);
                 } else {
                     this.c.a = new TbImageView(this.c.getContext());
                     ((TbImageView) this.c.a).setGifIconSupport(false);
@@ -152,7 +152,7 @@ public class EmotionPreview extends LinearLayout {
             setBackgroundResource(R.drawable.bg_expression_bubble);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
             setPadding(dimens, dimens, dimens, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225));
-            this.b = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07038f);
+            this.b = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070393);
         }
     }
 
@@ -174,7 +174,7 @@ public class EmotionPreview extends LinearLayout {
         gifInfo.mDynamicUrl = str;
         gifInfo.mStaticUrl = str2;
         this.a.setTag(str);
-        ((GifView) this.a).t(gifInfo);
+        ((GifView) this.a).o(gifInfo);
         int i2 = this.b;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
         layoutParams.gravity = 17;

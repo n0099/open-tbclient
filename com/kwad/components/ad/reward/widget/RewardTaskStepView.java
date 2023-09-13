@@ -45,7 +45,7 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(int i, String str, String str2, boolean z) {
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d04e0 : R.layout.obfuscated_res_0x7f0d04e1, (ViewGroup) this, false);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(z ? R.layout.obfuscated_res_0x7f0d04e7 : R.layout.obfuscated_res_0x7f0d04e8, (ViewGroup) this, false);
         if (z) {
             a(viewGroup, str);
         } else {
@@ -55,19 +55,19 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(ViewGroup viewGroup, int i, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913e7)).setText(String.format(str, this.no));
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913e6)).setText(String.valueOf(i));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ed)).setText(String.format(str, this.no));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ec)).setText(String.valueOf(i));
     }
 
     public static void a(ViewGroup viewGroup, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913e7)).setText(str);
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ed)).setText(str);
     }
 
     private void ac(boolean z) {
-        DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04de, (ViewGroup) this, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fe);
-        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704fc);
-        dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f0607a4 : R.color.obfuscated_res_0x7f0607a6));
+        DividerView dividerView = (DividerView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e5, (ViewGroup) this, false);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070503);
+        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070501);
+        dividerView.setDividerColor(getResources().getColor(z ? R.color.obfuscated_res_0x7f0607a6 : R.color.obfuscated_res_0x7f0607a8));
         addView(dividerView, dimensionPixelSize, dimensionPixelSize2);
     }
 

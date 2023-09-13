@@ -1,15 +1,15 @@
 package com.baidu.searchbox.ubcprocessor;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.jk1;
-import com.baidu.tieba.lk1;
+import com.baidu.tieba.nk1;
+import com.baidu.tieba.pk1;
 /* loaded from: classes4.dex */
 public class UBCCloudConfigObservers {
     @Inject(force = false)
-    public lk1<UBCCloudConfigObserver> mObservers;
+    public pk1<UBCCloudConfigObserver> mObservers;
 
     public void initmObservers() {
-        jk1 b = jk1.b();
+        nk1 b = nk1.b();
         this.mObservers = b;
         b.a(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
     }

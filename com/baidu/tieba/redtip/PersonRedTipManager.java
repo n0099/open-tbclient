@@ -19,8 +19,8 @@ import com.baidu.tbadk.coreExtra.data.ActivityPrizeData;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
-import com.baidu.tieba.hn5;
-import com.baidu.tieba.p5a;
+import com.baidu.tieba.ao5;
+import com.baidu.tieba.j7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -598,30 +598,30 @@ public class PersonRedTipManager {
         if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             SparseArray sparseArray = new SparseArray();
             if (this.mIsNewAddressList) {
-                sparseArray.append(4, new p5a.a(this.mShowFriendTip, this.maddressListNewCount));
+                sparseArray.append(4, new j7a.a(this.mShowFriendTip, this.maddressListNewCount));
             }
             if (this.mIsShowFansNewMsg) {
-                sparseArray.append(2, new p5a.a(this.mShowFanTip, this.mFans));
+                sparseArray.append(2, new j7a.a(this.mShowFanTip, this.mFans));
             }
             if (this.mIsShowGiftsNewMsg) {
-                sparseArray.append(1, new p5a.a(this.mShowGifTip, this.mGift));
+                sparseArray.append(1, new j7a.a(this.mShowGifTip, this.mGift));
             }
             if (this.mIsShowBookmarkNewMsg) {
-                sparseArray.append(3, new p5a.a(this.mShowBookTip, this.mBookMarks));
+                sparseArray.append(3, new j7a.a(this.mShowBookTip, this.mBookMarks));
             }
             if (this.mHasNewVersion) {
-                sparseArray.append(5, new p5a.a(this.mShowSettingTip, 0));
+                sparseArray.append(5, new j7a.a(this.mShowSettingTip, 0));
             }
             if (this.mIsShowMemberCenerNewMsg) {
-                sparseArray.append(7, new p5a.a(this.mShowMemberTip, 0));
+                sparseArray.append(7, new j7a.a(this.mShowMemberTip, 0));
             }
             if (this.mIsShowActivityNewMsg) {
-                sparseArray.append(9, new p5a.a(this.mShowActivityTip, 0));
+                sparseArray.append(9, new j7a.a(this.mShowActivityTip, 0));
             }
             if (this.mIsFeedbackNewMsg) {
-                sparseArray.append(10, new p5a.a(this.mShowFeedbackTip, 0));
+                sparseArray.append(10, new j7a.a(this.mShowFeedbackTip, 0));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new p5a(sparseArray)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new j7a(sparseArray)));
             updateTabTip();
         }
     }
@@ -649,7 +649,7 @@ public class PersonRedTipManager {
     private void initTabTip() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65564, this) == null) && TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new hn5(this.mShowSettingTip)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ao5(this.mShowSettingTip)));
         }
     }
 
@@ -692,7 +692,7 @@ public class PersonRedTipManager {
     public void removeTabTip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new hn5(false)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ao5(false)));
         }
     }
 
@@ -737,7 +737,7 @@ public class PersonRedTipManager {
                 z = true;
             }
             if (!this.isPrimary && TbadkCoreApplication.isLogin()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new hn5(z, 0)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ao5(z, 0)));
             }
         }
     }
@@ -755,7 +755,7 @@ public class PersonRedTipManager {
                 if (this.mIsFeedbackNewMsg) {
                     SharedPrefHelper.getInstance().putBoolean("key_feedback_tip_tab_show", true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new hn5(true, 0)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007014, new ao5(true, 0)));
             }
         }
     }
@@ -865,16 +865,16 @@ public class PersonRedTipManager {
             return;
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.append(4, new p5a.a(this.mShowFriendTip, this.maddressListNewCount));
-        sparseArray.append(2, new p5a.a(this.mShowFanTip, this.mFans));
-        sparseArray.append(1, new p5a.a(this.mShowGifTip, this.mGift));
-        sparseArray.append(3, new p5a.a(this.mShowBookTip, this.mBookMarks));
-        sparseArray.append(5, new p5a.a(this.mShowSettingTip, 0));
-        sparseArray.append(7, new p5a.a(this.mShowMemberTip, 0));
-        sparseArray.append(9, new p5a.a(this.mShowActivityTip, 0));
-        sparseArray.append(10, new p5a.a(this.mShowFeedbackTip, 0));
-        sparseArray.append(11, new p5a.a(this.mShowNewGodInvitedTip, 0));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new p5a(sparseArray)));
+        sparseArray.append(4, new j7a.a(this.mShowFriendTip, this.maddressListNewCount));
+        sparseArray.append(2, new j7a.a(this.mShowFanTip, this.mFans));
+        sparseArray.append(1, new j7a.a(this.mShowGifTip, this.mGift));
+        sparseArray.append(3, new j7a.a(this.mShowBookTip, this.mBookMarks));
+        sparseArray.append(5, new j7a.a(this.mShowSettingTip, 0));
+        sparseArray.append(7, new j7a.a(this.mShowMemberTip, 0));
+        sparseArray.append(9, new j7a.a(this.mShowActivityTip, 0));
+        sparseArray.append(10, new j7a.a(this.mShowFeedbackTip, 0));
+        sparseArray.append(11, new j7a.a(this.mShowNewGodInvitedTip, 0));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new j7a(sparseArray)));
     }
 
     public void updateRedTipState(int i2, boolean z, boolean z2) {

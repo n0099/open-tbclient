@@ -1,115 +1,186 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tieba.bm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
-/* loaded from: classes7.dex */
-public class ll4 implements bl4 {
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ll4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fo4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<bl4> a;
-    public Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946709, "Lcom/baidu/tieba/ll4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static <T> boolean a(yi4<T> yi4Var, T t, String str, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, yi4Var, t, str, str2)) == null) {
+            if (t == null || yi4Var == null) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947946709, "Lcom/baidu/tieba/ll4;");
-                return;
+            if (TextUtils.isEmpty(str)) {
+                k(t, PackageTable.MD5, yi4Var);
+                return false;
+            } else if (TextUtils.isEmpty(str2)) {
+                k(t, TTDownloadField.TT_DOWNLOAD_URL, yi4Var);
+                return false;
+            } else {
+                return true;
             }
         }
-        c = fo4.e();
+        return invokeLLLL.booleanValue;
     }
 
-    public ll4(bl4 bl4Var) {
+    public static <T> boolean b(T t, yi4<T> yi4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bl4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, yi4Var)) == null) {
+            if (yi4Var == null || t == null) {
+                return false;
+            }
+            if (t instanceof fk4) {
+                fk4 fk4Var = (fk4) t;
+                return a(yi4Var, t, fk4Var.l, fk4Var.n);
+            } else if (!(t instanceof bm4.a)) {
+                return false;
+            } else {
+                gk4 gk4Var = ((bm4.a) t).d;
+                return a(yi4Var, t, gk4Var.l, gk4Var.n);
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(bl4Var);
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bl4
-    public <T> void a(fl4<T> fl4Var) {
+    public static jl4<ck4> c(ck4 ck4Var, cj4 cj4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fl4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<bl4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(fl4Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ck4Var, cj4Var)) == null) {
+            if (cj4Var == null || !b(ck4Var, cj4Var.r())) {
+                return null;
+            }
+            return new jl4<>(new il4(ck4Var), ck4Var, new gl4(cj4Var.r()));
+        }
+        return (jl4) invokeLL.objValue;
+    }
+
+    public static jl4<ek4> d(ek4 ek4Var, cj4 cj4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, ek4Var, cj4Var)) == null) {
+            if (cj4Var == null || !b(ek4Var, cj4Var.s())) {
+                return null;
+            }
+            return new jl4<>(new il4(ek4Var), ek4Var, new gl4(cj4Var.s()));
+        }
+        return (jl4) invokeLL.objValue;
+    }
+
+    public static jl4<gk4> g(gk4 gk4Var, cj4 cj4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, gk4Var, cj4Var)) == null) {
+            if (cj4Var == null || !b(gk4Var, cj4Var.u())) {
+                return null;
+            }
+            return new jl4<>(new il4(gk4Var), gk4Var, new gl4(cj4Var.u()));
+        }
+        return (jl4) invokeLL.objValue;
+    }
+
+    public static jl4<ik4> i(ik4 ik4Var, cj4 cj4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, ik4Var, cj4Var)) == null) {
+            if (cj4Var == null || !b(ik4Var, cj4Var.x())) {
+                return null;
+            }
+            return new jl4<>(new il4(ik4Var), ik4Var, new gl4(cj4Var.x()));
+        }
+        return (jl4) invokeLL.objValue;
+    }
+
+    public static jl4<jk4> j(jk4 jk4Var, cj4 cj4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jk4Var, cj4Var)) == null) {
+            if (cj4Var == null || !b(jk4Var, cj4Var.z())) {
+                return null;
+            }
+            return new jl4<>(new il4(jk4Var), jk4Var, new gl4(cj4Var.z()));
+        }
+        return (jl4) invokeLL.objValue;
+    }
+
+    public static List<jl4<ik4>> e(List<ik4> list, cj4 cj4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, cj4Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cj4Var == null) {
+                return arrayList;
+            }
+            if (list != null && list.size() > 0) {
+                for (ik4 ik4Var : list) {
+                    if (b(ik4Var, cj4Var.q())) {
+                        arrayList.add(new jl4(new il4(ik4Var), ik4Var, new gl4(cj4Var.q())));
                     }
                 }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bl4
-    public <T> void b(fl4<T> fl4Var) {
+    public static List<jl4<bm4.a>> f(List<bm4.a> list, cj4 cj4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fl4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<bl4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, list, cj4Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cj4Var == null) {
+                return arrayList;
+            }
+            if (list != null && list.size() > 0) {
+                for (bm4.a aVar : list) {
+                    gk4 gk4Var = aVar.d;
+                    if (gk4Var != null && b(aVar, cj4Var.v())) {
+                        arrayList.add(new jl4(new il4(gk4Var), aVar, new gl4(cj4Var.v())));
                     }
                 }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((bl4) it2.next()).b(fl4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
             }
+            return arrayList;
         }
+        return (List) invokeLL.objValue;
     }
 
-    public void c(bl4 bl4Var) {
+    public static List<jl4<hk4>> h(List<hk4> list, cj4 cj4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bl4Var) == null) && bl4Var != null) {
-            synchronized (this.b) {
-                this.a.add(bl4Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, cj4Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cj4Var == null) {
+                return arrayList;
             }
-        }
-    }
-
-    public void d(bl4 bl4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bl4Var) == null) && bl4Var != null) {
-            synchronized (this.b) {
-                if (!this.a.remove(bl4Var)) {
-                    this.a.remove(this.a.indexOf(bl4Var));
+            if (list != null && list.size() > 0) {
+                for (hk4 hk4Var : list) {
+                    if (b(hk4Var, cj4Var.A())) {
+                        arrayList.add(new jl4(new il4(hk4Var), hk4Var, new gl4(cj4Var.A())));
+                    }
                 }
             }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <T> void k(T t, String str, yi4<T> yi4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, t, str, yi4Var) == null) {
+            yi4Var.e(t, new bk4(ErrorConstant.Code.DOWNLOAD_ERROR_NETWROK_CHANGE, "download : param error:" + str));
         }
     }
 }

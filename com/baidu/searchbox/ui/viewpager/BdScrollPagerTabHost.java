@@ -184,7 +184,7 @@ public class BdScrollPagerTabHost extends FrameLayout {
 
     public void setTabBarHeight(int i) {
         ViewGroup.LayoutParams layoutParams;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091a51);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091a6b);
         if (findViewById != null && (layoutParams = findViewById.getLayoutParams()) != null) {
             layoutParams.height = i;
             findViewById.setLayoutParams(layoutParams);
@@ -316,11 +316,11 @@ public class BdScrollPagerTabHost extends FrameLayout {
         }
         this.mContext = context;
         if (this.mCanViewPagerScroll) {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0767, this);
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077a, this);
         } else {
-            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0766, this);
+            inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0779, this);
         }
-        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a50);
+        BdPagerTabBar bdPagerTabBar = (BdPagerTabBar) inflate.findViewById(R.id.obfuscated_res_0x7f091a6a);
         this.mPagerTabBar = bdPagerTabBar;
         bdPagerTabBar.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
         if (!isInEditMode()) {
@@ -333,10 +333,10 @@ public class BdScrollPagerTabHost extends FrameLayout {
                 }
             });
         }
-        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f092998);
-        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f092396);
+        this.mViewPager = (ViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0929ce);
+        this.mDivider = inflate.findViewById(R.id.obfuscated_res_0x7f0923d6);
         this.mViewPager.setOffscreenPageLimit(3);
-        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f091130);
+        DrawablePageIndicator drawablePageIndicator = (DrawablePageIndicator) inflate.findViewById(R.id.obfuscated_res_0x7f091132);
         this.mPageIndicator = drawablePageIndicator;
         drawablePageIndicator.setUseStandardStyle(this.mUseStandardStyle);
         this.mPageIndicator.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.searchbox.ui.viewpager.BdScrollPagerTabHost.2
@@ -384,11 +384,11 @@ public class BdScrollPagerTabHost extends FrameLayout {
                 }
             }
         });
-        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a51);
-        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921a4);
-        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a3);
-        setTabTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f060b41));
-        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070756));
+        this.pagerTabBarContainer = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a6b);
+        this.settingLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921e4);
+        this.settingImage = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0921e3);
+        setTabTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f060b48));
+        setTabTextSize((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07075c));
         setPageResources();
     }
 
@@ -485,22 +485,22 @@ public class BdScrollPagerTabHost extends FrameLayout {
     public void resetPagerTabBarContainerColor() {
         FrameLayout frameLayout = this.pagerTabBarContainer;
         if (frameLayout != null) {
-            frameLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b98));
+            frameLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060ba2));
         }
     }
 
     public void setPageResources() {
         ViewPager viewPager = this.mViewPager;
         if (viewPager != null) {
-            viewPager.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b98));
+            viewPager.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060ba2));
         }
         View view2 = this.mDivider;
         if (view2 != null) {
-            view2.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0601c6));
+            view2.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0601c8));
         }
-        setTabTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601cb), getResources().getColor(R.color.obfuscated_res_0x7f060191));
+        setTabTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0601cd), getResources().getColor(R.color.obfuscated_res_0x7f060193));
         this.mPageIndicator.updateStandardDrawable();
-        setTabBarBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b98));
+        setTabBarBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060ba2));
     }
 
     public void setTabNightModeRes(int i, int i2, int i3, int i4, int i5) {

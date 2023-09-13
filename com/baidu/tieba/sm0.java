@@ -1,89 +1,187 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.common.security.CacheDeviceInfo;
+import com.baidu.searchbox.download.util.ApkUtil;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
+import java.io.File;
 import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes8.dex */
 public class sm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            e31.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (TextUtils.equals(i31.c(str).optString("direct_download_switch"), "1")) {
+                return true;
             }
-            e31.e(jSONObject, "process", Math.round(d));
-            e31.f(jSONObject, "uri", str3);
-            e31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
+            if (TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            Uri parse = Uri.parse(str2);
+            HashMap hashMap = new HashMap();
+            if (parse != null) {
+                try {
+                    Set<String> queryParameterNames = parse.getQueryParameterNames();
+                    if (queryParameterNames != null) {
+                        for (String str3 : queryParameterNames) {
+                            hashMap.put(str3, parse.getQueryParameter(str3));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            String str4 = (String) j31.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
+            if (!TextUtils.isEmpty(str4) && (split = str4.split("_")) != null && split.length >= 4 && TextUtils.equals(split[3], "1")) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeLLLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static void b(@Nullable kj0 kj0Var, boolean z, @Nullable Map<String, String> map) {
-        String str;
-        String str2;
+    public static boolean e(File file, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{kj0Var, Boolean.valueOf(z), map}) != null) || kj0Var == null) {
-            return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, file, z)) == null) {
+            if (!g(file)) {
+                return false;
+            }
+            Context b = tj0.b();
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+            try {
+                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                intent.setFlags(1342177280);
+                intent.putExtra(ApkUtil.KEY_INSTALLER_PACKAGE_NAME, b.getPackageName());
+                if (z) {
+                    intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                }
+                if (!q61.b.e()) {
+                    intent.setComponent(new ComponentName(ApkUtil.PACKAGE_INSTALLER, ApkUtil.PACKAGE_INSTALLER_ACTIVITY));
+                }
+                i61.a(b, file, intent);
+                i61.d(b, intent);
+            } catch (Exception unused) {
+                intent.setComponent(null);
+                i61.a(b, file, intent);
+                try {
+                    b.startActivity(intent);
+                } catch (Exception unused2) {
+                    return false;
+                }
+            }
+            return true;
         }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        if (z) {
-            str = "0";
-        } else {
-            str = "202";
-        }
-        f31.e(map, "status", str);
-        if (z) {
-            str2 = "调用成功";
-        } else {
-            str2 = "";
-        }
-        f31.e(map, "message", str2);
-        kj0Var.a(z, map);
+        return invokeLZ.booleanValue;
     }
 
-    public static void c(@Nullable kj0 kj0Var, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, kj0Var, str, str2, str3, str4) != null) || kj0Var == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        e31.f(jSONObject, "uri", str2);
-        e31.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        e31.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(kj0Var, true, hashMap);
-    }
-
-    public static String d(String str) {
+    public static String b(File file) {
         InterceptResult invokeL;
+        PackageManager packageManager;
+        PackageInfo packageArchiveInfo;
+        ApplicationInfo applicationInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file == null || TextUtils.isEmpty(file.getPath()) || (packageManager = tj0.b().getPackageManager()) == null || (packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 1)) == null || (applicationInfo = packageArchiveInfo.applicationInfo) == null) {
                 return "";
             }
-            return e31.c(str).optString("bt_info");
+            return applicationInfo.packageName;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static boolean f(@Nullable il0 il0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, il0Var)) == null) {
+            if (il0Var != null && !il0Var.f() && il0Var.p.n.longValue() > 0 && !TextUtils.isEmpty(il0Var.p.o)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(File file) {
+        InterceptResult invokeL;
+        PackageManager packageManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, file)) == null) {
+            if (file == null || TextUtils.isEmpty(file.getAbsolutePath()) || !file.exists() || (packageManager = tj0.b().getPackageManager()) == null || packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 1) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                tj0.b().getPackageManager().getApplicationInfo(str, 0);
+                return true;
+            } catch (PackageManager.NameNotFoundException | Exception unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            return e(file, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(String str) {
+        InterceptResult invokeL;
+        ResolveInfo next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = tj0.b().getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
+                return false;
+            }
+            String str2 = next.activityInfo.name;
+            Intent intent2 = new Intent("android.intent.action.MAIN");
+            intent2.addCategory("android.intent.category.LAUNCHER");
+            intent2.setComponent(new ComponentName(str, str2));
+            intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            return i61.e(tj0.b(), intent2, true);
+        }
+        return invokeL.booleanValue;
     }
 }

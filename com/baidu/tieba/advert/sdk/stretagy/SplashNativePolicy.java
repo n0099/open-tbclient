@@ -3,9 +3,9 @@ package com.baidu.tieba.advert.sdk.stretagy;
 import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b86;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.i85;
+import com.baidu.tieba.ci;
+import com.baidu.tieba.r85;
+import com.baidu.tieba.y86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,16 +41,16 @@ public class SplashNativePolicy {
     public final boolean loadResult;
     public int plgAdType;
 
-    @i85
+    @r85
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @i85
+    @r85
     private native void nativeReleaseSplash();
 
-    @i85
+    @r85
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @i85
+    @r85
     private native void onNativeSplashEvent(int i, int i2);
 
     /* loaded from: classes5.dex */
@@ -83,15 +83,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        b86.d().l(true);
+                        y86.d().l(true);
                         return;
                     case 129:
-                        b86.d().l(false);
+                        y86.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        b86.d().b();
+                        y86.d().b();
                         return;
                     case 131:
                     default:
@@ -115,12 +115,12 @@ public class SplashNativePolicy {
             }
         }
         this.plgAdType = 0;
-        this.loadResult = bi.d().h("splash_policy", 1);
+        this.loadResult = ci.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @i85
+    @r85
     public void eventCallback(int i) {
         int i2;
         Interceptable interceptable = $ic;
@@ -129,11 +129,11 @@ public class SplashNativePolicy {
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i != 128 && i != 129) {
                 if (i == 131) {
-                    b86.d().i(-1);
+                    y86.d().i(-1);
                 } else if (i == 132) {
-                    b86.d().i(-2);
+                    y86.d().i(-2);
                 } else if (i == 130) {
-                    b86.d().i(-3);
+                    y86.d().i(-3);
                 }
             } else {
                 int i3 = this.plgAdType;
@@ -144,20 +144,20 @@ public class SplashNativePolicy {
                 } else {
                     i2 = 3;
                 }
-                b86.d().i(i2);
+                y86.d().i(i2);
             }
             if (BdUtilHelper.isMainThread()) {
                 switch (i) {
                     case 128:
-                        b86.d().l(true);
+                        y86.d().l(true);
                         return;
                     case 129:
-                        b86.d().l(false);
+                        y86.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        b86.d().b();
+                        y86.d().b();
                         return;
                     case 131:
                     default:

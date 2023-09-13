@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ob7;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+@Service
 /* loaded from: classes5.dex */
-public final class as6 implements ob7 {
+public class as6 implements gc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,37 +29,22 @@ public final class as6 implements ob7 {
         }
     }
 
-    @Override // com.baidu.tieba.nb7
-    public String getKey() {
+    @Override // com.baidu.tieba.gc7
+    @NonNull
+    public List<oc7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ob7.a.b(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new ir6());
+            arrayList.add(new wr6());
+            arrayList.add(new kr6());
+            arrayList.add(new yr6());
+            arrayList.add(new xr6());
+            arrayList.add(new nr6());
+            arrayList.add(new bs6());
+            return arrayList;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nb7
-    public Map<String, String> a(a77 a77Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a77Var)) == null) {
-            return ob7.a.a(this, a77Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ob7
-    public String c(a77 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            if (Intrinsics.areEqual(businessInfo.a().get("card_head_type"), "live_user")) {
-                return "live_user_head_click";
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 }

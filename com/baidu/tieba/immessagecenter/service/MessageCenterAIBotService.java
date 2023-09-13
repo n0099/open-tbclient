@@ -16,9 +16,8 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tieba.bx5;
-import com.baidu.tieba.fx5;
-import com.baidu.tieba.gw5;
+import com.baidu.tieba.by5;
+import com.baidu.tieba.cx5;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponsePullMessage;
@@ -26,12 +25,13 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.immessagecenter.service.MessageCenterAIBotService;
-import com.baidu.tieba.jf8;
+import com.baidu.tieba.lg8;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mg8;
-import com.baidu.tieba.qe8;
-import com.baidu.tieba.rt6;
-import com.baidu.tieba.z5a;
+import com.baidu.tieba.oh8;
+import com.baidu.tieba.sf8;
+import com.baidu.tieba.t7a;
+import com.baidu.tieba.vu6;
+import com.baidu.tieba.xx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u001a2\u00020\u0001:\u0001\u001aB\u0005¢\u0006\u0002\u0010\u0002J(\u0010\u0003\u001a\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u00062\u0012\u0010\b\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u00040\tJ$\u0010\u000b\u001a\u00020\u00042\b\u0010\f\u001a\u0004\u0018\u00010\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011J\u0010\u0010\u0012\u001a\u00020\u00042\b\u0010\u0013\u001a\u0004\u0018\u00010\u0007J\u0016\u0010\u0014\u001a\u00020\u00042\f\u0010\u0015\u001a\b\u0012\u0004\u0012\u00020\u00160\u0006H\u0017J\u001a\u0010\u0017\u001a\u00020\u00042\b\u0010\u0018\u001a\u0004\u0018\u00010\u00072\b\u0010\u0019\u001a\u0004\u0018\u00010\u0007¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/immessagecenter/service/MessageCenterAIBotService;", "Lcom/baidu/tieba/im/lib/socket/IMessageCenterAIBotService;", "()V", "checkIsAibot", "", "uidList", "", "", WebChromeClient.KEY_ARG_CALLBACK, "Lkotlin/Function1;", "", "jumpToAiBotChatPage", "data", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "context", "Landroid/content/Context;", "uniqueId", "Lcom/baidu/adp/BdUniqueId;", "markMsgRead", "userId", "notifyMsg", "msgList", "Lcom/baidu/android/imsdk/chatmessage/messages/ChatMsg;", "updateAiBotInfo", "paid", "botUk", "Companion", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MessageCenterAIBotService implements jf8 {
+public final class MessageCenterAIBotService implements lg8 {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
     public static final Lazy<MessageCenterAIBotService> c;
@@ -107,7 +107,7 @@ public final class MessageCenterAIBotService implements jf8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class b extends bx5<Boolean> {
+    public static final class b extends xx5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List<String> a;
@@ -132,7 +132,7 @@ public final class MessageCenterAIBotService implements jf8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.bx5
+        @Override // com.baidu.tieba.xx5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public final class MessageCenterAIBotService implements jf8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class c extends bx5<Map<String, ? extends String>> {
+    public static final class c extends xx5<Map<String, ? extends String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImMessageCenterShowItemData a;
@@ -173,7 +173,7 @@ public final class MessageCenterAIBotService implements jf8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bx5
+        @Override // com.baidu.tieba.xx5
         /* renamed from: a */
         public Map<String, String> doInBackground() {
             InterceptResult invokeV;
@@ -245,11 +245,11 @@ public final class MessageCenterAIBotService implements jf8 {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uidList, callback) == null) {
             Intrinsics.checkNotNullParameter(uidList, "uidList");
             Intrinsics.checkNotNullParameter(callback, "callback");
-            fx5.b(new b(uidList), new gw5() { // from class: com.baidu.tieba.tw8
+            by5.b(new b(uidList), new cx5() { // from class: com.baidu.tieba.vx8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.gw5
+                @Override // com.baidu.tieba.cx5
                 public final void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -281,12 +281,12 @@ public final class MessageCenterAIBotService implements jf8 {
                 jSONObject.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject2);
                 jSONObject2.put("paid", str);
                 jSONObject2.put("uk", str2);
-                z5a.a(context, new String[]{"tiebaapp://router/portal?params=" + jSONObject});
+                t7a.a(context, new String[]{"tiebaapp://router/portal?params=" + jSONObject});
             }
         }
     }
 
-    @Override // com.baidu.tieba.jf8
+    @Override // com.baidu.tieba.lg8
     @WorkerThread
     public void a(List<? extends ChatMsg> msgList) {
         PaInfo queryPaInfo;
@@ -378,11 +378,11 @@ public final class MessageCenterAIBotService implements jf8 {
     public final void e(ImMessageCenterShowItemData imMessageCenterShowItemData, final Context context, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterShowItemData, context, bdUniqueId) == null) {
-            fx5.b(new c(imMessageCenterShowItemData), new gw5() { // from class: com.baidu.tieba.vw8
+            by5.b(new c(imMessageCenterShowItemData), new cx5() { // from class: com.baidu.tieba.xx8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.gw5
+                @Override // com.baidu.tieba.cx5
                 public final void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -398,10 +398,10 @@ public final class MessageCenterAIBotService implements jf8 {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             TbLog iMLog = IMLog.getInstance();
             iMLog.i("MessageCenterAIBotService", "markMsgRead userId:" + str);
-            ImMessageCenterPojo h = mg8.n().h(str, 2);
+            ImMessageCenterPojo h = oh8.n().h(str, 2);
             if (h != null) {
                 h.setUnread_count(0);
-                qe8.f().l(h, 2);
+                sf8.f().l(h, 2);
             }
         }
     }
@@ -411,7 +411,7 @@ public final class MessageCenterAIBotService implements jf8 {
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             TbLog iMLog = IMLog.getInstance();
             iMLog.i("MessageCenterAIBotService", "updateAiBotInfo paid:" + str + " botUk:" + str2);
-            rt6.a(new Runnable() { // from class: com.baidu.tieba.uw8
+            vu6.a(new Runnable() { // from class: com.baidu.tieba.wx8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

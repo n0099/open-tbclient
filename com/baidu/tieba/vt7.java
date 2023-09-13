@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes8.dex */
-public class vt7 implements n65 {
+public class vt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.n65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_UPGRADE_STRATEGY" : (String) invokeV.objValue;
-    }
+    public boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
 
     public vt7() {
         Interceptable interceptable = $ic;
@@ -30,17 +27,16 @@ public class vt7 implements n65 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.n65
-    public l65 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ut7();
-        }
-        return (l65) invokeV.objValue;
+        this.a = false;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
+        this.h = -1;
     }
 }

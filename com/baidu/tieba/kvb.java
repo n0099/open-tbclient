@@ -1,98 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.Arrays;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
 public class kvb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final /* synthetic */ InstallActivity b;
 
-    public static SecretKey a(byte[] bArr, byte[] bArr2, byte[] bArr3, byte[] bArr4, int i) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeCommon;
+    public kvb(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bArr, bArr2, bArr3, bArr4, Integer.valueOf(i)})) == null) {
-            if (bArr.length == 16 && bArr2.length == 16 && bArr3.length == 16) {
-                return new SecretKeySpec(SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1").generateSecret(new PBEKeySpec(avb.c(e(bArr, bArr2, bArr3)).toCharArray(), bArr4, i, 128)).getEncoded(), "AES");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("invalid data for generating the key.");
         }
-        return (SecretKey) invokeCommon.objValue;
+        this.b = installActivity;
+        this.a = false;
     }
 
-    public static byte[] b(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
-        InterceptResult invokeLL;
+    public void b(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, secretKey, bArr)) == null) {
-            if (secretKey == null || bArr == null) {
-                throw new NullPointerException("key or cipherText must not be null.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            synchronized (this.b) {
+                if (this.a) {
+                    return;
+                }
+                this.a = true;
+                this.b.d = com.google.ar.core.p.CANCELLED;
+                boolean z = exc instanceof UnavailableException;
+                this.b.j(exc);
             }
-            byte[] copyOfRange = Arrays.copyOfRange(bArr, 1, 17);
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKey, new IvParameterSpec(copyOfRange));
-            return cipher.doFinal(bArr, copyOfRange.length + 1, (bArr.length - copyOfRange.length) - 1);
         }
-        return (byte[]) invokeLL.objValue;
     }
 
-    public static byte[] c(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public void a(com.google.ar.core.p pVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
-            if (bArr != null) {
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    if (i < 0) {
-                        bArr[i2] = (byte) (bArr[i2] << (-i));
-                    } else {
-                        bArr[i2] = (byte) (bArr[i2] >> i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
+            synchronized (this.b) {
+                if (!this.a) {
+                    this.b.d = pVar;
+                    int ordinal = pVar.ordinal();
+                    if (ordinal != 0) {
+                        if (ordinal == 1) {
+                            this.b.j(new UnavailableUserDeclinedInstallationException());
+                        } else if (ordinal == 2) {
+                            z = this.b.g;
+                            if (!z) {
+                                this.b.i();
+                            }
+                            this.b.j(null);
+                        }
+                        this.a = true;
                     }
                 }
-                return bArr;
             }
-            throw new NullPointerException("bytes must not be null.");
         }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            if (bArr == null || bArr2 == null) {
-                throw new NullPointerException("left or right must not be null.");
-            }
-            if (bArr.length == bArr2.length) {
-                byte[] bArr3 = new byte[bArr.length];
-                for (int i = 0; i < bArr.length; i++) {
-                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
-                }
-                return bArr3;
-            }
-            throw new IllegalArgumentException("left and right must be the same length.");
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] e(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2, bArr3)) == null) {
-            c(bArr, -4);
-            byte[] d = d(bArr, bArr2);
-            c(d, 6);
-            return d(d, bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
     }
 }

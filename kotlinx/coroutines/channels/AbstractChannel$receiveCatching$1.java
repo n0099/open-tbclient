@@ -23,7 +23,7 @@ public final class AbstractChannel$receiveCatching$1 extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        Object mo2296receiveCatchingJP2dKIU = this.this$0.mo2296receiveCatchingJP2dKIU(this);
-        return mo2296receiveCatchingJP2dKIU == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? mo2296receiveCatchingJP2dKIU : ChannelResult.m2303boximpl(mo2296receiveCatchingJP2dKIU);
+        Object mo2297receiveCatchingJP2dKIU = this.this$0.mo2297receiveCatchingJP2dKIU(this);
+        return mo2297receiveCatchingJP2dKIU == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? mo2297receiveCatchingJP2dKIU : ChannelResult.m2304boximpl(mo2297receiveCatchingJP2dKIU);
     }
 }

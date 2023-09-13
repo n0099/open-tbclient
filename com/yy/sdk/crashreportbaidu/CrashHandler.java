@@ -1,12 +1,12 @@
 package com.yy.sdk.crashreportbaidu;
 
 import android.os.Process;
-import com.baidu.tieba.b0c;
-import com.baidu.tieba.szb;
-import com.baidu.tieba.tzb;
-import com.baidu.tieba.vzb;
-import com.baidu.tieba.xzb;
-import com.baidu.tieba.yzb;
+import com.baidu.tieba.a3c;
+import com.baidu.tieba.b3c;
+import com.baidu.tieba.e3c;
+import com.baidu.tieba.v2c;
+import com.baidu.tieba.w2c;
+import com.baidu.tieba.y2c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.yy.sdk.crashreportbaidu.CrashHandler;
@@ -41,9 +41,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     public static native void uninitNativeHandler();
 
     public static /* synthetic */ void f() {
-        vzb.d("CrashHandler", "threadSize:" + b0c.d());
-        vzb.d("CrashHandler", b0c.c());
-        vzb.d("CrashHandler", b0c.b());
+        y2c.d("CrashHandler", "threadSize:" + e3c.d());
+        y2c.d("CrashHandler", e3c.c());
+        y2c.d("CrashHandler", e3c.b());
     }
 
     /* loaded from: classes10.dex */
@@ -51,9 +51,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         @Override // java.lang.Runnable
         public void run() {
             HashMap hashMap = new HashMap();
-            hashMap.put("threadSize", String.valueOf(b0c.d()));
-            tzb.g(hashMap);
-            b0c.g(yzb.s() + File.separator + "maps.txt");
+            hashMap.put("threadSize", String.valueOf(e3c.d()));
+            w2c.g(hashMap);
+            e3c.g(b3c.s() + File.separator + "maps.txt");
         }
     }
 
@@ -64,11 +64,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public static void a(int i) {
-        if (!xzb.f()) {
+        if (!a3c.f()) {
             return;
         }
-        yzb.R(i);
-        vzb.d("CrashHandler", "java crashFilterCallback!");
+        b3c.R(i);
+        y2c.d("CrashHandler", "java crashFilterCallback!");
         Thread.setDefaultUncaughtExceptionHandler(c.a);
         b bVar = b;
         if (bVar != null) {
@@ -85,7 +85,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public void g(Throwable th) {
-        if (!xzb.f()) {
+        if (!a3c.f()) {
             return;
         }
         a(Process.myTid());
@@ -93,12 +93,12 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     }
 
     public static void b(int i, String str) {
-        if (!xzb.f() || d.get()) {
+        if (!a3c.f() || d.get()) {
             return;
         }
         d.set(true);
         e.execute(new a());
-        vzb.d("CrashHandler", "java crashGenFinishCallback!");
+        y2c.d("CrashHandler", "java crashGenFinishCallback!");
         if (b != null) {
             b.b(i, str, c());
         }
@@ -106,31 +106,31 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     public static String c() {
         try {
-            szb.e("CrashHandler", "\nCURRENT_LOGCAT:\n", false);
+            v2c.e("CrashHandler", "\nCURRENT_LOGCAT:\n", false);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -v threadtime -t 5000 -d *:I").getInputStream()), 1024);
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     break;
                 }
-                szb.e("CrashHandler", readLine, false);
+                v2c.e("CrashHandler", readLine, false);
             }
             bufferedReader.close();
-            szb.a();
+            v2c.a();
         } catch (Exception e2) {
-            vzb.c("CrashHandler", "generateCrashLog", e2);
+            y2c.c("CrashHandler", "generateCrashLog", e2);
         }
-        return szb.b();
+        return v2c.b();
     }
 
     public static String d(Throwable th) {
-        String str = yzb.s() + File.separator + yzb.n() + ".dmp";
+        String str = b3c.s() + File.separator + b3c.n() + ".dmp";
         File file = new File(str);
         try {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            String C = yzb.C(th);
+            String C = b3c.C(th);
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             fileOutputStream.write(C.getBytes());
             fileOutputStream.close();
@@ -143,7 +143,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         try {
-            e.execute(new Runnable() { // from class: com.baidu.tieba.qzb
+            e.execute(new Runnable() { // from class: com.baidu.tieba.t2c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -155,7 +155,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                     }
                 }
             });
-            yzb.T(th);
+            b3c.T(th);
             g(th);
         } catch (Exception e2) {
             e2.printStackTrace();

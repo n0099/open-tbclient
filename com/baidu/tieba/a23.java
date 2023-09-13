@@ -1,67 +1,61 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a23 extends x13 {
+public class a23 extends y13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean e;
+    public final qx1 f;
 
-    public a23() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a23(qx1 qx1Var, boolean z) {
+        super(6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qx1Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = z;
+        this.f = qx1Var;
     }
 
-    @Override // com.baidu.tieba.x13
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.y13
+    public String d() {
+        InterceptResult invokeV;
+        ff3 params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (x13.c) {
-                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qx1 qx1Var = this.f;
+            if (qx1Var != null && (params = qx1Var.getParams()) != null) {
+                return params.c;
             }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            int i = 0;
-            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
-                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
-                    int pixel = bitmap.getPixel(i2, i3);
-                    if (i == 0) {
-                        i = pixel;
-                    }
-                    if (i != pixel && pixel != 0) {
-                        if (nr1.a) {
-                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                        return false;
-                    }
-                }
-            }
-            if (x13.c) {
-                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
-            }
-            return true;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
     }
 }

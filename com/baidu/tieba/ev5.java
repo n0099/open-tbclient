@@ -1,8 +1,11 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import com.baidu.tieba.ku5;
 /* loaded from: classes5.dex */
-public interface ev5<T extends ku5> extends gv5, fv5<T> {
-    View getView();
+public interface ev5<T> {
+    void a(int i, byte[] bArr) throws Exception;
+
+    int getErrorCode();
+
+    String getErrorMsg();
+
+    yu5 getPageInfo();
 }

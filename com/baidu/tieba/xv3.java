@@ -1,87 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xv3 implements ov3 {
+public class xv3 implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yv3 a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
+    public final int a;
+    public final int b;
+    public final int c;
 
-    public xv3(@NonNull Context context) {
+    public xv3(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(context);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public final void c(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public int compareTo(xv3 xv3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = yv3.a(context);
-        }
-    }
-
-    @Override // com.baidu.tieba.ov3
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
-            this.b = false;
-            if (this.a.c()) {
-                this.a.e(12, 0);
-                this.a.e(13, 0);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xv3Var)) == null) {
+            if (this.c < xv3Var.c) {
+                return -1;
             }
-            this.a.d(12, 0);
-            this.a.d(13, 0);
+            return 1;
         }
-    }
-
-    @Override // com.baidu.tieba.ov3
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
-            this.b = true;
-            if (this.a.c()) {
-                this.a.e(12, i);
-                this.a.e(13, i);
-                return;
-            }
-            this.a.d(12, i);
-            this.a.d(13, i);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.d) {
-                this.d = true;
-                this.c = this.a.g();
-            }
-            return this.c;
-        }
-        return invokeV.booleanValue;
+        return invokeL.intValue;
     }
 }

@@ -13,7 +13,7 @@ public class bz extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo300a() {
+    public String mo301a() {
         return "10053";
     }
 
@@ -22,10 +22,10 @@ public class bz extends aj.a {
         cm cmVar;
         cm cmVar2;
         Context context;
-        cmVar = this.a.f156a;
+        cmVar = this.a.f155a;
         if (cmVar != null) {
-            cmVar2 = this.a.f156a;
-            context = this.a.f153a;
+            cmVar2 = this.a.f155a;
+            context = this.a.f152a;
             cmVar2.b(context);
             this.a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
         }

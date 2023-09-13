@@ -1,6 +1,7 @@
 package com.yxcorp.kuaishou.addfp.android.b;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +39,7 @@ public class c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.b = jSONObject.optInt("errorCode", 2);
+            this.b = jSONObject.optInt(CloudStabilityUBCUtils.KEY_ERROR_CODE, 2);
             this.c = jSONObject.optBoolean("userSet", true);
             this.d = jSONObject.optString("value", "KWE_OTHER");
         } catch (JSONException e) {

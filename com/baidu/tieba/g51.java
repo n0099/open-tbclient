@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,13 +9,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class g51 {
     public static /* synthetic */ Interceptable $ic;
+    public static g51 b;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public BaseExecutorCell a;
-    @NonNull
-    public BaseExecutorCell b;
-    @NonNull
-    public BaseExecutorCell c;
+    public h51 a;
 
     public g51() {
         Interceptable interceptable = $ic;
@@ -32,33 +27,35 @@ public class g51 {
                 return;
             }
         }
-        this.a = BaseExecutorCell.b(t41.d, BaseExecutorCell.ExecutorType.ARTERY);
-        this.b = BaseExecutorCell.b(t41.e, BaseExecutorCell.ExecutorType.ARTERY);
-        this.c = BaseExecutorCell.b(t41.f, BaseExecutorCell.ExecutorType.ARTERY);
+        this.a = new e51();
+        if (!x41.a()) {
+            this.a = new f51();
+        }
     }
 
-    public boolean a(ElasticTask elasticTask) {
-        InterceptResult invokeL;
+    public static g51 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
-            int b = elasticTask.b();
-            if (b != 0 && b != 1) {
-                if (b == 2) {
-                    if (this.b.c(elasticTask)) {
-                        return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (g51.class) {
+                    if (b == null) {
+                        b = new g51();
                     }
-                    return this.c.c(elasticTask);
-                } else if (b == 3) {
-                    return this.c.c(elasticTask);
-                } else {
-                    return false;
                 }
-            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
-                return true;
-            } else {
-                return this.c.c(elasticTask);
             }
+            return b;
         }
-        return invokeL.booleanValue;
+        return (g51) invokeV.objValue;
+    }
+
+    @NonNull
+    public h51 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (h51) invokeV.objValue;
     }
 }

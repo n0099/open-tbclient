@@ -1,279 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class iq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile iq4 m;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final HashSet<String> b;
-    public final HashSet<String> c;
-    public final HashSet<String> d;
-    public final HashSet<String> e;
-    public final HashMap<String, String> f;
-    public final HashMap<String, String> g;
-    public final HashMap<String, mq4> h;
-    public final HashSet<String> i;
-    public int j;
-    public int k;
-    public int l;
 
-    public iq4() {
+    public static Map<String, Integer> a(Set<String> set) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
+            HashMap hashMap = new HashMap();
+            int i = 0;
+            for (String str : set) {
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
             }
+            return hashMap;
         }
-        this.b = new HashSet<>();
-        this.c = new HashSet<>();
-        this.d = new HashSet<>();
-        this.e = new HashSet<>();
-        this.f = new HashMap<>();
-        this.g = new HashMap<>();
-        this.h = new HashMap<>();
-        this.i = new HashSet<>();
+        return (Map) invokeL.objValue;
     }
 
-    public static iq4 g() {
-        InterceptResult invokeV;
+    public static StringBuilder b(StringBuilder... sbArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (m == null) {
-                synchronized (iq4.class) {
-                    if (m == null) {
-                        m = new iq4();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StringBuilder sb2 : sbArr) {
+                sb.append((CharSequence) sb2);
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeL.objValue;
+    }
+
+    public static String c(List<fq4> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
+            Set<String> d = gq4.b().d();
+            int size = d.size();
+            Map<String, Integer> a = a(d);
+            StringBuilder[] sbArr = new StringBuilder[size];
+            for (int i = 0; i < size; i++) {
+                sbArr[i] = new StringBuilder();
+            }
+            for (fq4 fq4Var : list) {
+                Integer num = a.get(fq4Var.f());
+                if (num != null) {
+                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, fq4Var.d()));
+                    sbArr[num.intValue()].append("- ");
+                    StringBuilder sb = sbArr[num.intValue()];
+                    sb.append(fq4Var.b() / 1000);
+                    sb.append("ms");
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(fq4Var.f());
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(fq4Var.c().getFullName());
+                    sbArr[num.intValue()].append("\n");
+                }
+            }
+            String sb2 = b(sbArr).toString();
+            d(sb2, str);
+            return sb2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(String str, String str2) {
+        FileWriter fileWriter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            FileWriter fileWriter2 = null;
+            try {
+                try {
+                    try {
+                        File parentFile = new File(str2).getParentFile();
+                        if (parentFile != null && !parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        fileWriter = new FileWriter(str2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                } catch (IOException e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileWriter.write(str);
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e3) {
+                e = e3;
+                fileWriter2 = fileWriter;
+                e.printStackTrace();
+                if (fileWriter2 != null) {
+                    fileWriter2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
-            }
-            return m;
-        }
-        return (iq4) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.d.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (jq4.g().r()) {
-                return true;
-            }
-            return this.c.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.g.containsKey(str)) {
-                return this.g.get(str);
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && this.i.contains(str)) {
-                return "1";
-            }
-            return "0";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            mq4 mq4Var = this.h.get(str);
-            if (mq4Var != null && mq4Var.b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            mq4 mq4Var = this.h.get(str);
-            if (mq4Var != null && mq4Var.c()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i < this.k) {
-            return;
-        }
-        this.k = i;
-        yq4.e().putInt("ubc_data_expire_time", i);
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || i < this.l) {
-            return;
-        }
-        this.l = i;
-        yq4.e().putInt("ubc_database_limit", i);
-    }
-
-    public void p(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048590, this, i) != null) || (i2 = i * 60000) < this.j) {
-            return;
-        }
-        this.j = i2;
-    }
-
-    public boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            if (this.b.contains(str)) {
-                return false;
-            }
-            if ((i & 16) == 0 && (i & 32) == 0) {
-                return true;
-            }
-            return this.e.contains(str);
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public int i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (jq4.g().q() || TextUtils.isEmpty(str) || !this.f.containsKey(str)) {
-                return 0;
-            }
-            return Integer.parseInt(this.f.get(str));
-        }
-        return invokeL.intValue;
-    }
-
-    public void k(hq4 hq4Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, hq4Var, context) == null) {
-            this.a = context;
-            this.j = 360000;
-            yq4 e = yq4.e();
-            this.k = e.getInt("ubc_data_expire_time", 259200000);
-            this.l = e.getInt("ubc_database_limit", 4000);
-            hq4Var.e().w(this.b, this.e, this.c, this.d, this.f, this.g, this.h, this.i);
-        }
-    }
-
-    public void q(List<lq4> list) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            for (lq4 lq4Var : list) {
-                if ("0".equals(lq4Var.b)) {
-                    this.b.add(lq4Var.a);
-                } else {
-                    this.b.remove(lq4Var.a);
-                }
-                if ("1".equals(lq4Var.c)) {
-                    this.c.add(lq4Var.a);
-                } else {
-                    this.c.remove(lq4Var.a);
-                }
-                if ("1".equals(lq4Var.f)) {
-                    this.d.add(lq4Var.a);
-                } else {
-                    this.d.remove(lq4Var.a);
-                }
-                int i2 = lq4Var.g;
-                if (i2 >= 1 && i2 <= 100) {
-                    this.f.put(lq4Var.a, String.valueOf(i2));
-                } else {
-                    this.f.remove(lq4Var.a);
-                }
-                if (!TextUtils.isEmpty(lq4Var.h)) {
-                    this.g.put(lq4Var.a, lq4Var.h);
-                } else {
-                    this.g.remove(lq4Var.a);
-                }
-                int i3 = lq4Var.j;
-                if (i3 != 0 && (i = lq4Var.i) != 0) {
-                    mq4 mq4Var = new mq4(lq4Var.a, i3, i);
-                    this.h.put(mq4Var.a(), mq4Var);
-                }
-                if (TextUtils.equals(lq4Var.k, "1")) {
-                    this.i.add(lq4Var.a);
-                } else {
-                    this.i.remove(lq4Var.a);
-                }
+                throw th;
             }
         }
     }

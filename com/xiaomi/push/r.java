@@ -8,7 +8,7 @@ public class r {
         try {
             return (String) s.a(null, CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(null, str, str2);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("SystemProperties.get: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a("SystemProperties.get: " + e);
             return str2;
         }
     }

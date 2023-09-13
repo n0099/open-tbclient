@@ -1,18 +1,27 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import tbclient.RecomTopicList;
 /* loaded from: classes6.dex */
 public interface ic9 {
-    void H(@NonNull RecomTopicList recomTopicList);
+    void a(long j, long j2, long j3);
 
-    void P0(oa8 oa8Var);
+    void b(boolean z);
 
-    void Y0(int i);
+    void c(boolean z, boolean z2);
 
-    void j0(int i, oa8 oa8Var);
+    boolean d(String str, String str2);
 
-    void k1(int i, long j, long j2, int i2);
+    String e(String str, String str2);
 
-    void o(int i, na8 na8Var);
+    void f();
+
+    void g(long j, int i);
+
+    void h(int i);
+
+    void i(int i);
+
+    void j();
+
+    void k(String str, String str2);
+
+    void l(int i);
 }

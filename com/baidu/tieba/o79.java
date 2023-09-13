@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
+import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class o79 extends xk1<LiveCustomSettingService> {
+public class o79 implements LiveLikeProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +26,13 @@ public class o79 extends xk1<LiveCustomSettingService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
-    /* renamed from: a */
-    public LiveCustomSettingService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService
+    public ILiveLikeView buildLikeViewInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new p79();
         }
-        return (LiveCustomSettingService) invokeV.objValue;
+        return (ILiveLikeView) invokeV.objValue;
     }
 }

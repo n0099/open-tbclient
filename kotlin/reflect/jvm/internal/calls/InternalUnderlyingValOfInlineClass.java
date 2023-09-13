@@ -26,7 +26,7 @@ public abstract class InternalUnderlyingValOfInlineClass implements Caller<Metho
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.calls.Caller
     /* renamed from: getMember  reason: avoid collision after fix types in other method */
-    public final Method mo2096getMember() {
+    public final Method mo2097getMember() {
         return null;
     }
 

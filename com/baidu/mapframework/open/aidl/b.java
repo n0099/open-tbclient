@@ -29,13 +29,13 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C0116a implements b {
+        public static class C0105a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0116a(IBinder iBinder) {
+            public C0105a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public interface b extends IInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0116a.a;
+                return C0105a.a;
             }
             return (b) invokeV.objValue;
         }
@@ -121,7 +121,7 @@ public interface b extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                     return (b) queryLocalInterface;
                 }
-                return new C0116a(iBinder);
+                return new C0105a(iBinder);
             }
             return (b) invokeL.objValue;
         }

@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class ai {
     public static <T extends is<T, ?>> id a(Context context, T t, hh hhVar) {
-        return a(context, t, hhVar, !hhVar.equals(hh.Registration), context.getPackageName(), b.m224a(context).m225a());
+        return a(context, t, hhVar, !hhVar.equals(hh.Registration), context.getPackageName(), b.m225a(context).m226a());
     }
 
     public static <T extends is<T, ?>> id a(Context context, T t, hh hhVar, boolean z, String str, String str2) {
@@ -35,20 +35,20 @@ public class ai {
         if (a != null) {
             id idVar = new id();
             if (z) {
-                String d = b.m224a(context).d();
+                String d = b.m225a(context).d();
                 if (TextUtils.isEmpty(d)) {
                     str3 = "regSecret is empty, return null";
                 } else {
                     try {
-                        a = com.xiaomi.push.h.b(bl.m296a(d), a);
+                        a = com.xiaomi.push.h.b(bl.m297a(d), a);
                     } catch (Exception unused) {
                         com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                     }
                 }
             }
             hw hwVar = new hw();
-            hwVar.f557a = 5L;
-            hwVar.f558a = "fakeid";
+            hwVar.f556a = 5L;
+            hwVar.f557a = "fakeid";
             idVar.a(hwVar);
             idVar.a(ByteBuffer.wrap(a));
             idVar.a(hhVar);
@@ -59,28 +59,28 @@ public class ai {
             return idVar;
         }
         str3 = "invoke convertThriftObjectToBytes method, return null.";
-        com.xiaomi.channel.commonutils.logger.b.m180a(str3);
+        com.xiaomi.channel.commonutils.logger.b.m181a(str3);
         return null;
     }
 
     public static is a(Context context, id idVar) {
-        byte[] m630a;
-        if (idVar.m632b()) {
+        byte[] m631a;
+        if (idVar.m633b()) {
             byte[] a = i.a(context, idVar, e.ASSEMBLE_PUSH_FCM);
             if (a == null) {
-                a = bl.m296a(b.m224a(context).d());
+                a = bl.m297a(b.m225a(context).d());
             }
             try {
-                m630a = com.xiaomi.push.h.a(a, idVar.m630a());
+                m631a = com.xiaomi.push.h.a(a, idVar.m631a());
             } catch (Exception e) {
                 throw new u("the aes decrypt failed.", e);
             }
         } else {
-            m630a = idVar.m630a();
+            m631a = idVar.m631a();
         }
-        is a2 = a(idVar.a(), idVar.f640b);
+        is a2 = a(idVar.a(), idVar.f639b);
         if (a2 != null) {
-            ir.a(a2, m630a);
+            ir.a(a2, m631a);
         }
         return a2;
     }

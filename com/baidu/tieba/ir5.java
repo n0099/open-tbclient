@@ -1,81 +1,84 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.br5;
-import com.baidu.tieba.gr5;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdActivityStack;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.tbadk.switchs.PraiseSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class ir5<D, S extends br5, H extends gr5<D, S>> extends hr5<D, S, H> {
+public class ir5 implements eq5<SyncDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<H> n;
-    public final int o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ir5(TbPageContext<?> tbPageContext, Class<H> cls, int i, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, viewEventCenter);
+    public ir5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls, Integer.valueOf(i), viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewEventCenter) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = i;
-        this.n = cls;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getItemViewType(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eq5
+    /* renamed from: a */
+    public boolean onEvent(SyncDataEvent syncDataEvent) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.g && c()) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
+            boolean z2 = false;
+            if (syncDataEvent == null) {
+                return false;
             }
-            return super.getItemViewType(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2, viewGroup)) == null) {
-            if (this.g && c()) {
-                return a();
+            HashMap<String, Integer> hashMap = syncDataEvent.switches;
+            if (hashMap != null && hashMap.size() > 0) {
+                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
             }
-            b();
-            return d(view2, i, this.n, this.o);
+            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
+            gw5.d().f(syncDataEvent.abtestExtraData);
+            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
+            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
+            BdActivityStack inst = BdActivityStack.getInst();
+            if (syncDataEvent.themeIsBlack == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            inst.setActivityIsGrey(z);
+            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
+            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
+            AICapacityApplyHelper c = AICapacityApplyHelper.c();
+            if (syncDataEvent.aiAvailableStatus == 1) {
+                z2 = true;
+            }
+            c.g(z2);
+            if (!TextUtils.isEmpty(syncDataEvent.aiWriteScheme)) {
+                AICapacityApplyHelper.c().h(syncDataEvent.aiWriteScheme);
+            }
+            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
+                nt4.w().J();
+            }
+            return true;
         }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public final int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.getViewTypeCount() + 1;
-        }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 }

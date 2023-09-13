@@ -1,121 +1,62 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.ArrayList;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.PeiwanInfo;
+import tbclient.ThreadRecommendTag;
+import tbclient.Voice;
+@JvmName(name = "PeiWanCardBuilder")
 /* loaded from: classes8.dex */
-public class w45 extends v45 {
+public final class w45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView l;
-    public TextView m;
-    public View.OnClickListener n;
-    public int o;
-    public int p;
 
-    @Override // com.baidu.tieba.v45
-    public void f() {
+    public static final PeiwanInfo a(JSONObject jsonObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w45(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jsonObject)) == null) {
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            PeiwanInfo.Builder builder = new PeiwanInfo.Builder();
+            builder.cover = jsonObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            builder.scheme = jsonObject.optString("scheme");
+            builder.extension_info = jsonObject.optString("extension_info");
+            builder.room_status = Integer.valueOf(jsonObject.optInt("room_status"));
+            builder.room_status_text = jsonObject.optString("room_status_text");
+            JSONObject optJSONObject = jsonObject.optJSONObject("voice");
+            Voice.Builder builder2 = new Voice.Builder();
+            builder2.voice_md5 = optJSONObject.optString("voice_md5");
+            builder2.voice_url = optJSONObject.optString("voice_url");
+            builder2.type = Integer.valueOf(optJSONObject.optInt("type"));
+            builder2.during_time = Integer.valueOf(optJSONObject.optInt("during_time"));
+            builder.voice = builder2.build(true);
+            JSONArray optJSONArray = jsonObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
+            ArrayList arrayList = new ArrayList();
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    ThreadRecommendTag.Builder builder3 = new ThreadRecommendTag.Builder();
+                    builder3.text = optJSONObject2.optString("text");
+                    builder3.text_color = cra.j(optJSONObject2.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    builder3.background_color = cra.j(optJSONObject2.optJSONObject("background_color"));
+                    builder3.boundary_color = cra.j(optJSONObject2.optJSONObject("boundary_color"));
+                    ThreadRecommendTag build = builder3.build(true);
+                    Intrinsics.checkNotNullExpressionValue(build, "tagBuilder.build(true)");
+                    arrayList.add(build);
+                }
+                builder.tag_list = arrayList;
             }
+            return builder.build(true);
         }
-        this.o = R.color.CAM_X0304;
-        this.p = R.color.CAM_X0107;
-        this.l = (TextView) e().findViewById(R.id.title_ok);
-        this.m = (TextView) e().findViewById(R.id.title_cancel);
-        i(true);
-    }
-
-    @Override // com.baidu.tieba.v45
-    public void b(BdPageContext<?> bdPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdPageContext) == null) {
-            super.b(bdPageContext);
-            o();
-        }
-    }
-
-    @Override // com.baidu.tieba.v45
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            j(i);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            EMManager.from(this.l).setTextSelectorColor(this.o);
-            EMManager.from(this.m).setTextSelectorColor(this.p);
-        }
-    }
-
-    public w45 p(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
-            this.m.setText(i);
-            this.m.setOnClickListener(onClickListener);
-            this.m.setVisibility(0);
-            return this;
-        }
-        return (w45) invokeIL.objValue;
-    }
-
-    public w45 q(int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
-            this.l.setText(i);
-            this.l.setOnClickListener(onClickListener);
-            this.l.setVisibility(0);
-            this.n = onClickListener;
-            return this;
-        }
-        return (w45) invokeIL.objValue;
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.o = R.color.CAM_X0304;
-                this.l.setEnabled(true);
-                this.l.setOnClickListener(this.n);
-            } else {
-                this.o = R.color.CAM_X0110;
-                this.l.setEnabled(false);
-                this.l.setOnClickListener(null);
-            }
-            o();
-        }
+        return (PeiwanInfo) invokeL.objValue;
     }
 }

@@ -10,14 +10,15 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes3.dex */
 public class DpRTCSession {
-    public c a = new c(20488);
+    public static final String TAG = "DpRTCSession";
+    public DpStatDataList mCommonDataList = new DpStatDataList(20488);
 
     public synchronized void upload() {
         DpSessionDatasUploader.getInstance().upload(toJson(), "sailor_monitor");
     }
 
-    private synchronized JSONObject a(JSONObject jSONObject) throws JSONException {
-        this.a.a(jSONObject);
+    private synchronized JSONObject toJson(JSONObject jSONObject) throws JSONException {
+        this.mCommonDataList.toJson(jSONObject);
         return jSONObject;
     }
 
@@ -45,7 +46,7 @@ public class DpRTCSession {
 
     public synchronized void add(int i, String str, String str2) {
         if (20488 == i) {
-            this.a.a(new e(20488, str, str2));
+            this.mCommonDataList.add(new DpStatItem(20488, str, str2));
         }
     }
 
@@ -53,11 +54,11 @@ public class DpRTCSession {
         String jSONObject;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            a.a().a(jSONObject2);
+            DpInitKernelSession.getInstance().toJson(jSONObject2);
             jSONObject2.put(DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_RTC);
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject3 = new JSONObject();
-            a(jSONObject3);
+            toJson(jSONObject3);
             jSONArray.put(jSONObject3);
             jSONObject2.put("items", jSONArray);
             jSONObject = jSONObject2.toString();
@@ -65,7 +66,7 @@ public class DpRTCSession {
             e.printStackTrace();
         }
         jSONObject2.remove("cuid");
-        CyberLog.i("DpRTCSession", "toJson rtc session = " + jSONObject2.toString());
+        CyberLog.i(TAG, "toJson rtc session = " + jSONObject2.toString());
         return jSONObject;
     }
 }

@@ -1,43 +1,278 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.HybridNotify.HybridNotifyEvent;
+import android.text.TextUtils;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kp5 implements lp5<HybridNotifyEvent> {
+public class kp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ThreadData a;
+    @Nullable
+    public int b;
+    @Nullable
+    public final String c;
+    @Nullable
+    public final String d;
+    public boolean e;
+    public int f;
+    public int g;
+    @Nullable
+    public tha h;
+    @NonNull
+    public HotTopicStat.Locate i;
+    @Nullable
+    public String j;
+    public boolean k;
 
-    public kp5() {
+    public kp5(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.i = HotTopicStat.Locate.UNDEFINED;
+        this.c = str;
+        this.d = str2;
+        this.e = TextUtils.equals(UrlUtils.getParamValue(str2, "is_video_topic"), "1");
+    }
+
+    @NonNull
+    public static kp5 h(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return new kp5(str, str2);
+        }
+        return (kp5) invokeLL.objValue;
+    }
+
+    @NonNull
+    public kp5 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.k = z;
+            return this;
+        }
+        return (kp5) invokeZ.objValue;
+    }
+
+    @NonNull
+    public kp5 b(@NonNull HotTopicStat.Locate locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            this.i = locate;
+            return this;
+        }
+        return (kp5) invokeL.objValue;
+    }
+
+    @NonNull
+    public kp5 c(@Nullable tha thaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thaVar)) == null) {
+            this.h = thaVar;
+            return this;
+        }
+        return (kp5) invokeL.objValue;
+    }
+
+    @NonNull
+    public kp5 d(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.f = i;
+            return this;
+        }
+        return (kp5) invokeI.objValue;
+    }
+
+    @NonNull
+    public kp5 e(@Nullable ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, threadData)) == null) {
+            this.a = threadData;
+            return this;
+        }
+        return (kp5) invokeL.objValue;
+    }
+
+    @NonNull
+    public kp5 f(@Nullable int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.b = i;
+            return this;
+        }
+        return (kp5) invokeI.objValue;
+    }
+
+    @NonNull
+    public kp5 g(@ColorRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.g = i;
+            return this;
+        }
+        return (kp5) invokeI.objValue;
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.e = z;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lp5
-    /* renamed from: a */
-    public boolean onEvent(HybridNotifyEvent hybridNotifyEvent) {
-        InterceptResult invokeL;
+    @NonNull
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybridNotifyEvent)) == null) {
-            if (hybridNotifyEvent == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData == null) {
+                return "";
             }
-            dz4.a().b(null, hybridNotifyEvent.key, hybridNotifyEvent.data);
-            return true;
+            return String.valueOf(threadData.getFid());
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.j == null) {
+                this.j = UrlUtils.appendParam(this.d, "locate", l().toString());
+            }
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public HotTopicStat.Locate l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return (HotTopicStat.Locate) invokeV.objValue;
+    }
+
+    @Nullable
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            tha thaVar = this.h;
+            if (thaVar == null) {
+                return null;
+            }
+            return thaVar.U();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public ThreadData n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @ColorRes
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (r()) {
+                int i = this.g;
+                if (i != 0) {
+                    return i;
+                }
+            } else {
+                int i2 = this.f;
+                if (i2 != 0) {
+                    return i2;
+                }
+            }
+            return R.color.CAM_X0304;
+        }
+        return invokeV.intValue;
+    }
+
+    @Nullable
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
     }
 }

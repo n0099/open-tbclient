@@ -1,13 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public final class bba extends yda {
+public class bba implements ICloudCommandObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public String getCommandType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "online_net_log_notice" : (String) invokeV.objValue;
+    }
 
     public bba() {
         Interceptable interceptable = $ic;
@@ -20,6 +33,22 @@ public final class bba extends yda {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver
+    public void dispatch(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            if (!"fulllog_network".equals(jSONObject.getString("type"))) {
+                return;
+            }
+            cba.a().h(jSONObject, null);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

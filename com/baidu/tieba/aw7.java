@@ -1,91 +1,93 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class aw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public NavigationBarCoverTip b;
-    public TextView c;
-    public int d;
 
-    public aw7(FrsFragment frsFragment, NavigationBarCoverTip navigationBarCoverTip) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, navigationBarCoverTip};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ li7 a;
+
+        public a(li7 li7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {li7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = li7Var;
         }
-        this.a = frsFragment;
-        this.b = navigationBarCoverTip;
-        b();
-    }
 
-    public void a(String str) {
-        int i;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !di.isEmpty(str) && this.b != null && this.a.isPrimary() && (i = this.d) <= 0) {
-            this.d = i + 1;
-            if (str.length() < 20) {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + "\n" + str;
-            } else if (str.length() < 34) {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str;
-            } else {
-                str2 = this.a.getResources().getString(R.string.forum_ueg_tip) + str.substring(0, 34);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.Q0();
             }
-            this.c.setText(str2);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundColor(this.b, R.color.cp_link_tip_a_alpha95);
-            this.b.k(this.a.getActivity(), this.c, 5000);
         }
     }
 
-    public final void b() {
+    public static void a(ResponsedMessage<?> responsedMessage, li7 li7Var, FrsViewData frsViewData) {
+        List<DownloadData> data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = 0;
-            this.c = new TextView(this.a.getActivity());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, this.a.getResources().getDimensionPixelSize(R.dimen.tbds112)));
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198), this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-                this.c.setGravity(3);
-            } else {
-                this.c.setPadding(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f), 0);
-                this.c.setGravity(19);
+        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, li7Var, frsViewData) != null) || frsViewData == null || li7Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
+            return;
+        }
+        boolean z = false;
+        Iterator<DownloadData> it = data.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            } else if (it.next().getStatus() == 0) {
+                z = true;
+                break;
             }
-            this.c.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
-            this.c.setLineSpacing(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4), 1.0f);
-            this.c.setMaxLines(2);
-            this.c.setEllipsize(TextUtils.TruncateAt.END);
+        }
+        if (z) {
+            SafeHandler.getInst().postDelayed(new a(li7Var), TimeUnit.SECONDS.toMillis(2L));
         }
     }
 
-    public void c() {
-        NavigationBarCoverTip navigationBarCoverTip;
+    public static void b(li7 li7Var) {
+        HashMap<Integer, ThreadData> h;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (navigationBarCoverTip = this.b) != null) {
-            navigationBarCoverTip.f();
+        if ((interceptable == null || interceptable.invokeL(65537, null, li7Var) == null) && li7Var != null && li7Var.a0() != null && (h = li7Var.a0().h()) != null) {
+            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
+            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
+                ThreadData value = entry.getValue();
+                if (value != null && (value instanceof AdvertAppInfo)) {
+                    arrayList.add((AdvertAppInfo) value);
+                }
+            }
+            x3a.n().w(arrayList);
         }
     }
 }

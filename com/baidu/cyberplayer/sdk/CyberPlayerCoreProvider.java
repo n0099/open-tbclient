@@ -11,6 +11,7 @@ import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 import com.baidu.cyberplayer.sdk.videodownload.CyberVideoDownloader;
+import com.baidu.cyberplayer.sdk.videodownload.DownloaderProvider;
 import com.baidu.cyberplayer.sdk.videodownload.VideoSourceBean;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -41,6 +42,8 @@ public abstract class CyberPlayerCoreProvider {
     public abstract CaptureManagerProvider createCaptureManager(Context context, int i, int i2, int i3, int i4, int i5);
 
     public abstract CyberAudioRecorder createCyberAudioRecorder();
+
+    public abstract DownloaderProvider createCyberDownloader(int i, String str, PrefetchOptions prefetchOptions);
 
     public abstract ExtractorProvider createCyberExtractor();
 

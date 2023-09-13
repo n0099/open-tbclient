@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.write.NewWritePageStateEvent;
-import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
+import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
+import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rq5 implements lp5<NewWritePageStateEvent> {
+public class rq5 implements eq5<CurrentPageTypeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,16 +27,16 @@ public class rq5 implements lp5<NewWritePageStateEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lp5
+    @Override // com.baidu.tieba.eq5
     /* renamed from: a */
-    public boolean onEvent(NewWritePageStateEvent newWritePageStateEvent) {
+    public boolean onEvent(CurrentPageTypeEvent currentPageTypeEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, newWritePageStateEvent)) == null) {
-            if (newWritePageStateEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentPageTypeEvent)) == null) {
+            if (currentPageTypeEvent == null) {
                 return false;
             }
-            WriteMsgHolder.isH5PageShowing = newWritePageStateEvent.isShowing;
+            CurrentPageTypeHelper.currentPageType = currentPageTypeEvent.currentPageType;
             return true;
         }
         return invokeL.booleanValue;

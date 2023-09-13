@@ -4,43 +4,41 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.TaskState;
+import com.baidu.bdtask.component.buoy.BuoyComponent;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
 import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.zp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.ranges.RangesKt___RangesKt;
 /* loaded from: classes8.dex */
-public class tp extends TaskBuoyViewModel {
+public class tp extends BuoyComponent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int g;
-    public zp h;
-    public final long i;
-    public yp j;
+    public boolean i;
+    public zp j;
+    public String k;
+    public volatile long l;
+    public final up m;
+    public final TaskInfo n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448318129, "Lcom/baidu/tieba/tp;")) == null) {
-            return;
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public float s(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, taskInfo, taskStatus)) == null) {
+            return 1.0f;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448318129, "Lcom/baidu/tieba/tp;");
-        }
+        return invokeLL.floatValue;
     }
 
     /* loaded from: classes8.dex */
-    public static final class a implements yp {
+    public static final class a extends zp.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tp a;
@@ -64,225 +62,294 @@ public class tp extends TaskBuoyViewModel {
             this.a = tpVar;
         }
 
-        @Override // com.baidu.tieba.yp
+        @Override // com.baidu.tieba.zp.a, com.baidu.tieba.zp
         public void a(long j, long j2) {
-            yp h;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (h = this.a.h()) != null) {
-                h.a(j, j2);
+            if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) {
+                return;
+            }
+            this.a.C(j2);
+            tp tpVar = this.a;
+            tpVar.update(tpVar.n, null);
+            zp D = this.a.D();
+            if (D != null) {
+                D.a(j, j2);
             }
         }
 
-        @Override // com.baidu.tieba.yp
+        @Override // com.baidu.tieba.zp.a, com.baidu.tieba.zp
         public void onCancel() {
-            yp h;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (h = this.a.h()) != null) {
-                h.onCancel();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.L(true);
+                zp D = this.a.D();
+                if (D != null) {
+                    D.onCancel();
+                }
             }
         }
 
-        @Override // com.baidu.tieba.yp
+        @Override // com.baidu.tieba.zp.a, com.baidu.tieba.zp
         public void onFinish() {
-            yp h;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (h = this.a.h()) != null) {
-                h.onFinish();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                tp.M(this.a, false, 1, null);
+                zp D = this.a.D();
+                if (D != null) {
+                    D.onFinish();
+                }
             }
         }
 
-        @Override // com.baidu.tieba.yp
+        @Override // com.baidu.tieba.zp.a, com.baidu.tieba.zp
         public void onPause() {
-            yp h;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (h = this.a.h()) != null) {
-                h.onPause();
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.L(true);
+                zp D = this.a.D();
+                if (D != null) {
+                    D.onPause();
+                }
             }
         }
 
-        @Override // com.baidu.tieba.yp
+        @Override // com.baidu.tieba.zp.a, com.baidu.tieba.zp
         public void onResume() {
-            yp h;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (h = this.a.h()) != null) {
-                h.onResume();
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                tp.M(this.a, false, 1, null);
+                zp D = this.a.D();
+                if (D != null) {
+                    D.onResume();
+                }
             }
         }
 
-        @Override // com.baidu.tieba.yp
+        @Override // com.baidu.tieba.zp.a, com.baidu.tieba.zp
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                if (this.a.k()) {
-                    yp h = this.a.h();
-                    if (h != null) {
-                        h.onResume();
-                        return;
-                    }
-                    return;
-                }
-                yp h2 = this.a.h();
-                if (h2 != null) {
-                    h2.onStart();
+                tp.M(this.a, false, 1, null);
+                zp D = this.a.D();
+                if (D != null) {
+                    D.onStart();
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp(TaskInfo taskInfo) {
-        super(taskInfo);
+    public tp(ps<TaskBuoyViewData, TaskBuoyViewModel> psVar, up upVar, TaskInfo taskInfo) {
+        super(psVar, upVar, taskInfo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {psVar, upVar, taskInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ps) objArr2[0], (TaskBuoyViewModel) objArr2[1], (TaskInfo) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 8;
-        this.i = taskInfo.getTaskRule().getStay();
+        this.m = upVar;
+        this.n = taskInfo;
+        this.i = true;
+        this.k = "";
+        upVar.o(new a(this));
     }
 
-    public final void o(yp ypVar) {
+    public final synchronized void C(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ypVar) == null) {
-            this.j = ypVar;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            synchronized (this) {
+                this.l += j;
+            }
         }
     }
 
-    public final yp h() {
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.i = z;
+            this.m.m();
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+            super.o(z);
+            this.m.q();
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public boolean t(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, taskStatus)) == null) {
+            return taskStatus.isDuplicated();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public long r(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, taskInfo, taskStatus)) == null) {
+            if (!taskInfo.isVisitAction()) {
+                return 0L;
+            }
+            return taskInfo.getTaskRule().getFormatStay();
+        }
+        return invokeLL.longValue;
+    }
+
+    public static /* synthetic */ void M(tp tpVar, boolean z, int i, Object obj) {
+        if (obj == null) {
+            if ((i & 1) != 0) {
+                z = false;
+            }
+            tpVar.L(z);
+            return;
+        }
+        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: syncVisitTime");
+    }
+
+    public final zp D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.j;
         }
-        return (yp) invokeV.objValue;
+        return (zp) invokeV.objValue;
     }
 
-    public final boolean j() {
+    public final boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if ((this.g & 4) == 4) {
-                return true;
+            TaskState m = BDPTask.m.m(this.n.getActionId());
+            if (m == null || !m.getTaskStatus().isEnable() || !u()) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean k() {
-        InterceptResult invokeV;
+    public void F() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if ((this.g & 2) == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            G(true);
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean l() {
-        InterceptResult invokeV;
+    public void H() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if ((this.g & 1) == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            I("");
         }
-        return invokeV.booleanValue;
     }
 
-    public void m() {
+    public void J() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !l()) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            K("");
+        }
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.m.m();
+        }
+    }
+
+    public void I(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !E()) {
             return;
         }
-        this.g |= 4;
-        zp zpVar = this.h;
-        if (zpVar != null) {
-            zpVar.e();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !j()) {
+        if (BDPTask.m.l(this.n.getActionId(), str)) {
+            BDPTask.m.i(this.n.getActionId(), 0L, str);
             return;
         }
-        this.g |= 2;
-        r();
+        this.k = str;
+        this.i = true;
+        this.m.n();
     }
 
-    public void p() {
+    public void K(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = 1;
-            r();
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !E()) {
+            return;
         }
+        if (BDPTask.m.l(this.n.getActionId(), str)) {
+            this.m.m();
+            BDPTask.m.i(this.n.getActionId(), 0L, str);
+            return;
+        }
+        this.k = str;
+        this.i = true;
+        L(true);
+        this.m.p();
     }
 
-    public void q() {
+    public final synchronized void L(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.g = 8;
-            zp zpVar = this.h;
-            if (zpVar != null) {
-                zpVar.h();
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            synchronized (this) {
+                if (z) {
+                    if (this.l == 0) {
+                        return;
+                    }
+                }
+                if (this.i) {
+                    long j = this.l;
+                    this.l = 0L;
+                    BDPTask.m.i(this.n.getActionId(), j, this.k);
+                }
             }
         }
     }
 
-    public final void r() {
+    @Override // com.baidu.tieba.kp
+    public void b(TaskInfo taskInfo, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            zp zpVar = this.h;
-            if (zpVar != null) {
-                zpVar.j();
-            }
-            zp zpVar2 = new zp(i(), 200L, new a(this));
-            this.h = zpVar2;
-            if (zpVar2 != null) {
-                zpVar2.b();
-            }
-        }
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        TaskProcess taskProcess;
-        long j;
-        TaskStatus taskStatus;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TaskState m = BDPTask.m.m(c().getActionId());
-            if (m != null && (taskStatus = m.getTaskStatus()) != null) {
-                taskProcess = taskStatus.getProcess();
+        if (interceptable == null || interceptable.invokeLIL(1048586, this, taskInfo, i, str) == null) {
+            if (i == 304) {
+                update(taskInfo, null);
             } else {
-                taskProcess = null;
+                o(false);
             }
-            long j2 = this.i;
-            if (taskProcess != null) {
-                j = taskProcess.getStayDurTimeMs();
-            } else {
-                j = 0;
-            }
-            long j3 = j2 - j;
-            if (j3 < 0) {
-                return 0L;
-            }
-            return j3;
         }
-        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.bdtask.component.buoy.BuoyComponent
+    public float q(TaskInfo taskInfo, TaskStatus taskStatus) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, taskInfo, taskStatus)) == null) {
+            if (!taskInfo.isVisitAction()) {
+                return 0.0f;
+            }
+            long stay = taskInfo.getTaskRule().getStay();
+            if (stay == 0) {
+                return 0.0f;
+            }
+            return RangesKt___RangesKt.coerceAtMost(((float) (taskStatus.getProcess().getStayDurTimeMs() + this.l)) / ((float) stay), 1.0f);
+        }
+        return invokeLL.floatValue;
     }
 }

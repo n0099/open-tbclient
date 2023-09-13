@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.mainentrance.MainEntrance;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.cm5;
+import com.baidu.tieba.vm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,17 +99,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    cm5.c(scheme);
+                    vm5.c(scheme);
                 } else if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
                     int currentTabType = MainEntrance.getCurrentTabType();
                     if (currentTabType != 2) {
-                        this.a.Q(currentTabType);
+                        this.a.P(currentTabType);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    cm5.c(scheme);
+                    vm5.c(scheme);
                 } else {
-                    this.a.P();
+                    this.a.O();
                 }
             }
         }
@@ -130,13 +130,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
         this.a = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
-        R();
+        Q();
         this.a.setTag(getUniqueId());
         this.a.setSelfListener(true);
         registerListener(this.a);
     }
 
-    public final void P() {
+    public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = null;
@@ -145,7 +145,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                cm5.b(str);
+                vm5.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -156,7 +156,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public static void R() {
+    public static void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_DEEPLINK_SCHEME);
@@ -167,17 +167,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public final void Q(int i) {
+    public final void P(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                cm5.b("a025");
+                vm5.b("a025");
             } else if (i == 22) {
-                cm5.b("a088");
+                vm5.b("a088");
             } else if (i == 3) {
-                cm5.b("a079");
+                vm5.b("a079");
             } else if (i == 8) {
-                cm5.b("a011");
+                vm5.b("a011");
             }
         }
     }

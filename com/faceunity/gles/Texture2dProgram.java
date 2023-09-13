@@ -3,6 +3,7 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberRender;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -171,17 +172,17 @@ public class Texture2dProgram {
             if (i3 != 2) {
                 if (i3 != 3) {
                     if (i3 == 4) {
-                        this.mTextureTarget = 36197;
+                        this.mTextureTarget = CyberRender.GL_TEXTURE_EXTERNAL_OES;
                         this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\n#define KERNEL_SIZE 9\nprecision highp float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nuniform float uKernel[KERNEL_SIZE];\nuniform vec2 uTexOffset[KERNEL_SIZE];\nuniform float uColorAdjust;\nvoid main() {\n    int i = 0;\n    vec4 sum = vec4(0.0);\n    if (vTextureCoord.x < vTextureCoord.y - 0.005) {\n        for (i = 0; i < KERNEL_SIZE; i++) {\n            vec4 texc = texture2D(sTexture, vTextureCoord + uTexOffset[i]);\n            sum += texc * uKernel[i];\n        }\n    sum += uColorAdjust;\n    } else if (vTextureCoord.x > vTextureCoord.y + 0.005) {\n        sum = texture2D(sTexture, vTextureCoord);\n    } else {\n        sum.r = 1.0;\n    }\n    gl_FragColor = sum;\n}\n");
                     } else {
                         throw new RuntimeException("Unhandled type " + programType);
                     }
                 } else {
-                    this.mTextureTarget = 36197;
+                    this.mTextureTarget = CyberRender.GL_TEXTURE_EXTERNAL_OES;
                     this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    vec4 tc = texture2D(sTexture, vTextureCoord);\n    float color = tc.r * 0.3 + tc.g * 0.59 + tc.b * 0.11;\n    gl_FragColor = vec4(color, color, color, 1.0);\n}\n");
                 }
             } else {
-                this.mTextureTarget = 36197;
+                this.mTextureTarget = CyberRender.GL_TEXTURE_EXTERNAL_OES;
                 this.mProgramHandle = GlUtil.createProgram("uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
             }
         } else {
@@ -233,10 +234,10 @@ public class Texture2dProgram {
             int i = iArr[0];
             GLES20.glBindTexture(this.mTextureTarget, i);
             GlUtil.checkGlError("glBindTexture " + i);
-            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-            GLES20.glTexParameterf(36197, 10240, 9729.0f);
-            GLES20.glTexParameteri(36197, 10242, 33071);
-            GLES20.glTexParameteri(36197, 10243, 33071);
+            GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10241, 9728.0f);
+            GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10240, 9729.0f);
+            GLES20.glTexParameteri(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10242, 33071);
+            GLES20.glTexParameteri(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10243, 33071);
             GlUtil.checkGlError("glTexParameter");
             return i;
         }

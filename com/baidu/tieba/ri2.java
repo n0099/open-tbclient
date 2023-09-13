@@ -1,34 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes7.dex */
-public final class ri2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ri2 extends JSRuntime, fa2, TypedCallbackHandler {
+    JsSerializeValue A(byte[] bArr, boolean z);
 
-    public static li2 a(si2 si2Var, ij2 ij2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, si2Var, ij2Var, v8ThreadDelegatePolicy)) == null) {
-            ti2 a = ku2.B0().a(si2Var);
-            li2 a2 = a.a(si2Var.a(), ij2Var, v8ThreadDelegatePolicy);
-            a2.H0(a.getUserAgent());
-            return a2;
-        }
-        return (li2) invokeLLL.objValue;
-    }
+    byte[] K(JsSerializeValue jsSerializeValue, boolean z);
 
-    public static li2 b(si2 si2Var, ij2 ij2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, si2Var, ij2Var, v8ThreadDelegatePolicy)) == null) {
-            li2 a = a(si2Var, ij2Var, v8ThreadDelegatePolicy);
-            a.p0();
-            return a;
-        }
-        return (li2) invokeLLL.objValue;
-    }
+    void V(String str, String str2);
+
+    ej2 b0();
+
+    boolean dispatchEvent(JSEvent jSEvent);
+
+    String getInitBasePath();
+
+    int getInvokeSourceType();
+
+    EventTarget m();
+
+    boolean post(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget v();
+
+    aj2 w();
 }

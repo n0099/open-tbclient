@@ -1,155 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x4c extends InputStream {
+public class x4c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int b;
-    public int c;
-    public final f5c d;
+    public TreeMap<String, String> a;
+    public TreeMap<String, String> b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x4c(InputStream inputStream) throws IOException {
-        this(inputStream, 16384, null);
+    public x4c(TreeMap<String, String> treeMap, TreeMap<String, String> treeMap2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
+            Object[] objArr = {treeMap, treeMap2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = treeMap;
+        this.b = treeMap2;
     }
 
-    public x4c(InputStream inputStream, int i, byte[] bArr) throws IOException {
+    public static x4c a(String str) {
+        InterceptResult invokeL;
+        TreeMap<String, String> treeMap;
+        TreeMap<String, String> treeMap2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        f5c f5cVar = new f5c();
-        this.d = f5cVar;
-        if (i > 0) {
-            if (inputStream != null) {
-                this.a = new byte[i];
-                this.b = 0;
-                this.c = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            TreeMap<String, String> treeMap3 = null;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("mText");
+                if (optString != null && !optString.isEmpty()) {
+                    treeMap2 = c(optString);
+                } else {
+                    treeMap2 = null;
+                }
                 try {
-                    f5c.c(f5cVar, inputStream);
-                    if (bArr != null) {
-                        z4c.s(this.d, bArr);
-                        return;
+                    String optString2 = jSONObject.optString("mImages");
+                    if (optString2 != null && !optString2.isEmpty()) {
+                        treeMap3 = c(optString2);
                     }
-                    return;
-                } catch (BrotliRuntimeException e) {
-                    throw new IOException("Brotli decoder initialization failed", e);
+                } catch (JSONException e) {
+                    treeMap = treeMap2;
+                    e = e;
+                    e.printStackTrace();
+                    treeMap2 = treeMap;
+                    return new x4c(treeMap2, treeMap3);
                 }
+            } catch (JSONException e2) {
+                e = e2;
+                treeMap = null;
             }
-            throw new IllegalArgumentException("source is null");
+            return new x4c(treeMap2, treeMap3);
         }
-        throw new IllegalArgumentException("Bad buffer size:" + i);
+        return (x4c) invokeL.objValue;
     }
 
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
+    public static String b(TreeMap<String, String> treeMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f5c.a(this.d);
-        }
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c >= this.b) {
-                byte[] bArr = this.a;
-                int read = read(bArr, 0, bArr.length);
-                this.b = read;
-                this.c = 0;
-                if (read == -1) {
-                    return -1;
-                }
-            }
-            byte[] bArr2 = this.a;
-            int i = this.c;
-            this.c = i + 1;
-            return bArr2[i] & 255;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (i >= 0) {
-                if (i2 >= 0) {
-                    int i3 = i + i2;
-                    if (i3 <= bArr.length) {
-                        if (i2 == 0) {
-                            return 0;
-                        }
-                        int max = Math.max(this.b - this.c, 0);
-                        if (max != 0) {
-                            max = Math.min(max, i2);
-                            System.arraycopy(this.a, this.c, bArr, i, max);
-                            this.c += max;
-                            i += max;
-                            i2 -= max;
-                            if (i2 == 0) {
-                                return max;
-                            }
-                        }
-                        try {
-                            this.d.Z = bArr;
-                            this.d.U = i;
-                            this.d.V = i2;
-                            this.d.W = 0;
-                            z4c.i(this.d);
-                            if (this.d.W == 0) {
-                                return -1;
-                            }
-                            return this.d.W + max;
-                        } catch (BrotliRuntimeException e) {
-                            throw new IOException("Brotli stream decoding failed", e);
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, treeMap)) == null) {
+            if (treeMap != null && !treeMap.isEmpty()) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+                    try {
+                        jSONObject.put(entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
                 }
-                throw new IllegalArgumentException("Bad length: " + i2);
+                return jSONObject.toString();
             }
-            throw new IllegalArgumentException("Bad offset: " + i);
+            return "";
         }
-        return invokeLII.intValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static TreeMap<String, String> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                TreeMap<String, String> treeMap = new TreeMap<>();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        treeMap.put(next, (String) jSONObject.get(next));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return treeMap;
+            }
+            return null;
+        }
+        return (TreeMap) invokeL.objValue;
+    }
+
+    public static String d(x4c x4cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x4cVar)) == null) {
+            if (x4cVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("mText", b(x4cVar.a));
+                jSONObject.put("mImages", b(x4cVar.b));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

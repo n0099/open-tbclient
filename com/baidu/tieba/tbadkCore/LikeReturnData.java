@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.pea;
+import com.baidu.tieba.iga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class LikeReturnData {
     public int like_num;
     public BlockPopInfoData mBlockPopInfoData;
     public String memberSum;
-    public List<pea> recommendForums;
+    public List<iga> recommendForums;
     public BdToastData toastData;
     public int user_level;
 
@@ -87,7 +87,7 @@ public class LikeReturnData {
             if (jSONArray != null && jSONArray.length() != 0) {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     try {
-                        pea a = pea.a((JSONObject) jSONArray.opt(i));
+                        iga a = iga.a((JSONObject) jSONArray.opt(i));
                         if (a != null) {
                             this.recommendForums.add(a);
                         }
@@ -215,7 +215,7 @@ public class LikeReturnData {
         return (String) invokeV.objValue;
     }
 
-    public List<pea> getRecommendForums() {
+    public List<iga> getRecommendForums() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {

@@ -1,33 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes6.dex */
 public class h35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public View d;
-    public View e;
-    public View f;
-    public View g;
-    public View h;
-    public View i;
-    public View j;
-    public View k;
-    public View l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public View r;
-    public View s;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
 
     public h35() {
         Interceptable interceptable = $ic;
@@ -43,27 +30,17 @@ public class h35 {
         }
     }
 
-    public void a() {
+    public void a(NewsInfo newsInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.k = null;
-            this.l = null;
-            this.m = null;
-            this.n = null;
-            this.o = null;
-            this.p = null;
-            this.q = null;
-            this.r = null;
-            this.s = null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, newsInfo) != null) || newsInfo == null) {
+            return;
         }
+        this.a = newsInfo.news_link;
+        this.b = newsInfo.summary;
+        newsInfo.position.intValue();
+        this.c = newsInfo.news_type.intValue();
+        this.d = newsInfo.news_icon;
+        this.e = newsInfo.subtitle;
+        this.f = newsInfo.button_text;
     }
 }

@@ -16,7 +16,7 @@ import com.huawei.hms.core.aidl.MessageCodec;
 import com.huawei.hms.core.aidl.ResponseHeader;
 import com.huawei.hms.support.api.transport.DatagramTransport;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IPCCallback extends IAIDLCallback.Stub {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IPCCallback";

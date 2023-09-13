@@ -1,91 +1,68 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import android.app.ActivityManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier;
+import com.facebook.imagepipeline.cache.MemoryCacheParams;
 /* loaded from: classes8.dex */
-public class uh7 extends SparseArray<fi7> {
+public class uh7 extends DefaultBitmapMemoryCacheParamsSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public final ActivityManager a;
 
-    public uh7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uh7(ActivityManager activityManager) {
+        super(activityManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activityManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ActivityManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = activityManager;
     }
 
-    public void b() {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                fi7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.M(null);
-                    valueAt.q();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int min = Math.min(this.a.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+            if (min < 33554432) {
+                return 4194304;
             }
+            if (min < 67108864) {
+                return TbConfig.THREAD_GIF_MIN_USE_MEMORY;
+            }
+            return min / 8;
         }
+        return invokeV.intValue;
     }
 
-    public void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.facebook.imagepipeline.cache.DefaultBitmapMemoryCacheParamsSupplier, com.facebook.common.internal.Supplier
+    public MemoryCacheParams get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (int i = 0; i < size(); i++) {
-                fi7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MemoryCacheParams memoryCacheParams = super.get();
+            return new MemoryCacheParams(a(), memoryCacheParams.maxCacheEntries, memoryCacheParams.maxEvictionQueueSize, memoryCacheParams.maxEvictionQueueEntries, memoryCacheParams.maxCacheEntrySize, memoryCacheParams.paramsCheckIntervalMs);
         }
-    }
-
-    public void a(int i, fi7 fi7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, fi7Var) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            put(i, fi7Var);
-        }
-    }
-
-    public fi7 c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return get(i);
-        }
-        return (fi7) invokeI.objValue;
-    }
-
-    public void e(ji7 ji7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ji7Var) == null) {
-            for (int i = 0; i < size(); i++) {
-                fi7 valueAt = valueAt(i);
-                if (valueAt != null) {
-                    valueAt.M(ji7Var);
-                }
-            }
-        }
+        return (MemoryCacheParams) invokeV.objValue;
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ox4;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.rga;
-import com.baidu.tieba.sga;
-import com.baidu.tieba.uga;
-import com.baidu.tieba.vl6;
+import com.baidu.tieba.kia;
+import com.baidu.tieba.lia;
+import com.baidu.tieba.mia;
+import com.baidu.tieba.oia;
+import com.baidu.tieba.sx4;
+import com.baidu.tieba.tm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class LogJsBridgePlugin_Proxy extends qga {
+public class LogJsBridgePlugin_Proxy extends kia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ox4 mJsBridge;
+    public sx4 mJsBridge;
 
-    public LogJsBridgePlugin_Proxy(ox4 ox4Var) {
+    public LogJsBridgePlugin_Proxy(sx4 sx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ox4Var};
+            Object[] objArr = {sx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,79 +42,80 @@ public class LogJsBridgePlugin_Proxy extends qga {
                 return;
             }
         }
-        this.mJsBridge = ox4Var;
+        this.mJsBridge = sx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add("getPageLeaveTime");
     }
 
-    @Override // com.baidu.tieba.qga
-    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
+    @Override // com.baidu.tieba.kia
+    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
-            if (sgaVar == null) {
-                sgaVar = new sga();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, oiaVar, miaVar)) == null) {
+            if (miaVar == null) {
+                miaVar = new mia();
             }
-            String b = ugaVar.b();
-            JSONObject e = ugaVar.e();
+            String b = oiaVar.b();
+            JSONObject e = oiaVar.e();
             if (b.equals("log/LocalYaLog")) {
-                sgaVar.s(true);
-                sga c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
+                miaVar.s(true);
+                mia c = this.mJsBridge.c(webView, e.optString("tag"), e.optString("logInfo"));
                 if (c != null) {
-                    sgaVar.y(c.f());
-                    sgaVar.u(c.b());
-                    sgaVar.o(c.a());
-                    sgaVar.x(c.e());
+                    miaVar.y(c.f());
+                    miaVar.u(c.b());
+                    miaVar.o(c.a());
+                    miaVar.x(c.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             }
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeLLL.objValue;
+        return (mia) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public vl6 getJsBridge() {
+    @Override // com.baidu.tieba.kia
+    public tm6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (vl6) invokeV.objValue;
+        return (tm6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.kia
+    public List<mia> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            sga sgaVar = null;
+            mia miaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("getPageLeaveTime")) {
-                sgaVar = this.mJsBridge.d(webView, hashMap);
+                miaVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (sgaVar != null) {
-                sgaVar.z(0);
+            if (miaVar != null) {
+                miaVar.z(0);
             }
-            List<rga> list = this.mAsyncCallBackMethodList.get(str);
-            if (sgaVar != null && list != null) {
-                Iterator<rga> it = list.iterator();
-                if (!TextUtils.isEmpty(sgaVar.e())) {
+            List<lia> list = this.mAsyncCallBackMethodList.get(str);
+            if (miaVar != null && list != null) {
+                Iterator<lia> it = list.iterator();
+                if (!TextUtils.isEmpty(miaVar.e())) {
                     while (it.hasNext()) {
-                        rga next = it.next();
-                        if (next.b().equals(sgaVar.e())) {
-                            sga sgaVar2 = new sga();
-                            sgaVar2.w(next.a());
-                            sgaVar2.y(sgaVar.f());
-                            sgaVar2.u(sgaVar.b());
-                            sgaVar2.o(sgaVar.a());
-                            sgaVar2.A(sgaVar.l());
-                            arrayList.add(sgaVar2);
+                        lia next = it.next();
+                        if (next.b().equals(miaVar.e())) {
+                            mia miaVar2 = new mia();
+                            miaVar2.w(next.a());
+                            miaVar2.y(miaVar.f());
+                            miaVar2.u(miaVar.b());
+                            miaVar2.o(miaVar.a());
+                            miaVar2.j = miaVar.j;
+                            miaVar2.A(miaVar.l());
+                            arrayList.add(miaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -122,14 +123,15 @@ public class LogJsBridgePlugin_Proxy extends qga {
                     }
                 } else {
                     while (it.hasNext()) {
-                        rga next2 = it.next();
-                        sga sgaVar3 = new sga();
-                        sgaVar3.w(next2.a());
-                        sgaVar3.y(sgaVar.f());
-                        sgaVar3.u(sgaVar.b());
-                        sgaVar3.o(sgaVar.a());
-                        sgaVar3.A(sgaVar.l());
-                        arrayList.add(sgaVar3);
+                        lia next2 = it.next();
+                        mia miaVar3 = new mia();
+                        miaVar3.w(next2.a());
+                        miaVar3.y(miaVar.f());
+                        miaVar3.u(miaVar.b());
+                        miaVar3.o(miaVar.a());
+                        miaVar3.j = miaVar.j;
+                        miaVar3.A(miaVar.l());
+                        arrayList.add(miaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

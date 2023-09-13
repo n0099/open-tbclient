@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public JsArrayBuffer data;
-    @V8JavascriptField
-    public Object header;
+    public String filePath;
     @V8JavascriptField
     public int statusCode;
+    @V8JavascriptField
+    public String tempFilePath;
 
     public s94() {
         Interceptable interceptable = $ic;
@@ -29,5 +29,14 @@ public class s94 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
+        }
+        return (String) invokeV.objValue;
     }
 }

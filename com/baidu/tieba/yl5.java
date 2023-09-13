@@ -1,46 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yl5 extends am5 {
+public class yl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
 
-    public yl5(Context context, String str) {
+    public static List<zl5> a(gm5 gm5Var) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gm5Var)) == null) {
+            if (gm5Var.c("\u0089PNG") && gm5Var.c("\r\n\u001a\n")) {
+                ArrayList arrayList = new ArrayList();
+                while (gm5Var.available() > 0) {
+                    arrayList.add(b(gm5Var));
+                }
+                return arrayList;
             }
+            throw new IOException("APNG Format error");
         }
-        this.a = context.getApplicationContext();
-        this.b = str;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.am5
-    public InputStream b() throws IOException {
-        InterceptResult invokeV;
+    public static zl5 b(gm5 gm5Var) throws IOException {
+        InterceptResult invokeL;
+        zl5 zl5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getAssets().open(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gm5Var)) == null) {
+            int position = gm5Var.position();
+            int e = gm5Var.e();
+            int d = gm5Var.d();
+            if (d == vl5.d) {
+                zl5Var = new vl5();
+            } else if (d == am5.k) {
+                zl5Var = new am5();
+            } else if (d == bm5.c) {
+                zl5Var = new bm5();
+            } else if (d == cm5.c) {
+                zl5Var = new cm5();
+            } else if (d == dm5.c) {
+                zl5Var = new dm5();
+            } else if (d == em5.f) {
+                zl5Var = new em5();
+            } else {
+                zl5Var = new zl5();
+            }
+            zl5Var.b = position;
+            zl5Var.a = e;
+            zl5Var.c(gm5Var);
+            gm5Var.e();
+            return zl5Var;
         }
-        return (InputStream) invokeV.objValue;
+        return (zl5) invokeL.objValue;
     }
 }

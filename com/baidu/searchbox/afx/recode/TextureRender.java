@@ -6,6 +6,7 @@ import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
+import com.baidu.cyberplayer.sdk.CyberRender;
 import com.faceunity.gles.GeneratedTexture;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -168,7 +169,7 @@ public class TextureRender {
         GLES20.glUseProgram(this.mProgram);
         checkGlError("glUseProgram");
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, this.mTextureID);
+        GLES20.glBindTexture(CyberRender.GL_TEXTURE_EXTERNAL_OES, this.mTextureID);
         this.mTriangleVertices.position(0);
         GLES20.glVertexAttribPointer(this.maPositionHandle, 3, 5126, false, 20, (Buffer) this.mTriangleVertices);
         checkGlError("glVertexAttribPointer maPosition");
@@ -212,12 +213,12 @@ public class TextureRender {
                             GLES20.glGenTextures(1, iArr, 0);
                             int i = iArr[0];
                             this.mTextureID = i;
-                            GLES20.glBindTexture(36197, i);
+                            GLES20.glBindTexture(CyberRender.GL_TEXTURE_EXTERNAL_OES, i);
                             checkGlError("glBindTexture mTextureID");
-                            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-                            GLES20.glTexParameterf(36197, 10240, 9729.0f);
-                            GLES20.glTexParameteri(36197, 10242, 33071);
-                            GLES20.glTexParameteri(36197, 10243, 33071);
+                            GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10241, 9728.0f);
+                            GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10240, 9729.0f);
+                            GLES20.glTexParameteri(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10242, 33071);
+                            GLES20.glTexParameteri(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10243, 33071);
                             checkGlError("glTexParameter");
                             return;
                         }

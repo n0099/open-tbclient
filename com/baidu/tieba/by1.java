@@ -1,47 +1,41 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.adlanding.customer.WebViewContainer;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.qa2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class by1 {
+public class by1 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebViewContainer a;
-    public Context b;
-    public boolean c;
-    public double d;
-    public ValueAnimator e;
-    public float f;
-    public vz2 g;
-    public int h;
-    public boolean i;
-    public WebViewContainer.b j;
-    public WebViewContainer.c k;
 
     /* loaded from: classes5.dex */
-    public class a implements WebViewContainer.b {
+    public class a implements aq3<kg3<mg3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ by1 a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ qa2 d;
+        public final /* synthetic */ by1 e;
 
-        public a(by1 by1Var) {
+        public a(by1 by1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, qa2 qa2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {by1Var};
+                Object[] objArr = {by1Var, callbackHandler, unitedSchemeEntity, str, qa2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,345 +45,94 @@ public class by1 {
                     return;
                 }
             }
-            this.a = by1Var;
+            this.e = by1Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = str;
+            this.d = qa2Var;
         }
 
-        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.b
-        public void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(kg3<mg3.e> kg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.j(false);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements WebViewContainer.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ by1 a;
-
-        public b(by1 by1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {by1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = by1Var;
-        }
-
-        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.c
-        public void a(boolean z) {
-            double d;
-            boolean z2;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.a == null) {
-                return;
-            }
-            if (z) {
-                d = 1.0d - this.a.d;
-            } else {
-                d = this.a.d;
-            }
-            if ((this.a.a.getTopMargin() * 1.0d) / (this.a.h * 1.0d) >= d) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.a.j(z2);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements WebViewContainer.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ by1 a;
-
-        public c(by1 by1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {by1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = by1Var;
-        }
-
-        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.a
-        public boolean a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-                if (z && this.a.a.getTopMargin() <= this.a.h) {
-                    this.a.j(false);
-                    return true;
-                } else if (!z && this.a.a.getTopMargin() >= this.a.a.getMinTopMargin()) {
-                    this.a.j(true);
-                    return true;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                if (!fg3.h(kg3Var)) {
+                    fg3.p(kg3Var, this.a, this.b);
                 } else {
-                    return false;
+                    this.e.k(this.c, this.d, this.a, this.b);
                 }
-            }
-            return invokeZ.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public int b;
-        public int c;
-        public int d;
-        public float e;
-        public int f;
-        public final /* synthetic */ boolean g;
-        public final /* synthetic */ by1 h;
-
-        public d(by1 by1Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {by1Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = by1Var;
-            this.g = z;
-            this.a = 0.0f;
-            this.b = this.h.h - this.h.a.getTopMargin();
-            int topMargin = this.h.a.getTopMargin() - this.h.a.getMinTopMargin();
-            this.c = topMargin;
-            topMargin = this.g ? this.b : topMargin;
-            this.d = topMargin;
-            this.e = topMargin * this.h.f;
-            this.f = this.h.a.getTopMargin();
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            float f;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.h.a != null && valueAnimator != null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (this.h.c) {
-                    f = this.d;
-                } else {
-                    f = this.e;
-                }
-                int i = (int) (f * (floatValue - this.a));
-                if (this.g) {
-                    i = 0 - i;
-                }
-                this.f -= i;
-                this.h.a.scrollBy(0, i);
-                this.h.a.setTopMargin(this.f);
-                this.a = floatValue;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ by1 b;
-
-        public e(by1 by1Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {by1Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = by1Var;
-            this.a = z;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.b.a != null) {
-                this.b.i(this.a);
-            }
-        }
-    }
-
-    public by1(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public by1(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/openAdLandingPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = 0.25d;
-        this.i = true;
-        this.j = new a(this);
-        this.k = new b(this);
-        this.b = context;
     }
 
-    public final void j(boolean z) {
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.h > 0 && this.a != null && this.g != null) {
-            n(z);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void p(vz2 vz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vz2Var) == null) {
-            this.g = vz2Var;
-        }
-    }
-
-    public final void h() {
-        ValueAnimator valueAnimator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.e) != null) {
-            valueAnimator.cancel();
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ValueAnimator valueAnimator = this.e;
-            if (valueAnimator != null && valueAnimator.isRunning()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            if (ed3.b) {
+                Log.d("OpenAdLandingPageAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            String o = qe3.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                h82.i("AdLanding", "adLanding: url is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            qa2 U = uw2.T().U();
+            if (U == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals(qe3.n(unitedSchemeEntity, "params", "invokeFrom"), "boxjs")) {
+                k(o, U, callbackHandler, unitedSchemeEntity);
+                return true;
+            } else {
+                hb3Var.e0().g(context, "mapp_i_open_adlanding", new a(this, callbackHandler, unitedSchemeEntity, o, U));
                 return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final void i(boolean z) {
-        WebViewContainer webViewContainer;
+    public final void j(h13 h13Var, qa2 qa2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (webViewContainer = this.a) != null && this.g != null) {
-            if (z) {
-                if (this.c) {
-                    webViewContainer.scrollBy(0, -(this.h - webViewContainer.getTopMargin()));
-                    this.a.setTopMargin(this.h);
-                }
-                if (!this.g.n() && !this.g.m()) {
-                    this.g.s();
-                }
-                this.i = true;
-                return;
-            }
-            if (this.c) {
-                webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.a.getMinTopMargin());
-                WebViewContainer webViewContainer2 = this.a;
-                webViewContainer2.setTopMargin(webViewContainer2.getMinTopMargin());
-            }
-            if (this.g.n()) {
-                this.g.p();
-            }
-            this.i = false;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h13Var, qa2Var) == null) {
+            h82.i("AdLanding", "openAdLanding: page url=" + h13Var.c);
+            qa2.b i = qa2Var.i("adLanding");
+            i.n(qa2.g, qa2.i);
+            i.k("adLanding", h13Var).b();
         }
     }
 
-    public final void n(boolean z) {
+    public void k(String str, qa2 qa2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || this.a == null || m()) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, qa2Var, callbackHandler, unitedSchemeEntity) == null) {
+            j(h13.d(str, str), qa2Var);
+            h82.i("AdLanding", "open adLanding page success");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         }
-        h();
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.e = ofFloat;
-        ofFloat.setDuration(100L);
-        this.e.setInterpolator(new AccelerateDecelerateInterpolator());
-        if (this.a.getYVelocity() >= 0.0f) {
-            this.f = this.a.getYVelocity() / 4000.0f;
-        } else {
-            this.f = (-this.a.getYVelocity()) / 4000.0f;
-        }
-        this.f = Math.min(this.f, 1.0f);
-        this.e.addUpdateListener(new d(this, z));
-        this.e.addListener(new e(this, z));
-        this.e.start();
-    }
-
-    public WebViewContainer k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            WebViewContainer webViewContainer = new WebViewContainer(this.b);
-            this.a = webViewContainer;
-            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-            this.a.setClipChildren(false);
-            this.a.setLayerType(2, null);
-            this.a.setTopLimit(this.h);
-            this.a.setTopMargin(this.h);
-            this.a.setAutoScroll2TopListener(this.j);
-            this.a.setOnUpListener(this.k);
-            this.a.setMinFlingVelocity(1000);
-            this.a.setUpYVelocityRatio(3.5f);
-            this.a.setInterceptFlingListener(new c(this));
-            return this.a;
-        }
-        return (WebViewContainer) invokeV.objValue;
     }
 }

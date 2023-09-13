@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.databinding.NormalSpriteViewBinding;
-import com.baidu.tieba.vba;
+import com.baidu.tieba.oda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,7 +81,7 @@ public final class NormalSpriteView extends FrameLayout {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void a(vba normalSpriteData) {
+    public final void a(oda normalSpriteData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, normalSpriteData) == null) {
             Intrinsics.checkNotNullParameter(normalSpriteData, "normalSpriteData");

@@ -1,6 +1,7 @@
 package com.baidu.tieba.filedownloader.utils;
 
 import android.app.Activity;
+import com.baidu.adp.base.BdActivityStack;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -73,7 +74,7 @@ public final class PermissionUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                a().setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.ae7
+                a().setOnPermissionsGrantedListener(new PermissionJudgePolicy.OnPermissionsGrantedListener() { // from class: com.baidu.tieba.hf7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,6 +87,9 @@ public final class PermissionUtil {
                     }
                 });
                 Activity curGlobalActivity = TbadkCoreApplication.getInst().getCurGlobalActivity();
+                if (curGlobalActivity == null) {
+                    curGlobalActivity = BdActivityStack.getInst().currentActivity();
+                }
                 if (curGlobalActivity != null) {
                     PermissionUtil.a.a().clearRequestPermissionList();
                     PermissionUtil.a.a().appendRequestPermission(curGlobalActivity, "android.permission.WRITE_EXTERNAL_STORAGE");

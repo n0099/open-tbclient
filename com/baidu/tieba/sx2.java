@@ -2,21 +2,22 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class sx2 extends px2 {
+public class sx2 extends tx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wx2 A;
-    public double B;
-    public int C;
-    public String z;
+    public int[] A;
+    public ArrayList<ay2> z;
 
     public sx2() {
         Interceptable interceptable = $ic;
@@ -31,33 +32,47 @@ public class sx2 extends px2 {
                 return;
             }
         }
-        this.z = "";
-        this.C = 1000;
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    @Override // com.baidu.tieba.px2, com.baidu.tieba.t62, com.baidu.tieba.c13
+    @Override // com.baidu.tieba.tx2, com.baidu.tieba.x62, com.baidu.tieba.g13
     public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        wx2 wx2Var = new wx2();
-        this.A = wx2Var;
-        wx2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    ay2 ay2Var = new ay2();
+                    ay2Var.a(jSONObject2);
+                    if (ay2Var.isValid()) {
+                        this.z.add(ay2Var);
+                    }
+                }
+            }
+        }
+        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
+            int min = Math.min(jSONArray.length(), 4);
+            for (int i2 = 0; i2 < min; i2++) {
+                this.A[i2] = yo3.g(jSONArray.optInt(i2));
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.t62, com.baidu.tieba.c13
+    @Override // com.baidu.tieba.x62, com.baidu.tieba.g13
     public boolean isValid() {
         InterceptResult invokeV;
-        wx2 wx2Var;
+        ArrayList<ay2> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (wx2Var = this.A) != null && wx2Var.isValid()) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
                 return true;
             }
             return false;

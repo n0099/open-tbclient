@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.callback.IDownloadListener;
-import com.baidu.searchbox.download.unified.DownloadInfoData;
-import com.baidu.searchbox.download.unified.DownloadParams;
-import com.baidu.searchbox.download.unified.DownloadUnifiedManager;
-import com.baidu.searchbox.download.unified.EventCallback;
-import com.baidu.searchbox.download.unified.EventControlInfoForResume;
-import com.baidu.searchbox.download.unified.EventControlInfoForStart;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class ix6 {
+public class ix6 implements gx6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ix6 a;
-    public static volatile DownloadUnifiedManager b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final gx6 a;
+    public final Map<Integer, gx6> b;
 
-    public ix6() {
+    public ix6(gx6 defaultRenderer, Pair<Integer, ? extends gx6>... renderers) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,59 +34,52 @@ public class ix6 {
                 return;
             }
         }
-        b = DownloadUnifiedManager.getInstance();
+        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
+        Intrinsics.checkNotNullParameter(renderers, "renderers");
+        this.a = defaultRenderer;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
-    public static ix6 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gx6
+    public sx6 a(kv6 item, kx6 displayer, ev6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ix6.class) {
-                    if (a == null) {
-                        a = new ix6();
-                    }
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            gx6 gx6Var = this.b.get(Integer.valueOf(c(item)));
+            if (gx6Var == null) {
+                gx6Var = this.a;
             }
-            return a;
+            return gx6Var.a(item, displayer, config);
         }
-        return (ix6) invokeV.objValue;
+        return (sx6) invokeLLL.objValue;
     }
 
-    public void a(Uri uri) {
+    @Override // com.baidu.tieba.gx6
+    public void b(kv6 item, Canvas canvas, kx6 displayer, ev6 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uri) == null) {
-            b.deleteDownload(uri);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            gx6 gx6Var = this.b.get(Integer.valueOf(c(item)));
+            if (gx6Var == null) {
+                gx6Var = this.a;
+            }
+            gx6Var.b(item, canvas, displayer, config);
         }
     }
 
-    public void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) {
-            b.pauseDownload(uri);
-        }
-    }
-
-    public DownloadInfoData d(Uri uri) {
+    public int c(kv6 item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            return b.queryDownloadInfoData(uri);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().g();
         }
-        return (DownloadInfoData) invokeL.objValue;
-    }
-
-    public void e(Context context, String str, Uri uri, IDownloadListener iDownloadListener, EventControlInfoForResume eventControlInfoForResume, EventCallback eventCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback}) == null) {
-            b.resumeDownload(context, str, uri, iDownloadListener, eventControlInfoForResume, eventCallback);
-        }
-    }
-
-    public void f(Context context, String str, DownloadParams downloadParams, IDownloadListener iDownloadListener, EventControlInfoForStart eventControlInfoForStart, EventCallback eventCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback}) == null) {
-            b.startDownload(context, str, downloadParams, iDownloadListener, eventControlInfoForStart, eventCallback);
-        }
+        return invokeL.intValue;
     }
 }

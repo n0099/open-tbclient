@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d75;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -196,8 +196,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof d75) {
-                    ((d75) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof m75) {
+                    ((m75) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -301,13 +301,13 @@ public class AdInfoButton extends RelativeLayout {
             relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
             ImageView imageView = new ImageView(context);
             this.b = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f0900bb);
+            imageView.setId(R.id.obfuscated_res_0x7f0900b7);
             int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds42);
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(dimens, dimens));
             relativeLayout.addView(this.b);
             this.c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900bb);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900b7);
             layoutParams2.addRule(15);
             layoutParams2.leftMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X002);
             this.c.setLayoutParams(layoutParams2);
@@ -328,9 +328,9 @@ public class AdInfoButton extends RelativeLayout {
             }
             AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080895, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0808a4, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080987, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
             EMManager.from(this.c).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0101);
         }

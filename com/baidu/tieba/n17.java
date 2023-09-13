@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ShortUserInfo;
 /* loaded from: classes7.dex */
 public class n17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ShortUserInfo> a;
+    public String a;
     public String b;
     public String c;
+    public String d;
+    public String e;
+    public MetaData f;
+    public boolean g;
+    public boolean h;
 
     public n17() {
         Interceptable interceptable = $ic;
@@ -24,7 +28,10 @@ public class n17 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = false;
+        this.h = false;
     }
 }

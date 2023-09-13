@@ -17,6 +17,8 @@ public class ChatNewMessage extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TYPE = "";
     public static final String DEFAULT_TYPE_CONTENT = "";
+    public static final String TYPE_ACTIVITY_MSG = "activity";
+    public static final String TYPE_ACTIVITY_MSG_CONTENT = "[活动中]";
     public static final String TYPE_AT_ALL_MSG = "at_all";
     public static final String TYPE_AT_MSG = "at_single";
     public static final String TYPE_AT_MSG_CONTENT = "[有人@我]";
@@ -142,30 +144,37 @@ public class ChatNewMessage extends OrmObject implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             switch (str.hashCode()) {
+                case -1655966961:
+                    if (str.equals("activity")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
                 case -1415649836:
                     if (str.equals(TYPE_AT_MSG)) {
-                        c = 0;
+                        c = 1;
                         break;
                     }
                     c = 65535;
                     break;
                 case -1407884395:
                     if (str.equals(TYPE_AT_ALL_MSG)) {
-                        c = 1;
+                        c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case -1039690024:
                     if (str.equals("notice")) {
-                        c = 2;
+                        c = 3;
                         break;
                     }
                     c = 65535;
                     break;
                 case -867509719:
                     if (str.equals(TYPE_EMOJI_MSG)) {
-                        c = 3;
+                        c = 4;
                         break;
                     }
                     c = 65535;
@@ -174,16 +183,19 @@ public class ChatNewMessage extends OrmObject implements Serializable {
                     c = 65535;
                     break;
             }
-            if (c != 0 && c != 1) {
-                if (c != 2) {
+            if (c != 0) {
+                if (c != 1 && c != 2) {
                     if (c != 3) {
-                        return 0;
+                        if (c != 4) {
+                            return 0;
+                        }
+                        return 1;
                     }
-                    return 1;
+                    return 2;
                 }
-                return 2;
+                return 3;
             }
-            return 3;
+            return 4;
         }
         return invokeL.intValue;
     }

@@ -1,143 +1,64 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public final class f88 {
+public class f88 extends gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragment a;
-    public boolean b;
-    public String c;
-    public String d;
-    public final sy4 e;
+    public uz9 B;
 
-    public f88(BaseFragment fragment) {
-        ry4 ry4Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f88(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        this.a = fragment;
-        if (fragment instanceof ry4) {
-            ry4Var = (ry4) fragment;
-        } else {
-            ry4Var = null;
-        }
-        this.e = new sy4(ry4Var);
     }
 
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void b(Bundle bundle) {
+    @Override // com.baidu.tieba.gx, com.baidu.tieba.wy
+    public uz9 u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            Bundle arguments = this.a.getArguments();
-            if (arguments != null) {
-                this.b = arguments.getBoolean("tab_is_second_tab");
-                this.d = arguments.getString("tab_code");
-                this.c = arguments.getString("tab_name");
-            } else if (bundle != null) {
-                this.b = bundle.getBoolean("tab_is_second_tab");
-                this.d = bundle.getString("tab_code");
-                this.c = bundle.getString("tab_name");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.m) && this.m.equals("index")) {
+                this.B = new h88(this.b, this.i);
+            } else {
+                this.B = new g88(this.b, this.i);
             }
+            this.B.setStageType("2001");
+            return this.B;
         }
+        return (uz9) invokeV.objValue;
     }
 
-    public final void a(TbWebView tbWebView) {
-        HashMap<String, ng5> colourHeaderConfig;
-        ng5 ng5Var;
+    @Override // com.baidu.tieba.wy
+    public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, tbWebView) == null) && !this.b && !StringUtils.isNull(this.c) && (colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig()) != null && (ng5Var = colourHeaderConfig.get(this.c)) != null) {
-            List<String> h5ImageUrlList = ng5Var.k();
-            Intrinsics.checkNotNullExpressionValue(h5ImageUrlList, "h5ImageUrlList");
-            JSONArray jSONArray = new JSONArray();
-            for (String str : h5ImageUrlList) {
-                jSONArray.put(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.z();
+            uz9 uz9Var = this.l;
+            if (uz9Var instanceof h88) {
+                ((h88) uz9Var).e();
             }
-            tbWebView.J("head_img", jSONArray);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.b();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            YunDialogManager.onHidden(n55.h);
-            YunDialogManager.onHidden(n55.a(this.d));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.b) {
-            return;
-        }
-        if (this.a.isPrimary()) {
-            e();
-        } else {
-            d();
-        }
-    }
-
-    @SuppressLint({"UseRequireInsteadOfGet"})
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.getContext() == null) {
-            return;
-        }
-        Context context = this.a.getContext();
-        Intrinsics.checkNotNull(context);
-        YunDialogManager.onShow(context, n55.h);
-        Context context2 = this.a.getContext();
-        Intrinsics.checkNotNull(context2);
-        YunDialogManager.onShow(context2, n55.a(this.d));
-    }
-
-    public final void h(TbWebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            a(webView);
         }
     }
 }

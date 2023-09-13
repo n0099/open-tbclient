@@ -40,8 +40,8 @@ public final class j extends d implements com.kwad.sdk.widget.c {
         KSImageLoader.loadAppIcon(this.it, aVar.eL(), adTemplate, 8);
         this.eQ.setText(aVar.getTitle());
         this.iu.setText(aVar.fO());
-        int dimensionPixelSize = this.vl.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070525);
-        this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.vl.getResources().getColor(R.color.obfuscated_res_0x7f06079a));
+        int dimensionPixelSize = this.vl.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07052a);
+        this.nI.getConfig().ab(dimensionPixelSize).ad(dimensionPixelSize).ac(this.vl.getResources().getColor(R.color.obfuscated_res_0x7f06079c));
         this.nI.d(aVar.getPrice(), aVar.getOriginPrice(), true);
         String gy = aVar.gy();
         this.uQ.setVisibility(TextUtils.isEmpty(gy) ? 8 : 0);
@@ -66,15 +66,15 @@ public final class j extends d implements com.kwad.sdk.widget.c {
         if (viewGroup == null) {
             return;
         }
-        this.it = (KSCornerImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09139b);
-        this.eQ = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09139d);
-        this.iu = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09139a);
-        this.nI = (KsPriceView) this.vl.findViewById(R.id.obfuscated_res_0x7f09139c);
-        this.vm = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091397);
-        this.vn = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f091396);
-        this.uO = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09138a);
-        this.uQ = this.vl.findViewById(R.id.obfuscated_res_0x7f09138b);
-        this.uP = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f09138c);
+        this.it = (KSCornerImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913a1);
+        this.eQ = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f0913a3);
+        this.iu = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f0913a0);
+        this.nI = (KsPriceView) this.vl.findViewById(R.id.obfuscated_res_0x7f0913a2);
+        this.vm = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09139d);
+        this.vn = (KsStyledTextButton) this.vl.findViewById(R.id.obfuscated_res_0x7f09139c);
+        this.uO = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f091390);
+        this.uQ = this.vl.findViewById(R.id.obfuscated_res_0x7f091391);
+        this.uP = (TextView) this.vl.findViewById(R.id.obfuscated_res_0x7f091392);
         new com.kwad.sdk.widget.f(this.vm, this);
         new com.kwad.sdk.widget.f(this.vn, this);
         new com.kwad.sdk.widget.f(this.vl, this);

@@ -1,5 +1,5 @@
 package com.huawei.hms.adapter.internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface BaseCode {
     public static final int ACTIVITY_NULL = -3;
     public static final int DATA_NULL_IN_INTENT = -7;

@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cu4;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.yt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public yt4 c;
+    public cu4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -152,13 +152,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
-            w1();
+            s1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new yt4();
+            this.c = new cu4();
         }
     }
 
-    public final void w1() {
+    public final void s1() {
         BdImage bdImage;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || getIntent() == null) {

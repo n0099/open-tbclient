@@ -58,20 +58,16 @@ import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah5;
-import com.baidu.tieba.am9;
-import com.baidu.tieba.ch5;
-import com.baidu.tieba.cp5;
-import com.baidu.tieba.cp9;
-import com.baidu.tieba.di;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.ifa;
-import com.baidu.tieba.ig;
-import com.baidu.tieba.jb;
-import com.baidu.tieba.lm9;
-import com.baidu.tieba.lw5;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.oj9;
+import com.baidu.tieba.bha;
+import com.baidu.tieba.bo9;
+import com.baidu.tieba.du4;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.el9;
+import com.baidu.tieba.fl9;
+import com.baidu.tieba.go5;
+import com.baidu.tieba.hx5;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.kb;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
@@ -79,15 +75,19 @@ import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.pj9;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.qv4;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.py5;
+import com.baidu.tieba.qn9;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tx5;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.tq9;
+import com.baidu.tieba.tv4;
+import com.baidu.tieba.uv4;
+import com.baidu.tieba.vh5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xna;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.vp5;
+import com.baidu.tieba.vpa;
+import com.baidu.tieba.vv4;
+import com.baidu.tieba.wn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class PbActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,16 +144,16 @@ public class PbActivityStatic {
             if (downloadMessage.getData() != null && downloadMessage.getData().size() > 0) {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null) {
-                        for (ch5 ch5Var : TiePlusHelper.v) {
-                            if (!StringUtils.isNull(ch5Var.f) && ch5Var.f.equals(downloadData.getId())) {
+                        for (vh5 vh5Var : TiePlusHelper.w) {
+                            if (!StringUtils.isNull(vh5Var.f) && vh5Var.f.equals(downloadData.getId())) {
                                 int status = downloadData.getStatus();
                                 if (status != 0) {
                                     if (status == 1) {
-                                        ch5Var.e = false;
+                                        vh5Var.e = false;
                                     }
-                                } else if (!ch5Var.e) {
-                                    ch5Var.e = true;
-                                    TiePlusStat.f(ch5Var.a, ch5Var.b, ch5Var.c, ch5Var.d);
+                                } else if (!vh5Var.e) {
+                                    vh5Var.e = true;
+                                    TiePlusStat.f(vh5Var.a, vh5Var.b, vh5Var.c, vh5Var.d);
                                 }
                             }
                         }
@@ -164,7 +164,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class b extends CustomMessageListener {
+    public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -191,10 +191,10 @@ public class PbActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ah5 ah5Var;
+            th5 th5Var;
             String a;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ah5) || (a = (ah5Var = (ah5) customResponsedMessage.getData()).a()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof th5) || (a = (th5Var = (th5) customResponsedMessage.getData()).a()) == null) {
                 return;
             }
             try {
@@ -210,19 +210,19 @@ public class PbActivityStatic {
                 baijiahaoData.oriUgcVid = parse.getQueryParameter("ori_ugc_vid");
                 if (!StringUtils.isNull(queryParameter3)) {
                     int i = JavaTypesHelper.toInt(queryParameter3, 0);
-                    if (ah5Var.b() != null) {
-                        lw5.a(queryParameter2, queryParameter, queryParameter4, i, ah5Var.b(), baijiahaoData);
+                    if (th5Var.b() != null) {
+                        hx5.a(queryParameter2, queryParameter, queryParameter4, i, th5Var.b(), baijiahaoData);
                     } else {
-                        lw5.a(queryParameter2, queryParameter, queryParameter4, i, ah5Var.b(), baijiahaoData);
+                        hx5.a(queryParameter2, queryParameter, queryParameter4, i, th5Var.b(), baijiahaoData);
                     }
                 } else {
                     if (StringUtils.isNull(queryParameter2)) {
                         queryParameter2 = "0";
                     }
-                    if (ah5Var.b() != null) {
-                        lw5.a(queryParameter2, queryParameter, queryParameter4, 0, ah5Var.b(), baijiahaoData);
+                    if (th5Var.b() != null) {
+                        hx5.a(queryParameter2, queryParameter, queryParameter4, 0, th5Var.b(), baijiahaoData);
                     } else {
-                        lw5.a(queryParameter2, queryParameter, queryParameter4, 0, ah5Var.b(), baijiahaoData);
+                        hx5.a(queryParameter2, queryParameter, queryParameter4, 0, th5Var.b(), baijiahaoData);
                     }
                 }
             } catch (Exception e) {
@@ -232,7 +232,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class c implements UrlManager.UrlDealListener {
+    public class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -273,7 +273,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class d implements rv4 {
+    public class d implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -291,17 +291,17 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.rv4
+        @Override // com.baidu.tieba.vv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = qv4.a(context);
+                TextView a = uv4.a(context);
                 if (a != null) {
                     FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
                     ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f07041c), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070224), 0, 0);
+                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070224), 0, 0);
                     a.setLayoutParams(layoutParams);
                 }
                 return a;
@@ -311,7 +311,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class e implements rv4 {
+    public class e implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,16 +329,16 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.rv4
+        @Override // com.baidu.tieba.vv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = qv4.a(context);
+                TextView a = uv4.a(context);
                 if (a != null) {
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f07041c), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
+                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -349,7 +349,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class f implements rv4 {
+    public class f implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,16 +367,16 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.rv4
+        @Override // com.baidu.tieba.vv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = qv4.a(context);
+                TextView a = uv4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f07041c), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
+                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -387,7 +387,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class g implements rv4 {
+    public class g implements vv4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -405,16 +405,16 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.rv4
+        @Override // com.baidu.tieba.vv4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = qv4.a(context);
+                TextView a = uv4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
-                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f07041c), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
+                    layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070420), BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }
@@ -425,7 +425,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class h implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
+    public class h implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -464,7 +464,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class i extends BdAsyncTask<Void, Void, Void> {
+    public class i extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -488,7 +488,7 @@ public class PbActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                tx5.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
+                py5.a(PbPageRequestMessage.WIRE, PbPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -496,7 +496,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class j implements UrlManager.UrlDealListener {
+    public class j implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Pattern a;
@@ -522,10 +522,10 @@ public class PbActivityStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, tbPageContext, str, uri)) == null) {
                 String queryParameter = uri.getQueryParameter("force_jump");
-                if (!di.isEmpty(queryParameter) && !di.isEmpty(str)) {
+                if (!ei.isEmpty(queryParameter) && !ei.isEmpty(str)) {
                     if (queryParameter.equals("frs")) {
                         String queryParameter2 = uri.getQueryParameter("fname");
-                        if (!di.isEmpty(queryParameter2)) {
+                        if (!ei.isEmpty(queryParameter2)) {
                             FrsActivityConfig createNormalCfg = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter2, null);
                             createNormalCfg.setPushTid(str);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
@@ -935,9 +935,9 @@ public class PbActivityStatic {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
                             return 0;
                         } else if (z2 && !TextUtils.isEmpty(matchStringFromURL)) {
-                            ig.startService(TbadkCoreApplication.getInst(), gm9.m(TbadkCoreApplication.getInst(), matchStringFromURL));
+                            jg.startService(TbadkCoreApplication.getInst(), wn9.m(TbadkCoreApplication.getInst(), matchStringFromURL));
                             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", 3).param("obj_type", 2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                            zt4.a(param, lowerCase);
+                            du4.a(param, lowerCase);
                             TiebaStatic.log(param);
                             return 1;
                         } else if (z3) {
@@ -947,7 +947,7 @@ public class PbActivityStatic {
                             return 3;
                         }
                     }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new ah5(tbPageContext, lowerCase)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new th5(tbPageContext, lowerCase)));
                     return 0;
                 }
                 return 3;
@@ -957,7 +957,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes7.dex */
-    public static class k implements CustomMessageTask.CustomRunnable<Context> {
+    public class k implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -976,12 +976,12 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<xna> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<vpa> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2921343, new cp9(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921343, new tq9(customMessage.getData()));
                 }
                 return null;
             }
@@ -1026,28 +1026,28 @@ public class PbActivityStatic {
         iVar.execute(new Void[0]);
         ItemCardHelper.t();
         ItemCardHelper.s();
-        nn5.a(cp5.a, new am9());
+        go5.a(vp5.a, new qn9());
     }
 
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            ifa.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, ifa.a("c/f/pb/page", 302001));
-            pj9.g = tbHttpMessageTask;
-            oj9.i = tbHttpMessageTask;
+            bha.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, bha.a("c/f/pb/page", 302001));
+            fl9.g = tbHttpMessageTask;
+            el9.i = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setTimeOut(jb.d().b());
-            tbHttpMessageTask.setRetry(jb.d().a());
-            tbHttpMessageTask.setConnectTimeOut(jb.d().c());
+            tbHttpMessageTask.setTimeOut(kb.d().b());
+            tbHttpMessageTask.setRetry(kb.d().a());
+            tbHttpMessageTask.setConnectTimeOut(kb.d().c());
             tbHttpMessageTask.setPriority(4);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setIsNeedCookie(UbsABTestHelper.isAddBaidIdCookie());
             tbHttpMessageTask.setIsUseCurrentBDUSS(false);
             tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            LocationModel.T();
+            LocationModel.S();
             r();
             s();
         }
@@ -1105,7 +1105,7 @@ public class PbActivityStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            ifa.b(2004003, lm9.class);
+            bha.b(2004003, bo9.class);
         }
     }
 
@@ -1142,10 +1142,10 @@ public class PbActivityStatic {
     public static void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            pv4.b().c(2, new d());
-            pv4.b().c(3, new e());
-            pv4.b().c(4, new f());
-            pv4.b().c(6, new g());
+            tv4.b().c(2, new d());
+            tv4.b().c(3, new e());
+            tv4.b().c(4, new f());
+            tv4.b().c(6, new g());
         }
     }
 
@@ -1153,8 +1153,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            TbSocketMessageTask h2 = ifa.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = ifa.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            TbSocketMessageTask h2 = bha.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = bha.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }

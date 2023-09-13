@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew5;
-import com.baidu.tieba.rg5;
+import com.baidu.tieba.ax5;
+import com.baidu.tieba.kh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public View b;
     public String c;
     public GroupChatFragment d;
-    public rg5 e;
+    public kh5 e;
     public boolean f;
     public CustomMessageListener g;
 
@@ -79,10 +79,11 @@ public class GroupChatActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921814 && (customResponsedMessage.getData() instanceof String) && StringHelper.equals((String) customResponsedMessage.getData(), TBAlertBuilderHelper.ACTION_RETURN) && this.a.getActivity() != null) {
-                this.a.f = false;
-                this.a.getActivity().finish();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921814 || !(customResponsedMessage.getData() instanceof String) || !StringHelper.equals((String) customResponsedMessage.getData(), TBAlertBuilderHelper.ACTION_RETURN) || this.a.getActivity() == null) {
+                return;
             }
+            this.a.f = false;
+            this.a.getActivity().finish();
         }
     }
 
@@ -131,7 +132,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     }
 
     @Deprecated
-    public GroupChatFragment s1() {
+    public GroupChatFragment t1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -140,59 +141,9 @@ public class GroupChatActivity extends BaseFragmentActivity {
         return (GroupChatFragment) invokeV.objValue;
     }
 
-    public static void u1(@NonNull Context context, long j, int i, String str, int i2) {
+    public static void A1(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            Intent intent = new Intent(context, GroupChatActivity.class);
-            intent.putExtra("roomId", j);
-            intent.putExtra("requestCode", i);
-            intent.putExtra(IntentConfig.OBJ_LOCATED, i2);
-            intent.putExtra(IntentConfig.BACK_SCHEME, str);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void v1(@NonNull Context context, long j, int i, String str, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2, Integer.valueOf(i2)}) == null) {
-            Intent intent = new Intent(context, GroupChatActivity.class);
-            intent.putExtra("roomId", j);
-            intent.putExtra("requestCode", i);
-            intent.putExtra("source", str);
-            intent.putExtra(IntentConfig.OBJ_LOCATED, i2);
-            intent.putExtra(IntentConfig.BACK_SCHEME, str2);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void w1(@NonNull Context context, long j, int i, String str, String str2, int i2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2, Integer.valueOf(i2), str3}) == null) {
-            Intent intent = new Intent(context, GroupChatActivity.class);
-            intent.putExtra("roomId", j);
-            intent.putExtra("requestCode", i);
-            intent.putExtra("source", str);
-            intent.putExtra(IntentConfig.OBJ_LOCATED, i2);
-            intent.putExtra("hotListText", str3);
-            intent.putExtra(IntentConfig.BACK_SCHEME, str2);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void x1(@NonNull Context context, long j, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            Intent intent = new Intent(context, GroupChatActivity.class);
-            intent.putExtra("roomId", j);
-            intent.putExtra(IntentConfig.OBJ_LOCATED, i);
-            intent.putExtra("show_chat_list_after_finish", z);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void z1(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
             Intent intent = new Intent(context, GroupChatActivity.class);
             intent.putExtra("roomId", j);
             intent.putExtra("requestCode", i);
@@ -204,6 +155,56 @@ public class GroupChatActivity extends BaseFragmentActivity {
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             intent.putExtra(IntentConfig.BACK_SCHEME, str2);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void v1(@NonNull Context context, long j, int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            Intent intent = new Intent(context, GroupChatActivity.class);
+            intent.putExtra("roomId", j);
+            intent.putExtra("requestCode", i);
+            intent.putExtra(IntentConfig.OBJ_LOCATED, i2);
+            intent.putExtra(IntentConfig.BACK_SCHEME, str);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void w1(@NonNull Context context, long j, int i, String str, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2, Integer.valueOf(i2)}) == null) {
+            Intent intent = new Intent(context, GroupChatActivity.class);
+            intent.putExtra("roomId", j);
+            intent.putExtra("requestCode", i);
+            intent.putExtra("source", str);
+            intent.putExtra(IntentConfig.OBJ_LOCATED, i2);
+            intent.putExtra(IntentConfig.BACK_SCHEME, str2);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void x1(@NonNull Context context, long j, int i, String str, String str2, int i2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2, Integer.valueOf(i2), str3}) == null) {
+            Intent intent = new Intent(context, GroupChatActivity.class);
+            intent.putExtra("roomId", j);
+            intent.putExtra("requestCode", i);
+            intent.putExtra("source", str);
+            intent.putExtra(IntentConfig.OBJ_LOCATED, i2);
+            intent.putExtra("hotListText", str3);
+            intent.putExtra(IntentConfig.BACK_SCHEME, str2);
+            context.startActivity(intent);
+        }
+    }
+
+    public static void y1(@NonNull Context context, long j, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            Intent intent = new Intent(context, GroupChatActivity.class);
+            intent.putExtra("roomId", j);
+            intent.putExtra(IntentConfig.OBJ_LOCATED, i);
+            intent.putExtra("show_chat_list_after_finish", z);
             context.startActivity(intent);
         }
     }
@@ -261,21 +262,21 @@ public class GroupChatActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d003d);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090c42);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090c3e);
             if (bundle == null) {
                 this.d = new GroupChatFragment();
                 Intent intent = getIntent();
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                ew5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c42, this.d);
+                ax5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c3e, this.d);
             } else {
-                this.d = (GroupChatFragment) ew5.b(getSupportFragmentManager(), GroupChatFragment.class);
+                this.d = (GroupChatFragment) ax5.b(getSupportFragmentManager(), GroupChatFragment.class);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
                 if (getIntent().getBooleanExtra("show_chat_list_after_finish", false)) {
-                    this.e = new rg5(getIntent().getLongExtra("roomId", 0L), true);
+                    this.e = new kh5(getIntent().getLongExtra("roomId", 0L), true);
                 }
             }
             registerListener(this.g);

@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uh;
+import com.baidu.tieba.vh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,8 +41,10 @@ public class TbConfig {
     public static final int ADD_IMAGE_WATER_USER_NAME = 1;
     public static String ADD_MSG_RECORD = null;
     public static int ALPHA_80 = 0;
+    public static final String API_CAN_SEND_CARD = "/peiwan/api/god/can_send_card";
     public static final String API_CLICK_FRS_GAMEPLAY_CARD = "/peiwan/api/index/audio";
     public static final String API_CLICK_TO_CHAT = "/peiwan/api/team/click";
+    public static final String API_GOD_CARD = "/peiwan/api/god/card";
     public static final String API_GOD_IDENTITY = "/peiwan/api/god/identity";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
     public static final long APP_ID = 10773430;
@@ -141,6 +143,7 @@ public class TbConfig {
     public static final String FRS_COMMON_TAB = "c/f/frs/generalTabList";
     public static final String FRS_DYNAMIC_ADDRESS = "c/f/frs/starTrends";
     public static final String FRS_LIVE_TIP_ADDRESS;
+    public static final String GET_AIBOT_APPLY_INTERNAL = "c/c/aigc/applyWhitelist";
     public static final String GET_AIBOT_CHAT_DETAIL = "c/f/aichat/getChatDetail";
     public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
     public static final String GET_BAZHU_NOTICE_REDPOT = "c/c/bawu/setBawuNoticeRead";
@@ -255,7 +258,7 @@ public class TbConfig {
     public static final String MEMBER_AUTO_RENEWAL_URL = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html?_client_version=12.17.2&source=12_16_sharecard_a";
     public static final String MEMBER_PAY = "c/e/pay/andmember";
     public static final String MERCATOR_LOCATION_URL = "c/s/getMercatorByLocation";
-    public static long MILLS_7DAYS = 604800000;
+    public static long MILLS_7DAYS = 0;
     public static final String MORE_TREASURE_TROVE = "c/f/forum/moreTreasureTrove";
     public static final int MSG_DEFAULT_FREQUENCY = 300;
     public static final String MSG_DEFAULT_NODISTURB_END_TIME = "07:00";
@@ -351,7 +354,7 @@ public class TbConfig {
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
     public static final String SEARCH_POST_FORUM = "c/f/forum/searchPostForum";
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
-    public static String SERVER_ADDRESS = "https://tiebac.baidu.com/";
+    public static String SERVER_ADDRESS = null;
     public static String SERVER_ADDRESS_WEB_VIEW = null;
     public static final String SERVER_GAME_PLAY_ADRESS = "https://peiwan.baidu.com";
     public static final String SET_COMMON_FORUM_STATE = "c/c/forum/setCommonForumState";
@@ -386,7 +389,7 @@ public class TbConfig {
     public static final String TAIL_UPDATE = "c/u/tail/updateTail";
     public static final int THREAD_GIF_MIN_USE_MEMORY = 6291456;
     public static int THREAD_IMAGE_MAX_WIDTH = 0;
-    public static String TIEBA_ADDRESS = "https://tieba.baidu.com/";
+    public static String TIEBA_ADDRESS = null;
     public static String TMPDIRNAME = null;
     public static final String TMP_ALA_IM_RECORD_DIR_NAME = "imRecord";
     public static final String TMP_DATABASE_NAME = "tieba_database.db";
@@ -433,6 +436,7 @@ public class TbConfig {
     public static final String URL_DELETE_USER_DATA = "c/c/user/delAllUserData";
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_EXCELLENT_ROOM = "https://tieba.baidu.com/mo/q/wise-bawu-core/group-chat-manage?customfullscreen=1&nonavigationbar=1#/essence";
+    public static final String URL_EXCEPTION_REPORT;
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/ufosdk/postview/tSi1tVlylkKfcPzxh%2FBspQ%3D%3D/222251";
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
     public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
@@ -494,6 +498,7 @@ public class TbConfig {
     public static final String URL_SMART_APP_BROWSE_HISTORY = "c/c/smartapp/view";
     public static final String URL_SMART_APP_DEL_BROWSE_HISTORY = "c/c/smartapp/delView";
     public static final String URL_SMART_APP_SHARE_IMAGE = "c/c/img/getShareImg";
+    public static final String URL_STATISTICS_REPORT;
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
     public static final String URL_SWITCH_YY_CURRENCY = "c/s/yyConvert";
     public static final String URL_TAB_ACTIVITY_TAB = "c/f/forum/activityPage";
@@ -741,6 +746,11 @@ public class TbConfig {
                 return;
             }
         }
+        SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
+        TIEBA_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
+        MILLS_7DAYS = 604800000L;
+        USE_OLD_LOGIN = false;
+        ENABLE_VISIT_PREVIEW_SERVER_DIALOG = false;
         LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
         SERVER_ADDRESS_WEB_VIEW = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
         WEB_URL_TDOU_UEG = TIEBA_ADDRESS + "mo/q/nativePayUeg?errorno=";
@@ -834,16 +844,12 @@ public class TbConfig {
         QUESTION_THREAD_LIST = TIEBA_ADDRESS + "mo/q/wise-creative-core/ask-details";
         VIRTUAL_IMAGE_MAIN_URL = TIEBA_ADDRESS + "mo/q/hybrid-main-service/virtualAvatar?customfullscreen=1&nonavigationbar=1";
         USER_GROWTH_TASK_CENTER_MAIN_URL = TIEBA_ADDRESS + "mo/q/hybrid-main-user/taskCenter?customfullscreen=1&nonavigationbar=1";
-        StringBuilder sb = new StringBuilder();
-        sb.append(TIEBA_ADDRESS);
-        sb.append("mo/q/hybrid-main-user/growRules?fr=taskDes");
-        USER_GROWTH_GUIDE_MAIN_URL = sb.toString();
+        USER_GROWTH_GUIDE_MAIN_URL = TIEBA_ADDRESS + "mo/q/hybrid-main-user/growRules?fr=taskDes";
         URL_THEME_CENTER = TIEBA_ADDRESS + "mo/q/hybrid/pretendCenter?page_from=1&customfullscreen=1&nonavigationbar=1&skin=";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(TIEBA_ADDRESS);
-        sb2.append("c/e/alipay/alipayApplyUserInfo");
-        USER_GROWTH_APPLY_ALI_AUTH_INFO_URL = sb2.toString();
+        USER_GROWTH_APPLY_ALI_AUTH_INFO_URL = TIEBA_ADDRESS + "c/e/alipay/alipayApplyUserInfo";
         USER_GROWTH_GET_ALI_AUTH_INFO_URL = TIEBA_ADDRESS + "c/e/alipay/alipayGetUserInfo";
+        URL_EXCEPTION_REPORT = TIEBA_ADDRESS + "c/s/upClientErrLog";
+        URL_STATISTICS_REPORT = TIEBA_ADDRESS + "c/s/upClientMonitorLog";
     }
 
     public TbConfig() {
@@ -1361,7 +1367,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.B().M(i);
+                TbImageMemoryCache.A().L(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1405,7 +1411,7 @@ public class TbConfig {
             if (f5 >= f3 && f5 <= f4) {
                 f2 = f5;
             }
-            if (!uh.a()) {
+            if (!vh.a()) {
                 return f2 * 0.5f;
             }
             return f2;

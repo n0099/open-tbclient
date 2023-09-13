@@ -18,14 +18,14 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq3;
-import com.baidu.tieba.nr1;
+import com.baidu.tieba.eq3;
+import com.baidu.tieba.rr1;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class BearLayout extends LinearLayout {
-    public static final boolean j = nr1.a;
+    public static final boolean j = rr1.a;
     public TextView a;
     public SimpleDraweeView b;
     public BdBaseImageView c;
@@ -59,11 +59,11 @@ public class BearLayout extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
-        public final /* synthetic */ aq3 a;
+        public final /* synthetic */ eq3 a;
         public final /* synthetic */ SwanAppBearInfo b;
 
-        public b(aq3 aq3Var, SwanAppBearInfo swanAppBearInfo) {
-            this.a = aq3Var;
+        public b(eq3 eq3Var, SwanAppBearInfo swanAppBearInfo) {
+            this.a = eq3Var;
             this.b = swanAppBearInfo;
         }
 
@@ -110,9 +110,9 @@ public class BearLayout extends LinearLayout {
                 textView2.setTextColor(i);
                 FrameLayout frameLayout = BearLayout.this.d;
                 if (z) {
-                    i2 = R.drawable.obfuscated_res_0x7f080144;
-                } else {
                     i2 = R.drawable.obfuscated_res_0x7f080145;
+                } else {
+                    i2 = R.drawable.obfuscated_res_0x7f080146;
                 }
                 frameLayout.setBackgroundResource(i2);
             }
@@ -153,7 +153,7 @@ public class BearLayout extends LinearLayout {
             this.c.setVisibility(8);
             return;
         }
-        int i = R.drawable.obfuscated_res_0x7f08017a;
+        int i = R.drawable.obfuscated_res_0x7f08017b;
         char c2 = 65535;
         int hashCode = str.hashCode();
         if (hashCode != 1567) {
@@ -183,13 +183,13 @@ public class BearLayout extends LinearLayout {
         if (c2 != 1) {
             if (c2 != 2) {
                 if (c2 == 3) {
-                    i = R.drawable.obfuscated_res_0x7f080178;
+                    i = R.drawable.obfuscated_res_0x7f080179;
                 }
             } else {
-                i = R.drawable.obfuscated_res_0x7f08017b;
+                i = R.drawable.obfuscated_res_0x7f08017c;
             }
         } else {
-            i = R.drawable.obfuscated_res_0x7f080179;
+            i = R.drawable.obfuscated_res_0x7f08017a;
         }
         this.c.setVisibility(0);
         this.c.setImageDrawable(this.i.getResources().getDrawable(i));
@@ -212,23 +212,23 @@ public class BearLayout extends LinearLayout {
         SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, aq3 aq3Var) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, eq3 eq3Var) {
         this.i = context;
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, this);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a0, this);
         linearLayout.setOnClickListener(new a(swanAppBearInfo));
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c9);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903d1);
         this.a = textView;
         textView.setText(swanAppBearInfo.bearName);
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c8);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903d0);
         this.b = simpleDraweeView;
         simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-        this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903ca);
+        this.c = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903d2);
         setVipLogo(swanAppBearInfo.bearVipType);
-        this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c3);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c4);
+        this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903cb);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903cc);
         this.e = textView2;
-        textView2.setOnClickListener(new b(aq3Var, swanAppBearInfo));
-        BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903c7);
+        textView2.setOnClickListener(new b(eq3Var, swanAppBearInfo));
+        BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0903cf);
         this.f = bdBaseImageView;
         bdBaseImageView.setVisibility(8);
         this.h = new c();

@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.data.ApkDownloadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,26 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.MemberGroupInfo;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
-public class bf7 implements bn {
+public final class bf7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final bf7 a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public MemberGroupInfo a;
-    public String b;
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,16 @@ public class bf7 implements bn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        a = new bf7();
+        String string = TbadkCoreApplication.getInst().getString(R.string.download_apk_unknown_default_name);
+        Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.st…apk_unknown_default_name)");
+        b = string;
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.download_apk_unknown_default_tag);
+        Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.st…_apk_unknown_default_tag)");
+        c = string2;
+        String string3 = TbadkCoreApplication.getInst().getString(R.string.download_apk_unknown_default_content);
+        Intrinsics.checkNotNullExpressionValue(string3, "getInst().getString(R.st…_unknown_default_content)");
+        d = string3;
     }
 
     public bf7() {
@@ -60,45 +69,207 @@ public class bf7 implements bn {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final DownloadData a(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            String filename = t61.e(downloadData.getUrl(), "apk", "application/vnd.android.package-archive");
+            if ("apk".equals(t61.c(filename))) {
+                Intrinsics.checkNotNullExpressionValue(filename, "filename");
+                filename = StringsKt__StringsKt.substringBefore$default(filename, IStringUtil.EXTENSION_SEPARATOR + "apk", (String) null, 2, (Object) null);
+            }
+            bf7 bf7Var = a;
+            Intrinsics.checkNotNullExpressionValue(filename, "filename");
+            String c2 = bf7Var.c(downloadData, filename);
+            Intrinsics.checkNotNullExpressionValue(filename, "filename");
+            Intrinsics.checkNotNullExpressionValue(filename, "filename");
+            b(downloadData, c2, filename, filename);
+            return downloadData;
         }
-        return (String) invokeV.objValue;
+        return (DownloadData) invokeL.objValue;
     }
 
-    public MemberGroupInfo b() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x00f9  */
+    @JvmStatic
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final DownloadData b(DownloadData downloadData, String defaultId, String defaultName, String defaultPkgName) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        boolean z11;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, downloadData, defaultId, defaultName, defaultPkgName)) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            Intrinsics.checkNotNullParameter(defaultId, "defaultId");
+            Intrinsics.checkNotNullParameter(defaultName, "defaultName");
+            Intrinsics.checkNotNullParameter(defaultPkgName, "defaultPkgName");
+            String id = downloadData.getId();
+            if (id != null && id.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                if (defaultId.length() == 0) {
+                    z11 = true;
+                } else {
+                    z11 = false;
+                }
+                if (!z11) {
+                    downloadData.setId(defaultId);
+                }
+            }
+            String name = downloadData.getName();
+            if (name != null && name.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                if (defaultName.length() == 0) {
+                    z10 = true;
+                } else {
+                    z10 = false;
+                }
+                if (!z10) {
+                    downloadData.setName(defaultName);
+                }
+            }
+            String app_icon = downloadData.getApp_icon();
+            if (app_icon != null && app_icon.length() != 0) {
+                z3 = false;
+            } else {
+                z3 = true;
+            }
+            if (z3) {
+                downloadData.setApp_icon("https://tieba-ares.cdn.bcebos.com/mis/2023-8/1691390026104/24877895ee7a.png");
+            }
+            if (downloadData.getApkDownloadData() == null) {
+                if (defaultPkgName.length() == 0) {
+                    z9 = true;
+                } else {
+                    z9 = false;
+                }
+                if (!z9) {
+                    downloadData.setApkDownloadData(new ApkDownloadData());
+                    downloadData.getApkDownloadData().setPackageName(defaultPkgName);
+                    if (downloadData.getItemData() != null) {
+                        downloadData.setItemData(new ItemData());
+                        ItemData itemData = downloadData.getItemData();
+                        itemData.mTitle = b;
+                        itemData.mIconUrl = "https://tieba-ares.cdn.bcebos.com/mis/2023-8/1691390026104/24877895ee7a.png";
+                        itemData.mTags = CollectionsKt__CollectionsKt.arrayListOf(c);
+                        ApkDetail.Builder builder = new ApkDetail.Builder();
+                        builder.developer = d;
+                        itemData.apkDetail = builder.build(true);
+                        itemData.fileType = "app";
+                        itemData.buttonLinkType = 1;
+                    } else {
+                        String str = downloadData.getItemData().mTitle;
+                        if (str != null && str.length() != 0) {
+                            z6 = false;
+                        } else {
+                            z6 = true;
+                        }
+                        if (z6) {
+                            downloadData.getItemData().mTitle = b;
+                        } else {
+                            String str2 = downloadData.getItemData().mIconUrl;
+                            if (str2 != null && str2.length() != 0) {
+                                z7 = false;
+                            } else {
+                                z7 = true;
+                            }
+                            if (z7) {
+                                downloadData.getItemData().mIconUrl = "https://tieba-ares.cdn.bcebos.com/mis/2023-8/1691390026104/24877895ee7a.png";
+                            } else {
+                                List<String> list = downloadData.getItemData().mTags;
+                                if (list != null && !list.isEmpty()) {
+                                    z8 = false;
+                                } else {
+                                    z8 = true;
+                                }
+                                if (z8) {
+                                    downloadData.getItemData().mTags = CollectionsKt__CollectionsKt.arrayListOf(c);
+                                } else if (downloadData.getItemData().apkDetail == null) {
+                                    ApkDetail.Builder builder2 = new ApkDetail.Builder();
+                                    builder2.developer = d;
+                                    downloadData.getItemData().apkDetail = builder2.build(true);
+                                }
+                            }
+                        }
+                    }
+                    return downloadData;
+                }
+            }
+            String packageName = downloadData.getApkDownloadData().getPackageName();
+            if (packageName != null && packageName.length() != 0) {
+                z4 = false;
+            } else {
+                z4 = true;
+            }
+            if (z4) {
+                if (defaultPkgName.length() == 0) {
+                    z5 = true;
+                } else {
+                    z5 = false;
+                }
+                if (!z5) {
+                    downloadData.getApkDownloadData().setPackageName(defaultPkgName);
+                }
+            }
+            if (downloadData.getItemData() != null) {
+            }
+            return downloadData;
         }
-        return (MemberGroupInfo) invokeV.objValue;
+        return (DownloadData) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final void d(DownloadData data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            sy6 sy6Var = new sy6();
+            sy6Var.a = data.getItemData();
+            sy6Var.b = data.getSource();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921819, sy6Var));
         }
     }
 
-    public void e(MemberGroupInfo memberGroupInfo) {
+    public final String c(DownloadData downloadData, String str) {
+        InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, memberGroupInfo) == null) {
-            this.a = memberGroupInfo;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, downloadData, str)) == null) {
+            if (downloadData.getItemData() != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(downloadData.getItemData().pkgName);
+                sb.append(".v");
+                ApkDetail apkDetail = downloadData.getItemData().apkDetail;
+                if (apkDetail != null) {
+                    str2 = apkDetail.version;
+                } else {
+                    str2 = null;
+                }
+                sb.append(str2);
+                return sb.toString();
+            }
+            return str;
         }
+        return (String) invokeLL.objValue;
     }
 }

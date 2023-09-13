@@ -5,38 +5,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Queue;
+import com.squareup.wire.Message;
 /* loaded from: classes7.dex */
-public class od implements fd {
+public class od implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<Object> a;
 
-    public od(Queue<Object> queue) {
+    @Override // com.baidu.tieba.gd
+    public Object a(wd wdVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wdVar)) == null) {
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    public od(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {queue};
+            Object[] objArr = {message};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = queue;
-    }
-
-    @Override // com.baidu.tieba.fd
-    public Object a(vd vdVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vdVar)) == null) {
-            return ud.d(this.a, vdVar);
-        }
-        return invokeL.objValue;
     }
 }

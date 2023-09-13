@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.v7c;
+import com.baidu.tieba.yac;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$NoneEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static final long serialVersionUID = 3776720187248809713L;
 
-    public OnSubscribeFromEmitter$NoneEmitter(v7c<? super T> v7cVar) {
-        super(v7cVar);
+    public OnSubscribeFromEmitter$NoneEmitter(yac<? super T> yacVar) {
+        super(yacVar);
     }
 
     @Override // rx.internal.operators.OnSubscribeFromEmitter$BaseEmitter

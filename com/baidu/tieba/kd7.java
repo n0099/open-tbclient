@@ -1,105 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z47;
+import com.baidu.tieba.feed.component.CardRecommendInfoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class kd7 {
+public class kd7 extends yb7<CardRecommendInfoView, k77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z47.e a;
-    public final View b;
 
-    public kd7(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kd7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        z47.e a = z47.a().a();
-        this.a = a;
-        View create = a.create(context);
-        Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
-        this.b = create;
     }
 
-    public final void a(String protrait) {
+    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, protrait) == null) {
-            Intrinsics.checkNotNullParameter(protrait, "protrait");
-            this.a.i(this.b, protrait);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            de7.j(a);
+            return a;
         }
+        return (View) invokeL.objValue;
     }
 
-    public final void b(String url) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oc7
+    /* renamed from: e */
+    public void b(@NonNull CardRecommendInfoView cardRecommendInfoView, @NonNull k77 k77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            this.a.f(this.b, url);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardRecommendInfoView, k77Var) == null) {
+            cardRecommendInfoView.update(k77Var);
         }
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a.d(this.b, i);
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a.g(this.b, i);
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a.a(this.b, i);
-        }
-    }
-
-    public final void f(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            Intrinsics.checkNotNullParameter(scaleType, "scaleType");
-            this.a.h(this.b, scaleType);
-        }
-    }
-
-    public final void g(z47.d config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.a.c(this.b, config);
-        }
-    }
-
-    public final View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
     }
 }

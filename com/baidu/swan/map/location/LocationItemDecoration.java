@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uo3;
+import com.baidu.tieba.yo3;
 /* loaded from: classes4.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
-    public static final int c = uo3.g(15.0f);
+    public static final int c = yo3.g(15.0f);
     public ColorDrawable a;
     public boolean b;
 
@@ -21,7 +21,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
 
     public LocationItemDecoration(Context context, boolean z) {
         this.b = true;
-        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f060445));
+        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f060447));
         this.b = z;
     }
 

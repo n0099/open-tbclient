@@ -1,6 +1,6 @@
 package com.facebook.imagepipeline.cache;
 
-import com.baidu.tieba.t;
+import com.baidu.tieba.u;
 import com.facebook.binaryresource.BinaryResource;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.cache.common.WriterCallback;
@@ -33,11 +33,11 @@ public class BufferedDiskCache {
     public final StagingArea mStagingArea = StagingArea.getInstance();
     public final Executor mWriteExecutor;
 
-    public t<Void> clearAll() {
+    public u<Void> clearAll() {
         this.mStagingArea.clearAll();
         final Object onBeforeSubmitWork = FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_clearAll");
         try {
-            return t.call(new Callable<Void>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.6
+            return u.call(new Callable<Void>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.6
                 /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
@@ -53,7 +53,7 @@ public class BufferedDiskCache {
             }, this.mWriteExecutor);
         } catch (Exception e) {
             FLog.w(TAG, e, "Failed to schedule disk-cache clear", new Object[0]);
-            return t.i(e);
+            return u.i(e);
         }
     }
 
@@ -82,16 +82,16 @@ public class BufferedDiskCache {
         this.mImageCacheStatsTracker = imageCacheStatsTracker;
     }
 
-    private t<EncodedImage> foundPinnedImage(CacheKey cacheKey, EncodedImage encodedImage) {
+    private u<EncodedImage> foundPinnedImage(CacheKey cacheKey, EncodedImage encodedImage) {
         FLog.v(TAG, "Found image for %s in staging area", cacheKey.getUriString());
         this.mImageCacheStatsTracker.onStagingAreaHit(cacheKey);
-        return t.j(encodedImage);
+        return u.j(encodedImage);
     }
 
-    private t<EncodedImage> getAsync(final CacheKey cacheKey, final AtomicBoolean atomicBoolean) {
+    private u<EncodedImage> getAsync(final CacheKey cacheKey, final AtomicBoolean atomicBoolean) {
         try {
             final Object onBeforeSubmitWork = FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_getAsync");
-            return t.call(new Callable<EncodedImage>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.3
+            return u.call(new Callable<EncodedImage>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.3
                 /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -145,14 +145,14 @@ public class BufferedDiskCache {
             }, this.mReadExecutor);
         } catch (Exception e) {
             FLog.w(TAG, e, "Failed to schedule disk-cache read for %s", cacheKey.getUriString());
-            return t.i(e);
+            return u.i(e);
         }
     }
 
-    private t<Boolean> containsAsync(final CacheKey cacheKey) {
+    private u<Boolean> containsAsync(final CacheKey cacheKey) {
         try {
             final Object onBeforeSubmitWork = FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_containsAsync");
-            return t.call(new Callable<Boolean>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.1
+            return u.call(new Callable<Boolean>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.1
                 /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
@@ -167,7 +167,7 @@ public class BufferedDiskCache {
             }, this.mReadExecutor);
         } catch (Exception e) {
             FLog.w(TAG, e, "Failed to schedule disk-cache read for %s", cacheKey.getUriString());
-            return t.i(e);
+            return u.i(e);
         }
     }
 
@@ -176,9 +176,9 @@ public class BufferedDiskCache {
         this.mFileCache.probe(cacheKey);
     }
 
-    public t<Boolean> contains(CacheKey cacheKey) {
+    public u<Boolean> contains(CacheKey cacheKey) {
         if (containsSync(cacheKey)) {
-            return t.j(Boolean.TRUE);
+            return u.j(Boolean.TRUE);
         }
         return containsAsync(cacheKey);
     }
@@ -197,11 +197,11 @@ public class BufferedDiskCache {
         return checkInStagingAreaAndFileCache(cacheKey);
     }
 
-    public t<Void> probe(final CacheKey cacheKey) {
+    public u<Void> probe(final CacheKey cacheKey) {
         Preconditions.checkNotNull(cacheKey);
         try {
             final Object onBeforeSubmitWork = FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_probe");
-            return t.call(new Callable<Void>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.2
+            return u.call(new Callable<Void>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
                 public Void call() throws Exception {
@@ -216,16 +216,16 @@ public class BufferedDiskCache {
             }, this.mWriteExecutor);
         } catch (Exception e) {
             FLog.w(TAG, e, "Failed to schedule disk-cache probe for %s", cacheKey.getUriString());
-            return t.i(e);
+            return u.i(e);
         }
     }
 
-    public t<Void> remove(final CacheKey cacheKey) {
+    public u<Void> remove(final CacheKey cacheKey) {
         Preconditions.checkNotNull(cacheKey);
         this.mStagingArea.remove(cacheKey);
         try {
             final Object onBeforeSubmitWork = FrescoInstrumenter.onBeforeSubmitWork("BufferedDiskCache_remove");
-            return t.call(new Callable<Void>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.5
+            return u.call(new Callable<Void>() { // from class: com.facebook.imagepipeline.cache.BufferedDiskCache.5
                 /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
@@ -241,7 +241,7 @@ public class BufferedDiskCache {
             }, this.mWriteExecutor);
         } catch (Exception e) {
             FLog.w(TAG, e, "Failed to schedule disk-cache remove for %s", cacheKey.getUriString());
-            return t.i(e);
+            return u.i(e);
         }
     }
 
@@ -306,7 +306,7 @@ public class BufferedDiskCache {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
-    public t<EncodedImage> get(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
+    public u<EncodedImage> get(CacheKey cacheKey, AtomicBoolean atomicBoolean) {
         try {
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.beginSection("BufferedDiskCache#get");
@@ -315,7 +315,7 @@ public class BufferedDiskCache {
             if (encodedImage != null) {
                 return foundPinnedImage(cacheKey, encodedImage);
             }
-            t<EncodedImage> async = getAsync(cacheKey, atomicBoolean);
+            u<EncodedImage> async = getAsync(cacheKey, atomicBoolean);
             if (FrescoSystrace.isTracing()) {
                 FrescoSystrace.endSection();
             }

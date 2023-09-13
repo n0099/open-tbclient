@@ -1,44 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class vb8 extends ob8 {
+public class vb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rb8 b;
+    public List<pm> a;
 
-    @Override // com.baidu.tieba.ob8
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ob8
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "un_support" : (String) invokeV.objValue;
-    }
-
-    public vb8(rb8 wrapper) {
+    public vb8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        fi7 fi7Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wrapper};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,19 +35,25 @@ public final class vb8 extends ob8 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(wrapper, "wrapper");
-        this.b = wrapper;
+        this.a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, fi7.class, tbPageContext);
+        if (runTask != null && (fi7Var = (fi7) runTask.getData()) != null) {
+            this.a.add(fi7Var);
+        }
+        this.a.add(new wb8(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new ub8(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.addAdapters(this.a);
     }
 
-    @Override // com.baidu.tieba.ob8
-    public void c(AbilityItem abilityItem, TbBaseMsg tbBaseMsg, Object obj) {
+    public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, tbBaseMsg, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            rb8 rb8Var = this.b;
-            String string = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0928);
-            Intrinsics.checkNotNullExpressionValue(string, "getString(R.string.group_ability_un_support)");
-            rb8Var.y(string, false);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        for (pm pmVar : this.a) {
+            if (pmVar instanceof fi7) {
+                ((fi7) pmVar).E(tbPageTag);
+            }
         }
     }
 }

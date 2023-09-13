@@ -12,16 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e61;
-import com.baidu.tieba.j61;
-import com.baidu.tieba.qd1;
-import com.baidu.tieba.vr0;
+import com.baidu.tieba.i61;
+import com.baidu.tieba.n61;
+import com.baidu.tieba.ud1;
+import com.baidu.tieba.zr0;
 /* loaded from: classes3.dex */
 public class NadRewardCountDownView extends RelativeLayout {
     public TextView a;
     public TextView b;
     public TextView c;
-    public j61 d;
+    public n61 d;
     public int e;
     public int f;
     public int g;
@@ -30,7 +30,7 @@ public class NadRewardCountDownView extends RelativeLayout {
     public String j;
     public int k;
     public g l;
-    public qd1 m;
+    public ud1 m;
 
     /* loaded from: classes3.dex */
     public interface g {
@@ -62,7 +62,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             if (NadRewardCountDownView.this.k == 2) {
                 NadRewardCountDownView.this.r();
                 if (NadRewardCountDownView.this.m != null) {
-                    e61.b(NadRewardCountDownView.this.m);
+                    i61.b(NadRewardCountDownView.this.m);
                     if (NadRewardCountDownView.this.l != null) {
                         NadRewardCountDownView.this.l.d();
                     }
@@ -87,11 +87,11 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends j61.c {
+    public class c extends n61.c {
         public c() {
         }
 
-        @Override // com.baidu.tieba.j61.c
+        @Override // com.baidu.tieba.n61.c
         public void b() {
             super.b();
             if (NadRewardCountDownView.this.k < 3) {
@@ -106,7 +106,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             NadRewardCountDownView.this.invalidate();
         }
 
-        @Override // com.baidu.tieba.j61.c
+        @Override // com.baidu.tieba.n61.c
         public void f(long j) {
             super.f(j);
             NadRewardCountDownView.this.f = (((int) j) / 1000) + 1;
@@ -122,11 +122,11 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements qd1.b {
+    public class d implements ud1.b {
         public d() {
         }
 
-        @Override // com.baidu.tieba.qd1.b
+        @Override // com.baidu.tieba.ud1.b
         public void a(boolean z) {
             NadRewardCountDownView.this.m.dismiss();
             if (z && NadRewardCountDownView.this.l != null) {
@@ -150,11 +150,11 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class f extends j61.c {
+    public class f extends n61.c {
         public f() {
         }
 
-        @Override // com.baidu.tieba.j61.c
+        @Override // com.baidu.tieba.n61.c
         public void b() {
             super.b();
             if (NadRewardCountDownView.this.k != 4) {
@@ -166,7 +166,7 @@ public class NadRewardCountDownView extends RelativeLayout {
             NadRewardCountDownView.this.requestLayout();
         }
 
-        @Override // com.baidu.tieba.j61.c
+        @Override // com.baidu.tieba.n61.c
         public void f(long j) {
             super.f(j);
             NadRewardCountDownView.this.f = (((int) j) / 1000) + 1;
@@ -229,9 +229,9 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void r() {
-        j61 j61Var = this.d;
-        if (j61Var != null) {
-            j61Var.d();
+        n61 n61Var = this.d;
+        if (n61Var != null) {
+            n61Var.d();
             g gVar = this.l;
             if (gVar != null) {
                 gVar.c();
@@ -240,17 +240,17 @@ public class NadRewardCountDownView extends RelativeLayout {
     }
 
     public void s() {
-        j61 j61Var = this.d;
-        if (j61Var != null) {
-            j61Var.b();
+        n61 n61Var = this.d;
+        if (n61Var != null) {
+            n61Var.b();
             this.d = null;
         }
     }
 
     public void t() {
-        j61 j61Var = this.d;
-        if (j61Var != null) {
-            j61Var.e();
+        n61 n61Var = this.d;
+        if (n61Var != null) {
+            n61Var.e();
             g gVar = this.l;
             if (gVar != null) {
                 gVar.a();
@@ -263,20 +263,20 @@ public class NadRewardCountDownView extends RelativeLayout {
         this.b.setVisibility(8);
         this.a.setVisibility(8);
         this.c.setVisibility(0);
-        j61 j61Var = new j61(3000L, 1000L);
-        this.d = j61Var;
-        j61Var.f(new f());
+        n61 n61Var = new n61(3000L, 1000L);
+        this.d = n61Var;
+        n61Var.f(new f());
         this.d.g();
     }
 
     public void update(AdBaseModel adBaseModel) {
         if (adBaseModel != null && adBaseModel.j != null) {
             setTag(adBaseModel);
-            vr0 vr0Var = adBaseModel.p;
+            zr0 zr0Var = adBaseModel.p;
             float f2 = 1.0f;
-            if (vr0Var != null) {
-                this.g = vr0Var.e;
-                String str = vr0Var.i;
+            if (zr0Var != null) {
+                this.g = zr0Var.e;
+                String str = zr0Var.i;
                 if (!TextUtils.isEmpty(str) && str.length() <= 4) {
                     this.h = str;
                     this.i = "%2ss后可以领取" + this.h;
@@ -289,12 +289,12 @@ public class NadRewardCountDownView extends RelativeLayout {
             int floor = (int) Math.floor(adBaseModel.j.c * f2);
             this.e = floor;
             this.f = floor;
-            j61 j61Var = new j61(floor * 1000, 1000L);
-            this.d = j61Var;
-            j61Var.f(new c());
-            qd1 qd1Var = new qd1(getContext(), adBaseModel, new d());
-            this.m = qd1Var;
-            qd1Var.setOnDismissListener(new e());
+            n61 n61Var = new n61(floor * 1000, 1000L);
+            this.d = n61Var;
+            n61Var.f(new c());
+            ud1 ud1Var = new ud1(getContext(), adBaseModel, new d());
+            this.m = ud1Var;
+            ud1Var.setOnDismissListener(new e());
             this.a.setVisibility(0);
             setVisibility(0);
             this.d.g();

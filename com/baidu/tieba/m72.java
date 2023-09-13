@@ -1,166 +1,42 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.os.Build;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.text.method.PasswordTransformationMethod;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
+import android.graphics.drawable.Animatable;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.tieba.vt2;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import org.json.JSONObject;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
 /* loaded from: classes7.dex */
-public final class m72 extends j62<SwanEditText, n72> {
+public final class m72 extends p62<SimpleDraweeView, n72> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppActivity i;
-    public la2 j;
-    public vt2 k;
-    public int l;
+    public l72 i;
+    public SwanAppComponentContainerView j;
+    public SimpleDraweeView k;
 
     /* loaded from: classes7.dex */
-    public interface g {
-        void a(String str, JSONObject jSONObject);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends ao2 {
+    public class a extends BaseControllerListener<ImageInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ m72 b;
-
-        public a(m72 m72Var, SwanEditText swanEditText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m72Var, swanEditText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m72Var;
-            this.a = swanEditText;
-        }
-
-        @Override // com.baidu.tieba.ao2, com.baidu.tieba.bo2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.k != null) {
-                this.b.k.dismiss();
-                this.b.p0(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.ao2, com.baidu.tieba.bo2
-        public boolean onKeyDown(int i, KeyEvent keyEvent) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, keyEvent)) == null) {
-                if (i == 4 && this.b.k != null) {
-                    this.b.k.dismiss();
-                    this.b.p0(this.a);
-                    return true;
-                }
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements vt2.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ n72 b;
-        public final /* synthetic */ ao2 c;
-        public final /* synthetic */ m72 d;
-
-        public b(m72 m72Var, SwanEditText swanEditText, n72 n72Var, ao2 ao2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m72Var, swanEditText, n72Var, ao2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = m72Var;
-            this.a = swanEditText;
-            this.b = n72Var;
-            this.c = ao2Var;
-        }
-
-        @Override // com.baidu.tieba.vt2.d
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (s62.h) {
-                    Log.d("Component-Input", "numeric keyboard onKeyboardHide");
-                }
-                this.d.y0(this.a);
-                this.d.i.G0(this.c);
-            }
-        }
-
-        @Override // com.baidu.tieba.vt2.d
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                if (s62.h) {
-                    Log.d("Component-Input", "numeric keyboard onKeyboardShow");
-                }
-                m72 m72Var = this.d;
-                m72Var.z0(m72Var.i, this.a, this.b, i);
-                this.d.i.u0(this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n72 a;
-        public final /* synthetic */ SwanEditText b;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ SimpleDraweeView b;
         public final /* synthetic */ m72 c;
 
-        public c(m72 m72Var, n72 n72Var, SwanEditText swanEditText) {
+        public a(m72 m72Var, boolean z, SimpleDraweeView simpleDraweeView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m72Var, n72Var, swanEditText};
+                Object[] objArr = {m72Var, Boolean.valueOf(z), simpleDraweeView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -171,516 +47,143 @@ public final class m72 extends j62<SwanEditText, n72> {
                 }
             }
             this.c = m72Var;
-            this.a = n72Var;
-            this.b = swanEditText;
+            this.a = z;
+            this.b = simpleDraweeView;
         }
 
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFailure(String str, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                rt2.d(qt2.d().c(), this.c.l);
-                if (this.a.M) {
-                    return true;
-                }
-                this.b.clearFocus();
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ m72 b;
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public d(m72 m72Var, SwanEditText swanEditText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m72Var, swanEditText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m72Var;
-            this.a = swanEditText;
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            char charAt;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) && i2 != i3) {
-                if (i2 > i3) {
-                    charAt = '\b';
-                } else {
-                    charAt = charSequence.charAt((i + i3) - 1);
-                }
-                rt2.c((n72) this.b.n(), this.a, charAt);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements View.OnFocusChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n72 a;
-        public final /* synthetic */ SwanEditText b;
-        public final /* synthetic */ m72 c;
-
-        public e(m72 m72Var, n72 n72Var, SwanEditText swanEditText) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m72Var, n72Var, swanEditText};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = m72Var;
-            this.a = n72Var;
-            this.b = swanEditText;
-        }
-
-        @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
-                if (s62.h) {
-                    Log.d("Component-Input", "onFocusChange:" + z);
-                }
-                if (!z) {
-                    d82.i("Component-Input", "send blur callback");
-                    if (!TextUtils.equals("text", this.a.L) && this.c.k != null) {
-                        this.c.k.dismiss();
-                    }
-                    rt2.b(this.b, this.c.l);
-                    this.c.p0(this.b);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
+                super.onFailure(str, th);
+                if (this.a && this.c.i != null) {
+                    this.c.i.a(0, this.b, null);
                 }
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public class f implements qm3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanEditText a;
-        public final /* synthetic */ SwanAppActivity b;
-        public final /* synthetic */ n72 c;
-        public final /* synthetic */ View d;
-        public final /* synthetic */ m72 e;
-
-        @Override // com.baidu.tieba.qm3
-        public void c(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        public f(m72 m72Var, SwanEditText swanEditText, SwanAppActivity swanAppActivity, n72 n72Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m72Var, swanEditText, swanAppActivity, n72Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
+                super.onFinalImageSet(str, (String) imageInfo, animatable);
+                if (this.a && this.c.i != null) {
+                    this.c.i.a(1, this.b, null);
                 }
             }
-            this.e = m72Var;
-            this.a = swanEditText;
-            this.b = swanAppActivity;
-            this.c = n72Var;
-            this.d = view2;
-        }
-
-        @Override // com.baidu.tieba.qm3
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) {
-                return;
-            }
-            this.e.y0(this.a);
-            sm3.i().k(this.d);
-        }
-
-        @Override // com.baidu.tieba.qm3
-        public void b(String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) != null) || !this.a.hasFocus()) {
-                return;
-            }
-            this.e.z0(this.b, this.a, this.c, i);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m72(@Nullable Context context, @NonNull n72 n72Var, @NonNull SwanAppActivity swanAppActivity, @NonNull la2 la2Var, @NonNull g gVar) {
+    public m72(@NonNull Context context, @NonNull n72 n72Var) {
         super(context, n72Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, n72Var, swanAppActivity, la2Var, gVar};
+            Object[] objArr = {context, n72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (k62) objArr2[1]);
+                super((Context) objArr2[0], (q62) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = swanAppActivity;
-        this.j = la2Var;
-        rt2.a(gVar);
+        g(4);
+        this.j = new SwanAppComponentContainerView(context);
+        this.k = new SimpleDraweeView(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.s62
+    @Override // com.baidu.tieba.w62
     @NonNull
-    /* renamed from: r0 */
-    public SwanEditText v(@NonNull Context context) {
+    /* renamed from: a0 */
+    public SimpleDraweeView v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) {
-            q0();
-            return qt2.d().a(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return this.k;
         }
-        return (SwanEditText) invokeL.objValue;
+        return (SimpleDraweeView) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.q62
-    /* renamed from: u0 */
-    public void R(@NonNull SwanEditText swanEditText, @NonNull n72 n72Var) {
+    @Override // com.baidu.tieba.w62
+    /* renamed from: b0 */
+    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, swanEditText, n72Var) == null) {
-            if (s62.h) {
-                Log.d("Component-Input", "renderPadding");
-            }
-            swanEditText.setPadding(0, -6, 0, 0);
+        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
+            super.A(simpleDraweeView);
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
         }
+    }
+
+    public void e0(l72 l72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, l72Var) == null) {
+            this.i = l72Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.w62
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return this.j;
+        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o62
-    /* renamed from: x0 */
-    public void X(@NonNull SwanEditText swanEditText, @NonNull n72 n72Var) {
+    @Override // com.baidu.tieba.p62
+    /* renamed from: c0 */
+    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull n72 n72Var, @NonNull z72 z72Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, swanEditText, n72Var) == null) {
-            Y(swanEditText, n72Var, 16);
-        }
-    }
-
-    public final void q0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            p0(qt2.d().c());
-        }
-    }
-
-    @Override // com.baidu.tieba.s62
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            super.z();
-        }
-    }
-
-    public final void A0(SwanEditText swanEditText, n72 n72Var, SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanEditText, n72Var, swanAppActivity) == null) {
-            swanEditText.setOnEditorActionListener(new c(this, n72Var, swanEditText));
-            d dVar = new d(this, swanEditText);
-            swanEditText.setOnFocusChangeListener(new e(this, n72Var, swanEditText));
-            if (TextUtils.equals("text", n72Var.L)) {
-                View decorView = swanAppActivity.getWindow().getDecorView();
-                sm3.i().l(decorView, n72Var.b, new f(this, swanEditText, swanAppActivity, n72Var, decorView));
-            }
-            qt2.d().f(dVar);
-            swanEditText.addTextChangedListener(dVar);
-        }
-    }
-
-    public final void B0(SwanEditText swanEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanEditText) == null) {
-            try {
-                Method method = SwanEditText.class.getMethod("setShowSoftInputOnFocus", Boolean.TYPE);
-                method.setAccessible(true);
-                method.invoke(swanEditText, Boolean.FALSE);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-                if (s62.h) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void p0(@Nullable SwanEditText swanEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, swanEditText) == null) {
-            SwanAppActivity activity = qw2.T().getActivity();
-            if (activity == null) {
-                d82.o("Component-Input", "activity is null when close input");
-                return;
-            }
-            eo3.a(activity, activity.getWindow().getDecorView().getWindowToken());
-            if (swanEditText == null) {
-                return;
-            }
-            swanEditText.setOnFocusChangeListener(null);
-            d82.i("Component-Input", "remove input");
-            if (B().a()) {
-                d82.i("Component-Input", "remove input success");
-            } else {
-                d82.o("Component-Input", "remove input fail");
-            }
-            qt2.d().b();
-        }
-    }
-
-    public final void y0(@NonNull SwanEditText swanEditText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, swanEditText) == null) {
-            if (s62.h) {
-                Log.d("Component-Input", "scrollBackWhenKeyboardHide, mKeyboardHeight：" + this.l);
-            }
-            if (this.l != 0) {
-                this.l = 0;
-                swanEditText.clearFocus();
-                if (this.j.z3().getScrollY() > 0) {
-                    this.j.z3().setScrollY(0);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, n72Var, z72Var) == null) {
+            super.O(simpleDraweeView, n72Var, z72Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.s62
-    /* renamed from: s0 */
-    public void A(@NonNull SwanEditText swanEditText) {
+    @Override // com.baidu.tieba.p62, com.baidu.tieba.u62, com.baidu.tieba.w62
+    @NonNull
+    /* renamed from: Y */
+    public z72 k(@NonNull n72 n72Var, @NonNull n72 n72Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, swanEditText) == null) {
-            super.A(swanEditText);
-            n72 n72Var = (n72) n();
-            swanEditText.setText(n72Var.t);
-            int i = 1;
-            swanEditText.setSingleLine(true);
-            swanEditText.setTag(n72Var.e);
-            if (!TextUtils.equals("text", n72Var.L)) {
-                String str = n72Var.L;
-                char c2 = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != -1193508181) {
-                    if (hashCode == 95582509 && str.equals("digit")) {
-                        c2 = 0;
-                    }
-                } else if (str.equals("idcard")) {
-                    c2 = 1;
-                }
-                if (c2 != 0) {
-                    if (c2 != 1) {
-                        i = 0;
-                    }
-                } else {
-                    i = 2;
-                }
-                this.k = new vt2(this.i, swanEditText, i, n72Var.D);
-                this.k.e(new b(this, swanEditText, n72Var, new a(this, swanEditText)));
-                this.k.f();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, n72Var, n72Var2)) == null) {
+            z72 k = super.k(n72Var, n72Var2);
+            if (n72Var.u != n72Var2.u) {
+                k.b(9);
             }
-            if (n72Var.J) {
-                swanEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            }
+            return k;
         }
+        return (z72) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.s62
-    public void x(boolean z) {
+    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull n72 n72Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            super.x(z);
-            if (!z) {
-                w72.a("Component-Input", "attach fail");
-            }
-            SwanEditText swanEditText = (SwanEditText) q();
-            if (swanEditText == null) {
-                w72.a("Component-Input", "onAttached with null editText");
-                swanEditText = qt2.d().c();
-            }
-            swanEditText.setFocusable(true);
-            swanEditText.setFocusableInTouchMode(true);
-            swanEditText.requestFocus();
-            if (TextUtils.equals(((n72) n()).L, "text")) {
-                InputMethodManager inputMethodManager = (InputMethodManager) this.i.getSystemService("input_method");
-                if (inputMethodManager != null) {
-                    inputMethodManager.showSoftInput(swanEditText, 0);
-                }
-            } else if (Build.VERSION.SDK_INT >= 21) {
-                swanEditText.setShowSoftInputOnFocus(false);
-            } else {
-                B0(swanEditText);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, n72Var)) == null) {
+            return new a(this, n72Var.u, simpleDraweeView);
         }
+        return (BaseControllerListener) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j62
-    /* renamed from: t0 */
-    public void a0(@NonNull SwanEditText swanEditText, @NonNull n72 n72Var, @NonNull v72 v72Var) {
+    @Override // com.baidu.tieba.p62
+    /* renamed from: d0 */
+    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull n72 n72Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048591, this, swanEditText, n72Var, v72Var) == null) {
-            boolean t = t();
-            if (t) {
-                swanEditText.removeTextChangedListener(qt2.d().e());
-            }
-            super.T(swanEditText, n72Var, v72Var);
-            if (t) {
-                swanEditText.addTextChangedListener(qt2.d().e());
-            } else {
-                A0(swanEditText, n72Var, this.i);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o62
-    /* renamed from: v0 */
-    public void U(@NonNull SwanEditText swanEditText, @NonNull n72 n72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, swanEditText, n72Var) == null) {
-            if (s62.h) {
-                Log.d("Component-Input", "renderText");
-            }
-            if (t()) {
-                super.U(swanEditText, n72Var);
-                try {
-                    swanEditText.setSelection(n72Var.t.length());
-                } catch (IndexOutOfBoundsException e2) {
-                    if (s62.h) {
-                        e2.printStackTrace();
-                    }
-                    w72.a("Component-Input", "value is invalid, out of max length");
-                }
-            } else if (!TextUtils.equals(swanEditText.getText(), n72Var.t)) {
-                w72.a("Component-Input", "insert input: set text must before render");
-                super.U(swanEditText, n72Var);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o62
-    /* renamed from: w0 */
-    public void W(@NonNull SwanEditText swanEditText, @NonNull n72 n72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, swanEditText, n72Var) == null) {
-            if (s62.h) {
-                Log.d("Component-Input", "renderTextStyleFontWeight");
-            }
-            String str = n72Var.A;
-            char c2 = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1178781136) {
-                if (hashCode == -841373419 && str.equals("boldItalic")) {
-                    c2 = 1;
-                }
-            } else if (str.equals("italic")) {
-                c2 = 0;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    super.W(swanEditText, n72Var);
-                    return;
-                } else {
-                    swanEditText.setTypeface(Typeface.SANS_SERIF, 3);
-                    return;
-                }
-            }
-            swanEditText.setTypeface(Typeface.SANS_SERIF, 2);
-        }
-    }
-
-    public final void z0(@NonNull SwanAppActivity swanAppActivity, @NonNull SwanEditText swanEditText, n72 n72Var, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048600, this, swanAppActivity, swanEditText, n72Var, i) == null) {
-            kx1 i3 = qw2.T().i();
-            if (s62.h) {
-                Log.d("Component-Input", "scrollUpWhenKeyboardShow, mKeyboardHeight：" + this.l + "，keyboardHeight : " + i);
-            }
-            if (this.l != i && i3 != null) {
-                this.l = i;
-                rt2.f(swanEditText, i);
-                if (n72Var.N) {
-                    if (n72Var.h == null) {
-                        n72Var.h = new j13();
-                    }
-                    int webViewScrollY = i3.getWebViewScrollY();
-                    int height = swanEditText.getHeight();
-                    if (height == 0) {
-                        height = n72Var.h.c();
-                    }
-                    int height2 = ((this.j.z3().getHeight() - n72Var.h.e()) - height) + webViewScrollY + uo3.k(swanAppActivity);
-                    int i4 = n72Var.E;
-                    if (i4 > height2) {
-                        i4 = height2;
-                    }
-                    int i5 = height2 - i;
-                    int scrollY = this.j.z3().getScrollY();
-                    if (i5 < 0) {
-                        i2 = i4 - i5;
-                    } else {
-                        if (i4 > i5) {
-                            scrollY = i4 - i5;
-                        }
-                        i2 = scrollY;
-                    }
-                    this.j.z3().setScrollY(i2);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, n72Var) == null) {
+            super.V(simpleDraweeView, n72Var, Z(simpleDraweeView, n72Var));
         }
     }
 }

@@ -4,15 +4,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
-import com.baidu.tieba.Cif;
-import com.baidu.tieba.xk1;
+import com.baidu.tieba.bl1;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HttpsExperimentFetcher extends xk1<Cif> {
+public class HttpsExperimentFetcher extends bl1<jf> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,7 +24,7 @@ public class HttpsExperimentFetcher extends xk1<Cif> {
     }
 
     /* loaded from: classes4.dex */
-    public static final class HttpsExperimentImpl implements Cif {
+    public static final class HttpsExperimentImpl implements jf {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class HttpsExperimentFetcher extends xk1<Cif> {
             }
         }
 
-        @Override // com.baidu.tieba.Cif
+        @Override // com.baidu.tieba.jf
         public boolean isIpv6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class HttpsExperimentFetcher extends xk1<Cif> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.Cif
+        @Override // com.baidu.tieba.jf
         public boolean isSwitchOn() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -83,13 +83,13 @@ public class HttpsExperimentFetcher extends xk1<Cif> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.xk1
-    public Cif createService() throws ServiceNotFoundException {
+    @Override // com.baidu.tieba.bl1
+    public jf createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new HttpsExperimentImpl(null);
         }
-        return (Cif) invokeV.objValue;
+        return (jf) invokeV.objValue;
     }
 }

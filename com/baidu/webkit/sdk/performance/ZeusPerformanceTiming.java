@@ -522,7 +522,7 @@ public class ZeusPerformanceTiming {
                 Log.i("ZeusPerformanceTiming", "upload data: ".concat(String.valueOf(zeusPerformanceTiming)));
             }
             if (zeusPerformanceTiming != null) {
-                SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, zeusPerformanceTiming);
+                SessionMonitorEngine.getInstance().recordImmediately("t7_init", zeusPerformanceTiming);
             }
         } catch (Exception e) {
             Log.printStackTrace(e);
@@ -542,7 +542,7 @@ public class ZeusPerformanceTiming {
             }
             String jSONObject2 = jSONObject.toString();
             Log.i("ZeusPerformanceTiming", "cr_Ime uploadDownloadAndLazyInit : ".concat(String.valueOf(jSONObject2)));
-            SessionMonitorEngine.getInstance().recordImmediately(SERVER_TYPE_T7_INIT, jSONObject2);
+            SessionMonitorEngine.getInstance().recordImmediately("t7_init", jSONObject2);
         } catch (Exception e) {
             Log.printStackTrace(e);
         }

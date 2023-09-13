@@ -1,102 +1,102 @@
 package org.chromium.native_test;
 
-import com.baidu.tieba.p4c;
+import com.baidu.tieba.s7c;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends p4c.a {
+    public static final class anim extends s7c.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends p4c.b {
+    public static final class animator extends s7c.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends p4c.c {
+    public static final class array extends s7c.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends p4c.d {
+    public static final class attr extends s7c.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends p4c.e {
+    public static final class bool extends s7c.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends p4c.f {
+    public static final class color extends s7c.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends p4c.g {
+    public static final class dimen extends s7c.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends p4c.h {
+    public static final class drawable extends s7c.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends p4c.i {
+    public static final class font extends s7c.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends p4c.j {
+    public static final class fraction extends s7c.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends p4c.k {
+    public static final class id extends s7c.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends p4c.l {
+    public static final class integer extends s7c.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends p4c.m {
+    public static final class interpolator extends s7c.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends p4c.n {
+    public static final class layout extends s7c.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends p4c.o {
+    public static final class menu extends s7c.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends p4c.p {
+    public static final class mipmap extends s7c.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends p4c.q {
+    public static final class plurals extends s7c.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends p4c.r {
+    public static final class raw extends s7c.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends p4c.s {
+    public static final class string extends s7c.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends p4c.t {
+    public static final class style extends s7c.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends p4c.u {
+    public static final class styleable extends s7c.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends p4c.v {
+    public static final class transition extends s7c.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends p4c.w {
+    public static final class xml extends s7c.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        p4c.a(i);
+        s7c.a(i);
     }
 }

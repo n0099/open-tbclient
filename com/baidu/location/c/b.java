@@ -70,7 +70,7 @@ public class b {
     public boolean l;
     public boolean m;
     public a p;
-    public C0110b q;
+    public C0099b q;
     public c r;
     public boolean s;
     public boolean t;
@@ -137,12 +137,12 @@ public class b {
 
     /* renamed from: com.baidu.location.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0110b extends TelephonyManager.CellInfoCallback {
+    public class C0099b extends TelephonyManager.CellInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0110b(b bVar) {
+        public C0099b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class b {
             this.a = bVar;
         }
 
-        public /* synthetic */ C0110b(b bVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0099b(b bVar, AnonymousClass1 anonymousClass1) {
             this(bVar);
         }
 
@@ -1479,7 +1479,7 @@ public class b {
                                             createForSubscriptionId2 = this.d.createForSubscriptionId(i2);
                                         }
                                         if (this.q == null) {
-                                            this.q = new C0110b(this, null);
+                                            this.q = new C0099b(this, null);
                                         }
                                         if (this.e != null) {
                                             this.e.requestCellInfoUpdate(com.baidu.location.f.getServiceContext().getMainExecutor(), this.q);

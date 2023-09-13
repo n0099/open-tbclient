@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
-import tv.athena.revenue.RevenueManager;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
+import java.util.Map;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes9.dex */
-public class zfc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zfc {
+    void a(int[] iArr, IResult<BannerConfigResult> iResult);
 
-    public static IPayEventStatisticsApi a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("PayUVEventStatisticsUtil", "getPayEventStatisticsApi error revenue null", new Object[0]);
-                return null;
-            }
-            return revenue.getPayEventStatisticApi();
-        }
-        return (IPayEventStatisticsApi) invokeII.objValue;
-    }
+    void b(PayFlowType payFlowType, Map<String, String> map, IResult<ProductListResult> iResult);
 
-    public static void b(int i, int i2, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            IPayEventStatisticsApi a = a(i, i2);
-            if (a == null) {
-                RLog.error("PayUVEventStatisticsUtil", "report error payEventStatisticsApi null", new Object[0]);
-            } else {
-                a.reportUvEvent(str, str2, str3, str4);
-            }
-        }
-    }
+    void c(@NonNull Activity activity, @NonNull PayFlowType payFlowType, @NonNull PayType payType, @NonNull ProductInfo productInfo, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback<String> iPayCallback, String str, String str2, String str3);
+
+    void d(IResult<MyBalanceResult> iResult);
+
+    void e(int i, String str, long j, IResult<SplitOrderConfigResult> iResult);
 }

@@ -1,130 +1,314 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
+import android.content.Context;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tbadk.core.view.FriendBotView;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
+import tbclient.StyleConf;
+import tbclient.StyleConfExtra;
 /* loaded from: classes9.dex */
-public class zh9 {
+public final class zh9 extends e65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948360094, "Lcom/baidu/tieba/zh9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948360094, "Lcom/baidu/tieba/zh9;");
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class a implements gi9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ c b;
+
+        public a(Context context, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = cVar;
+        }
+
+        @Override // com.baidu.tieba.gi9
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.onDismiss();
+            }
+        }
+
+        @Override // com.baidu.tieba.gi9
+        public void onShow() {
+            xn9 H6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment Z1 = ((PbActivity) this.a).Z1();
+                if (Z1 != null && (H6 = Z1.H6()) != null && (V0 = H6.V0()) != null) {
+                    V0.setDynamicLooping(false);
+                }
+                this.b.onShow();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class b implements gi9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ c b;
+
+        public b(Context context, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = cVar;
+        }
+
+        @Override // com.baidu.tieba.gi9
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.onDismiss();
+            }
+        }
+
+        @Override // com.baidu.tieba.gi9
+        public void onShow() {
+            xn9 H6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment Z1 = ((PbActivity) this.a).Z1();
+                if (Z1 != null && (H6 = Z1.H6()) != null && (V0 = H6.V0()) != null) {
+                    V0.setDynamicLooping(true);
+                }
+                this.b.onShow();
+                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_click_last_time", System.currentTimeMillis());
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static final class c implements gi9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.gi9
+        public void onDismiss() {
+            xn9 H6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                PbFragment Z1 = ((PbActivity) this.a).Z1();
+                if (Z1 != null && (H6 = Z1.H6()) != null && (V0 = H6.V0()) != null) {
+                    V0.x();
+                }
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+            }
+        }
+
+        @Override // com.baidu.tieba.gi9
+        public void onShow() {
+            xn9 H6;
+            FriendBotView V0;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                PbFragment Z1 = ((PbActivity) this.a).Z1();
+                if (Z1 != null && (H6 = Z1.H6()) != null && (V0 = H6.V0()) != null) {
+                    V0.r();
+                }
+                bi9.a.a();
+                SharedPrefHelper.getInstance().putInt("pb_friend_bot_bottom_no_use_count", SharedPrefHelper.getInstance().getInt("pb_friend_bot_bottom_no_use_count", 0) + 1);
+            }
+        }
+    }
+
+    public zh9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo V = tbRichTextData.V();
-            if (V == null) {
-                return null;
+        }
+    }
+
+    public static final void b(Context context, c onDialogVisibleListener) {
+        xn9 H6;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, onDialogVisibleListener) == null) {
+            Intrinsics.checkNotNullParameter(context, "$context");
+            Intrinsics.checkNotNullParameter(onDialogVisibleListener, "$onDialogVisibleListener");
+            PbFragment Z1 = ((PbActivity) context).Z1();
+            if (Z1 != null && (H6 = Z1.H6()) != null) {
+                H6.Z3(new a(context, onDialogVisibleListener));
             }
-            if (!StringUtils.isNull(V.N())) {
-                return V.N();
+        }
+    }
+
+    @Override // com.baidu.tieba.e65
+    public void a(final Context context, v55 data) {
+        boolean z;
+        List<RobotSkillInfo> list;
+        List<RobotSkill> list2;
+        StyleConf styleConf;
+        StyleConfExtra styleConfExtra;
+        String str;
+        xn9 H6;
+        aj9 r1;
+        RobotEntrance K;
+        aj9 r12;
+        RobotEntrance K2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!(context instanceof PbActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导失败：当前Activity非PbActivity");
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                return;
             }
-            if (V.getHeight() * V.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (V.getHeight() * V.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (V.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (V.getHeight() * sqrt)));
+            final c cVar = new c(context);
+            boolean z2 = true;
+            if (BotEntranceManager.c.c().f().length() == 0) {
+                z = true;
             } else {
-                double width = V.getWidth() / V.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
+                z = false;
             }
-            sb.append("&src=");
-            sb.append(di.getUrlEncode(V.getSrc()));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(zfa zfaVar, AbsPbActivity.e eVar) {
-        ImageUrlData imageUrlData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, zfaVar, eVar) != null) || zfaVar == null || zfaVar.e0() == null || zfaVar.e0().P() == null || eVar == null || eVar.a == null || eVar.b == null || zfaVar.e0().P().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = zfaVar.e0().P().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, imageUrlData);
+            if (!z && BotEntranceManager.c.c().g() != -1) {
+                PbActivity pbActivity = (PbActivity) context;
+                PbModel J1 = pbActivity.J1();
+                FriendBotView friendBotView = null;
+                if (J1 != null && (r12 = J1.r1()) != null && (K2 = r12.K()) != null) {
+                    list = K2.robot_skill_info;
+                } else {
+                    list = null;
                 }
-            }
-        }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
-    }
-
-    public static zfa c(yh9 yh9Var, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{yh9Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (z) {
-                if (yh9Var != null && yh9Var.F() != null && yh9Var.F().size() > 0) {
-                    zfa zfaVar = yh9Var.F().get(0);
-                    if (zfaVar.I() != 1) {
-                        return d(yh9Var);
+                PbModel J12 = pbActivity.J1();
+                if (J12 != null && (r1 = J12.r1()) != null && (K = r1.K()) != null) {
+                    list2 = K.bottom_bar_robot_skill;
+                } else {
+                    list2 = null;
+                }
+                if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+                    BotEntranceManager c2 = BotEntranceManager.c.c();
+                    Intrinsics.checkNotNull(list);
+                    Intrinsics.checkNotNull(list2);
+                    CallRobotEntrance c3 = c2.c(list, list2);
+                    if (c3 != null && (styleConf = c3.style_conf) != null && (styleConfExtra = styleConf.android_extra) != null && (str = styleConfExtra.guide_content) != null) {
+                        if (str.length() != 0) {
+                            z2 = false;
+                        }
+                        if (z2) {
+                            YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                            return;
+                        }
+                        PbFragment Z1 = pbActivity.Z1();
+                        if (Z1 != null && (H6 = Z1.H6()) != null) {
+                            friendBotView = H6.V0();
+                        }
+                        ji9.e(str, friendBotView, (BaseFragmentActivity) context, new b(context, cVar));
+                        return;
                     }
-                    return zfaVar;
+                    return;
                 }
-                return null;
+                YunDialogManager.unMarkShowingDialogName("pbFriendBotBottomNoUse");
+                return;
             }
-            return d(yh9Var);
-        }
-        return (zfa) invokeCommon.objValue;
-    }
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yh9
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static zfa d(yh9 yh9Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yh9Var)) == null) {
-            if (yh9Var != null && yh9Var.O() != null && yh9Var.O().getAuthor() != null) {
-                zfa zfaVar = new zfa();
-                MetaData author = yh9Var.O().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = yh9Var.O().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        zh9.b(context, cVar);
+                    }
                 }
-                zfaVar.S0(1);
-                zfaVar.Y0(yh9Var.O().getFirstPostId());
-                zfaVar.p1(yh9Var.O().getTitle());
-                zfaVar.o1(yh9Var.O().getCreateTime());
-                zfaVar.N0(author);
-                return zfaVar;
-            }
-            return null;
+            }, 1000L);
         }
-        return (zfa) invokeL.objValue;
     }
 }

@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetCardByCategory.ThemeCardInMain;
+import tbclient.ThemeCardPropMain;
 /* loaded from: classes7.dex */
-public class moa extends ua {
+public class moa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public ArrayList<pna> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public moa() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,29 +25,46 @@ public class moa extends ua {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xa
-    /* renamed from: i */
-    public HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
+    public ArrayList<pna> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return null;
-            }
-            if (koa.d(httpResponsedMessage.getError()) && httpResponsedMessage.getCmd() == 1001601) {
-                koa.e(TbadkCoreApplication.getInst().getCurrentActivity(), httpResponsedMessage.getErrorString());
-            }
-            return httpResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(ThemeCardInMain themeCardInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) != null) || themeCardInMain == null) {
+            return;
+        }
+        this.a = themeCardInMain.card_category;
+        List<ThemeCardPropMain> list = themeCardInMain.props;
+        if (list != null && list.size() > 0) {
+            this.b = new ArrayList<>();
+            for (ThemeCardPropMain themeCardPropMain : list) {
+                if (themeCardPropMain != null) {
+                    pna pnaVar = new pna();
+                    pnaVar.k(themeCardPropMain);
+                    this.b.add(pnaVar);
+                }
+            }
+        }
     }
 }

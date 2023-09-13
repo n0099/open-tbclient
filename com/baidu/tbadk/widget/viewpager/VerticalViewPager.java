@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n26;
+import com.baidu.tieba.k36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class VerticalViewPager extends ViewGroup {
     public ViewPager.OnPageChangeListener S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f1088T;
+    public ViewPager.OnPageChangeListener f1086T;
     public f U;
     public ViewPager.PageTransformer V;
     public Method W;
@@ -97,7 +97,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public n26 g0;
+    public k36 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -143,7 +143,7 @@ public class VerticalViewPager extends ViewGroup {
         public int position;
 
         /* loaded from: classes5.dex */
-        public static class a implements ParcelableCompatCreatorCallbacks<SavedState> {
+        public class a implements ParcelableCompatCreatorCallbacks<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -324,7 +324,7 @@ public class VerticalViewPager extends ViewGroup {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements Comparator<d> {
+    public class a implements Comparator<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -356,7 +356,7 @@ public class VerticalViewPager extends ViewGroup {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements Interpolator {
+    public class b implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -962,11 +962,11 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(n26.b bVar) {
-        n26 n26Var;
+    public void setEventListener(k36.b bVar) {
+        k36 k36Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (n26Var = this.g0) != null) {
-            n26Var.f(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (k36Var = this.g0) != null) {
+            k36Var.f(bVar);
         }
     }
 
@@ -1775,7 +1775,7 @@ public class VerticalViewPager extends ViewGroup {
                     if (z3 && (onPageChangeListener2 = this.S) != null) {
                         onPageChangeListener2.onPageSelected(i);
                     }
-                    if (z3 && (onPageChangeListener = this.f1088T) != null) {
+                    if (z3 && (onPageChangeListener = this.f1086T) != null) {
                         onPageChangeListener.onPageSelected(i);
                     }
                     requestLayout();
@@ -1808,7 +1808,7 @@ public class VerticalViewPager extends ViewGroup {
                 if (z2 && (onPageChangeListener4 = this.S) != null) {
                     onPageChangeListener4.onPageSelected(i);
                 }
-                if (z2 && (onPageChangeListener3 = this.f1088T) != null) {
+                if (z2 && (onPageChangeListener3 = this.f1086T) != null) {
                     onPageChangeListener3.onPageSelected(i);
                     return;
                 }
@@ -1817,7 +1817,7 @@ public class VerticalViewPager extends ViewGroup {
             if (z2 && (onPageChangeListener2 = this.S) != null) {
                 onPageChangeListener2.onPageSelected(i);
             }
-            if (z2 && (onPageChangeListener = this.f1088T) != null) {
+            if (z2 && (onPageChangeListener = this.f1086T) != null) {
                 onPageChangeListener.onPageSelected(i);
             }
             i(false);
@@ -2572,12 +2572,10 @@ public class VerticalViewPager extends ViewGroup {
                                 this.x = true;
                                 H(true);
                                 setScrollState(1);
-                                float f5 = this.F;
-                                float f6 = this.B;
                                 if (i2 > 0) {
-                                    f3 = f5 + f6;
+                                    f3 = this.F + this.B;
                                 } else {
-                                    f3 = f5 - f6;
+                                    f3 = this.F - this.B;
                                 }
                                 this.D = f3;
                                 this.C = x;
@@ -3058,7 +3056,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new n26(this);
+            this.g0 = new k36(this);
         }
     }
 
@@ -3116,7 +3114,7 @@ public class VerticalViewPager extends ViewGroup {
             if (onPageChangeListener != null) {
                 onPageChangeListener.onPageScrolled(i, f2, i2);
             }
-            ViewPager.OnPageChangeListener onPageChangeListener2 = this.f1088T;
+            ViewPager.OnPageChangeListener onPageChangeListener2 = this.f1086T;
             if (onPageChangeListener2 != null) {
                 onPageChangeListener2.onPageScrolled(i, f2, i2);
             }

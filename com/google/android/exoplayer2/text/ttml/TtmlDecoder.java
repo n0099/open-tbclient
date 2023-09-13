@@ -153,7 +153,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
         throw new SubtitleDecoderException("Invalid expression for fontSize: '" + str + "'.");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00bd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00bc, code lost:
         if (r14.equals("s") != false) goto L34;
      */
     /*

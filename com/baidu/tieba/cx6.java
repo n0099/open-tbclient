@@ -1,125 +1,119 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.database.FrsVisitedInfoManager;
-import com.baidu.tieba.zy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cx6 extends xk1<xy7> {
+public class cx6 implements yw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final yw6 a;
+    public final Map<Integer, yw6> b;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements xy7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xy7
-        public zy7 a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                List<String> k = FrsVisitedInfoManager.d.a().k(i);
-                if (k == null) {
-                    return null;
-                }
-                return b(k, FrsVisitedInfoManager.d.a().j(k));
-            }
-            return (zy7) invokeI.objValue;
-        }
-
-        public final zy7 b(List<String> list, Map<String, Map<String, xba>> map) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map)) == null) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (String str : list) {
-                    linkedHashMap.put(str, c(map.get(str)));
-                }
-                return new zy7(linkedHashMap);
-            }
-            return (zy7) invokeLL.objValue;
-        }
-
-        public final zy7.a c(Map<String, xba> map) {
-            InterceptResult invokeL;
-            xba xbaVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-                StringBuilder sb = new StringBuilder();
-                long j = 0;
-                for (int i = 0; i < 15; i++) {
-                    String format = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-i));
-                    if (map != null) {
-                        xbaVar = map.get(format);
-                    } else {
-                        xbaVar = null;
-                    }
-                    if (xbaVar != null) {
-                        sb.append(xbaVar.c());
-                        if (xbaVar.d() > j) {
-                            j = xbaVar.d();
-                        }
-                    } else {
-                        sb.append(0);
-                    }
-                    sb.append(",");
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                String sb2 = sb.toString();
-                Intrinsics.checkNotNullExpressionValue(sb2, "frsCustomCounts.toString()");
-                return new zy7.a(sb2, j / 1000);
-            }
-            return (zy7.a) invokeL.objValue;
-        }
-    }
-
-    public cx6() {
+    public cx6(yw6 defaultLayouter, Pair<Integer, ? extends yw6>... layouter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultLayouter, layouter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(defaultLayouter, "defaultLayouter");
+        Intrinsics.checkNotNullParameter(layouter, "layouter");
+        this.a = defaultLayouter;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(layouter, layouter.length));
+    }
+
+    @Override // com.baidu.tieba.yw6
+    public void a(kv6 item, long j, kx6 displayer, ev6 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            f(item).a(item, j, displayer, config);
+        }
+    }
+
+    @Override // com.baidu.tieba.yw6
+    public boolean d(kv6 item, long j, kx6 displayer, ev6 config) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            return f(item).d(item, j, displayer, config);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yw6
+    public void b(kv6 item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            f(item).b(item);
+        }
+    }
+
+    public int e(kv6 item) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().j();
+        }
+        return invokeL.intValue;
+    }
+
+    public final yw6 f(kv6 kv6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, kv6Var)) == null) {
+            yw6 yw6Var = this.b.get(Integer.valueOf(e(kv6Var)));
+            if (yw6Var == null) {
+                return this.a;
+            }
+            return yw6Var;
+        }
+        return (yw6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yw6
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c(i, i2);
+            for (yw6 yw6Var : this.b.values()) {
+                yw6Var.c(i, i2);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
-    /* renamed from: a */
-    public xy7 createService() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yw6
+    public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.clear();
+            for (yw6 yw6Var : this.b.values()) {
+                yw6Var.clear();
+            }
         }
-        return (xy7) invokeV.objValue;
     }
 }

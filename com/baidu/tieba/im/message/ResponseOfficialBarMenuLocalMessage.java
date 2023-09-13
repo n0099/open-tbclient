@@ -2,8 +2,8 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.be8;
-import com.baidu.tieba.ce8;
+import com.baidu.tieba.df8;
+import com.baidu.tieba.ef8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.ForumMenu.SubMenu;
 public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce8 officialBarMenuDatas;
+    public ef8 officialBarMenuDatas;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseOfficialBarMenuLocalMessage() {
@@ -39,13 +39,13 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
         }
     }
 
-    public ce8 getOfficialBarMenuDatas() {
+    public ef8 getOfficialBarMenuDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.officialBarMenuDatas;
         }
-        return (ce8) invokeV.objValue;
+        return (ef8) invokeV.objValue;
     }
 
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
@@ -59,42 +59,42 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
         if (getError() != 0) {
             return;
         }
-        setOfficialBarMenuDatas(new ce8());
+        setOfficialBarMenuDatas(new ef8());
         if (forumMenuResIdl.data != null) {
             getOfficialBarMenuDatas().f(forumMenuResIdl.data.update_time.intValue());
             getOfficialBarMenuDatas().d(forumMenuResIdl.data.has_menu.intValue());
             getOfficialBarMenuDatas().e(new ArrayList());
             int size = forumMenuResIdl.data.parent_menu.size();
             for (int i2 = 0; i2 < size; i2++) {
-                be8 be8Var = new be8();
+                df8 df8Var = new df8();
                 Menu menu = forumMenuResIdl.data.parent_menu.get(i2);
-                be8Var.f(menu.action_type.intValue());
-                be8Var.g(menu.content);
-                be8Var.h(menu.id + "");
-                be8Var.i(menu.name);
-                be8Var.j(new ArrayList());
+                df8Var.f(menu.action_type.intValue());
+                df8Var.g(menu.content);
+                df8Var.h(menu.id + "");
+                df8Var.i(menu.name);
+                df8Var.j(new ArrayList());
                 List<SubMenu> list = menu.sub_menu;
                 if (list != null) {
                     int size2 = list.size();
                     for (int i3 = 0; i3 < size2; i3++) {
                         SubMenu subMenu = menu.sub_menu.get(i3);
-                        be8 be8Var2 = new be8();
-                        be8Var2.f(subMenu.action_type.intValue());
-                        be8Var2.g(subMenu.content);
-                        be8Var2.h(subMenu.id + "");
-                        be8Var2.i(subMenu.name);
-                        be8Var.e().add(be8Var2);
+                        df8 df8Var2 = new df8();
+                        df8Var2.f(subMenu.action_type.intValue());
+                        df8Var2.g(subMenu.content);
+                        df8Var2.h(subMenu.id + "");
+                        df8Var2.i(subMenu.name);
+                        df8Var.e().add(df8Var2);
                     }
                 }
-                getOfficialBarMenuDatas().a().add(be8Var);
+                getOfficialBarMenuDatas().a().add(df8Var);
             }
         }
     }
 
-    public void setOfficialBarMenuDatas(ce8 ce8Var) {
+    public void setOfficialBarMenuDatas(ef8 ef8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ce8Var) == null) {
-            this.officialBarMenuDatas = ce8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ef8Var) == null) {
+            this.officialBarMenuDatas = ef8Var;
         }
     }
 }

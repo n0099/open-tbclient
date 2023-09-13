@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b15;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
-import com.baidu.tieba.u35;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.w05;
+import com.baidu.tieba.z35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -223,14 +223,14 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         ScalingUtils.ScaleType FIT_XY = ScalingUtils.ScaleType.FIT_XY;
         Intrinsics.checkNotNullExpressionValue(FIT_XY, "FIT_XY");
         tbImage.setScaleType(FIT_XY);
-        c();
+        b();
     }
 
     public /* synthetic */ CustomFitFrameCard(Context context, AttributeSet attributeSet, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public final void h(int i) {
+    public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.c.setVisibility(i);
@@ -238,7 +238,7 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void c() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.pic_use_header_40_n);
@@ -251,25 +251,25 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void k(w05 w05Var) {
+    public final void h(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b15Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, w05Var.getThreadData().getTaskInfoData().a());
+            constraintSet.setDimensionRatio(R.id.background_card, b15Var.getThreadData().getTaskInfoData().a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = w05Var.getThreadData().getTaskInfoData().m();
+            String m = b15Var.getThreadData().getTaskInfoData().m();
             Intrinsics.checkNotNullExpressionValue(m, "data.threadData.taskInfoData.threadImgUrl");
-            tbImage.k(m);
+            tbImage.l(m);
         }
     }
 
-    public final void l(u35 u35Var) {
+    public final void i(z35 z35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, u35Var) == null) {
-            this.a.g.setText(u35Var.c());
-            long j = JavaTypesHelper.toLong(u35Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048579, this, z35Var) == null) {
+            this.a.g.setText(z35Var.c());
+            long j = JavaTypesHelper.toLong(z35Var.d(), 0L) * 1000;
             if (j <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -279,31 +279,31 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void m(u35 u35Var) {
+    public final void j(z35 z35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, u35Var) == null) {
-            if (ListUtils.isEmpty(u35Var.e())) {
-                h(8);
+        if (interceptable == null || interceptable.invokeL(1048580, this, z35Var) == null) {
+            if (ListUtils.isEmpty(z35Var.e())) {
+                f(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(u35Var.e());
-            h(0);
+            this.e.addAll(z35Var.e());
+            f(0);
             this.a.c.q();
-            if (!TextUtils.isEmpty(u35Var.m())) {
-                this.a.e.setText(u35Var.m());
+            if (!TextUtils.isEmpty(z35Var.m())) {
+                this.a.e.setText(z35Var.m());
             }
         }
     }
 
-    public final void setData(w05 w05Var) {
+    public final void setData(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, w05Var) == null) && w05Var != null && w05Var.getThreadData() != null && w05Var.getThreadData().getTaskInfoData() != null && w05Var.getThreadData().getTaskInfoData().f() != null) {
-            u35 rewardCardData = w05Var.getThreadData().getTaskInfoData().f();
-            k(w05Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, b15Var) == null) && b15Var != null && b15Var.getThreadData() != null && b15Var.getThreadData().getTaskInfoData() != null && b15Var.getThreadData().getTaskInfoData().f() != null) {
+            z35 rewardCardData = b15Var.getThreadData().getTaskInfoData().f();
+            h(b15Var);
             Intrinsics.checkNotNullExpressionValue(rewardCardData, "rewardCardData");
-            m(rewardCardData);
-            l(rewardCardData);
+            j(rewardCardData);
+            i(rewardCardData);
         }
     }
 }

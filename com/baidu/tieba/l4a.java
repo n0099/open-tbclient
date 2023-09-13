@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.ob7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class l4a implements ob7 {
+public class l4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
     public l4a() {
         Interceptable interceptable = $ic;
@@ -29,84 +33,38 @@ public final class l4a implements ob7 {
         }
     }
 
-    @Override // com.baidu.tieba.nb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ob7.a.b(this);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nb7
-    public Map<String, String> a(a77 a77Var) {
+    public static l4a a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a77Var)) == null) {
-            return ob7.a.a(this, a77Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
-        if (r5.equals("video_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
-        if (r5.equals("live_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
-        if (r5.equals("live_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
-        if (r5.equals("common_forum") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
-        return "forum_reco_post_click_for_forum_head";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
-        if (r5.equals("video_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
-        if (r5.equals("common_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
-        return "forum_reco_post_click_for_user_head";
-     */
-    @Override // com.baidu.tieba.ob7
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(a77 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            String str = businessInfo.a().get("card_head_type");
-            if (str == null) {
-                str = "common_user";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            switch (str.hashCode()) {
-                case -1924729441:
-                    break;
-                case -1617812209:
-                    break;
-                case 448970189:
-                    break;
-                case 1009035070:
-                    break;
-                case 1201356814:
-                    break;
-                case 1373469789:
-                    break;
-                default:
-                    if (!GlobalBuildConfig.isDebug()) {
-                        return "";
+            l4a l4aVar = new l4a();
+            if (jSONObject.optInt("label_measure") == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            l4aVar.a = z;
+            l4aVar.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        i39.a(arrayList, optJSONObject.optString("pic"));
                     }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
+                }
             }
-        } else {
-            return (String) invokeL.objValue;
+            l4aVar.c = arrayList;
+            l4aVar.d = jSONObject.optInt("width");
+            l4aVar.e = jSONObject.optInt("height");
+            return l4aVar;
         }
+        return (l4a) invokeL.objValue;
     }
 }

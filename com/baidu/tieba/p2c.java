@@ -1,119 +1,219 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediafilter.MediaCodecFilter;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-@TargetApi(16)
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class p2c extends MediaCodecFilter {
+public final class p2c {
     public static /* synthetic */ Interceptable $ic;
+    public static Logger a;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public p2c(int i) {
+    @JvmStatic
+    public static final void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            b.b(str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            b.d(str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            b.g(str, str2);
+        }
+    }
+
+    @JvmStatic
+    public static final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            b.j(str, str2);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                g("sub_process_view", "init succeed");
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                b("sub_process_view", str);
+            }
+        }
+
+        @JvmStatic
+        public final void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                d("sub_process_view", str);
+            }
+        }
+
+        public final void e(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                Logger logger = p2c.a;
+                if (logger != null) {
+                    logger.flush(z);
+                }
+                g("sub_process_view", "flushYalog!");
+            }
+        }
+
+        @JvmStatic
+        public final void f(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                g("sub_process_view", str);
+            }
+        }
+
+        public final void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) {
+                return;
+            }
+            p2c.a = LoggerManager.getLogger(str);
+        }
+
+        @JvmStatic
+        public final void b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+                if (p2c.a != null) {
+                    Logger logger = p2c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.d("3925", str, q2c.a(str2));
+                    return;
+                }
+                Log.d(str, q2c.a(str2));
+            }
+        }
+
+        @JvmStatic
+        public final void d(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+                if (p2c.a != null) {
+                    Logger logger = p2c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.e("3925", str, q2c.a(str2));
+                    return;
+                }
+                Log.e(str, q2c.a(str2));
+            }
+        }
+
+        @JvmStatic
+        public final void g(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+                if (p2c.a != null) {
+                    Logger logger = p2c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.i("3925", str, q2c.a(str2));
+                    return;
+                }
+                Log.i(str, q2c.a(str2));
+            }
+        }
+
+        @JvmStatic
+        public final void j(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+                if (p2c.a != null) {
+                    Logger logger = p2c.a;
+                    if (logger == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    logger.w("3925", str, q2c.a(str2));
+                    return;
+                }
+                Log.w(str, q2c.a(str2));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011592, "Lcom/baidu/tieba/p2c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011592, "Lcom/baidu/tieba/p2c;");
                 return;
             }
         }
-        this.b = i;
-    }
-
-    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter
-    public int N(long j) {
-        InterceptResult invokeJ;
-        MediaInfo mediaInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            int dequeueOutputBuffer = this.B.dequeueOutputBuffer(this.C, j);
-            if (dequeueOutputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.E[dequeueOutputBuffer];
-                int remaining = byteBuffer.remaining();
-                MediaCodec.BufferInfo bufferInfo = this.C;
-                if (remaining != bufferInfo.size) {
-                    Buffer position = byteBuffer.position(bufferInfo.offset);
-                    MediaCodec.BufferInfo bufferInfo2 = this.C;
-                    position.limit(bufferInfo2.offset + bufferInfo2.size);
-                }
-                MediaSample c = this.r.c();
-                if (c != null && (mediaInfo = c.i) != null) {
-                    mediaInfo.c(this.q);
-                    c.i.k = byteBuffer;
-                    this.u++;
-                    f2c.c(c, 6);
-                    synchronized (this.k) {
-                        if (this.d != null) {
-                            this.d.f(c);
-                        }
-                    }
-                    this.B.releaseOutputBuffer(dequeueOutputBuffer, false);
-                } else {
-                    return -1;
-                }
-            } else if (dequeueOutputBuffer == -3) {
-                this.E = this.B.getOutputBuffers();
-                TLog.g(this, "output buffers have been changed.");
-            } else if (dequeueOutputBuffer == -2) {
-                MediaFormat outputFormat = this.B.getOutputFormat();
-                TLog.g(this, "output format has been changed from " + this.p + " to " + outputFormat);
-                this.p = outputFormat;
-                MediaInfo mediaInfo2 = this.q;
-                mediaInfo2.a = 1;
-                mediaInfo2.j = outputFormat.getInteger("sample-rate");
-                this.q.h = this.p.getInteger("channel-count");
-                MediaInfo mediaInfo3 = this.q;
-                mediaInfo3.f = (mediaInfo3.h << 1) * 2048;
-                synchronized (this.k) {
-                    if (this.d != null) {
-                        this.d.d("setFormat", outputFormat, this.a, false);
-                    }
-                }
-            }
-            if (dequeueOutputBuffer < 0) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeJ.intValue;
-    }
-
-    @Override // com.baidu.tieba.s2c
-    public void z(MediaFormat mediaFormat, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaFormat, i) == null) {
-            this.w = false;
-            this.r.e(true);
-            this.p = mediaFormat;
-            if (mediaFormat != null) {
-                MediaCodec mediaCodec = this.B;
-                if (mediaCodec != null) {
-                    mediaCodec.stop();
-                    this.B.release();
-                    this.B = null;
-                }
-                this.a = i;
-                this.B = J(null, mediaFormat);
-            }
+        b = new a(null);
+        try {
+            Log.i("sub_process_view", "KlogUtil init yalog");
+            b.i("yylivesdk");
+        } catch (Throwable th) {
+            a aVar = b;
+            th.printStackTrace();
+            aVar.d("sub_process_view", Unit.INSTANCE.toString());
         }
     }
 }

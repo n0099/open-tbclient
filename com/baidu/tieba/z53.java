@@ -1,23 +1,11 @@
 package com.baidu.tieba;
-
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
 /* loaded from: classes9.dex */
 public interface z53 {
-    @UiThread
-    void a(String str);
+    long a();
 
-    @UiThread
-    void b();
+    void b(long j);
 
-    void c(@NonNull Runnable runnable, @NonNull String str);
+    void c(long j);
 
-    @UiThread
-    void d(boolean z);
-
-    @AnyThread
-    void e(String str);
-
-    String getName();
+    String getType();
 }

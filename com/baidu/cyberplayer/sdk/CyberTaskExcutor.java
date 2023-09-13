@@ -8,49 +8,56 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public final class CyberTaskExcutor {
-    public final int a;
-    public final int b;
-    public final int c;
-    public ExecutorService d;
-    public ExecutorService e;
-    public ExecutorService f;
+    public static final String TAG = "CyberTaskExcutor";
+    public final int IDLE_KEEP_ALIVE_TIME;
+    public final int MAX_CORE_THREAD_NUM;
+    public final int MAX_THREAD_NUM;
+    public ExecutorService mExecutor;
+    public ExecutorService mSingleHighThreadExecutor;
+    public ExecutorService mSingleThreadExecutor;
 
     /* loaded from: classes3.dex */
-    public static class a implements ThreadFactory {
-        public final AtomicInteger a = new AtomicInteger(1);
-        public final String b;
-        public int c;
+    public static class CyberThreadFactory implements ThreadFactory {
+        public final String mNamePrefix;
+        public int mPriority;
+        public final AtomicInteger mThreadNumber = new AtomicInteger(1);
 
-        public a(String str, int i) {
-            this.c = 5;
-            this.b = str + "-";
-            this.c = i;
+        public CyberThreadFactory(String str) {
+            this.mPriority = 5;
+            this.mNamePrefix = str + "-";
+            this.mPriority = 5;
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            Thread thread = new Thread(runnable, this.mNamePrefix + this.mThreadNumber.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(true);
             }
-            thread.setPriority(this.c);
+            thread.setPriority(this.mPriority);
             return thread;
+        }
+
+        public CyberThreadFactory(String str, int i) {
+            this.mPriority = 5;
+            this.mNamePrefix = str + "-";
+            this.mPriority = i;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b {
-        public static final CyberTaskExcutor a = new CyberTaskExcutor();
+    public static class SingletonHolder {
+        public static final CyberTaskExcutor INSTANCE = new CyberTaskExcutor();
     }
 
     public CyberTaskExcutor() {
-        this.a = 2;
-        this.b = 7;
-        this.c = 120;
-        this.d = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new a("cyber-thread", 5));
-        this.e = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
-        this.f = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single-high", 5));
-        ExecutorService executorService = this.d;
+        this.MAX_CORE_THREAD_NUM = 2;
+        this.MAX_THREAD_NUM = 7;
+        this.IDLE_KEEP_ALIVE_TIME = 120;
+        this.mExecutor = new ThreadPoolExecutor(2, 7, 120L, TimeUnit.SECONDS, new LinkedBlockingQueue(20), new CyberThreadFactory("cyber-thread", 5));
+        this.mSingleThreadExecutor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new CyberThreadFactory("cyber-thread-Single", 5));
+        this.mSingleHighThreadExecutor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new CyberThreadFactory("cyber-thread-Single-high", 5));
+        ExecutorService executorService = this.mExecutor;
         if (executorService != null && (executorService instanceof ThreadPoolExecutor)) {
             ((ThreadPoolExecutor) executorService).allowCoreThreadTimeOut(true);
         }
@@ -58,21 +65,21 @@ public final class CyberTaskExcutor {
 
     @Keep
     public void execute(Runnable runnable) {
-        this.d.execute(runnable);
+        this.mExecutor.execute(runnable);
     }
 
     @Keep
     public void executeSingleHighThread(Runnable runnable) {
-        this.f.execute(runnable);
+        this.mSingleHighThreadExecutor.execute(runnable);
     }
 
     @Keep
     public void executeSingleThread(Runnable runnable) {
-        this.e.execute(runnable);
+        this.mSingleThreadExecutor.execute(runnable);
     }
 
     @Keep
     public static CyberTaskExcutor getInstance() {
-        return b.a;
+        return SingletonHolder.INSTANCE;
     }
 }

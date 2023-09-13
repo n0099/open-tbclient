@@ -1,67 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes6.dex */
-public class gxb {
+public abstract class gxb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final IMessageEntity b;
+    public final qwb c;
+    public RequestHeader d;
+    public oxb<TResult> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947810712, "Lcom/baidu/tieba/gxb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public abstract void a(ApiException apiException, Object obj);
+
+    public gxb(String str, IMessageEntity iMessageEntity) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947810712, "Lcom/baidu/tieba/gxb;");
-        }
-    }
-
-    public static String a(String str, String str2, Context context) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, context)) == null) {
-            return b(context).getString(str, str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static void c(String str, String str2, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) {
-            b(context).edit().putString(str, str2).apply();
-        }
-    }
-
-    public static synchronized SharedPreferences b(Context context) {
-        InterceptResult invokeL;
-        SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (gxb.class) {
-                if (a == null) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        a = context.createDeviceProtectedStorageContext().getSharedPreferences("aegis", 0);
-                    } else {
-                        a = context.getApplicationContext().getSharedPreferences("aegis", 0);
-                    }
-                }
-                sharedPreferences = a;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iMessageEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return sharedPreferences;
         }
-        return (SharedPreferences) invokeL.objValue;
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = qwb.b(str);
+    }
+
+    public final void b(ApiException apiException, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
+            }
+            String str = "This Task has been canceled, uri:" + this.a;
+        }
     }
 }

@@ -4,20 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
+import org.xml.sax.Attributes;
 /* loaded from: classes5.dex */
-public class fl6 {
+public abstract class fl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<hl6> a;
-    public Set<String> b;
-    public String c;
-    public String d;
-    public String e;
-    public Set<String> f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+
+    public abstract void a(boolean z, String str);
+
+    public abstract void b(boolean z, String str, Attributes attributes);
 
     public fl6() {
         Interceptable interceptable = $ic;

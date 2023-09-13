@@ -8,16 +8,16 @@ public class fw implements Cloneable {
     public static String c = null;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f422a;
+    public int f421a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fz f423a;
+    public fz f422a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f424a = fv.f407a;
+    public boolean f423a = fv.f406a;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f425b = true;
+    public boolean f424b = true;
     public String d;
     public String e;
     public String f;
@@ -28,38 +28,38 @@ public class fw implements Cloneable {
 
     public static final String a() {
         String str = c;
-        return str != null ? str : ab.m255a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return str != null ? str : ab.m256a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
-        if (j.m711a(s.m722a()) && ab.b()) {
+        if (j.m712a(s.m723a()) && ab.b()) {
             return;
         }
         c = str;
     }
 
     private void a(Map<String, Integer> map, int i, String str, fz fzVar) {
-        this.f422a = i;
+        this.f421a = i;
         this.d = str;
-        this.f423a = fzVar;
+        this.f422a = fzVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m510a() {
-        return this.f422a;
+    public int m511a() {
+        return this.f421a;
     }
 
     public void a(boolean z) {
-        this.f424a = z;
+        this.f423a = z;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m511a() {
-        return this.f424a;
+    public boolean m512a() {
+        return this.f423a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] mo512a() {
+    public byte[] mo513a() {
         return null;
     }
 

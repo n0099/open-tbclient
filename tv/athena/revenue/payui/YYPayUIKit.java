@@ -4,24 +4,24 @@ import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.afc;
-import com.baidu.tieba.cgc;
-import com.baidu.tieba.dec;
-import com.baidu.tieba.fec;
-import com.baidu.tieba.ffc;
+import com.baidu.tieba.dic;
+import com.baidu.tieba.fjc;
 import com.baidu.tieba.ghc;
-import com.baidu.tieba.hdc;
-import com.baidu.tieba.hec;
-import com.baidu.tieba.iec;
-import com.baidu.tieba.jec;
-import com.baidu.tieba.kfc;
-import com.baidu.tieba.lfc;
-import com.baidu.tieba.mgc;
-import com.baidu.tieba.ofc;
-import com.baidu.tieba.rfc;
-import com.baidu.tieba.sdc;
-import com.baidu.tieba.tdc;
-import com.baidu.tieba.wdc;
+import com.baidu.tieba.ihc;
+import com.baidu.tieba.iic;
+import com.baidu.tieba.jkc;
+import com.baidu.tieba.kgc;
+import com.baidu.tieba.khc;
+import com.baidu.tieba.lhc;
+import com.baidu.tieba.mhc;
+import com.baidu.tieba.nic;
+import com.baidu.tieba.oic;
+import com.baidu.tieba.pjc;
+import com.baidu.tieba.ric;
+import com.baidu.tieba.uic;
+import com.baidu.tieba.vgc;
+import com.baidu.tieba.wgc;
+import com.baidu.tieba.zgc;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -57,29 +57,29 @@ import tv.athena.revenue.payui.view.IYYPayAmountView;
 import tv.athena.revenue.payui.view.WindowParams;
 @Keep
 /* loaded from: classes2.dex */
-public class YYPayUIKit implements wdc {
+public class YYPayUIKit implements zgc {
     public static final String TAG = "YYPayUiKit";
     public static Map<String, YYPayUIKit> mPayUIKitMap = new HashMap();
-    public static tdc mTestFunListenerr;
+    public static wgc mTestFunListenerr;
     public Context mAppContext;
     public int mAppId;
     public AppPayServiceListener mAppPayServiceListener;
-    public sdc mControllerPayResultListener;
-    public kfc mPayFlowLifecycleManager;
-    public ffc mPayFrequencyManager;
+    public vgc mControllerPayResultListener;
+    public nic mPayFlowLifecycleManager;
+    public iic mPayFrequencyManager;
     public PayUIKitConfig mPayUIKitConfig;
     public IThirdPartPayApi mThirdPartPayApi;
     public int mUserChannel;
-    public fec mYYPayController;
+    public ihc mYYPayController;
     public IFeedbackServiceProxy mFeedbackServiceProxy = null;
     public List<IYYPayListener> mYYPayListener = new ArrayList();
 
     /* loaded from: classes2.dex */
-    public class a implements sdc {
+    public class a implements vgc {
         public a() {
         }
 
-        @Override // com.baidu.tieba.sdc
+        @Override // com.baidu.tieba.vgc
         public void a(int i, String str, PayCallBackBean payCallBackBean) {
             YYPayUIKit.this.innerNotifyYYPayFailListener(i, str, payCallBackBean);
         }
@@ -98,13 +98,13 @@ public class YYPayUIKit implements wdc {
     }
 
     static {
-        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new afc());
-        iec.a(new jec());
+        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new dic());
+        lhc.a(new mhc());
     }
 
-    private fec getOrCreatePayController() {
+    private ihc getOrCreatePayController() {
         if (this.mYYPayController == null) {
-            this.mYYPayController = new lfc(this.mAppContext, this.mAppId, this.mUserChannel, this.mControllerPayResultListener, this.mPayUIKitConfig);
+            this.mYYPayController = new oic(this.mAppContext, this.mAppId, this.mUserChannel, this.mControllerPayResultListener, this.mPayUIKitConfig);
         }
         return this.mYYPayController;
     }
@@ -115,7 +115,7 @@ public class YYPayUIKit implements wdc {
     }
 
     private void registerPayServiceListener() {
-        IAppPayService b2 = cgc.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = fjc.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "registerPayServiceListener error null appPayService", new Object[0]);
             return;
@@ -127,7 +127,7 @@ public class YYPayUIKit implements wdc {
 
     private void unregisterPayServiceListener() {
         if (this.mAppPayServiceListener != null) {
-            IAppPayService b2 = cgc.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = fjc.b(this.mAppId, this.mUserChannel);
             if (b2 != null) {
                 b2.removePayListener(this.mAppPayServiceListener);
             }
@@ -135,9 +135,9 @@ public class YYPayUIKit implements wdc {
         }
     }
 
-    @Override // com.baidu.tieba.wdc
+    @Override // com.baidu.tieba.zgc
     public void cancelAllRequest() {
-        IAppPayService b2 = cgc.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = fjc.b(this.mAppId, this.mUserChannel);
         if (b2 != null) {
             RLog.info(TAG, "cancelAllRequest");
             b2.cancelAllRequest();
@@ -146,8 +146,8 @@ public class YYPayUIKit implements wdc {
         RLog.error(TAG, "onPayFlowFinish error appPayService null ", new Object[0]);
     }
 
-    @Override // com.baidu.tieba.wdc
-    public fec getCurPayController() {
+    @Override // com.baidu.tieba.zgc
+    public ihc getCurPayController() {
         return this.mYYPayController;
     }
 
@@ -158,7 +158,7 @@ public class YYPayUIKit implements wdc {
 
     public IThirdPartPayApi getOrCreateThirdPartPayApi() {
         if (this.mThirdPartPayApi == null) {
-            this.mThirdPartPayApi = (IThirdPartPayApi) hdc.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig, this);
+            this.mThirdPartPayApi = (IThirdPartPayApi) kgc.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig, this);
         }
         return this.mThirdPartPayApi;
     }
@@ -167,7 +167,7 @@ public class YYPayUIKit implements wdc {
         return this.mPayUIKitConfig;
     }
 
-    public hec getViewLifecycle() {
+    public khc getViewLifecycle() {
         return this.mPayFlowLifecycleManager.e();
     }
 
@@ -185,11 +185,11 @@ public class YYPayUIKit implements wdc {
     public YYPayUIKit(String str) {
         RLog.info(TAG, "create YYPayUiKit mapKey:" + str);
         preparePayResultListener();
-        this.mPayFlowLifecycleManager = new kfc(this);
-        this.mPayFrequencyManager = new ffc();
+        this.mPayFlowLifecycleManager = new nic(this);
+        this.mPayFrequencyManager = new iic();
     }
 
-    @Override // com.baidu.tieba.wdc
+    @Override // com.baidu.tieba.zgc
     public synchronized void releasePayController(boolean z) {
         RLog.info(TAG, "releasePayController mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel + " mYYPayController:" + this.mYYPayController + " innerRelease:" + z);
         if (this.mYYPayController != null) {
@@ -213,7 +213,7 @@ public class YYPayUIKit implements wdc {
     }
 
     public boolean isSupported(@NonNull Activity activity, @NonNull PayType payType) {
-        IAppPayService b2 = cgc.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = fjc.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "isSupported error payService null", new Object[0]);
             return false;
@@ -221,28 +221,28 @@ public class YYPayUIKit implements wdc {
         return b2.isSupported(activity, payType);
     }
 
-    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, dec decVar) {
+    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, ghc ghcVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, decVar);
+            orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, ghcVar);
         } else {
             RLog.error(TAG, "startThirdPartDialogPay error payApi null", new Object[0]);
         }
     }
 
-    public void startThirdPartDialogPayV2(ThirdPartPayDialogParams thirdPartPayDialogParams, dec decVar) {
+    public void startThirdPartDialogPayV2(ThirdPartPayDialogParams thirdPartPayDialogParams, ghc ghcVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPayDialogV2(thirdPartPayDialogParams, decVar);
+            orCreateThirdPartPayApi.startPayDialogV2(thirdPartPayDialogParams, ghcVar);
         } else {
             RLog.error(TAG, "startThirdPartDialogPayV2 error payApi null", new Object[0]);
         }
     }
 
-    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, dec decVar) {
+    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, ghc ghcVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPlay(thirdPartPayParams, decVar);
+            orCreateThirdPartPayApi.startPlay(thirdPartPayParams, ghcVar);
         } else {
             RLog.error(TAG, "startThirdPartPay error payApi null", new Object[0]);
         }
@@ -253,9 +253,9 @@ public class YYPayUIKit implements wdc {
         getOrCreatePayController().i(activity, viewParams);
     }
 
-    public void innerPayWayDialogForWeb(Activity activity, ofc ofcVar, ghc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public void innerPayWayDialogForWeb(Activity activity, ric ricVar, jkc.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         RLog.info(TAG, "innerPayWayDialogForWeb");
-        getOrCreatePayController().h(activity, bVar, ofcVar, iPayCallback);
+        getOrCreatePayController().h(activity, bVar, ricVar, iPayCallback);
     }
 
     public static synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
@@ -280,8 +280,8 @@ public class YYPayUIKit implements wdc {
         PaySignMethodProxyFactory.instance().addPayServiceProxyMap(PayType.ALI_PAY_SIGN, iPaySignServiceProxy);
     }
 
-    public static void setTestFunListener(tdc tdcVar) {
-        mTestFunListenerr = tdcVar;
+    public static void setTestFunListener(wgc wgcVar) {
+        mTestFunListenerr = wgcVar;
     }
 
     public static void setWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
@@ -299,17 +299,17 @@ public class YYPayUIKit implements wdc {
     }
 
     public PayFlowModel getPayFlowModel(PayFlowType payFlowType) {
-        fec fecVar = this.mYYPayController;
-        if (fecVar != null) {
-            return fecVar.j(payFlowType);
+        ihc ihcVar = this.mYYPayController;
+        if (ihcVar != null) {
+            return ihcVar.j(payFlowType);
         }
         return null;
     }
 
     public void refreshWindowParams(WindowParams windowParams) {
-        fec fecVar = this.mYYPayController;
-        if (fecVar != null) {
-            fecVar.refreshWindow(windowParams);
+        ihc ihcVar = this.mYYPayController;
+        if (ihcVar != null) {
+            ihcVar.refreshWindow(windowParams);
         }
         RLog.info(TAG, "refreshWindowParams params:" + windowParams + " mYYPayController:" + this.mYYPayController);
     }
@@ -351,7 +351,7 @@ public class YYPayUIKit implements wdc {
                 return mPayUIKitMap.get(uIKitMapKey);
             }
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                rfc.h(payUIKitConfig.revenueConfig.isTestEnv());
+                uic.h(payUIKitConfig.revenueConfig.isTestEnv());
                 YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                 yYPayUIKit.initYYPayUIKit(i, i2, payUIKitConfig.revenueConfig);
                 yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
@@ -379,7 +379,7 @@ public class YYPayUIKit implements wdc {
     }
 
     public void signPay(Activity activity, PaySignInfo paySignInfo, IPaySignCallback iPaySignCallback) {
-        IAppPayService b2 = cgc.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = fjc.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "isSupported error payService null", new Object[0]);
         } else {
@@ -432,7 +432,7 @@ public class YYPayUIKit implements wdc {
     public synchronized void releaseAllPayFlowView() {
         RLog.info(TAG, "releaseAllPayFlowView() mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
         if (this.mAppContext != null) {
-            mgc.a(this.mAppContext);
+            pjc.a(this.mAppContext);
         } else {
             RLog.error(TAG, "releaseAllPayFlowView error mAppContext null", new Object[0]);
         }
@@ -460,7 +460,7 @@ public class YYPayUIKit implements wdc {
             RLog.error(TAG, "onQQPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService b2 = cgc.b(i2, this.mUserChannel);
+        IAppPayService b2 = fjc.b(i2, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "onQQPayResult error payService is null", new Object[0]);
         } else {
@@ -475,7 +475,7 @@ public class YYPayUIKit implements wdc {
             RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService b2 = cgc.b(i2, this.mUserChannel);
+        IAppPayService b2 = fjc.b(i2, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
         } else {

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface lq0 extends rj0 {
-    xq0 b();
+/* loaded from: classes6.dex */
+public interface lq0 extends sj0 {
+    void a(String str, String str2);
 
-    void e(int i);
+    void c(String str, String str2, String str3);
 }

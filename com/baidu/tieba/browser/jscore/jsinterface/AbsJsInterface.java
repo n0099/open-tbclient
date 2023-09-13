@@ -5,7 +5,7 @@ import android.webkit.WebView;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kl6;
+import com.baidu.tieba.im6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,11 +47,21 @@ public abstract class AbsJsInterface {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             WebView webView = this.mWebView;
             if (webView != null) {
-                return kl6.a(webView.getContext());
+                return im6.a(webView.getContext());
             }
             return null;
         }
         return (Activity) invokeV.objValue;
+    }
+
+    @Nullable
+    public WebView getWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mWebView;
+        }
+        return (WebView) invokeV.objValue;
     }
 
     public void attachWebView(@Nullable WebView webView) {

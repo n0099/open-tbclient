@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.searchbox.IntentConstants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -113,7 +114,7 @@ public class SocialOperation extends BaseApi {
                             if (iUiListener2 != null) {
                                 iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                             }
-                        } else if (((JSONObject) obj).optInt("bind") == 1) {
+                        } else if (((JSONObject) obj).optInt(UbcRemoteStat.BIND_SERVICE) == 1) {
                             IUiListener iUiListener3 = iUiListener;
                             if (iUiListener3 != null) {
                                 iUiListener3.onError(new UiError(3002, "该群已绑定！", "绑定过的群不能再次绑定。"));
@@ -202,7 +203,7 @@ public class SocialOperation extends BaseApi {
                             if (iUiListener2 != null) {
                                 iUiListener2.onError(new UiError(4001, "服务端错误，请稍后重试", "资格检查回包为null。"));
                             }
-                        } else if (((JSONObject) obj).optInt("bind") != 1) {
+                        } else if (((JSONObject) obj).optInt(UbcRemoteStat.BIND_SERVICE) != 1) {
                             IUiListener iUiListener3 = iUiListener;
                             if (iUiListener3 != null) {
                                 iUiListener3.onError(new UiError(3003, "该组织未绑群，无法加入", "该组织未绑群，无法加入。"));

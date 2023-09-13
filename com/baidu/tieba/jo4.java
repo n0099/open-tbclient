@@ -1,23 +1,204 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jo4 {
+public abstract class jo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fo4 a;
+    public static final qi4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @NonNull
+    public abstract String b();
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends jo4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.jo4
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DB" : (String) invokeV.objValue;
+        }
+
+        /* loaded from: classes6.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(324482879, "Lcom/baidu/tieba/jo4$b$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(324482879, "Lcom/baidu/tieba/jo4$b$a;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends jo4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.jo4
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "IO" : (String) invokeV.objValue;
+        }
+
+        /* loaded from: classes6.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static c a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(324512670, "Lcom/baidu/tieba/jo4$c$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(324512670, "Lcom/baidu/tieba/jo4$c$a;");
+                        return;
+                    }
+                }
+                a = new c(null);
+            }
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends jo4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.jo4
+        @NonNull
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Net" : (String) invokeV.objValue;
+        }
+
+        /* loaded from: classes6.dex */
+        public static class a {
+            public static /* synthetic */ Interceptable $ic;
+            public static d a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(324542461, "Lcom/baidu/tieba/jo4$d$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(324542461, "Lcom/baidu/tieba/jo4$d$a;");
+                        return;
+                    }
+                }
+                a = new d(null);
+            }
+        }
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,132 +213,80 @@ public class jo4 {
                 return;
             }
         }
-        a = fo4.d();
+        a = si4.b();
     }
 
-    public static String a(String... strArr) {
-        InterceptResult invokeL;
+    public jo4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (strArr != null) {
-                try {
-                    if (strArr.length > 0 && strArr.length % 2 == 0) {
-                        for (int i = 0; i < strArr.length; i += 2) {
-                            String str = strArr[i];
-                            String str2 = strArr[i + 1];
-                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                                jSONObject.put(str, str2);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    oi4.b().G("PMSFileUtil", "#createErrorJson put异常", e);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return "errmsg:" + jSONObject.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static ek4 b(String str, long j, long j2, @Nullable List<ek4> list) {
-        InterceptResult invokeCommon;
+    @NonNull
+    public static b c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
-            List<ek4> s = aj4.i().s(str, j, j2);
-            if (s != null) {
-                while (!s.isEmpty()) {
-                    ek4 remove = s.remove(0);
-                    if (oi4.b().r(remove)) {
-                        return remove;
-                    }
-                    if (list != null) {
-                        list.add(remove);
-                    }
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a.a;
         }
-        return (ek4) invokeCommon.objValue;
+        return (b) invokeV.objValue;
     }
 
-    public static File c(String str, String str2) {
-        InterceptResult invokeLL;
+    @NonNull
+    public static jo4 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
-                return null;
-            }
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                oi4.b().y("PMSFileUtil", "cannot mkdir in : " + file);
-                return null;
-            }
-            String e = e(str, str2);
-            String str3 = e;
-            for (int i = 0; i < 1000; i++) {
-                File file2 = new File(str3);
-                try {
-                    if (!file2.exists() && file2.createNewFile()) {
-                        return file2;
-                    }
-                } catch (IOException e2) {
-                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
-                }
-                str3 = e + "_" + i;
-            }
-            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c.a.a;
         }
-        return (File) invokeLL.objValue;
+        return (jo4) invokeV.objValue;
     }
 
-    public static File d(Context context) {
-        InterceptResult invokeL;
+    @NonNull
+    public static jo4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File dir = context.getDir("pms_dir", 0);
-            if (!dir.exists()) {
-                dir.mkdir();
-            }
-            return dir;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return d.a.a;
         }
-        return (File) invokeL.objValue;
+        return (jo4) invokeV.objValue;
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            return f(str, str2, File.separator);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PMS " + b();
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static String f(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public void g(String str, String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            if (str.endsWith(str3)) {
-                if (str2.startsWith(str3)) {
-                    return str.concat(str2.substring(str3.length()));
-                }
-                return str.concat(str2);
-            } else if (str2.startsWith(str3)) {
-                return str.concat(str2);
-            } else {
-                return str.concat(str3).concat(str2);
-            }
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, th) == null) && f()) {
+            a.L(str, a(), str2, th, false);
         }
-        return (String) invokeLLL.objValue;
+    }
+
+    public void h(String str, String str2, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, th, Boolean.valueOf(z)}) == null) && f()) {
+            a.L(str, a(), str2, th, z);
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && f()) {
+            a.z(str, a(), str2, false);
+        }
     }
 }

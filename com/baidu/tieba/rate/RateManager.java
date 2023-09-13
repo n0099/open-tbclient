@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.wta;
-import com.baidu.tieba.zq9;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.qs9;
+import com.baidu.tieba.uva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,11 +37,11 @@ public class RateManager {
     public static final int RATE_LIKE_MAX_COUNT = 3;
     public static RateManager instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq9 dialog;
+    public qs9 dialog;
     public int mScore;
 
     /* loaded from: classes7.dex */
-    public class a implements wta.g {
+    public class a implements uva.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -66,7 +66,7 @@ public class RateManager {
             this.a = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.wta.g
+        @Override // com.baidu.tieba.uva.g
         public void onClick(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b.dialog == null) {
@@ -81,7 +81,7 @@ public class RateManager {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements wta.e {
+    public class b implements uva.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -106,7 +106,7 @@ public class RateManager {
             this.a = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.wta.e
+        @Override // com.baidu.tieba.uva.e
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.dialog == null) {
@@ -125,7 +125,7 @@ public class RateManager {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements wta.d {
+    public class c implements uva.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RateManager a;
@@ -148,7 +148,7 @@ public class RateManager {
             this.a = rateManager;
         }
 
-        @Override // com.baidu.tieba.wta.d
+        @Override // com.baidu.tieba.uva.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.dialog == null) {
@@ -251,22 +251,22 @@ public class RateManager {
         if ((interceptable != null && interceptable.invokeL(1048579, this, tbPageContext) != null) || tbPageContext == null) {
             return;
         }
-        wta wtaVar = new wta(tbPageContext.getContext());
-        wtaVar.x(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
-        wtaVar.n(8);
-        wtaVar.r(0);
-        int dimens = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07041f);
-        int dimens2 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f07036e);
-        int dimens3 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703ab);
-        wtaVar.w(R.dimen.obfuscated_res_0x7f0701f9);
-        wtaVar.v(0, dimens, 0, dimens3);
-        wtaVar.p(0, 0, 0, dimens2);
-        wtaVar.o(true);
-        wtaVar.u(new a(this, tbPageContext));
-        zq9 zq9Var = new zq9(tbPageContext.getContext(), wtaVar.j());
-        this.dialog = zq9Var;
-        zq9Var.a(0.7f);
-        jg.j(this.dialog, tbPageContext);
+        uva uvaVar = new uva(tbPageContext.getContext());
+        uvaVar.x(tbPageContext.getContext().getString(R.string.is_tieba_pleased));
+        uvaVar.n(8);
+        uvaVar.r(0);
+        int dimens = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070423);
+        int dimens2 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070372);
+        int dimens3 = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703af);
+        uvaVar.w(R.dimen.obfuscated_res_0x7f0701f9);
+        uvaVar.v(0, dimens, 0, dimens3);
+        uvaVar.p(0, 0, 0, dimens2);
+        uvaVar.o(true);
+        uvaVar.u(new a(this, tbPageContext));
+        qs9 qs9Var = new qs9(tbPageContext.getContext(), uvaVar.j());
+        this.dialog = qs9Var;
+        qs9Var.a(0.7f);
+        kg.j(this.dialog, tbPageContext);
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_FIRST_DIALOG_SHOW));
     }
 
@@ -314,38 +314,38 @@ public class RateManager {
     }
 
     public void showSecondDialog(TbPageContext tbPageContext) {
-        wta.c cVar;
+        uva.c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, tbPageContext) != null) || tbPageContext == null) {
             return;
         }
-        wta wtaVar = new wta(tbPageContext.getContext());
+        uva uvaVar = new uva(tbPageContext.getContext());
         int i = this.mScore;
         if (i != 1 && i != 2) {
-            wtaVar.x(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
-            cVar = new wta.c(tbPageContext.getContext().getString(R.string.go_score), wtaVar);
+            uvaVar.x(tbPageContext.getContext().getString(R.string.go_shop_give_me_comment));
+            cVar = new uva.c(tbPageContext.getContext().getString(R.string.go_score), uvaVar);
         } else {
-            wtaVar.x(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
-            cVar = new wta.c(tbPageContext.getContext().getString(R.string.go_feedback), wtaVar);
+            uvaVar.x(tbPageContext.getContext().getString(R.string.help_my_improving_experience));
+            cVar = new uva.c(tbPageContext.getContext().getString(R.string.go_feedback), uvaVar);
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(cVar);
-        wtaVar.q(this.mScore);
-        wtaVar.r(0);
-        wtaVar.n(0);
-        wtaVar.o(false);
-        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703d8);
+        uvaVar.q(this.mScore);
+        uvaVar.r(0);
+        uvaVar.n(0);
+        uvaVar.o(false);
+        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703dc);
         int dimens = BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070207);
-        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703ef);
-        wtaVar.v(0, BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070394), 0, 0);
-        wtaVar.p(0, dimens, 0, dimens);
+        BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f0703f3);
+        uvaVar.v(0, BdUtilHelper.getDimens(tbPageContext.getContext(), R.dimen.obfuscated_res_0x7f070398), 0, 0);
+        uvaVar.p(0, dimens, 0, dimens);
         cVar.h(new b(this, tbPageContext));
-        wtaVar.t(new c(this));
-        wtaVar.s(arrayList);
-        zq9 zq9Var = new zq9(tbPageContext.getContext(), wtaVar.j());
-        this.dialog = zq9Var;
-        zq9Var.a(0.7f);
-        jg.j(this.dialog, tbPageContext);
+        uvaVar.t(new c(this));
+        uvaVar.s(arrayList);
+        qs9 qs9Var = new qs9(tbPageContext.getContext(), uvaVar.j());
+        this.dialog = qs9Var;
+        qs9Var.a(0.7f);
+        kg.j(this.dialog, tbPageContext);
         int i2 = this.mScore;
         if (i2 != 1 && i2 != 2) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_RATE_SCORE_DIALOG_SHOW));

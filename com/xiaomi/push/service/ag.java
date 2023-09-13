@@ -8,14 +8,14 @@ public class ag {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static b f888a;
+    public static b f887a;
 
     /* loaded from: classes10.dex */
     public interface a {
         Map<String, String> a(Context context, id idVar);
 
         /* renamed from: a  reason: collision with other method in class */
-        void m758a(Context context, id idVar);
+        void m759a(Context context, id idVar);
 
         boolean a(Context context, id idVar, boolean z);
     }
@@ -27,41 +27,41 @@ public class ag {
         void a(String str);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m759a(id idVar);
+        boolean m760a(id idVar);
     }
 
     public static Map<String, String> a(Context context, id idVar) {
         a aVar = a;
         if (aVar == null || idVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("pepa listener or container is null");
+            com.xiaomi.channel.commonutils.logger.b.m181a("pepa listener or container is null");
             return null;
         }
         return aVar.a(context, idVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m756a(Context context, id idVar) {
+    public static void m757a(Context context, id idVar) {
         a aVar = a;
         if (aVar == null || idVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("handle msg wrong");
+            com.xiaomi.channel.commonutils.logger.b.m181a("handle msg wrong");
         } else {
-            aVar.m758a(context, idVar);
+            aVar.m759a(context, idVar);
         }
     }
 
     public static void a(id idVar) {
-        b bVar = f888a;
+        b bVar = f887a;
         if (bVar == null || idVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("pepa clearMessage is null");
+            com.xiaomi.channel.commonutils.logger.b.m181a("pepa clearMessage is null");
         } else {
             bVar.a(idVar);
         }
     }
 
     public static void a(String str) {
-        b bVar = f888a;
+        b bVar = f887a;
         if (bVar == null || str == null) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("pepa clearMessage is null");
+            com.xiaomi.channel.commonutils.logger.b.m181a("pepa clearMessage is null");
         } else {
             bVar.a(str);
         }
@@ -70,19 +70,19 @@ public class ag {
     public static boolean a(Context context, id idVar, boolean z) {
         a aVar = a;
         if (aVar == null || idVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("pepa judement listener or container is null");
+            com.xiaomi.channel.commonutils.logger.b.m181a("pepa judement listener or container is null");
             return false;
         }
         return aVar.a(context, idVar, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m757a(id idVar) {
-        b bVar = f888a;
+    public static boolean m758a(id idVar) {
+        b bVar = f887a;
         if (bVar == null || idVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("pepa handleReceiveMessage is null");
+            com.xiaomi.channel.commonutils.logger.b.m181a("pepa handleReceiveMessage is null");
             return false;
         }
-        return bVar.m759a(idVar);
+        return bVar.m760a(idVar);
     }
 }

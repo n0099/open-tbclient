@@ -4,7 +4,7 @@ public final class R {
 
     /* loaded from: classes3.dex */
     public static final class color {
-        public static final int navigation_bar_color = 0x7f0608ee;
+        public static final int navigation_bar_color = 0x7f0608f1;
     }
 
     /* loaded from: classes3.dex */

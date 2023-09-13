@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public final class rj3 {
+public abstract class rj3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, lj3> a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract Bundle c(qj3 qj3Var);
 
     static {
         InterceptResult invokeClinit;
@@ -28,8 +31,7 @@ public final class rj3 {
                 return;
             }
         }
-        boolean z = nr1.a;
-        a = new HashMap();
+        a = rr1.a;
     }
 
     public rj3() {
@@ -46,31 +48,16 @@ public final class rj3 {
         }
     }
 
-    public static lj3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
-        }
-        return (lj3) invokeV.objValue;
-    }
-
-    public static lj3 b(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public final Bundle execCall(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            lj3 lj3Var = a.get(str);
-            if (lj3Var == null) {
-                synchronized (rj3.class) {
-                    lj3Var = a.get(str);
-                    if (lj3Var == null) {
-                        lj3Var = new lj3(str);
-                        a.put(str, lj3Var);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            if (bundle.isEmpty()) {
+                return Bundle.EMPTY;
             }
-            return lj3Var;
+            return c(qj3.b(bundle));
         }
-        return (lj3) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

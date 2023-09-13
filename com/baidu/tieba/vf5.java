@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class vf5 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "表情包";
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,40 +30,83 @@ public class vf5 {
         }
     }
 
-    public static String a(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (textPaint == null) {
-                textPaint = new TextPaint();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (ei.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
             }
-            return b(textPaint, str, f - textPaint.measureText(str2), str2);
+            return SharedPrefHelper.getInstance().getInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public static String b(TextPaint textPaint, String str, float f, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
-            float measureText = textPaint.measureText(str);
-            if (measureText > f) {
-                if (str.endsWith(a)) {
-                    str = str.substring(0, str.length() - 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().b()) {
+                int a2 = a();
+                if (a2 != 2) {
+                    if (a2 == 3) {
+                        return R.drawable.icon_mask_share_wechat40_svg;
+                    }
+                    if (a2 != 4) {
+                        if (a2 != 6) {
+                            if (a2 != 8) {
+                                return R.drawable.icon_mask_share_wechat40_svg;
+                            }
+                            return R.drawable.icon_mask_share_qq40_svg;
+                        }
+                        return R.drawable.icon_mask_share_weibo40_svg;
+                    }
+                    return R.drawable.icon_mask_share_qqzone40_svg;
                 }
-                str3 = "..." + a;
-            } else if (!str.endsWith(a)) {
-                str3 = a;
-            } else {
-                str3 = "";
+                return R.drawable.icon_mask_share_circle40_svg;
             }
-            while (str.length() > 0 && measureText > f) {
-                str = ix5.m(str, ix5.e(str) - 1);
-                measureText = textPaint.measureText(str);
-            }
-            return str + str3;
+            return -1;
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!ei.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = SharedPrefHelper.getInstance().getLong("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            return a;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !ei.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            SharedPrefHelper.getInstance().putInt("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            SharedPrefHelper.getInstance().remove("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+            a = 0L;
+        }
+    }
+
+    public static void e(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !ei.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            SharedPrefHelper.getInstance().putLong("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+            a = j;
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
+        }
     }
 }

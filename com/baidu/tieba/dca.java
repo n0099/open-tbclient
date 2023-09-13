@@ -1,33 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.content.res.Configuration;
+import android.util.Log;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.square.ForumSquareActivity;
+import com.baidu.tbadk.switchs.AdSdkSwitch;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dca extends om<fca, CardViewHolder<wca>> {
+public class dca implements uba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public jo6<fca> b;
+    public final vba a;
+    public final wba b;
+    public ow4 c;
+    public ViewGroup d;
+    public boolean e;
+    public long f;
+    public boolean g;
+    public final Runnable h;
 
     /* loaded from: classes5.dex */
-    public class a extends jo6<fca> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dca b;
+        public final /* synthetic */ dca a;
 
         public a(dca dcaVar) {
             Interceptable interceptable = $ic;
@@ -44,100 +59,175 @@ public class dca extends om<fca, CardViewHolder<wca>> {
                     return;
                 }
             }
-            this.b = dcaVar;
+            this.a = dcaVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jo6
-        /* renamed from: d */
-        public void a(View view2, fca fcaVar) {
+        @Override // java.lang.Runnable
+        public void run() {
+            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, fcaVar) == null) && fcaVar != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
-                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).s1().getClassName();
-                if (!"推荐".equals(className)) {
-                    StatisticItem statisticItem = new StatisticItem("c13652");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", fcaVar.a);
-                    statisticItem.param("resource_id", className);
-                    TiebaStatic.log(statisticItem);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("ThirdPartySplashController", "开屏广告：mTimeOutRunnable, hasLoadBesFinish is: " + this.a.e + " ,besSplashHolder is: " + this.a.d);
+                if (!this.a.e && this.a.d != null) {
+                    SpeedStatsManager.getInstance().setIsTimeout(true);
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921657, Boolean.class);
+                    if (runTask != null && runTask.getData() != null && ((Boolean) runTask.getData()).booleanValue()) {
+                        return;
+                    }
+                    eka.a("ThirdPartySplashController mTimeOutRunnable");
+                    TiebaStatic.log(new StatisticItem("splash_timeout_go_maintab"));
+                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.CLOSE_AD_TIME).param("obj_source", 0).param("obj_type", "a064");
+                    if (this.a.a.h()) {
+                        i = 2;
+                    } else {
+                        i = 1;
+                    }
+                    param.param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_param1", 1).eventStat();
+                    if (TbadkCoreApplication.getInst().isDebugMode()) {
+                        Log.d("IAdSdkSplash", "兜底time out and jump maintab");
+                    }
+                    this.a.a.getRootView().removeView(this.a.d);
+                    this.a.b.a();
+                    DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：mTimeOutRunnable, closeSplash");
+                    BdStatisticsManager.getInstance().newDebug("VideoSplashTimeOut", 0L, null, "splashTimeOut", YYOption.IsLive.VALUE_TRUE);
                 }
-                StatisticItem statisticItem2 = new StatisticItem("c13643");
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", fcaVar.a);
-                statisticItem2.param("obj_locate", 3);
-                TiebaStatic.log(statisticItem2);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dca(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), fca.h);
+    public dca(vba vbaVar, wba wbaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {vbaVar, wbaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        this.a = tbPageContext;
+        this.e = false;
+        this.f = -1L;
+        this.g = false;
+        this.h = new a(this);
+        this.a = vbaVar;
+        this.b = wbaVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public CardViewHolder<wca> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            wca wcaVar = new wca(this.a);
-            wcaVar.l(this.mPageId);
-            return new CardViewHolder<>(wcaVar);
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.e = z;
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fca fcaVar, CardViewHolder<wca> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.uba
+    public void onConfigurationChanged(Configuration configuration) {
+        ow4 ow4Var;
+        mw4 mw4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fcaVar, cardViewHolder})) == null) {
-            if (fcaVar != null && cardViewHolder != null && cardViewHolder.b() != null) {
-                cardViewHolder.b().i(fcaVar);
-                cardViewHolder.b().k(this.b);
-                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
-                    String className = ((ForumSquareActivity) this.a.getPageActivity()).s1().getClassName();
-                    if (!"推荐".equals(className)) {
-                        StatisticItem statisticItem = new StatisticItem("c13651");
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param("fid", fcaVar.a);
-                        statisticItem.param("resource_id", className);
-                        TiebaStatic.log(statisticItem);
-                    } else {
-                        StatisticItem statisticItem2 = new StatisticItem("c13642");
-                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem2.param("fid", fcaVar.d());
-                        statisticItem2.param("obj_locate", 3);
-                        TiebaStatic.log(statisticItem2);
-                    }
-                }
-                return cardViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) && (ow4Var = this.c) != null && (mw4Var = ow4Var.c) != null) {
+            mw4Var.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.uba
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j();
+            ow4 ow4Var = this.c;
+            if (ow4Var != null) {
+                ow4Var.f(null);
+                this.c.e(null);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.uba
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            l();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public ViewGroup h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (ViewGroup) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：invokeTimeoutTask, postDelayed mTimeOutRunnable");
+            SafeHandler.getInst().postDelayed(this.h, 500L);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：releaseTimeout");
+            this.g = true;
+            SafeHandler.getInst().removeCallbacks(this.h);
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (SwitchManager.getInstance().findType(AdSdkSwitch.KEY_AD_SDK_SWITCH) == 0) {
+                this.b.a();
+            } else if (MessageManager.getInstance().findTask(2016555) == null) {
+                DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showADView, bes is null, closeSplash");
+                this.b.a();
+            } else {
+                m();
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showBesAdView");
+            this.g = false;
+            long currentTimeMillis = System.currentTimeMillis();
+            this.f = System.currentTimeMillis();
+            this.c = new ow4(this.a.h(), this.a.i());
+            this.d = new RelativeLayout(this.a.getActivity());
+            this.d.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+            this.a.getRootView().addView(this.d);
+            this.c.f(this.d);
+            this.c.e(new cca(this.a, this.b, this));
+            MessageManager.getInstance().runTask(2016555, Long.class, this.c);
+            if (!this.g) {
+                DefaultLog.getInstance().i("ThirdPartySplashController", "开屏广告：showBesAdView, postDelayed mTimeOutRunnable");
+                ht5.a().i(System.currentTimeMillis() - currentTimeMillis);
+                SafeHandler.getInst().postDelayed(this.h, hw5.l() + 500);
+            }
+        }
     }
 }

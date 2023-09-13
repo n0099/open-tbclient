@@ -8,9 +8,9 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.xb;
+import com.baidu.tieba.dg;
 import com.baidu.tieba.yb;
+import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -99,30 +99,30 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public yb createDiskPicOperate(String str) {
+    public zb createDiskPicOperate(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return new xb("images", str, DiskFileOperate.Action.READ);
+            return new yb("images", str, DiskFileOperate.Action.READ);
         }
-        return (yb) invokeL.objValue;
+        return (zb) invokeL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public BdImage createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
+    public BdImage createImageFromDiskPicOperate(zb zbVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, ybVar, str, i, i2)) == null) {
-            if (!(ybVar instanceof xb)) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, zbVar, str, i, i2)) == null) {
+            if (!(zbVar instanceof yb)) {
                 return null;
             }
-            xb xbVar = (xb) ybVar;
-            ybVar.formatData(ybVar.getData());
-            Bitmap bitmap = ybVar.getBitmap();
+            yb ybVar = (yb) zbVar;
+            zbVar.formatData(zbVar.getData());
+            Bitmap bitmap = zbVar.getBitmap();
             if (bitmap == null) {
                 return null;
             }
-            return new BdImage(bitmap, false, str, xbVar.h());
+            return new BdImage(bitmap, false, str, ybVar.h());
         }
         return (BdImage) invokeLLII.objValue;
     }
@@ -140,7 +140,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             if (Bytes2NineBitmap != null) {
                 z = true;
             }
-            cg.c(z, System.currentTimeMillis() - currentTimeMillis);
+            dg.c(z, System.currentTimeMillis() - currentTimeMillis);
             return new BdImage(Bytes2NineBitmap);
         }
         return (BdImage) invokeLL.objValue;

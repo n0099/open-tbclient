@@ -1,12 +1,12 @@
 package com.baidu.ugc.audioedit;
 
-import com.baidu.tieba.ncb;
+import com.baidu.tieba.veb;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes9.dex */
-public class AudioSpeedOperator implements ncb {
+public class AudioSpeedOperator implements veb {
     public Sonic mSonic;
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public int availableBytes() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -15,7 +15,7 @@ public class AudioSpeedOperator implements ncb {
         return 0;
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public void close() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -23,7 +23,7 @@ public class AudioSpeedOperator implements ncb {
         }
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public void flush() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -31,7 +31,7 @@ public class AudioSpeedOperator implements ncb {
         }
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public byte[] getOutPutBytes() {
         int availableBytes = availableBytes();
         byte[] bArr = new byte[availableBytes];
@@ -39,12 +39,12 @@ public class AudioSpeedOperator implements ncb {
         return bArr;
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public void init(int i, int i2) {
         this.mSonic = new Sonic(i, i2);
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public boolean putBytes(byte[] bArr, int i) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -54,7 +54,7 @@ public class AudioSpeedOperator implements ncb {
         return false;
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public int receiveBytes(byte[] bArr, int i) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -63,7 +63,7 @@ public class AudioSpeedOperator implements ncb {
         return 0;
     }
 
-    @Override // com.baidu.tieba.ncb
+    @Override // com.baidu.tieba.veb
     public void setSpeed(float f) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {

@@ -1,79 +1,58 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes9.dex */
 public class zs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public List<at9> c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static void a(ps9 ps9Var, TbPageContext<?> tbPageContext) {
-        Uri parse;
-        String str;
+    public zs9() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, ps9Var, tbPageContext) == null) && ps9Var != null && tbPageContext != null) {
-            int i = ps9Var.l;
-            boolean z = false;
-            if (i == 1) {
-                if (!TextUtils.isEmpty(ps9Var.f)) {
-                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{ps9Var.f});
-                }
-            } else if (i == 2) {
-                if (!TextUtils.isEmpty(ps9Var.f) && (parse = Uri.parse(ps9Var.f)) != null) {
-                    String queryParameter = parse.getQueryParameter("paramfromna");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        ps9Var.f = b(ps9Var.f, queryParameter);
-                    }
-                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
-                        str = parse.getQueryParameter("title");
-                        z = true;
-                    } else {
-                        str = "";
-                    }
-                    BrowserHelper.startWebActivity(z, tbPageContext.getPageActivity(), str, ps9Var.f);
-                }
-            } else if (i == 3 && !TextUtils.isEmpty(ps9Var.f)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ps9Var.f));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
-                StringBuilder sb = new StringBuilder(str);
-                boolean z = false;
-                for (String str3 : split) {
-                    if ("skin".equalsIgnoreCase(str3)) {
-                        sb.append("&skin=");
-                        sb.append(SkinManager.getCurrentSkinTypeString());
-                    } else if ("user_id".equalsIgnoreCase(str3)) {
-                        sb.append("&user_id=");
-                        sb.append(TbadkCoreApplication.getCurrentAccountId());
-                    } else if ("comparams".equalsIgnoreCase(str3)) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    return or5.e(sb.toString());
-                }
-                return sb.toString();
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    at9 at9Var = new at9();
+                    at9Var.a(bookInfo);
+                    this.c.add(at9Var);
+                }
+            }
+        }
     }
 }

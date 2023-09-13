@@ -1,248 +1,274 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.IntentSender;
-import android.content.ServiceConnection;
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.platform.comapi.map.NodeType;
-import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.FatalException;
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicReference;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsDrawAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ksb {
+public class ksb extends jsb<isb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Context b;
-    public volatile int c;
-    public com.google.a.b.a.a.a.a d;
-    public BroadcastReceiver e;
-    public Context f;
-    public final ServiceConnection g;
-    public final AtomicReference<bsb> h;
 
-    public ksb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements KsLoadManager.DrawAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ksb a;
+
+        public a(ksb ksbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ksbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ksbVar;
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+        public void onDrawAdLoad(@Nullable List<KsDrawAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onDrawAdLoad error: adList is null or empty", new Object[0]);
+                    onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (KsDrawAd ksDrawAd : list) {
+                    if (ksDrawAd != null) {
+                        arrayList.add(new isb(ksDrawAd));
+                    }
+                }
+                if (!arrayList.isEmpty()) {
+                    this.a.onAdLoaded(arrayList);
+                    return;
+                }
+                LogPrinter.e("onDrawAdLoad error: adList is null or empty", new Object[0]);
+                onError(0, "NoFill");
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
     }
 
-    public static Bundle l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
-            return bundle;
-        }
-        return (Bundle) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class b implements KsDrawAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final String c;
+        public final isb d;
+        public FunAdInteractionListener e;
+        public final /* synthetic */ ksb f;
 
-    public final void p() {
-        bsb andSet;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (andSet = this.h.getAndSet(null)) != null) {
-            andSet.a();
+        public b(ksb ksbVar, isb isbVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ksbVar, isbVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = ksbVar;
+            this.d = isbVar;
+            this.c = str;
         }
-    }
 
-    public final synchronized void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                Log.i("ARCore-InstallService", "Install service disconnected");
-                this.c = rsb.a;
-                this.d = null;
-                p();
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onAdClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.f.onAdClicked((ksb) this.d, this.b, new String[0]);
+                this.b = true;
+                FunAdInteractionListener funAdInteractionListener = this.e;
+                if (funAdInteractionListener != null) {
+                    funAdInteractionListener.onAdClicked(this.c, this.f.mPid.ssp.type, this.f.mPid.pid);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onAdShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.f.onAdShow((ksb) this.d, this.a, new String[0]);
+                this.a = true;
+                FunAdInteractionListener funAdInteractionListener = this.e;
+                if (funAdInteractionListener != null) {
+                    funAdInteractionListener.onAdShow(this.c, this.f.mPid.ssp.type, this.f.mPid.pid);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onVideoPlayEnd() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onVideoPlayError() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.e();
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onVideoPlayPause() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onVideoPlayResume() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
+        public void onVideoPlayStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ksb(byte b) {
-        this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ksb(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid, true, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this();
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayDeque();
-        this.c = rsb.a;
-        this.g = new msb(this);
-        this.h = new AtomicReference<>();
     }
 
-    public static void b(Activity activity, Bundle bundle, lsb lsbVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, lsbVar) == null) {
-            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
-            if (pendingIntent != null) {
-                try {
-                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
-                    return;
-                } catch (IntentSender.SendIntentException e) {
-                    lsbVar.b(new FatalException("Installation Intent failed", e));
-                    return;
-                }
-            }
-            Log.e("ARCore-InstallService", "Did not get pending intent.");
-            lsbVar.b(new FatalException("Installation intent failed to unparcel."));
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new ysb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            isb isbVar = (isb) obj;
         }
     }
 
-    public final synchronized void k(Runnable runnable) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
-            synchronized (this) {
-                int i = this.c - 1;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            runnable.run();
-                        }
-                        return;
-                    }
-                    this.a.offer(runnable);
-                    return;
-                }
-                throw new com.google.ar.core.ab();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 5)).build();
+            onLoadStart(funAdSlot);
+            KsLoadManager loadManager = KsAdSDK.getLoadManager();
+            if (loadManager == null) {
+                onError(FunAdSdk.PLATFORM_KS);
+            } else {
+                loadManager.loadDrawAd(build, new a(this));
             }
         }
     }
 
-    public static void n(Activity activity, lsb lsbVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, activity, lsbVar) == null) {
-            try {
-                activity.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://details?id=com.google.ar.core")));
-            } catch (ActivityNotFoundException e) {
-                lsbVar.b(new FatalException("Failed to launch installer.", e));
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
+            isb isbVar = (isb) obj;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, isbVar, new nsb(this, this, isbVar, str, context));
         }
+        return (FunNativeAd2) invokeLLL.objValue;
     }
 
-    public synchronized void e(Context context, ArCoreApk.a aVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
-            synchronized (this) {
-                try {
-                    k(new nsb(this, context, aVar));
-                } catch (com.google.ar.core.ab unused) {
-                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
-                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            isb isbVar = (isb) obj;
+            onShowStart(isbVar);
+            ((KsDrawAd) isbVar.a).setAdInteractionListener(new b(this, isbVar, str));
+            View drawView = ((KsDrawAd) isbVar.a).getDrawView(viewGroup.getContext());
+            if (drawView == null) {
+                LogPrinter.e("drawView is null", new Object[0]);
+                return false;
             }
+            if (drawView.getParent() != null) {
+                ((ViewGroup) drawView.getParent()).removeView(drawView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(drawView);
+            return true;
         }
-    }
-
-    public synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                p();
-                int i = this.c - 1;
-                if (i == 1 || i == 2) {
-                    this.b.unbindService(this.g);
-                    this.b = null;
-                    this.c = rsb.a;
-                }
-                if (this.e != null) {
-                    this.f.unregisterReceiver(this.e);
-                }
-            }
-        }
-    }
-
-    public void c(Activity activity, lsb lsbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, lsbVar) == null) {
-            bsb bsbVar = new bsb(activity, lsbVar);
-            bsb andSet = this.h.getAndSet(bsbVar);
-            if (andSet != null) {
-                andSet.a();
-            }
-            bsbVar.start();
-            if (this.e == null) {
-                osb osbVar = new osb(this, lsbVar);
-                this.e = osbVar;
-                this.f = activity;
-                activity.registerReceiver(osbVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
-            }
-            try {
-                k(new psb(this, activity, lsbVar));
-            } catch (com.google.ar.core.ab unused) {
-                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
-                n(activity, lsbVar);
-            }
-        }
-    }
-
-    public synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            synchronized (this) {
-                this.b = context;
-                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
-                    this.c = rsb.b;
-                    return;
-                }
-                this.c = rsb.a;
-                this.b = null;
-                Log.w("ARCore-InstallService", "bindService returned false.");
-                context.unbindService(this.g);
-            }
-        }
-    }
-
-    public final synchronized void f(IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
-            synchronized (this) {
-                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
-                Log.i("ARCore-InstallService", "Install service connected");
-                this.d = a;
-                this.c = rsb.c;
-                for (Runnable runnable : this.a) {
-                    runnable.run();
-                }
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

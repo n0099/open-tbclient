@@ -1,11 +1,5 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes5.dex */
 public interface cv1 {
-    boolean a(Context context, String str);
-
-    boolean b(Context context, String str);
-
-    boolean c(Context context, String str);
+    void a(String str, g83 g83Var);
 }

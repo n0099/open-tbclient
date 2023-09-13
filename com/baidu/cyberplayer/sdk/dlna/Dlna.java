@@ -1,9 +1,9 @@
 package com.baidu.cyberplayer.sdk.dlna;
 
 import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.CyberPlayerCoreInvoker;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
-import com.baidu.cyberplayer.sdk.f;
 @Keep
 /* loaded from: classes3.dex */
 public class Dlna {
@@ -26,44 +26,44 @@ public class Dlna {
     public static int DLNA_ERROR_STOP_ACTION_NOT_FOUND = -1012;
     public static int DLNA_ERROR_STOP_SPCE_INVALIDATE = -1018;
     public static String TAG = "DLNA";
-    public DlnaProvider a;
+    public DlnaProvider provider;
 
     /* loaded from: classes3.dex */
-    public static class a {
-        public static final Dlna a = new Dlna();
+    public static class DlnaHolder {
+        public static final Dlna sInstance = new Dlna();
     }
 
     public Dlna() {
-        this.a = null;
+        this.provider = null;
     }
 
     public static Dlna getInstance() {
-        return a.a;
+        return DlnaHolder.sInstance;
     }
 
     public synchronized void stop() {
-        if (this.a != null) {
-            this.a.stop();
+        if (this.provider != null) {
+            this.provider.stop();
         } else {
             CyberLog.d(TAG, "Dlna: provider == null");
         }
     }
 
     public synchronized PnPController getCtrlPoint(String str) {
-        if (this.a != null && str != null) {
-            return new PnPController(str, this.a);
+        if (this.provider != null && str != null) {
+            return new PnPController(str, this.provider);
         }
         return null;
     }
 
     public synchronized void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        if (this.a == null) {
-            this.a = f.f();
+        if (this.provider == null) {
+            this.provider = CyberPlayerCoreInvoker.createDLNA();
         }
-        if (this.a != null) {
-            this.a.stop();
+        if (this.provider != null) {
+            this.provider.stop();
             if (dlnaSearchListener != null) {
-                this.a.search(dlnaSearchListener);
+                this.provider.search(dlnaSearchListener);
             }
         }
     }

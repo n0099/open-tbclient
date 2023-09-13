@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a19;
-import com.baidu.tieba.b7a;
-import com.baidu.tieba.c7a;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.re5;
+import com.baidu.tieba.af5;
+import com.baidu.tieba.c29;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.m8a;
+import com.baidu.tieba.p8a;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.t6a;
-import com.baidu.tieba.w6a;
+import com.baidu.tieba.u8a;
+import com.baidu.tieba.v8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t6a a;
+    public m8a a;
     public AboutModel b;
     public c c;
     public String d;
-    public b7a e;
-    public c7a f;
+    public u8a e;
+    public v8a f;
     public int g;
 
     /* loaded from: classes8.dex */
-    public class a implements w6a {
+    public class a implements p8a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.w6a
+        @Override // com.baidu.tieba.p8a
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -77,7 +77,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 if (i == 0) {
                     this.a.finish();
                 } else if (i == 1) {
-                    this.a.B1();
+                    this.a.y1();
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
@@ -99,14 +99,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new b7a(aboutActivity.getActivity());
+                        aboutActivity.e = new u8a(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
                 } else if (i == 6) {
                     UploadLogButtonSwitch.forceOn(true);
                     if (PermissionUtil.checkWriteExternalStorage(this.a)) {
-                        this.a.F1();
+                        this.a.B1();
                         return;
                     }
                     AboutActivity aboutActivity2 = this.a;
@@ -117,7 +117,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends h9 {
+    public class b extends i9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -140,13 +140,13 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.h9
+        @Override // com.baidu.tieba.i9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, obj) != null) {
                 return;
             }
-            this.a.C1(obj);
+            this.a.z1(obj);
         }
     }
 
@@ -182,7 +182,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.a != null) {
-                this.this$0.a.Y();
+                this.this$0.a.X();
             }
         }
     }
@@ -205,46 +205,46 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         this.g = 1;
     }
 
-    public final void B1() {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a19.b().a(true);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDestroy();
+            C1();
+            AboutModel aboutModel = this.b;
+            if (aboutModel != null) {
+                aboutModel.cancelLoadData();
+            }
+            m8a m8aVar = this.a;
+            if (m8aVar != null) {
+                m8aVar.S();
+            }
+            u8a u8aVar = this.e;
+            if (u8aVar != null) {
+                u8aVar.dismiss();
+            }
+            v8a v8aVar = this.f;
+            if (v8aVar != null) {
+                v8aVar.i();
+                this.f = null;
+            }
+        }
+    }
+
+    public final void y1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c29.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
             } else {
                 aboutModel.cancelLoadData();
             }
-            this.b.R();
-            t6a t6aVar = this.a;
-            if (t6aVar != null) {
-                t6aVar.S();
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.onDestroy();
-            G1();
-            AboutModel aboutModel = this.b;
-            if (aboutModel != null) {
-                aboutModel.cancelLoadData();
-            }
-            t6a t6aVar = this.a;
-            if (t6aVar != null) {
-                t6aVar.T();
-            }
-            b7a b7aVar = this.e;
-            if (b7aVar != null) {
-                b7aVar.dismiss();
-            }
-            c7a c7aVar = this.f;
-            if (c7aVar != null) {
-                c7aVar.i();
-                this.f = null;
+            this.b.Q();
+            m8a m8aVar = this.a;
+            if (m8aVar != null) {
+                m8aVar.R();
             }
         }
     }
@@ -252,11 +252,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            t6a t6aVar = this.a;
-            if (t6aVar != null) {
-                t6aVar.a0(i);
+            m8a m8aVar = this.a;
+            if (m8aVar != null) {
+                m8aVar.Z(i);
             }
         }
     }
@@ -264,56 +264,19 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new c7a();
-            t6a t6aVar = new t6a(this, new a(this));
-            this.a = t6aVar;
-            t6aVar.Y();
-            E1();
+            this.f = new v8a();
+            m8a m8aVar = new m8a(this, new a(this));
+            this.a = m8aVar;
+            m8aVar.X();
+            A1();
         }
     }
 
-    public final void C1(Object obj) {
-        re5 re5Var;
+    public final void A1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            t6a t6aVar = this.a;
-            if (t6aVar != null) {
-                t6aVar.T();
-            }
-            if (obj != null) {
-                re5Var = (re5) obj;
-            } else {
-                re5Var = null;
-            }
-            if (re5Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(re5Var.v());
-                TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (re5Var.v().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (re5Var.v().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), re5Var.v(), re5Var.j())));
-                    } else {
-                        Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), re5Var.v(), re5Var.j()));
-                        TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
-                        sendMessage(customMessage);
-                    }
-                }
-                t6a t6aVar2 = this.a;
-                if (t6aVar2 != null) {
-                    t6aVar2.Y();
-                    return;
-                }
-                return;
-            }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0e29));
-        }
-    }
-
-    public final void E1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new c(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
@@ -321,17 +284,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
     }
 
-    public final void F1() {
+    public final void B1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.f.d()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f.d()) {
             this.f.g();
         }
     }
 
-    public final void G1() {
+    public final void C1() {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (cVar = this.c) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
             unregisterReceiver(cVar);
         }
     }
@@ -339,11 +302,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            t6a t6aVar = this.a;
-            if (t6aVar != null) {
-                t6aVar.Y();
+            m8a m8aVar = this.a;
+            if (m8aVar != null) {
+                m8aVar.X();
             }
         }
     }
@@ -351,12 +314,49 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) && i == this.g) {
+        if ((interceptable == null || interceptable.invokeILL(1048582, this, i, strArr, iArr) == null) && i == this.g) {
             if (PermissionUtil.checkWriteExternalStorage(getActivity().getApplicationContext())) {
-                F1();
+                B1();
             } else {
                 showToast(R.string.write_external_storage_permission_denied_fun_disable);
             }
+        }
+    }
+
+    public final void z1(Object obj) {
+        af5 af5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
+            m8a m8aVar = this.a;
+            if (m8aVar != null) {
+                m8aVar.S();
+            }
+            if (obj != null) {
+                af5Var = (af5) obj;
+            } else {
+                af5Var = null;
+            }
+            if (af5Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(af5Var.v());
+                TbadkCoreApplication.getInst().refreshNewVersion(false);
+                if (af5Var.v().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (af5Var.v().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), af5Var.v(), af5Var.j())));
+                    } else {
+                        Long valueOf = Long.valueOf(new Date().getTime());
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), af5Var.v(), af5Var.j()));
+                        TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
+                        sendMessage(customMessage);
+                    }
+                }
+                m8a m8aVar2 = this.a;
+                if (m8aVar2 != null) {
+                    m8aVar2.X();
+                    return;
+                }
+                return;
+            }
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0e40));
         }
     }
 }

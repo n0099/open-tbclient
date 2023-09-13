@@ -15,7 +15,7 @@ public class bj {
         public final Class<? extends T> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final T f145a;
+        public final T f144a;
     }
 
     static {
@@ -98,7 +98,7 @@ public class bj {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        return (T) a(cls, str, a(objArr)).invoke(null, m292a(objArr));
+        return (T) a(cls, str, a(objArr)).invoke(null, m293a(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
@@ -203,7 +203,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Object[] m292a(Object... objArr) {
+    public static Object[] m293a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -213,14 +213,14 @@ public class bj {
             if (obj == null || !(obj instanceof a)) {
                 objArr2[i] = obj;
             } else {
-                objArr2[i] = ((a) obj).f145a;
+                objArr2[i] = ((a) obj).f144a;
             }
         }
         return objArr2;
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m292a(objArr));
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m293a(objArr));
     }
 
     public static void b(Object obj, String str, Object obj2) {

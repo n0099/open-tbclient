@@ -28,12 +28,12 @@ import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
-import com.baidu.tieba.ig;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.jg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.sr5;
-import com.baidu.tieba.vr5;
-import com.baidu.tieba.wr5;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.ms5;
+import com.baidu.tieba.ps5;
+import com.baidu.tieba.qs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -343,7 +343,7 @@ public class IntentConfig extends OrmObject {
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            ig.unbindService(this.a.mContext, this.a.mClientConnection);
+            jg.unbindService(this.a.mContext, this.a.mClientConnection);
         }
     }
 
@@ -376,7 +376,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            sr5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            ms5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -534,7 +534,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            ig.bindService(this.mContext, intent, this.mClientConnection, 1);
+            jg.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -563,7 +563,7 @@ public class IntentConfig extends OrmObject {
             logIntent("startActivityForResultForRemote");
             Intent intent = new Intent();
             intent.setClass(this.mContext, RemoteActivityProxyService.class);
-            ig.bindService(this.mContext, intent, this.mClientConnection, 1);
+            jg.bindService(this.mContext, intent, this.mClientConnection, 1);
         }
     }
 
@@ -571,13 +571,13 @@ public class IntentConfig extends OrmObject {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            BdPageContextSupport<?> b2 = l9.b(context);
-            wr5 wr5Var = null;
-            if (b2 instanceof vr5) {
-                wr5Var = ((vr5) b2).getTbPageInfo();
+            BdPageContextSupport<?> b2 = m9.b(context);
+            qs5 qs5Var = null;
+            if (b2 instanceof ps5) {
+                qs5Var = ((ps5) b2).getTbPageInfo();
             }
-            if (wr5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", wr5Var.a());
+            if (qs5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", qs5Var.a());
             }
         }
     }
@@ -585,7 +585,7 @@ public class IntentConfig extends OrmObject {
     public void addSourceTraceForPageStayDurationStat() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
-            BdPageContextSupport<?> b2 = l9.b(this.mContext);
+            BdPageContextSupport<?> b2 = m9.b(this.mContext);
             ArrayList<String> arrayList = null;
             if (b2 instanceof IPageStayDuration) {
                 arrayList = (ArrayList) ((IPageStayDuration) b2).getNextPageSourceKeyList();

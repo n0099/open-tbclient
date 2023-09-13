@@ -65,9 +65,9 @@ public class BubbleLocationManager {
 
     private int getBubbleRadius(Context context) {
         if (this.mD20Template) {
-            return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f4);
+            return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f8);
         }
-        return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f3);
+        return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f7);
     }
 
     public static int[] getPositions(View view2) {
@@ -127,7 +127,7 @@ public class BubbleLocationManager {
             f = 15.0f;
         }
         Context context = bubbleBaseView.mAnchorView.getContext();
-        int dp2px = DeviceUtil.ScreenInfo.dp2px(context, f) + context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f3) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ea) / 2);
+        int dp2px = DeviceUtil.ScreenInfo.dp2px(context, f) + context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f7) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ee) / 2);
         if (dp2px <= getAnchorCenterUpMargin(bubbleBaseView) && dp2px <= getAnchorCenterDownMargin(bubbleBaseView)) {
             return true;
         }
@@ -142,7 +142,7 @@ public class BubbleLocationManager {
             f = 15.0f;
         }
         Context context = bubbleBaseView.mAnchorView.getContext();
-        int dp2px = DeviceUtil.ScreenInfo.dp2px(context, f) + (getBubbleRadius(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb) / 2);
+        int dp2px = DeviceUtil.ScreenInfo.dp2px(context, f) + (getBubbleRadius(context) / 2) + (context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701ff) / 2);
         if (dp2px <= getAnchorCenterLeftMargin(bubbleBaseView) && dp2px <= getAnchorCenterRightMargin(bubbleBaseView)) {
             return true;
         }

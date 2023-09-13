@@ -8,20 +8,20 @@ import com.baidu.tieba.R;
 public class JumpButton extends AppCompatTextView {
     public JumpButton(Context context) {
         super(context);
-        e();
+        d();
     }
 
     public JumpButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        e();
+        d();
     }
 
     public JumpButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        e();
+        d();
     }
 
-    public final void e() {
+    public final void d() {
         setGravity(17);
         setTextSize(getResources().getDimensionPixelSize(R.dimen.nad_dimens_12dp));
     }

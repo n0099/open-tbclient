@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class x33 extends ra2 {
+public class x33 extends va2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer N0;
 
     /* loaded from: classes8.dex */
-    public class a extends oc2 {
+    public class a extends sc2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x33 c;
@@ -43,98 +43,29 @@ public class x33 extends ra2 {
             this.c = x33Var;
         }
 
-        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                d82.k("SwanAppWxPayFragment", "onReceivedSslError:  statusCode = " + i);
-            }
-        }
-
-        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                d82.k("SwanAppWxPayFragment", "title: " + str);
-            }
-        }
-
-        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                d82.k("SwanAppWxPayFragment", "url: " + str);
-            }
-        }
-
-        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        @Override // com.baidu.tieba.sc2, com.baidu.tieba.vc2
         public boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.startsWith("weixin://wap/pay")) {
-                    d82.i("SwanAppWxPayFragment", " weixin  url:   " + str);
-                    wh3.K("wechatH5Action", "intoPayment", 0);
-                    this.c.N0.cancel();
-                    this.c.N0 = null;
-                    ra2.a3();
-                    return false;
+                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
+                    Map<String, String> t = zo3.t(zo3.o(str));
+                    if (t != null && t.get("statusCode") != null) {
+                        try {
+                            z33.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                            z33.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), null);
+                        }
+                    } else {
+                        z33.a().onPayResult(6, null);
+                    }
+                    va2.a3();
+                    return true;
                 }
                 return super.a(str);
             }
             return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
-        public void c(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
-                String str3 = "onReceivedError:  failingUrl = " + str2 + " errorCode = " + i + " description = " + str;
-                d82.k("SwanAppWxPayFragment", str3);
-                wh3.H(false, "wechatH5Action", wh3.m(str2, str3));
-            }
-        }
-
-        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
-        public void goBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                d82.k("SwanAppWxPayFragment", "goBack: ");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x33 a;
-
-        public b(x33 x33Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x33Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x33Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d82.k("SwanAppWxPayFragment", " WeChat H5 pay redirect time out : ");
-                wh3.K("wechatH5Action", "outOfTime", 0);
-            }
         }
     }
 
@@ -152,63 +83,45 @@ public class x33 extends ra2 {
         }
     }
 
-    @Override // com.baidu.tieba.ra2
-    public rc2 b3() {
+    @Override // com.baidu.tieba.va2
+    public vc2 b3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (rc2) invokeV.objValue;
+        return (vc2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ra2
-    public mx1 j() {
+    @Override // com.baidu.tieba.va2
+    public qx1 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.N0 == null) {
-                this.N0 = k3();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return bi2.U().f0().i(getContext());
+        }
+        return (qx1) invokeV.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.ox1] */
+    @Override // com.baidu.tieba.va2, com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e7, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f09018f).setVisibility(8);
+            qx1 j = j();
+            this.G0 = j;
+            j.X(b3());
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.I0);
+            this.G0.i((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bb), this.H0.covertToView());
+            if (V1()) {
+                inflate = Y1(inflate);
             }
-            return xh2.U().f0().i(getContext());
+            return E1(inflate, this);
         }
-        return (mx1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ra2, com.baidu.tieba.ja2
-    public void W1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            super.W1(view2);
-            this.f0.setTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0219));
-            z2(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.ra2
-    public void Y2(FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
-            frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00e5, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    public Timer k3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            d82.k("SwanAppWxPayFragment", " start WeChat H5 redirect timer start : ");
-            Timer timer = new Timer();
-            try {
-                timer.schedule(new b(this), 10000L);
-            } catch (Exception e) {
-                if (ra2.M0) {
-                    e.printStackTrace();
-                }
-                d82.k("SwanAppWxPayFragment", e.getMessage());
-            }
-            return timer;
-        }
-        return (Timer) invokeV.objValue;
+        return (View) invokeLLL.objValue;
     }
 }

@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeService;
@@ -176,7 +177,7 @@ public class NpsLoadChainLog {
                 jSONObject.put("status", i);
             }
             if (1 != i && Integer.MIN_VALUE != i2) {
-                jSONObject.put("errorCode", i2);
+                jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, i2);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -388,7 +389,7 @@ public class NpsLoadChainLog {
                 jSONObject.put("status", i);
             }
             if (1 != i && Integer.MIN_VALUE != i2) {
-                jSONObject.put("errorCode", i2);
+                jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, i2);
             }
         } catch (JSONException e) {
             e.printStackTrace();

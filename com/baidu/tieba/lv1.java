@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface lv1 {
-    long a(Context context);
+    void a(String str, String str2);
 
-    void b(Context context, String str, wp3<String> wp3Var);
+    File b(Context context, String str);
 
-    void c(Context context, JSONArray jSONArray, wp3<String> wp3Var);
+    JSONObject c(Context context, String str);
+
+    void d();
 }

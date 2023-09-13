@@ -1,337 +1,180 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.appcompat.R;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.spswitch.emotion.Emoticons;
-import com.baidu.tieba.lh3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.StatKey;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Field;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q92 {
+public class q92 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046591, "Lcom/baidu/tieba/q92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948046591, "Lcom/baidu/tieba/q92;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q92(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/setPhoneContact");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ec3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = nr1.a;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDOfflineUrl"})
+    private void insert(Context context, p92 p92Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ku2.o().N();
+        if (interceptable == null || interceptable.invokeLLL(65537, this, context, p92Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
+            intent.putExtra("name", p92Var.d());
+            intent.putExtra("email", p92Var.r);
+            intent.putParcelableArrayListExtra("data", k(p92Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
         }
-        return invokeV.booleanValue;
     }
 
-    public static void a(File file, File file2) throws IOException {
-        FileChannel fileChannel;
+    public final void j(Context context, p92 p92Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, file, file2) == null) {
-            FileChannel fileChannel2 = 0;
-            try {
-                FileChannel channel = new FileInputStream(file).getChannel();
-                try {
-                    fileChannel2 = new FileOutputStream(file2).getChannel();
-                    fileChannel2.transferFrom(channel, 0L, channel.size());
-                    hr4.d(channel);
-                    hr4.d(fileChannel2);
-                } catch (Throwable th) {
-                    th = th;
-                    FileChannel fileChannel3 = fileChannel2;
-                    fileChannel2 = channel;
-                    fileChannel = fileChannel3;
-                    hr4.d(fileChannel2);
-                    hr4.d(fileChannel);
-                    throw th;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, p92Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
+            intent.setType("vnd.android.cursor.item/contact");
+            intent.putExtra("name", p92Var.d());
+            intent.putExtra("email", p92Var.r);
+            intent.putParcelableArrayListExtra("data", k(p92Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
+        }
+    }
+
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            if (context != null && callbackHandler != null && hb3Var != null) {
+                if (hb3Var.n0()) {
+                    if (ed3.b) {
+                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                    return false;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel = null;
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                if (ed3.b) {
+                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
+                }
+                String optString = optParamsAsJo.optString("action");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                p92 a = p92.a(optParamsAsJo);
+                if (!a.t()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                this.c = optParamsAsJo.optString("cb");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != -1183792455) {
+                    if (hashCode == 3108362 && optString.equals(StatKey.EDITADDR_TAG_STAGE_EDIT)) {
+                        c = 1;
+                    }
+                } else if (optString.equals("insert")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                        return false;
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    j(context, a, callbackHandler);
+                    return true;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                insert(context, a, callbackHandler);
+                return true;
             }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void b(String str, String str2, String str3) {
+    public final ArrayList<ContentValues> k(p92 p92Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            c(str, str2, str3, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p92Var)) == null) {
+            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
+            arrayList.add(p92Var.j());
+            arrayList.add(p92Var.h());
+            arrayList.add(p92Var.s());
+            arrayList.add(p92Var.i());
+            arrayList.add(p92Var.g());
+            arrayList.add(p92Var.r());
+            arrayList.add(p92Var.k());
+            arrayList.add(p92Var.o());
+            arrayList.add(p92Var.n());
+            arrayList.add(p92Var.m());
+            arrayList.add(p92Var.l());
+            arrayList.add(p92Var.b());
+            arrayList.add(p92Var.p());
+            arrayList.add(p92Var.e());
+            return arrayList;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static void c(String str, String str2, String str3, boolean z) {
-        FileInputStream fileInputStream;
-        BufferedWriter bufferedWriter;
-        File file;
-        File file2;
-        File file3;
+    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
-            BufferedReader bufferedReader = null;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
             try {
-                file = new File(str);
-                String absolutePath = file.getParentFile().getAbsolutePath();
-                String name = file.getName();
-                file2 = new File(absolutePath + File.separator + name + ".tmp");
-                file3 = new File(absolutePath + File.separator + name + ".bak");
+                context.startActivity(intent);
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, DnsModel.MSG_OK).toString());
+                }
             } catch (Exception e) {
-                e = e;
-                fileInputStream = null;
-                bufferedWriter = null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = null;
-                bufferedWriter = null;
-            }
-            if (z) {
-                if (file3.exists()) {
-                    file3.renameTo(file);
+                if (ed3.b) {
+                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
                 }
-                hr4.d(null);
-                hr4.d(null);
-                hr4.d(null);
-                return;
-            }
-            FileInputStream fileInputStream2 = new FileInputStream(file);
-            try {
-                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(fileInputStream2));
-                try {
-                    if (file3.exists()) {
-                        a(file3, file);
-                    } else {
-                        a(file, file3);
-                    }
-                    bufferedWriter = new BufferedWriter(new FileWriter(file2));
-                    boolean z2 = false;
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            if (readLine.contains(str2)) {
-                                bufferedWriter.write(str3 + "\n");
-                                z2 = true;
-                            }
-                            bufferedWriter.write(readLine + "\n");
-                        } catch (Exception e2) {
-                            e = e2;
-                            bufferedReader = bufferedReader2;
-                            Exception exc = e;
-                            fileInputStream = fileInputStream2;
-                            e = exc;
-                            try {
-                                e.printStackTrace();
-                                hr4.d(bufferedReader);
-                                hr4.d(fileInputStream);
-                                hr4.d(bufferedWriter);
-                            } catch (Throwable th2) {
-                                th = th2;
-                                hr4.d(bufferedReader);
-                                hr4.d(fileInputStream);
-                                hr4.d(bufferedWriter);
-                                throw th;
-                            }
-                        } catch (Throwable th3) {
-                            th = th3;
-                            bufferedReader = bufferedReader2;
-                            Throwable th4 = th;
-                            fileInputStream = fileInputStream2;
-                            th = th4;
-                            hr4.d(bufferedReader);
-                            hr4.d(fileInputStream);
-                            hr4.d(bufferedWriter);
-                            throw th;
-                        }
-                    }
-                    bufferedWriter.flush();
-                    if (z2) {
-                        file2.renameTo(file);
-                    } else {
-                        file2.delete();
-                    }
-                    hr4.d(bufferedReader2);
-                    hr4.d(fileInputStream2);
-                } catch (Exception e3) {
-                    e = e3;
-                    bufferedWriter = null;
-                } catch (Throwable th5) {
-                    th = th5;
-                    bufferedWriter = null;
-                }
-            } catch (Exception e4) {
-                e = e4;
-                bufferedWriter = null;
-            } catch (Throwable th6) {
-                th = th6;
-                bufferedWriter = null;
-            }
-            hr4.d(bufferedWriter);
-        }
-    }
-
-    public static void e(@NonNull Context context) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                Class<?> cls = Class.forName("android.content.res.AssetManager");
-                Field declaredField = cls.getDeclaredField("mStringBlocks");
-                boolean z3 = true;
-                declaredField.setAccessible(true);
-                Object[] objArr = (Object[]) declaredField.get(context.getAssets());
-                if (objArr == null) {
-                    jSONObject.put("stringBlocks", StringUtil.NULL_STRING);
-                } else {
-                    jSONObject.put("stringBlocks size", objArr.length);
-                    for (int i = 0; i < objArr.length; i++) {
-                        String str = "stringBlocks " + i;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(" == null :");
-                        if (objArr[i] == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        sb.append(z);
-                        jSONObject.put(str, sb.toString());
-                    }
-                }
-                Field declaredField2 = cls.getDeclaredField("sSystem");
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(cls);
-                Field declaredField3 = cls.getDeclaredField("mStringBlocks");
-                declaredField3.setAccessible(true);
-                Object[] objArr2 = (Object[]) declaredField3.get(obj);
-                if (objArr2 == null) {
-                    jSONObject.put("stringBlocksSys", StringUtil.NULL_STRING);
-                } else {
-                    jSONObject.put("stringBlocksSys size", objArr2.length);
-                    for (int i2 = 0; i2 < objArr2.length; i2++) {
-                        String str2 = "stringBlocksSys " + i2;
-                        StringBuilder sb2 = new StringBuilder();
-                        sb2.append(" == null :");
-                        if (objArr2[i2] == null) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        sb2.append(z2);
-                        jSONObject.put(str2, sb2.toString());
-                    }
-                }
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.View, Resources.getSystem().getIdentifier("webViewStyle", Emoticons.KEY_ATTR, "android"), 0);
-                if (obtainStyledAttributes == null) {
-                    jSONObject.put("TypedArray", StringUtil.NULL_STRING);
-                } else {
-                    jSONObject.put("TypedArray ", obtainStyledAttributes.toString());
-                    jSONObject.put("TypedArray mLength", obtainStyledAttributes.length());
-                    Field declaredField4 = obtainStyledAttributes.getClass().getDeclaredField("mRecycled");
-                    declaredField4.setAccessible(true);
-                    jSONObject.put("TypedArray mRecycled", declaredField4.get(obtainStyledAttributes));
-                    Field declaredField5 = obtainStyledAttributes.getClass().getDeclaredField("mAssets");
-                    declaredField5.setAccessible(true);
-                    if (declaredField5.get(obtainStyledAttributes) != context.getAssets()) {
-                        z3 = false;
-                    }
-                    jSONObject.put("TypedArray mAssets", z3);
-                    obtainStyledAttributes.recycle();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                if (a) {
-                    Log.d("SwanAppCoreUtils", "reportFatalInfo: empty");
-                    return;
-                }
-                return;
-            }
-            if (a) {
-                Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
-            }
-            lh3.b bVar = new lh3.b(10006);
-            bVar.i(jSONObject2);
-            bVar.h(db3.g0());
-            bVar.m();
-        }
-    }
-
-    public static void f(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", str);
-                jSONObject.put("package", AppRuntime.getApplication().getPackageName());
-                jSONObject.put("processName", ProcessUtils.getCurProcessName());
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str2);
-                jSONObject.put("errMessage", str3);
-                jSONObject.put("isMainThread", xo3.O());
-                String jSONObject2 = jSONObject.toString();
-                if (a && TextUtils.isEmpty(jSONObject2)) {
-                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: empty");
-                    return;
-                }
-                if (a) {
-                    Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
-                }
-                lh3.b bVar = new lh3.b(10008);
-                bVar.i(jSONObject2);
-                bVar.h(db3.g0());
-                bVar.m();
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
                 }
             }
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            c(str, null, null, true);
         }
     }
 }

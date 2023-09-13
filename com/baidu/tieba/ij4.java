@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class ij4 extends dj4<dk4> {
+public class ij4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, hj4> a;
+    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public ij4() {
         Interceptable interceptable = $ic;
@@ -25,81 +26,49 @@ public class ij4 extends dj4<dk4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dj4
-    /* renamed from: f */
-    public ContentValues c(dk4 dk4Var) {
+    public <T> hj4<T> a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dk4Var)) == null) {
-            ContentValues a = super.a(dk4Var);
-            a.put("independent", Integer.valueOf(dk4Var.r ? 1 : 0));
-            a.put("sub_pkg_name", dk4Var.p);
-            a.put("app_id", dk4Var.o);
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            return this.a.get(cls);
         }
-        return (ContentValues) invokeL.objValue;
+        return (hj4) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dj4
-    /* renamed from: g */
-    public dk4 d(Cursor cursor) {
+    public <T> Uri b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            return this.b.get(cls);
         }
-        return (dk4) invokeL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dj4
-    public List<dk4> e(Cursor cursor) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = new ConcurrentHashMap<>();
+            this.b = new ConcurrentHashMap<>();
+            this.a.put(gk4.class, new lj4());
+            this.a.put(hk4.class, new mj4());
+            this.a.put(ek4.class, new kj4());
+            this.a.put(ck4.class, new jj4());
+            this.a.put(PMSAppInfo.class, new gj4());
+            this.a.put(ik4.class, new nj4());
+            this.a.put(jk4.class, new oj4());
+            this.b.put(gk4.class, yj4.f);
+            this.b.put(hk4.class, yj4.g);
+            this.b.put(ek4.class, yj4.d);
+            this.b.put(ck4.class, yj4.h);
+            this.b.put(PMSAppInfo.class, yj4.e);
+            this.b.put(ik4.class, yj4.i);
+            this.b.put(jk4.class, yj4.j);
         }
-        return (List) invokeL.objValue;
-    }
-
-    public final dk4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("independent");
-                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-                int columnIndex3 = cursor.getColumnIndex("app_id");
-                dk4 dk4Var = new dk4();
-                if (b(cursor, dk4Var)) {
-                    boolean z = true;
-                    if (cursor.getInt(columnIndex) != 1) {
-                        z = false;
-                    }
-                    dk4Var.r = z;
-                    dk4Var.p = cursor.getString(columnIndex2);
-                    dk4Var.o = cursor.getString(columnIndex3);
-                    return dk4Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (dk4) invokeL.objValue;
     }
 }

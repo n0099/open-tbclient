@@ -1,156 +1,267 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xub;
+import com.baidu.ar.session.XRSessionAnchor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes5.dex */
-public class dvb implements vub {
+public final class dvb extends ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
+    public static final dvb h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final sub d;
-    public final fvb e;
-    public final gvb f;
-    public final Map<String, String> g;
-    public final List<nvb> h;
-    public final Map<String, String> i;
+    public Exception a;
+    public ArCoreApk.Availability b;
+    public boolean c;
+    public jvb d;
+    public boolean e;
+    public boolean f;
+    public int g;
 
-    public dvb(Context context, String str, sub subVar, InputStream inputStream, Map<String, String> map, List<nvb> list, String str2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947719417, "Lcom/baidu/tieba/dvb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947719417, "Lcom/baidu/tieba/dvb;");
+                return;
+            }
+        }
+        h = new dvb();
+    }
+
+    public dvb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, subVar, inputStream, map, list, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new jvb(inputStream, str);
-            bvb.a(inputStream);
-        } else {
-            this.e = new mvb(this.b, str);
-        }
-        this.f = new gvb(this.e);
-        if (subVar != sub.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (subVar == null || subVar == sub.b) ? bvb.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : subVar;
-        this.g = bvb.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
     }
 
-    @Override // com.baidu.tieba.vub
-    public String a(String str) {
+    public static dvb d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h;
+        }
+        return (dvb) invokeV.objValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Exception exc = this.a;
+                if (this.d != null) {
+                    this.d.a();
+                    this.d = null;
+                }
+            }
+        }
+    }
+
+    public static /* synthetic */ boolean f(dvb dvbVar, boolean z) {
+        dvbVar.c = false;
+        return false;
+    }
+
+    public static int k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vub
-    public sub b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            sub subVar = this.d;
-            return subVar == null ? sub.b : subVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
+                int i = packageInfo.versionCode;
+                if (i == 0) {
+                    if (packageInfo.services != null) {
+                        if (packageInfo.services.length == 0) {
+                        }
+                    }
+                    return -1;
+                }
+                return i;
+            } catch (PackageManager.NameNotFoundException unused) {
+                return -1;
+            }
         }
-        return (sub) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    public final String c(String str) {
+    public final synchronized jvb e(Context context) {
+        InterceptResult invokeL;
+        jvb jvbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    jvb jvbVar2 = new jvb((byte) 0);
+                    jvbVar2.d(context.getApplicationContext());
+                    this.d = jvbVar2;
+                }
+                jvbVar = this.d;
+            }
+            return jvbVar;
+        }
+        return (jvb) invokeL.objValue;
+    }
+
+    public final boolean h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, xub.a> a = xub.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            l(context);
+            if (k(context) != 0 && k(context) < this.g) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            l(context);
+            return this.f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.google.ar.core.ArCoreApk
+    public final ArCoreApk.Availability a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!i()) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            }
+            try {
+                if (h(context)) {
+                    g();
+                    return cvb.c(context);
                 }
-                xub.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
+                synchronized (this) {
+                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
+                        this.c = true;
+                        cvb cvbVar = new cvb(this);
+                        if (h(context)) {
+                            cvbVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
+                        } else if (k(context) != -1) {
+                            cvbVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
+                        } else if (j(context)) {
+                            cvbVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                        } else {
+                            e(context).e(context, cvbVar);
+                        }
+                    }
+                    if (this.b != null) {
+                        return this.b;
+                    }
+                    if (this.c) {
+                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
+                    }
+                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
+                    return ArCoreApk.Availability.UNKNOWN_ERROR;
                 }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
+            } catch (FatalException e) {
+                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
             }
-            return null;
         }
-        return (String) invokeL.objValue;
+        return (ArCoreApk.Availability) invokeL.objValue;
     }
 
-    public List<nvb> d() {
-        InterceptResult invokeV;
+    public final synchronized void l(Context context) {
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            synchronized (this) {
+                if (this.e) {
+                    return;
+                }
+                PackageManager packageManager = context.getPackageManager();
+                String packageName = context.getPackageName();
+                try {
+                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
+                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
+                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
+                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
+                            try {
+                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
+                                String canonicalName = InstallActivity.class.getCanonicalName();
+                                int length = activityInfoArr.length;
+                                boolean z = false;
+                                int i = 0;
+                                while (true) {
+                                    if (i >= length) {
+                                        break;
+                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                if (!z) {
+                                    String valueOf = String.valueOf(canonicalName);
+                                    if (valueOf.length() != 0) {
+                                        str = "Application manifest must contain activity ".concat(valueOf);
+                                    } else {
+                                        str = new String("Application manifest must contain activity ");
+                                    }
+                                    throw new FatalException(str);
+                                }
+                                this.e = true;
+                                return;
+                            } catch (PackageManager.NameNotFoundException e) {
+                                throw new FatalException("Could not load application package info", e);
+                            }
+                        }
+                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
+                    }
+                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
+                } catch (PackageManager.NameNotFoundException e2) {
+                    throw new FatalException("Could not load application package metadata", e2);
+                }
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
-            }
-            String e = bvb.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return gvb.c(a) ? this.f.a(a, str2) : a;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vub
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vub
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

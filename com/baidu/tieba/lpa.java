@@ -1,101 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.qpa;
+import com.baidu.tieba.tracker.core.data.AbsEventNode;
+import com.baidu.tieba.tracker.core.data.TraceEventNode;
+import com.baidu.tieba.tracker.core.data.TraceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes7.dex */
-public abstract class lpa {
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class lpa<R extends qpa> extends npa<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public boolean h;
+    public final Function1<R, hpa> e;
 
-    public abstract void e();
-
-    public abstract void h();
-
-    public lpa(BaseActivity baseActivity, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lpa(R obj, Function1<? super R, hpa> traceHolderFactory) {
+        super(obj);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, str, str2};
+            Object[] objArr = {obj, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((qpa) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = str;
-        this.c = str2;
-        this.a = baseActivity;
+        Intrinsics.checkNotNullParameter(obj, "obj");
+        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
+        this.e = traceHolderFactory;
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.npa
+    @MainThread
+    public AbsEventNode a(R thisRef) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !di.isEmpty(this.g)) {
-            FileHelper.deleteFile(new File(this.g));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            return new TraceEventNode(thisRef.getFrom(), thisRef.getScene(), TraceType.SendMsg, null, 8, null);
         }
+        return (AbsEventNode) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.npa
+    public hpa c(R thisRef) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            return this.e.invoke(thisRef);
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-        }
-    }
-
-    public void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            a();
-        }
-    }
-
-    public void g(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
-            a();
-        }
-    }
-
-    public void f(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, videoInfo) == null) {
-            a();
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
-        }
+        return (hpa) invokeL.objValue;
     }
 }

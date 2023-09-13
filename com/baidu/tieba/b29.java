@@ -1,82 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.clientupdate.ClientUpdater;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.clientupdate.download.Download;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class b29 {
+public class b29 extends BdAsyncTask<String, Integer, Download> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ClientUpdateInfo a;
 
-    public static a29 a(AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public b29(ClientUpdateInfo clientUpdateInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof a29)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {clientUpdateInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = clientUpdateInfo;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public Download doInBackground(String... strArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (this.a == null) {
                 return null;
             }
-            return (a29) iLegoAdvert;
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.a, null);
+            return null;
         }
-        return (a29) invokeL.objValue;
-    }
-
-    public static void b(a29 a29Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, a29Var) == null) && a29Var != null && a29Var.getParallelCharge() != null) {
-            u31.b(a29Var.getParallelCharge().b);
-            Iterator<String> it = a29Var.getParallelCharge().c.iterator();
-            while (it.hasNext()) {
-                u31.b(it.next());
-            }
-        }
-    }
-
-    public static void c(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            if (iLegoAdvert != null) {
-                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
-            }
-            t31.e(clogBuilder);
-        }
-    }
-
-    public static boolean d(a29 a29Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, a29Var)) == null) {
-            if (a29Var == null || a29Var.getParallelCharge() == null) {
-                return false;
-            }
-            String str = a29Var.getParallelCharge().a;
-            u31.b(str);
-            if (!TextUtils.isEmpty(str)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            Iterator<String> it = a29Var.getParallelCharge().d.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!z && TextUtils.isEmpty(next)) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                u31.b(next);
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
+        return (Download) invokeL.objValue;
     }
 }

@@ -1,47 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
 /* loaded from: classes8.dex */
-public final class xyb {
+public class xyb<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<xyb> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public yyb a;
-    public String b;
-    public Context c;
+    public final ezb<TResult> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948318120, "Lcom/baidu/tieba/xyb;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xyb a;
+
+        public a(xyb xybVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xybVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xybVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948318120, "Lcom/baidu/tieba/xyb;");
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.l();
+            }
         }
     }
 
-    public xyb(Context context, String str) {
+    public xyb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ezb<>();
+    }
+
+    public xyb(ryb rybVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {rybVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,50 +76,27 @@ public final class xyb {
                 return;
             }
         }
-        czb.b();
-        this.a = new yyb(context, str);
-        this.b = str;
-        this.c = context;
+        this.a = new ezb<>();
+        rybVar.b(new a(this));
     }
 
-    public static xyb b(Context context, String str) {
-        InterceptResult invokeLL;
-        xyb xybVar;
-        xyb xybVar2;
+    public wyb<TResult> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<xyb> softReference = d;
-                if (softReference == null) {
-                    xybVar = null;
-                } else {
-                    xybVar = softReference.get();
-                }
-                if (xybVar == null || !str.equals(xybVar.b)) {
-                    synchronized (xyb.class) {
-                        xybVar2 = new xyb(context, str);
-                        d = new SoftReference<>(xybVar2);
-                    }
-                    return xybVar2;
-                }
-                return xybVar;
-            }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
-        }
-        return (xyb) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (wyb) invokeV.objValue;
     }
 
-    public final void a(Activity activity, vyb vybVar) {
+    public void c(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, vybVar) == null) {
-            this.a.c(activity, "123", vybVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.a.j(exc);
         }
     }
 
-    public final void c(int i, int i2, Intent intent, vyb vybVar) {
+    public void setResult(TResult tresult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, vybVar}) == null) {
-            this.a.d(i, i2, intent, vybVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tresult) == null) {
+            this.a.k(tresult);
         }
     }
 }

@@ -1,24 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.utils.Constant;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.Objects;
+import tbclient.Loop.FestivalInfo;
+import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class jh5 implements nh5 {
+public class jh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @SerializedName("main_fname")
+    public String a;
+    @SerializedName("main_fid")
+    public long b;
+    @Nullable
+    @SerializedName("bless")
+    public String c;
+    @Nullable
+    @SerializedName("write_select_tips")
+    public String d;
+    @Nullable
+    @SerializedName("comment_tips")
+    public String e;
+    @Nullable
+    @SerializedName("tips_color")
+    public ThemeColorInfo f;
 
     public jh5() {
         Interceptable interceptable = $ic;
@@ -34,84 +47,44 @@ public class jh5 implements nh5 {
         }
     }
 
-    @Override // com.baidu.tieba.nh5
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    public void a(FestivalInfo festivalInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            g2a n = g2a.n();
-            if (i == 3) {
-                n.v(downloadData);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
-            } else {
-                n.B(downloadData);
-            }
-            kh5.a(downloadData);
-            g2a.n().y(downloadData);
-        }
-    }
-
-    @Override // com.baidu.tieba.nh5
-    public void onFileDownloadSucceed(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
             return;
         }
-        String[] tag = downloadData.getTag();
-        if (tag != null && tag.length == 3) {
-            String str = tag[0];
-            String str2 = tag[1];
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
-        }
-        kh5.c(downloadData);
-        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        g2a.n().y(downloadData);
-        if (downloadData.isNeedInvokeApk()) {
-            AdApkInstallHelper.a(i2a.m(downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX), downloadData);
-        }
+        this.a = festivalInfo.main_fname;
+        this.b = festivalInfo.main_fid.longValue();
+        this.c = festivalInfo.bless;
+        this.d = festivalInfo.write_select_tips;
+        this.e = festivalInfo.comment_tips;
+        this.f = festivalInfo.tips_color;
     }
 
-    @Override // com.baidu.tieba.nh5
-    public boolean onFileDownloaded(DownloadData downloadData) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || jh5.class != obj.getClass()) {
                 return false;
             }
-            downloadData.setStatusMsg(null);
-            return true;
+            jh5 jh5Var = (jh5) obj;
+            if (Objects.equals(this.a, jh5Var.a) && this.b == jh5Var.b && Objects.equals(this.c, jh5Var.c) && Objects.equals(this.d, jh5Var.d) && Objects.equals(this.e, jh5Var.e)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nh5
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nh5
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
-        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putLong(downloadData.getId(), downloadData.getSize());
-            edit.commit();
-        }
-        g2a.n().C(downloadData);
-        g2a.n().y(downloadData);
+        return invokeV.intValue;
     }
 }

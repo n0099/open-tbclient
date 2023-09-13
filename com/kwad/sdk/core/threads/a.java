@@ -9,15 +9,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes10.dex */
 public final class a {
-    public static Map<String, WeakReference<C0687a>> adw = new ConcurrentHashMap();
+    public static Map<String, WeakReference<C0682a>> adw = new ConcurrentHashMap();
 
     /* renamed from: com.kwad.sdk.core.threads.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0687a {
+    public static class C0682a {
         public HandlerThread adx;
         public Handler mHandler;
 
-        public C0687a(String str) {
+        public C0682a(String str) {
             String str2;
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HT";
@@ -36,12 +36,12 @@ public final class a {
     }
 
     @NonNull
-    public static C0687a cv(String str) {
-        WeakReference<C0687a> weakReference = adw.get(str);
+    public static C0682a cv(String str) {
+        WeakReference<C0682a> weakReference = adw.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            C0687a c0687a = new C0687a(str);
-            adw.put(str, new WeakReference<>(c0687a));
-            return c0687a;
+            C0682a c0682a = new C0682a(str);
+            adw.put(str, new WeakReference<>(c0682a));
+            return c0682a;
         }
         return weakReference.get();
     }

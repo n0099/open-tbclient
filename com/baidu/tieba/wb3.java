@@ -1,16 +1,149 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class wb3 {
+public class wb3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean t;
+    public static final vb3<wb3> u;
+    public static final ub3<wb3> v;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public String s;
+
+    /* loaded from: classes8.dex */
+    public static class a extends vb3<wb3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vb3
+        /* renamed from: b */
+        public void a(@NonNull wb3 wb3Var, @NonNull nu2 nu2Var) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wb3Var, nu2Var) == null) {
+                nu2Var.writeInt(wb3Var.a);
+                nu2Var.f(wb3Var.b);
+                nu2Var.f(wb3Var.c);
+                nu2Var.f(wb3Var.d);
+                nu2Var.writeInt(wb3Var.e);
+                nu2Var.writeBoolean(wb3Var.f);
+                nu2Var.f(wb3Var.g);
+                nu2Var.writeBoolean(wb3Var.h);
+                nu2Var.writeBoolean(wb3Var.i);
+                nu2Var.f(wb3Var.j);
+                nu2Var.writeBoolean(wb3Var.k);
+                nu2Var.writeBoolean(wb3Var.l);
+                nu2Var.writeBoolean(wb3Var.m);
+                nu2Var.writeBoolean(wb3Var.n);
+                nu2Var.writeBoolean(wb3Var.o);
+                nu2Var.writeBoolean(wb3Var.p);
+                nu2Var.f(wb3Var.q);
+                nu2Var.f(wb3Var.r);
+                nu2Var.f(wb3Var.s);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends ub3<wb3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ub3
+        /* renamed from: b */
+        public wb3 a(@NonNull mu2 mu2Var) throws Exception {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mu2Var)) == null) {
+                wb3 wb3Var = new wb3();
+                wb3Var.a = mu2Var.readInt();
+                wb3Var.b = mu2Var.g();
+                wb3Var.c = mu2Var.g();
+                wb3Var.d = mu2Var.g();
+                wb3Var.e = mu2Var.readInt();
+                wb3Var.f = mu2Var.readBoolean();
+                wb3Var.g = mu2Var.g();
+                wb3Var.h = mu2Var.readBoolean();
+                wb3Var.i = mu2Var.readBoolean();
+                wb3Var.j = mu2Var.g();
+                wb3Var.k = mu2Var.readBoolean();
+                wb3Var.l = mu2Var.readBoolean();
+                wb3Var.m = mu2Var.readBoolean();
+                wb3Var.n = mu2Var.readBoolean();
+                wb3Var.o = mu2Var.readBoolean();
+                wb3Var.p = mu2Var.readBoolean();
+                wb3Var.q = mu2Var.g();
+                wb3Var.r = mu2Var.g();
+                wb3Var.s = mu2Var.g();
+                return wb3Var;
+            }
+            return (wb3) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,135 +158,179 @@ public final class wb3 {
                 return;
             }
         }
-        a = nr1.a;
+        t = rr1.a;
+        u = new a();
+        v = new b();
     }
 
-    public static ac3 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
+    public wb3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.a = -16777216;
+        this.c = "#ffffff";
+        this.j = "default";
+        this.e = -1;
+        this.f = false;
+    }
+
+    public static wb3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (t) {
+                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
+            }
+            return new wb3();
+        }
+        return (wb3) invokeV.objValue;
+    }
+
+    public static wb3 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
-            ac3 ac3Var = new ac3();
-            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", ac3Var);
-            ku2.s().a(ac3Var);
-            ac3Var.b(new qe3(ac3Var));
-            ac3Var.b(new pe3(ac3Var));
-            ac3Var.b(new we3(ac3Var));
-            ac3Var.b(new ue3(ac3Var));
-            ac3Var.b(new te3(ac3Var));
-            ac3Var.b(new ne3(ac3Var));
-            ac3Var.b(new ge3(ac3Var));
-            ac3Var.b(new fe3(ac3Var));
-            ac3Var.b(new ee3(ac3Var));
-            ac3Var.b(new he3(ac3Var));
-            ac3Var.b(new le3(ac3Var));
-            ac3Var.b(new ke3(ac3Var));
-            ac3Var.b(new ye3(ac3Var));
-            ac3Var.b(new af3(ac3Var));
-            ac3Var.b(new ze3(ac3Var));
-            ac3Var.b(new ic3(ac3Var));
-            ac3Var.b(new be3(ac3Var));
-            ac3Var.b(new d42(ac3Var));
-            ac3Var.b(new g42(ac3Var));
-            ac3Var.b(new i42(ac3Var));
-            ac3Var.b(new b42(ac3Var));
-            ac3Var.b(new e42(ac3Var));
-            ac3Var.b(new h42(ac3Var));
-            ac3Var.b(new iy2(ac3Var));
-            ac3Var.b(new hy2(ac3Var));
-            ac3Var.b(new e03(ac3Var));
-            ac3Var.b(new x92(ac3Var));
-            ac3Var.b(new r82(ac3Var));
-            ac3Var.b(new yi3(ac3Var));
-            ac3Var.b(new ri3(ac3Var));
-            ac3Var.b(new si3(ac3Var));
-            ac3Var.b(new vi3(ac3Var));
-            ac3Var.b(new l23(ac3Var));
-            ac3Var.b(new st2(ac3Var));
-            ac3Var.b(new pt2(ac3Var));
-            ac3Var.b(new tt2(ac3Var));
-            ac3Var.b(new hm3(ac3Var));
-            ac3Var.b(new im3(ac3Var));
-            ac3Var.b(new jm3(ac3Var));
-            ac3Var.b(new km3(ac3Var));
-            ac3Var.b(new lm3(ac3Var));
-            ac3Var.b(new mm3(ac3Var));
-            ac3Var.b(new nm3(ac3Var));
-            ac3Var.b(new om3(ac3Var));
-            ac3Var.b(new lx2(ac3Var));
-            ac3Var.b(new o32(ac3Var));
-            ac3Var.b(new t32(ac3Var));
-            ac3Var.b(new p32(ac3Var));
-            ac3Var.b(new s32(ac3Var));
-            ac3Var.b(new q32(ac3Var));
-            ac3Var.b(new r32(ac3Var));
-            ac3Var.b(new f72(ac3Var));
-            ac3Var.b(new g72(ac3Var));
-            ac3Var.b(new wn2(ac3Var));
-            ac3Var.b(new vr1(ac3Var));
-            ac3Var.b(new sr1(ac3Var));
-            ac3Var.b(new ql3(ac3Var));
-            ac3Var.b(new rl3(ac3Var));
-            ac3Var.b(new al3(ac3Var));
-            ac3Var.b(new oq3(ac3Var));
-            ac3Var.b(new h32(ac3Var));
-            ac3Var.b(new my2(ac3Var));
-            ac3Var.b(new ny2(ac3Var));
-            ac3Var.b(new ly2(ac3Var));
-            ac3Var.b(new qi3(ac3Var));
-            ac3Var.b(new m92(ac3Var));
-            ac3Var.b(new um3(ac3Var));
-            ac3Var.b(new tm3(ac3Var));
-            ac3Var.b(new vm3(ac3Var));
-            ac3Var.b(new kl3(ac3Var));
-            ac3Var.b(new zd3(ac3Var));
-            ac3Var.b(new wd3(ac3Var));
-            ac3Var.b(new sc3(ac3Var));
-            if (a) {
-                ac3Var.b(new xe3(ac3Var));
-                ac3Var.b(new b92(ac3Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d();
             }
-            ac3Var.b(new vc3(ac3Var));
-            ac3Var.b(new mc3(ac3Var));
-            ac3Var.b(new dc3(ac3Var));
-            ac3Var.b(new oc3(ac3Var));
-            ac3Var.b(new c42(ac3Var));
-            ac3Var.b(new f42(ac3Var));
-            ac3Var.b(new a72(ac3Var));
-            ac3Var.b(new gd3(ac3Var));
-            ac3Var.b(new jd3(ac3Var));
-            ac3Var.b(new kd3(ac3Var));
-            ac3Var.b(new id3(ac3Var));
-            ac3Var.b(new ld3(ac3Var));
-            ac3Var.b(new re3(ac3Var));
-            ac3Var.b(new xx1(ac3Var));
-            ac3Var.b(new nl2(ac3Var));
-            ac3Var.b(new ed3(ac3Var));
-            ac3Var.b(new fd3(ac3Var));
-            ac3Var.b(new de3(ac3Var));
-            ac3Var.b(new md3(ac3Var));
-            ac3Var.b(new zc3(ac3Var));
-            ac3Var.b(new fc3(ac3Var));
-            ac3Var.b(new v03(ac3Var));
-            ac3Var.b(new nc3(ac3Var));
-            ac3Var.b(new tr2(ac3Var));
-            ac3Var.b(new vr2(ac3Var));
-            ac3Var.b(new rd3(ac3Var));
-            ac3Var.b(new sd3(ac3Var));
-            ac3Var.b(new p03(ac3Var));
-            ac3Var.b(new as1(ac3Var));
-            ac3Var.b(new n33(ac3Var));
-            ac3Var.b(new ey1(ac3Var));
-            ac3Var.b(new iy1(ac3Var));
-            ac3Var.b(new gy1(ac3Var));
-            ac3Var.b(new jy1(ac3Var));
-            ac3Var.b(new hy1(ac3Var));
-            ac3Var.b(new sf3(ac3Var));
-            ac3Var.b(new vx1(ac3Var));
-            ac3Var.b(new wx1(ac3Var));
-            ac3Var.b(new cy1(ac3Var));
-            ku2.Y().a(ac3Var);
-            return ac3Var;
+            return c(jSONObject);
         }
-        return (ac3) invokeL.objValue;
+        return (wb3) invokeL.objValue;
+    }
+
+    public static boolean f(wb3 wb3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, wb3Var)) == null) {
+            if (wb3Var == null) {
+                return false;
+            }
+            if (!wb3Var.h && !TextUtils.equals(wb3Var.j, ExceptionHandlerImpl.KEY_CUSTOM)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
+            this.p = true;
+        }
+    }
+
+    public static wb3 b(String str, @NonNull wb3 wb3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, wb3Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return wb3Var;
+            }
+            try {
+                return e(new JSONObject(str), wb3Var);
+            } catch (JSONException e) {
+                if (t) {
+                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+                }
+                return wb3Var;
+            }
+        }
+        return (wb3) invokeLL.objValue;
+    }
+
+    public static wb3 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            if (optJSONObject == null) {
+                return d();
+            }
+            wb3 wb3Var = new wb3();
+            String optString = optJSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                optString = "#000000";
+            }
+            wb3Var.a = SwanAppConfigData.t(optString);
+            String optString2 = optJSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "white";
+            }
+            wb3Var.c = optString2;
+            wb3Var.b = optJSONObject.optString("navigationBarTitleText");
+            wb3Var.d = optJSONObject.optString("backgroundTextStyle", "black");
+            wb3Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            wb3Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
+            wb3Var.g = optJSONObject.optString("onReachBottomDistance");
+            wb3Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            wb3Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            wb3Var.j = optJSONObject.optString("navigationStyle", "default");
+            wb3Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            wb3Var.q = optJSONObject.optString("textSizeAdjust");
+            wb3Var.s = optJSONObject.optString("htmlFontSize");
+            optJSONObject.optJSONArray("fontFace");
+            return wb3Var;
+        }
+        return (wb3) invokeL.objValue;
+    }
+
+    public static wb3 e(JSONObject jSONObject, @NonNull wb3 wb3Var) {
+        InterceptResult invokeLL;
+        int t2;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, wb3Var)) == null) {
+            wb3 wb3Var2 = new wb3();
+            String optString = jSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                t2 = wb3Var.a;
+            } else {
+                t2 = SwanAppConfigData.t(optString);
+            }
+            wb3Var2.a = t2;
+            wb3Var2.b = jSONObject.optString("navigationBarTitleText", wb3Var.b);
+            String optString2 = jSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = wb3Var.c;
+            }
+            wb3Var2.c = optString2;
+            wb3Var2.d = jSONObject.optString("backgroundTextStyle", wb3Var.d);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
+                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            } else {
+                i = wb3Var.e;
+            }
+            wb3Var2.e = i;
+            wb3Var2.f = jSONObject.optBoolean("enablePullDownRefresh", wb3Var.f);
+            wb3Var2.g = jSONObject.optString("onReachBottomDistance", wb3Var.g);
+            wb3Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", wb3Var.h);
+            wb3Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", wb3Var.i);
+            wb3Var2.j = jSONObject.optString("navigationStyle", wb3Var.j);
+            wb3Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", wb3Var.k);
+            wb3Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
+            wb3Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
+            wb3Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
+            wb3Var2.o = jSONObject.optBoolean("_hasVideo", false);
+            wb3Var2.r = jSONObject.optString("viewMode", wb3Var.r);
+            wb3Var2.s = jSONObject.optString("htmlFontSize", wb3Var.s);
+            jSONObject.optJSONArray("fontFace");
+            return wb3Var2;
+        }
+        return (wb3) invokeLL.objValue;
     }
 }

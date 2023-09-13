@@ -1,9 +1,22 @@
 package com.baidu.tieba;
 
-import java.util.List;
-/* loaded from: classes8.dex */
-public interface yx5 {
-    List<String> a();
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes9.dex */
+public class yx5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    ay5 b(String str, String str2);
+    public static void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+        }
+    }
+
+    public static void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+        }
+    }
 }

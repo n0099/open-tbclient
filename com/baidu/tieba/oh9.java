@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes7.dex */
-public class oh9 {
+public final class oh9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WeakReference<PbFragment> a;
+    public final String b;
 
-    public oh9() {
+    public oh9(String token, PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {token, pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,40 +37,44 @@ public class oh9 {
                 return;
             }
         }
-        a();
-        b();
+        Intrinsics.checkNotNullParameter(token, "token");
+        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
+        this.a = new WeakReference<>(pbFragment);
+        this.b = token;
     }
 
-    public final void a() {
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0067  */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        PbFragment pbFragment;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, ifa.a(TbConfig.FINE_PB_PRAISE, 309095));
-            tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309095);
-            tbSocketMessageTask.setResponsedClass(ChosenPbZanSocketResponse.class);
-            tbSocketMessageTask.setNeedAck(true);
-            tbSocketMessageTask.setNeedCompress(false);
-            MessageManager.getInstance().registerTask(tbSocketMessageTask);
-        }
-    }
-
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
-            ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
-            chosenZanNetMessage.setExcId(j);
-            chosenZanNetMessage.setAction(i);
-            chosenZanNetMessage.setThreadId(j2);
-            chosenZanNetMessage.setPostId(j3);
-            pbChosenActivity.sendMessage(chosenZanNetMessage);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pbFragment = this.a.get()) != null && pbFragment.H6() != null && pbFragment.X() != null && pbFragment.H6().T0() != null && pbFragment.X().r1() != null) {
+            RobotEntrance K = pbFragment.X().r1().K();
+            if (K != null) {
+                List<RobotSkillInfo> list = K.robot_skill_info;
+                List<RobotSkill> list2 = K.bottom_bar_robot_skill;
+                if (list != null && list2 != null) {
+                    CallRobotEntrance c = BotEntranceManager.c.c().c(list, list2);
+                    Intrinsics.checkNotNull(c);
+                    str = c.style_conf.android_extra.bot_timeout_content;
+                    Intrinsics.checkNotNullExpressionValue(str, "robotEntrance!!.style_co…extra.bot_timeout_content");
+                    if (TextUtils.isEmpty(str)) {
+                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07fa);
+                        Intrinsics.checkNotNullExpressionValue(str, "getInst()\n              …bot_loading_timeout_text)");
+                    }
+                    xp9.d(this.b, str, "", 2);
+                    pbFragment.H6().T0().f0();
+                }
+            }
+            str = "";
+            if (TextUtils.isEmpty(str)) {
+            }
+            xp9.d(this.b, str, "", 2);
+            pbFragment.H6().T0().f0();
         }
     }
 }

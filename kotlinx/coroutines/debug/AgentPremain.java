@@ -28,7 +28,7 @@ public final class AgentPremain {
     public static final boolean enableCreationStackTraces;
 
     static {
-        Object m849constructorimpl;
+        Object m850constructorimpl;
         boolean booleanValue;
         Boolean valueOf;
         Boolean bool = null;
@@ -40,13 +40,13 @@ public final class AgentPremain {
             } else {
                 valueOf = Boolean.valueOf(Boolean.parseBoolean(property));
             }
-            m849constructorimpl = Result.m849constructorimpl(valueOf);
+            m850constructorimpl = Result.m850constructorimpl(valueOf);
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m849constructorimpl = Result.m849constructorimpl(ResultKt.createFailure(th));
+            m850constructorimpl = Result.m850constructorimpl(ResultKt.createFailure(th));
         }
-        if (!Result.m855isFailureimpl(m849constructorimpl)) {
-            bool = m849constructorimpl;
+        if (!Result.m856isFailureimpl(m850constructorimpl)) {
+            bool = m850constructorimpl;
         }
         Boolean bool2 = bool;
         if (bool2 == null) {
@@ -73,7 +73,7 @@ public final class AgentPremain {
 
     private final void installSignalHandler() {
         try {
-            Signal.handle(new Signal("TRAP"), new SignalHandler() { // from class: com.baidu.tieba.u4c
+            Signal.handle(new Signal("TRAP"), new SignalHandler() { // from class: com.baidu.tieba.x7c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
             });
@@ -82,7 +82,7 @@ public final class AgentPremain {
     }
 
     /* renamed from: installSignalHandler$lambda-1  reason: not valid java name */
-    public static final void m2320installSignalHandler$lambda1(Signal signal) {
+    public static final void m2321installSignalHandler$lambda1(Signal signal) {
         if (DebugProbesImpl.INSTANCE.isInstalled$kotlinx_coroutines_core()) {
             DebugProbesImpl.INSTANCE.dumpCoroutines(System.out);
         } else {

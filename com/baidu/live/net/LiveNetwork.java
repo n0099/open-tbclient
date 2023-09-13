@@ -10,8 +10,8 @@ import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.ad0;
-import com.baidu.tieba.jd0;
-import com.baidu.tieba.xc0;
+import com.baidu.tieba.bd0;
+import com.baidu.tieba.kd0;
 import com.baidu.tieba.yc0;
 import com.baidu.tieba.zc0;
 import com.baidu.webkit.sdk.WebChromeClient;
@@ -76,17 +76,17 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class b<T, ResponseDataT> implements zc0<a<ResponseDataT>> {
+    public static final class b<T, ResponseDataT> implements ad0<a<ResponseDataT>> {
         public final /* synthetic */ Map b;
-        public final /* synthetic */ xc0 c;
+        public final /* synthetic */ yc0 c;
 
-        public b(Map map, xc0 xc0Var) {
+        public b(Map map, yc0 yc0Var) {
             this.b = map;
-            this.c = xc0Var;
+            this.c = yc0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zc0
+        @Override // com.baidu.tieba.ad0
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             INetWork iNetWork = LiveNetwork.this.b;
@@ -96,12 +96,12 @@ public final class LiveNetwork {
             NetResponse res = iNetWork.postSync(this.b);
             Object obj = null;
             try {
-                xc0 xc0Var = this.c;
-                if (xc0Var != null) {
-                    obj = xc0Var.onParseResponseInBackground(res);
+                yc0 yc0Var = this.c;
+                if (yc0Var != null) {
+                    obj = yc0Var.onParseResponseInBackground(res);
                 }
             } catch (Exception e) {
-                jd0.e(e);
+                kd0.e(e);
             }
             Intrinsics.checkExpressionValueIsNotNull(res, "res");
             return new a<>(res, obj);
@@ -110,20 +110,20 @@ public final class LiveNetwork {
 
     /* JADX INFO: Add missing generic type declarations: [ResponseDataT] */
     /* loaded from: classes3.dex */
-    public static final class c<T, ResponseDataT> implements ad0<a<ResponseDataT>> {
-        public final /* synthetic */ xc0 a;
+    public static final class c<T, ResponseDataT> implements bd0<a<ResponseDataT>> {
+        public final /* synthetic */ yc0 a;
 
-        public c(xc0 xc0Var) {
-            this.a = xc0Var;
+        public c(yc0 yc0Var) {
+            this.a = yc0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ad0
+        @Override // com.baidu.tieba.bd0
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
             NetResponse netResponse;
-            xc0 xc0Var = this.a;
-            if (xc0Var != null) {
+            yc0 yc0Var = this.a;
+            if (yc0Var != null) {
                 ResponseDataT responsedatat = null;
                 if (aVar != null) {
                     netResponse = aVar.b();
@@ -133,7 +133,7 @@ public final class LiveNetwork {
                 if (aVar != null) {
                     responsedatat = aVar.a();
                 }
-                xc0Var.onNetResponse(netResponse, responsedatat);
+                yc0Var.onNetResponse(netResponse, responsedatat);
             }
         }
     }
@@ -179,10 +179,10 @@ public final class LiveNetwork {
         }
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, xc0<ResponseDataT> xc0Var) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, yc0<ResponseDataT> yc0Var) {
         String str = this.a;
         if (str != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.b != null) {
-            yc0.a(new b(map, xc0Var), new c(xc0Var));
+            zc0.a(new b(map, yc0Var), new c(yc0Var));
         }
     }
 }

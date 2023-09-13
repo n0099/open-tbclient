@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.os.Environment;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.view.KeyEvent;
+import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestConst;
+import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.util.AdApkInstallHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,128 +22,104 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-@Service
+@SuppressLint({"UseSparseArrays"})
 /* loaded from: classes6.dex */
-public final class h76 implements ph5 {
+public class h76 extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final b a;
-    public static final List<ApkDownloadInfoData> b;
-    public static long c;
+    public static SparseArray<Integer> d;
+    public static HashMap<b, Integer> e;
+    public static HashMap<b, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public NewFriendsActivity a;
+    public List<cf8> b;
+    public c c;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public static int b;
-        public static int c;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-792376379, "Lcom/baidu/tieba/h76$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-792376379, "Lcom/baidu/tieba/h76$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i, int i2, View view2, cf8 cf8Var);
+    }
 
-        public a() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        public b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = z;
         }
 
-        public final int a() {
-            InterceptResult invokeV;
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj != null && b.class == obj.getClass() && this.a == ((b) obj).a) {
+                    return true;
+                }
+                return false;
             }
-            return invokeV.intValue;
+            return invokeL.booleanValue;
         }
 
-        public final int b() {
+        public int hashCode() {
             InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return c;
+                if (this.a) {
+                    i = 1231;
+                } else {
+                    i = 1237;
+                }
+                return 31 + i;
             }
             return invokeV.intValue;
-        }
-
-        public final void c(ClogBuilder.LogType logType, ClogBuilder.Area area, hl0 bean) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, logType, area, bean) == null) {
-                Intrinsics.checkNotNullParameter(logType, "logType");
-                Intrinsics.checkNotNullParameter(area, "area");
-                Intrinsics.checkNotNullParameter(bean, "bean");
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.u(ClogBuilder.Page.POPUP);
-                clogBuilder.y(logType);
-                clogBuilder.i(area);
-                if (!TextUtils.isEmpty(bean.p.a)) {
-                    clogBuilder.p(bean.p.a);
-                }
-                clogBuilder.k(String.valueOf(b));
-                clogBuilder.l(String.valueOf(c));
-                if (TextUtils.equals(bean.q.o, "reminded_type_uninstall")) {
-                    str = "1";
-                } else {
-                    str = "2";
-                }
-                clogBuilder.m(str);
-                t31.e(clogBuilder);
-            }
-        }
-
-        public final void d(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                b = i;
-            }
-        }
-
-        public final void e(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-                c = i;
-            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public HeadImageView a;
+        public TextView b;
+        public TextView c;
+        public TextView d;
 
-        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public b() {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,6 +130,27 @@ public final class h76 implements ph5 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        public void a(cf8 cf8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cf8Var) == null) {
+                boolean z = false;
+                this.a.startLoad(cf8Var.e(), 12, false);
+                this.b.setText(cf8Var.d());
+                if (!TextUtils.isEmpty(cf8Var.a())) {
+                    this.c.setText(cf8Var.a());
+                } else {
+                    this.c.setText("");
+                }
+                int f = cf8Var.f();
+                this.d.setText(((Integer) h76.d.get(f)).intValue());
+                this.d.setEnabled((f == 0 || f == 1) ? true : true);
             }
         }
     }
@@ -175,272 +168,202 @@ public final class h76 implements ph5 {
                 return;
             }
         }
-        a = new b(null);
-        b = new ArrayList();
+        d = new SparseArray<>();
+        e = new HashMap<>();
+        f = new HashMap<>();
+        d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00e7));
+        d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0105));
+        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0f4c));
+        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0f7b));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f189d));
+        e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
+        e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        f.put(new b(true), Integer.valueOf((int) R.color.btn_agree_text_color));
     }
 
-    public h76() {
+    public h76(NewFriendsActivity newFriendsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newFriendsActivity};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c = System.currentTimeMillis();
-            SharedPrefHelper.getInstance().putLong("key_last_not_install_dialog_show_time", c);
-        }
-    }
-
-    public static final void f(h76 this$0, ApkDownloadInfoData apkDownloadInfoData, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, apkDownloadInfoData, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.i();
-            gl0.b().d(false);
-            if (apkDownloadInfoData.isFromBusiness()) {
-                a aVar = a.a;
-                ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-                ClogBuilder.Area area = ClogBuilder.Area.DIALOG_POSITIVE;
-                hl0 adDownloadBean = apkDownloadInfoData.getAdDownloadBean();
-                Intrinsics.checkNotNullExpressionValue(adDownloadBean, "data.adDownloadBean");
-                aVar.c(logType, area, adDownloadBean);
-            }
-            if (TextUtils.equals(apkDownloadInfoData.getBackAlertRemindType(), "reminded_type_un_open")) {
-                rm0.h(apkDownloadInfoData.getApkPackageName());
-            } else {
-                AdApkInstallHelper.a.c(apkDownloadInfoData.getApkFile().getAbsolutePath(), null);
-            }
-            this$0.d(apkDownloadInfoData);
-        }
-    }
-
-    public static final void g(h76 this$0, vh5 processCallBack, ApkDownloadInfoData apkDownloadInfoData, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, this$0, processCallBack, apkDownloadInfoData, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(processCallBack, "$processCallBack");
-            this$0.i();
-            gl0.b().d(false);
-            processCallBack.a();
-            if (apkDownloadInfoData.isFromBusiness()) {
-                a aVar = a.a;
-                ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-                ClogBuilder.Area area = ClogBuilder.Area.DIALOG_NEGATIVE;
-                hl0 adDownloadBean = apkDownloadInfoData.getAdDownloadBean();
-                Intrinsics.checkNotNullExpressionValue(adDownloadBean, "data.adDownloadBean");
-                aVar.c(logType, area, adDownloadBean);
-            }
-        }
-    }
-
-    public static final boolean h(h76 this$0, ApkDownloadInfoData apkDownloadInfoData, Activity activity, vh5 processCallBack, DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{this$0, apkDownloadInfoData, activity, processCallBack, dialogInterface, Integer.valueOf(i), keyEvent})) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Intrinsics.checkNotNullParameter(activity, "$activity");
-            Intrinsics.checkNotNullParameter(processCallBack, "$processCallBack");
-            a aVar = a.a;
-            aVar.d(aVar.a() + 1);
-            this$0.i();
-            if (apkDownloadInfoData.isFromBusiness()) {
-                a aVar2 = a.a;
-                ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-                ClogBuilder.Area area = ClogBuilder.Area.DIALOG_KEYBACK;
-                hl0 adDownloadBean = apkDownloadInfoData.getAdDownloadBean();
-                Intrinsics.checkNotNullExpressionValue(adDownloadBean, "data.adDownloadBean");
-                aVar2.c(logType, area, adDownloadBean);
-            }
-            if (gl0.b().a(activity)) {
-                gl0.b().e(activity, System.currentTimeMillis());
-                processCallBack.a();
-            } else {
-                processCallBack.b();
-            }
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ph5
-    public void a(final Activity activity, final vh5 processCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, processCallBack) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(processCallBack, "processCallBack");
-            a aVar = a.a;
-            aVar.d(aVar.a() + 1);
-            c = SharedPrefHelper.getInstance().getLong("key_last_not_install_dialog_show_time", 0L);
-            if (System.currentTimeMillis() - c < 600000) {
-                processCallBack.a();
                 return;
             }
-            final ApkDownloadInfoData c2 = c();
-            if (c2 == null) {
-                processCallBack.a();
-                return;
-            }
-            c76 c76Var = new c76(activity);
-            c76Var.b(false);
-            c76Var.c(false);
-            c76Var.d(c2);
-            c76Var.i(new View.OnClickListener() { // from class: com.baidu.tieba.f76
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        h76.f(h76.this, c2, view2);
-                    }
-                }
-            });
-            c76Var.e(new View.OnClickListener() { // from class: com.baidu.tieba.g76
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        h76.g(h76.this, processCallBack, c2, view2);
-                    }
-                }
-            });
-            c76Var.g(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.e76
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.content.DialogInterface.OnKeyListener
-                public final boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                    InterceptResult invokeLIL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) ? h76.h(h76.this, c2, activity, processCallBack, dialogInterface, i, keyEvent) : invokeLIL.booleanValue;
-                }
-            });
-            c76Var.k();
-            e(c2);
-            a aVar2 = a.a;
-            aVar2.e(aVar2.b() + 1);
-            gl0.b().d(true);
-            if (c2.isFromBusiness() && c2.getAdDownloadBean() != null) {
-                a aVar3 = a.a;
-                ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_SHOW;
-                ClogBuilder.Area area = ClogBuilder.Area.DIALOG;
-                hl0 adDownloadBean = c2.getAdDownloadBean();
-                Intrinsics.checkNotNullExpressionValue(adDownloadBean, "data.adDownloadBean");
-                aVar3.c(logType, area, adDownloadBean);
-            }
         }
+        this.a = newFriendsActivity;
     }
 
-    @Override // com.baidu.tieba.ph5
-    public void b(ApkDownloadInfoData data) {
+    public final int b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (data.getApkFile() != null && data.getApkFile().exists() && !TextUtils.isEmpty(data.getApkName())) {
-                b.add(data);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            List<cf8> list = this.b;
+            if (list != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (j == this.b.get(i).b()) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+            return -1;
+        }
+        return invokeJ.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public cf8 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return (cf8) invokeI.objValue;
+    }
+
+    public synchronized void d(cf8 cf8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cf8Var) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.remove(cf8Var);
+                }
             }
         }
     }
 
-    public final ApkDownloadInfoData c() {
+    public void e(List<cf8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void f(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    public void h(List<cf8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
+            }
+            if (list != null) {
+                for (cf8 cf8Var : list) {
+                    g(cf8Var);
+                }
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, view2) == null) && this.c != null) {
+            int id = view2.getId();
+            int intValue = ((Integer) view2.getTag()).intValue();
+            this.c.a(id, intValue, view2, getItem(intValue));
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ApkDownloadInfoData apkDownloadInfoData = null;
-            if (d31.g(b)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<cf8> list = this.b;
+            if (list == null) {
+                return 0;
             }
-            ArrayList arrayList = new ArrayList();
-            d31.m(b);
-            Iterator<ApkDownloadInfoData> it = b.iterator();
-            ApkDownloadInfoData apkDownloadInfoData2 = null;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                ApkDownloadInfoData next = it.next();
-                if (next != null) {
-                    String apkPackageName = next.getApkPackageName();
-                    boolean c2 = rm0.c(apkPackageName);
-                    boolean exists = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + apkPackageName).exists();
-                    if (c2) {
-                        if (exists) {
-                            arrayList.add(next);
-                        } else {
-                            arrayList.add(next);
-                            next.setBackAlertRemindType("reminded_type_un_open");
-                            apkDownloadInfoData = next;
-                            break;
-                        }
-                    } else if (rm0.g(next.getApkFile()) && apkDownloadInfoData2 == null) {
-                        next.setBackAlertRemindType("reminded_type_uninstall");
-                        arrayList.add(next);
-                        apkDownloadInfoData2 = next;
-                    }
-                }
-            }
-            b.removeAll(arrayList);
-            if (apkDownloadInfoData != null) {
-                return apkDownloadInfoData;
-            }
-            return apkDownloadInfoData2;
+            return list.size();
         }
-        return (ApkDownloadInfoData) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void d(ApkDownloadInfoData apkDownloadInfoData) {
-        String str;
-        String str2;
+    public void g(cf8 cf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, apkDownloadInfoData) == null) {
-            StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_INSTALL_EXIT_DIALOG_REMIND_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_source", apkDownloadInfoData.getApkName()).addParam(TiebaStatic.Params.OBJ_URL, apkDownloadInfoData.getDownloadUrl()).addParam("obj_name", apkDownloadInfoData.getApkPackageName());
-            if (TextUtils.equals(apkDownloadInfoData.getBackAlertRemindType(), "reminded_type_uninstall")) {
-                str = "2";
-            } else {
-                str = "1";
+        if (interceptable == null || interceptable.invokeL(1048581, this, cf8Var) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
             }
-            StatisticItem addParam2 = addParam.addParam(TiebaStatic.Params.OBJ_PARAM2, str);
-            if (UbsABTestHelper.isAdNotInstallRemindA()) {
-                str2 = UsbAbTestConst.KEY_AD_NOT_INSTALL_REMIND_A;
-            } else {
-                str2 = UsbAbTestConst.KEY_AD_NOT_INSTALL_REMIND_B;
+            if (cf8Var != null && cf8Var.b() != 0) {
+                int b2 = b(cf8Var.b());
+                if (b2 != -1) {
+                    this.b.remove(b2);
+                    this.b.add(0, cf8Var);
+                    return;
+                }
+                this.b.add(0, cf8Var);
             }
-            TiebaStatic.log(addParam2.addParam(TiebaStatic.Params.OBJ_PARAM3, str2).addParam(TiebaStatic.Params.OBJ_PARAM4, apkDownloadInfoData.getItemSource()));
         }
     }
 
-    public final void e(ApkDownloadInfoData apkDownloadInfoData) {
-        String str;
-        String str2;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        d dVar;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, apkDownloadInfoData) == null) {
-            StatisticItem addParam = new StatisticItem(CommonStatisticKey.KEY_INSTALL_EXIT_DIALOG_REMIND_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_source", apkDownloadInfoData.getApkName()).addParam(TiebaStatic.Params.OBJ_URL, apkDownloadInfoData.getDownloadUrl()).addParam("obj_name", apkDownloadInfoData.getApkPackageName());
-            if (TextUtils.equals(apkDownloadInfoData.getBackAlertRemindType(), "reminded_type_uninstall")) {
-                str = "2";
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof d)) {
+                dVar = (d) view2.getTag();
             } else {
-                str = "1";
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0081, (ViewGroup) null);
+                dVar = new d(null);
+                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c4a);
+                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c4c);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c4b);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c48);
+                view2.setTag(dVar);
             }
-            StatisticItem addParam2 = addParam.addParam(TiebaStatic.Params.OBJ_PARAM2, str);
-            if (UbsABTestHelper.isAdNotInstallRemindA()) {
-                str2 = UsbAbTestConst.KEY_AD_NOT_INSTALL_REMIND_A;
+            cf8 item = getItem(i);
+            dVar.a(item);
+            dVar.d.setTag(Integer.valueOf(i));
+            dVar.d.setOnClickListener(this);
+            BDLayoutMode layoutMode = this.a.getLayoutMode();
+            boolean z3 = false;
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
             } else {
-                str2 = UsbAbTestConst.KEY_AD_NOT_INSTALL_REMIND_B;
+                z = false;
             }
-            TiebaStatic.log(addParam2.addParam(TiebaStatic.Params.OBJ_PARAM3, str2).addParam(TiebaStatic.Params.OBJ_PARAM4, apkDownloadInfoData.getItemSource()));
+            layoutMode.setNightMode(z);
+            this.a.getLayoutMode().onModeChanged(view2);
+            HashMap<b, Integer> hashMap = e;
+            if (item.f() == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            Integer num = hashMap.get(new b(z2));
+            if (num != null) {
+                SkinManager.setBackgroundResource(dVar.d, num.intValue());
+            }
+            HashMap<b, Integer> hashMap2 = f;
+            if (item.f() == 1) {
+                z3 = true;
+            }
+            Integer num2 = hashMap2.get(new b(z3));
+            if (num2 != null) {
+                SkinManager.setViewTextColor(dVar.d, num2.intValue(), 1);
+            }
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.b21;
+import com.baidu.tieba.f21;
 /* loaded from: classes3.dex */
 public class BdVideoNewCacheView extends BdVideoCacheView {
     public BdVideoNewCacheView(@NonNull Context context) {
@@ -12,7 +12,7 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
 
     @Override // com.baidu.nadcore.video.videoplayer.ui.full.BdVideoCacheView, android.view.View
     public void onWindowVisibilityChanged(int i) {
-        b21.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+        f21.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
         if (i != 0) {
             setVisibility(4);
         } else if (this.b.b()) {

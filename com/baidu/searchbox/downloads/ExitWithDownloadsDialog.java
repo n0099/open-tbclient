@@ -45,7 +45,7 @@ public final class ExitWithDownloadsDialog {
         if (DEBUG) {
             Log.v(TAG, "EXIST IN DIALOG");
         }
-        new BoxAlertDialog.Builder(context).setTitle(R.string.obfuscated_res_0x7f0f05f1).setNegativeButton(R.string.obfuscated_res_0x7f0f0e43, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.downloads.ExitWithDownloadsDialog.3
+        new BoxAlertDialog.Builder(context).setTitle(R.string.obfuscated_res_0x7f0f05f4).setNegativeButton(R.string.obfuscated_res_0x7f0f0e5a, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.downloads.ExitWithDownloadsDialog.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 SearchBoxDownloadManager.getInstance(AppRuntime.getAppContext()).pauseAllDownloadingTasks();
@@ -54,11 +54,11 @@ public final class ExitWithDownloadsDialog {
                 context.sendBroadcast(intent);
                 ExitWithDownloadsDialog.exit(context);
             }
-        }).setPositiveButton(R.string.obfuscated_res_0x7f0f18ff, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.downloads.ExitWithDownloadsDialog.2
+        }).setPositiveButton(R.string.obfuscated_res_0x7f0f191d, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.downloads.ExitWithDownloadsDialog.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 ExitWithDownloadsDialog.exit(context);
             }
-        }).setMessage(R.string.obfuscated_res_0x7f0f05c6).setOnDismissListener(onDismissListener).show(true);
+        }).setMessage(R.string.obfuscated_res_0x7f0f05c9).setOnDismissListener(onDismissListener).show(true);
     }
 }

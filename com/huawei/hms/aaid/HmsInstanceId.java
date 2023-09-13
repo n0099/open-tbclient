@@ -5,9 +5,9 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.awb;
-import com.baidu.tieba.xvb;
-import com.baidu.tieba.yvb;
+import com.baidu.tieba.wyb;
+import com.baidu.tieba.xyb;
+import com.baidu.tieba.zyb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import com.huawei.hms.opendevice.o;
 import com.huawei.hms.opendevice.p;
 import com.huawei.hms.opendevice.q;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HmsInstanceId {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HmsInstanceId";
@@ -144,7 +144,7 @@ public class HmsInstanceId {
                 HMSLog.d(str, sb.toString());
                 l lVar = new l("push.gettoken", tokenReq, this.a, a);
                 lVar.setApiLevel(i);
-                return ((TokenResult) awb.a(this.c.doWrite(lVar))).getToken();
+                return ((TokenResult) zyb.a(this.c.doWrite(lVar))).getToken();
             } catch (Exception e) {
                 if (e.getCause() instanceof ApiException) {
                     ApiException apiException = (ApiException) e.getCause();
@@ -166,19 +166,19 @@ public class HmsInstanceId {
         }
     }
 
-    public xvb<AAIDResult> getAAID() {
+    public wyb<AAIDResult> getAAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             try {
-                return awb.b(new j(this.a.getApplicationContext()));
+                return zyb.b(new j(this.a.getApplicationContext()));
             } catch (Exception unused) {
-                yvb yvbVar = new yvb();
-                yvbVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
-                return yvbVar.b();
+                xyb xybVar = new xyb();
+                xybVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                return xybVar.b();
             }
         }
-        return (xvb) invokeV.objValue;
+        return (wyb) invokeV.objValue;
     }
 
     public final void a(DeleteTokenReq deleteTokenReq, int i) throws ApiException {
@@ -201,7 +201,7 @@ public class HmsInstanceId {
                 deleteTokenReq.setToken(b);
                 k kVar = new k("push.deletetoken", deleteTokenReq, a);
                 kVar.setApiLevel(i);
-                awb.a(this.c.doWrite(kVar));
+                zyb.a(this.c.doWrite(kVar));
                 i.a(this.a).c(subjectId);
             } catch (Exception e) {
                 if (e.getCause() instanceof ApiException) {

@@ -12,7 +12,7 @@ import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.njb;
+import com.baidu.tieba.mmb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            njb njbVar;
+            mmb mmbVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        njb c = njb.c(this.a, this.b, this.c, false);
+                        mmb c = mmb.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            njbVar = c;
+                            mmbVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new njb(1L, this.b);
+                                c = new mmb(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                njbVar = njb.c(this.a, this.b, this.c, false);
-                                if (njbVar != null) {
-                                    this.b = njbVar.a();
+                                mmbVar = mmb.c(this.a, this.b, this.c, false);
+                                if (mmbVar != null) {
+                                    this.b = mmbVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                njbVar = null;
+                                mmbVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (njbVar != null) {
-                            i4 = i * njbVar.d();
+                        if (mmbVar != null) {
+                            i4 = i * mmbVar.d();
                         }
                         aVar = new a(d, i4);
                     }
@@ -886,7 +886,7 @@ public class CSSParser {
         public static final MediaType tty;
 
         /* renamed from: tv  reason: collision with root package name */
-        public static final MediaType f1202tv;
+        public static final MediaType f1198tv;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -913,7 +913,7 @@ public class CSSParser {
             speech = new MediaType(WarmTipsManager.WIDGET_SPEECH_EXT_VALUE, 8);
             tty = new MediaType("tty", 9);
             MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 10);
-            f1202tv = mediaType;
+            f1198tv = mediaType;
             $VALUES = new MediaType[]{all, aural, braille, embossed, handheld, print, projection, screen, speech, tty, mediaType};
         }
 

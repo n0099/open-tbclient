@@ -8,8 +8,7 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.di;
-import com.baidu.tieba.hn8;
+import com.baidu.tieba.ei;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
@@ -17,7 +16,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.data.UserReplyInfoData;
-import com.baidu.tieba.qo8;
+import com.baidu.tieba.ko8;
+import com.baidu.tieba.sp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,12 +31,12 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\u0018\u00002\u00020\u0001:\u0003\u0011\u0012\u0013B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ$\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\u0007\u001a\u0004\u0018\u00010\b2\b\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0016J\b\u0010\u000f\u001a\u00020\u0010H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/InputBoxHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "buildReplayMessageData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/inputtool/robotfloor/data/UserReplyInfoData;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "payload", "", "provideType", "", "BanData", "Conf", "PaddingContent", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class InputBoxHandler extends hn8 {
+public final class InputBoxHandler extends ko8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
 
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.ko8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -562,14 +562,14 @@ public final class InputBoxHandler extends hn8 {
         this.b = chatPage;
     }
 
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.ko8
     public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
             Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            GroupInputViewController C2 = this.b.F0().C2();
-            if (C2 == null || this.b.a1()) {
+            GroupInputViewController E2 = this.b.H0().E2();
+            if (E2 == null || this.b.c1()) {
                 return;
             }
             Conf conf = (Conf) DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
@@ -581,31 +581,31 @@ public final class InputBoxHandler extends hn8 {
                 z = true;
             }
             if (!z) {
-                C2.J1(conf.getTips());
+                E2.I1(conf.getTips());
             }
             String str = "";
-            C2.I1("");
-            qo8 C0 = C2.C0();
-            if (C0 != null) {
-                C0.G();
+            E2.H1("");
+            sp8 B0 = E2.B0();
+            if (B0 != null) {
+                B0.G();
             }
             if (baseMsg != null) {
                 if (conf.isReply() == 1) {
-                    C2.t1(f(baseMsg), baseMsg);
+                    E2.s1(f(baseMsg), baseMsg);
                 } else {
-                    C2.p0();
+                    E2.o0();
                 }
                 if (conf.isAt() == 1) {
                     AtSelectData atSelectData = new AtSelectData(baseMsg.getCommonMsgField().getPortrait(), baseMsg.getCommonMsgField().getUserName(), String.valueOf(baseMsg.getCommonMsgField().getUserId()), baseMsg.getCommonMsgField().isRobot());
-                    if (conf.isReply() != 1 && di.isEmpty(conf.getInputText())) {
-                        qo8 C02 = C2.C0();
-                        if (C02 != null) {
-                            C02.k(atSelectData, baseMsg.getCommonMsgField().isRobot());
+                    if (conf.isReply() != 1 && ei.isEmpty(conf.getInputText())) {
+                        sp8 B02 = E2.B0();
+                        if (B02 != null) {
+                            B02.k(atSelectData, baseMsg.getCommonMsgField().isRobot());
                         }
                     } else {
-                        qo8 C03 = C2.C0();
-                        if (C03 != null) {
-                            C03.k(atSelectData, false);
+                        sp8 B03 = E2.B0();
+                        if (B03 != null) {
+                            B03.k(atSelectData, false);
                         }
                     }
                 }
@@ -616,23 +616,23 @@ public final class InputBoxHandler extends hn8 {
                 if (subPanelText != null) {
                     str = subPanelText;
                 }
-                C2.Y0(str);
-                C2.X0(conf.getPaddingContent());
+                E2.X0(str);
+                E2.W0(conf.getPaddingContent());
                 Integer paddingContentPosition = conf.getPaddingContentPosition();
                 if (paddingContentPosition != null) {
                     i = paddingContentPosition.intValue();
                 }
-                C2.O1(i);
-                C2.D1(conf.getBanList());
+                E2.N1(i);
+                E2.C1(conf.getBanList());
             } else {
-                C2.o0();
+                E2.n0();
             }
-            if (!di.isEmpty(conf.getInputText())) {
-                C2.H1(conf.getInputText());
+            if (!ei.isEmpty(conf.getInputText())) {
+                E2.G1(conf.getInputText());
             }
-            qo8 C04 = C2.C0();
-            if (C04 != null) {
-                C04.C();
+            sp8 B04 = E2.B0();
+            if (B04 != null) {
+                B04.C();
             }
         }
     }

@@ -1,67 +1,52 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class t52 implements Cloneable {
+public class t52 extends n42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public r42 d;
+    public v42 a;
 
-    public t52(JSONArray jSONArray) {
+    public t52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.n42
+    public void a(o42 o42Var, Canvas canvas) {
+        v42 v42Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, o42Var, canvas) == null) && (v42Var = this.a) != null && v42Var.d()) {
+            if (this.a.c()) {
+                o42Var.c.setShader(this.a.b());
                 return;
             }
+            o42Var.m = this.a.a();
+            o42Var.c.setColor(this.a.a());
+            o42Var.b.setShader(null);
         }
-        b(jSONArray);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            r42 r42Var = this.d;
-            if (r42Var != null && r42Var.d()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
+    @Override // com.baidu.tieba.n42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 3) {
-                    this.a = uo3.g((float) jSONArray.optDouble(0));
-                    this.b = uo3.g((float) jSONArray.optDouble(1));
-                    this.c = jSONArray.optInt(2);
-                    this.d = new r42(jSONArray.optJSONArray(3));
-                }
-            } catch (Exception e) {
-                if (nr1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new v42(jSONArray);
         }
     }
 }

@@ -1,75 +1,41 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u19 extends w19 {
+public class u19 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<w19> c;
+    public ViewGroup a;
+    public TextView b;
+    public TextView c;
+    public ImageView d;
+    public TextView e;
+    public ImageView f;
+    public TextView g;
+    public int h;
+    public int i;
+    public int j;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.w19
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.w19
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final u19 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-425649138, "Lcom/baidu/tieba/u19$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-425649138, "Lcom/baidu/tieba/u19$b;");
-                    return;
-                }
-            }
-            a = new u19(null);
-        }
-    }
-
-    public u19() {
+    public u19(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,134 +45,104 @@ public class u19 extends w19 {
                 return;
             }
         }
-        this.c = new ArrayList(4);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d050c, (ViewGroup) null);
+        this.a = viewGroup;
+        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0906ef);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091eb9);
+        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0916d7);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916d8);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b0f);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b10);
+        this.d.setOnClickListener(this);
+        this.f.setOnClickListener(this);
+        c();
     }
 
-    public static u19 h() {
+    public ViewGroup a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (u19) invokeV.objValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    public /* synthetic */ u19(a aVar) {
-        this();
-    }
-
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return h().b(jSONObject, jSONObject.optInt("card_type"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
         }
-        return (ICardInfo) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public synchronized void g(w19 w19Var) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, w19Var) == null) {
-            synchronized (this) {
-                this.c.add(w19Var);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
         }
     }
 
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
+    public void d(List<r19> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
-                    }
-                }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
+            this.h = list.get(0).a;
+            this.i = list.get(1).a;
         }
-        return (ICardInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.w19
-    public <T> o29 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            o29 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
-        }
-        return (o29) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.w19
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            return f(jSONObject, i);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    public final <T> o29 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        o29 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (w19 w19Var : this.c) {
-                try {
-                    a2 = w19Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + w19Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            if (iCardInfo == null) {
-                cardType = -1;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            boolean z = false;
+            if (view2 == this.d) {
+                z = true;
             } else {
-                cardType = iCardInfo.getCardType();
+                ImageView imageView = this.f;
             }
-            sb.append(cardType);
-            BdLog.e(sb.toString());
-            return null;
-        }
-        return (o29) invokeLLI.objValue;
-    }
-
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (w19 w19Var : this.c) {
-                try {
-                    ICardInfo b2 = w19Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + w19Var.d() + "> respond exception", th);
-                }
+            if (z) {
+                i = this.h;
+            } else {
+                i = this.i;
             }
-            BdLog.e("No card factory for card type " + i);
-            return null;
+            this.j = i;
+            ImageView imageView2 = this.d;
+            if (z) {
+                i2 = R.drawable.img_lable_boy_s;
+            } else {
+                i2 = R.drawable.img_lable_boy_n;
+            }
+            SkinManager.setImageResource(imageView2, i2);
+            TextView textView = this.e;
+            int i5 = R.color.CAM_X0109;
+            if (z) {
+                i3 = R.color.CAM_X0302;
+            } else {
+                i3 = R.color.CAM_X0109;
+            }
+            SkinManager.setViewTextColor(textView, i3);
+            ImageView imageView3 = this.f;
+            if (z) {
+                i4 = R.drawable.img_lable_girl_n;
+            } else {
+                i4 = R.drawable.img_lable_girl_s;
+            }
+            SkinManager.setImageResource(imageView3, i4);
+            TextView textView2 = this.g;
+            if (!z) {
+                i5 = R.color.CAM_X0301;
+            }
+            SkinManager.setViewTextColor(textView2, i5);
         }
-        return (ICardInfo) invokeLI.objValue;
     }
 }

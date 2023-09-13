@@ -50,8 +50,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             aVar.a(this);
             aVar.a(this.bJ);
             aVar.a(this.bS, this.nM.mRootContainer, adTemplate);
-            aVar.a(new a.InterfaceC0609a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
-                @Override // com.kwad.components.ad.i.a.InterfaceC0609a
+            aVar.a(new a.InterfaceC0604a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
+                @Override // com.kwad.components.ad.i.a.InterfaceC0604a
                 public final void V(boolean z) {
                     b.this.nM.mF = z;
                 }
@@ -72,7 +72,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09130b);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091311);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

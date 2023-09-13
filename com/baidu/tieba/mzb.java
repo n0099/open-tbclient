@@ -1,219 +1,67 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.UnsupportedEncodingException;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public final class mzb {
     public static /* synthetic */ Interceptable $ic;
-    public static Logger a;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmStatic
-    public static final void c(String str, String str2) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            b.b(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    @JvmStatic
-    public static final void d(String str, String str2) {
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            b.d(str, str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            b.g(str, str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            b.j(str, str2);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
             }
-        }
-
-        public final void h() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                g("sub_process_view", "init succeed");
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                b("sub_process_view", str);
-            }
-        }
-
-        @JvmStatic
-        public final void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                d("sub_process_view", str);
-            }
-        }
-
-        public final void e(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                Logger logger = mzb.a;
-                if (logger != null) {
-                    logger.flush(z);
-                }
-                g("sub_process_view", "flushYalog!");
-            }
-        }
-
-        @JvmStatic
-        public final void f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                g("sub_process_view", str);
-            }
-        }
-
-        public final void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) {
-                return;
-            }
-            mzb.a = LoggerManager.getLogger(str);
-        }
-
-        @JvmStatic
-        public final void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-                if (mzb.a != null) {
-                    Logger logger = mzb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
+            try {
+                String upperCase = str.toUpperCase(Locale.ENGLISH);
+                int length = upperCase.length() / 2;
+                byte[] bArr = new byte[length];
+                try {
+                    byte[] bytes = upperCase.getBytes("UTF-8");
+                    for (int i = 0; i < length; i++) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("0x");
+                        int i2 = i * 2;
+                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
+                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
                     }
-                    logger.d("3925", str, nzb.a(str2));
-                    return;
+                    return bArr;
+                } catch (UnsupportedEncodingException | NumberFormatException e) {
+                    pzb.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
+                    return new byte[0];
                 }
-                Log.d(str, nzb.a(str2));
+            } catch (Throwable th) {
+                pzb.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
+                return new byte[0];
             }
         }
-
-        @JvmStatic
-        public final void d(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-                if (mzb.a != null) {
-                    Logger logger = mzb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.e("3925", str, nzb.a(str2));
-                    return;
-                }
-                Log.e(str, nzb.a(str2));
-            }
-        }
-
-        @JvmStatic
-        public final void g(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-                if (mzb.a != null) {
-                    Logger logger = mzb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.i("3925", str, nzb.a(str2));
-                    return;
-                }
-                Log.i(str, nzb.a(str2));
-            }
-        }
-
-        @JvmStatic
-        public final void j(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-                if (mzb.a != null) {
-                    Logger logger = mzb.a;
-                    if (logger == null) {
-                        Intrinsics.throwNpe();
-                    }
-                    logger.w("3925", str, nzb.a(str2));
-                    return;
-                }
-                Log.w(str, nzb.a(str2));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947991380, "Lcom/baidu/tieba/mzb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947991380, "Lcom/baidu/tieba/mzb;");
-                return;
-            }
-        }
-        b = new a(null);
-        try {
-            Log.i("sub_process_view", "KlogUtil init yalog");
-            b.i("yylivesdk");
-        } catch (Throwable th) {
-            a aVar = b;
-            th.printStackTrace();
-            aVar.d("sub_process_view", Unit.INSTANCE.toString());
-        }
+        return (byte[]) invokeL.objValue;
     }
 }

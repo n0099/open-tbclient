@@ -192,21 +192,25 @@ public class TbImageAutoSwitch extends FrameLayout {
         }
 
         public void e(int i) {
+            View[] viewArr;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (viewArr = this.a) != null && viewArr.length > 0) {
+                AnimatorSet animatorSet = new AnimatorSet();
+                this.b = animatorSet;
+                animatorSet.setDuration(i);
+                this.b.addListener(this.n);
+                List<Animator> list = this.c;
+                View[] viewArr2 = this.a;
+                list.add(ObjectAnimator.ofPropertyValuesHolder(viewArr2[viewArr2.length - 1], this.e, this.f, this.g, this.h));
+                View[] viewArr3 = this.a;
+                if (viewArr3.length >= 2) {
+                    for (int length = viewArr3.length - 2; length > 0; length--) {
+                        this.c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[length], this.i));
+                    }
+                }
+                this.a[0].clearAnimation();
+                this.c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[0], this.j, this.k, this.l, this.m));
             }
-            AnimatorSet animatorSet = new AnimatorSet();
-            this.b = animatorSet;
-            animatorSet.setDuration(i);
-            this.b.addListener(this.n);
-            List<Animator> list = this.c;
-            View[] viewArr = this.a;
-            list.add(ObjectAnimator.ofPropertyValuesHolder(viewArr[viewArr.length - 1], this.e, this.f, this.g, this.h));
-            for (int length = this.a.length - 2; length >= 0; length--) {
-                this.c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[length], this.i));
-            }
-            this.c.add(ObjectAnimator.ofPropertyValuesHolder(this.a[0], this.j, this.k, this.l, this.m));
         }
 
         public final void f(int i, int i2, float f, float f2) {

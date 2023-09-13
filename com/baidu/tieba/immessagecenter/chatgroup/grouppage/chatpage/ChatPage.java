@@ -48,16 +48,17 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.an8;
-import com.baidu.tieba.ao8;
-import com.baidu.tieba.c55;
-import com.baidu.tieba.cn8;
-import com.baidu.tieba.dn8;
+import com.baidu.tieba.as8;
+import com.baidu.tieba.co8;
+import com.baidu.tieba.cp8;
 import com.baidu.tieba.do8;
-import com.baidu.tieba.em8;
-import com.baidu.tieba.en8;
-import com.baidu.tieba.fn8;
+import com.baidu.tieba.fo8;
+import com.baidu.tieba.fp8;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.gn8;
+import com.baidu.tieba.go8;
+import com.baidu.tieba.ho8;
+import com.baidu.tieba.i55;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.positionbubble.UpBubbleSlice;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
@@ -89,7 +90,9 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserI
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ActivitySysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BigEmotionMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.EffectGuidanceSysMsg;
@@ -121,24 +124,22 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.in8;
-import com.baidu.tieba.kn8;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.ln8;
-import com.baidu.tieba.nn;
-import com.baidu.tieba.nn8;
-import com.baidu.tieba.on8;
-import com.baidu.tieba.sl8;
-import com.baidu.tieba.tm8;
-import com.baidu.tieba.to8;
-import com.baidu.tieba.uw5;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.no8;
+import com.baidu.tieba.on;
+import com.baidu.tieba.oo8;
+import com.baidu.tieba.qo8;
+import com.baidu.tieba.qx5;
+import com.baidu.tieba.um8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vo8;
-import com.baidu.tieba.wm8;
-import com.baidu.tieba.wo8;
+import com.baidu.tieba.vn8;
+import com.baidu.tieba.vp8;
 import com.baidu.tieba.xp8;
-import com.baidu.tieba.yq8;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.yp8;
+import com.baidu.tieba.zn8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -149,24 +150,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 /* loaded from: classes6.dex */
-public class ChatPage extends Slice implements wo8 {
+public class ChatPage extends Slice implements yp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wm8 A;
+    public zn8 A;
     @NonNull
-    public final fn8 B;
+    public final io8 B;
     @NonNull
-    public final en8 C;
+    public final ho8 C;
     @NonNull
     public final SendMsgHandler D;
     public final SendStructMsgHandler E;
     @NonNull
-    public final in8.c F;
+    public final lo8.c F;
     public final CustomMessageListener G;
-    public tm8 H;
-    public final kn8<BaseMsg> I;
-    public final ln8<BaseMsg> J;
-    public final sl8 K;
+    public vn8 H;
+    public final no8<BaseMsg> I;
+    public final oo8<BaseMsg> J;
+    public final um8 K;
     public final GroupChatRepo.v<TreeSet<ChatMsg>> L;
     public Runnable M;
     public Runnable N;
@@ -181,7 +182,7 @@ public class ChatPage extends Slice implements wo8 {
     public RecallAdapter n;
     public NoticeModifyAdapter o;
     public SingleTextImageAdapter<SingleTextImageMsg> p;
-    public dn8 q;
+    public go8 q;
     public ShareThreadAdapter r;
     public String s;
     public TopBubbleData t;
@@ -198,7 +199,7 @@ public class ChatPage extends Slice implements wo8 {
     public class i implements ChatMsgProcessor.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final nn a;
+        public final on a;
         public final /* synthetic */ ChatPage b;
 
         /* loaded from: classes6.dex */
@@ -212,12 +213,12 @@ public class ChatPage extends Slice implements wo8 {
 
             /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage$i$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0346a implements Runnable {
+            public class RunnableC0334a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0346a(a aVar) {
+                public RunnableC0334a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,7 +240,7 @@ public class ChatPage extends Slice implements wo8 {
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        this.a.d.b.f1();
+                        this.a.d.b.h1();
                     }
                 }
             }
@@ -270,13 +271,13 @@ public class ChatPage extends Slice implements wo8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     this.d.b.x.b.updateData(this.a, true, BaseMsg.DIFF_ITEM_CALLBACK);
-                    this.d.b.k.O2();
+                    this.d.b.k.Q2();
                     if (this.b) {
                         Runnable runnable = this.c;
                         if (runnable == null) {
-                            runnable = new RunnableC0346a(this);
+                            runnable = new RunnableC0334a(this);
                         }
-                        lg.c(runnable);
+                        mg.c(runnable);
                     }
                 }
             }
@@ -298,18 +299,18 @@ public class ChatPage extends Slice implements wo8 {
                 }
             }
             this.b = chatPage;
-            this.a = new nn(this.b.x.b);
+            this.a = new on(this.b.x.b);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor.h
         @MainThread
         public void a(long j, @NonNull List<BaseMsg> list, @NonNull ChatMsgProcessor.j jVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), list, jVar}) != null) || this.b.k.p2()) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), list, jVar}) != null) || this.b.k.r2()) {
                 return;
             }
             boolean z = true;
-            if ((!jVar.b || jVar.a == 1) && (!jVar.d || this.b.x.b.getLastVisiblePosition() != this.b.x.b.getCount() - 1 || this.b.I())) {
+            if ((!jVar.b || jVar.a == 1) && (!jVar.d || this.b.x.b.getLastVisiblePosition() != this.b.x.b.getCount() - 1 || this.b.L())) {
                 z = false;
             }
             this.a.e(new a(this, list, z, jVar.d()));
@@ -350,7 +351,7 @@ public class ChatPage extends Slice implements wo8 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.b.o1();
+                    this.a.b.p1();
                 }
             }
         }
@@ -375,40 +376,40 @@ public class ChatPage extends Slice implements wo8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: h */
+        /* renamed from: i */
         public void b(int i, @NonNull String str, @Nullable TreeSet<ChatMsg> treeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, treeSet) == null) {
                 super.b(i, str, treeSet);
-                this.b.x1();
-            }
-        }
-
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.c();
-                this.b.x.c.g();
+                this.b.y1();
             }
         }
 
         @Override // com.baidu.tbadk.net.FastRequest.b
         public void d() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.d();
+                this.b.x.c.g();
+            }
+        }
+
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.e();
                 this.b.x.c.j();
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.v
-        public void f(int i) {
+        public void g(int i) {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                if (this.b.k.K2().getVisibility() == 0) {
-                    i2 = this.b.k.K2().getHeight();
+                if (this.b.k.M2().getVisibility() == 0) {
+                    i2 = this.b.k.M2().getHeight();
                 } else {
                     i2 = 0;
                 }
@@ -420,20 +421,20 @@ public class ChatPage extends Slice implements wo8 {
                 if (this.b.x.b.getAdapter() != null) {
                     this.b.x.b.getAdapter().notifyItemChanged(i);
                 }
-                lg.c(new a(this));
+                mg.c(new a(this));
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.v
-        public void g(@NonNull GroupChatRepo.FetchedEvent fetchedEvent) {
+        public void h(@NonNull GroupChatRepo.FetchedEvent fetchedEvent) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, fetchedEvent) == null) && fetchedEvent == GroupChatRepo.FetchedEvent.TARGET_MSG_NOT_EXIST) {
                 if (this.b.t != null && TbadkCoreApplication.getInst().getVersionName().compareTo(this.b.t.getMsgMinVersion()) < 0) {
                     this.b.t = null;
-                    this.b.u1(R.string.obfuscated_res_0x7f0f096e);
+                    this.b.v1(R.string.obfuscated_res_0x7f0f0974);
                     return;
                 }
-                this.b.u1(R.string.obfuscated_res_0x7f0f096d);
+                this.b.v1(R.string.obfuscated_res_0x7f0f0973);
             }
         }
     }
@@ -445,19 +446,19 @@ public class ChatPage extends Slice implements wo8 {
         public final /* synthetic */ ChatPage d;
 
         /* loaded from: classes6.dex */
-        public class a implements vo8 {
+        public class a implements xp8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nn8.e a;
+            public final /* synthetic */ MsgSendHelper.d a;
             public final /* synthetic */ BaseImageMsg b;
             public final /* synthetic */ g0 c;
 
-            public a(g0 g0Var, nn8.e eVar, BaseImageMsg baseImageMsg) {
+            public a(g0 g0Var, MsgSendHelper.d dVar, BaseImageMsg baseImageMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {g0Var, eVar, baseImageMsg};
+                    Object[] objArr = {g0Var, dVar, baseImageMsg};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -468,11 +469,11 @@ public class ChatPage extends Slice implements wo8 {
                     }
                 }
                 this.c = g0Var;
-                this.a = eVar;
+                this.a = dVar;
                 this.b = baseImageMsg;
             }
 
-            @Override // com.baidu.tieba.vo8
+            @Override // com.baidu.tieba.xp8
             public void a(int i, int i2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
@@ -480,7 +481,7 @@ public class ChatPage extends Slice implements wo8 {
                 }
             }
 
-            @Override // com.baidu.tieba.vo8
+            @Override // com.baidu.tieba.xp8
             public void b(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -488,7 +489,7 @@ public class ChatPage extends Slice implements wo8 {
                 }
             }
 
-            @Override // com.baidu.tieba.vo8
+            @Override // com.baidu.tieba.xp8
             public void c(int i, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
@@ -497,7 +498,7 @@ public class ChatPage extends Slice implements wo8 {
                     this.b.setSdkMsg(str2, str);
                     this.a.a();
                     if (this.c.d.y != null && this.c.d.y.getBasicInfo() != null) {
-                        yq8.d("c15090", 2, this.c.d.y.getBasicInfo().getForumId(), this.c.d.y.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
+                        as8.d("c15090", 2, this.c.d.y.getBasicInfo().getForumId(), this.c.d.y.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
                     }
                 }
             }
@@ -530,9 +531,9 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: p */
-        public boolean j(@NonNull BaseImageMsg<?> baseImageMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: q */
+        public boolean k(@NonNull BaseImageMsg<?> baseImageMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, baseImageMsg)) == null) {
@@ -542,12 +543,12 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public void i(@NonNull BaseImageMsg<?> baseImageMsg, @NonNull nn8.e eVar) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public void i(@NonNull BaseImageMsg<?> baseImageMsg, @NonNull MsgSendHelper.d dVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseImageMsg, eVar) == null) && this.d.k.C2() != null && !StringUtils.isNull(baseImageMsg.getThumbUrl())) {
-                this.d.k.C2().j2(baseImageMsg.getThumbUrl(), new a(this, eVar, baseImageMsg));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseImageMsg, dVar) == null) && this.d.k.E2() != null && !StringUtils.isNull(baseImageMsg.getThumbUrl())) {
+                this.d.k.E2().i2(baseImageMsg.getThumbUrl(), new a(this, dVar, baseImageMsg));
             }
         }
     }
@@ -559,19 +560,19 @@ public class ChatPage extends Slice implements wo8 {
         public final /* synthetic */ ChatPage d;
 
         /* loaded from: classes6.dex */
-        public class a implements to8 {
+        public class a implements vp8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nn8.e a;
+            public final /* synthetic */ MsgSendHelper.d a;
             public final /* synthetic */ VoiceMsg b;
             public final /* synthetic */ o c;
 
-            public a(o oVar, nn8.e eVar, VoiceMsg voiceMsg) {
+            public a(o oVar, MsgSendHelper.d dVar, VoiceMsg voiceMsg) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {oVar, eVar, voiceMsg};
+                    Object[] objArr = {oVar, dVar, voiceMsg};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -582,23 +583,23 @@ public class ChatPage extends Slice implements wo8 {
                     }
                 }
                 this.c = oVar;
-                this.a = eVar;
+                this.a = dVar;
                 this.b = voiceMsg;
             }
 
-            @Override // com.baidu.tieba.to8
+            @Override // com.baidu.tieba.vp8
             public void a(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     this.b.setVoiceUrl(str);
                     this.a.a();
                     if (this.c.d.y != null && this.c.d.y.getBasicInfo() != null) {
-                        yq8.d("c15090", 3, this.c.d.y.getBasicInfo().getForumId(), this.c.d.y.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
+                        as8.d("c15090", 3, this.c.d.y.getBasicInfo().getForumId(), this.c.d.y.getBasicInfo().getId(), TbadkCoreApplication.getCurrentAccount());
                     }
                 }
             }
 
-            @Override // com.baidu.tieba.to8
+            @Override // com.baidu.tieba.vp8
             public void isFailed() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -630,9 +631,9 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: p */
-        public boolean j(@NonNull VoiceMsg voiceMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: q */
+        public boolean k(@NonNull VoiceMsg voiceMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsg)) == null) {
@@ -642,12 +643,12 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public void i(@NonNull VoiceMsg voiceMsg, @NonNull nn8.e eVar) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public void i(@NonNull VoiceMsg voiceMsg, @NonNull MsgSendHelper.d dVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceMsg, eVar) == null) && this.d.k.C2() != null && !StringUtils.isNull(voiceMsg.getPath())) {
-                this.d.k.C2().k2(voiceMsg.getPath(), new a(this, eVar, voiceMsg));
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, voiceMsg, dVar) == null) && this.d.k.E2() != null && !StringUtils.isNull(voiceMsg.getPath())) {
+                this.d.k.E2().j2(voiceMsg.getPath(), new a(this, dVar, voiceMsg));
             }
         }
     }
@@ -681,8 +682,8 @@ public class ChatPage extends Slice implements wo8 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.k.t2().L().getHeight() <= 0 && this.a < this.b.u) {
-                this.b.J0();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.k.v2().K().getHeight() <= 0 && this.a < this.b.u) {
+                this.b.L0();
             }
         }
     }
@@ -715,8 +716,8 @@ public class ChatPage extends Slice implements wo8 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.l.Y();
-                this.a.H0();
+                this.a.l.X();
+                this.a.J0();
             }
         }
     }
@@ -756,10 +757,10 @@ public class ChatPage extends Slice implements wo8 {
                         this.a.x.f.setLayoutParams(layoutParams);
                         this.a.x.f.requestLayout();
                         this.a.x.b.requestLayout();
-                        lg.c(this.a.M);
+                        mg.c(this.a.M);
                     }
                     this.a.w = false;
-                    this.a.k.R2(false);
+                    this.a.k.U2(false);
                 } else if (z || z2) {
                 } else {
                     this.a.w = true;
@@ -771,7 +772,7 @@ public class ChatPage extends Slice implements wo8 {
                         this.a.x.b.requestLayout();
                         this.a.x.b.canScrollVertically(1);
                     }
-                    this.a.k.Q2(false);
+                    this.a.k.T2(false);
                 }
             }
         }
@@ -808,7 +809,7 @@ public class ChatPage extends Slice implements wo8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.a.B0();
+                    this.a.D0();
                     return false;
                 }
                 return false;
@@ -949,13 +950,13 @@ public class ChatPage extends Slice implements wo8 {
         public void onScrollToTop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l.P(this.a.L);
+                this.a.l.O(this.a.L);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public abstract class e0<Adapter extends BaseChatAdapter, Msg extends BaseMsg> extends nn8<Adapter, Msg> {
+    public abstract class e0<Adapter extends BaseChatAdapter, Msg extends BaseMsg> extends MsgSendHelper<Adapter, Msg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage c;
@@ -982,10 +983,20 @@ public class ChatPage extends Slice implements wo8 {
             this(chatPage);
         }
 
-        @Override // com.baidu.tieba.nn8
-        public void k(BaseMsg baseMsg, int i, int i2) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        public String j() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLII(1048576, this, baseMsg, i, i2) == null) && this.c.A != null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c.k.getFrom();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        public void l(BaseMsg baseMsg, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseMsg, i, i2) == null) && this.c.A != null) {
                 this.c.A.a(baseMsg, i, i2);
             }
         }
@@ -1019,7 +1030,7 @@ public class ChatPage extends Slice implements wo8 {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l.Q(this.a.v);
+                this.a.l.P(this.a.v);
             }
         }
     }
@@ -1030,7 +1041,7 @@ public class ChatPage extends Slice implements wo8 {
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public BdTypeRecyclerView b;
-        public do8 c;
+        public fp8 c;
         public ImageView d;
         public LinearLayout e;
         public RelativeLayout f;
@@ -1056,13 +1067,13 @@ public class ChatPage extends Slice implements wo8 {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, view2, fragment)) == null) {
                 f0 f0Var = new f0();
                 f0Var.a = view2;
-                BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0906dd);
+                BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0906d0);
                 f0Var.b = bdTypeRecyclerView;
-                f0Var.c = new do8(bdTypeRecyclerView);
-                f0Var.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090932);
-                f0Var.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090931);
-                f0Var.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906d7);
-                f0Var.f = (RelativeLayout) fragment.requireView().findViewById(R.id.obfuscated_res_0x7f091554);
+                f0Var.c = new fp8(bdTypeRecyclerView);
+                f0Var.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09092a);
+                f0Var.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090929);
+                f0Var.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ca);
+                f0Var.f = (RelativeLayout) fragment.requireView().findViewById(R.id.obfuscated_res_0x7f09155c);
                 return f0Var;
             }
             return (f0) invokeLL.objValue;
@@ -1098,13 +1109,13 @@ public class ChatPage extends Slice implements wo8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, recyclerView, i, i2) == null) {
                 super.onScrolled(recyclerView, i, i2);
-                if (!this.a.x.b.canScrollVertically(1) && !this.a.l.X()) {
+                if (!this.a.x.b.canScrollVertically(1) && !this.a.l.W()) {
                     ChatPage chatPage = this.a;
                     chatPage.u = chatPage.x.b.getFirstVisiblePosition();
-                    this.a.H0();
+                    this.a.J0();
                 }
                 if (i2 < 0) {
-                    this.a.o1();
+                    this.a.p1();
                 }
                 if (this.a.H != null) {
                     this.a.H.a(this.a.x.b);
@@ -1185,7 +1196,7 @@ public class ChatPage extends Slice implements wo8 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.l.p0();
+                this.a.l.o0();
             }
         }
     }
@@ -1216,51 +1227,51 @@ public class ChatPage extends Slice implements wo8 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: h */
+        /* renamed from: i */
         public void b(int i, @NonNull String str, @Nullable TreeSet<ChatMsg> treeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, treeSet) == null) {
                 super.b(i, str, treeSet);
-                this.b.x1();
-            }
-        }
-
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.c();
-                this.b.x.c.f();
-                this.b.w1();
+                this.b.y1();
             }
         }
 
         @Override // com.baidu.tbadk.net.FastRequest.b
         public void d() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.d();
-                this.b.x.c.i();
+                this.b.x.c.f();
+                this.b.x1();
             }
         }
 
-        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.u
-        public void f() {
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        public void e() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.b.f1();
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.e();
+                this.b.x.c.i();
             }
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.u
         public void g() {
             Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.b.h1();
+            }
+        }
+
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.u
+        public void h() {
+            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.b.z0();
-                if (this.b.G0() != null) {
-                    this.b.G0().i0();
+                this.b.B0();
+                if (this.b.I0() != null) {
+                    this.b.I0().k0();
                 }
-                this.b.k1();
+                this.b.l1();
             }
         }
     }
@@ -1272,9 +1283,9 @@ public class ChatPage extends Slice implements wo8 {
         public final /* synthetic */ ChatPage d;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public boolean j(@NonNull TextMsg textMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public boolean k(@NonNull TextMsg textMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, textMsg)) == null) {
@@ -1305,19 +1316,19 @@ public class ChatPage extends Slice implements wo8 {
             this.d = chatPage;
         }
 
-        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage.e0, com.baidu.tieba.nn8
-        public void k(BaseMsg baseMsg, int i, int i2) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage.e0, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        public void l(BaseMsg baseMsg, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseMsg, i, i2) == null) {
-                super.k(baseMsg, i, i2);
+                super.l(baseMsg, i, i2);
                 if (this.d.y != null && this.d.y.getBasicInfo() != null) {
                     long forumId = this.d.y.getBasicInfo().getForumId();
                     long id = this.d.y.getBasicInfo().getId();
                     if (i == 5) {
-                        yq8.d("c15090", 1, forumId, id, TbadkCoreApplication.getCurrentAccount());
+                        as8.d("c15090", 1, forumId, id, TbadkCoreApplication.getCurrentAccount());
                         String text = ((TextMsg) baseMsg).getText();
-                        if (this.d.E0() != null) {
-                            this.d.E0().c0(text, baseMsg.getCommonMsgField().getRoomId(), !baseMsg.isLeft());
+                        if (this.d.G0() != null) {
+                            this.d.G0().e0(text, baseMsg.getCommonMsgField().getRoomId(), !baseMsg.isLeft());
                         }
                     }
                 }
@@ -1326,7 +1337,7 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     /* loaded from: classes6.dex */
-    public class m implements kn8<NoticeModifySysMsg> {
+    public class m implements no8<NoticeModifySysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1350,7 +1361,7 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kn8
+        @Override // com.baidu.tieba.no8
         /* renamed from: b */
         public void a(@NonNull View view2, @NonNull NoticeModifySysMsg noticeModifySysMsg, int i) {
             Interceptable interceptable = $ic;
@@ -1362,7 +1373,7 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     /* loaded from: classes6.dex */
-    public class n implements kn8<SubscribeSysMsg> {
+    public class n implements no8<SubscribeSysMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SubscribeAdapter a;
@@ -1388,17 +1399,17 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kn8
+        @Override // com.baidu.tieba.no8
         /* renamed from: b */
         public void a(@NonNull View view2, @NonNull SubscribeSysMsg subscribeSysMsg, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, subscribeSysMsg, i) == null) && this.b.k.D2().r0()) {
+            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, subscribeSysMsg, i) == null) && this.b.k.F2().t0()) {
                 this.a.Q(true);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c1);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092501);
                 if (SelectorHelper.getResources() != null) {
                     textView.setTextColor(SelectorHelper.getResources().getColor(R.color.CAM_X0101));
                 }
-                this.b.k.D2().t0();
+                this.b.k.F2().v0();
                 view2.setEnabled(false);
                 TiebaStatic.log(new StatisticItem("c15258"));
             }
@@ -1411,9 +1422,9 @@ public class ChatPage extends Slice implements wo8 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public boolean j(@NonNull ShareChatRoomSysMsg shareChatRoomSysMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public boolean k(@NonNull ShareChatRoomSysMsg shareChatRoomSysMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareChatRoomSysMsg)) == null) {
@@ -1450,9 +1461,9 @@ public class ChatPage extends Slice implements wo8 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public boolean j(@NonNull ShareCommonCardSysMsg shareCommonCardSysMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public boolean k(@NonNull ShareCommonCardSysMsg shareCommonCardSysMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareCommonCardSysMsg)) == null) {
@@ -1489,9 +1500,9 @@ public class ChatPage extends Slice implements wo8 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public boolean j(@NonNull ShareForumSysMsg shareForumSysMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public boolean k(@NonNull ShareForumSysMsg shareForumSysMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareForumSysMsg)) == null) {
@@ -1528,9 +1539,9 @@ public class ChatPage extends Slice implements wo8 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public boolean j(@NonNull ShareThreadSysMsg shareThreadSysMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public boolean k(@NonNull ShareThreadSysMsg shareThreadSysMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareThreadSysMsg)) == null) {
@@ -1592,38 +1603,38 @@ public class ChatPage extends Slice implements wo8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public void i(@NonNull SingleTextImageMsg singleTextImageMsg, @NonNull nn8.e eVar) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public void i(@NonNull SingleTextImageMsg singleTextImageMsg, @NonNull MsgSendHelper.d dVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, singleTextImageMsg, eVar) == null) {
-                super.i(singleTextImageMsg, eVar);
-                this.d.i(singleTextImageMsg, eVar);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, singleTextImageMsg, dVar) == null) {
+                super.i(singleTextImageMsg, dVar);
+                this.d.i(singleTextImageMsg, dVar);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: p */
-        public boolean j(@NonNull SingleTextImageMsg singleTextImageMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: q */
+        public boolean k(@NonNull SingleTextImageMsg singleTextImageMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, singleTextImageMsg)) == null) {
-                return this.d.j(singleTextImageMsg);
+                return this.d.k(singleTextImageMsg);
             }
             return invokeL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class u extends e0<dn8, TextGenImageMsg> {
+    public class u extends e0<go8, TextGenImageMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nn8
-        /* renamed from: o */
-        public boolean j(@NonNull TextGenImageMsg textGenImageMsg) {
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.MsgSendHelper
+        /* renamed from: p */
+        public boolean k(@NonNull TextGenImageMsg textGenImageMsg) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textGenImageMsg)) == null) {
@@ -1685,7 +1696,7 @@ public class ChatPage extends Slice implements wo8 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.a1()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.c1()) {
                 return;
             }
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Map)) {
@@ -1693,11 +1704,11 @@ public class ChatPage extends Slice implements wo8 {
                 if ((map.get("sub_skill_config_type") instanceof Integer) && (map.get("text_gen_image_msg") instanceof TextGenImageMsg)) {
                     int intValue = ((Integer) map.get("sub_skill_config_type")).intValue();
                     TextGenImageMsg textGenImageMsg = (TextGenImageMsg) map.get("text_gen_image_msg");
-                    if (this.a.k.C2() != null) {
-                        GroupInputViewController C2 = this.a.k.C2();
-                        C2.X1(intValue, textGenImageMsg, this.a.y0(textGenImageMsg));
-                        C2.L1(GroupInputViewController.SourceType.TWO, true, true);
-                        this.a.k.R2(false);
+                    if (this.a.k.E2() != null) {
+                        GroupInputViewController E2 = this.a.k.E2();
+                        E2.W1(intValue, textGenImageMsg, this.a.A0(textGenImageMsg));
+                        E2.K1(GroupInputViewController.SourceType.TWO, true, true);
+                        this.a.k.U2(false);
                     }
                 }
             }
@@ -1718,21 +1729,21 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     /* loaded from: classes6.dex */
-    public class w implements c55.f {
+    public class w implements i55.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ on8 b;
+        public final /* synthetic */ qo8 b;
         public final /* synthetic */ BaseMsg c;
         public final /* synthetic */ int d;
-        public final /* synthetic */ a55 e;
+        public final /* synthetic */ g55 e;
 
-        public w(ChatPage chatPage, String str, on8 on8Var, BaseMsg baseMsg, int i, a55 a55Var) {
+        public w(ChatPage chatPage, String str, qo8 qo8Var, BaseMsg baseMsg, int i, g55 g55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {chatPage, str, on8Var, baseMsg, Integer.valueOf(i), a55Var};
+                Object[] objArr = {chatPage, str, qo8Var, baseMsg, Integer.valueOf(i), g55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -1743,27 +1754,27 @@ public class ChatPage extends Slice implements wo8 {
                 }
             }
             this.a = str;
-            this.b = on8Var;
+            this.b = qo8Var;
             this.c = baseMsg;
             this.d = i;
-            this.e = a55Var;
+            this.e = g55Var;
         }
 
-        @Override // com.baidu.tieba.c55.f
-        public void J0(c55 c55Var, int i, View view2) {
+        @Override // com.baidu.tieba.i55.f
+        public void G0(i55 i55Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLIL(1048576, this, c55Var, i, view2) != null) || !(view2 instanceof TextView)) {
+            if ((interceptable != null && interceptable.invokeLIL(1048576, this, i55Var, i, view2) != null) || !(view2 instanceof TextView)) {
                 return;
             }
             if (TextUtils.equals(((TextView) view2).getText().toString(), this.a)) {
-                this.b.a().m(this.c, this.d);
+                this.b.a().n(this.c, this.d);
             }
             this.e.dismiss();
         }
     }
 
     /* loaded from: classes6.dex */
-    public class x implements kn8<BaseMsg> {
+    public class x implements no8<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1786,26 +1797,26 @@ public class ChatPage extends Slice implements wo8 {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.kn8
+        @Override // com.baidu.tieba.no8
         public void a(@NonNull View view2, @NonNull BaseMsg baseMsg, int i) {
             ReMsgInfo reMsgInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(1048576, this, view2, baseMsg, i) == null) {
                 if (view2.getId() == R.id.btn_msgitem_resend) {
-                    on8 b = on8.b(view2);
+                    qo8 b = qo8.b(view2);
                     if (b == null) {
                         return;
                     }
-                    this.a.t1(b, baseMsg, i);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090eb5 && (reMsgInfo = baseMsg.getReMsgInfo()) != null) {
-                    this.a.l.Z(reMsgInfo.getMsgId(), reMsgInfo.getMsgKey(), this.a.L);
+                    this.a.u1(b, baseMsg, i);
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090eb4 && (reMsgInfo = baseMsg.getReMsgInfo()) != null) {
+                    this.a.l.Y(reMsgInfo.getMsgId(), reMsgInfo.getMsgKey(), this.a.L);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class y implements ln8<BaseMsg> {
+    public class y implements oo8<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1828,15 +1839,15 @@ public class ChatPage extends Slice implements wo8 {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.ln8
+        @Override // com.baidu.tieba.oo8
         public boolean a(@NonNull View view2, @NonNull BaseMsg baseMsg, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, view2, baseMsg, i)) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f0907b5 || id == R.id.obfuscated_res_0x7f090ebe || id == R.id.obfuscated_res_0x7f090e9a || id == R.id.obfuscated_res_0x7f090ec4 || id == R.id.obfuscated_res_0x7f090eba || id == R.id.obfuscated_res_0x7f090ebb || id == R.id.obfuscated_res_0x7f090eb9 || id == R.id.obfuscated_res_0x7f090eb8 || id == R.id.obfuscated_res_0x7f090eb5) {
-                    this.a.s1(baseMsg);
-                    this.a.B0();
+                if (id == R.id.obfuscated_res_0x7f0907aa || id == R.id.obfuscated_res_0x7f090ebd || id == R.id.obfuscated_res_0x7f090e99 || id == R.id.obfuscated_res_0x7f090ec3 || id == R.id.obfuscated_res_0x7f090eb9 || id == R.id.obfuscated_res_0x7f090eba || id == R.id.obfuscated_res_0x7f090eb8 || id == R.id.obfuscated_res_0x7f090eb7 || id == R.id.obfuscated_res_0x7f090eb4) {
+                    this.a.t1(baseMsg);
+                    this.a.D0();
                     return false;
                 }
                 return false;
@@ -1846,7 +1857,7 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     /* loaded from: classes6.dex */
-    public class z implements sl8 {
+    public class z implements um8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatPage a;
@@ -1869,7 +1880,7 @@ public class ChatPage extends Slice implements wo8 {
             this.a = chatPage;
         }
 
-        @Override // com.baidu.tieba.sl8
+        @Override // com.baidu.tieba.um8
         public void a(int i, @Nullable BaseMsg baseMsg, @Nullable Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, baseMsg, obj) == null) {
@@ -1877,10 +1888,10 @@ public class ChatPage extends Slice implements wo8 {
                     if (i == 24 && (obj instanceof AbilityItem)) {
                         AbilityItem abilityItem = (AbilityItem) obj;
                         this.a.B.c(abilityItem, baseMsg);
-                        this.a.A0(abilityItem);
+                        this.a.C0(abilityItem);
                     }
-                } else if (this.a.k.C2() != null && baseMsg != null && (obj instanceof UserReplyInfoData)) {
-                    this.a.k.C2().t1((UserReplyInfoData) obj, baseMsg);
+                } else if (this.a.k.E2() != null && baseMsg != null && (obj instanceof UserReplyInfoData)) {
+                    this.a.k.E2().s1((UserReplyInfoData) obj, baseMsg);
                 }
             }
         }
@@ -1904,9 +1915,9 @@ public class ChatPage extends Slice implements wo8 {
         this.u = -1;
         this.v = new k(this);
         this.w = true;
-        this.B = new fn8();
-        this.C = new en8();
-        this.F = in8.c.b();
+        this.B = new io8();
+        this.C = new ho8();
+        this.F = lo8.c.b();
         this.G = new v(this, 2921782);
         this.I = new x(this);
         this.J = new y(this);
@@ -1918,137 +1929,176 @@ public class ChatPage extends Slice implements wo8 {
         this.j = groupChatFragment.getPageContext();
         this.k = groupChatFragment;
         this.l = groupChatRepo;
-        groupChatRepo.j0(this.v);
+        groupChatRepo.i0(this.v);
         this.D = new SendMsgHandler(groupChatRepo, this);
         this.E = new SendStructMsgHandler(groupChatRepo, this);
     }
 
-    public ChatMsg C0(@NonNull Map<String, Object> map) {
+    public ChatMsg E0(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-            return this.l.T(map);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            return this.l.S(map);
         }
         return (ChatMsg) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void U(boolean z2) {
+    public void W(boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z2) == null) {
-            super.U(z2);
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z2) == null) {
+            super.W(z2);
             if (!z2) {
-                w1();
+                x1();
             }
         }
     }
 
-    public void c1(@NonNull ChatMsg chatMsg) {
+    public void e1(@NonNull ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, chatMsg) == null) {
-            this.l.b0(chatMsg);
+        if (interceptable == null || interceptable.invokeL(1048610, this, chatMsg) == null) {
+            this.l.a0(chatMsg);
         }
     }
 
-    public void h1(tm8 tm8Var) {
+    public void j1(vn8 vn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, tm8Var) == null) {
-            this.H = tm8Var;
+        if (interceptable == null || interceptable.invokeL(1048616, this, vn8Var) == null) {
+            this.H = vn8Var;
         }
     }
 
-    public void i1(TopBubbleData topBubbleData) {
+    @Override // com.baidu.tieba.yp8
+    public void n(@NonNull AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, topBubbleData) == null) {
-            this.t = topBubbleData;
-        }
-    }
-
-    @Override // com.baidu.tieba.wo8
-    public void m(@NonNull AbilityItem abilityItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, abilityItem) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, abilityItem) == null) {
             this.B.c(abilityItem, null);
         }
     }
 
-    public void m1(wm8 wm8Var) {
+    public void n1(zn8 zn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, wm8Var) == null) {
-            this.A = wm8Var;
+        if (interceptable == null || interceptable.invokeL(1048623, this, zn8Var) == null) {
+            this.A = zn8Var;
         }
     }
 
-    public void s1(@NonNull BaseMsg baseMsg) {
+    public void t1(@NonNull BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048630, this, baseMsg) != null) || this.y == null) {
+        if ((interceptable != null && interceptable.invokeL(1048631, this, baseMsg) != null) || this.y == null) {
             return;
         }
-        this.k.F2().e(baseMsg, this.y);
-        this.k.F2().l();
+        this.k.H2().d(baseMsg, this.y);
+        this.k.H2().i();
     }
 
-    public void u1(@StringRes int i2) {
+    public void v1(@StringRes int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            v1(this.k.getStringSafely(i2), false);
+        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
+            w1(this.k.getStringSafely(i2), false);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void V(@Nullable View view2, @Nullable Bundle bundle) {
+    public void X(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048598, this, view2, bundle) == null) {
-            super.V(view2, bundle);
-            uw5.b(view2);
+        if (interceptable == null || interceptable.invokeLL(1048600, this, view2, bundle) == null) {
+            super.X(view2, bundle);
+            qx5.b(view2);
             this.x = f0.a(view2, this.b);
-            this.k.F2().b(this.K);
-            Y0();
+            this.k.H2().a(this.K);
+            a1();
         }
     }
 
-    public void b1(long j2, @NonNull String str) {
+    @Override // com.baidu.tieba.yp8
+    public void c(@NonNull String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048605, this, j2, str) == null) {
-            this.l.Z(j2, str, this.L);
+        if (interceptable == null || interceptable.invokeLI(1048607, this, str, i2) == null) {
+            this.l.g0(VoiceMsg.create(str, i2));
         }
     }
 
-    @Override // com.baidu.tieba.wo8
-    public void d(@NonNull String str, int i2) {
+    public void d1(long j2, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048608, this, str, i2) == null) {
-            this.l.h0(VoiceMsg.create(str, i2));
+        if (interceptable == null || interceptable.invokeJL(1048609, this, j2, str) == null) {
+            this.l.Y(j2, str, this.L);
         }
     }
 
-    @Override // com.baidu.tieba.wo8
-    public void j(@NonNull String str, int i2) {
+    @Override // com.baidu.tieba.yp8
+    public void k(@NonNull String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048616, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048617, this, str, i2) == null) {
             this.B.c(CallRobotHandler.f(str, i2), null);
         }
     }
 
-    @Override // com.baidu.tieba.wo8
-    public void k(@NonNull String str, @NonNull String str2) {
+    @Override // com.baidu.tieba.yp8
+    public void l(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048618, this, str, str2) == null) {
-            this.l.h0(ImageMsg.create(str, str2));
+        if (interceptable == null || interceptable.invokeLL(1048619, this, str, str2) == null) {
+            this.l.g0(ImageMsg.create(str, str2));
         }
     }
 
-    public void q1(@NonNull List<EmojiData> list, int i2) {
+    public void r1(@NonNull List<EmojiData> list, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048629, this, list, i2) == null) {
-            this.k.A2().g0(list, i2);
+        if (interceptable == null || interceptable.invokeLI(1048630, this, list, i2) == null) {
+            this.k.C2().i0(list, i2);
         }
     }
 
-    public final void A0(AbilityItem abilityItem) {
+    @NonNull
+    public final gn8 A0(@NonNull TextGenImageMsg textGenImageMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, textGenImageMsg)) == null) {
+            gn8 gn8Var = new gn8();
+            BotsDTO.BotListDTO.UserDTO userDTO = new BotsDTO.BotListDTO.UserDTO();
+            gn8Var.a = userDTO;
+            userDTO.setName(textGenImageMsg.getCommonMsgField().getUserName());
+            gn8Var.a.setNameShow(textGenImageMsg.getCommonMsgField().getUserName());
+            gn8Var.a.setPortrait(textGenImageMsg.getCommonMsgField().getPortrait());
+            gn8Var.a.setUk(BIMManager.getBdUKFromBdUid(String.valueOf(textGenImageMsg.getCommonMsgField().getUserId())));
+            gn8Var.b = new BotsDTO.BotListDTO.SkillDTO();
+            if (textGenImageMsg.getSubSkillConfig() != null) {
+                gn8Var.b.setSubSkill(textGenImageMsg.getSubSkillConfig().a);
+            }
+            gn8Var.d(true);
+            return gn8Var;
+        }
+        return (gn8) invokeL.objValue;
+    }
+
+    public final void B0() {
+        ChatRoomDetail chatRoomDetail;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, abilityItem) == null) && this.z != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (chatRoomDetail = this.y) != null && chatRoomDetail.getBots() != null && !ListUtils.isEmpty(this.y.getBots().getBotList())) {
+            String string = SharedPrefHelper.getInstance().getString("key_show_bot_tip_list", "");
+            List asList = Arrays.asList(string.split(","));
+            List<BotsDTO.BotListDTO> botList = this.y.getBots().getBotList();
+            for (int i2 = 0; i2 < botList.size(); i2++) {
+                BotsDTO.BotListDTO botListDTO = botList.get(i2);
+                if (botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && !TextUtils.isEmpty(botListDTO.getAtGuide()) && !asList.contains(botListDTO.getUser().getUk()) && !TextUtils.equals(BIMManager.getBdUidFromBdUK(botListDTO.getUser().getUk()), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                    i1(botListDTO);
+                    if (TextUtils.isEmpty(string)) {
+                        str = botListDTO.getUser().getUk();
+                    } else {
+                        str = string + "," + botListDTO.getUser().getUk();
+                    }
+                    SharedPrefHelper.getInstance().putString("key_show_bot_tip_list", str);
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void C0(AbilityItem abilityItem) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, abilityItem) == null) && this.z != null) {
             String obj = abilityItem.getConfMap().get("bot_uk").toString();
             String obj2 = abilityItem.getConfMap().get("skill_id").toString();
             BotsDTO.BotListDTO findBotByUk = this.z.findBotByUk(obj);
@@ -2056,7 +2106,7 @@ public class ChatPage extends Slice implements wo8 {
             if (findBotByUk != null) {
                 skillDTO = findBotByUk.cloneSkillById(Integer.parseInt(obj2));
             }
-            StatisticItem param = new StatisticItem("c15134").param("obj_type", 3).param("obj_source", 5).param("fid", this.k.v2()).param("fname", this.k.w2()).param("room_id", this.k.x2());
+            StatisticItem param = new StatisticItem("c15134").param("obj_type", 3).param("obj_source", 5).param("fid", this.k.x2()).param("fname", this.k.y2()).param("room_id", this.k.z2());
             if (skillDTO != null) {
                 str = skillDTO.getName();
             } else {
@@ -2066,9 +2116,9 @@ public class ChatPage extends Slice implements wo8 {
         }
     }
 
-    public final void g1(BotsDTO.BotListDTO botListDTO) {
+    public final void i1(BotsDTO.BotListDTO botListDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, botListDTO) == null) {
+        if (interceptable == null || interceptable.invokeL(1048614, this, botListDTO) == null) {
             if (botListDTO != null && botListDTO.getUser() != null) {
                 BotsDTO.BotListDTO.UserDTO user = botListDTO.getUser();
                 TextMsg create = TextMsg.create("@" + TbadkCoreApplication.getCurrentAccountNameShow() + " " + botListDTO.getAtGuide());
@@ -2077,82 +2127,82 @@ public class ChatPage extends Slice implements wo8 {
                 long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
                 create.addAtUserInfo(AtUserInfo.create(atType, currentAccountId, "@" + TbadkCoreApplication.getCurrentAccountNameShow(), TbadkCoreApplication.getCurrentPortrait(), 0));
                 create.setRobotGuideMsg(true);
-                this.l.h0(create);
+                this.l.g0(create);
             }
         }
     }
 
-    public final void B0() {
+    public final void D0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.k.C2() != null) {
-            GroupInputViewController C2 = this.k.C2();
-            if (C2.n0()) {
-                C2.Z0();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.k.E2() != null) {
+            GroupInputViewController E2 = this.k.E2();
+            if (E2.m0()) {
+                E2.Y0();
             }
         }
     }
 
     @Nullable
-    public BotsDTO D0() {
+    public BotsDTO F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.z;
         }
         return (BotsDTO) invokeV.objValue;
     }
 
     @Nullable
-    public EffectSlice E0() {
+    public EffectSlice G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k.G2();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k.I2();
         }
         return (EffectSlice) invokeV.objValue;
     }
 
     @NonNull
-    public GroupChatFragment F0() {
+    public GroupChatFragment H0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.k;
         }
         return (GroupChatFragment) invokeV.objValue;
     }
 
     @Nullable
-    public UpBubbleSlice G0() {
+    public UpBubbleSlice I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.k.L2();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.k.N2();
         }
         return (UpBubbleSlice) invokeV.objValue;
     }
 
-    public void H0() {
+    public void J0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.x.e.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.x.e.getVisibility() == 0) {
             this.x.e.setVisibility(8);
         }
     }
 
-    public void J0() {
+    public void L0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.x.e.getVisibility() != 0) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.x.e.getVisibility() != 0) {
             this.x.e.setVisibility(0);
             this.x.e.setOnClickListener(new b(this));
         }
     }
 
     @NonNull
-    public final RecallAdapter N0() {
+    public final RecallAdapter P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            this.l.f0(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            this.l.e0(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
             RecallAdapter recallAdapter = new RecallAdapter(this.j, RecallSysMsg.ADAPTER_TYPE);
             this.n = recallAdapter;
             return recallAdapter;
@@ -2161,11 +2211,11 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final SubscribeAdapter T0() {
+    public final SubscribeAdapter V0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            this.l.e0(-7015, SubscribeSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            this.l.d0(-7015, SubscribeSysMsg.class);
             SubscribeAdapter subscribeAdapter = new SubscribeAdapter(this.j, SubscribeSysMsg.ADAPTER_TYPE);
             subscribeAdapter.F(null, new n(this, subscribeAdapter));
             return subscribeAdapter;
@@ -2174,22 +2224,22 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final TimestampAdapter W0() {
+    public final TimestampAdapter Y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            this.l.e0(-7013, TimestampSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            this.l.d0(-7013, TimestampSysMsg.class);
             return new TimestampAdapter(this.j, TimestampSysMsg.ADAPTER_TYPE);
         }
         return (TimestampAdapter) invokeV.objValue;
     }
 
     @NonNull
-    public final TipsAdapter X0() {
+    public final TipsAdapter Z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            this.l.f0(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            this.l.e0(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
             TipsAdapter tipsAdapter = new TipsAdapter(this.j, TipsSysMsg.ADAPTER_TYPE);
             this.m = tipsAdapter;
             return tipsAdapter;
@@ -2198,26 +2248,27 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public fn8 d1() {
+    public io8 f1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.B;
         }
-        return (fn8) invokeV.objValue;
+        return (io8) invokeV.objValue;
     }
 
-    public final void e1() {
+    public final void g1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.l.e0(20000, EmojiReplySysMsg.class);
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+            this.l.d0(20000, EmojiReplySysMsg.class);
+            this.l.d0(7022, ActivitySysMsg.class);
         }
     }
 
-    public void l1() {
+    public void m1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && this.k.C2() != null) {
-            this.k.C2().P1(new b0(this));
+        if ((interceptable == null || interceptable.invokeV(1048621, this) == null) && this.k.E2() != null) {
+            this.k.E2().O1(new b0(this));
         }
     }
 
@@ -2244,26 +2295,26 @@ public class ChatPage extends Slice implements wo8 {
         }
     }
 
-    public final void w1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048634, this) == null) && this.x.b.canScrollVertically(1)) {
-            J0();
+        if ((interceptable == null || interceptable.invokeV(1048635, this) == null) && this.x.b.canScrollVertically(1)) {
+            L0();
         }
     }
 
-    public final void x1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048635, this) == null) && !BdNetTypeUtil.isNetWorkAvailable() && this.k.getContext() != null) {
-            BdUtilHelper.showLongToast(this.k.getContext(), (int) R.string.obfuscated_res_0x7f0f0e29);
+        if ((interceptable == null || interceptable.invokeV(1048636, this) == null) && !BdNetTypeUtil.isNetWorkAvailable() && this.k.getContext() != null) {
+            BdUtilHelper.showLongToast(this.k.getContext(), (int) R.string.obfuscated_res_0x7f0f0e40);
         }
     }
 
     @NonNull
-    public final ImageAdapter I0() {
+    public final ImageAdapter K0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.l.e0(4, BigEmotionMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            this.l.d0(4, BigEmotionMsg.class);
             this.D.f(4, BigEmotionMsg.class);
             ImageAdapter imageAdapter = new ImageAdapter(this.j, BigEmotionMsg.ADAPTER_TYPE);
             imageAdapter.F(this.I, null);
@@ -2276,11 +2327,11 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final ImageAdapter K0() {
+    public final ImageAdapter M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            this.l.e0(2, ImageMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            this.l.d0(2, ImageMsg.class);
             this.D.f(2, ImageMsg.class);
             ImageAdapter imageAdapter = new ImageAdapter(this.j, ImageMsg.ADAPTER_TYPE);
             imageAdapter.F(this.I, null);
@@ -2293,11 +2344,11 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final NoticeModifyAdapter L0() {
+    public final NoticeModifyAdapter O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            this.l.e0(7001, NoticeModifySysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            this.l.d0(7001, NoticeModifySysMsg.class);
             NoticeModifyAdapter noticeModifyAdapter = new NoticeModifyAdapter(this.j, NoticeModifySysMsg.ADAPTER_TYPE);
             this.o = noticeModifyAdapter;
             noticeModifyAdapter.F(null, new m(this));
@@ -2307,11 +2358,11 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final ShareChatRoomAdapter O0() {
+    public final ShareChatRoomAdapter Q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            this.l.e0(7020, ShareChatRoomSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            this.l.d0(7020, ShareChatRoomSysMsg.class);
             ShareChatRoomAdapter shareChatRoomAdapter = new ShareChatRoomAdapter(this.j, ShareChatRoomSysMsg.ADAPTER_TYPE);
             shareChatRoomAdapter.E(this.B, this.C);
             shareChatRoomAdapter.G(this.J, null);
@@ -2322,13 +2373,13 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final ShareCommonCardAdapter P0() {
+    public final ShareCommonCardAdapter R0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            this.l.e0(7021, ShareCommonCardSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            this.l.d0(7021, ShareCommonCardSysMsg.class);
             ShareCommonCardAdapter shareCommonCardAdapter = new ShareCommonCardAdapter(this.j, ShareCommonCardSysMsg.ADAPTER_TYPE);
-            shareCommonCardAdapter.d0(this.k.x2());
+            shareCommonCardAdapter.d0(this.k.z2());
             shareCommonCardAdapter.E(this.B, this.C);
             shareCommonCardAdapter.G(this.J, null);
             shareCommonCardAdapter.J(new q(this));
@@ -2338,14 +2389,14 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final ShareForumAdapter Q0() {
+    public final ShareForumAdapter S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            this.l.e0(7009, ShareForumSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            this.l.d0(7009, ShareForumSysMsg.class);
             ShareForumAdapter shareForumAdapter = new ShareForumAdapter(this.j, ShareForumSysMsg.ADAPTER_TYPE);
             shareForumAdapter.E(this.B, this.C);
-            shareForumAdapter.f0(this.k.x2());
+            shareForumAdapter.f0(this.k.z2());
             shareForumAdapter.G(this.J, null);
             shareForumAdapter.J(new r(this));
             return shareForumAdapter;
@@ -2353,63 +2404,63 @@ public class ChatPage extends Slice implements wo8 {
         return (ShareForumAdapter) invokeV.objValue;
     }
 
-    public final void k1() {
+    public final void l1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
-            if (!ListUtils.isEmpty(this.y.getQuickTalk()) && (F0() == null || !F0().P2())) {
-                this.k.R2(true);
-                this.k.z2().Z(this.y);
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+            if (!ListUtils.isEmpty(this.y.getQuickTalk()) && (H0() == null || !H0().R2())) {
+                this.k.U2(true);
+                this.k.B2().b0(this.y);
                 return;
             }
-            this.k.R2(false);
+            this.k.U2(false);
         }
     }
 
-    public void o1() {
+    public void p1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
             int lastVisiblePosition = this.x.b.getLastVisiblePosition();
-            if (this.k.t2() != null && this.k.t2().L() != null) {
-                this.k.t2().L().post(new a(this, lastVisiblePosition));
+            if (this.k.v2() != null && this.k.v2().K() != null) {
+                this.k.v2().K().post(new a(this, lastVisiblePosition));
             }
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     @Nullable
-    public View P(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View R(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08c7, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08dc, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.wo8
-    public void c(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map) {
+    @Override // com.baidu.tieba.yp8
+    public void b(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048606, this, str, str2, map) == null) {
-            this.l.h0(BigEmotionMsg.create(str, str2, map));
+        if (interceptable == null || interceptable.invokeLLL(1048605, this, str, str2, map) == null) {
+            this.l.g0(BigEmotionMsg.create(str, str2, map));
         }
     }
 
-    public void p1(int i2, @NonNull BaseMsg baseMsg, @Nullable List<Reaction> list) {
+    public void q1(int i2, @NonNull BaseMsg baseMsg, @Nullable List<Reaction> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048628, this, i2, baseMsg, list) == null) {
-            this.k.E2().l0(i2, baseMsg, list);
+        if (interceptable == null || interceptable.invokeILL(1048629, this, i2, baseMsg, list) == null) {
+            this.k.G2().n0(i2, baseMsg, list);
         }
     }
 
     @NonNull
-    public final ShareThreadAdapter R0() {
+    public final ShareThreadAdapter T0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            this.l.e0(7010, ShareThreadSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            this.l.d0(7010, ShareThreadSysMsg.class);
             ShareThreadAdapter shareThreadAdapter = new ShareThreadAdapter(this.j, ShareThreadSysMsg.ADAPTER_TYPE);
             this.r = shareThreadAdapter;
-            shareThreadAdapter.h0(this.k.x2());
+            shareThreadAdapter.h0(this.k.z2());
             this.r.E(this.B, this.C);
             this.r.G(this.J, null);
             this.r.J(new s(this));
@@ -2419,11 +2470,11 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final SingleTextImageAdapter<SingleTextImageMsg> S0() {
+    public final SingleTextImageAdapter<SingleTextImageMsg> U0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            this.l.e0(102, SingleTextImageMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            this.l.d0(102, SingleTextImageMsg.class);
             SingleTextImageAdapter<SingleTextImageMsg> singleTextImageAdapter = new SingleTextImageAdapter<>(this.j, SingleTextImageMsg.ADAPTER_TYPE);
             this.p = singleTextImageAdapter;
             singleTextImageAdapter.F(this.I, null);
@@ -2436,13 +2487,13 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final TextAdapter U0() {
+    public final TextAdapter W0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            this.l.e0(1, TextMsg.class);
-            this.l.e0(7019, EffectGuidanceSysMsg.class);
-            this.l.e0(7018, ExcellentSysMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            this.l.d0(1, TextMsg.class);
+            this.l.d0(7019, EffectGuidanceSysMsg.class);
+            this.l.d0(7018, ExcellentSysMsg.class);
             this.D.f(1, TextMsg.class);
             TextAdapter textAdapter = new TextAdapter(this.j, TextMsg.ADAPTER_TYPE);
             textAdapter.J(new l(this));
@@ -2455,36 +2506,36 @@ public class ChatPage extends Slice implements wo8 {
     }
 
     @NonNull
-    public final dn8 V0() {
+    public final go8 X0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            this.l.e0(101, TextGenImageMsg.class);
-            this.l.e0(7014, TextGenImageUpdateSysMsg.class);
-            dn8 dn8Var = new dn8(this.j, TextGenImageMsg.ADAPTER_TYPE);
-            this.q = dn8Var;
-            dn8Var.F(this.I, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            this.l.d0(101, TextGenImageMsg.class);
+            this.l.d0(7014, TextGenImageUpdateSysMsg.class);
+            go8 go8Var = new go8(this.j, TextGenImageMsg.ADAPTER_TYPE);
+            this.q = go8Var;
+            go8Var.F(this.I, null);
             this.q.G(this.J, null);
             this.q.E(this.B, this.C);
             this.q.J(new u(this));
             return this.q;
         }
-        return (dn8) invokeV.objValue;
+        return (go8) invokeV.objValue;
     }
 
     @NonNull
-    public final VoiceAdapter Z0() {
+    public final VoiceAdapter b1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            this.l.e0(3, VoiceMsg.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            this.l.d0(3, VoiceMsg.class);
             this.D.f(3, VoiceMsg.class);
             VoiceAdapter voiceAdapter = new VoiceAdapter(this.j, VoiceMsg.ADAPTER_TYPE);
             voiceAdapter.F(this.I, null);
             voiceAdapter.G(this.J, null);
             voiceAdapter.E(this.B, this.C);
-            if (this.k.C2() != null) {
-                voiceAdapter.j0(this.k.C2().V0());
+            if (this.k.E2() != null) {
+                voiceAdapter.j0(this.k.E2().U0());
             }
             voiceAdapter.J(new o(this));
             return voiceAdapter;
@@ -2492,12 +2543,12 @@ public class ChatPage extends Slice implements wo8 {
         return (VoiceAdapter) invokeV.objValue;
     }
 
-    public boolean a1() {
+    public boolean c1() {
         InterceptResult invokeV;
-        xp8 g2;
+        zq8 g2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            if (this.k.C2() == null || (g2 = this.k.C2().U0().g()) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            if (this.k.E2() == null || (g2 = this.k.E2().T0().g()) == null) {
                 return false;
             }
             new BdTopToast(this.k.getContext()).setContent(g2.c()).setIcon(false).show((ViewGroup) this.k.getView());
@@ -2506,55 +2557,55 @@ public class ChatPage extends Slice implements wo8 {
         return invokeV.booleanValue;
     }
 
-    public final void Y0() {
+    public final void a1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.B.a(this.D);
             this.B.a(this.E);
             this.B.a(new CallRobotHandler(this));
             this.B.a(new JumpToHandler(this.j));
             this.B.a(new InputBoxHandler(this));
-            this.B.a(new zm8());
-            this.B.a(new cn8(this));
+            this.B.a(new co8());
+            this.B.a(new fo8(this));
             this.B.a(new JumpMsgHandler(this));
             this.B.a(new RequestRouterHandler(this));
-            this.B.a(new an8(this));
+            this.B.a(new do8(this));
             this.B.a(new SendEmojiMsgHandler(this.j.getPageActivity(), this));
             this.B.a(new OpenEmojiDetailHandler(this));
             this.B.a(new OpenReactionPanelHandler(this));
-            this.F.a(U0());
-            this.F.a(L0());
             this.F.a(W0());
-            this.F.a(X0());
-            this.F.a(N0());
+            this.F.a(O0());
+            this.F.a(Y0());
             this.F.a(Z0());
+            this.F.a(P0());
+            this.F.a(b1());
+            this.F.a(M0());
+            this.F.a(S0());
+            this.F.a(T0());
             this.F.a(K0());
+            this.F.a(U0());
+            this.F.a(X0());
+            this.F.a(V0());
             this.F.a(Q0());
             this.F.a(R0());
-            this.F.a(I0());
-            this.F.a(S0());
-            this.F.a(V0());
-            this.F.a(T0());
-            this.F.a(O0());
-            this.F.a(P0());
             this.F.f(new c(this));
-            e1();
+            g1();
             this.x.b.addAdapters(this.F.e());
             this.x.b.setLayoutManager(new d(this, this.k.getContext()));
             this.x.b.setOnScrollToTopListener(new e(this));
             this.x.b.setOnSrollToBottomListener(new f(this));
             this.x.b.addOnScrollListener(new g(this));
             this.x.b.addOnLayoutChangeListener(new h(this));
-            this.l.l0(new i(this));
+            this.l.k0(new i(this));
             this.k.registerListener(this.G);
             this.k.registerListener(this.O);
         }
     }
 
-    public final void f1() {
+    public final void h1() {
         View findViewByPosition;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             int lastVisiblePosition = this.x.b.getLastVisiblePosition();
             int firstVisiblePosition = this.x.b.getFirstVisiblePosition();
             if (lastVisiblePosition != -1 && this.x.b.getCount() > 0 && this.x.b.getCount() - 1 == lastVisiblePosition) {
@@ -2572,12 +2623,12 @@ public class ChatPage extends Slice implements wo8 {
         }
     }
 
-    @Override // com.baidu.tieba.wo8
-    public void i(@NonNull String str, @Nullable Object obj, @Nullable em8 em8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i2) {
+    @Override // com.baidu.tieba.yp8
+    public void j(@NonNull String str, @Nullable Object obj, @Nullable gn8 gn8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i2) {
         BaseMsg baseMsg;
         BaseMsg r2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{str, obj, em8Var, list, map, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{str, obj, gn8Var, list, map, Integer.valueOf(i2)}) == null) {
             if (obj instanceof BaseMsg) {
                 baseMsg = (BaseMsg) obj;
             } else {
@@ -2587,25 +2638,25 @@ public class ChatPage extends Slice implements wo8 {
                 if (i2 != 1) {
                     if (i2 != 2 && i2 != 3) {
                         r2 = TextMsg.create(str);
-                        r2.addAtUserInfo(ao8.p(list, map));
+                        r2.addAtUserInfo(cp8.p(list, map));
                     }
                 } else {
                     r2 = TextMsg.create(str);
                     if (baseMsg != null) {
                         r2.setReMsgInfo(ReMsgInfo.create(baseMsg, ((Object) baseMsg.getReplyPrefix()) + baseMsg.getThumbnailText().toString()));
                     }
-                    r2.addAtUserInfo(ao8.p(list, map));
+                    r2.addAtUserInfo(cp8.p(list, map));
                 }
-                this.l.h0(r2);
+                this.l.g0(r2);
             }
-            r2 = ao8.r(ao8.m(str, baseMsg, em8Var, list, map), em8Var);
-            this.l.h0(r2);
+            r2 = cp8.r(cp8.m(str, baseMsg, gn8Var, list, map), gn8Var);
+            this.l.g0(r2);
         }
     }
 
-    public void j1(@NonNull ChatRoomDetail chatRoomDetail) {
+    public void k1(@NonNull ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, chatRoomDetail) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, chatRoomDetail) == null) {
             this.y = chatRoomDetail;
             this.z = chatRoomDetail.getBots();
             long id = chatRoomDetail.getBasicInfo().getId();
@@ -2627,11 +2678,11 @@ public class ChatPage extends Slice implements wo8 {
         }
     }
 
-    public void n1(@NonNull String str, int i2, GroupInputViewController.SourceType sourceType, @Nullable BaseMsg baseMsg, boolean z2, boolean z3, boolean z4, @Nullable String str2) {
+    public void o1(@NonNull String str, int i2, GroupInputViewController.SourceType sourceType, @Nullable BaseMsg baseMsg, boolean z2, boolean z3, boolean z4, @Nullable String str2) {
         BotsDTO.BotListDTO findBotByUk;
         BotsDTO.BotListDTO.SkillDTO cloneSkillById;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048623, this, new Object[]{str, Integer.valueOf(i2), sourceType, baseMsg, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), str2}) != null) || a1()) {
+        if ((interceptable != null && interceptable.invokeCommon(1048624, this, new Object[]{str, Integer.valueOf(i2), sourceType, baseMsg, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), str2}) != null) || c1()) {
             return;
         }
         BotsDTO botsDTO = this.z;
@@ -2640,38 +2691,38 @@ public class ChatPage extends Slice implements wo8 {
             if (str2 != null && !str2.isEmpty()) {
                 cloneSkillById.setKeyboardContent(str2);
             }
-            GroupInputViewController C2 = this.k.C2();
-            if (C2 != null) {
+            GroupInputViewController E2 = this.k.E2();
+            if (E2 != null) {
                 AtSelectData atSelectData = null;
                 if (z3 && baseMsg != null) {
                     CommonMsgField commonMsgField = baseMsg.getCommonMsgField();
                     atSelectData = new AtSelectData(commonMsgField.getPortrait(), commonMsgField.getUserName(), String.valueOf(commonMsgField.getUserId()), commonMsgField.isRobot());
-                    if (C2.C0() != null) {
-                        C2.C0().E(atSelectData.getUid(), atSelectData);
+                    if (E2.B0() != null) {
+                        E2.B0().E(atSelectData.getUid(), atSelectData);
                     }
                 }
-                C2.B1(baseMsg, findBotByUk.getUser(), cloneSkillById, z2);
-                if (cloneSkillById.isFuncShowPanel() && (C2.Q0() == null || !C2.Q0().L())) {
-                    C2.L1(sourceType, true, z4);
+                E2.A1(baseMsg, findBotByUk.getUser(), cloneSkillById, z2);
+                if (cloneSkillById.isFuncShowPanel() && (E2.P0() == null || !E2.P0().L())) {
+                    E2.K1(sourceType, true, z4);
                 }
-                String R0 = C2.R0();
-                C2.I1("");
+                String Q0 = E2.Q0();
+                E2.H1("");
                 if (atSelectData != null && cloneSkillById.isCanKeyboardInput()) {
-                    C2.e0(atSelectData, true, cloneSkillById.isFuncShowPanel());
+                    E2.d0(atSelectData, true, cloneSkillById.isFuncShowPanel());
                 }
-                if (!TextUtils.isEmpty(R0)) {
-                    C2.H1(R0);
+                if (!TextUtils.isEmpty(Q0)) {
+                    E2.G1(Q0);
                 }
                 if (cloneSkillById.isFuncSendMsg()) {
-                    C2.A0();
-                    C2.B0();
-                    C2.z0();
+                    E2.z0();
+                    E2.A0();
+                    E2.y0();
                 }
                 z5 = false;
             }
         }
         if (z5) {
-            u1(R.string.obfuscated_res_0x7f0f0929);
+            v1(R.string.obfuscated_res_0x7f0f092e);
         }
     }
 
@@ -2691,66 +2742,20 @@ public class ChatPage extends Slice implements wo8 {
         }
     }
 
-    public final void t1(@NonNull on8 on8Var, @NonNull BaseMsg baseMsg, int i2) {
+    public final void u1(@NonNull qo8 qo8Var, @NonNull BaseMsg baseMsg, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048631, this, on8Var, baseMsg, i2) == null) {
-            a55 a55Var = new a55(this.j);
+        if (interceptable == null || interceptable.invokeLLI(1048632, this, qo8Var, baseMsg, i2) == null) {
+            g55 g55Var = new g55(this.j);
             String string = this.j.getString(R.string.msg_resend);
-            a55Var.i(null, new String[]{string}, new w(this, string, on8Var, baseMsg, i2, a55Var));
-            a55Var.l();
+            g55Var.i(null, new String[]{string}, new w(this, string, qo8Var, baseMsg, i2, g55Var));
+            g55Var.l();
         }
     }
 
-    public void v1(@NonNull String str, boolean z2) {
+    public void w1(@NonNull String str, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048633, this, str, z2) == null) && this.k.getContext() != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048634, this, str, z2) == null) && this.k.getContext() != null) {
             new BdTopToast(this.k.getContext()).setContent(str).setIcon(z2).show((ViewGroup) this.k.getView());
-        }
-    }
-
-    @NonNull
-    public final em8 y0(@NonNull TextGenImageMsg textGenImageMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, textGenImageMsg)) == null) {
-            em8 em8Var = new em8();
-            BotsDTO.BotListDTO.UserDTO userDTO = new BotsDTO.BotListDTO.UserDTO();
-            em8Var.a = userDTO;
-            userDTO.setName(textGenImageMsg.getCommonMsgField().getUserName());
-            em8Var.a.setNameShow(textGenImageMsg.getCommonMsgField().getUserName());
-            em8Var.a.setPortrait(textGenImageMsg.getCommonMsgField().getPortrait());
-            em8Var.a.setUk(BIMManager.getBdUKFromBdUid(String.valueOf(textGenImageMsg.getCommonMsgField().getUserId())));
-            em8Var.b = new BotsDTO.BotListDTO.SkillDTO();
-            if (textGenImageMsg.getSubSkillConfig() != null) {
-                em8Var.b.setSubSkill(textGenImageMsg.getSubSkillConfig().a);
-            }
-            em8Var.d(true);
-            return em8Var;
-        }
-        return (em8) invokeL.objValue;
-    }
-
-    public final void z0() {
-        ChatRoomDetail chatRoomDetail;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048637, this) == null) && (chatRoomDetail = this.y) != null && chatRoomDetail.getBots() != null && !ListUtils.isEmpty(this.y.getBots().getBotList())) {
-            String string = SharedPrefHelper.getInstance().getString("key_show_bot_tip_list", "");
-            List asList = Arrays.asList(string.split(","));
-            List<BotsDTO.BotListDTO> botList = this.y.getBots().getBotList();
-            for (int i2 = 0; i2 < botList.size(); i2++) {
-                BotsDTO.BotListDTO botListDTO = botList.get(i2);
-                if (botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && !TextUtils.isEmpty(botListDTO.getAtGuide()) && !asList.contains(botListDTO.getUser().getUk()) && !TextUtils.equals(BIMManager.getBdUidFromBdUK(botListDTO.getUser().getUk()), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                    g1(botListDTO);
-                    if (TextUtils.isEmpty(string)) {
-                        str = botListDTO.getUser().getUk();
-                    } else {
-                        str = string + "," + botListDTO.getUser().getUk();
-                    }
-                    SharedPrefHelper.getInstance().putString("key_show_bot_tip_list", str);
-                    return;
-                }
-            }
         }
     }
 }

@@ -514,38 +514,49 @@ public final class WebKitFactory {
         return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x008c  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00d4  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00e6 A[Catch: IOException -> 0x0107, FileNotFoundException -> 0x011f, LOOP:1: B:36:0x00e0->B:38:0x00e6, LOOP_END, TryCatch #4 {FileNotFoundException -> 0x011f, IOException -> 0x0107, blocks: (B:35:0x00d7, B:36:0x00e0, B:38:0x00e6, B:39:0x0103), top: B:53:0x00d7 }] */
+    /* JADX WARN: Can't wrap try/catch for region: R(13:7|(4:8|9|(1:11)|12)|13|(3:15|(5:18|19|(2:23|24)|25|16)|31)|32|(1:34)|35|36|(2:39|37)|40|41|42|43) */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0106, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0107, code lost:
+        r0 = "read private file " + r6 + " failed: " + r0.getMessage();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x011e, code lost:
+        r0 = "private file " + r6 + " is not found when reading";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x012d, code lost:
+        com.baidu.webkit.sdk.Log.v(com.baidu.webkit.sdk.WebKitFactory.TAG, r0);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x008b  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00d3  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00e5 A[Catch: IOException -> 0x0106, FileNotFoundException -> 0x011e, LOOP:1: B:36:0x00df->B:38:0x00e5, LOOP_END, TryCatch #5 {FileNotFoundException -> 0x011e, IOException -> 0x0106, blocks: (B:35:0x00d6, B:36:0x00df, B:38:0x00e5, B:39:0x0102), top: B:51:0x00d6 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int getStartUpFreq() {
         String str;
-        ArrayList arrayList;
         String str2;
-        String str3;
         Iterator it;
         if (sStartUpFreq <= 0 && getNeedDownloadCloudResource() && WebSettingsGlobalBlink.getDitingMaxForceLoadSwitch()) {
-            String str4 = getContext().getFilesDir().getAbsolutePath() + File.separator + START_UP_RECORD_PATH;
+            String str3 = getContext().getFilesDir().getAbsolutePath() + File.separator + START_UP_RECORD_PATH;
             byte[] bArr = null;
             try {
-                FileInputStream fileInputStream = new FileInputStream(str4);
+                FileInputStream fileInputStream = new FileInputStream(str3);
                 if (fileInputStream.available() > 0) {
                     bArr = new byte[fileInputStream.available()];
                     fileInputStream.read(bArr);
                 }
                 fileInputStream.close();
             } catch (FileNotFoundException unused) {
-                str = "private file " + str4 + " is not found when reading";
+                str = "private file " + str3 + " is not found when reading";
                 Log.v(TAG, str);
-                arrayList = new ArrayList();
+                ArrayList arrayList = new ArrayList();
                 if (bArr != null) {
                 }
                 str2 = sStatisticsSessionId;
                 if (str2 != null) {
                 }
-                FileOutputStream fileOutputStream = new FileOutputStream(str4, false);
+                FileOutputStream fileOutputStream = new FileOutputStream(str3, false);
                 it = arrayList.iterator();
                 while (it.hasNext()) {
                 }
@@ -554,31 +565,31 @@ public final class WebKitFactory {
                 sStartUpFreq = size;
                 return size;
             } catch (IOException e) {
-                str = "read private file " + str4 + " failed: " + e.getMessage();
+                str = "read private file " + str3 + " failed: " + e.getMessage();
                 Log.v(TAG, str);
-                arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
                 if (bArr != null) {
                 }
                 str2 = sStatisticsSessionId;
                 if (str2 != null) {
                 }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(str4, false);
-                it = arrayList.iterator();
+                FileOutputStream fileOutputStream2 = new FileOutputStream(str3, false);
+                it = arrayList2.iterator();
                 while (it.hasNext()) {
                 }
                 fileOutputStream2.close();
-                int size2 = arrayList.size();
+                int size2 = arrayList2.size();
                 sStartUpFreq = size2;
                 return size2;
             }
-            arrayList = new ArrayList();
+            ArrayList arrayList22 = new ArrayList();
             if (bArr != null) {
                 String[] split = new String(bArr).split("\n");
                 long parseLong = Long.parseLong(sStatisticsSessionId);
                 for (int i = 0; i < split.length; i++) {
                     try {
                         if (Long.parseLong(split[i]) >= parseLong - 86400000 && split.length - i < 100) {
-                            arrayList.add(split[i]);
+                            arrayList22.add(split[i]);
                         }
                     } catch (NumberFormatException unused2) {
                         Log.e(TAG, "parseLong err: " + split[i]);
@@ -587,31 +598,17 @@ public final class WebKitFactory {
             }
             str2 = sStatisticsSessionId;
             if (str2 != null) {
-                arrayList.add(str2);
+                arrayList22.add(str2);
             }
-            try {
-                FileOutputStream fileOutputStream22 = new FileOutputStream(str4, false);
-                it = arrayList.iterator();
-                while (it.hasNext()) {
-                    fileOutputStream22.write((((String) it.next()) + "\n").getBytes());
-                }
-                fileOutputStream22.close();
-            } catch (FileNotFoundException unused3) {
-                str3 = "private file " + str4 + " is not found when reading";
-                Log.v(TAG, str3);
-                int size22 = arrayList.size();
-                sStartUpFreq = size22;
-                return size22;
-            } catch (IOException e2) {
-                str3 = "read private file " + str4 + " failed: " + e2.getMessage();
-                Log.v(TAG, str3);
-                int size222 = arrayList.size();
-                sStartUpFreq = size222;
-                return size222;
+            FileOutputStream fileOutputStream22 = new FileOutputStream(str3, false);
+            it = arrayList22.iterator();
+            while (it.hasNext()) {
+                fileOutputStream22.write((((String) it.next()) + "\n").getBytes());
             }
-            int size2222 = arrayList.size();
-            sStartUpFreq = size2222;
-            return size2222;
+            fileOutputStream22.close();
+            int size22 = arrayList22.size();
+            sStartUpFreq = size22;
+            return size22;
         }
         return sStartUpFreq;
     }

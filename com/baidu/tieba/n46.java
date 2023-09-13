@@ -1,73 +1,153 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
 public class n46 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, o46> a;
-    public ArrayList<Integer> b;
-    public p46 c;
+    public long a;
+    public o46 b;
+    public BaseFragmentActivity c;
 
-    public n46(p46 p46Var, ArrayList<Integer> arrayList) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947952537, "Lcom/baidu/tieba/n46;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947952537, "Lcom/baidu/tieba/n46;");
+        }
+    }
+
+    public n46(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p46Var, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = arrayList;
-        this.c = p46Var;
-        this.a = new HashMap<>();
+        this.a = -1L;
+        this.c = baseFragmentActivity;
     }
 
-    public int a(String str, int i) {
-        InterceptResult invokeLI;
-        ArrayList<Integer> arrayList;
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (this.a == null || di.isEmpty(str) || (arrayList = this.b) == null || !arrayList.contains(Integer.valueOf(i))) {
-                return 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (xba.a(this.c.getIntent())) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
-            if (!this.a.containsKey(str)) {
-                b(str);
+            if (bundle != null) {
+                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
+            } else {
+                LogoActivityConfig.isFirst = true;
             }
-            o46 o46Var = this.a.get(str);
-            if (o46Var == null) {
-                return 0;
-            }
-            return o46Var.a(i);
         }
-        return invokeLI.intValue;
     }
 
-    public void b(String str) {
+    public final void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a != null && !di.isEmpty(str) && this.c != null) {
-            if (this.a.containsKey(str)) {
-                o46 o46Var = this.a.get(str);
-                this.c.b(this.b, o46Var);
-                this.a.put(str, o46Var);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
+                Intent intent2 = new Intent();
+                intent2.putExtra("class", 2);
+                intent2.putExtra("fname", intent.getStringExtra("fname"));
+                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
+                intent2.putExtra("back_special", true);
+                intent2.putExtra("from", "short_cut");
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+            }
+            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
+        }
+    }
+
+    public void c(Configuration configuration) {
+        o46 o46Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (o46Var = this.b) != null) {
+            o46Var.d(configuration);
+        }
+    }
+
+    public void d(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            this.a = System.currentTimeMillis();
+            if ("MuMu".equals(DeviceInfoHelper.getModel()) && "6.0.1".equals(DeviceInfoHelper.getOsVersion())) {
+                this.c.finish();
                 return;
             }
-            o46 o46Var2 = new o46();
-            this.c.b(this.b, o46Var2);
-            this.a.put(str, o46Var2);
+            b(bundle);
+            if (!xba.a(this.c.getIntent()) && (xba.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+                a(this.c.getIntent());
+            }
+            vfa.g().i(this.c.getUniqueId());
+            o46 o46Var = new o46(this.c);
+            this.b = o46Var;
+            o46Var.i(d);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            vfa.g().k(this.c.getUniqueId());
+            d = false;
+            o46 o46Var = this.b;
+            if (o46Var != null) {
+                o46Var.g();
+            }
+        }
+    }
+
+    public void f() {
+        o46 o46Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (o46Var = this.b) != null) {
+            o46Var.e();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (LogoActivityConfig.isFirst && this.a >= 0) {
+                ht5.a().u(System.currentTimeMillis() - this.a);
+            }
+            o46 o46Var = this.b;
+            if (o46Var != null) {
+                o46Var.f();
+            }
         }
     }
 }

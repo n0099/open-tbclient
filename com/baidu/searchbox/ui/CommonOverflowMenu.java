@@ -15,7 +15,7 @@ public class CommonOverflowMenu extends BdMenu {
 
     public CommonOverflowMenu(View view2) {
         super(view2);
-        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07034f));
+        setPopupWindowWidth(view2.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070353));
     }
 
     @Override // com.baidu.android.ext.widget.menu.BdMenu
@@ -42,7 +42,7 @@ public class CommonOverflowMenu extends BdMenu {
     public void showMenu(PopupWindow popupWindow) {
         popupWindow.showAtLocation(this.mViewToAttach, this.mGravity, this.mDelatX, this.mDelatY);
         if (popupWindow.isShowing()) {
-            popupWindow.setAnimationStyle(com.baidu.tieba.R.style.obfuscated_res_0x7f1003bc);
+            popupWindow.setAnimationStyle(com.baidu.tieba.R.style.obfuscated_res_0x7f1003c4);
             popupWindow.update(this.mDelatX, this.mDelatY, -1, -1, true);
         }
     }
@@ -51,7 +51,7 @@ public class CommonOverflowMenu extends BdMenu {
     public void ensureMenuLoaded(View view2, List<BdMenuItem> list) {
         if (view2 instanceof CommonOverflowMenuView) {
             CommonOverflowMenuView commonOverflowMenuView = (CommonOverflowMenuView) view2;
-            commonOverflowMenuView.setMaxHeightRes(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0701a7);
+            commonOverflowMenuView.setMaxHeightRes(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0701ac);
             commonOverflowMenuView.layoutMenu(list);
         }
     }

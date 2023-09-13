@@ -18,11 +18,11 @@ public final class hb extends am.b {
         ArrayList arrayList;
         List list;
         List list2;
-        obj = ha.f459a;
+        obj = ha.f458a;
         synchronized (obj) {
-            list = ha.f461a;
+            list = ha.f460a;
             arrayList = new ArrayList(list);
-            list2 = ha.f461a;
+            list2 = ha.f460a;
             list2.clear();
         }
         ha.b(this.a, arrayList);

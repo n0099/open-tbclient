@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.PidLoader;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface ukb<R> {
-    R a(PidLoader pidLoader);
+public interface ukb {
+    String getBizType();
 
-    boolean a(R r);
+    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
 }

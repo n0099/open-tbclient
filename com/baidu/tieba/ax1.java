@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes5.dex */
 public interface ax1 {
-    void a(Context context, wp3<Boolean> wp3Var);
+    void a(NgWebView ngWebView);
 
-    void b(boolean z, wp3<String> wp3Var);
+    void b(NgWebView ngWebView, String str);
 
-    void c(Context context, wp3<String> wp3Var);
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    void d(wp3<Integer> wp3Var);
+    void d(String str, Context context);
+
+    void e(String str, Context context);
 }

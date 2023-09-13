@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c implements a.InterfaceC0134a {
+public class c implements a.InterfaceC0123a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ b a;
@@ -31,7 +31,7 @@ public class c implements a.InterfaceC0134a {
         this.a = bVar;
     }
 
-    @Override // com.baidu.platform.comapi.map.b.a.a.InterfaceC0134a
+    @Override // com.baidu.platform.comapi.map.b.a.a.InterfaceC0123a
     public boolean a(com.baidu.platform.comapi.map.b.a.a aVar) {
         InterceptResult invokeL;
         MapController mapController;

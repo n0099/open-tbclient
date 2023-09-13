@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tieba.e85;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.v75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,6 +72,24 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         }
     }
 
+    public final boolean o1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (SchemeActionHelper.needMainTabActivity(str)) {
+                return true;
+            }
+            if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find()) {
+                return false;
+            }
+            if (str.contains(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) || str.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER) || str.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SWAN) || str.contains("achievement=")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX WARN: Removed duplicated region for block: B:101:0x0215 A[Catch: Exception -> 0x0114, TryCatch #3 {Exception -> 0x0114, blocks: (B:31:0x00c3, B:33:0x00cb, B:36:0x00d4, B:58:0x011a, B:60:0x0122, B:62:0x0128, B:64:0x012e, B:77:0x0149, B:90:0x017b, B:99:0x01a3, B:101:0x0215, B:130:0x0273, B:134:0x0289, B:135:0x0290, B:139:0x02a7, B:145:0x02e6, B:147:0x02f0, B:144:0x02ce, B:104:0x021f, B:106:0x0225, B:109:0x022f, B:111:0x0235, B:114:0x023e, B:116:0x0244, B:119:0x024f, B:121:0x0255, B:124:0x0260, B:126:0x0266, B:94:0x018d, B:80:0x0156, B:83:0x0161, B:86:0x016d, B:39:0x00de, B:42:0x00e8, B:45:0x00f1, B:48:0x00fc, B:51:0x0107, B:141:0x02b4), top: B:199:0x00c3, inners: #0 }] */
     /* JADX WARN: Removed duplicated region for block: B:106:0x0225 A[Catch: Exception -> 0x0114, TryCatch #3 {Exception -> 0x0114, blocks: (B:31:0x00c3, B:33:0x00cb, B:36:0x00d4, B:58:0x011a, B:60:0x0122, B:62:0x0128, B:64:0x012e, B:77:0x0149, B:90:0x017b, B:99:0x01a3, B:101:0x0215, B:130:0x0273, B:134:0x0289, B:135:0x0290, B:139:0x02a7, B:145:0x02e6, B:147:0x02f0, B:144:0x02ce, B:104:0x021f, B:106:0x0225, B:109:0x022f, B:111:0x0235, B:114:0x023e, B:116:0x0244, B:119:0x024f, B:121:0x0255, B:124:0x0260, B:126:0x0266, B:94:0x018d, B:80:0x0156, B:83:0x0161, B:86:0x016d, B:39:0x00de, B:42:0x00e8, B:45:0x00f1, B:48:0x00fc, B:51:0x0107, B:141:0x02b4), top: B:199:0x00c3, inners: #0 }] */
     /* JADX WARN: Removed duplicated region for block: B:116:0x0244 A[Catch: Exception -> 0x0114, TryCatch #3 {Exception -> 0x0114, blocks: (B:31:0x00c3, B:33:0x00cb, B:36:0x00d4, B:58:0x011a, B:60:0x0122, B:62:0x0128, B:64:0x012e, B:77:0x0149, B:90:0x017b, B:99:0x01a3, B:101:0x0215, B:130:0x0273, B:134:0x0289, B:135:0x0290, B:139:0x02a7, B:145:0x02e6, B:147:0x02f0, B:144:0x02ce, B:104:0x021f, B:106:0x0225, B:109:0x022f, B:111:0x0235, B:114:0x023e, B:116:0x0244, B:119:0x024f, B:121:0x0255, B:124:0x0260, B:126:0x0266, B:94:0x018d, B:80:0x0156, B:83:0x0161, B:86:0x016d, B:39:0x00de, B:42:0x00e8, B:45:0x00f1, B:48:0x00fc, B:51:0x0107, B:141:0x02b4), top: B:199:0x00c3, inners: #0 }] */
@@ -113,7 +131,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         int i11;
         int i12;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY);
             GrowthFunnelHelper.updateAppStartInfoForActivity(this);
             super.onCreate(bundle);
@@ -247,7 +265,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                     }
                                     TiebaStatic.log(param);
                                     StatisticItem statisticItem = new StatisticItem("PushOptCount");
-                                    if (v75.a().d()) {
+                                    if (e85.a().d()) {
                                         i11 = 1;
                                     } else {
                                         i11 = 2;
@@ -260,10 +278,10 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                             TbLog yunPushLog2 = YunPushLog.getInstance();
                                             yunPushLog2.e(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity parse Exception:" + e);
                                         }
-                                        if (v75.a().d()) {
-                                            v75.a().i(2);
+                                        if (e85.a().d()) {
+                                            e85.a().i(2);
                                         }
-                                        if (s1(str4)) {
+                                        if (o1(str4)) {
                                             int i14 = -1;
                                             if (str4.startsWith(UrlSchemaHelper.SCHEMA_REPLY_ME)) {
                                                 StatisticItem param2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MSG_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -357,7 +375,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 }
                                 TiebaStatic.log(param4);
                                 StatisticItem statisticItem3 = new StatisticItem("PushOptCount");
-                                if (v75.a().d()) {
+                                if (e85.a().d()) {
                                 }
                                 TiebaStatic.log(statisticItem3.param("obj_param1", i11));
                                 if (!TextUtils.isEmpty(str4)) {
@@ -403,7 +421,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         }
                         TiebaStatic.log(param42);
                         StatisticItem statisticItem32 = new StatisticItem("PushOptCount");
-                        if (v75.a().d()) {
+                        if (e85.a().d()) {
                         }
                         TiebaStatic.log(statisticItem32.param("obj_param1", i11));
                         if (!TextUtils.isEmpty(str4)) {
@@ -424,23 +442,5 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
             finish();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_END_STAMP_KEY);
         }
-    }
-
-    public final boolean s1(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (SchemeActionHelper.needMainTabActivity(str)) {
-                return true;
-            }
-            if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find()) {
-                return false;
-            }
-            if (str.contains(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL) || str.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER) || str.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SWAN) || str.contains("achievement=")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

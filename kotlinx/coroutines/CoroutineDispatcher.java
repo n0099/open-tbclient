@@ -22,7 +22,7 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
     public static final Key Key = new Key(null);
 
     /* renamed from: dispatch */
-    public abstract void mo2344dispatch(CoroutineContext coroutineContext, Runnable runnable);
+    public abstract void mo2345dispatch(CoroutineContext coroutineContext, Runnable runnable);
 
     public boolean isDispatchNeeded(CoroutineContext coroutineContext) {
         return true;
@@ -65,7 +65,7 @@ public abstract class CoroutineDispatcher extends AbstractCoroutineContextElemen
 
     @InternalCoroutinesApi
     public void dispatchYield(CoroutineContext coroutineContext, Runnable runnable) {
-        mo2344dispatch(coroutineContext, runnable);
+        mo2345dispatch(coroutineContext, runnable);
     }
 
     @Override // kotlin.coroutines.AbstractCoroutineContextElement, kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext

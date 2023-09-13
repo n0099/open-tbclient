@@ -1,13 +1,23 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public interface fib {
-    void a(String str, JSONObject jSONObject);
 
-    void b(String str, JSONObject jSONObject);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onCompletion();
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
+        boolean onError(int i, int i2, Object obj);
 
-    void d(String str, String str2, JSONObject jSONObject);
+        boolean onInfo(int i, int i2, Object obj);
+    }
+
+    void release();
+
+    void setListener(a aVar);
+
+    void setSource(ArrayList<String> arrayList);
+
+    void start();
 }

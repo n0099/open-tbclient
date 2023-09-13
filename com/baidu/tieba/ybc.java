@@ -1,68 +1,101 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
+import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes8.dex */
-public class ybc<T> implements q7c<T> {
+public final class ybc<T> implements sac.b<Boolean, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final q7c<? super T> a;
-    public boolean b;
-    public volatile boolean c;
-    public a d;
+    public final lbc<? super T, Boolean> a;
+    public final boolean b;
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a extends yac<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
-        public int b;
+        public boolean e;
+        public boolean f;
+        public final /* synthetic */ SingleDelayedProducer g;
+        public final /* synthetic */ yac h;
+        public final /* synthetic */ ybc i;
 
-        public a() {
+        public a(ybc ybcVar, SingleDelayedProducer singleDelayedProducer, yac yacVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ybcVar, singleDelayedProducer, yacVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = ybcVar;
+            this.g = singleDelayedProducer;
+            this.h = yacVar;
+        }
+
+        @Override // com.baidu.tieba.tac
+        public void onCompleted() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
+                this.f = true;
+                if (this.e) {
+                    this.g.setValue(Boolean.FALSE);
+                } else {
+                    this.g.setValue(Boolean.valueOf(this.i.b));
                 }
             }
         }
 
-        public void a(Object obj) {
+        @Override // com.baidu.tieba.tac
+        public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i = this.b;
-                Object[] objArr = this.a;
-                if (objArr == null) {
-                    objArr = new Object[16];
-                    this.a = objArr;
-                } else if (i == objArr.length) {
-                    Object[] objArr2 = new Object[(i >> 2) + i];
-                    System.arraycopy(objArr, 0, objArr2, 0, i);
-                    this.a = objArr2;
-                    objArr = objArr2;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                if (!this.f) {
+                    this.f = true;
+                    this.h.onError(th);
+                    return;
                 }
-                objArr[i] = obj;
-                this.b = i + 1;
+                gfc.j(th);
+            }
+        }
+
+        @Override // com.baidu.tieba.tac
+        public void onNext(T t) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
+                return;
+            }
+            this.e = true;
+            try {
+                if (this.i.a.call(t).booleanValue()) {
+                    this.f = true;
+                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
+                    unsubscribe();
+                }
+            } catch (Throwable th) {
+                ebc.g(th, this, t);
             }
         }
     }
 
-    public ybc(q7c<? super T> q7cVar) {
+    public ybc(lbc<? super T, Boolean> lbcVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q7cVar};
+            Object[] objArr = {lbcVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,121 +105,22 @@ public class ybc<T> implements q7c<T> {
                 return;
             }
         }
-        this.a = q7cVar;
+        this.a = lbcVar;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.q7c
-    public void onCompleted() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sac.b, com.baidu.tieba.lbc
+    public yac<? super T> call(yac<? super Boolean> yacVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yacVar)) == null) {
+            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(yacVar);
+            a aVar = new a(this, singleDelayedProducer, yacVar);
+            yacVar.b(aVar);
+            yacVar.f(singleDelayedProducer);
+            return aVar;
         }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.b());
-                return;
-            }
-            this.b = true;
-            this.a.onCompleted();
-        }
-    }
-
-    @Override // com.baidu.tieba.q7c
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            b8c.e(th);
-            if (this.c) {
-                return;
-            }
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                if (this.b) {
-                    a aVar = this.d;
-                    if (aVar == null) {
-                        aVar = new a();
-                        this.d = aVar;
-                    }
-                    aVar.a(NotificationLite.c(th));
-                    return;
-                }
-                this.b = true;
-                this.a.onError(th);
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
-        continue;
-     */
-    @Override // com.baidu.tieba.q7c
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onNext(T t) {
-        Object[] objArr;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.i(t));
-                return;
-            }
-            this.b = true;
-            try {
-                this.a.onNext(t);
-                while (true) {
-                    synchronized (this) {
-                        a aVar2 = this.d;
-                        if (aVar2 == null) {
-                            this.b = false;
-                            return;
-                        }
-                        this.d = null;
-                        for (Object obj : aVar2.a) {
-                            if (obj == null) {
-                                break;
-                            }
-                            try {
-                                if (NotificationLite.a(this.a, obj)) {
-                                    this.c = true;
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                this.c = true;
-                                b8c.e(th);
-                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                return;
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                this.c = true;
-                b8c.g(th2, this.a, t);
-            }
-        }
+        return (yac) invokeL.objValue;
     }
 }

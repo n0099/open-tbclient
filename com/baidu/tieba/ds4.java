@@ -1,29 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.videoplayer.SwanVideoView;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ds4 {
-    void a();
+public class ds4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
-
-    void c(SwanVideoView swanVideoView);
-
-    void d(boolean z);
-
-    void onBufferingUpdate(int i);
-
-    void onError(int i, int i2, String str);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onVideoSizeChanged(int i, int i2);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 }

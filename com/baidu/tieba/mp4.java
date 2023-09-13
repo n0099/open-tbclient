@@ -1,28 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
+import android.content.Context;
+import android.content.res.ColorStateList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class mp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, StringBuilder sb) {
-        int lastIndexOf;
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, sb) == null) {
-            if (obj == null) {
-                sb.append(StringUtil.NULL_STRING);
-                return;
-            }
-            String simpleName = obj.getClass().getSimpleName();
-            if ((simpleName == null || simpleName.length() <= 0) && (lastIndexOf = (simpleName = obj.getClass().getName()).lastIndexOf(46)) > 0) {
-                simpleName = simpleName.substring(lastIndexOf + 1);
-            }
-            sb.append(simpleName);
-            sb.append('{');
-            sb.append(Integer.toHexString(System.identityHashCode(obj)));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            return context.getColor(i);
         }
+        return invokeLI.intValue;
+    }
+
+    public static ColorStateList b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return context.getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
     }
 }

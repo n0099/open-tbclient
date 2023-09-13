@@ -9,17 +9,18 @@ import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.Keep;
+import com.baidu.cyberplayer.sdk.Utils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.q;
-import com.baidu.cyberplayer.sdk.remote.h;
+import com.baidu.cyberplayer.sdk.remote.RemotePlayerFactory;
 import java.util.Map;
 @Keep
 /* loaded from: classes3.dex */
 public class RemotePlayerService extends Service {
-    public Map<String, String> a;
-    public String b;
-    public int c;
-    public int d;
+    public static final String TAG = "RemotePlayer";
+    public String mClientID;
+    public Map<String, String> mInstallOpts;
+    public int mInstallType;
+    public int mPcdnType;
 
     public long getKernelNetHandle() {
         return 0L;
@@ -87,14 +88,14 @@ public class RemotePlayerService extends Service {
                     }
                 }
             }, intExtra2);
-            this.b = stringExtra;
-            this.c = intExtra2;
-            this.d = intExtra;
-            this.a = (Map) intent.getSerializableExtra("installOpts");
+            this.mClientID = stringExtra;
+            this.mPcdnType = intExtra2;
+            this.mInstallType = intExtra;
+            this.mInstallOpts = (Map) intent.getSerializableExtra("installOpts");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new h.a(this);
+        return new RemotePlayerFactory.RemoteImpl(this);
     }
 
     @Override // android.app.Service
@@ -104,7 +105,7 @@ public class RemotePlayerService extends Service {
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        if (!q.p()) {
+        if (!Utils.isMainProcessAlive()) {
             Process.killProcess(Process.myPid());
         }
         return super.onUnbind(intent);
@@ -112,12 +113,12 @@ public class RemotePlayerService extends Service {
 
     public void remoteInstallNewType(int i) {
         try {
-            if (!CyberPlayerManager.isCoreLoaded(i) && this.d != i) {
-                CyberLog.e("RemotePlayer", "service remoteInstallNewType: " + this.d + " => " + i);
-                CyberPlayerManager.install(getApplicationContext(), this.b, (String) null, i, (Class<?>) null, this.a, (CyberPlayerManager.InstallListener2) null, this.c);
+            if (!CyberPlayerManager.isCoreLoaded(i) && this.mInstallType != i) {
+                CyberLog.e("RemotePlayer", "service remoteInstallNewType: " + this.mInstallType + " => " + i);
+                CyberPlayerManager.install(getApplicationContext(), this.mClientID, (String) null, i, (Class<?>) null, this.mInstallOpts, (CyberPlayerManager.InstallListener2) null, this.mPcdnType);
                 return;
             }
-            CyberLog.e("RemotePlayer", "remoteInstallNewType do nothing: " + this.d + " => " + i);
+            CyberLog.e("RemotePlayer", "remoteInstallNewType do nothing: " + this.mInstallType + " => " + i);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,13 +1,25 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface qra {
-    void A0(String str);
+    void J();
 
-    void finishActivity();
+    void S(String str);
 
-    void k0(String str, String str2);
+    void Z(String str);
 
-    void showErrorView();
+    void d();
 
-    void x0(String str);
+    void d1(Bitmap bitmap);
+
+    void k();
+
+    void onNext();
+
+    void q(List<PendantData> list);
+
+    void t();
 }

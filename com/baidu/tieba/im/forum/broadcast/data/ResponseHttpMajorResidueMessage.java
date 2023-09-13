@@ -49,8 +49,8 @@ public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && jSONObject.optInt("error_code", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             ForumBroadcastMajorResidueData forumBroadcastMajorResidueData = new ForumBroadcastMajorResidueData();
             this.majorHistoryData = forumBroadcastMajorResidueData;
-            forumBroadcastMajorResidueData.Q(optJSONObject.optInt("used_cnt"));
-            this.majorHistoryData.P(optJSONObject.optInt("has_cnt"));
+            forumBroadcastMajorResidueData.P(optJSONObject.optInt("used_cnt"));
+            this.majorHistoryData.O(optJSONObject.optInt("has_cnt"));
         }
     }
 }

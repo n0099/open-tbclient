@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.inputtool.InputView;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashMap;
+@ModifyClass
 /* loaded from: classes8.dex */
-public class xi5 extends li5 {
+public class xi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int u;
-    public static final int[] v;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputView t;
 
     static {
         InterceptResult invokeClinit;
@@ -39,99 +42,80 @@ public class xi5 extends li5 {
                 return;
             }
         }
-        u = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        v = new int[]{4, 17, 24, 3, 9, 6, 44};
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-service/creativeToolsList";
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xi5(Context context, boolean z) {
-        super(context, (String) null, 3);
+    public static FrameLayout a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            FrameLayout frameLayout = new FrameLayout(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
+            frameLayout.setLayoutParams(layoutParams);
+            EMManager.from(frameLayout).setBorderWidth(R.dimen.L_X02).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0209);
+            ImageView imageView = new ImageView(context);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds138), BdUtilHelper.getDimens(context, R.dimen.tbds31));
+            layoutParams2.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002), BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002));
+            imageView.setLayoutParams(layoutParams2);
+            SkinManager.setImageResource(imageView, R.drawable.icon_ai_write_rukou);
+            frameLayout.addView(imageView);
+            b(context, frameLayout);
+            return frameLayout;
+        }
+        return (FrameLayout) invokeL.objValue;
+    }
+
+    public static void b(Context context, FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, context, frameLayout) == null) && jq5.c("key_ai_write_button_first_show_red_dot", true)) {
+            if (jq5.g("key_ai_write_button_first_show_red_dot_time", 0L) == 0) {
+                jq5.o("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis());
+            }
+            if (System.currentTimeMillis() - jq5.g("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis()) < 1209600000) {
+                ImageView imageView = new ImageView(context);
+                imageView.setId(R.id.ai_write_button_red_dot);
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds18), BdUtilHelper.getDimens(context, R.dimen.tbds18));
+                layoutParams.setMargins((BdUtilHelper.getDimens(context, R.dimen.tbds138) + (BdUtilHelper.getDimens(context, R.dimen.M_W_X004) * 2)) - BdUtilHelper.getDimens(context, R.dimen.tbds18), 0, 0, 0);
+                SkinManager.setImageResource(imageView, R.drawable.icon_news_red_dot);
+                frameLayout.addView(imageView, layoutParams);
             }
         }
-        i(context, z);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xi5(Context context, boolean z, boolean z2) {
-        super(context, (String) null, 3);
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return a + "?customfullscreen=1&nonavigationbar=1&type=" + str + "&fid=" + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(@Nullable String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            HashMap<String, Serializable> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str)) {
+                hashMap.put("pbReply", str);
             }
-        }
-        i(context, z);
-        InputView inputView = this.t;
-        if (inputView != null) {
-            inputView.setNeedFaceMaxCount(z2);
-        }
-    }
-
-    public SpanGroupEditText g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
-        }
-        return (SpanGroupEditText) invokeV.objValue;
-    }
-
-    public List<AtSelectData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.t.getSpanGroupManager().w();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void i(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
-            this.o = false;
-            this.n = 2;
-            this.p = v;
-            InputView inputView = new InputView(context, z);
-            this.t = inputView;
-            this.m = inputView;
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
-            int i = u;
-            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.m).setLayoutParams(layoutParams);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            lz4 j = lz4.j(TbadkCoreApplication.getInst().getCurrentActivity(), c("reply", str2));
+            j.f(hashMap);
+            j.p();
         }
     }
 
-    public void j(boolean z) {
+    public static void d(@NonNull View view2) {
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ((InputView) this.m).setIsOnlyLocalEmotion(z);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (findViewById = view2.findViewById(R.id.ai_write_button_red_dot)) != null) {
+            findViewById.setVisibility(8);
+            jq5.m("key_ai_write_button_first_show_red_dot", false);
         }
     }
 }

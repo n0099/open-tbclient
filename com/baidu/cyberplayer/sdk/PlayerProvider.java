@@ -22,7 +22,7 @@ public abstract class PlayerProvider {
 
     public abstract int getDuration();
 
-    public abstract void getMediaRuntimeInfo(CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener);
+    public abstract void getMediaRuntimeInfo(int i, CyberPlayerManager.OnMediaRuntimeInfoListener onMediaRuntimeInfoListener);
 
     public abstract long getPlayedTime();
 
@@ -96,6 +96,9 @@ public abstract class PlayerProvider {
     }
 
     public void setOption(String str, String str2) {
+    }
+
+    public void setOptions(Map<String, String> map) {
     }
 
     public void setPlayJson(String str) {

@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.widget.ImmersionHelper;
-import com.baidu.tieba.dq3;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.view.BearLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,66 +17,106 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.util.LinkedHashMap;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class eq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
-    public static int j;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Activity a;
-    @NonNull
-    public ViewGroup b;
-    @Nullable
-    public View c;
-    @Nullable
-    public View d;
-    public int e;
-    public boolean f;
-    public dq3 g;
-    public View.OnSystemUiVisibilityChangeListener h;
-
-    public static int a(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            if (i3 == 0) {
-                return i2;
-            }
-            float f = 1.0f - (i3 / 255.0f);
-            return ((int) (((i2 & 255) * f) + 0.5d)) | (((int) ((((i2 >> 16) & 255) * f) + 0.5d)) << 16) | (-16777216) | (((int) ((((i2 >> 8) & 255) * f) + 0.5d)) << 8);
-        }
-        return invokeII.intValue;
-    }
+    public BearLayout a;
+    public Activity b;
+    public SwanAppBearInfo c;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnSystemUiVisibilityChangeListener {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public BearLayout.d a;
+        public boolean b;
 
-        @Override // android.view.View.OnSystemUiVisibilityChangeListener
-        public void onSystemUiVisibilityChange(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a(eq3 eq3Var) {
+        public a(eq3 eq3Var, BearLayout.d dVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eq3Var};
+                Object[] objArr = {eq3Var, dVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = dVar;
+            this.b = z;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && eq3.d) {
+                exc.printStackTrace();
+                this.a.b(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || this.a == null) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt("errno");
+                if (optInt == 0) {
+                    if (this.b) {
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        if (optJSONObject != null) {
+                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
+                            if (optJSONArray != null && optJSONArray.length() > 0) {
+                                this.a.a(true);
+                            }
+                            this.a.a(false);
+                        }
+                    } else {
+                        this.a.a(true);
+                    }
+                } else if (800200 == optInt) {
+                    String optString = jSONObject.optString("errmsg");
+                    BearLayout.d dVar = this.a;
+                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
+                } else {
+                    BearLayout.d dVar2 = this.a;
+                    dVar2.b("errNo:" + optInt);
+                }
+            } catch (JSONException e) {
+                if (eq3.d) {
+                    e.printStackTrace();
+                    this.a.b(e.getMessage());
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return response.body().string();
+                }
+                return "";
+            }
+            return (String) invokeLI.objValue;
         }
     }
 
@@ -98,359 +133,68 @@ public class eq3 {
                 return;
             }
         }
-        i = j();
-        j = 0;
-        if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            j = 1;
-        } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            j = 2;
-        }
+        d = rr1.a;
     }
 
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return this.a.getResources().getColor(R.color.obfuscated_res_0x7f060464);
-            }
-            return this.a.getResources().getColor(R.color.obfuscated_res_0x7f060465);
-        }
-        return invokeV.intValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Window window = this.a.getWindow();
-            window.clearFlags(1024);
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 21) {
-                window.clearFlags(67108864);
-                window.addFlags(Integer.MIN_VALUE);
-                if (j == 1) {
-                    q(window, d().d);
-                }
-            } else if (i2 >= 19) {
-                window.addFlags(67108864);
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public eq3(@NonNull Activity activity) {
-        this(activity, (ViewGroup) activity.findViewById(16908290));
+    public eq3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Activity) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = activity;
+        this.c = swanAppBearInfo;
+        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
+        this.a = bearLayout;
+        bearLayout.setVisibility(0);
+        this.a.k(activity, swanAppBearInfo, this);
     }
 
-    public final void o(@NonNull dq3 dq3Var) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, dq3Var) == null) {
-            if (j == 2) {
-                p(dq3Var);
-            } else {
-                r();
-                s(dq3Var);
-            }
-            View view2 = this.c;
-            if (view2 != null) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-                if (dq3Var.f) {
-                    layoutParams.topMargin = 0;
-                } else {
-                    layoutParams.topMargin = uo3.t();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (SwanAppNetworkUtils.i(this.b)) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("type", "media");
+                linkedHashMap.put("sfrom", "searchpaws");
+                linkedHashMap.put("store", "uid_cuid");
+                linkedHashMap.put("source", "dusite_na_subbar");
+                linkedHashMap.put("third_id", this.c.bearId);
+                linkedHashMap.put("op_type", "add");
+                String b = l62.b();
+                if (TextUtils.isEmpty(b)) {
+                    return;
                 }
-                this.c.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    public eq3(@NonNull Activity activity, @NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, viewGroup};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                li4.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(ou2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
                 return;
             }
+            za3.f(this.b, R.string.obfuscated_res_0x7f0f01cd).G();
         }
-        this.e = 1;
-        this.a = activity;
-        this.b = viewGroup;
-        this.c = viewGroup.getChildAt(0);
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("type", "media");
+            linkedHashMap.put("sfrom", "searchpaws");
+            linkedHashMap.put("store", "uid_cuid");
+            linkedHashMap.put("source", "dusite_na_subbar");
+            linkedHashMap.put("third_id", this.c.bearId);
+            String B = ou2.o().B();
+            if (TextUtils.isEmpty(B)) {
+                return;
             }
-            return false;
+            li4.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(ou2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int f = f();
-            this.g = b(f, g(f), false, false, true);
-        }
-    }
-
-    @NonNull
-    public dq3 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.g == null) {
-                c();
-            }
-            return this.g;
-        }
-        return (dq3) invokeV.objValue;
-    }
-
-    @Nullable
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.g = null;
-            this.e = 1;
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o(d());
-        }
-    }
-
-    public final dq3 b(int i2, int i3, boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            dq3.b b = dq3.b.b();
-            b.i(z);
-            b.h(true);
-            b.g(false);
-            b.f(i3);
-            b.e(i2);
-            b.c(z2);
-            b.d(z3);
-            return b.a();
-        }
-        return (dq3) invokeCommon.objValue;
-    }
-
-    public final int g(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return 0;
-            }
-            return a(i2, 45);
-        }
-        return invokeI.intValue;
-    }
-
-    public final View h(@NonNull dq3 dq3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, dq3Var)) == null) {
-            if (!dq3Var.g) {
-                return null;
-            }
-            View view2 = this.d;
-            if (view2 != null) {
-                if (!dq3Var.e) {
-                    this.b.removeView(view2);
-                    this.d = null;
-                    return null;
-                }
-                return view2;
-            } else if (!dq3Var.e) {
-                this.d = null;
-                return null;
-            } else {
-                int t = uo3.t();
-                View view3 = new View(this.a);
-                view3.setTag(ImmersionHelper.VIEW_TAG);
-                view3.setId(R.id.obfuscated_res_0x7f091126);
-                this.b.addView(view3, new ViewGroup.LayoutParams(-1, t));
-                this.d = view3;
-                return view3;
-            }
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public final void p(dq3 dq3Var) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dq3Var) == null) {
-            try {
-                Window window = this.a.getWindow();
-                window.addFlags(67108864);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
-                Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                int i3 = declaredField.getInt(null);
-                int i4 = declaredField2.getInt(attributes);
-                if (dq3Var.d) {
-                    i2 = i3 | i4;
-                } else {
-                    i2 = (~i3) & i4;
-                }
-                declaredField2.setInt(attributes, i2);
-                window.setAttributes(attributes);
-                int i5 = dq3Var.b;
-                if (i5 == 1) {
-                    i5 = f();
-                }
-                View h = h(dq3Var);
-                if (h != null) {
-                    h.setBackgroundColor(i5);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @SuppressLint({"InlinedApi"})
-    public final void s(dq3 dq3Var) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, dq3Var) == null) {
-            Window window = this.a.getWindow();
-            boolean z = dq3Var.c;
-            if (dq3Var.d) {
-                i2 = 13312;
-            } else {
-                i2 = 5120;
-            }
-            if (!dq3Var.e) {
-                i3 = i2 & (-257);
-            } else {
-                i3 = i2 | 256;
-            }
-            int i4 = dq3Var.b;
-            if (i4 == 1) {
-                i4 = f();
-            }
-            window.getDecorView().setSystemUiVisibility(i3);
-            if (Build.VERSION.SDK_INT >= 21) {
-                window.setStatusBarColor(dq3Var.a);
-            }
-            View h = h(dq3Var);
-            if (h != null) {
-                h.setBackgroundColor(i4);
-            }
-            if (this.h == null) {
-                this.h = new a(this);
-                window.getDecorView().setOnSystemUiVisibilityChangeListener(this.h);
-            }
-        }
-    }
-
-    public void m(int i2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            n(i2, z, true, z2);
-        }
-    }
-
-    public void n(int i2, boolean z, boolean z2, boolean z3) {
-        dq3 b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || !i) {
-            return;
-        }
-        if (i2 == 1) {
-            if (this.e != 1) {
-                k();
-            }
-            this.e = i2;
-            b = d();
-        } else {
-            this.e = i2;
-            b = b(i2, g(i2), z3, z, z2);
-            this.g = b;
-        }
-        this.f = z;
-        o(b);
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public final boolean q(Window window, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, window, z)) == null) {
-            if (window != null) {
-                Class<?> cls = window.getClass();
-                try {
-                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                    int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                    if (z) {
-                        method.invoke(window, Integer.valueOf(i2), Integer.valueOf(i2));
-                    } else {
-                        method.invoke(window, 0, Integer.valueOf(i2));
-                    }
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLZ.booleanValue;
     }
 }

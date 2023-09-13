@@ -1,57 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.bi2;
-import com.baidu.tieba.cp3;
-import com.baidu.tieba.d92;
-import com.baidu.tieba.df2;
-import com.baidu.tieba.g22;
-import com.baidu.tieba.ik3;
-import com.baidu.tieba.je3;
-import com.baidu.tieba.ll2;
-import com.baidu.tieba.nj2;
-import com.baidu.tieba.qg2;
-import com.baidu.tieba.ws1;
-import com.baidu.tieba.xv2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xr1 a;
 
-    public static HashMap<Class, Object> a() {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cz1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-873795182, "Lcom/baidu/tieba/cz1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-873795182, "Lcom/baidu/tieba/cz1$a;");
+                    return;
+                }
+            }
+            a = new cz1();
+        }
+    }
+
+    public cz1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static cz1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            HashMap<Class, Object> hashMap = new HashMap<>();
-            hashMap.put(je3.b.class, new je3.b());
-            hashMap.put(bi2.f.class, new bi2.f());
-            hashMap.put(bi2.g.class, new bi2.g());
-            hashMap.put(df2.a.class, new df2.a());
-            hashMap.put(qg2.a.class, new qg2.a());
-            hashMap.put(cp3.c.class, new cp3.c());
-            hashMap.put(ik3.b.class, new ik3.b());
-            hashMap.put(xv2.c.class, new xv2.c());
-            hashMap.put(q23.class, new q23());
-            hashMap.put(my1.class, new my1());
-            hashMap.put(ny1.class, new ny1());
-            hashMap.put(pj3.class, new pj3());
-            hashMap.put(oj3.class, new oj3());
-            hashMap.put(sj3.class, new sj3());
-            hashMap.put(hk2.class, new hk2());
-            hashMap.put(nj2.c.class, new nj2.c());
-            hashMap.put(a13.class, new a13());
-            hashMap.put(g22.b.class, new g22.b());
-            hashMap.put(ws1.a.class, new ws1.a());
-            hashMap.put(n92.class, new n92());
-            hashMap.put(ll2.a.class, new ll2.a());
-            hashMap.put(ll2.b.class, new ll2.b());
-            hashMap.put(d43.class, new d43());
-            hashMap.put(d92.b.class, new d92.b());
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (HashMap) invokeV.objValue;
+        return (cz1) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        xr1 xr1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (xr1Var = this.a) != null) {
+            xr1Var.a(i);
+            this.a = null;
+        }
+    }
+
+    public void c(JSONObject jSONObject) {
+        xr1 xr1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && (xr1Var = this.a) != null) {
+            xr1Var.b(jSONObject);
+            this.a = null;
+        }
     }
 }

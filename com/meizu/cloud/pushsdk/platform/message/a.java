@@ -99,7 +99,7 @@ public class a {
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < subTagsStatus.getTagList().size(); i++) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("tag_id", subTagsStatus.getTagList().get(i).getTagId());
+                    jSONObject.put(PushConstants.SUB_TAGS_STATUS_ID, subTagsStatus.getTagList().get(i).getTagId());
                     jSONObject.put(PushConstants.SUB_TAGS_STATUS_NAME, subTagsStatus.getTagList().get(i).getTagName());
                     jSONArray.put(jSONObject);
                 }
@@ -231,8 +231,8 @@ public class a {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     subTagsStatus2.getClass();
                     SubTagsStatus.Tag tag = new SubTagsStatus.Tag();
-                    if (!jSONObject2.isNull("tag_id")) {
-                        tag.setTagId(jSONObject2.getInt("tag_id"));
+                    if (!jSONObject2.isNull(PushConstants.SUB_TAGS_STATUS_ID)) {
+                        tag.setTagId(jSONObject2.getInt(PushConstants.SUB_TAGS_STATUS_ID));
                     }
                     if (!jSONObject2.isNull(PushConstants.SUB_TAGS_STATUS_NAME)) {
                         tag.setTagName(jSONObject2.getString(PushConstants.SUB_TAGS_STATUS_NAME));

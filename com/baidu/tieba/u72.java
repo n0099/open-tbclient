@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.IntRange;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class u72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,132 +27,108 @@ public class u72 {
                 return;
             }
         }
-        b = nr1.a;
-        c = 5;
+        boolean z = rr1.a;
     }
 
-    public u72(@IntRange(from = 1) int i) {
+    @Nullable
+    public static <C extends w62> C a(x62 x62Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, x62Var)) == null) {
+            if (x62Var == null) {
+                a82.a("Component-Finder", "find a null component: null model");
+                return null;
             }
-        }
-        c(i, false);
-    }
-
-    public u72(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            String d = x62Var.d();
+            String str = x62Var.c;
+            if (TextUtils.isEmpty(str)) {
+                h82.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
             }
-        }
-        c(i, z);
-    }
-
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return i >> c;
-        }
-        return invokeI.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean b(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                d82.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            x72 d2 = d(str);
+            if (d2 == null) {
+                h82.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
             }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                d82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException(str);
-            } else if (((1 << i) & iArr[a(i)]) == 0) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void d(@IntRange(from = 0) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                d82.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                d82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException(str);
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final void c(@IntRange(from = 1) int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                d82.c("Component-DiffBitMap", str);
-                if (!b) {
-                    i = 500;
+            String str2 = x62Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                h82.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<w62> list = d2.a().c.get(x62Var.a);
+                if (list == null) {
+                    h82.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    h82.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
                 } else {
-                    throw new NegativeArraySizeException(str);
+                    h82.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
                 }
+            } else {
+                c = (C) d2.a().b.get(str2);
             }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
-                }
+            if (c == null) {
+                h82.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
             }
+            return c;
         }
+        return (C) invokeL.objValue;
+    }
+
+    @Nullable
+    public static <C extends w62> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            x72 d = d(str);
+            if (d == null) {
+                h82.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
+            }
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                h82.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
+            }
+            return c;
+        }
+        return (C) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static x72 c(x62 x62Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, x62Var)) == null) {
+            if (x62Var == null) {
+                a82.a("Component-Finder", "find component context with a null model");
+                return null;
+            }
+            return d(x62Var.c);
+        }
+        return (x72) invokeL.objValue;
+    }
+
+    @Nullable
+    public static x72 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                h82.c("Component-Finder", "find component context with a null slave id");
+                return null;
+            }
+            px1 A = uw2.T().A(str);
+            if (!(A instanceof nx1)) {
+                return null;
+            }
+            return ((nx1) A).a0();
+        }
+        return (x72) invokeL.objValue;
     }
 }

@@ -43,7 +43,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
-    public static final int DEF_STYLE_RES = 2131755848;
+    public static final int DEF_STYLE_RES = 2131755856;
     @NonNull
     public final CollapsingTextHelper collapsingTextHelper;
     public boolean collapsingTitleEnabled;
@@ -205,10 +205,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     @NonNull
     public static ViewOffsetHelper getViewOffsetHelper(@NonNull View view2) {
-        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092988);
+        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0929be);
         if (viewOffsetHelper == null) {
             ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092988, viewOffsetHelper2);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0929be, viewOffsetHelper2);
             return viewOffsetHelper2;
         }
         return viewOffsetHelper;
@@ -489,8 +489,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
         this.collapsingTitleEnabled = obtainStyledAttributes.getBoolean(15, true);
         setTitle(obtainStyledAttributes.getText(14));
-        this.collapsingTextHelper.setExpandedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f10020c);
-        this.collapsingTextHelper.setCollapsedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001f2);
+        this.collapsingTextHelper.setExpandedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f100212);
+        this.collapsingTextHelper.setCollapsedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001f8);
         if (obtainStyledAttributes.hasValue(9)) {
             this.collapsingTextHelper.setExpandedTextAppearance(obtainStyledAttributes.getResourceId(9, 0));
         }

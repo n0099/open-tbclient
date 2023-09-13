@@ -72,7 +72,7 @@ public final class k extends e {
             } else if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
                 this.ze.setText(com.kwad.components.ad.splashscreen.e.a(this.yF.mAdTemplate, this.mAdInfo, this.zi.mI()));
                 if (com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-                    com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09141d), -1, 60, -1, -1);
+                    com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091423), -1, 60, -1, -1);
                     return;
                 }
                 return;
@@ -139,12 +139,12 @@ public final class k extends e {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09140b)).inflate();
-        this.eQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09141e);
-        this.ze = (TextView) findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.zf = (ImageView) findViewById(R.id.obfuscated_res_0x7f09141c);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091419);
-        KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09141b)).inflate();
+        ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091411)).inflate();
+        this.eQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091424);
+        this.ze = (TextView) findViewById(R.id.obfuscated_res_0x7f091423);
+        this.zf = (ImageView) findViewById(R.id.obfuscated_res_0x7f091422);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09141f);
+        KsSplashSlidePathView ksSplashSlidePathView = (KsSplashSlidePathView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091421)).inflate();
         this.zh = ksSplashSlidePathView;
         ksSplashSlidePathView.setOnSlideTouchListener(new KsSplashSlidePathView.a() { // from class: com.kwad.components.ad.splashscreen.b.k.1
             @Override // com.kwad.components.ad.splashscreen.widget.KsSplashSlidePathView.a

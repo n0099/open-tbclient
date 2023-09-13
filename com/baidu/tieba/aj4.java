@@ -1,103 +1,10 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class aj4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile aj4 a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(ck4 ck4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract boolean b(ck4 ck4Var, List<dk4> list, ak4 ak4Var, yj4 yj4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract void c(String str);
-
-    public abstract void d(String str, String str2);
-
-    public abstract <T extends bk4> boolean e(Class<T> cls, String str);
-
-    public abstract boolean f(ek4 ek4Var);
-
-    public abstract boolean g(List<ek4> list);
-
-    public abstract boolean h(String str);
-
-    @WorkerThread
-    public abstract int j(@NonNull String str);
-
+public interface aj4 {
     @NonNull
-    @WorkerThread
-    public abstract List<dk4> k(@NonNull String str, int i);
-
-    public abstract boolean l(PMSAppInfo pMSAppInfo);
-
-    public abstract <T extends bk4> boolean m(T t);
-
-    public abstract boolean n(String str, String str2, String str3);
-
-    public abstract <T extends bk4> T o(Class<T> cls, String str);
-
-    public abstract Map<String, ck4> p();
-
-    public abstract ek4 q(String str, long j, long j2);
-
-    public abstract List<ek4> r(String str, String[] strArr);
-
-    public abstract List<ek4> s(String str, long j, long j2);
-
-    @Nullable
-    public abstract fk4 t(String str);
-
-    public abstract PMSAppInfo u(String str);
-
-    public abstract Map<String, PMSAppInfo> v();
-
-    public abstract List<ek4> w(String str);
-
-    public abstract boolean x(ek4 ek4Var);
-
-    public abstract boolean y(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean z(String str, int i);
-
-    public aj4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static aj4 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (aj4.class) {
-                    if (a == null) {
-                        a = new bj4();
-                    }
-                }
-            }
-            return a;
-        }
-        return (aj4) invokeV.objValue;
-    }
+    Bundle m(@NonNull Bundle bundle, Set<String> set);
 }

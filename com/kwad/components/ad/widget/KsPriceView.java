@@ -103,12 +103,12 @@ public class KsPriceView extends TextView implements e {
 
     private void L(Context context) {
         setMaxLines(1);
-        this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f0607a4);
-        this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070538);
-        this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f0607a5);
-        this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070537);
-        this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f0607a4);
-        this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070538);
+        this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f0607a6);
+        this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053d);
+        this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f0607a7);
+        this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053c);
+        this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f0607a6);
+        this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07053d);
     }
 
     @Nullable

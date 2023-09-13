@@ -40,10 +40,10 @@ public class BannerWrapFrameView extends FrameLayout {
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05c4, this);
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05d4, this);
         this.d = inflate;
-        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091573);
-        this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091575);
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09157b);
+        this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09157d);
     }
 
     public LiveBannerEntity getLiveBannerEntity() {

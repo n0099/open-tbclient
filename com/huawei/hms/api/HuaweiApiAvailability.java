@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.xvb;
+import com.baidu.tieba.wyb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.huawei.hms.common.HuaweiApi;
 import com.huawei.hms.common.api.HuaweiApiCallable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HuaweiApiAvailability {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_NAME = "com.huawei.hms.core.activity.JumpActivity";
@@ -64,9 +64,9 @@ public abstract class HuaweiApiAvailability {
     public static int SERVICES_VERSION_CODE = 30000100;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract xvb<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr);
+    public abstract wyb<Void> checkApiAccessible(HuaweiApi<?> huaweiApi, HuaweiApi<?>... huaweiApiArr);
 
-    public abstract xvb<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr);
+    public abstract wyb<Void> checkApiAccessible(HuaweiApiCallable huaweiApiCallable, HuaweiApiCallable... huaweiApiCallableArr);
 
     public abstract PendingIntent getErrPendingIntent(Context context, int i, int i2);
 
@@ -78,7 +78,7 @@ public abstract class HuaweiApiAvailability {
 
     public abstract String getErrorString(int i);
 
-    public abstract xvb<Void> getHuaweiServicesReady(Activity activity);
+    public abstract wyb<Void> getHuaweiServicesReady(Activity activity);
 
     public abstract Intent getResolveErrorIntent(Activity activity, int i);
 

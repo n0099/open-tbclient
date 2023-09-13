@@ -78,7 +78,7 @@ public class EditTextWrapper extends LinearLayout implements View.OnFocusChangeL
         this.mEditText.setLayoutParams(layoutParams);
         ImageView imageView = new ImageView(context);
         this.mClear = imageView;
-        imageView.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08136b));
+        imageView.setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f08138e));
         this.mClear.setContentDescription(getResources().getString(com.baidu.tieba.R.string.edittext_wraper_clean));
         this.mClear.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.ui.EditTextWrapper.2
             @Override // android.view.View.OnClickListener

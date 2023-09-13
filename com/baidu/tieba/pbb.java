@@ -1,201 +1,201 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.ibb;
+import android.content.Context;
+import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.b;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class pbb extends ubb {
+public class pbb {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public pbb() {
+    public static void a() {
+        ecb c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = kcb.c()) != null) {
+            c.b();
         }
     }
 
-    public static void b(yab yabVar, cbb cbbVar, abb abbVar, sab sabVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
-        int i;
-        int i2;
+    public static Context b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{yabVar, cbbVar, abbVar, sabVar, list, list2, list3}) == null) {
-            int i3 = 0;
-            if (list2.size() != 0) {
-                i = list2.get(list2.size() - 1).getId();
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.getAppContext();
             }
-            yabVar.b(i);
-            cbbVar.a(rbb.e().I());
-            if (list.size() != 0) {
-                i2 = list.get(list.size() - 1).getId();
-            } else {
-                i2 = 0;
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.d();
             }
-            abbVar.b(i2);
-            if (list3.size() != 0) {
-                i3 = list3.get(list3.size() - 1).getId();
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static ebb i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return kcb.e();
+        }
+        return (ebb) invokeV.objValue;
+    }
+
+    public static ibb j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return kcb.f();
+        }
+        return (ibb) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            dcb b = kcb.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
             }
-            sabVar.b(i3);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.c(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            ecb c = kcb.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        ccb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = kcb.a()) != null) {
+            a.a(i);
         }
     }
 
-    @Override // com.baidu.tieba.ubb
-    public final void a() {
-        ibb ibbVar;
-        String str;
-        String str2;
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ibbVar = ibb.a.a;
-            if (ibbVar.a().size() == 0) {
-                sbb.b(" 线程轮询  app 应该是退出了");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.getInt(str, i);
             }
-            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
-                stringBuffer.append("/baidu/ab/");
-                stringBuffer.append(nbb.l(rab.h().getContext()));
-                stringBuffer.append("/");
-                a = stringBuffer.toString();
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            ccb a = kcb.a();
+            if (a != null) {
+                return a.getLong(str, j);
             }
-            yab yabVar = new yab();
-            cbb cbbVar = new cbb();
-            abb abbVar = new abb();
-            sab sabVar = new sab();
-            List<com.baidu.ubs.analytics.a.i> a2 = yabVar.a();
-            List<com.baidu.ubs.analytics.a.n> d = cbbVar.d();
-            List<com.baidu.ubs.analytics.a.l> a3 = abbVar.a();
-            List<com.baidu.ubs.analytics.a.a> a4 = sabVar.a();
-            sbb.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
-            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
-                sbb.b("这次记录 json 为空的，就不传了  ………………");
-                if (d.size() > 1) {
-                    for (int i = 0; i < d.size(); i++) {
-                        if (d.get(i).O() == null) {
-                            cbbVar.c(d.get(i).I());
-                        }
-                    }
-                    return;
-                }
-                return;
-            }
-            JSONArray jSONArray = new JSONArray();
-            String j = rab.h().j();
-            if (rab.h().k() != null) {
-                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : rab.h().k().entrySet()) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("exp_id", entry.getKey());
-                        jSONObject.put("sid", entry.getValue().L());
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        acb.d(e);
-                    }
-                }
-            }
-            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
-            b.a aVar = new b.a();
-            aVar.r(nbb.l(rab.h().getContext()));
-            aVar.b(j);
-            aVar.q(jSONArray.toString());
-            aVar.g(Build.VERSION.RELEASE);
-            aVar.d(nbb.g(rab.h().getContext()));
-            aVar.f(Build.MODEL);
-            aVar.e(Build.BRAND);
-            aVar.f(Build.MODEL);
-            aVar.h(nbb.h(rab.h().getContext()));
-            aVar.i(com.baidu.ubs.analytics.d.a.c());
-            if (kbb.d()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            aVar.j(str);
-            aVar.k(nbb.i(rab.h().getContext()));
-            aVar.m(nbb.j(rab.h().getContext()));
-            aVar.n(nbb.m());
-            aVar.o(nbb.n());
-            aVar.p(nbb.a());
-            int f = nbb.f(rab.h().getContext());
-            if (f == 1) {
-                str2 = "WIFI";
-            } else if (f == 2) {
-                str2 = "2G";
-            } else if (f == 3) {
-                str2 = "3G";
-            } else if (f == 4) {
-                str2 = "4G";
-            } else if (f == 5) {
-                str2 = "unKnow";
-            } else {
-                str2 = "noNet";
-            }
-            aVar.l(str2);
-            rab.h();
-            aVar.setPhone("");
-            bVar.a(aVar);
-            bVar.c(a4);
-            bVar.e(a2);
-            bVar.b(d);
-            bVar.d(a3);
-            String a5 = ybb.a(bVar);
-            String e2 = xbb.e(a, "ABJson.log");
-            if (!e2.equals("")) {
-                StringBuffer stringBuffer2 = new StringBuffer();
-                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer2.append(e2);
-                stringBuffer2.append(a5);
-                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
-                if (dbb.a(rab.h().getContext(), stringBuffer2.toString())) {
-                    sbb.b("上传成功，删除本地文件的       ");
-                    xbb.b(a + "ABJson.log");
-                    b(yabVar, cbbVar, abbVar, sabVar, a3, a2, a4);
-                    return;
-                }
-                StringBuffer stringBuffer3 = new StringBuffer();
-                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer3.append(a5);
-                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
-                if (dbb.a(rab.h().getContext(), stringBuffer3.toString())) {
-                    b(yabVar, cbbVar, abbVar, sabVar, a3, a2, a4);
-                    return;
-                } else if (xbb.d(a5, a, "ABJson.log")) {
-                    b(yabVar, cbbVar, abbVar, sabVar, a3, a2, a4);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            StringBuffer stringBuffer4 = new StringBuffer();
-            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
-            stringBuffer4.append(a5);
-            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
-            if (dbb.a(rab.h().getContext(), stringBuffer4.toString())) {
-                b(yabVar, cbbVar, abbVar, sabVar, a3, a2, a4);
-            } else if (xbb.d(a5, a, "ABJson.log")) {
-                b(yabVar, cbbVar, abbVar, sabVar, a3, a2, a4);
-            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        ccb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = kcb.a()) != null) {
+            a.putInt(str, i);
+        }
+    }
+
+    public static void o(String str, long j) {
+        ccb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = kcb.a()) != null) {
+            a.putLong(str, j);
+        }
+    }
+
+    public static void p(String str, String str2) {
+        ccb a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = kcb.a()) != null) {
+            a.putString(str, str2);
         }
     }
 }

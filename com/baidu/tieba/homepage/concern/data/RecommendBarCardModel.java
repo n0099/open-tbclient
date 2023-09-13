@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.k6a;
-import com.baidu.tieba.q08;
-import com.baidu.tieba.t58;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.zo6;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.b28;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.cq6;
+import com.baidu.tieba.e78;
+import com.baidu.tieba.e8a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,16 +31,16 @@ import tbclient.DiscoverHotForum;
 import tbclient.DiscoverTabCard;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
-public class RecommendBarCardModel extends w05 {
+public class RecommendBarCardModel extends b15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<bn> b;
+    public List<cn> b;
     public String c;
     public String d;
     public RecDataSource e;
 
-    @Override // com.baidu.tieba.w05
+    @Override // com.baidu.tieba.b15
     public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class RecommendBarCardModel extends w05 {
         return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w05
+    @Override // com.baidu.tieba.b15
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -162,17 +162,17 @@ public class RecommendBarCardModel extends w05 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return zo6.z0;
+            return cq6.z0;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public List<bn> h() {
+    public List<cn> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -226,33 +226,33 @@ public class RecommendBarCardModel extends w05 {
     }
 
     @Nullable
-    public static RecommendBarCardModel d(t58 t58Var) {
+    public static RecommendBarCardModel d(e78 e78Var) {
         InterceptResult invokeL;
-        t58.a aVar;
+        e78.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t58Var)) == null) {
-            if (t58Var != null && !ListUtils.isEmpty(t58Var.d())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e78Var)) == null) {
+            if (e78Var != null && !ListUtils.isEmpty(e78Var.d())) {
                 RecommendBarCardModel recommendBarCardModel = new RecommendBarCardModel();
                 ArrayList arrayList = new ArrayList();
-                recommendBarCardModel.r(arrayList);
-                recommendBarCardModel.o(t58Var.c());
-                List<t58.a> d = t58Var.d();
+                recommendBarCardModel.s(arrayList);
+                recommendBarCardModel.p(e78Var.c());
+                List<e78.a> d = e78Var.d();
                 if (!ListUtils.isEmpty(d)) {
-                    q08 q08Var = new q08();
+                    b28 b28Var = new b28();
                     recommendBarCardModel.a = true;
-                    q08Var.h(true);
-                    q08Var.l(true);
+                    b28Var.h(true);
+                    b28Var.l(true);
                     for (int i = 0; i < d.size() && i < 3 && (aVar = d.get(i)) != null && aVar.a > 0 && !TextUtils.isEmpty(aVar.c) && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.d) && !TextUtils.isEmpty(aVar.f); i++) {
-                        q08Var.g[i] = new q08.a();
-                        q08.a aVar2 = q08Var.g[i];
-                        aVar2.n(d.get(i).b);
+                        b28Var.g[i] = new b28.a();
+                        b28.a aVar2 = b28Var.g[i];
+                        aVar2.o(d.get(i).b);
                         aVar2.v(true);
                         aVar2.m(d.get(i).c);
                         aVar2.u(d.get(i).d);
                         aVar2.i(d.get(i).a());
                         aVar2.q(Long.valueOf(d.get(i).a));
                     }
-                    arrayList.add(q08Var);
+                    arrayList.add(b28Var);
                 }
                 return recommendBarCardModel;
             }
@@ -261,36 +261,36 @@ public class RecommendBarCardModel extends w05 {
         return (RecommendBarCardModel) invokeL.objValue;
     }
 
-    public static RecommendBarCardModel e(k6a k6aVar) {
+    public static RecommendBarCardModel e(e8a e8aVar) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, k6aVar)) == null) {
-            if (k6aVar != null && !ListUtils.isEmpty(k6aVar.b)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e8aVar)) == null) {
+            if (e8aVar != null && !ListUtils.isEmpty(e8aVar.b)) {
                 RecommendBarCardModel recommendBarCardModel = new RecommendBarCardModel();
                 ArrayList arrayList = new ArrayList();
-                recommendBarCardModel.r(arrayList);
-                for (k6a.b bVar : k6aVar.b) {
+                recommendBarCardModel.s(arrayList);
+                for (e8a.b bVar : e8aVar.b) {
                     if (!ListUtils.isEmpty(bVar.b)) {
-                        q08 q08Var = new q08();
+                        b28 b28Var = new b28();
                         if (!StringUtils.isNull(bVar.a) && !recommendBarCardModel.a) {
                             z = false;
                         } else {
                             z = true;
                         }
                         recommendBarCardModel.a = z;
-                        q08Var.a = bVar.a;
+                        b28Var.a = bVar.a;
                         for (int i = 0; i < bVar.b.size() && i < 3; i++) {
-                            q08Var.g[i] = new q08.a();
-                            q08.a aVar = q08Var.g[i];
-                            aVar.n(bVar.b.get(i).b);
+                            b28Var.g[i] = new b28.a();
+                            b28.a aVar = b28Var.g[i];
+                            aVar.o(bVar.b.get(i).b);
                             aVar.m(bVar.b.get(i).e);
                             aVar.u(bVar.b.get(i).f);
                             aVar.l(bVar.b.get(i).c);
-                            aVar.o(bVar.b.get(i).d);
+                            aVar.p(bVar.b.get(i).d);
                             aVar.q(Long.valueOf(bVar.b.get(i).a));
                         }
-                        arrayList.add(q08Var);
+                        arrayList.add(b28Var);
                         if (arrayList.size() >= 6) {
                             break;
                         }
@@ -313,37 +313,37 @@ public class RecommendBarCardModel extends w05 {
             if (ListUtils.isEmpty(list)) {
                 return false;
             }
-            List<bn> arrayList = new ArrayList<>();
-            r(arrayList);
+            List<cn> arrayList = new ArrayList<>();
+            s(arrayList);
             for (int i = 0; i < list.size(); i++) {
                 DiscoverTabCard discoverTabCard = list.get(i);
                 List<RecommendForumInfo> list2 = discoverTabCard.forum_list;
                 if (list2 != null && list2.size() >= 3) {
-                    q08 q08Var = new q08();
+                    b28 b28Var = new b28();
                     if (!StringUtils.isNull(discoverTabCard.name) && !this.a) {
                         z = false;
                     } else {
                         z = true;
                     }
                     this.a = z;
-                    q08Var.a = discoverTabCard.name;
+                    b28Var.a = discoverTabCard.name;
                     Boolean bool = discoverTabCard.is_show_order_number;
                     if (bool == null) {
                         booleanValue = false;
                     } else {
                         booleanValue = bool.booleanValue();
                     }
-                    q08Var.b = booleanValue;
-                    q08Var.c = discoverTabCard.jump_name;
+                    b28Var.b = booleanValue;
+                    b28Var.c = discoverTabCard.jump_name;
                     for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                        q08Var.g[i2] = new q08.a();
-                        q08.a aVar = q08Var.g[i2];
-                        aVar.n(discoverTabCard.forum_list.get(i2).forum_name);
+                        b28Var.g[i2] = new b28.a();
+                        b28.a aVar = b28Var.g[i2];
+                        aVar.o(discoverTabCard.forum_list.get(i2).forum_name);
                         aVar.m(discoverTabCard.forum_list.get(i2).avatar);
-                        aVar.r(discoverTabCard.forum_list.get(i2).hot_text);
+                        aVar.s(discoverTabCard.forum_list.get(i2).hot_text);
                         aVar.u(discoverTabCard.forum_list.get(i2).slogan);
                         aVar.l(discoverTabCard.forum_list.get(i2).member_count.intValue());
-                        aVar.o(discoverTabCard.forum_list.get(i2).thread_count.intValue());
+                        aVar.p(discoverTabCard.forum_list.get(i2).thread_count.intValue());
                         if (discoverTabCard.forum_list.get(i2).is_like.intValue() == 1) {
                             z2 = true;
                         } else {
@@ -353,7 +353,7 @@ public class RecommendBarCardModel extends w05 {
                         aVar.q(discoverTabCard.forum_list.get(i2).forum_id);
                         aVar.t(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
                     }
-                    arrayList.add(q08Var);
+                    arrayList.add(b28Var);
                     if (arrayList.size() >= 6) {
                         break;
                     }
@@ -380,21 +380,21 @@ public class RecommendBarCardModel extends w05 {
         return invokeLI.booleanValue;
     }
 
-    public void n(@NonNull String str) {
+    public void o(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.d = str;
         }
     }
 
-    public void o(String str) {
+    public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.c = str;
         }
     }
 
-    public void r(List<bn> list) {
+    public void s(List<cn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.b = list;
@@ -408,9 +408,9 @@ public class RecommendBarCardModel extends w05 {
             if (ListUtils.isEmpty(this.b)) {
                 return;
             }
-            for (bn bnVar : this.b) {
-                if (bnVar instanceof q08) {
-                    ((q08) bnVar).g(recDataSource);
+            for (cn cnVar : this.b) {
+                if (cnVar instanceof b28) {
+                    ((b28) cnVar).g(recDataSource);
                 }
             }
         }

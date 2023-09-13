@@ -1,94 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.view.ViewTreeObserver;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.IdRes;
+import androidx.core.content.ContextCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BDLayoutMode;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.CardAppLegoViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.PushDialogVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
+import java.text.DecimalFormat;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class v1a extends om<to6, CardAppLegoViewHolder> implements h1a, m1a {
+public class v1a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public boolean c;
-    public AdvertAppInfo.ILegoAdvert d;
-    public String e;
-    public Runnable f;
-    public CustomMessageListener g;
-
-    @Override // com.baidu.tieba.h1a
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.h1a
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
+    public final PushDialogActivity a;
+    public Drawable b;
+    public View c;
+    public View d;
+    public EditorScrollView e;
+    public TbImageView f;
+    public TextView g;
+    public ImageView h;
+    public TextView i;
+    public TbRichTextView j;
+    public PushDialogVideoView k;
+    public ClickableHeaderImageView l;
+    public TextView m;
+    public TextView n;
+    public CommonUserLikeButton o;
+    public View p;
+    public TextView q;
+    public z16 r;
+    public long s;
+    public i26 t;
+    public boolean u;
 
     /* loaded from: classes8.dex */
-    public class a implements t19 {
+    public class a implements ViewTreeObserver.OnScrollChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdvertAppInfo a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ v1a a;
 
-        public a(v1a v1aVar, AdvertAppInfo advertAppInfo, int i, String str) {
+        public a(v1a v1aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v1aVar, advertAppInfo, Integer.valueOf(i), str};
+                Object[] objArr = {v1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = advertAppInfo;
-            this.b = i;
-            this.c = str;
+            this.a = v1aVar;
         }
 
-        @Override // com.baidu.tieba.t19
-        public void a(int i, HashMap hashMap) {
+        @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+        public void onScrollChanged() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, hashMap) != null) || i == 0) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.u) {
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 1).param("tid", this.a.a.q1()));
+                this.a.u = true;
             }
-            if (s1a.h(i)) {
-                g3a.g(this.a, this.b, hashMap, i);
-            } else {
-                g3a.n(this.a, this.b, this.c, null, hashMap);
-            }
-            b29.c(this.a);
         }
     }
 
@@ -119,241 +124,273 @@ public class v1a extends om<to6, CardAppLegoViewHolder> implements h1a, m1a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((CardAppLegoViewHolder) this.a.viewholder).b((int) TimeUnit.SECONDS.toSeconds(1L));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.p1() != null) {
+                this.a.a.p1().d();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v1a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(v1a v1aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v1aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v1aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.viewholder == null) {
-                return;
-            }
-            if (!(customResponsedMessage.getData() instanceof Boolean)) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-            } else {
-                int d = ((CardAppLegoViewHolder) this.a.viewholder).d();
-                if (((CardAppLegoViewHolder) this.a.viewholder).c()) {
-                    if (d == -1) {
-                        SafeHandler.getInst().removeCallbacks(this.a.f);
-                        SafeHandler.getInst().postDelayed(this.a.f, 500L);
-                    }
-                } else if (d != -1) {
-                    ((CardAppLegoViewHolder) this.a.viewholder).stopPlay();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v1a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public v1a(PushDialogActivity pushDialogActivity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
+            Object[] objArr = {pushDialogActivity, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 3;
-        this.c = false;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.g = new c(this, 2921517);
-        this.a = tbPageContext;
-        this.e = str;
-        if ((tbPageContext.getPageActivity() instanceof BaseFragmentActivity) && TextUtils.equals(str, "CONCERN")) {
-            if (bdUniqueId == AdvertAppInfo.D || bdUniqueId == AdvertAppInfo.F) {
-                MessageManager.getInstance().registerListener(this.g);
+        this.u = false;
+        this.a = pushDialogActivity;
+        pushDialogActivity.setContentView(i);
+        this.d = d(R.id.obfuscated_res_0x7f091fec);
+        this.c = d(R.id.obfuscated_res_0x7f0908c4);
+        EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f091e0e);
+        this.e = editorScrollView;
+        editorScrollView.setOverScrollMode(2);
+        this.e.setListener(new a(this));
+        if (this.c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            int equipmentHeight = BdUtilHelper.getEquipmentHeight(this.a);
+            layoutParams.height = equipmentHeight / 2;
+            layoutParams.topMargin = (int) (equipmentHeight * 0.22f);
+            this.c.postInvalidate();
+        }
+        if (BdUtilHelper.isFlymeOsAbove35()) {
+            Drawable a2 = pqa.a();
+            this.b = a2;
+            if (a2 != null && this.a.getWindow() != null) {
+                this.a.getWindow().setBackgroundDrawable(this.b);
             }
         }
+        View d = d(R.id.obfuscated_res_0x7f091e0c);
+        this.p = d;
+        d.setOnClickListener(this);
+        this.q = (TextView) d(R.id.comment_num);
+        TbImageView tbImageView = (TbImageView) d(R.id.obfuscated_res_0x7f091e10);
+        this.f = tbImageView;
+        tbImageView.setDefaultBgResource(R.drawable.tb_launcher_icon);
+        this.f.setAutoChangeStyle(false);
+        this.g = (TextView) d(R.id.obfuscated_res_0x7f091e11);
+        this.i = (TextView) d(R.id.obfuscated_res_0x7f091e0f);
+        ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) d(R.id.obfuscated_res_0x7f091e13);
+        this.l = clickableHeaderImageView;
+        clickableHeaderImageView.setBorderSurroundContent(true);
+        this.l.setIsRound(true);
+        this.l.setEnabled(false);
+        this.l.setAutoChangeStyle(false);
+        this.l.setBorderWidth(BdUtilHelper.getDimens(this.a, R.dimen.tbds1));
+        this.l.setBorderColor(ContextCompat.getColor(this.a, R.color.black_alpha15));
+        this.r = new z16();
+        TbRichTextView tbRichTextView = (TbRichTextView) d(R.id.obfuscated_res_0x7f091e0d);
+        this.j = tbRichTextView;
+        tbRichTextView.setTextColor(ContextCompat.getColor(this.a, R.color.CAM_X0107));
+        this.r.u(BdUtilHelper.getDimens(this.a, R.dimen.tbds38));
+        this.r.x(BdUtilHelper.getDimens(this.a, R.dimen.tbds42));
+        this.r.k(BdUtilHelper.getDimens(this.a, R.dimen.tbds23));
+        this.r.p(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
+        this.r.j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        this.j.setLayoutStrategy(this.r);
+        PushDialogVideoView pushDialogVideoView = (PushDialogVideoView) d(R.id.obfuscated_res_0x7f091e16);
+        this.k = pushDialogVideoView;
+        pushDialogVideoView.setPageContext(this.a.getPageContext());
+        this.m = (TextView) d(R.id.obfuscated_res_0x7f091e15);
+        this.n = (TextView) d(R.id.obfuscated_res_0x7f091e12);
+        CommonUserLikeButton commonUserLikeButton = (CommonUserLikeButton) d(R.id.obfuscated_res_0x7f091e14);
+        this.o = commonUserLikeButton;
+        commonUserLikeButton.setAfterOnClickListener(this);
+        ImageView imageView = (ImageView) d(R.id.obfuscated_res_0x7f0908a5);
+        this.h = imageView;
+        imageView.setOnClickListener(this);
     }
 
-    @Override // com.baidu.tieba.m1a
-    public void setIsFromCDN(boolean z) {
+    public final View d(@IdRes int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.findViewById(i);
         }
+        return (View) invokeI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: B */
-    public View getView(int i, View view2, ViewGroup viewGroup, to6 to6Var) {
-        InterceptResult invokeCommon;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public void e() {
+        PushDialogVideoView pushDialogVideoView;
+        i26 i26Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, to6Var})) == null) {
-            if (to6Var != null && (advertAppInfo = to6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                if (C(view2)) {
-                    CardAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
-                    this.viewholder = onCreateViewHolder;
-                    if (onCreateViewHolder != null) {
-                        view2 = onCreateViewHolder.getView();
-                    }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.setNetworkChange();
+            if (BdNetTypeUtil.isMobileNet() && this.k.A() && (i26Var = this.t) != null && i26Var.c() > 0 && this.t.b() > 0) {
+                DecimalFormat decimalFormat = new DecimalFormat("0.0");
+                double c = ((this.t.c() * (1.0f - ((this.k.getCurrentPosition() * 1.0f) / (this.t.b() * 1000)))) * 1.0f) / 1048576.0f;
+                if (c >= 0.1d) {
+                    BdUtilHelper.showToast(this.a.getPageContext().getPageActivity(), String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f11ae), decimalFormat.format(c)));
                 }
-                View view3 = view2;
-                if (view3 != null) {
-                    view3 = onFillViewHolder(i, view3, viewGroup, to6Var, (CardAppLegoViewHolder) view3.getTag());
-                    if (k1a.class.isAssignableFrom(view3.getClass())) {
-                        ((CardAppLegoViewHolder) this.viewholder).e(((k1a) view3).getVideoOrVrView());
-                    }
-                }
-                return view3;
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final boolean C(View view2) {
-        InterceptResult invokeL;
-        V v;
+    public void f() {
+        PushDialogVideoView pushDialogVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.d == null || !((CardAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((CardAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
-                return true;
-            }
-            return !this.d.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.tag_first));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.C();
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: D */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View view2;
+    public void g() {
+        PushDialogVideoView pushDialogVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (this.d == null || (view2 = (View) u19.h().a(this.a, this.d, 2)) == null) {
-                return null;
-            }
-            view2.setTag(R.id.tag_first, this.d);
-            return new CardAppLegoViewHolder((o29) view2);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.D();
         }
-        return (CardAppLegoViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: E */
-    public CardAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, to6 to6Var) {
-        InterceptResult invokeLL;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public void h() {
+        PushDialogVideoView pushDialogVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, to6Var)) == null) {
-            if (to6Var != null && (advertAppInfo = to6Var.a) != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.d = iLegoAdvert;
-                return onCreateViewHolder(viewGroup);
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (pushDialogVideoView = this.k) != null) {
+            pushDialogVideoView.E();
         }
-        return (CardAppLegoViewHolder) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, to6 to6Var, CardAppLegoViewHolder cardAppLegoViewHolder) {
-        InterceptResult invokeCommon;
+    public void i(w1a w1aVar) {
         boolean z;
+        boolean z2;
+        int dimens;
+        int dimens2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, to6Var, cardAppLegoViewHolder})) == null) {
-            TbPageContext<?> tbPageContext = this.a;
-            if (tbPageContext != null && to6Var != null && to6Var.a != null) {
-                if (tbPageContext.getPageActivity() instanceof wi0) {
-                    AdvertAppInfo advertAppInfo = to6Var.a;
-                    advertAppInfo.s = yi0.b(advertAppInfo.s, (wi0) this.a.getPageActivity(), cardAppLegoViewHolder.itemView);
-                }
-                AdvertAppInfo.ILegoAdvert iLegoAdvert = to6Var.a.h;
-                this.d = iLegoAdvert;
-                if (iLegoAdvert != null && view2 != null) {
-                    if (this.viewholder == 0) {
-                        this.viewholder = cardAppLegoViewHolder;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, w1aVar) != null) || w1aVar == null) {
+            return;
+        }
+        this.f.startLoad(w1aVar.a(), 17, false);
+        this.g.setText(w1aVar.b());
+        if (w1aVar.d() != null) {
+            this.l.setData(w1aVar.d());
+            this.m.setText(w1aVar.d().getName_show());
+            if (w1aVar.d().getGodUserData() != null && (!StringUtils.isNull(w1aVar.d().getGodUserData().getForumName()) || !StringUtils.isNull(w1aVar.d().getGodUserData().getIntro()))) {
+                this.n.setText(w1aVar.d().getGodUserData().getForumName() + "吧 " + w1aVar.d().getGodIntro());
+                this.n.setVisibility(0);
+            } else {
+                this.n.setVisibility(8);
+            }
+            if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(w1aVar.d().getUserId())) {
+                this.o.setVisibility(8);
+            } else {
+                new qb5(this.a.getPageContext(), this.o).l(w1aVar.d());
+                this.o.g(0);
+                this.o.setVisibility(0);
+            }
+            x1a c = w1aVar.c();
+            if (c == null) {
+                this.a.p1().d();
+                this.a.finish();
+                return;
+            }
+            if (c.a() != null && !ListUtils.isEmpty(c.a().O())) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (StringUtils.isNull(c.d()) && z) {
+                this.a.p1().d();
+                this.a.finish();
+                return;
+            }
+            if (c.a() != null) {
+                Iterator<TbRichTextData> it = c.a().O().iterator();
+                while (it.hasNext()) {
+                    TbRichTextData next = it.next();
+                    if (next != null) {
+                        this.t = next.d0();
                     }
-                    b15.e(to6Var);
-                    BDLayoutMode layoutMode = this.a.getLayoutMode();
-                    if (this.b == 4) {
-                        z = true;
-                    } else {
-                        z = false;
+                    if (this.t != null) {
+                        break;
                     }
-                    layoutMode.setNightMode(z);
-                    this.a.getLayoutMode().onModeChanged(view2);
-                    AdvertAppInfo c2 = to6Var.c();
-                    c2.v = 1;
-                    o29 o29Var = (o29) view2;
-                    this.d.setAdvertAppInfo(c2);
-                    o29Var.setFromCDN(this.c);
-                    o29Var.update(this.d);
-                    int i2 = to6Var.c;
-                    String str = to6Var.b;
-                    z2a.e(to6Var.c(), o29Var, str, this.e, 1, -1);
-                    o29Var.setAfterClickSchemeListener(new a(this, c2, i2, str));
-                    if (k1a.class.isAssignableFrom(view2.getClass())) {
-                        cardAppLegoViewHolder.e(((k1a) view2).getVideoOrVrView());
-                    }
-                    return view2;
                 }
             }
-            return null;
+            this.s = c.c();
+            if (this.t == null) {
+                this.k.setVisibility(8);
+                this.j.setVisibility(0);
+                if (!BdNetTypeUtil.is4GNet() && !BdNetTypeUtil.isWifiNet()) {
+                    z2 = false;
+                } else {
+                    z2 = true;
+                }
+                this.r.y(z2);
+                if (z2) {
+                    dimens = (BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - (BdUtilHelper.getDimens(this.a, R.dimen.tbds22) * 2)) - (BdUtilHelper.getDimens(this.a, R.dimen.tbds44) * 2);
+                    dimens2 = (int) (dimens * 1.618f);
+                } else {
+                    dimens = BdUtilHelper.getDimens(this.a, R.dimen.tbds360);
+                    dimens2 = BdUtilHelper.getDimens(this.a, R.dimen.tbds202);
+                }
+                this.r.l(z2);
+                this.r.r(dimens);
+                this.r.q(dimens2);
+                this.j.setText(c.a());
+            } else {
+                this.j.setVisibility(8);
+                this.k.setVisibility(0);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
+                int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.a) - BdUtilHelper.getDimens(this.a, R.dimen.tbds132);
+                layoutParams.width = equipmentWidth;
+                layoutParams.height = (int) (equipmentWidth * 0.5625f);
+                this.k.setLayoutParams(layoutParams);
+                this.k.setTbRichTextVideoInfo(this.t);
+                this.k.stopPlay();
+                this.k.setThumbnail(this.t.d());
+                this.k.setVideoUrl(this.t.e(), String.valueOf(this.s));
+                this.k.G();
+                pz9 pz9Var = new pz9();
+                pz9Var.a = "15";
+                pz9Var.c = String.valueOf(this.s);
+                pz9Var.e = TbadkCoreApplication.getCurrentAccount();
+                this.k.setVideoViewBusiness(pz9Var);
+            }
+            if (StringUtils.isNull(c.d())) {
+                this.i.setVisibility(8);
+            } else {
+                this.i.setText(c.d());
+                this.i.setVisibility(0);
+            }
+            this.q.setText(String.format(Locale.CHINA, this.a.getString(R.string.obfuscated_res_0x7f0f0385), Integer.valueOf(c.b())));
+            if (!this.a.p1().c()) {
+                this.a.p1().e();
+                return;
+            }
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.a.p1().d();
+        this.a.finish();
     }
 
-    @Override // com.baidu.tieba.h1a
-    public void onDestroy() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            if (view2 == this.h) {
+                TiebaStatic.log(new StatisticItem("c13198").param("tid", this.a.q1()));
+                SafeHandler.getInst().postDelayed(new b(this), 100L);
+                this.a.finish();
+            } else if (view2 == this.p) {
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 4).param("tid", this.a.q1()));
+                if (this.s == 0) {
+                    this.a.finish();
+                    return;
+                }
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(this.s + "", null, null)));
+                this.a.p1().e();
+                this.a.finish();
+            } else if (view2 == this.o) {
+                TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 3).param("tid", this.a.q1()));
+            }
         }
     }
 }

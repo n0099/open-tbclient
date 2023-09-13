@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface h7c {
-    h7c a();
+    void a(String str, String str2);
 
-    boolean b(String str);
+    void b(String str, String str2);
 
-    String c();
+    void c(String str, String str2);
 
-    String toString();
+    void d(String str, String str2);
 }

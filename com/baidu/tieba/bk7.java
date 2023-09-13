@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bk7 {
+public class bk7 extends wj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
-    public static final void a(TextView textView, String str) {
-        boolean z;
+    public bk7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, textView, str) == null) {
-            Intrinsics.checkNotNullParameter(textView, "<this>");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                textView.setText(str);
-                textView.setVisibility(0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            textView.setVisibility(8);
         }
+        this.g = true;
+        this.i = true;
     }
 }

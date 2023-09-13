@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class io3 {
+public class io3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,40 +27,34 @@ public final class io3 {
                 return;
             }
         }
-        boolean z = nr1.a;
+        a = rr1.a;
     }
 
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
-            int d = d(context);
-            if (i >= 0 && i < 255) {
-                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            try {
+                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            drawable.setColorFilter(d, mode);
         }
     }
 
-    public static void b(Context context, Drawable drawable) {
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            c(context, drawable, 255);
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            if (z) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            inputMethodManager.toggleSoftInput(i, 2);
         }
-    }
-
-    public static void c(Context context, Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
-        }
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return context.getResources().getColor(R.color.obfuscated_res_0x7f06046e);
-        }
-        return invokeL.intValue;
     }
 }

@@ -1,64 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.DialogStrategiesData;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class r65 implements l65 {
+public class r65 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Class<? extends e65>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073592, "Lcom/baidu/tieba/r65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948073592, "Lcom/baidu/tieba/r65;");
+                return;
+            }
+        }
+        ArrayMap arrayMap = new ArrayMap();
+        a = arrayMap;
+        arrayMap.put("WebViewYunDialog", q65.class);
+        a.put("userIcon", p65.class);
+        a.put("userGrowth", o65.class);
+        a.put("newGod", k65.class);
+        a.put("operateNew", l65.class);
+        a.put("homeLiveRemind", j65.class);
+        a.put("topNotify", m65.class);
+        a.put("updateDialog", n65.class);
+        a.put("lcUpdateDialog", i65.class);
+        f65 f65Var = new f65();
+        pk1<g65> pk1Var = f65Var.a;
+        if (pk1Var != null && !ListUtils.isEmpty(pk1Var.getList())) {
+            for (g65 g65Var : f65Var.a.getList()) {
+                a.put(g65Var.name(), g65Var.a());
             }
         }
     }
 
-    @Override // com.baidu.tieba.l65
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
+    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "homeLiveRemind");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l65
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if (r85.a().c(0) == null || !s85.b().j(LiveRemindConfig.Scene.LIVE_FLOAT) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || of5.j()) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
+            v55 b = v55.b(str, str2);
+            try {
+                String a2 = b.a("yun_dialogClass");
+                if (TextUtils.isEmpty(a2)) {
+                    return;
+                }
+                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
+            } catch (Exception e) {
+                TbLog yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.e(YunDialogManager.LOG_KEY, "云弹窗 " + str + " 渲染失败：" + e.getMessage());
+                YunDialogManager.unMarkShowingDialogName(str);
+                e.printStackTrace();
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 }

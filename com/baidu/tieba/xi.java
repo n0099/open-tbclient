@@ -1,49 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.NetLog;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes8.dex */
-public abstract class xi implements ak {
+public class xi {
     public static /* synthetic */ Interceptable $ic;
+    public static List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile byte[] a;
-    public volatile boolean b;
 
-    public abstract byte[] d();
-
-    public xi() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321756, "Lcom/baidu/tieba/xi;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321756, "Lcom/baidu/tieba/xi;");
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
+        a = Collections.synchronizedList(new ArrayList());
     }
 
-    public byte[] e() {
+    public static List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    this.b = true;
-                    this.a = d();
-                }
-            }
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (byte[]) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public static void a(@NonNull String str, int i) throws UnknownHostException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
+            try {
+                a.clear();
+                DnsHelper dnsHelper = new DnsHelper(AppRuntime.getAppContext());
+                dnsHelper.setHttpDnsState(false, null, false, true);
+                List<String> ipList = dnsHelper.getIpList(str);
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                if (ipList != null && !ipList.isEmpty()) {
+                    for (int i2 = 0; i2 < ipList.size(); i2++) {
+                        if (c(ipList.get(i2))) {
+                            TbLog netLog = NetLog.getInstance();
+                            netLog.i("SocketIps", "V4 ： " + ipList.get(i2));
+                            arrayList.add(ipList.get(i2));
+                        } else {
+                            TbLog netLog2 = NetLog.getInstance();
+                            netLog2.i("SocketIps", "V6 ： " + ipList.get(i2));
+                            arrayList2.add(ipList.get(i2));
+                        }
+                    }
+                }
+                int size = arrayList2.size();
+                int size2 = arrayList.size();
+                if (size > 0 && i == 2) {
+                    a.addAll(arrayList2);
+                } else if (size2 > 0 && i == 1) {
+                    a.addAll(arrayList);
+                } else if (i == 3) {
+                    if (size > 0) {
+                        a.addAll(arrayList2);
+                    }
+                    if (size2 > 0) {
+                        a.addAll(arrayList);
+                    }
+                } else {
+                    a.addAll(arrayList);
+                }
+            } catch (NullPointerException e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str != null && !str.isEmpty()) {
+                return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

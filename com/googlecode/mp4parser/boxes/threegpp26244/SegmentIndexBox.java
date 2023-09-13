@@ -14,7 +14,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static final String TYPE = "sidx";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -36,7 +36,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     public int reserved;
     public long timeScale;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Entry {
         public byte referenceType;
         public int referencedSize;

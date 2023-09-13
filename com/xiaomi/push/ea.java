@@ -19,29 +19,29 @@ public class ea implements ef {
     }
 
     private void b(Context context, eb ebVar) {
-        String m447a = ebVar.m447a();
+        String m448a = ebVar.m448a();
         String b = ebVar.b();
         String d = ebVar.d();
         int a = ebVar.a();
-        if (context == null || TextUtils.isEmpty(m447a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+        if (context == null || TextUtils.isEmpty(m448a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
             if (TextUtils.isEmpty(d)) {
                 dy.a(context, "activity", 1008, "argument error");
             } else {
                 dy.a(context, d, 1008, "argument error");
             }
-        } else if (!com.xiaomi.push.service.l.b(context, m447a, b)) {
+        } else if (!com.xiaomi.push.service.l.b(context, m448a, b)) {
             dy.a(context, d, 1003, "B is not ready");
         } else {
             dy.a(context, d, 1002, "B is ready");
             dy.a(context, d, 1004, "A is ready");
             Intent intent = new Intent(b);
-            intent.setPackage(m447a);
+            intent.setPackage(m448a);
             intent.putExtra("awake_info", dx.a(d));
             intent.addFlags(276824064);
             intent.setAction(b);
             if (a == 1) {
                 try {
-                    if (!ec.m448a(context)) {
+                    if (!ec.m449a(context)) {
                         dy.a(context, d, 1008, "A not in foreground");
                         return;
                     }

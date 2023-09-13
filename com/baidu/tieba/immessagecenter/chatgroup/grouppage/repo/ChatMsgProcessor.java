@@ -22,10 +22,10 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSys
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.EmojiReplySysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.lg;
-import com.baidu.tieba.pn5;
-import com.baidu.tieba.rm8;
-import com.baidu.tieba.zn5;
+import com.baidu.tieba.io5;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.so5;
+import com.baidu.tieba.tn8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatMsgProcessor implements zn5 {
+public class ChatMsgProcessor implements so5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Class<? extends BaseMsg>> a;
@@ -602,7 +602,7 @@ public class ChatMsgProcessor implements zn5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(pn5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(io5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
@@ -621,14 +621,14 @@ public class ChatMsgProcessor implements zn5 {
     public final void H(@NonNull ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, chatMsg) == null) {
-            lg.c(new e(this, chatMsg));
+            mg.c(new e(this, chatMsg));
         }
     }
 
     public final void I(@NonNull BaseSysMsg baseSysMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, baseSysMsg) == null) {
-            lg.c(new d(this, baseSysMsg));
+            mg.c(new d(this, baseSysMsg));
         }
     }
 
@@ -704,7 +704,7 @@ public class ChatMsgProcessor implements zn5 {
     public void D(long j2, @NonNull j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048579, this, j2, jVar) == null) {
-            lg.c(new f(this, j2, new ArrayList(r(j2)), jVar));
+            mg.c(new f(this, j2, new ArrayList(r(j2)), jVar));
         }
     }
 
@@ -878,7 +878,7 @@ public class ChatMsgProcessor implements zn5 {
         }
     }
 
-    @Override // com.baidu.tieba.zn5
+    @Override // com.baidu.tieba.so5
     public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
@@ -1213,7 +1213,7 @@ public class ChatMsgProcessor implements zn5 {
                                 A.add(j4);
                             }
                         } catch (Exception e2) {
-                            rm8.g("parse_msg_exception", j2, e2);
+                            tn8.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }
@@ -1222,7 +1222,7 @@ public class ChatMsgProcessor implements zn5 {
                         w.addAll(A);
                     } else {
                         r.addAll(A);
-                        lg.c(new b(this, j2, new ArrayList(r), i2, z, z2, z3));
+                        mg.c(new b(this, j2, new ArrayList(r), i2, z, z2, z3));
                     }
                 }
             }
@@ -1239,7 +1239,7 @@ public class ChatMsgProcessor implements zn5 {
     public final void i(long j2, @NonNull TreeSet<ChatMsg> treeSet, int i2, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), treeSet, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
-            lg.e(new a(this, j2, treeSet, i2, z, z2, z3, iVar));
+            mg.e(new a(this, j2, treeSet, i2, z, z2, z3, iVar));
         }
     }
 

@@ -1,45 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k02 extends j02 {
+public class k02 extends kz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View f;
+    public int g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
 
-    @Override // com.baidu.tieba.gz1
+    @Override // com.baidu.tieba.kz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CallServiceApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ k02 c;
+        public final /* synthetic */ k02 a;
 
-        public a(k02 k02Var, String str, String str2) {
+        public a(k02 k02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k02Var, str, str2};
+                Object[] objArr = {k02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,73 +57,59 @@ public class k02 extends j02 {
                     return;
                 }
             }
-            this.c = k02Var;
-            this.a = str;
-            this.b = str2;
+            this.a = k02Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String str;
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                d82.i("CallServiceApi", "Cloud capability request failed: " + this.a + "\n" + Log.getStackTraceString(exc));
-                k02 k02Var = this.c;
-                String str2 = this.b;
-                if (TextUtils.isEmpty(exc.getMessage())) {
-                    str = "请求失败";
-                } else {
-                    str = exc.getMessage() + "";
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
+                    return;
                 }
-                k02Var.d(str2, new d32(1001, str));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("statusCode", String.valueOf(i));
-                    jSONObject2.put("data", jSONObject);
-                } catch (JSONException e) {
-                    d82.b("CallServiceApi", Log.getStackTraceString(e));
+                if (this.a.g - height > 180) {
+                    HashMap hashMap = new HashMap();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("height", yo3.O(this.a.g - height));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    hashMap.put("data", jSONObject.toString());
+                    uw2.T().u(new il2("keyboardHeightChange", hashMap));
+                    this.a.g = height;
+                } else if (height - this.a.g > 180) {
+                    HashMap hashMap2 = new HashMap();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("height", 0);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    hashMap2.put("data", jSONObject2.toString());
+                    uw2.T().u(new il2("keyboardHeightChange", hashMap2));
+                    this.a.g = height;
                 }
-                d82.b("CallServiceApi", "Cloud capability '" + this.a + "' request success: data:" + jSONObject2.toString());
-                this.c.d(this.b, new d32(0, jSONObject2));
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return do3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k02(@NonNull ez1 ez1Var) {
-        super(ez1Var);
+    public k02(@NonNull iz1 iz1Var) {
+        super(iz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ez1Var};
+            Object[] objArr = {iz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ez1) newInitContext.callArgs[0]);
+                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -123,44 +117,61 @@ public class k02 extends j02 {
         }
     }
 
-    public d32 x(String str) {
-        InterceptResult invokeL;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#callService", false);
-            if (db3.b0() == null) {
-                d82.b("CallServiceApi", "swan app is null");
-                return new d32(1001, "swan app is null");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = uw2.T().getActivity();
+            if (activity == null) {
+                h82.c("SoftKeyboardApi", "activity is null");
+                return;
             }
-            Pair<d32, JSONObject> s = s(str);
-            d32 d32Var = (d32) s.first;
-            if (!d32Var.isSuccess()) {
-                return d32Var;
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                d82.b("CallServiceApi", "cb is empty");
-                return new d32(201, "cb is empty");
-            }
-            String optString2 = jSONObject.optString("service");
-            if (TextUtils.isEmpty(optString2)) {
-                d82.b("CallServiceApi", "service is empty");
-                return new d32(201, "service is empty");
-            }
-            y(optString2, jSONObject.optJSONObject("data"), optString);
-            return new d32(0);
         }
-        return (d32) invokeL.objValue;
     }
 
-    public final void y(String str, JSONObject jSONObject, String str2) {
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject, str2) == null) {
-            l02 l02Var = new l02();
-            l02Var.g(str);
-            l02Var.f(jSONObject);
-            l02Var.c(new a(this, str, str2));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
+            }
+            this.h = null;
+            this.g = 0;
         }
+    }
+
+    public h32 C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#startKeyboardHeightChange", false);
+            if (hb3.b0() == null) {
+                return new h32(1001, "swan app is null");
+            }
+            A();
+            return h32.f();
+        }
+        return (h32) invokeV.objValue;
+    }
+
+    public h32 D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (hb3.b0() == null) {
+                return new h32(1001, "swan app is null");
+            }
+            B();
+            return h32.f();
+        }
+        return (h32) invokeV.objValue;
     }
 }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rqb;
+import com.baidu.tieba.qtb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -105,9 +105,9 @@ public class KSNativeAdVideoAppDownloadView extends y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090119);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ae);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090115);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900eb);
             this.e = (TextView) findViewById(R.id.ad_app_source);
             this.f = (ImageView) findViewById(R.id.ad_app_icon);
             this.g = (TextView) findViewById(R.id.ad_app_title);
@@ -161,7 +161,7 @@ public class KSNativeAdVideoAppDownloadView extends y {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new rqb(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new qtb(ksNativeAd.getActionDescription(), this.h));
         }
     }
 }

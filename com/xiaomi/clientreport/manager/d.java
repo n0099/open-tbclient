@@ -12,7 +12,7 @@ public class d extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo300a() {
+    public String mo301a() {
         return "100888";
     }
 
@@ -22,7 +22,7 @@ public class d extends aj.a {
         ExecutorService executorService;
         a = this.a.a();
         if (a > 0) {
-            executorService = this.a.f27a;
+            executorService = this.a.f26a;
             executorService.execute(new e(this));
         }
     }

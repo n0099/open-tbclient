@@ -1,11 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import java.util.List;
 /* loaded from: classes5.dex */
 public interface a06 {
-    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+    String a();
 
-    int b(int i);
+    void b(String str);
+
+    String c();
+
+    String d();
+
+    boolean e();
+
+    boolean isValid();
 }

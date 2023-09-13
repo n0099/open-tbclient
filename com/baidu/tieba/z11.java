@@ -1,83 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.TranslateAnimation;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class z11 {
-    public static /* synthetic */ Interceptable $ic;
+import java.util.Iterator;
+/* loaded from: classes9.dex */
+public final class z11 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Animation a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 2.0f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948306991, "Lcom/baidu/tieba/z11;")) == null) {
+            return;
         }
-        return (Animation) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948306991, "Lcom/baidu/tieba/z11;");
+        }
     }
 
-    public static Animation b() {
-        InterceptResult invokeV;
+    public static void a(ClarityUrlList clarityUrlList) {
+        ClarityUrlList.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 2.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
+            Iterator it = clarityUrlList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = (ClarityUrlList.c) it.next();
+                    if ("auto".equals(cVar.c())) {
+                        break;
+                    }
+                } else {
+                    cVar = null;
+                    break;
+                }
+            }
+            if (cVar != null) {
+                clarityUrlList.remove(cVar);
+            }
         }
-        return (Animation) invokeV.objValue;
     }
 
-    public static Animation c() {
-        InterceptResult invokeV;
+    public static m01 b(ClarityUrlList clarityUrlList, double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -0.15f, 1, 0.0f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
+            a(clarityUrlList);
+            int f = l21.f(a);
+            a = f;
+            return l21.g(clarityUrlList, f, d, false);
         }
-        return (Animation) invokeV.objValue;
-    }
-
-    public static Animation d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            AnimationSet animationSet = new AnimationSet(true);
-            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -0.15f);
-            translateAnimation.setDuration(200L);
-            animationSet.addAnimation(translateAnimation);
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            alphaAnimation.setDuration(200L);
-            animationSet.addAnimation(alphaAnimation);
-            animationSet.setInterpolator(new AccelerateInterpolator());
-            return animationSet;
-        }
-        return (Animation) invokeV.objValue;
+        return (m01) invokeCommon.objValue;
     }
 }

@@ -31,7 +31,7 @@ public class CreateTagResponseData implements Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<CreateTagResponseData> {
+    public class a implements Parcelable.Creator<CreateTagResponseData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

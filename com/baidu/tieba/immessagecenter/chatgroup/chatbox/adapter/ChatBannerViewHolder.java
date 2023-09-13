@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tk8;
-import com.baidu.tieba.zl8;
+import com.baidu.tieba.bn8;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public zl8 g;
+    public bn8 g;
     public FrameLayout h;
     public String i;
     public String j;
@@ -71,9 +71,9 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.b.m();
+            this.b.l();
             ChatBannerViewHolder chatBannerViewHolder = this.b;
-            chatBannerViewHolder.n(this.a, chatBannerViewHolder.j);
+            chatBannerViewHolder.m(this.a, chatBannerViewHolder.j);
         }
     }
 
@@ -115,36 +115,36 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8e);
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e90);
-        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e8f);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8d);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e8f);
+        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e8e);
         this.k = str;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void g(int i) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.g(i);
+            super.f(i);
             if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j) && this.e != null) {
-                r(i);
+                q(i);
             }
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@NonNull tk8 tk8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull vl8 vl8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, tk8Var, tbPageContext, i) == null) {
-            if (tk8Var instanceof zl8) {
-                zl8 zl8Var = (zl8) tk8Var;
-                this.g = zl8Var;
-                this.i = zl8Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, vl8Var, tbPageContext, i) == null) {
+            if (vl8Var instanceof bn8) {
+                bn8 bn8Var = (bn8) vl8Var;
+                this.g = bn8Var;
+                this.i = bn8Var.b();
                 this.j = this.g.c();
                 if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
                     this.h.setVisibility(0);
                     this.e.setOnClickListener(new a(this, tbPageContext));
-                    p();
+                    o();
                     return;
                 }
                 this.h.setVisibility(8);
@@ -154,7 +154,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final void m() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_BOTTOM_BANNER_CLICKED);
@@ -164,7 +164,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final boolean o() {
+    public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -176,7 +176,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         return invokeV.booleanValue;
     }
 
-    public void n(TbPageContext tbPageContext, String str) {
+    public void m(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
             try {
@@ -189,17 +189,17 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final void p() {
+    public final void o() {
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            q();
+            p();
             this.e.setAutoChangeStyle(true);
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setPlaceHolder(2);
             this.e.setUseNightOrDarkMask(false);
             this.e.setConrers(15);
-            if (o()) {
+            if (n()) {
                 this.e.setRadiusById(R.string.J_X06);
             } else {
                 this.e.setRadiusById(R.string.J_X05);
@@ -207,7 +207,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
             int equipmentWidth2 = (BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X005) * 2)) - UtilHelper.getDimenPixelSize(R.dimen.tbds182);
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            if (o()) {
+            if (n()) {
                 f = equipmentWidth / 5;
             } else {
                 f = (equipmentWidth2 * 64) / 322;
@@ -219,15 +219,15 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
                 this.e.startLoad(this.i, 10, false);
-                r(skinType);
+                q(skinType);
             }
         }
     }
 
-    public final void q() {
+    public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (o()) {
+            if (n()) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
                 layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -243,7 +243,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         }
     }
 
-    public final void r(int i) {
+    public final void q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             if (i == 0) {
@@ -252,7 +252,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
             }
             this.f.setVisibility(0);
             EMManager.from(this.f).setBackGroundColor(R.color.CAM_X0503);
-            if (o()) {
+            if (n()) {
                 EMManager.from(this.f).setCorner(R.string.J_X06);
             } else {
                 EMManager.from(this.f).setCorner(R.string.J_X05);

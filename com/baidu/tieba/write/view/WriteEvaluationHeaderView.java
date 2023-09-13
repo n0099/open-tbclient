@@ -269,19 +269,19 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a48, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911d9);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911db);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092a8e);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d8);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0911da);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911e5);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911e2);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a5b, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911dd);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0911df);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092ac3);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911dc);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0911de);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f0911eb);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0911e8);
             this.h = rankStarView;
             rankStarView.setStarSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.tbds30));
             this.h.setClickable(true);
             this.h.setStarChangListener(this);
-            this.g.U();
+            this.g.T();
             this.g.setOnCloseListener(this);
             this.g.setSizeStyle(1);
             d();

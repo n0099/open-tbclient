@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface tn5 {
-    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
+    void a(View view2, View view3, boolean z);
 }

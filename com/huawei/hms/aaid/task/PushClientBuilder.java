@@ -12,7 +12,7 @@ import com.huawei.hms.common.internal.AbstractClientBuilder;
 import com.huawei.hms.common.internal.BaseHmsClient;
 import com.huawei.hms.common.internal.ClientSettings;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PushClientBuilder extends AbstractClientBuilder<PushClient, Api.ApiOptions.NoOptions> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

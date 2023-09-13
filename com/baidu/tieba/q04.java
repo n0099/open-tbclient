@@ -1,151 +1,244 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.logsystem.basic.LokiService;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.tts.jni.TtsLogLoad;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q04 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038004, "Lcom/baidu/tieba/q04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Nullable
+    public static Map<String, String> a(String str, String str2, String str3, String str4, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
+            if (!z && zz3.b() != null) {
+                TreeMap treeMap = new TreeMap();
+                treeMap.put("ver", a14.l());
+                treeMap.put("host", zz3.b().a());
+                treeMap.put(TtsLogLoad.KEY_OS, "android");
+                int c = NetworkUtils.c(false);
+                treeMap.put("net", c + "");
+                treeMap.put("phone", a14.e());
+                treeMap.put("osV", a14.f());
+                treeMap.put("slot", str);
+                treeMap.put("flow", str2);
+                treeMap.put("appid", str3);
+                treeMap.put("apid", str4);
+                treeMap.put("sdk", zz3.b().getSdkVersion());
+                treeMap.put("time", "" + System.currentTimeMillis());
+                return treeMap;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948038004, "Lcom/baidu/tieba/q04;");
-                return;
-            }
+            return null;
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("100000", "请求格式错误");
-        a.put("101000", "请求ID信息缺失");
-        a.put("101001", "请求ID不符合约定格式");
-        a.put("101002", "请求的trftp信息缺失");
-        a.put("101003", "请求的sdk版本信息有误");
-        a.put("101004", "请求的referer信息有误");
-        a.put("101005", "请求的appid不合法");
-        a.put("103000", "应用信息缺失");
-        a.put("103010", "应用ID信息缺失");
-        a.put("103011", "应用ID信息错误，MSSP未收录");
-        a.put("103012", "应用ID无效，MSSP上未生效");
-        a.put("103020", "应用ID无效，渠道ID信息错误");
-        a.put("103030", "应用版本信息缺失");
-        a.put("103040", "应用主版本信息缺失");
-        a.put("103050", "应用操作系统信息缺失");
-        a.put("103060", "应用包名信息错误，请保证注册包名和实际请求包名一致");
-        a.put("104000", "设备信息缺失");
-        a.put("104010", "设备类型信息缺失");
-        a.put("104011", "设备类型信息错误");
-        a.put("104020", "操作系统信息缺失");
-        a.put("104021", "操作系统信息错误");
-        a.put("104030", "操作系统版本信息缺失");
-        a.put("104040", "操作系统主版本信息缺失");
-        a.put("104050", "厂商信息缺失");
-        a.put("104060", "设备型号信息缺失");
-        a.put("104070", "设备唯一标识符缺失");
-        a.put("104071", "设备唯一标识符错误");
-        a.put("104080", "android id 缺失");
-        a.put("104081", "android id 格式错误");
-        a.put("104090", "设备屏幕尺寸信息缺失");
-        a.put("104100", "设备屏幕尺寸宽度缺失");
-        a.put("104110", "设备屏幕尺寸高度缺失");
-        a.put("105000", "网络环境信息缺失");
-        a.put("105010", "网络地址信息缺失");
-        a.put("105011", "网络地址信息格式错误");
-        a.put("105020", "网络连接类型缺失");
-        a.put("105021", "网络连接类型错误");
-        a.put("105030", "网络运营商类型缺失");
-        a.put("105031", "网络运营商类型错误");
-        a.put("105040", "Wi-Fi热点地址信息缺失");
-        a.put("105041", "Wi-Fi热点地址信息格式错误");
-        a.put("105050", "Wi-Fi热点信号强度信息缺失");
-        a.put("105060", "Wi-Fi热点名称缺失");
-        a.put("105070", "Wi-Fi连接状态信息缺失");
-        a.put("106000", "坐标类型信息缺失");
-        a.put("106001", "坐标类型信息错误");
-        a.put("106010", "经度信息缺失");
-        a.put("106020", "纬度信息缺失");
-        a.put("106030", "定位时间戳信息缺失");
-        a.put("107000", "广告位ID缺失");
-        a.put("107001", "广告位ID未收录");
-        a.put("107002", "广告位ID未启用");
-        a.put("107003", "广告位ID与应用ID不匹配");
-        a.put("107010", "广告位尺寸信息缺失");
-        a.put("107020", "广告位尺寸宽度缺失");
-        a.put("107030", "广告位尺寸高度缺失");
-        a.put("107040", "广告位信息缺失");
-        a.put("107050", "视频广告的网络条件无法满足");
-        a.put("107051", "视频标题名称过长");
-        a.put("107052", "SDK传递的广告位比例与MSSP的广告位比例不一致");
-        a.put("200000", "无广告返回");
-        a.put("201000", "无广告数据");
-        a.put("201010", "广告无签名");
-        a.put("201020", "广告创意类型信息缺失");
-        a.put("201021", "广告创意类型信息无法识别");
-        a.put("201030", "广告动作类型信息缺失");
-        a.put("201031", "广告动作类型信息无法识别");
-        a.put("201040", "曝光汇报地址丢失");
-        a.put("201050", "点击响应地址丢失");
-        a.put("201060", "推广标题丢失");
-        a.put("201070", "推广描述丢失");
-        a.put("201080", "推广应用包名丢失");
-        a.put("201090", "推广应用包大小丢失");
-        a.put("201100", "推广图标丢失");
-        a.put("201110", "推广图片丢失");
-        a.put("3010000", "广告组件挂载失败");
-        a.put("3010001", "播放器内部错误");
-        a.put("3010002", "广告请求失败");
-        a.put("3010003", "网络连接错误");
-        a.put("3010004", "没有可以展示的广告");
-        a.put("3010005", "广告正在拉取中，不能重复请求");
-        a.put("3010006", "广告正在展示中，不能请求广告");
-        a.put("3010007", "gameId、appsid、adUnitid其中一个为空，不能请求广告");
-        a.put("4010000", "广告组件准备完成");
-        a.put("3010008", "播放地址为空");
-        a.put("3010009", "激励视频重复调用create错误");
-        a.put("3010010", "没有可以show的banner广告");
-        a.put("3010011", "广告关闭生效中，本次请求被拒绝");
-        a.put("3010012", "小游戏启动前%d秒不允许展示banner广告");
-        a.put("3010013", "banner广告展示频控限制，%d秒内不允许重复展示banner广告");
+        return (Map) invokeCommon.objValue;
     }
 
-    public static String a(String str) {
+    public static String b(String str, @Nullable Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map == null) {
+                return "https://mobads-logs.baidu.com/dz.zb?type=mnp&";
+            }
+            map.put("name", str);
+            return y04.b("https://mobads-logs.baidu.com/dz.zb?type=mnp&", map);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(String str, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, yz3Var) == null) {
+            yz3Var.e(str);
+        }
+    }
+
+    public static void g(AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, adElementInfo, yz3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            d(e(str, 0, 0), yz3Var);
+        }
+    }
+
+    public static void k(@Nullable Map<String, String> map, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, map, str) == null) {
+            l(map, str, new h04(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void m(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
+            n(str, map, new h04(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void p(AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65551, null, adElementInfo, yz3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getSkipTrackers()) {
+            d(e(str, 0, 0), yz3Var);
+        }
+    }
+
+    public static void q(AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65552, null, adElementInfo, yz3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getStartTrackers()) {
+            d(e(str, 0, 0), yz3Var);
+        }
+    }
+
+    public static String c(@NonNull Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = a.get(str);
-            if (str2 == null) {
-                str2 = "";
-            }
-            return b(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            return map.get("flow");
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String e(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.equals("3010012", str)) {
-                return String.format(str2, Long.valueOf(vz3.a().h() / 1000));
-            }
-            if (TextUtils.equals("3010013", str)) {
-                return String.format(str2, Long.valueOf(vz3.a().f() / 1000));
-            }
-            return str2;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            String replaceAll = str.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()).replaceAll("%25%25play_mode%25%25", "0");
+            String replaceAll2 = replaceAll.replaceAll("%25%25cur_time%25%25", "" + i);
+            return replaceAll2.replaceAll("%25%25start_time%25%25", "" + i2).replaceAll("%25%25area%25%25", "hot");
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeLII.objValue;
+    }
+
+    public static void f(String str, String str2, String str3, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, yz3Var) == null) && zz3.b() != null && !a14.o()) {
+            String a = zz3.b().a();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("bizId", 10003);
+                jSONObject.put("groupId", 10003);
+                jSONObject.put("containerAppName", a);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("distribute_channel", 38);
+                jSONObject2.put("CTK", str3);
+                jSONObject2.put(LokiService.Constant.LOG_TYPE, 2);
+                jSONObject2.put("media_id", str);
+                jSONObject2.put("PVID", str3);
+                jSONObject2.put("tuid", str2);
+                jSONObject2.put("time", a14.j());
+                jSONObject2.put("page_type", 1);
+                jSONObject2.put("traffic_type", 1);
+                jSONObject.put("content", jSONObject2);
+                yz3Var.d(jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void h(AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, adElementInfo, yz3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String a = y04.a(y04.a(y04.c(str, hashSet), BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE"), "da_type", WorkPostNotifyFlutterData.FAIL_POST);
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), yz3Var);
+        }
+        d(adElementInfo.getClickUrl(), yz3Var);
+    }
+
+    public static void i(AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, adElementInfo, yz3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String c = y04.c(str, hashSet);
+            if (!TextUtils.isEmpty(adElementInfo.getEndFrameUrl())) {
+                c = y04.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE");
+            } else if (!TextUtils.isEmpty(adElementInfo.getEndFrameHtml())) {
+                c = y04.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL");
+            }
+            String a = y04.a(c, "da_type", "103");
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), yz3Var);
+        }
+    }
+
+    public static void j(AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65545, null, adElementInfo, yz3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            d(e(str, 0, 0), yz3Var);
+        }
+        for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
+            d(e(str2, 0, 0), yz3Var);
+        }
+    }
+
+    public static void l(@Nullable Map<String, String> map, String str, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65547, null, map, str, yz3Var) != null) || map == null) {
+            return;
+        }
+        TreeMap treeMap = new TreeMap(map);
+        if (!TextUtils.isEmpty(str)) {
+            treeMap.put(StatConstants.KEY_EXT_ERR_CODE, str);
+            treeMap.put(StatConstants.KEY_EXT_ERR_MSG, u04.a(str));
+        }
+        n("error", treeMap, yz3Var);
+    }
+
+    public static void n(String str, Map<String, String> map, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65549, null, str, map, yz3Var) != null) || map == null) {
+            return;
+        }
+        d(b(str, map), yz3Var);
+    }
+
+    public static void o(int i, int i2, AdElementInfo adElementInfo, yz3 yz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), adElementInfo, yz3Var}) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            d(e(str, i, i2), yz3Var);
+        }
     }
 }

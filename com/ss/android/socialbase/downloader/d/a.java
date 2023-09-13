@@ -3,6 +3,7 @@ package com.ss.android.socialbase.downloader.d;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.cyberplayer.sdk.CyberRuntimeInfo;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
@@ -274,7 +275,7 @@ public class a {
                 } else {
                     double downloadSpeed = downloadInfo.getDownloadSpeed();
                     if (downloadSpeed >= 0.0d) {
-                        jSONObject.put("download_speed", downloadSpeed);
+                        jSONObject.put(CyberRuntimeInfo.DP_RUNTIME_DOWNLOAD_SPEED, downloadSpeed);
                     }
                     str = "download_success";
                 }
@@ -599,7 +600,7 @@ public class a {
                     jSONObject2.put("download_sec", nanos);
                     jSONObject2.put("download_mb", d);
                     if (nanos > 0.0d) {
-                        jSONObject2.put("download_speed", d / nanos);
+                        jSONObject2.put(CyberRuntimeInfo.DP_RUNTIME_DOWNLOAD_SPEED, d / nanos);
                     }
                     if (z3) {
                         jSONObject2.put("rw_read_time", j3 / d2);

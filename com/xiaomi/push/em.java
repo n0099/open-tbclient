@@ -14,7 +14,7 @@ public class em {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, hr> f315a;
+    public static Map<String, hr> f314a;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -102,29 +102,29 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hr m451a(String str) {
+    public static hr m452a(String str) {
         hr[] values;
-        if (f315a == null) {
+        if (f314a == null) {
             synchronized (hr.class) {
-                if (f315a == null) {
-                    f315a = new HashMap();
+                if (f314a == null) {
+                    f314a = new HashMap();
                     for (hr hrVar : hr.values()) {
-                        f315a.put(hrVar.f509a.toLowerCase(), hrVar);
+                        f314a.put(hrVar.f508a.toLowerCase(), hrVar);
                     }
                 }
             }
         }
-        hr hrVar2 = f315a.get(str.toLowerCase());
+        hr hrVar2 = f314a.get(str.toLowerCase());
         return hrVar2 != null ? hrVar2 : hr.Invalid;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m452a(int i) {
+    public static String m453a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m453a(Context context) {
+    public static void m454a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -133,7 +133,7 @@ public class em {
     }
 
     public static void a(Context context, hl hlVar) {
-        if (m454a(context.getApplicationContext())) {
+        if (m455a(context.getApplicationContext())) {
             com.xiaomi.push.service.ca.a(context.getApplicationContext(), hlVar);
             return;
         }
@@ -164,7 +164,7 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m454a(Context context) {
+    public static boolean m455a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

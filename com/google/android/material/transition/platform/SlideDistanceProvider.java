@@ -38,7 +38,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         if (i != -1) {
             return i;
         }
-        return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070641);
+        return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070647);
     }
 
     public static boolean isRtl(View view2) {

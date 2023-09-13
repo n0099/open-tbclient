@@ -2,106 +2,32 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Calendar;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h42 extends a42 {
+public class h42 extends e42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f62 a;
-        public final /* synthetic */ CanvasView b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ db3 e;
-        public final /* synthetic */ CallbackHandler f;
-
-        public a(h42 h42Var, f62 f62Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, db3 db3Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h42Var, f62Var, canvasView, str, unitedSchemeEntity, db3Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = f62Var;
-            this.b = canvasView;
-            this.c = str;
-            this.d = unitedSchemeEntity;
-            this.e = db3Var;
-            this.f = callbackHandler;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i2 = this.a.i(this.b, this.c);
-                HashMap<String, String> params = this.d.getParams();
-                if (params != null && !params.isEmpty()) {
-                    String str = params.get("params");
-                    String str2 = null;
-                    JSONObject jSONObject = new JSONObject();
-                    if (str != null) {
-                        try {
-                            str2 = new JSONObject(str).optString("cb");
-                            jSONObject.putOpt("tempFilePath", li3.J(this.c, this.e.b));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        if (i2) {
-                            i = 0;
-                        } else {
-                            i = 1001;
-                        }
-                        this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i).toString());
-                    }
-                }
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h42(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/canvas/toTempFilePath");
+    public h42(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/canvas/insert");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ac3) objArr2[0], (String) objArr2[1]);
+                super((ec3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,63 +35,37 @@ public class h42 extends a42 {
         }
     }
 
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
         InterceptResult invokeLLLL;
-        String str;
-        la2 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            f62 m = m(unitedSchemeEntity);
-            if (m == null) {
-                d82.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            e62 k = k(unitedSchemeEntity);
+            if (k == null) {
                 unitedSchemeEntity.result = l(201);
+                h82.c("SwanAppCanvas", "insert action parse model is null");
                 return false;
-            }
-            String x = li3.x(db3Var.b);
-            if (TextUtils.isEmpty(x)) {
-                d82.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-                unitedSchemeEntity.result = l(201);
+            } else if (context == null) {
+                h82.c("SwanAppCanvas", "context is null");
+                unitedSchemeEntity.result = l(1001);
                 return false;
-            }
-            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
-            if (m.h()) {
-                str = str2 + ".jpg";
             } else {
-                str = str2 + ".png";
-            }
-            String str3 = str;
-            if (TextUtils.isEmpty(m.c) && (H = qw2.T().H()) != null) {
-                m.c = H.v3();
-            }
-            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
-                CanvasView a2 = e72.a(m);
-                if (a2 == null) {
-                    d82.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-                    unitedSchemeEntity.result = l(201);
-                    return false;
+                String str = k.b;
+                n13 n13Var = k.h;
+                if (!TextUtils.isEmpty(str) && n13Var != null && n13Var.h()) {
+                    y62 insert = new h72(context, k).insert();
+                    boolean a = insert.a();
+                    if (!a) {
+                        h82.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
+                    }
+                    j(unitedSchemeEntity, callbackHandler, a);
+                    return a;
                 }
-                xn3.k(new a(this, m, a2, str3, unitedSchemeEntity, db3Var, callbackHandler), "tempFilePath");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                h82.c("SwanAppCanvas", "canvas id is empty or position is null");
+                unitedSchemeEntity.result = l(202);
+                return false;
             }
-            d82.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
-            unitedSchemeEntity.result = l(201);
-            return false;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public f62 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new f62(str);
-            }
-            return null;
-        }
-        return (f62) invokeL.objValue;
     }
 }

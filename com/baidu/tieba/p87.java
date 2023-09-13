@@ -1,51 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class p87 implements ja7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public long d;
-    public int e;
-    public boolean f;
-    public long g;
-    public long h;
-    public long i;
-    public v87 j;
-    @Nullable
-    public Object k;
-    public a77 l;
+public interface p87 extends Comparable<p87> {
+    boolean D();
 
-    public p87() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    boolean E();
+
+    String F();
+
+    boolean K();
+
+    int getPriority();
+
+    void hide();
+
+    int l(int i, int i2);
+
+    void reset();
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static int a(p87 p87Var, p87 other) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, p87Var, other)) == null) {
+                Intrinsics.checkNotNullParameter(other, "other");
+                return Intrinsics.compare(other.getPriority(), p87Var.getPriority());
             }
-        }
-        this.j = new v87();
-    }
-
-    @Override // com.baidu.tieba.ja7
-    public void d(@NonNull Object obj) {
-        v87 v87Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (v87Var = this.j) != null) {
-            v87Var.d(obj);
+            return invokeLL.intValue;
         }
     }
 }

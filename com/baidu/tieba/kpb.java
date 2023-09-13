@@ -1,197 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sqb;
+import android.util.Pair;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tieba.hpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import com.kwad.sdk.api.KsVideoPlayConfig;
+import com.fun.ad.sdk.internal.api.utils.MD5Utils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class kpb<A extends sqb> extends ReporterPidLoader<A> {
+public class kpb<A extends hpb> extends AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ModuleConfigKs e;
+    public final boolean e;
+    public final String f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public kpb(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        this(funAdType, pid, true);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kpb(Ssp.Pid pid) {
+        super(pid.pid, pid.type, pid.ssp.type);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, moduleConfigKs};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = moduleConfigKs;
+        this.e = pid.isBidding;
+        this.f = pid.pid;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public kpb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
+    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
+    public List onReport(Object obj, String str) {
+        InterceptResult invokeLL;
+        double a;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public kpb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        this(funAdType, pid, z, z2, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kpb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
-        super(funAdType, pid, z, z2, z3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hpb(this.mPid) : (AdReporter) invokeV.objValue;
-    }
-
-    public KsVideoPlayConfig e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            KsVideoPlayConfig.Builder showLandscape = new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal);
-            ModuleConfigKs moduleConfigKs = this.e;
-            return showLandscape.videoSoundEnable(moduleConfigKs == null || moduleConfigKs.ksVideoSoundEnable).build();
-        }
-        return (KsVideoPlayConfig) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((sqb) obj).a() / 100.0d;
-        }
-        return invokeL.doubleValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x005e, code lost:
-        if (r6.equals(com.fun.ad.sdk.FunAdSdk.PLATFORM_CSJ) == false) goto L31;
-     */
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            sqb sqbVar = (sqb) obj;
-            double d3 = d * 100.0d;
-            double d4 = d2 * 100.0d;
-            if (z) {
-                sqbVar.c((long) d3, (long) d4);
-                return;
-            }
-            int i4 = (int) (d3 + 100.0d);
-            char c = 0;
-            if (i == 5) {
-                i2 = 0;
-            } else {
-                i2 = 2;
-            }
-            if (FunAdSdk.PLATFORM_KS.equals(str)) {
-                i3 = 1;
-            } else {
-                i3 = 2;
-            }
-            str.hashCode();
-            int hashCode = str.hashCode();
-            String str2 = "baidu";
-            if (hashCode != 98810) {
-                if (hashCode != 102199) {
-                    if (hashCode == 93498907 && str.equals("baidu")) {
-                        c = 2;
-                    }
-                    c = 65535;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
+            hpb hpbVar = (hpb) obj;
+            if (hpbVar != null && hpbVar.a != 0) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(Pair.create("csj_rq_id", hpbVar.c()));
+                if (!this.e) {
+                    a = FunAdSdk.getARPU(this.f);
                 } else {
-                    if (str.equals(FunAdSdk.PLATFORM_GDT)) {
-                        c = 1;
-                    }
-                    c = 65535;
+                    a = hpbVar.a() / 1000.0d;
                 }
+                arrayList.add(Pair.create("rvn", Double.valueOf(a)));
+                arrayList.add(Pair.create("rvnM", MD5Utils.getMD5String(String.valueOf((int) Math.floor(1000000.0d * a)))));
+                arrayList.add(Pair.create(MapBundleKey.MapObjKey.OBJ_BID, Boolean.valueOf(this.e)));
+                return arrayList;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        str2 = "other";
-                    }
-                } else {
-                    str2 = "guangdiantong";
-                }
-            } else {
-                str2 = "chuanshanjia";
-            }
-            sqbVar.b(i4, i2, i3, str2);
+            return null;
         }
+        return (List) invokeLL.objValue;
     }
 }

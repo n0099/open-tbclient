@@ -1,73 +1,114 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedKV;
 /* loaded from: classes6.dex */
 public final class h97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final int c;
+    public final int d;
 
-    public static final String a(List<FeedKV> list, String key) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public h97() {
+        this(null, null, 0, 0, 15, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            for (FeedKV feedKV : list) {
-                if (Intrinsics.areEqual(feedKV.key, key)) {
-                    return feedKV.value;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue(), ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static final List<r87> b(List<FeedKV> list) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            ArrayList arrayList = new ArrayList();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
-                r87 r87Var = new r87(str, null, null, null, null, 30, null);
-                Map<String, String> d = r87Var.d();
-                try {
-                    JSONObject jSONObject = new JSONObject(feedKV.value);
-                    if (d instanceof HashMap) {
-                        Iterator<String> keys = jSONObject.keys();
-                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
-                        while (keys.hasNext()) {
-                            String key = keys.next();
-                            if (!Intrinsics.areEqual(key, "position_name")) {
-                                Intrinsics.checkNotNullExpressionValue(key, "key");
-                                String optString = jSONObject.optString(key);
-                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
-                                d.put(key, optString);
-                            }
-                        }
-                    }
-                    String optString2 = jSONObject.optString("position_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
-                    r87Var.g(optString2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                arrayList.add(r87Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return arrayList;
+            if (obj instanceof h97) {
+                h97 h97Var = (h97) obj;
+                return Intrinsics.areEqual(this.a, h97Var.a) && Intrinsics.areEqual(this.b, h97Var.b) && this.c == h97Var.c && this.d == h97Var.d;
+            }
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31) + this.d : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "IconData(day=" + this.a + ", dark=" + this.b + ", width=" + this.c + ", height=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public h97(String day, String dark, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {day, dark, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(day, "day");
+        Intrinsics.checkNotNullParameter(dark, "dark");
+        this.a = day;
+        this.b = dark;
+        this.c = i;
+        this.d = i2;
+    }
+
+    public /* synthetic */ h97(String str, String str2, int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? 0 : i, (i3 & 8) != 0 ? 0 : i2);
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

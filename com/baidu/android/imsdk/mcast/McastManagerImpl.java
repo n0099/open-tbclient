@@ -30,7 +30,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.y70;
+import com.baidu.tieba.z70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -180,14 +180,14 @@ public class McastManagerImpl {
         if (interceptable == null || interceptable.invokeLL(1048576, this, iMEmojiReplyRequestInfo, iMEmojiReplyListener) == null) {
             if (LoginManager.getInstance(this.mContext).isIMLogined()) {
                 String addListener = ListenerManager.getInstance().addListener(iMEmojiReplyListener);
-                Intent createMcastMethodIntent = Utility.createMcastMethodIntent(this.mContext, Constants.METHOD_IM_EMOJI);
+                Intent createMcastMethodIntent = Utility.createMcastMethodIntent(this.mContext, 214);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_SEND_MSG, iMEmojiReplyRequestInfo.msg);
                 createMcastMethodIntent.putExtra("op_type", iMEmojiReplyRequestInfo.opType);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_EMOJI_PACKAGE_ID, iMEmojiReplyRequestInfo.emojiPackageId);
                 createMcastMethodIntent.putExtra("emoji_content", iMEmojiReplyRequestInfo.emojiContent);
                 try {
-                    y70.e(this.mContext).d(this.mContext, createMcastMethodIntent);
+                    z70.e(this.mContext).d(this.mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception unused) {
                     if (iMEmojiReplyListener != null) {

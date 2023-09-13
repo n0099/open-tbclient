@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
@@ -56,42 +59,45 @@ public final class vc7 {
             }
         }
 
-        public final int a(h77 colorData) {
-            InterceptResult invokeL;
+        public final void a(w97 w97Var) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                int type = colorData.getType();
-                if (type != 1) {
-                    if (type == 2) {
-                        return SkinManager.getColor(w47.a.getResources().getIdentifier(colorData.b(), "color", w47.a.getPackageName()));
-                    }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, w97Var) == null) && w97Var != null) {
+                w97Var.a().a(w97Var.b());
+                String c = w97Var.c();
+                if (c != null && c.length() != 0) {
+                    z = false;
                 } else {
-                    int currentSkinType = SkinManager.getCurrentSkinType();
-                    if (currentSkinType != 0) {
-                        if (currentSkinType == 4) {
-                            return gea.f(colorData.a());
-                        }
-                    } else {
-                        return gea.f(colorData.b());
-                    }
+                    z = true;
                 }
-                return 0;
+                if (z) {
+                    return;
+                }
+                StatisticItem statisticItem = new StatisticItem(w97Var.c());
+                for (Map.Entry<String, String> entry : w97Var.b().entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
+                for (Map.Entry<String, String> entry2 : w97Var.d().entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+                TiebaStatic.log(statisticItem);
             }
-            return invokeL.intValue;
         }
 
-        public final int b(h77 colorData) {
-            InterceptResult invokeL;
+        public final void b(w97 statData, int i) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                if (colorData.getType() == 2) {
-                    return w47.a.getResources().getIdentifier(colorData.b(), "color", w47.a.getPackageName());
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, statData, i) == null) {
+                Intrinsics.checkNotNullParameter(statData, "statData");
+                if (statData.e().length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return 0;
+                if (z && (statData.b() instanceof HashMap)) {
+                    ((HashMap) statData.b()).put(statData.e(), String.valueOf(i));
+                }
             }
-            return invokeL.intValue;
         }
     }
 }

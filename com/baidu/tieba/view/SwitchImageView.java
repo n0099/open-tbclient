@@ -111,7 +111,7 @@ public class SwitchImageView extends AppCompatImageView {
         init();
     }
 
-    public void a() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a == 0) {

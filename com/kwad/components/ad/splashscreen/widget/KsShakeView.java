@@ -89,7 +89,7 @@ public class KsShakeView extends KSFrameLayout {
         this.Ar = obtainStyledAttributes.getInteger(6, 1);
         this.Av = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
         this.Aw = obtainStyledAttributes.getDimension(2, 1.0f);
-        this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e4c);
+        this.Ay = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e67);
         this.Ax = obtainStyledAttributes.getDimension(0, com.kwad.sdk.b.kwai.a.a(context, 10.0f));
         obtainStyledAttributes.recycle();
         this.nC = new ImageView(getContext());
@@ -144,7 +144,7 @@ public class KsShakeView extends KSFrameLayout {
 
     public final void Z(int i) {
         this.Ar = i;
-        setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e4c : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e4d);
+        setIconDrawableRes(i != 2 ? com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e67 : com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e68);
     }
 
     public final void a(AnimatorListenerAdapter animatorListenerAdapter) {
@@ -154,7 +154,7 @@ public class KsShakeView extends KSFrameLayout {
             animator.cancel();
         }
         this.nC.setRotation(0.0f);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070558);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07055d);
         Animator animator2 = this.AA;
         if (animator2 != null) {
             animator2.cancel();

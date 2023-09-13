@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,31 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__IndentKt;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class x65 {
+public final class x65 implements t65 {
     public static /* synthetic */ Interceptable $ic;
-    public static final x65 a;
-    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252338, "Lcom/baidu/tieba/x65;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948252338, "Lcom/baidu/tieba/x65;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948252338, "Lcom/baidu/tieba/x65;")) == null) {
+            return;
         }
-        a = new x65();
-        b = TbadkCoreApplication.getInst().getSharedPreferences("new_frequency_strategy_helper_sp", 0);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948252338, "Lcom/baidu/tieba/x65;");
+        }
     }
 
     public x65() {
@@ -56,106 +50,60 @@ public final class x65 {
         }
     }
 
-    public final int a(String dialogName) {
+    @Override // com.baidu.tieba.t65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialog_url", dialogData.getDialogUrl());
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.t65
+    public boolean b(Map<String, ? extends Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String str = "";
-            String string = b.getString(c(dialogName), "");
-            if (string != null) {
-                str = string;
-            }
-            if (StringUtils.isNotNull(str)) {
-                return e(str, "count");
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int b(String dialogName) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName)) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String str = "";
-            String string = b.getString(c(dialogName), "");
-            if (string != null) {
-                str = string;
-            }
-            if (StringUtils.isNotNull(str)) {
-                return e(str, "version");
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return SharedPrefHelper.getSharedPrefKeyWithAccount("KEY_NEW_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            return StringsKt__IndentKt.trimIndent("\n        {\"version\":" + i + ",\"count\":" + i2 + "}\n    ");
-        }
-        return (String) invokeII.objValue;
-    }
-
-    public final void g(String dialogName, int i) {
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, dialogName, i) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String c = c(dialogName);
-            if (StringUtils.isNull(b.getString(c, ""))) {
-                d = d(i, 1);
-            } else {
-                d = d(i, a(dialogName) + 1);
-            }
-            SharedPreferences.Editor edit = b.edit();
-            edit.putString(c, d);
-            edit.apply();
-        }
-    }
-
-    public final int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            try {
-                return new JSONObject(str).optInt(str2);
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    TbLog yunDialogLog = YunDialogLog.getInstance();
-                    yunDialogLog.e(YunDialogManager.LOG_KEY, "读取缓存频次json失败" + e.getMessage());
-                    e.printStackTrace();
-                    return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            Object obj = map.get("dialog_url");
+            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
+                Object obj2 = map.get("check_preheat");
+                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !yy5.b().e((String) obj)) {
+                    YunDialogLog.getInstance().e("HybridCheckStrategy", "H5弹窗未预热完成");
+                    return false;
                 }
-                throw e;
+                try {
+                    Object obj3 = map.get("init_offline_module");
+                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
+                        TbLog yunDialogLog = YunDialogLog.getInstance();
+                        yunDialogLog.i("HybridCheckStrategy", "主动初始化离线包:" + obj3);
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(obj3);
+                        jz4.d(hashSet);
+                        TbLog yunDialogLog2 = YunDialogLog.getInstance();
+                        yunDialogLog2.i("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
+                    }
+                } catch (Exception e) {
+                    TbLog yunDialogLog3 = YunDialogLog.getInstance();
+                    yunDialogLog3.e("HybridCheckStrategy", "离线包手动初始化异常:" + e);
+                }
+                Object obj4 = map.get("check_offline");
+                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !jz4.c((String) obj)) {
+                    YunDialogLog.getInstance().e("HybridCheckStrategy", "离线包不可用");
+                    return false;
+                }
+                return true;
             }
+            YunDialogLog.getInstance().e("HybridCheckStrategy", "未下发待检测的H5弹窗url");
+            return false;
         }
-        return invokeLL.intValue;
-    }
-
-    public final void f(String dialogName, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, dialogName, i) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            TbLog yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.i(YunDialogManager.LOG_KEY, "重置弹窗 " + dialogName + " 的本地频次记录");
-            String c = c(dialogName);
-            SharedPreferences.Editor edit = b.edit();
-            edit.putString(c, a.d(i, 0));
-            edit.apply();
-        }
+        return invokeL.booleanValue;
     }
 }

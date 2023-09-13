@@ -1,70 +1,319 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mq3 implements eh4 {
+public class mq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public String a;
+    public long b;
+    public List<b> c;
+    public List<b> d;
+    public int[] e;
 
-    public mq3() {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+        public float f;
+        public final /* synthetic */ mq3 g;
+
+        public b(mq3 mq3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mq3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = mq3Var;
+        }
+
+        public /* synthetic */ b(mq3 mq3Var, a aVar) {
+            this(mq3Var);
+        }
+
+        public JSONObject i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("x", yo3.P(this.b));
+                    jSONObject.put("y", yo3.P(this.c));
+                    jSONObject.put("clientX", yo3.P(this.d - this.g.e[0]));
+                    jSONObject.put("clientY", yo3.P(this.e - this.g.e[1]));
+                    jSONObject.put("identifier", this.a);
+                    jSONObject.put("force", this.f);
+                } catch (JSONException e) {
+                    if (mq3.f) {
+                        e.printStackTrace();
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981274, "Lcom/baidu/tieba/mq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947981274, "Lcom/baidu/tieba/mq3;");
+                return;
+            }
+        }
+        f = rr1.a;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public mq3(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {motionEvent};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = "error";
+        this.b = 0L;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new int[2];
+        h(motionEvent, "");
     }
 
-    @Override // com.baidu.tieba.eh4
-    public void a(BaseMenuView baseMenuView) {
+    public final void g(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        if (ku2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, motionEvent) == null) && !TextUtils.equals(this.a, "touchend") && !TextUtils.equals(this.a, "touchcancel")) {
+            try {
+                int pointerCount = motionEvent.getPointerCount();
+                for (int i = 0; i < pointerCount; i++) {
+                    if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
+                        this.c.add(d(motionEvent, i));
+                    }
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    public final void b(ViewGroup viewGroup) {
+    public mq3(MotionEvent motionEvent, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {motionEvent, str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        if (this.a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.a = frameLayout;
-            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f06044f);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+        this.a = "error";
+        this.b = 0L;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new int[2];
+        h(motionEvent, str);
     }
 
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public b d(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, i)) == null) {
+            int pointerId = motionEvent.getPointerId(i);
+            b bVar = new b(this, null);
+            bVar.a = pointerId;
+            bVar.b = motionEvent.getX(i);
+            bVar.c = motionEvent.getY(i);
+            bVar.d = (motionEvent.getRawX() + bVar.b) - motionEvent.getX();
+            bVar.e = (motionEvent.getRawY() + bVar.c) - motionEvent.getY();
+            bVar.f = motionEvent.getPressure(i);
+            return bVar;
+        }
+        return (b) invokeLI.objValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray();
+                if (!this.c.isEmpty()) {
+                    for (b bVar : this.c) {
+                        if (bVar != null) {
+                            jSONArray.put(bVar.i());
+                        }
+                    }
+                }
+                JSONArray jSONArray2 = new JSONArray();
+                if (!this.d.isEmpty()) {
+                    for (b bVar2 : this.d) {
+                        if (bVar2 != null) {
+                            jSONArray2.put(bVar2.i());
+                        }
+                    }
+                }
+                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, this.b);
+                jSONObject.put("touches", jSONArray);
+                jSONObject.put("changedTouches", jSONArray2);
+            } catch (JSONException e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void f(MotionEvent motionEvent) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
+            try {
+                if (motionEvent.getActionMasked() == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    this.d.add(d(motionEvent, motionEvent.getActionIndex()));
+                    return;
+                }
+                int pointerCount = motionEvent.getPointerCount();
+                for (int i = 0; i < pointerCount; i++) {
+                    this.d.add(d(motionEvent, i));
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void i(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
+            this.e = iArr;
+            if (f) {
+                Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
+            }
+        }
+    }
+
+    public final void h(MotionEvent motionEvent, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, motionEvent, str) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            if (actionMasked != 0) {
+                if (actionMasked != 1) {
+                    if (actionMasked != 2) {
+                        if (actionMasked != 3) {
+                            if (actionMasked != 5) {
+                                if (actionMasked != 6) {
+                                    this.a = "error";
+                                } else {
+                                    this.a = "touchpointerup";
+                                    f(motionEvent);
+                                }
+                            } else {
+                                this.a = "touchpointerdown";
+                                f(motionEvent);
+                            }
+                        } else {
+                            this.a = "touchcancel";
+                            f(motionEvent);
+                        }
+                    } else {
+                        this.a = "touchmove";
+                        f(motionEvent);
+                    }
+                } else {
+                    this.a = "touchend";
+                    f(motionEvent);
+                }
+            } else {
+                this.a = "touchstart";
+                f(motionEvent);
+            }
+            this.b = motionEvent.getEventTime();
+            if (!TextUtils.isEmpty(str)) {
+                this.a = str;
+            }
+            g(motionEvent);
+            if (TextUtils.equals(this.a, "touchpointerdown")) {
+                this.a = "touchstart";
+            }
+            if (TextUtils.equals(this.a, "touchpointerup")) {
+                this.a = "touchend";
+            }
         }
     }
 }

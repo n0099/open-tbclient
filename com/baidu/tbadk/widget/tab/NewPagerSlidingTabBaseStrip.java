@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m16;
+import com.baidu.tieba.j26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
     public int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1087T;
+    public int f1085T;
     public int U;
     public int V;
     public boolean W;
@@ -118,7 +118,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         public int currentPosition;
 
         /* loaded from: classes5.dex */
-        public static class a implements Parcelable.Creator<SavedState> {
+        public class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -275,7 +275,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
                 super.onDraw(canvas);
                 if (this.a) {
-                    int width = (getWidth() - this.c.f1087T) - this.c.R;
+                    int width = (getWidth() - this.c.f1085T) - this.c.R;
                     int i = this.c.S;
                     this.c.q.set(width, i, width + this.c.R, i + this.c.R);
                     canvas.drawOval(this.c.q, this.c.p);
@@ -887,7 +887,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.q = new RectF();
             this.R = BdUtilHelper.getDimens(getContext(), R.dimen.tbds20);
             this.S = BdUtilHelper.getDimens(getContext(), R.dimen.tbds16);
-            this.f1087T = BdUtilHelper.getDimens(getContext(), R.dimen.tbds25);
+            this.f1085T = BdUtilHelper.getDimens(getContext(), R.dimen.tbds25);
             this.a = new LinearLayout.LayoutParams(-2, -1);
             this.b = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.tbds200), -1);
             this.C = BdUtilHelper.getDimens(getContext(), R.dimen.tbds22);
@@ -920,8 +920,8 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.i = this.h.getAdapter().getCount();
             boolean z = false;
             for (int i = 0; i < this.i; i++) {
-                if (this.h.getAdapter() instanceof m16) {
-                    z = ((m16) this.h.getAdapter()).a(i);
+                if (this.h.getAdapter() instanceof j26) {
+                    z = ((j26) this.h.getAdapter()).a(i);
                 }
                 w(i, this.h.getAdapter().getPageTitle(i).toString(), z);
             }

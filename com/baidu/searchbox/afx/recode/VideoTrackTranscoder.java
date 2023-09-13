@@ -6,6 +6,7 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import com.baidu.searchbox.afx.recode.QueuedMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -211,7 +212,7 @@ public class VideoTrackTranscoder {
         } catch (IllegalStateException e) {
             e.printStackTrace();
             this.mOutputFormat.setInteger("bitrate-mode", 1);
-            this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
+            this.mOutputFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, mp4Info.getBitrate());
             this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         }
         InputSurface inputSurface = new InputSurface(this.mEncoder.createInputSurface());

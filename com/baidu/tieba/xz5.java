@@ -1,376 +1,122 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Rect;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Activity;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.rz5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
-public class xz5 {
+public class xz5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sz5 a;
-    public final BitmapRegionDecoder b;
-    public zf<rz5.a, rz5> c;
-    public ag<rz5> d;
-    public final ThreadPoolExecutor e;
-    public BdAsyncTask<Void, Void, Void> f;
+    public final Activity a;
+    public jia b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948317686, "Lcom/baidu/tieba/xz5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948317686, "Lcom/baidu/tieba/xz5;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 a;
-
-        public a(xz5 xz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xz5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void[] voidArr) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                try {
-                    this.a.e.shutdownNow();
-                    this.a.e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (this.a.b != null) {
-                    this.a.b.recycle();
-                    return null;
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements RejectedExecutionHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // java.util.concurrent.RejectedExecutionHandler
-        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
-            }
-        }
-
-        public b(xz5 xz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends zf<rz5.a, rz5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xz5 h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(xz5 xz5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = xz5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zf
-        /* renamed from: p */
-        public int m(rz5.a aVar, rz5 rz5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aVar, rz5Var)) == null) {
-                if (rz5Var == null) {
-                    return 0;
-                }
-                return BitmapHelper.getBitmapSize(rz5Var.b());
-            }
-            return invokeLL.intValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zf
-        /* renamed from: o */
-        public void b(boolean z, rz5.a aVar, rz5 rz5Var, rz5 rz5Var2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), aVar, rz5Var, rz5Var2}) == null) && z && this.h.d != null && rz5Var != null) {
-                rz5Var.a();
-                this.h.d.e(rz5Var);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public sz5 d;
-        public BitmapRegionDecoder e;
-        public zf<rz5.a, rz5> f;
-        public tz5 g;
-        public xz5 h;
-
-        public d(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-        }
-
-        public final void b(xz5 xz5Var, sz5 sz5Var, BitmapRegionDecoder bitmapRegionDecoder, zf<rz5.a, rz5> zfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, xz5Var, sz5Var, bitmapRegionDecoder, zfVar) == null) {
-                this.d = sz5Var;
-                this.e = bitmapRegionDecoder;
-                this.f = zfVar;
-                this.h = xz5Var;
-            }
-        }
-
-        public final boolean c(Rect rect) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
-                if (rect.right > rect.left && rect.bottom > rect.top) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void d(tz5 tz5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tz5Var) == null) {
-                this.g = tz5Var;
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            rz5 c;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.f == null || !this.d.b(this.a, this.b, this.c)) {
-                return;
-            }
-            Rect j = this.d.j(this.a, this.b, this.c);
-            this.d.a(j);
-            if (c(j)) {
-                return;
-            }
-            try {
-                c = this.h.f().b();
-                if (c != null) {
-                    if (!c.g(j)) {
-                        System.currentTimeMillis();
-                        c.a();
-                    }
-                } else {
-                    c = this.d.c();
-                }
-            } catch (Throwable unused) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                zf<rz5.a, rz5> zfVar = this.f;
-                zfVar.k((int) (zfVar.g() * 0.8d));
-                System.gc();
-                try {
-                    c = this.d.c();
-                } catch (Throwable unused2) {
-                    return;
-                }
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = this.c;
-            options.inBitmap = c.b();
-            options.inMutable = true;
-            System.currentTimeMillis();
-            Bitmap decodeRegion = this.e.decodeRegion(j, options);
-            if (decodeRegion == null) {
-                options.inBitmap = null;
-                decodeRegion = this.e.decodeRegion(j, options);
-                if (decodeRegion == null) {
-                    return;
-                }
-            }
-            decodeRegion.prepareToDraw();
-            c.h(decodeRegion);
-            c.j(this.a, this.b, this.c);
-            this.f.h(c.d(), c);
-            tz5 tz5Var = this.g;
-            if (tz5Var != null) {
-                tz5Var.onLoadFinished();
-            }
-        }
-    }
-
-    public xz5(sz5 sz5Var, BitmapRegionDecoder bitmapRegionDecoder) {
+    public xz5(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sz5Var, bitmapRegionDecoder};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = sz5Var;
-        this.b = bitmapRegionDecoder;
-        TbImageMemoryCache.B().N((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
-        this.c = new c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        ag<rz5> G = TbImageMemoryCache.B().G(this.a.e());
-        this.d = G;
-        G.f(6);
+        this.a = activity;
     }
 
-    public void d(boolean z) {
+    public void b(jia jiaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.e.purge();
-            if (z && this.f == null) {
-                a aVar = new a(this);
-                this.f = aVar;
-                aVar.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jiaVar) == null) {
+            this.b = jiaVar;
+        }
+    }
+
+    public final void a(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !ei.isEmpty(str) && !ei.isEmpty(str2)) {
+            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            if (kg.e(this.a)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void h(d dVar) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) && dVar != null && this.f == null) {
-            dVar.b(this, this.a, this.b, e());
-            this.e.submit(dVar);
-        }
-    }
-
-    public zf<rz5.a, rz5> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (zf) invokeV.objValue;
-    }
-
-    public ag<rz5> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (ag) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d(true);
-            zf<rz5.a, rz5> zfVar = this.c;
-            if (zfVar != null) {
-                zfVar.k(0);
-                this.c.a();
-                this.c = null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            if (kg.e(this.a)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
-            this.d = null;
+            return true;
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            if (kg.e(this.a)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        jia jiaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!md5.a(str) && str2.startsWith("tiebaapp")) {
+                mia miaVar = new mia();
+                miaVar.w(qia.b(str2));
+                miaVar.y(301);
+                a(webView, miaVar.c(), miaVar.d());
+            }
+            if (md5.a(str) && (jiaVar = this.b) != null && jiaVar.onJsPrompt(str2, jsPromptResult)) {
+                return true;
+            }
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

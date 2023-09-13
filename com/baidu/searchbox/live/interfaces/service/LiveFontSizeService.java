@@ -35,7 +35,7 @@ public interface LiveFontSizeService {
         public static final SizeType INSTANCE = new SizeType();
 
         /* renamed from: T  reason: collision with root package name */
-        public static final int f1062T = 3;
+        public static final int f1060T = 3;
     }
 
     int getFontSizeType();

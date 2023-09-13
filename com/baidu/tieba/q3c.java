@@ -1,31 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.transvod.player.common.AlphaChannelData;
+import com.yy.transvod.player.common.MixAudioExtraInfo;
+import com.yy.transvod.player.common.MixVideoExtraInfo;
+import com.yy.transvod.player.common.VideoExtraInfo;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class q3c {
-    public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface q3c {
+    @Deprecated
+    void onDSEMixAudioExtraInfoV1(j4c j4cVar, ArrayList<MixAudioExtraInfo> arrayList);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042344, "Lcom/baidu/tieba/q3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948042344, "Lcom/baidu/tieba/q3c;");
-                return;
-            }
-        }
-        a = new float[]{-1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, -1.0f, -1.0f, 0.0f, 1.0f, 1.0f, -1.0f, 1.0f, 1.0f};
-        b = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
-    }
+    void onSEIAlphaChannelInfo(j4c j4cVar, int i, ArrayList<AlphaChannelData> arrayList);
+
+    @Deprecated
+    void onSEIAudioExtraInfoV0(j4c j4cVar, ArrayList<Long> arrayList);
+
+    void onSEIAudioOriginalData(j4c j4cVar, byte[] bArr, int i);
+
+    void onSEIMixVideoExtraInfo(j4c j4cVar, int i, ArrayList<MixVideoExtraInfo> arrayList);
+
+    void onSEIVideoExtraInfo(j4c j4cVar, int i, ArrayList<VideoExtraInfo> arrayList);
+
+    void onSEIVideoOriginalData(j4c j4cVar, byte[] bArr, int i);
 }

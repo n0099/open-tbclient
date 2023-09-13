@@ -55,6 +55,7 @@ public class CurrencySwitchResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public String getLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

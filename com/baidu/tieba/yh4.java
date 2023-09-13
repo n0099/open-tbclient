@@ -1,47 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
 /* loaded from: classes8.dex */
-public class yh4 extends GetRequest.GetRequestBuilder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface yh4 {
+    CookieManager f();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yh4(AbstractHttpManager abstractHttpManager) {
-        super(abstractHttpManager);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abstractHttpManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbstractHttpManager) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    int g();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.GetRequest.GetRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
-    public GetRequest build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vh4.b().j(this.httpUrl.toString(), this);
-            requestFrom(6);
-            return super.build();
-        }
-        return (GetRequest) invokeV.objValue;
-    }
+    Context getAppContext();
+
+    int getReadTimeout();
+
+    String getUserAgent();
+
+    boolean h();
+
+    boolean i();
+
+    boolean isDebug();
+
+    void j(String str, HttpRequestBuilder httpRequestBuilder);
+
+    int k();
+
+    List<Interceptor> l();
+
+    int m();
 }

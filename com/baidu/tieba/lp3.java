@@ -1,46 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final class lp3 {
+import java.util.Collections;
+import java.util.HashSet;
+/* loaded from: classes6.dex */
+public class lp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950522, "Lcom/baidu/tieba/lp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947950522, "Lcom/baidu/tieba/lp3;");
-                return;
-            }
-        }
-        a = a("b3Bwbw==");
-        b = a("T1BQTw==");
-        a("T3Bwbw==");
-        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
-    }
-
-    public static String a(String str) {
+    @NonNull
+    @SafeVarargs
+    public static <E> HashSet<E> a(E... eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new String(Base64.decode(str, 0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eArr)) == null) {
+            if (eArr != null && eArr.length > 0) {
+                HashSet<E> hashSet = new HashSet<>(eArr.length);
+                Collections.addAll(hashSet, eArr);
+                return hashSet;
+            }
+            return new HashSet<>();
         }
-        return (String) invokeL.objValue;
+        return (HashSet) invokeL.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.immessagecenter.databinding;
 
-import android.widget.RelativeLayout;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.viewbinding.ViewBinding;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +11,16 @@ public final class TopBubbleViewBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final RelativeLayout a;
+    public final View a;
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.viewbinding.ViewBinding
     @NonNull
-    /* renamed from: a */
-    public RelativeLayout getRoot() {
+    public View getRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (RelativeLayout) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ public class fi {
     public static final int a = ey.PING_RTT.a();
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f372a = 0;
+    public static long f371a = 0;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -18,17 +18,17 @@ public class fi {
     }
 
     public static void a() {
-        if (f372a == 0 || SystemClock.elapsedRealtime() - f372a > 7200000) {
-            f372a = SystemClock.elapsedRealtime();
+        if (f371a == 0 || SystemClock.elapsedRealtime() - f371a > 7200000) {
+            f371a = SystemClock.elapsedRealtime();
             a(0, a);
         }
     }
 
     public static void a(int i) {
-        ez m477a = fg.m475a().m477a();
-        m477a.a(ey.CHANNEL_STATS_COUNTER.a());
-        m477a.c(i);
-        fg.m475a().a(m477a);
+        ez m478a = fg.m476a().m478a();
+        m478a.a(ey.CHANNEL_STATS_COUNTER.a());
+        m478a.c(i);
+        fg.m476a().a(m478a);
     }
 
     public static synchronized void a(int i, int i2) {
@@ -42,13 +42,13 @@ public class fi {
     }
 
     public static void a(int i, int i2, int i3, String str, int i4) {
-        ez m477a = fg.m475a().m477a();
-        m477a.a((byte) i);
-        m477a.a(i2);
-        m477a.b(i3);
-        m477a.b(str);
-        m477a.c(i4);
-        fg.m475a().a(m477a);
+        ez m478a = fg.m476a().m478a();
+        m478a.a((byte) i);
+        m478a.a(i2);
+        m478a.b(i3);
+        m478a.b(str);
+        m478a.c(i4);
+        fg.m476a().a(m478a);
     }
 
     public static synchronized void a(int i, int i2, String str, int i3) {
@@ -56,14 +56,14 @@ public class fi {
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = (i << 24) | i2;
             if (a.a.containsKey(Integer.valueOf(i4))) {
-                ez m477a = fg.m475a().m477a();
-                m477a.a(i2);
-                m477a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
-                m477a.b(str);
+                ez m478a = fg.m476a().m478a();
+                m478a.a(i2);
+                m478a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                m478a.b(str);
                 if (i3 > -1) {
-                    m477a.c(i3);
+                    m478a.c(i3);
                 }
-                fg.m475a().a(m477a);
+                fg.m476a().a(m478a);
                 a.a.remove(Integer.valueOf(i2));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -76,23 +76,23 @@ public class fi {
     }
 
     public static void a(String str, int i, Exception exc) {
-        ez m477a = fg.m475a().m477a();
-        if (fg.a() != null && fg.a().f364a != null) {
-            m477a.c(bi.c(fg.a().f364a) ? 1 : 0);
+        ez m478a = fg.m476a().m478a();
+        if (fg.a() != null && fg.a().f363a != null) {
+            m478a.c(bi.c(fg.a().f363a) ? 1 : 0);
         }
         if (i > 0) {
-            m477a.a(ey.GSLB_REQUEST_SUCCESS.a());
-            m477a.b(str);
-            m477a.b(i);
-            fg.m475a().a(m477a);
+            m478a.a(ey.GSLB_REQUEST_SUCCESS.a());
+            m478a.b(str);
+            m478a.b(i);
+            fg.m476a().a(m478a);
             return;
         }
         try {
             fe.a a2 = fe.a(exc);
-            m477a.a(a2.a.a());
-            m477a.c(a2.f361a);
-            m477a.b(str);
-            fg.m475a().a(m477a);
+            m478a.a(a2.a.a());
+            m478a.c(a2.f360a);
+            m478a.b(str);
+            fg.m476a().a(m478a);
         } catch (NullPointerException unused) {
         }
     }
@@ -100,23 +100,23 @@ public class fi {
     public static void a(String str, Exception exc) {
         try {
             fe.a b = fe.b(exc);
-            ez m477a = fg.m475a().m477a();
-            m477a.a(b.a.a());
-            m477a.c(b.f361a);
-            m477a.b(str);
-            if (fg.a() != null && fg.a().f364a != null) {
-                m477a.c(bi.c(fg.a().f364a) ? 1 : 0);
+            ez m478a = fg.m476a().m478a();
+            m478a.a(b.a.a());
+            m478a.c(b.f360a);
+            m478a.b(str);
+            if (fg.a() != null && fg.a().f363a != null) {
+                m478a.c(bi.c(fg.a().f363a) ? 1 : 0);
             }
-            fg.m475a().a(m477a);
+            fg.m476a().a(m478a);
         } catch (NullPointerException unused) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m481a() {
-        fa m478a = fg.m475a().m478a();
-        if (m478a != null) {
-            return ir.a(m478a);
+    public static byte[] m482a() {
+        fa m479a = fg.m476a().m479a();
+        if (m479a != null) {
+            return ir.a(m479a);
         }
         return null;
     }
@@ -128,14 +128,14 @@ public class fi {
     public static void b(String str, Exception exc) {
         try {
             fe.a d = fe.d(exc);
-            ez m477a = fg.m475a().m477a();
-            m477a.a(d.a.a());
-            m477a.c(d.f361a);
-            m477a.b(str);
-            if (fg.a() != null && fg.a().f364a != null) {
-                m477a.c(bi.c(fg.a().f364a) ? 1 : 0);
+            ez m478a = fg.m476a().m478a();
+            m478a.a(d.a.a());
+            m478a.c(d.f360a);
+            m478a.b(str);
+            if (fg.a() != null && fg.a().f363a != null) {
+                m478a.c(bi.c(fg.a().f363a) ? 1 : 0);
             }
-            fg.m475a().a(m477a);
+            fg.m476a().a(m478a);
         } catch (NullPointerException unused) {
         }
     }

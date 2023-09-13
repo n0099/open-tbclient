@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg8;
-import com.baidu.tieba.mb5;
+import com.baidu.tieba.dh8;
+import com.baidu.tieba.wb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,16 +26,16 @@ public class TbVoiceMsg extends TbNormalMsg {
     public static final String VOICE_THUMBNAIL_TEXT;
     public static final long serialVersionUID = -8477601556340635939L;
     public transient /* synthetic */ FieldHolder $fh;
-    @bg8
     @SerializedName("during_time")
+    @dh8
     public String during;
     public boolean isLocal;
     public String path;
     public String vid;
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
-    @bg8
     @SerializedName("voice_url")
+    @dh8
     public String voiceUrl;
 
     static {
@@ -171,7 +171,7 @@ public class TbVoiceMsg extends TbNormalMsg {
             TbVoiceMsg tbVoiceMsg = new TbVoiceMsg();
             tbVoiceMsg.during = String.valueOf(i);
             tbVoiceMsg.vid = str;
-            tbVoiceMsg.path = mb5.b(str);
+            tbVoiceMsg.path = wb5.b(str);
             tbVoiceMsg.voiceStatus = 1;
             return tbVoiceMsg;
         }

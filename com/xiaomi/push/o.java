@@ -11,16 +11,16 @@ public class o {
     public static volatile o a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f824a;
+    public Context f823a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f825a = new Handler(Looper.getMainLooper());
+    public Handler f824a = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, Map<String, String>> f826a = new HashMap();
+    public Map<String, Map<String, String>> f825a = new HashMap();
 
     public o(Context context) {
-        this.f824a = context;
+        this.f823a = context;
     }
 
     public static o a(Context context) {
@@ -35,10 +35,10 @@ public class o {
     }
 
     private synchronized String a(String str, String str2) {
-        if (this.f826a != null && !TextUtils.isEmpty(str)) {
+        if (this.f825a != null && !TextUtils.isEmpty(str)) {
             if (!TextUtils.isEmpty(str2)) {
                 try {
-                    Map<String, String> map = this.f826a.get(str);
+                    Map<String, String> map = this.f825a.get(str);
                     if (map != null) {
                         return map.get(str2);
                     }
@@ -52,28 +52,28 @@ public class o {
     }
 
     private synchronized void b(String str, String str2, String str3) {
-        if (this.f826a == null) {
-            this.f826a = new HashMap();
+        if (this.f825a == null) {
+            this.f825a = new HashMap();
         }
-        Map<String, String> map = this.f826a.get(str);
+        Map<String, String> map = this.f825a.get(str);
         if (map == null) {
             map = new HashMap<>();
         }
         map.put(str2, str3);
-        this.f826a.put(str, map);
+        this.f825a.put(str, map);
     }
 
     public synchronized String a(String str, String str2, String str3) {
         String a2 = a(str, str2);
         if (TextUtils.isEmpty(a2)) {
-            return this.f824a.getSharedPreferences(str, 4).getString(str2, str3);
+            return this.f823a.getSharedPreferences(str, 4).getString(str2, str3);
         }
         return a2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m721a(String str, String str2, String str3) {
+    public synchronized void m722a(String str, String str2, String str3) {
         b(str, str2, str3);
-        this.f825a.post(new p(this, str, str2, str3));
+        this.f824a.post(new p(this, str, str2, str3));
     }
 }

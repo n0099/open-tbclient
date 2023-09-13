@@ -1,26 +1,33 @@
 package com.baidu.tieba;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.bm4;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface ui4<T> extends wi4 {
-    void a(T t);
+public abstract class ui4<T> extends vi4<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(T t);
+    public abstract void l(PMSAppInfo pMSAppInfo);
 
-    String d(T t);
+    public abstract void o(bm4.a aVar, PMSAppInfo pMSAppInfo, bk4 bk4Var);
 
-    void e(T t, xj4 xj4Var);
+    public abstract void p(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
 
-    void f(T t);
-
-    xj4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException;
-
-    void i(T t);
-
-    void j(T t);
-
-    Map<String, Object> k();
+    public ui4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

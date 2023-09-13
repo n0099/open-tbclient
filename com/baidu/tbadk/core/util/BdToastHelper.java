@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gea;
+import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,8 +31,6 @@ public class BdToastHelper {
     public static final int ICON_TYPE_PRAISE = 3;
     public static final int ICON_TYPE_USER_GROW = 4;
     public static final int ICON_TYPE_VIP_DOUBLE = 5;
-    public static final int ICON_TYPE_WORLD_CUP_BALL = 7;
-    public static final int ICON_TYPE_WORLD_CUP_FLAG = 6;
     public static BdToastData mBdToastData;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +96,7 @@ public class BdToastHelper {
                 if (contentBean2 != null) {
                     if (TbadkApplication.getInst().getSkinType() == 4) {
                         if (StringUtils.isNotNull(contentBean2.getTextColorDark())) {
-                            foregroundColorSpan = new ForegroundColorSpan(gea.f(contentBean2.getTextColorDark()));
+                            foregroundColorSpan = new ForegroundColorSpan(zfa.f(contentBean2.getTextColorDark()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -113,7 +111,7 @@ public class BdToastHelper {
                         }
                     } else {
                         if (StringUtils.isNotNull(contentBean2.getTextColor())) {
-                            foregroundColorSpan = new ForegroundColorSpan(gea.f(contentBean2.getTextColor()));
+                            foregroundColorSpan = new ForegroundColorSpan(zfa.f(contentBean2.getTextColor()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -155,21 +153,11 @@ public class BdToastHelper {
                 int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds203);
                 bdToast.setIcon(R.drawable.icon_mask_usergrowthjiasu);
                 bdToast.setIconSize(dimenPixelSize3, dimenPixelSize4);
-            } else if (bdToastData.getIconType() == 6) {
+            } else if (bdToastData.getIconType() == 8) {
                 int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.tbds580);
                 int dimenPixelSize6 = UtilHelper.getDimenPixelSize(R.dimen.tbds231);
-                bdToast.setIcon(R.drawable.icon_mask_world_cup_flag);
-                bdToast.setIconSize(dimenPixelSize5, dimenPixelSize6);
-            } else if (bdToastData.getIconType() == 7) {
-                int dimenPixelSize7 = UtilHelper.getDimenPixelSize(R.dimen.tbds580);
-                int dimenPixelSize8 = UtilHelper.getDimenPixelSize(R.dimen.tbds231);
-                bdToast.setIcon(R.drawable.icon_mask_world_cup_ball);
-                bdToast.setIconSize(dimenPixelSize7, dimenPixelSize8);
-            } else if (bdToastData.getIconType() == 8) {
-                int dimenPixelSize9 = UtilHelper.getDimenPixelSize(R.dimen.tbds580);
-                int dimenPixelSize10 = UtilHelper.getDimenPixelSize(R.dimen.tbds231);
                 bdToast.setIcon(R.drawable.icon_mask_festival_firworks);
-                bdToast.setIconSizeAndTopMargin(dimenPixelSize9, dimenPixelSize10, UtilHelper.getDimenPixelSize(R.dimen.tbds12));
+                bdToast.setIconSizeAndTopMargin(dimenPixelSize5, dimenPixelSize6, UtilHelper.getDimenPixelSize(R.dimen.tbds12));
             }
         }
     }
@@ -251,7 +239,7 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast makeText = BdToast.makeText(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(makeText, bdToastData);
-                int f = gea.f(bdToastData.getBackground());
+                int f = zfa.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     makeText.setBackgroundColor(f);
                 }

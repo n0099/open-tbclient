@@ -13,10 +13,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.as8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.yq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,19 +59,19 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919ae);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919c8);
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091048);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09104d);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ecc);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919b1);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919b0);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ecb);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919cb);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919ca);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void b(@Nullable View.OnClickListener onClickListener) {
+        public void a(@Nullable View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-                super.b(onClickListener);
+                super.a(onClickListener);
                 this.f.setOnClickListener(onClickListener);
             }
         }
@@ -106,7 +106,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01fd, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0200, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -142,13 +142,13 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                 holder.c.setText(noticeModifySysMsg.getUserFrom().getUsername());
                 int role = noticeModifySysMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f095a);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f095f);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f095c);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0962);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0952);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f182d);
-                yq8.d("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f0957);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f184b);
+                as8.d("c15095", 2, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx;
-import com.baidu.tieba.ny;
-import com.baidu.tieba.tx;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.cx;
+import com.baidu.tieba.oy;
 import com.baidu.tieba.ux;
-import com.baidu.tieba.w05;
+import com.baidu.tieba.vx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>, ux {
+public class NegFeedBackDecorItem extends cx implements ux<NegativeFeedBackData>, vx {
     public static /* synthetic */ Interceptable $ic;
     public static final int VIEW_WH;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.ux
     public void onBindDataToView(NegativeFeedBackData negativeFeedBackData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, negativeFeedBackData) == null) {
@@ -180,10 +180,10 @@ public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>
         }
     }
 
-    private void setAlignTop(w05 w05Var) {
+    private void setAlignTop(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, w05Var) == null) {
-            if (w05Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(65541, this, b15Var) == null) {
+            if (b15Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
@@ -236,18 +236,18 @@ public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>
         }
     }
 
-    public void autoAlignParent(w05 w05Var) {
+    public void autoAlignParent(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w05Var) == null) && w05Var != null && w05Var.getNegFeedBackData() != null) {
-            if (w05Var.getNegFeedBackData().getTopicID() <= 0 && w05Var.getThreadData() != null) {
-                if (!w05Var.showCardBottomOpWeight() && !w05Var.isFromFrs()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b15Var) == null) && b15Var != null && b15Var.getNegFeedBackData() != null) {
+            if (b15Var.getNegFeedBackData().getTopicID() <= 0 && b15Var.getThreadData() != null) {
+                if (!b15Var.showCardBottomOpWeight() && !b15Var.isFromFrs()) {
                     autoAlignParent(Align.ALIGN_RIGHT_BOTTOM);
-                } else if (w05Var.isSupportTop()) {
+                } else if (b15Var.isSupportTop()) {
                     setTopMarginParentAlignTop(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
-                } else if (w05Var.isSupportBottom()) {
-                    ny nyVar = this.threadCard;
-                    if (nyVar != null) {
-                        nyVar.o(this);
+                } else if (b15Var.isSupportBottom()) {
+                    oy oyVar = this.threadCard;
+                    if (oyVar != null) {
+                        oyVar.o(this);
                     }
                 } else {
                     autoAlignParent(Align.ALIGN_RIGHT_TOP);
@@ -255,7 +255,7 @@ public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>
             } else if (this.isConcernRecommend) {
                 adjustForConcernRecommend();
             } else {
-                setAlignTop(w05Var);
+                setAlignTop(b15Var);
             }
         }
     }
@@ -309,7 +309,7 @@ public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bx
+    @Override // com.baidu.tieba.cx
     public NEGFeedBackView getDecorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class NegFeedBackDecorItem extends bx implements tx<NegativeFeedBackData>
         return (NEGFeedBackView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {

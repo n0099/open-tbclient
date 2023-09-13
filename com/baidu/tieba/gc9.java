@@ -1,35 +1,19 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.os.Environment;
+import java.io.File;
 /* loaded from: classes6.dex */
 public interface gc9 {
-    void a();
+    public static final String a = File.separator;
+    public static final String b = Environment.getExternalStorageDirectory() + a + "tieba";
+    public static final String c = b + a + ".tieba_post_monitor";
+    public static final String d = c + a + "v1";
+    public static final String e;
 
-    void b(boolean z);
-
-    void d();
-
-    void g(boolean z, List<bn> list);
-
-    void h(String str);
-
-    void hideLoadingView();
-
-    void i(int i);
-
-    void k();
-
-    void l(int i);
-
-    void m(boolean z);
-
-    void n(fc9 fc9Var);
-
-    void o();
-
-    void onCreate();
-
-    void onDestroy();
-
-    void p(String str);
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append(d);
+        sb.append(a);
+        e = sb.toString();
+    }
 }

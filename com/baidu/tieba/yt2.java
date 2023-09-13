@@ -1,105 +1,170 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.bu2;
-import com.baidu.tieba.jw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
 /* loaded from: classes8.dex */
-public class yt2 extends bu2.f {
+public class yt2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final vi4 e;
+    public Context a;
+    public String[] b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948341618, "Lcom/baidu/tieba/yt2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948341618, "Lcom/baidu/tieba/yt2;");
-                return;
-            }
-        }
-        f = nr1.a;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yt2(String str, vi4 vi4Var) {
-        super("check_sign");
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    public yt2(Context context, @NonNull String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, vi4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, strArr};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
-        this.e = vi4Var;
+        this.a = context;
+        this.b = strArr;
     }
 
-    @Override // com.baidu.tieba.bu2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        wm3 wm3Var;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            iw2 d = iw2.d(bundle.getString("launch_id"));
-            jw2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    wm3Var = ve2.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    wm3 wm3Var2 = new wm3();
-                    wm3Var2.k(11L);
-                    wm3Var2.i(2300L);
-                    wm3Var2.f("inputStream IOException:" + e2.toString());
-                    an3.a().f(wm3Var2);
-                    d.g("SignChecker", wm3Var2.toString());
-                    qp3.a(sourceChannel);
-                    wm3Var = wm3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (wm3Var != null) {
-                    z = false;
-                }
-                if (wm3Var != null) {
-                    d.g("SignChecker", wm3Var.toString());
-                    c().putLong("result_error_code", wm3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                qp3.a(sourceChannel);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.length;
         }
-        return invokeLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b[i];
+        }
+        return invokeI.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.baidu.tieba.yt2$b */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        View inflate;
+        c cVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                if (i == 11) {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00bd, null);
+                    b bVar = new b(null);
+                    bVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090876);
+                    cVar2 = bVar;
+                } else {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00bf, null);
+                    c cVar3 = new c(null);
+                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091265);
+                    cVar2 = cVar3;
+                    if (i == 9) {
+                        if (TextUtils.isEmpty(this.b[9])) {
+                            inflate.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060441));
+                            cVar2 = cVar3;
+                        } else {
+                            inflate.setBackgroundResource(R.drawable.obfuscated_res_0x7f08019f);
+                            cVar2 = cVar3;
+                        }
+                    }
+                }
+                view2 = inflate;
+                view2.setTag(cVar2);
+                cVar = cVar2;
+            } else {
+                cVar = view2.getTag();
+            }
+            if (i != 11 && (cVar instanceof c)) {
+                ((c) cVar).a.setText(this.b[i]);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes8.dex */
-public class ys2 extends xo2<ot2> {
+public class ys2 extends bp2<st2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xo2
+    @Override // com.baidu.tieba.bp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? DownloadStatisticConstants.UBC_TYPE_PAUSE : (String) invokeV.objValue;
     }
 
     public ys2() {
@@ -36,14 +37,13 @@ public class ys2 extends xo2<ot2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xo2
+    @Override // com.baidu.tieba.bp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ot2 ot2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull st2 st2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ot2Var) == null) {
-            ot2Var.seekTo(command.arg1);
-            String str = command.what;
-            d(ot2Var, str, "SeekTo: " + command.arg1, false);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, st2Var) == null) {
+            st2Var.pause();
+            d(st2Var, command.what, null, false);
         }
     }
 }

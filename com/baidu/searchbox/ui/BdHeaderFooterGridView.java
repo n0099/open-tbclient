@@ -47,7 +47,7 @@ public class BdHeaderFooterGridView extends GridView {
         public boolean isSelectable;
 
         /* renamed from: view  reason: collision with root package name */
-        public View f1069view;
+        public View f1067view;
         public ViewGroup viewContainer;
 
         public FixedViewInfo() {
@@ -387,7 +387,7 @@ public class BdHeaderFooterGridView extends GridView {
         public boolean removeFooter(View view2) {
             boolean z = false;
             for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
-                if (this.mFooterViewInfos.get(i).f1069view == view2) {
+                if (this.mFooterViewInfos.get(i).f1067view == view2) {
                     this.mFooterViewInfos.remove(i);
                     if (areAllListInfosSelectable(this.mHeaderViewInfos) && areAllListInfosSelectable(this.mFooterViewInfos)) {
                         z = true;
@@ -403,7 +403,7 @@ public class BdHeaderFooterGridView extends GridView {
         public boolean removeHeader(View view2) {
             boolean z = false;
             for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
-                if (this.mHeaderViewInfos.get(i).f1069view == view2) {
+                if (this.mHeaderViewInfos.get(i).f1067view == view2) {
                     this.mHeaderViewInfos.remove(i);
                     if (areAllListInfosSelectable(this.mHeaderViewInfos) && areAllListInfosSelectable(this.mFooterViewInfos)) {
                         z = true;
@@ -461,7 +461,7 @@ public class BdHeaderFooterGridView extends GridView {
 
     public int getHeaderHeight(int i) {
         if (i >= 0) {
-            return this.mHeaderViewInfos.get(i).f1069view.getMeasuredHeight();
+            return this.mHeaderViewInfos.get(i).f1067view.getMeasuredHeight();
         }
         return 0;
     }
@@ -533,7 +533,7 @@ public class BdHeaderFooterGridView extends GridView {
     private void removeFixedViewInfo(View view2, ArrayList<FixedViewInfo> arrayList) {
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (arrayList.get(i).f1069view == view2) {
+            if (arrayList.get(i).f1067view == view2) {
                 arrayList.remove(i);
                 return;
             }
@@ -666,7 +666,7 @@ public class BdHeaderFooterGridView extends GridView {
             fullWidthFixedViewLayout.setLayoutParams(new AbsListView.LayoutParams(layoutParams.width, layoutParams.height));
         }
         fullWidthFixedViewLayout.addView(view2);
-        fixedViewInfo.f1069view = view2;
+        fixedViewInfo.f1067view = view2;
         fixedViewInfo.viewContainer = fullWidthFixedViewLayout;
         fixedViewInfo.data = obj;
         fixedViewInfo.isSelectable = z;
@@ -689,7 +689,7 @@ public class BdHeaderFooterGridView extends GridView {
             fullWidthFixedViewLayout.setLayoutParams(new AbsListView.LayoutParams(layoutParams.width, layoutParams.height));
         }
         fullWidthFixedViewLayout.addView(view2);
-        fixedViewInfo.f1069view = view2;
+        fixedViewInfo.f1067view = view2;
         fixedViewInfo.viewContainer = fullWidthFixedViewLayout;
         fixedViewInfo.data = obj;
         fixedViewInfo.isSelectable = z;

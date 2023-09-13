@@ -5,8 +5,8 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.ob8;
-import com.baidu.tieba.rb8;
+import com.baidu.tieba.kc8;
+import com.baidu.tieba.nc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,12 +19,12 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u000fB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J$\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0010"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/sugslice/AibotSugHandler;", "Lcom/baidu/tieba/im/base/core/uilist/BaseAbilityHandler;", "wrapper", "Lcom/baidu/tieba/im/biz/aibot/AibotChatPageWrapper;", "(Lcom/baidu/tieba/im/biz/aibot/AibotChatPageWrapper;)V", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "payload", "", "provideType", "", "Conf", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class AibotSugHandler extends ob8 {
+public final class AibotSugHandler extends kc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rb8 b;
+    public final nc8 b;
 
-    @Override // com.baidu.tieba.ob8
+    @Override // com.baidu.tieba.kc8
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public final class AibotSugHandler extends ob8 {
         }
     }
 
-    public AibotSugHandler(rb8 wrapper) {
+    public AibotSugHandler(nc8 wrapper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,7 +162,7 @@ public final class AibotSugHandler extends ob8 {
         this.b = wrapper;
     }
 
-    @Override // com.baidu.tieba.ob8
+    @Override // com.baidu.tieba.kc8
     public void c(AbilityItem abilityItem, TbBaseMsg tbBaseMsg, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, tbBaseMsg, obj) == null) {
@@ -177,14 +177,14 @@ public final class AibotSugHandler extends ob8 {
                         z = false;
                     }
                     if (z) {
-                        this.b.T(str);
+                        this.b.z(2, 2, str);
                         return;
                     }
                     return;
                 }
                 throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
             }
-            ob8.b(this, abilityItem, null, 2, null);
+            kc8.b(this, abilityItem, null, 2, null);
         }
     }
 }

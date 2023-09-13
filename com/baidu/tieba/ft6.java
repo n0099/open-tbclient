@@ -1,23 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-/* loaded from: classes6.dex */
-public interface ft6 {
-    public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus");
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class ft6 implements tc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus.autorelease");
-
-        void a(@NonNull BdUniqueId bdUniqueId);
+    @Override // com.baidu.tieba.tc7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
     }
 
-    <T extends et6> void a(@NonNull Object obj, @NonNull gt6<T> gt6Var);
+    public ft6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    <T extends et6> void b(@Nullable T t);
-
-    void unregister(@NonNull Object obj);
+    @Override // com.baidu.tieba.tc7
+    public Map<String, String> a(f87 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", at6.a.a(businessInfo));
+            hashMap.put("obj_locate", "3");
+            hashMap.put(TiebaStatic.Params.OBJ_TO, "2");
+            hashMap.put("obj_source", "1");
+            hashMap.put("obj_param1", "1");
+            String str = a.get("live_type");
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
 }

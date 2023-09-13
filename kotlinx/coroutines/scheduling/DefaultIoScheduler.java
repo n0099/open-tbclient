@@ -19,7 +19,7 @@ public final class DefaultIoScheduler extends ExecutorCoroutineDispatcher implem
     public static final DefaultIoScheduler INSTANCE = new DefaultIoScheduler();
 
     /* renamed from: default  reason: not valid java name */
-    public static final CoroutineDispatcher f1024default;
+    public static final CoroutineDispatcher f1023default;
 
     @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher
     public Executor getExecutor() {
@@ -35,7 +35,7 @@ public final class DefaultIoScheduler extends ExecutorCoroutineDispatcher implem
         int systemProp$default;
         UnlimitedIoScheduler unlimitedIoScheduler = UnlimitedIoScheduler.INSTANCE;
         systemProp$default = SystemPropsKt__SystemProps_commonKt.systemProp$default(DispatchersKt.IO_PARALLELISM_PROPERTY_NAME, RangesKt___RangesKt.coerceAtLeast(64, SystemPropsKt.getAVAILABLE_PROCESSORS()), 0, 0, 12, (Object) null);
-        f1024default = unlimitedIoScheduler.limitedParallelism(systemProp$default);
+        f1023default = unlimitedIoScheduler.limitedParallelism(systemProp$default);
     }
 
     @Override // kotlinx.coroutines.ExecutorCoroutineDispatcher, java.io.Closeable, java.lang.AutoCloseable
@@ -45,19 +45,19 @@ public final class DefaultIoScheduler extends ExecutorCoroutineDispatcher implem
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo2344dispatch(CoroutineContext coroutineContext, Runnable runnable) {
-        f1024default.mo2344dispatch(coroutineContext, runnable);
+    public void mo2345dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+        f1023default.mo2345dispatch(coroutineContext, runnable);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     @InternalCoroutinesApi
     public void dispatchYield(CoroutineContext coroutineContext, Runnable runnable) {
-        f1024default.dispatchYield(coroutineContext, runnable);
+        f1023default.dispatchYield(coroutineContext, runnable);
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        mo2344dispatch(EmptyCoroutineContext.INSTANCE, runnable);
+        mo2345dispatch(EmptyCoroutineContext.INSTANCE, runnable);
     }
 
     @Override // kotlinx.coroutines.CoroutineDispatcher

@@ -126,7 +126,7 @@ public class NavigationBarCoverTip extends BaseCoverTip {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010100);
+            return AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010103);
         }
         return (Animation) invokeV.objValue;
     }

@@ -9,6 +9,8 @@ import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import com.baidu.cyberplayer.sdk.CyberRuntimeInfo;
+import com.baidu.cyberplayer.sdk.utils.ZipUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
@@ -33,7 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0748a, ag {
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0743a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -42,10 +44,10 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0748
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class RunnableC0731a implements Runnable {
+    public class RunnableC0726a implements Runnable {
         public final int b;
 
-        public RunnableC0731a(int i) {
+        public RunnableC0726a(int i) {
             this.b = i;
         }
 
@@ -158,7 +160,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0748
             }
             long M = d2.M();
             long a = l.a(Environment.getDataDirectory());
-            long min = Math.min(524288000L, a / 10);
+            long min = Math.min((long) ZipUtils.MAX_ZIP_FILE_LENGTH, a / 10);
             long totalBytes = downloadInfo.getTotalBytes();
             double d3 = totalBytes;
             double d4 = min + (2.5d * d3);
@@ -256,14 +258,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0748
         return d;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0743a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
         a(5);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0743a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
@@ -503,7 +505,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0748
                 if (curBytes > 0.0d && realDownloadTime > 0.0d) {
                     double d2 = curBytes / realDownloadTime;
                     try {
-                        jSONObject.put("download_speed", d2);
+                        jSONObject.put(CyberRuntimeInfo.DP_RUNTIME_DOWNLOAD_SPEED, d2);
                     } catch (Exception unused) {
                     }
                     String str2 = a;
@@ -861,13 +863,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0748
             return;
         }
         d a2 = d.a();
-        RunnableC0731a runnableC0731a = new RunnableC0731a(i);
+        RunnableC0726a runnableC0726a = new RunnableC0726a(i);
         if (this.b > 0) {
             j = 2000;
         } else {
             j = 8000;
         }
-        a2.a(runnableC0731a, j);
+        a2.a(runnableC0726a, j);
         this.b = currentTimeMillis;
     }
 

@@ -26,7 +26,7 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tn;
+import com.baidu.tieba.un;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BdCircleImageView a;
-        public tn b;
+        public un b;
         public Animation c;
         public Animation d;
         public final /* synthetic */ BdSwipeRefreshLayout e;
@@ -129,7 +129,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public long getCompleteAnimTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return 0L;
             }
             return invokeV.longValue;
@@ -174,9 +174,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             public void applyTransformation(float f, Transformation transformation) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-                    tn tnVar = this.c.b;
+                    un unVar = this.c.b;
                     int i = this.a;
-                    tnVar.setAlpha((int) (i + ((this.b - i) * f)));
+                    unVar.setAlpha((int) (i + ((this.b - i) * f)));
                 }
             }
         }
@@ -198,9 +198,9 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             }
             this.e = bdSwipeRefreshLayout;
             this.a = new BdCircleImageView(bdSwipeRefreshLayout.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
-            tn tnVar = new tn(context, this.a);
-            this.b = tnVar;
-            tnVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            un unVar = new un(context, this.a);
+            this.b = unVar;
+            unVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
             this.a.setImageDrawable(this.b);
             this.a.setVisibility(8);
         }
@@ -240,7 +240,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
 
         @SuppressLint({"NewApi"})
-        public final Animation g(int i, int i2) {
+        public final Animation e(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
@@ -257,30 +257,30 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
             return (Animation) invokeII.objValue;
         }
 
+        @SuppressLint({"NewApi"})
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.d = e(this.b.getAlpha(), 255);
+            }
+        }
+
+        @SuppressLint({"NewApi"})
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.c = e(this.b.getAlpha(), 76);
+            }
+        }
+
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
         public View getView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return this.a;
             }
             return (View) invokeV.objValue;
-        }
-
-        @SuppressLint({"NewApi"})
-        public final void i() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.d = g(this.b.getAlpha(), 255);
-            }
-        }
-
-        @SuppressLint({"NewApi"})
-        public final void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.c = g(this.b.getAlpha(), 76);
-            }
         }
 
         @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -299,7 +299,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
                 this.b.setAlpha(76);
                 this.b.l(true);
                 if (this.b.getAlpha() > 76 && !this.e.q(this.c)) {
-                    j();
+                    g();
                 }
             }
         }
@@ -321,7 +321,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         public void onReleaseToRefresh() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.b.getAlpha() < 255 && !this.e.q(this.d)) {
-                i();
+                f();
             }
         }
     }

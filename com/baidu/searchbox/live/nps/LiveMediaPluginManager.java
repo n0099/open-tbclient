@@ -39,9 +39,9 @@ import com.baidu.searchbox.live.ubc.MediaLivePlayLogger;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pe1;
-import com.baidu.tieba.re1;
-import com.baidu.tieba.se1;
+import com.baidu.tieba.te1;
+import com.baidu.tieba.ve1;
+import com.baidu.tieba.we1;
 import com.baidu.ubc.UBCManager;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
@@ -141,8 +141,8 @@ public class LiveMediaPluginManager {
             dLog("preDownloadMediaBusinessPlugin 预加载媒体二级插件");
             Log.d(TAG, "preDownloadYYPluginForCreateLive: + com.baidu.live.media.business start Download");
         }
-        NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new pe1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
-            @Override // com.baidu.tieba.pe1
+        NPSPackageManager.getInstance().downloadBundle("com.baidu.live.media.business", new te1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.10
+            @Override // com.baidu.tieba.te1
             public void onProgress(long j, long j2) {
                 if (LiveMediaPluginManager.this.isDebug()) {
                     LiveMediaPluginManager liveMediaPluginManager = LiveMediaPluginManager.this;
@@ -151,7 +151,7 @@ public class LiveMediaPluginManager {
                 }
             }
 
-            @Override // com.baidu.tieba.pe1
+            @Override // com.baidu.tieba.te1
             public void onResult(int i, String str) {
                 if (LiveMediaPluginManager.this.isDebug()) {
                     if (i == 2) {
@@ -220,19 +220,19 @@ public class LiveMediaPluginManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new pe1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
-            @Override // com.baidu.tieba.pe1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.livenps", new te1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.17
+            @Override // com.baidu.tieba.te1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.pe1
+            @Override // com.baidu.tieba.te1
             public void onResult(int i, String str) {
             }
-        }, new re1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
-            @Override // com.baidu.tieba.re1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, se1 se1Var) {
-                if (se1Var != null) {
-                    se1Var.onResult(1);
+        }, new ve1() { // from class: com.baidu.searchbox.live.nps.LiveMediaPluginManager.18
+            @Override // com.baidu.tieba.ve1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, we1 we1Var) {
+                if (we1Var != null) {
+                    we1Var.onResult(1);
                 }
             }
         }, 1);

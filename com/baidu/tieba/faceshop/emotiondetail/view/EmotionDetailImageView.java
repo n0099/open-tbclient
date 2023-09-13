@@ -77,7 +77,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 this.b.b.setVisibility(8);
                 if (bdImage != null) {
                     this.b.a = new TbMemeImageView(this.b.getContext());
-                    ((TbMemeImageView) this.b.a).h(bdImage);
+                    ((TbMemeImageView) this.b.a).i(bdImage);
                     EmotionDetailImageView emotionDetailImageView = this.b;
                     ImageView imageView = emotionDetailImageView.a;
                     EmotionDetailData.PicInfo picInfo = this.a.pic_info;
@@ -109,7 +109,7 @@ public class EmotionDetailImageView extends FrameLayout {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (imageView = this.a) != null && (imageView instanceof TbMemeImageView)) {
-            ((TbMemeImageView) imageView).g();
+            ((TbMemeImageView) imageView).h();
         }
     }
 
@@ -197,7 +197,7 @@ public class EmotionDetailImageView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081271));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081291));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);
@@ -224,7 +224,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 gifInfo.mGifWidth = picInfo2.width;
                 gifInfo.mGifHeight = picInfo2.height;
                 this.a.setTag(str);
-                ((GifView) this.a).t(gifInfo);
+                ((GifView) this.a).o(gifInfo);
                 ImageView imageView = this.a;
                 EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
                 h(imageView, picInfo3.width, picInfo3.height, 200, 200);

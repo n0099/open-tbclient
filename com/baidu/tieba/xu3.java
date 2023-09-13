@@ -1,51 +1,30 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class xu3 extends nr4 {
+public abstract class xu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract void e(IOException iOException);
 
-    /* loaded from: classes8.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xu3 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void f(int i);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-277141003, "Lcom/baidu/tieba/xu3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-277141003, "Lcom/baidu/tieba/xu3$b;");
-                    return;
-                }
-            }
-            a = new xu3(null);
-        }
-    }
+    public abstract void h(byte[] bArr);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xu3() {
-        super("app_quick_config");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,24 +32,80 @@ public class xu3 extends nr4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = false;
+        this.b = 0;
     }
 
-    public static xu3 e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (xu3) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ xu3(a aVar) {
-        this();
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = 0;
+            gu3.b().a(str, this);
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final String g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            String str = new String(bArr);
+            if (du3.a) {
+                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
+            }
+            if (this.a) {
+                ru3 c = hu3.f().c(ju3.l().m(), bArr);
+                if (c != null) {
+                    if (!TextUtils.isEmpty(c.a())) {
+                        str = c.a();
+                    }
+                    this.b = c.b().intValue();
+                } else {
+                    this.b = -1;
+                }
+                ju3.l().m().s(this.b);
+                if (this.b == -1) {
+                    gu3.b().f(false);
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

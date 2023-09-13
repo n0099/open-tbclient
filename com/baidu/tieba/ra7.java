@@ -1,116 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
-import java.util.Map;
-@Autowired
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedPicComponent;
+import tbclient.PicInfo;
 /* loaded from: classes7.dex */
-public class ra7 {
+public final class ra7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948114977, "Lcom/baidu/tieba/ra7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948114977, "Lcom/baidu/tieba/ra7;");
-                return;
-            }
-        }
-        GlobalBuildConfig.isDebug();
-    }
-
-    public ra7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Inject
-    public static ma7 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return zq6.a();
-        }
-        return (ma7) invokeV.objValue;
-    }
-
-    public static String a(String str, String str2, String str3) {
+    public static final j77 a(List<PicInfo> picInfoList, String schema, u87 feedExtraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    sb.append("&");
-                    sb.append(URLEncoder.encode(str2, "UTF-8"));
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(str3, "UTF-8"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return sb.toString();
-            }
-            return str;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(str.trim());
-                try {
-                    for (String str2 : map.keySet()) {
-                        sb.append("&");
-                        sb.append(URLEncoder.encode(str2, "UTF-8"));
-                        sb.append("=");
-                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, picInfoList, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            j87 j87Var = new j87();
+            ArrayList arrayList = new ArrayList();
+            Iterator<PicInfo> it = picInfoList.iterator();
+            while (true) {
+                boolean z = false;
+                if (it.hasNext()) {
+                    PicInfo next = it.next();
+                    r97 r97Var = new r97();
+                    r97Var.a = next.small_pic_url;
+                    Integer num = next.width;
+                    Intrinsics.checkNotNullExpressionValue(num, "component.width");
+                    r97Var.b = num.intValue();
+                    Integer num2 = next.height;
+                    Intrinsics.checkNotNullExpressionValue(num2, "component.height");
+                    r97Var.c = num2.intValue();
+                    Double d = next.crop_point_width_ratio;
+                    Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
+                    r97Var.e = d.doubleValue();
+                    Double d2 = next.crop_point_height_ratio;
+                    Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
+                    r97Var.f = d2.doubleValue();
+                    Integer num3 = next.is_long_pic;
+                    if (num3 != null && num3.intValue() == 1) {
+                        z = true;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    r97Var.d = z;
+                    arrayList.add(r97Var);
+                } else {
+                    j87Var.a = arrayList;
+                    return new j77(j87Var, schema, CollectionsKt__CollectionsKt.listOf((Object[]) new w97[]{v87.b(feedExtraData, "image_click"), v87.b(feedExtraData, "image_click2"), v87.b(feedExtraData, "image_click3"), v87.b(feedExtraData, "image_click4"), v87.b(feedExtraData, "image_click5")}), null, 8, null);
                 }
-                return sb.toString();
             }
-            return str;
+        } else {
+            return (j77) invokeLLL.objValue;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static void c(Context context, String str) {
+    public static final void b(FeedPicComponent feedPicComponent, List<pc7<?>> dataList, u87 feedExtraData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            d().a(context, str);
+        if (interceptable == null || interceptable.invokeLLL(65537, null, feedPicComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            List<PicInfo> list = feedPicComponent.pics;
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            List<PicInfo> pics = feedPicComponent.pics;
+            Intrinsics.checkNotNullExpressionValue(pics, "pics");
+            String schema = feedPicComponent.schema;
+            Intrinsics.checkNotNullExpressionValue(schema, "schema");
+            dataList.add(new qc7(a(pics, schema, feedExtraData), "pic"));
         }
     }
 }

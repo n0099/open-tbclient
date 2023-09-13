@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static byte[] OMA2_SYSTEM_ID = null;

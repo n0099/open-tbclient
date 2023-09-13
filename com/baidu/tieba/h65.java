@@ -1,18 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class h65 extends x55 {
+public class h65 implements lk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,41 +25,27 @@ public final class h65 extends x55 {
         }
     }
 
-    public static final void b(DialogInterface dialogInterface) {
+    @Override // com.baidu.tieba.lk1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
-            YunDialogManager.unMarkShowingDialogName("userIcon");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new nz6());
+            arrayList.add(new au7());
+            arrayList.add(new eu7());
+            arrayList.add(new iu7());
+            arrayList.add(new mu7());
+            arrayList.add(new qu7());
+            arrayList.add(new uu7());
+            arrayList.add(new yu7());
+            arrayList.add(new cv7());
+            arrayList.add(new qh9());
+            arrayList.add(new vh9());
+            arrayList.add(new ai9());
+            arrayList.add(new ola());
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.tieba.x55
-    public void a(Context context, p55 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!PollingModel.checkIconPopHadShow()) {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-                return;
-            }
-            SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
-            signPopStampDialogUtil.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.r55
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.content.DialogInterface.OnDismissListener
-                public final void onDismiss(DialogInterface dialogInterface) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                        h65.b(dialogInterface);
-                    }
-                }
-            });
-            if (signPopStampDialogUtil.preShowPollingStampDialog(TbSingleton.getInstance().getIconPopData()) != null) {
-                YunDialogManager.markShowingDialogName("userIcon");
-            } else {
-                YunDialogManager.unMarkShowingDialogName("userIcon");
-            }
-        }
+        return invokeV.objValue;
     }
 }

@@ -1,160 +1,191 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import com.baidu.tieba.m30;
+import com.baidu.tieba.o20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class o30 implements k30 {
+public class o30 implements r30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q30 a;
-    public v30 b;
-    public p30 c;
-    public JSONObject d;
-    public Context e;
 
-    public o30(Context context) {
+    public o30() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new n30();
-        this.b = new z30();
-        this.c = new m30();
-        if (this.d == null) {
-            c(context);
         }
     }
 
-    @Override // com.baidu.tieba.k30
-    public JSONObject a() {
+    @Override // com.baidu.tieba.r30
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d == null) {
-                c(this.e);
-            }
-            return this.d;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? p20.b().a() : (String) invokeV.objValue;
     }
 
-    public final JSONObject b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r30
+    public String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? o20.f(context.getApplicationContext()).c() : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r30
+    public JSONArray b(Context context) {
+        InterceptResult invokeL;
+        T t;
+        o20.f fVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            m30 m30Var = new m30();
+            o20.f(context).q(m30Var);
+            boolean b = m30Var.b(10000);
+            JSONArray jSONArray = new JSONArray();
+            if (b) {
+                m30.b a = m30Var.a();
+                if (a != null && (t = a.a) != 0 && (fVar = (o20.f) t) != null && fVar.b() != null) {
+                    for (o20.g gVar : fVar.b()) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("aid", gVar.b);
+                            jSONObject.put("pkg", gVar.a);
+                            jSONObject.put("priority", gVar.c);
+                            jSONArray.put(jSONObject);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } else {
+                m30Var.c();
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r30
+    public String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            m30 m30Var = new m30();
+            o20.f(context).o(m30Var);
+            if (!m30Var.b(10000)) {
+                m30Var.c();
+                return null;
+            }
+            m30.b a = m30Var.a();
+            if (a == null || TextUtils.isEmpty((CharSequence) a.a)) {
+                return null;
+            }
+            return (String) a.a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r30
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            m30 m30Var = new m30();
+            o20.f(context).m(m30Var);
+            if (!m30Var.b(10000)) {
+                m30Var.c();
+                return null;
+            }
+            m30.b a = m30Var.a();
+            if (a == null || TextUtils.isEmpty((CharSequence) a.a)) {
+                return null;
+            }
+            return (String) a.a;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r30
+    public String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? o20.f(context.getApplicationContext()).e() : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r30
+    public JSONArray f(Context context) {
+        InterceptResult invokeL;
+        T t;
+        List<h50> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            m30 m30Var = new m30();
+            p20.b().e(context, m30Var);
+            boolean b = m30Var.b(10000);
+            JSONArray jSONArray = new JSONArray();
+            if (b) {
+                m30.b a = m30Var.a();
+                if (a != null && (t = a.a) != 0 && (list = (List) t) != null && list.size() > 0) {
+                    for (h50 h50Var : list) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("pkg", h50Var.a);
+                            jSONObject.put("sigs", Arrays.toString(h50Var.b));
+                            jSONObject.put("vc", h50Var.c);
+                            jSONObject.put("va", h50Var.d);
+                            jSONObject.put("installts", h50Var.e);
+                            jSONObject.put("lstupdatets", h50Var.f);
+                            jSONArray.put(jSONObject);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } else {
+                m30Var.c();
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r30
+    public JSONObject g(Context context) {
+        InterceptResult invokeL;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            m30 m30Var = new m30();
+            p20.b().c(context, m30Var);
+            boolean b = m30Var.b(10000);
             JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ver", 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                jSONObject.put("aid", this.a.a(this.e));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            try {
-                jSONObject.put("uid", this.c.a(this.e));
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            try {
-                jSONObject.put("adrid", this.b.c(this.e));
-            } catch (Exception e4) {
-                e4.printStackTrace();
-            }
-            try {
-                jSONObject.put("network", this.b.d(this.e));
-            } catch (Exception e5) {
-                e5.printStackTrace();
-            }
-            try {
-                jSONObject.put("pkg", this.b.b(this.e));
-            } catch (Exception e6) {
-                e6.printStackTrace();
-            }
-            try {
-                jSONObject.put("ctime", this.b.b());
-            } catch (Exception e7) {
-                e7.printStackTrace();
-            }
-            try {
-                jSONObject.put("ua", this.b.a(this.e));
-            } catch (Exception e8) {
-                e8.printStackTrace();
-            }
-            try {
-                jSONObject.put("ut", this.b.a());
-            } catch (Exception e9) {
-                e9.printStackTrace();
-            }
-            try {
-                jSONObject.put("iid", this.a.e(this.e));
-            } catch (Exception e10) {
-                e10.printStackTrace();
-            }
-            try {
-                jSONObject.put(Config.SID, this.a.b(this.e));
-            } catch (Exception e11) {
-                e11.printStackTrace();
-            }
-            try {
-                jSONObject.put("oid", this.a.c(this.e));
-            } catch (Exception e12) {
-                e12.printStackTrace();
-            }
-            try {
-                jSONObject.put(Config.GAID, this.a.d(this.e));
-            } catch (Exception e13) {
-                e13.printStackTrace();
-            }
-            try {
-                jSONObject.put("cver", this.a.a());
-            } catch (Exception e14) {
-                e14.printStackTrace();
-            }
-            try {
-                jSONObject.put("sappinfos", this.a.f(this.e).toString());
-            } catch (Exception e15) {
-                e15.printStackTrace();
-            }
-            try {
-                jSONObject.put("cstoreext", this.a.g(this.e).toString());
-            } catch (Exception e16) {
-                e16.printStackTrace();
+            if (b) {
+                m30.b a = m30Var.a();
+                if (a != null && (t = a.a) != 0) {
+                    g50 g50Var = (g50) t;
+                }
+            } else {
+                m30Var.c();
             }
             return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            if (context == null) {
-                throw new NullPointerException("ctx should not be null");
-            }
-            if (this.e == null) {
-                this.e = context.getApplicationContext();
-            }
-            this.d = b();
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

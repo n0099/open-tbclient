@@ -1,32 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.graphics.Rect;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ha1 {
+public final class ha1 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<x91> a;
-    public final List<ca1> b;
-    public final ba1 c;
+    public boolean a;
+    public int b;
+    public WeakReference<View> c;
 
-    public ha1(ba1 contextHelper) {
+    /* loaded from: classes6.dex */
+    public static final class a implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ha1 b;
+        public final /* synthetic */ View c;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        public a(Context context, ha1 ha1Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, ha1Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = ha1Var;
+            this.c = view2;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                if (activity == this.c.getContext()) {
+                    ((Application) this.a).unregisterActivityLifecycleCallbacks(this);
+                }
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                if (activity == this.c.getContext()) {
+                    this.b.a = false;
+                }
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                if (activity == this.c.getContext()) {
+                    this.b.a = true;
+                }
+            }
+        }
+    }
+
+    public ha1(View rootView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {contextHelper};
+            Object[] objArr = {rootView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,197 +134,41 @@ public final class ha1 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(contextHelper, "contextHelper");
-        this.c = contextHelper;
-        this.a = new ArrayList();
-        this.b = new ArrayList();
+        Intrinsics.checkNotNullParameter(rootView, "rootView");
+        this.b = -1;
+        this.c = new WeakReference<>(rootView);
+        Context a2 = bb1.a();
+        if (a2 instanceof Application) {
+            ((Application) a2).registerActivityLifecycleCallbacks(new a(a2, this, rootView));
+        }
     }
 
-    public final boolean g(String url) {
-        InterceptResult invokeL;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        View rootView;
+        int measuredHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, url)) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            while (true) {
-                boolean z = false;
-                for (ca1 ca1Var : this.b) {
-                    if (z || ca1Var.a(this.c, url)) {
-                        z = true;
-                    }
-                }
-                return z;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (rootView = this.c.get()) != null) {
+            Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
+            if (this.b >= ((int) (q61.c.f(rootView.getContext()) * 0.85f)) && !this.a) {
+                return;
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var instanceof y91) {
-                    return x91Var.b();
+            if (ViewCompat.isAttachedToWindow(rootView)) {
+                Rect rect = new Rect();
+                rootView.getWindowVisibleDisplayFrame(rect);
+                int i = rect.top;
+                if (i == 0) {
+                    i = q61.c.g();
                 }
+                measuredHeight = rect.bottom - i;
+            } else {
+                measuredHeight = rootView.getMeasuredHeight();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.m();
-                }
+            if (this.b != measuredHeight && measuredHeight > 0) {
+                this.b = measuredHeight;
+                rootView.getLayoutParams().height = measuredHeight;
+                rootView.requestLayout();
             }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.c();
-                }
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.d();
-                }
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.i();
-                }
-            }
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.l();
-                }
-            }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public final boolean b(AbsNadBrowserView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (x91 x91Var : this.a) {
-                if (x91Var instanceof aa1) {
-                    return x91Var.f(webView, str);
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void c(AbsNadBrowserView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.g(webView, str);
-                }
-            }
-            if (str != null) {
-                for (ca1 ca1Var : this.b) {
-                    ca1Var.b(this.c, str);
-                }
-            }
-        }
-    }
-
-    public final void d(AbsNadBrowserView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.h(webView, str, bitmap);
-                }
-            }
-        }
-    }
-
-    public final void e(AbsNadBrowserView webView, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i, str, str2) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.j(webView, i, str, str2);
-                }
-            }
-        }
-    }
-
-    public final void f(AbsNadBrowserView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.k(webView, str);
-                }
-            }
-        }
-    }
-
-    public final void k(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
-            for (x91 x91Var : this.a) {
-                if (x91Var != null) {
-                    x91Var.e(intent);
-                }
-            }
-        }
-    }
-
-    public final void n(ca1 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.b.add(action);
-        }
-    }
-
-    public final void o(x91 x91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, x91Var) == null) {
-            this.a.add(x91Var);
         }
     }
 }

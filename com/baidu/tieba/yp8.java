@@ -1,32 +1,22 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class yp8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("skill")
-    public List<BotsDTO.BotListDTO.SkillDTO> a;
+public interface yp8 {
+    void b(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map);
 
-    public yp8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(@NonNull String str, int i);
+
+    void j(@NonNull String str, @Nullable Object obj, @Nullable gn8 gn8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i);
+
+    void k(@NonNull String str, int i);
+
+    void l(@NonNull String str, @NonNull String str2);
+
+    void n(@NonNull AbilityItem abilityItem);
 }

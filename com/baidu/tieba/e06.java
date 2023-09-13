@@ -1,125 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.view.animation.LinearInterpolator;
+import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class e06 {
+public class e06 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final e06 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Scroller a;
+    public final b06 b;
+    public int c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680574, "Lcom/baidu/tieba/e06;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947680574, "Lcom/baidu/tieba/e06;");
-                return;
-            }
-        }
-        a = new e06();
-    }
-
-    public e06() {
+    public e06(b06 b06Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b06Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = b06Var;
+        this.a = new Scroller(b06Var.getContext(), new LinearInterpolator());
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !this.a.isFinished();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.abortAnimation();
         }
     }
 
-    public final int a(int i) {
-        InterceptResult invokeI;
+    public void b(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            return resources.getIdentifier("icon_forum_level_full_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
+            c(0, 0, i, i2, i3);
         }
-        return invokeI.intValue;
     }
 
-    public final int d(int i) {
-        InterceptResult invokeI;
+    public void c(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            Resources resources = TbadkCoreApplication.getInst().getResources();
-            return resources.getIdentifier("icon_forum_level_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            this.a.startScroll(i, i2, i3, i4, i5);
+            this.b.removeCallbacks(this);
+            this.b.post(this);
+            this.c = i;
+            this.d = i2;
         }
-        return invokeI.intValue;
     }
 
-    public final int b(int i, Boolean bool) {
-        InterceptResult invokeIL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bool)) == null) {
-            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
-                return a(i);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.computeScrollOffset()) {
+                int currX = this.a.getCurrX();
+                int currY = this.a.getCurrY();
+                this.b.b(this.c, this.d, currX, currY);
+                this.b.post(this);
+                this.c = currX;
+                this.d = currY;
+                return;
             }
-            return d(i);
+            this.b.removeCallbacks(this);
+            this.b.a();
         }
-        return invokeIL.intValue;
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            boolean z4 = true;
-            if (1 <= i && i < 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return R.color.CAM_X0309;
-            }
-            if (4 <= i && i < 10) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z2) {
-                return R.color.CAM_X0306;
-            }
-            if (10 <= i && i < 16) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            if (z3) {
-                return R.color.CAM_X0305;
-            }
-            if ((16 > i || i >= 19) ? false : false) {
-                return R.color.CAM_X0319;
-            }
-            if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                return 0;
-            }
-            throw new IllegalArgumentException("unsupported simple level " + i + ", check and replace!");
-        }
-        return invokeI.intValue;
     }
 }

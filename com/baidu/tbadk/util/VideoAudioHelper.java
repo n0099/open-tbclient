@@ -23,6 +23,7 @@ public class VideoAudioHelper {
     public static final int AUTOPLAY_SOURCE_LIST = 4;
     public static final int AUTOPLAY_SOURCE_PB = 3;
     public static boolean isBGMPlaying;
+    public static boolean isPlayVoicePlaying;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

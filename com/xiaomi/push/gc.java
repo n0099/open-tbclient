@@ -13,12 +13,12 @@ public abstract class gc extends fv {
     public Exception a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Socket f429a;
+    public Socket f428a;
     public XMPushService b;
     public int c;
 
     /* renamed from: c  reason: collision with other field name */
-    public String f430c;
+    public String f429c;
     public String d;
     public volatile long e;
     public volatile long f;
@@ -28,7 +28,7 @@ public abstract class gc extends fv {
     public gc(XMPushService xMPushService, fw fwVar) {
         super(xMPushService, fwVar);
         this.a = null;
-        this.f430c = null;
+        this.f429c = null;
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
@@ -37,7 +37,7 @@ public abstract class gc extends fv {
     }
 
     private void a(fw fwVar) {
-        a(fwVar.c(), fwVar.m510a());
+        a(fwVar.c(), fwVar.m511a());
     }
 
     /* JADX WARN: Removed duplicated region for block: B:65:0x02aa  */
@@ -90,7 +90,7 @@ public abstract class gc extends fv {
         long j2 = 0;
         this.g = 0L;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        String m288a = bi.m288a((Context) this.b);
+        String m289a = bi.m289a((Context) this.b);
         StringBuilder sb2 = new StringBuilder();
         Iterator<String> it3 = arrayList.iterator();
         String str10 = "";
@@ -98,23 +98,23 @@ public abstract class gc extends fv {
         while (it3.hasNext()) {
             String next2 = it3.next();
             long currentTimeMillis = System.currentTimeMillis();
-            ((fv) this).f408a++;
+            ((fv) this).f407a++;
             int i4 = i3 + 1;
             try {
-                com.xiaomi.channel.commonutils.logger.b.m180a("begin to connect to " + next2);
-                this.f429a = a();
-                this.f429a.connect(cs.m342a(next2, i), 8000);
-                com.xiaomi.channel.commonutils.logger.b.m180a("tcp connected");
-                this.f429a.setTcpNoDelay(true);
+                com.xiaomi.channel.commonutils.logger.b.m181a("begin to connect to " + next2);
+                this.f428a = a();
+                this.f428a.connect(cs.m343a(next2, i), 8000);
+                com.xiaomi.channel.commonutils.logger.b.m181a("tcp connected");
+                this.f428a.setTcpNoDelay(true);
                 this.d = next2;
-                mo524a();
+                mo525a();
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                ((fv) this).f409a = currentTimeMillis2;
-                ((fv) this).f418b = m288a;
+                ((fv) this).f408a = currentTimeMillis2;
+                ((fv) this).f417b = m289a;
                 if (a != null) {
                     it = it3;
                     sb = sb2;
-                    str3 = m288a;
+                    str3 = m289a;
                     j = 0;
                     cqVar = a;
                     try {
@@ -167,21 +167,21 @@ public abstract class gc extends fv {
                             } else {
                                 str9 = str5;
                             }
-                            if (!TextUtils.equals(str9, bi.m288a((Context) this.b))) {
+                            if (!TextUtils.equals(str9, bi.m289a((Context) this.b))) {
                                 throw th;
                             }
                             str2 = str8;
                             i2 = i4;
                             z = false;
-                            cu.a().m352c();
+                            cu.a().m353c();
                             int elapsedRealtime2 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                             if (!z) {
                             }
                         }
-                        if (TextUtils.equals(str7, bi.m288a((Context) this.b))) {
+                        if (TextUtils.equals(str7, bi.m289a((Context) this.b))) {
                             str10 = str2;
                             sb2 = sb;
-                            m288a = str7;
+                            m289a = str7;
                             i3 = i4;
                             it3 = it;
                             j2 = j;
@@ -189,7 +189,7 @@ public abstract class gc extends fv {
                         } else {
                             i2 = i4;
                             z = false;
-                            cu.a().m352c();
+                            cu.a().m353c();
                             int elapsedRealtime22 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                             if (!z) {
                             }
@@ -234,14 +234,14 @@ public abstract class gc extends fv {
                             fi.a(next2, this.a);
                             if (cqVar == null) {
                             }
-                            if (!TextUtils.equals(str9, bi.m288a((Context) this.b))) {
+                            if (!TextUtils.equals(str9, bi.m289a((Context) this.b))) {
                             }
                         }
-                        if (TextUtils.equals(str6, bi.m288a((Context) this.b))) {
+                        if (TextUtils.equals(str6, bi.m289a((Context) this.b))) {
                             str7 = str6;
                             str10 = str2;
                             sb2 = sb;
-                            m288a = str7;
+                            m289a = str7;
                             i3 = i4;
                             it3 = it;
                             j2 = j;
@@ -249,7 +249,7 @@ public abstract class gc extends fv {
                         } else {
                             i2 = i4;
                             z = false;
-                            cu.a().m352c();
+                            cu.a().m353c();
                             int elapsedRealtime222 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
                             if (!z) {
                             }
@@ -258,12 +258,12 @@ public abstract class gc extends fv {
                 } else {
                     it = it3;
                     sb = sb2;
-                    str3 = m288a;
+                    str3 = m289a;
                     cqVar = a;
                     j = 0;
                 }
                 this.g = SystemClock.elapsedRealtime();
-                com.xiaomi.channel.commonutils.logger.b.m180a("connected to " + next2 + " in " + ((fv) this).f409a);
+                com.xiaomi.channel.commonutils.logger.b.m181a("connected to " + next2 + " in " + ((fv) this).f408a);
                 str2 = str10;
                 i2 = i4;
                 z = true;
@@ -275,12 +275,12 @@ public abstract class gc extends fv {
                 cqVar = a;
                 j = 0;
                 str4 = str10;
-                str5 = m288a;
+                str5 = m289a;
             } catch (Throwable th4) {
                 th = th4;
                 it = it3;
                 sb = sb2;
-                str3 = m288a;
+                str3 = m289a;
                 cqVar = a;
                 j = 0;
             }
@@ -290,7 +290,7 @@ public abstract class gc extends fv {
         i2 = i3;
         str2 = str10;
         z = false;
-        cu.a().m352c();
+        cu.a().m353c();
         int elapsedRealtime2222 = (int) (SystemClock.elapsedRealtime() - elapsedRealtime);
         if (!z) {
             fi.a(0, ey.BATCH_TCP_CONN_SUCCESS.a(), elapsedRealtime2222, str2, i2);
@@ -314,7 +314,7 @@ public abstract class gc extends fv {
 
     @Override // com.xiaomi.push.fv
     /* renamed from: a */
-    public String mo504a() {
+    public String mo505a() {
         return this.d;
     }
 
@@ -329,7 +329,7 @@ public abstract class gc extends fv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void mo524a() {
+    public synchronized void mo525a() {
     }
 
     public synchronized void a(int i, Exception exc) {
@@ -337,9 +337,9 @@ public abstract class gc extends fv {
             return;
         }
         a(2, i, exc);
-        ((fv) this).f413a = "";
+        ((fv) this).f412a = "";
         try {
-            this.f429a.close();
+            this.f428a.close();
         } catch (Throwable unused) {
         }
         this.e = 0L;
@@ -356,9 +356,9 @@ public abstract class gc extends fv {
             if (i < 2) {
                 return;
             }
-            String mo504a = mo504a();
-            com.xiaomi.channel.commonutils.logger.b.m180a("max short conn time reached, sink down current host:" + mo504a);
-            a(mo504a, 0L, exc);
+            String mo505a = mo505a();
+            com.xiaomi.channel.commonutils.logger.b.m181a("max short conn time reached, sink down current host:" + mo505a);
+            a(mo505a, 0L, exc);
         }
         this.c = 0;
     }
@@ -367,12 +367,12 @@ public abstract class gc extends fv {
         cq a = cu.a().a(fw.a(), false);
         if (a != null) {
             a.b(str, j, 0L, exc);
-            cu.a().m352c();
+            cu.a().m353c();
         }
     }
 
     /* renamed from: a */
-    public abstract void mo495a(boolean z);
+    public abstract void mo496a(boolean z);
 
     @Override // com.xiaomi.push.fv
     public void a(fk[] fkVarArr) {
@@ -391,8 +391,8 @@ public abstract class gc extends fv {
     public void b(boolean z) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         long currentTimeMillis = System.currentTimeMillis();
-        mo495a(z);
-        com.xiaomi.push.service.o.a(this.b).m823c();
+        mo496a(z);
+        com.xiaomi.push.service.o.a(this.b).m824c();
         if (z) {
             return;
         }
@@ -402,7 +402,7 @@ public abstract class gc extends fv {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.c()V */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.c()Z */
     public String c() {
-        return ((fv) this).f413a;
+        return ((fv) this).f412a;
     }
 
     public void c(int i, Exception exc) {
@@ -411,12 +411,12 @@ public abstract class gc extends fv {
 
     public synchronized void e() {
         try {
-            if (!m509c() && !m508b()) {
+            if (!m510c() && !m509b()) {
                 a(0, 0, (Exception) null);
-                a(((fv) this).f410a);
+                a(((fv) this).f409a);
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m180a("WARNING: current xmpp has connected");
+            com.xiaomi.channel.commonutils.logger.b.m181a("WARNING: current xmpp has connected");
         } catch (IOException e) {
             throw new gg(e);
         }

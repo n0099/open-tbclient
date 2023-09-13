@@ -1,50 +1,53 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s44 {
+public class s44 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
-    public s44() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s44(ri2 ri2Var) {
+        super(ri2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ri2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        u44.o().w(this);
     }
 
-    public static s44 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void w(int i, String str) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            s44 s44Var = new s44();
-            s44Var.a = jSONObject.optInt("state");
-            s44Var.b = jSONObject.optString("msg");
-            return s44Var;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("state", i);
+            jSONObject.put("msg", str);
+            JSEvent jSEvent = new JSEvent("antiaddiction");
+            jSEvent.data = jSONObject;
+            if (rr1.a) {
+                Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
+            }
+            dispatchEvent(jSEvent);
         }
-        return (s44) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

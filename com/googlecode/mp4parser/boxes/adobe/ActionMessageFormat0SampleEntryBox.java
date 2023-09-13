@@ -8,7 +8,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     public static final String TYPE = "amf0";
 

@@ -66,7 +66,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
             this.a = binding;
         }
 
-        public final BotSkillMenuItemViewBinding b() {
+        public final BotSkillMenuItemViewBinding a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -110,7 +110,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
             Intrinsics.checkNotNullParameter(callRobotEntrance, "$callRobotEntrance");
             a aVar = this$0.b;
             if (aVar != null) {
-                RelativeLayout relativeLayout = holder.b().c;
+                RelativeLayout relativeLayout = holder.a().c;
                 Intrinsics.checkNotNullExpressionValue(relativeLayout, "holder.binding.botSkillMenuItemRoot");
                 aVar.a(relativeLayout, callRobotEntrance);
             }
@@ -129,7 +129,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             final CallRobotEntrance callRobotEntrance = this.a.get(i);
-            TbImage tbImage = holder.b().b;
+            TbImage tbImage = holder.a().b;
             ScalingUtils.ScaleType CENTER_INSIDE = ScalingUtils.ScaleType.CENTER_INSIDE;
             Intrinsics.checkNotNullExpressionValue(CENTER_INSIDE, "CENTER_INSIDE");
             tbImage.setScaleType(CENTER_INSIDE);
@@ -141,7 +141,7 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
                         z = false;
                     }
                     if (z) {
-                        holder.b().b.k(str2);
+                        holder.a().b.l(str2);
                     }
                 }
             } else {
@@ -151,11 +151,11 @@ public final class BotSkillMenuAdapter extends RecyclerView.Adapter<ViewHolder> 
                         z = false;
                     }
                     if (z) {
-                        holder.b().b.k(str);
+                        holder.a().b.l(str);
                     }
                 }
             }
-            holder.b().c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ih9
+            holder.a().c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ki9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

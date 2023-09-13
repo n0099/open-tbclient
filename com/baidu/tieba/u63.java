@@ -1,62 +1,54 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.lz1;
-import com.baidu.tieba.mg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u63 extends q63 {
+public abstract class u63 extends v63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.r63
-    public d32 b(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.v63
+    public q63 f(r63 r63Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r63Var)) == null) {
             return null;
         }
-        return (d32) invokeL.objValue;
+        return (q63) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.r63
-    public String g() {
+    @Override // com.baidu.tieba.v63
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.r63
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
-    }
+    public abstract void p(SwanAppActivity swanAppActivity, String str, r63 r63Var, tg3 tg3Var, tc2<s63> tc2Var);
 
     /* loaded from: classes8.dex */
-    public class a implements wp3<gg3<mg3.d>> {
+    public class a implements tr1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pc2 a;
-        public final /* synthetic */ o63 b;
-        public final /* synthetic */ pg3 c;
+        public final /* synthetic */ r63 a;
+        public final /* synthetic */ tc2 b;
+        public final /* synthetic */ u63 c;
 
-        public a(u63 u63Var, pc2 pc2Var, o63 o63Var, pg3 pg3Var) {
+        public a(u63 u63Var, r63 r63Var, tc2 tc2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u63Var, pc2Var, o63Var, pg3Var};
+                Object[] objArr = {u63Var, r63Var, tc2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,35 +58,65 @@ public class u63 extends q63 {
                     return;
                 }
             }
-            this.a = pc2Var;
-            this.b = o63Var;
-            this.c = pg3Var;
+            this.c = u63Var;
+            this.a = r63Var;
+            this.b = tc2Var;
+        }
+
+        @Override // com.baidu.tieba.tr1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.c.o(this.a, this.b);
+                    return;
+                }
+                s63 s63Var = new s63(this.a.f);
+                s63Var.a = this.a.e;
+                this.b.a(s63Var);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements aq3<tg3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hb3 a;
+        public final /* synthetic */ SwanAppActivity b;
+        public final /* synthetic */ r63 c;
+        public final /* synthetic */ tc2 d;
+        public final /* synthetic */ u63 e;
+
+        public b(u63 u63Var, hb3 hb3Var, SwanAppActivity swanAppActivity, r63 r63Var, tc2 tc2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u63Var, hb3Var, swanAppActivity, r63Var, tc2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = u63Var;
+            this.a = hb3Var;
+            this.b = swanAppActivity;
+            this.c = r63Var;
+            this.d = tc2Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp3
+        @Override // com.baidu.tieba.aq3
         /* renamed from: b */
-        public void a(gg3<mg3.d> gg3Var) {
+        public void a(tg3 tg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
-                if (gg3Var != null && gg3Var.c() && !TextUtils.isEmpty(gg3Var.a.a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", gg3Var.a.a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (nr1.a) {
-                                v63.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
-                    return;
-                }
-                v63.b("login failure, can't get login code");
-                this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tg3Var) == null) {
+                this.e.p(this.b, this.a.O(), this.c, tg3Var, this.d);
             }
         }
     }
@@ -113,22 +135,49 @@ public class u63 extends q63 {
         }
     }
 
-    @Override // com.baidu.tieba.q63
-    public void p(SwanAppActivity swanAppActivity, String str, n63 n63Var, pg3 pg3Var, pc2<o63> pc2Var) {
+    @Override // com.baidu.tieba.v63
+    public h32 j(String str, r63 r63Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, n63Var, pg3Var, pc2Var) == null) {
-            o63 o63Var = new o63(n63Var.f);
-            o63Var.a = n63Var.e;
-            if (pg3Var != null && pg3Var.j.a() == 0) {
-                v63.b("obtain user info detail, get login code");
-                lz1.d dVar = new lz1.d(n63Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", n63Var.a);
-                cb3.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, pc2Var, o63Var, pg3Var), "SwanPluginUserInfoFunPage");
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, r63Var)) == null) {
+            return new h32(0);
+        }
+        return (h32) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.v63
+    public h32 m(r63 r63Var, tc2<s63> tc2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, r63Var, tc2Var)) == null) {
+            if (r63Var != null && !TextUtils.isEmpty(r63Var.a)) {
+                if (tc2Var == null) {
+                    return new h32(1001, "get fun page info, cb is null");
+                }
+                hb3 q = gb3.K().q();
+                SwanAppActivity w = q.w();
+                if (w != null && !w.isFinishing()) {
+                    if (!q.N().e(q)) {
+                        q.N().f(w, null, new a(this, r63Var, tc2Var));
+                        return new h32(1001, "not login");
+                    }
+                    o(r63Var, tc2Var);
+                    return new h32(0);
+                }
+                return new h32(1001, "get fun page info, master has dead");
             }
-            v63.b("open data result failure");
-            pc2Var.a(o63Var);
+            return new h32(1001, "get fun page info, provider appKey is empty");
+        }
+        return (h32) invokeLL.objValue;
+    }
+
+    public final void o(r63 r63Var, tc2<s63> tc2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, r63Var, tc2Var) == null) {
+            z63.b("start get open data");
+            hb3 q = gb3.K().q();
+            SwanAppActivity w = q.w();
+            tg3.B(w, g(), r63Var.a, true, h(), new b(this, q, w, r63Var, tc2Var));
         }
     }
 }

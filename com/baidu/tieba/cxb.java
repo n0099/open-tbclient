@@ -1,108 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
+import android.os.Looper;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.vwb;
+import com.baidu.tieba.zwb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.hihonor.push.framework.aidl.IPushInvoke;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class cxb extends AsyncTask<Context, Integer, Boolean> {
+public class cxb implements zwb {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
+    public volatile IPushInvoke b;
+    public final zwb.a c;
+    public fxb d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691548, "Lcom/baidu/tieba/cxb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947691548, "Lcom/baidu/tieba/cxb;");
-                return;
-            }
-        }
-        a = cxb.class.getSimpleName();
-    }
-
-    public cxb() {
+    public cxb(zwb.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(1);
+        this.c = aVar;
+    }
+
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            Log.i("PushConnectionClient", "notifyFailed result: " + i);
+            zwb.a aVar = this.c;
+            if (aVar != null) {
+                vwb.a aVar2 = (vwb.a) aVar;
+                aVar2.getClass();
+                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
+                    aVar2.b(HonorPushErrorEnum.fromCode(i));
+                } else {
+                    aVar2.f.a.post(new uwb(aVar2, i));
+                }
             }
         }
     }
 
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            exb.b(a, "onPreExecute");
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Context... contextArr) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                inputStream = zwb.m(contextArr[0]);
-            } catch (Exception e) {
-                String str = a;
-                exb.d(str, "doInBackground: exception : " + e.getMessage());
-                inputStream = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() != 3 && this.a.get() != 4) {
+                return false;
             }
-            String str2 = a;
-            exb.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            if (inputStream != null) {
-                dxb.b(inputStream);
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+            return true;
         }
-        return (Boolean) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            if (bool.booleanValue()) {
-                exb.e(a, "onPostExecute: upate done");
-            } else {
-                exb.d(a, "onPostExecute: upate failed");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: c */
-    public void onProgressUpdate(Integer... numArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
-            exb.e(a, "onProgressUpdate");
-        }
+        return invokeV.booleanValue;
     }
 }

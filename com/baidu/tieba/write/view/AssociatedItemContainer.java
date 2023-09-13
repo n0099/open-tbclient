@@ -142,7 +142,7 @@ public final class AssociatedItemContainer extends LinearLayout {
                     this$0.removeViewAt(this$0.getChildCount() - 1);
                 }
                 this$0.requestLayout();
-                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f09125b);
+                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f091261);
                 if (tag != null) {
                     ItemData itemData = (ItemData) tag;
                     this$0.c.remove(itemData);
@@ -175,9 +175,9 @@ public final class AssociatedItemContainer extends LinearLayout {
             }
             final ItemCardView itemCardView = new ItemCardView(getContext());
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            itemCardView.U();
-            itemCardView.setTag(R.id.obfuscated_res_0x7f09125b, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.sya
+            itemCardView.T();
+            itemCardView.setTag(R.id.obfuscated_res_0x7f091261, itemData);
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.x0b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -204,7 +204,7 @@ public final class AssociatedItemContainer extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             for (View view2 : ViewGroupKt.getChildren(this)) {
                 if (view2 instanceof ItemCardView) {
-                    ((ItemCardView) view2).N();
+                    ((ItemCardView) view2).M();
                 }
             }
         }

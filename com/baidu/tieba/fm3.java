@@ -1,109 +1,52 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public boolean e;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
+    public fm3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            if (!wifiConfiguration.allowedKeyManagement.get(0)) {
-                return -1;
-            }
-            return 0;
         }
-        return invokeL.intValue;
     }
 
-    public static int b(bm3 bm3Var) {
+    @NonNull
+    public static fm3 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bm3Var)) == null) {
-            if (bm3Var == null) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            fm3 fm3Var = new fm3();
+            if (jSONObject == null) {
+                return fm3Var;
             }
-            if (TextUtils.isEmpty(bm3Var.c) && TextUtils.isEmpty(bm3Var.d)) {
-                return 0;
-            }
-            if (!TextUtils.isEmpty(bm3Var.c) && !TextUtils.isEmpty(bm3Var.d)) {
-                return 3;
-            }
-            if (TextUtils.isEmpty(bm3Var.d)) {
-                return -1;
-            }
-            return 2;
+            fm3Var.a = jSONObject.optString("SSID");
+            fm3Var.b = jSONObject.optString("BSSID");
+            fm3Var.e = jSONObject.optBoolean("maunal");
+            fm3Var.d = jSONObject.optString(com.baidu.sapi2.views.logindialog.view.a.m);
+            fm3Var.c = jSONObject.optString("identity");
+            return fm3Var;
         }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("WEP")) {
-                return 1;
-            }
-            if (str.contains("PSK")) {
-                return 2;
-            }
-            if (str.contains("EAP")) {
-                return 3;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65539, null, wifiConfiguration, i) != null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        wifiConfiguration.allowedKeyManagement.set(2);
-                        wifiConfiguration.allowedKeyManagement.set(3);
-                        return;
-                    }
-                    return;
-                }
-                wifiConfiguration.allowedKeyManagement.set(1);
-                return;
-            }
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.set(0);
+        return (fm3) invokeL.objValue;
     }
 }

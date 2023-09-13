@@ -1,168 +1,189 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.RecoverableSecurityException;
-import android.content.ContentResolver;
 import android.content.ContentValues;
-import android.content.Context;
 import android.net.Uri;
-import android.os.Build;
-import android.os.ParcelFileDescriptor;
-import android.util.Log;
-import com.android.support.appcompat.storage.MediaFileProcessor;
+import android.os.Bundle;
+import android.os.CancellationSignal;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-@SuppressLint({"NewApi"})
+import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class b0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile b0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public Uri a;
+    public String b;
+    public String c;
+    public Bundle d;
+    public String e;
+    public String[] f;
+    public ContentValues g;
+    public CancellationSignal h;
+    public a0 i;
+    public long j;
 
-    public b0(Context context) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Uri a;
+        public String b;
+        public String c;
+        public Bundle d;
+        public String e;
+        public String[] f;
+        public ContentValues g;
+        public CancellationSignal h;
+        public a0 i;
+        public long j;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public b0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                b0 b0Var = new b0();
+                a(b0Var);
+                return b0Var;
+            }
+            return (b0) invokeV.objValue;
+        }
+
+        public final void a(b0 b0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, b0Var) == null) {
+                b0Var.a = this.a;
+                b0Var.b = this.b;
+                b0Var.c = this.c;
+                b0Var.d = this.d;
+                b0Var.e = this.e;
+                b0Var.f = this.f;
+                b0Var.g = this.g;
+                b0Var.h = this.h;
+                b0Var.i = this.i;
+                b0Var.j = this.j;
+            }
+        }
+
+        public a c(CancellationSignal cancellationSignal) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cancellationSignal)) == null) {
+                this.h = cancellationSignal;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a e(a0 a0Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, a0Var)) == null) {
+                this.i = a0Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a f(String[] strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+                this.f = strArr;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a g(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.j = j;
+                return this;
+            }
+            return (a) invokeJ.objValue;
+        }
+
+        public a h(Uri uri) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, uri)) == null) {
+                this.a = uri;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a i(ContentValues contentValues) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentValues)) == null) {
+                this.g = contentValues;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    public b0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context.getApplicationContext();
     }
 
-    public static b0 a(Context context) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (b == null) {
-                synchronized (b0.class) {
-                    if (b == null) {
-                        b = new b0(context);
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "RequestInfo{uri=" + this.a + ", fileOpenMode='" + this.b + "', mimeType='" + this.c + "', opts=" + this.d + ", where='" + this.e + "', selectionArgs=" + Arrays.toString(this.f) + ", values=" + this.g + ", cancellationSignal=" + this.h + ", requestCallback=" + this.i + ", timeStamp=" + this.j + '}';
         }
-        return (b0) invokeL.objValue;
-    }
-
-    @TargetApi(29)
-    public int delete(Uri uri, String str, String[] strArr, z zVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, str, strArr, zVar)) == null) {
-            try {
-                return this.a.getContentResolver().delete(uri, str, strArr);
-            } catch (RecoverableSecurityException e) {
-                c0.b().g(this.a, e.getUserAction().getActionIntent().getIntentSender(), uri, null, str, strArr, zVar, 1);
-                return 0;
-            }
-        }
-        return invokeLLLL.intValue;
-    }
-
-    public int delete(Uri uri, String str, String[] strArr, String str2, z zVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr, str2, zVar)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                try {
-                } catch (RecoverableSecurityException e) {
-                    e = e;
-                }
-                try {
-                    return this.a.getContentResolver().delete(uri, str, strArr);
-                } catch (RecoverableSecurityException e2) {
-                    e = e2;
-                    c0.b().g(this.a, e.getUserAction().getActionIntent().getIntentSender(), uri, null, str, strArr, zVar, 1);
-                    return 0;
-                }
-            } else if (!c0.e(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                zVar.onFailed(1);
-                Log.e("MediaFileProcessor", "delete: " + str2 + " 删除失败, 需要申请存储权限");
-                return 0;
-            } else {
-                File file = new File(str2);
-                if (!file.exists()) {
-                    zVar.onFailed(2);
-                    Log.e("MediaFileProcessor", file.getAbsolutePath() + " 删除文件不存在");
-                    return 0;
-                }
-                return d0.c(file);
-            }
-        }
-        return invokeLLLLL.intValue;
-    }
-
-    public Uri insert(InputStream inputStream, MediaFileProcessor.UriSource uriSource, ContentValues contentValues, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, inputStream, uriSource, contentValues, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                Uri a = MediaFileProcessor.a(uriSource);
-                contentValues.put("is_pending", (Integer) 1);
-                ContentResolver contentResolver = this.a.getContentResolver();
-                Uri insert = contentResolver.insert(a, contentValues);
-                if (insert == null) {
-                    Log.e("MediaFileProcessor", " 添加" + str + "文件失败， uri返回为null");
-                    return null;
-                }
-                try {
-                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(insert, "w", null);
-                    d0.b(inputStream, openFileDescriptor.getFileDescriptor());
-                    if (openFileDescriptor != null) {
-                        openFileDescriptor.close();
-                    }
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                contentValues.clear();
-                contentValues.put("is_pending", (Integer) 0);
-                contentResolver.update(insert, contentValues, null, null);
-                return insert;
-            } else if (!c0.e(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                Log.e("MediaFileProcessor", "insert: " + str + " 添加失败, 需要申请存储权限");
-                return null;
-            } else {
-                File file = new File(str);
-                d0.a(inputStream, file);
-                return Uri.fromFile(file);
-            }
-        }
-        return (Uri) invokeLLLL.objValue;
-    }
-
-    @TargetApi(29)
-    public int update(Uri uri, ContentValues contentValues, String str, String[] strArr, z zVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, contentValues, str, strArr, zVar)) == null) {
-            try {
-                return this.a.getContentResolver().update(uri, contentValues, str, strArr);
-            } catch (RecoverableSecurityException e) {
-                c0.b().g(this.a, e.getUserAction().getActionIntent().getIntentSender(), uri, contentValues, str, strArr, zVar, 2);
-                return 0;
-            }
-        }
-        return invokeLLLLL.intValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import com.baidu.tieba.rf9;
+import com.baidu.tieba.tg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -257,13 +257,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                rf9.f().b(z, str);
+                tg9.f().b(z, str);
             } else if (i == 1) {
-                rf9.f().e(z);
+                tg9.f().e(z);
             } else if (i == 2) {
-                rf9.f().c(z);
+                tg9.f().c(z);
             } else {
-                rf9.f().a(null);
+                tg9.f().a(null);
             }
             finish();
         }
@@ -311,7 +311,7 @@ public class AuthActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("isnew", YYOption.IsLive.VALUE_TRUE));
                 arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.v, "UTF-8")));
                 arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.x, "UTF-8")));
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=auth-widget", "UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 Log.e(e);
             }
@@ -321,13 +321,26 @@ public class AuthActivity extends BaseActivity {
         return (String) invokeV.objValue;
     }
 
+    public final List<PassNameValuePair> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
+            String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PassNameValuePair(environment.getWap(), buildBDUSSCookie));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
     public final String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
-                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=" + SapiWebView.ACTION_MODIFY_PWD, "UTF-8")));
+                arrayList.add(new PassNameValuePair("u", URLEncoder.encode(l(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd", "UTF-8")));
                 arrayList.add(new PassNameValuePair("adapter", "3"));
                 arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));
                 arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -345,19 +358,6 @@ public class AuthActivity extends BaseActivity {
             return str;
         }
         return (String) invokeV.objValue;
-    }
-
-    public final List<PassNameValuePair> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Domain environment = SapiAccountManager.getInstance().getConfignation().getEnvironment();
-            String buildBDUSSCookie = SapiUtils.buildBDUSSCookie(environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", ""), "BIND_BDUSS", "");
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PassNameValuePair(environment.getWap(), buildBDUSSCookie));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity

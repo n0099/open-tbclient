@@ -19,7 +19,7 @@ import com.huawei.hms.support.api.client.InnerApiClient;
 import com.huawei.hms.support.api.entity.core.CommonCode;
 import com.huawei.hms.support.api.transport.DatagramTransport;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class IPCTransport implements DatagramTransport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IPCTransport";

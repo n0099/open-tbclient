@@ -7,12 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.common.ExceptionCode;
 /* loaded from: classes9.dex */
-public class zv3 implements ov3 {
+public class zv3 implements sv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public aw3 b;
+    public aw3 a;
+    public int b;
     public boolean c;
 
     public zv3(@NonNull Context context) {
@@ -30,49 +31,112 @@ public class zv3 implements ov3 {
                 return;
             }
         }
+        this.b = -1;
         c(context);
     }
 
-    @Override // com.baidu.tieba.ov3
+    public final void e(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            yv3 f = fw3.f();
+            int i2 = f.a;
+            if (i2 < 1) {
+                i2 = 10;
+            }
+            if (f.a() <= 0) {
+                a = ExceptionCode.CRASH_EXCEPTION;
+            } else {
+                a = f.a();
+            }
+            int f2 = this.a.f(i2, a, i2, a);
+            this.b = f2;
+            if (f2 != -1) {
+                this.a.e(f2, i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sv3
+    public void a() {
+        aw3 aw3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (aw3Var = this.a) != null && aw3Var.c()) {
+            this.c = false;
+            if (this.a.b()) {
+                g();
+            } else {
+                f();
+            }
+        }
+    }
+
+    public final void f() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.j(this.b);
+        }
+    }
+
+    public final void g() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.i(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.sv3
     public void b(int i) {
         aw3 aw3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (aw3Var = this.b) != null && aw3Var.c()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (aw3Var = this.a) != null && aw3Var.c()) {
             this.c = true;
-            this.b.e(i, this.a);
+            if (this.a.b()) {
+                e(i);
+            } else {
+                d(i);
+            }
         }
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.b == null) {
-            this.b = aw3.b(context);
-            d();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = aw3.a(context);
         }
     }
 
-    @Override // com.baidu.tieba.ov3
-    public void a() {
-        aw3 aw3Var;
+    public final void d(int i) {
+        int a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (aw3Var = this.b) != null && aw3Var.c()) {
-            this.c = false;
-            this.b.f();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a != null) {
-            return;
-        }
-        uv3 f = bw3.f();
-        if (f.a <= 4) {
-            this.a = new int[]{1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
-        } else if (f.h && f.d()) {
-            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1082130944, 4095, 1082147328, 4095, 1098907648, 4095, 1115734016, 4095, 1115750400, 4095, 1115766784, 4095, 1098956800, 0, 1077936128, 1};
-        } else {
-            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int g = this.a.g();
+            this.b = g;
+            if (g != -1) {
+                yv3 f = fw3.f();
+                int i2 = f.a;
+                if (i2 < 1) {
+                    i2 = 10;
+                }
+                if (f.a() <= 0) {
+                    a = ExceptionCode.CRASH_EXCEPTION;
+                } else {
+                    a = f.a();
+                }
+                int i3 = i2;
+                this.a.h(this.b, 0, i3, -1, -1, -1);
+                this.a.h(this.b, 2, i3, i2, -1, -1);
+                int i4 = a;
+                this.a.h(this.b, 4, i4, -1, -1, -1);
+                this.a.h(this.b, 6, i4, a, -1, -1);
+                this.a.h(this.b, 15, i2, i2, i2, i2);
+                this.a.h(this.b, 17, a, a, a, a);
+                this.a.e(this.b, i);
+            }
         }
     }
 }

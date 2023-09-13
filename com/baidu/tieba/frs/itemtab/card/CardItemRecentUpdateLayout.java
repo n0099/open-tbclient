@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.ux;
+import com.baidu.tieba.va5;
+import com.baidu.tieba.vx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecentUpdate;
 /* loaded from: classes5.dex */
-public class CardItemRecentUpdateLayout extends LinearLayout implements ux {
+public class CardItemRecentUpdateLayout extends LinearLayout implements vx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -110,14 +110,14 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ux {
                 CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.a;
                 cardItemRecentUpdateLayout.i = !cardItemRecentUpdateLayout.i;
                 if (!this.a.i) {
-                    this.a.g.setText(R.string.obfuscated_res_0x7f0f06ea);
+                    this.a.g.setText(R.string.obfuscated_res_0x7f0f06ed);
                     this.a.f.setMaxLines(3);
                     return;
                 }
-                this.a.g.setText(R.string.obfuscated_res_0x7f0f075d);
+                this.a.g.setText(R.string.obfuscated_res_0x7f0f0760);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new la5(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new va5(10)));
             }
         }
     }
@@ -202,24 +202,24 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ux {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c9, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d6);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d7);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d3);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0911d5);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d4);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ce, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0911db);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d7);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0911d9);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d8);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f06ea))));
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f06ed))));
             EMManager.from(this.f).setTextSize(R.dimen.T_X06).setTextLinePadding(R.dimen.M_T_X002);
             this.f.setPadding(BdUtilHelper.getDimens(context, R.dimen.M_W_X005), 0, 0, BdUtilHelper.getDimens(context, R.dimen.M_H_X005));
             this.e.addView(this.f, new LinearLayout.LayoutParams(-1, -2));
             this.f.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f06ea);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f06ed);
             EMManager.from(this.f).setTextSize(R.dimen.T_X06);
             this.g.setPadding(BdUtilHelper.getDimens(context, R.dimen.M_W_X005), BdUtilHelper.getDimens(context, R.dimen.M_H_X005), 0, BdUtilHelper.getDimens(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
@@ -230,7 +230,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ux {
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

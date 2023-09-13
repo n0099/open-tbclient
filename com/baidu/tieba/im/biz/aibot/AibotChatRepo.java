@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cg8;
-import com.baidu.tieba.if8;
+import com.baidu.tieba.ah8;
+import com.baidu.tieba.eh8;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.wf8;
-import com.baidu.tieba.xf8;
-import com.baidu.tieba.yf8;
+import com.baidu.tieba.kg8;
+import com.baidu.tieba.yg8;
+import com.baidu.tieba.zg8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public final class AibotChatRepo extends Slice {
     public FastRequest m;
     public AibotChatDetail n;
     public long o;
-    public xf8 p;
+    public zg8 p;
     public a q;
     public final Map<Integer, Class<? extends TbBaseMsg>> r;
 
@@ -63,7 +63,7 @@ public final class AibotChatRepo extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements xf8 {
+    public static final class a implements zg8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AibotChatRepo a;
@@ -86,14 +86,14 @@ public final class AibotChatRepo extends Slice {
             this.a = aibotChatRepo;
         }
 
-        @Override // com.baidu.tieba.xf8
+        @Override // com.baidu.tieba.zg8
         public void a(int i, TreeSet<TbBaseMsg> msgSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, msgSet) == null) {
                 Intrinsics.checkNotNullParameter(msgSet, "msgSet");
-                xf8 b0 = this.a.b0();
-                if (b0 != null) {
-                    b0.a(i, msgSet);
+                zg8 d0 = this.a.d0();
+                if (d0 != null) {
+                    d0.a(i, msgSet);
                 }
             }
         }
@@ -127,7 +127,7 @@ public final class AibotChatRepo extends Slice {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: f */
+        /* renamed from: g */
         public void b(int i, String errMsg, AibotChatDetail aibotChatDetail) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048580, this, i, errMsg, aibotChatDetail) == null) {
@@ -138,35 +138,35 @@ public final class AibotChatRepo extends Slice {
         }
 
         @Override // com.baidu.tbadk.net.FastRequest.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                super.c();
-                this.b.c();
-            }
-        }
-
-        @Override // com.baidu.tbadk.net.FastRequest.b
         public void d() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.d();
                 this.b.d();
             }
         }
 
+        @Override // com.baidu.tbadk.net.FastRequest.b
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.e();
+                this.b.e();
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: g */
-        public void e(AibotChatDetail result) {
+        /* renamed from: h */
+        public void f(AibotChatDetail result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
-                super.e(result);
+                super.f(result);
                 this.c.n = result;
                 this.c.o = result.getUserInfo().getPaid();
-                this.b.e(result);
-                this.c.c0();
+                this.b.f(result);
+                this.c.e0();
             }
         }
     }
@@ -199,44 +199,44 @@ public final class AibotChatRepo extends Slice {
         this.r = linkedHashMap;
     }
 
-    public final void e0(String json, yf8 callback) {
+    public final void g0(String json, ah8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, json, callback) == null) {
             Intrinsics.checkNotNullParameter(json, "json");
             Intrinsics.checkNotNullParameter(callback, "callback");
-            Map<String, Object> b2 = cg8.b(DataExt.toMap(json));
+            Map<String, Object> b2 = eh8.b(DataExt.toMap(json));
             Object obj = b2.get("type");
             if (obj != null) {
                 Class<? extends TbBaseMsg> cls = this.r.get(Integer.valueOf((int) ((Long) obj).longValue()));
                 Intrinsics.checkNotNull(cls);
-                if8.a.g((TbBaseMsg) DataExt.toEntity(b2, cls), callback);
+                kg8.a.g((TbBaseMsg) DataExt.toEntity(b2, cls), callback);
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
         }
     }
 
-    public final void a0(long j, long j2, int i, wf8 callback) {
+    public final void c0(long j, long j2, int i, yg8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), callback}) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
-            if8.a.b(this.o, j, j2, i, callback);
+            kg8.a.b(this.o, j, j2, i, callback);
         }
     }
 
-    public final xf8 b0() {
+    public final zg8 d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.p;
         }
-        return (xf8) invokeV.objValue;
+        return (zg8) invokeV.objValue;
     }
 
-    public final void c0() {
+    public final void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if8.a.f(this.o, this.q);
+            kg8.a.f(this.o, this.q);
         }
     }
 
@@ -245,11 +245,11 @@ public final class AibotChatRepo extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            if8.a.j(this.o, this.q);
+            kg8.a.j(this.o, this.q);
         }
     }
 
-    public final void d0(FastRequest.b<AibotChatDetail> callback) {
+    public final void f0(FastRequest.b<AibotChatDetail> callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -258,16 +258,16 @@ public final class AibotChatRepo extends Slice {
             }
             FastRequest fastRequest = this.m;
             Intrinsics.checkNotNull(fastRequest);
-            fastRequest.O("chat_uk", this.k);
-            fastRequest.Q(new b(callback, this));
-            fastRequest.P();
+            fastRequest.N("chat_uk", this.k);
+            fastRequest.P(new b(callback, this));
+            fastRequest.O();
         }
     }
 
-    public final void f0(xf8 xf8Var) {
+    public final void h0(zg8 zg8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xf8Var) == null) {
-            this.p = xf8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zg8Var) == null) {
+            this.p = zg8Var;
         }
     }
 }

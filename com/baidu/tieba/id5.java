@@ -11,9 +11,8 @@ import org.json.JSONObject;
 public class id5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
+    public long a;
+    public String b;
 
     public id5() {
         Interceptable interceptable = $ic;
@@ -29,40 +28,30 @@ public class id5 {
         }
     }
 
-    public long a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.longValue;
+        return (String) invokeV.objValue;
     }
 
-    public String b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
         return invokeV.longValue;
     }
 
-    public void d(JSONObject jSONObject) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optString("link_url", "");
-        this.b = jSONObject.optLong("start_time", 0L);
-        this.c = jSONObject.optLong("end_time", 0L);
+        this.a = jSONObject.optLong("version", 0L);
+        this.b = jSONObject.optString("text", "");
     }
 }

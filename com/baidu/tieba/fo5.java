@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+@Deprecated
 /* loaded from: classes5.dex */
 public interface fo5 {
-    void a(String str, ChatMsg chatMsg);
-
-    void b(int i, String str, String str2, ChatMsg chatMsg);
 }

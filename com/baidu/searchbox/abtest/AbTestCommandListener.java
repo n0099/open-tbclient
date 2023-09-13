@@ -8,7 +8,7 @@ import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
 import com.baidu.searchbox.net.update.v2.UpdateAction;
-import com.baidu.tieba.t8;
+import com.baidu.tieba.u8;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = "abtest", module = "abtest")
@@ -17,7 +17,7 @@ public class AbTestCommandListener extends JSONObjectCommandListener {
     public static final String ACTION_ABTEST = "abtest";
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "AbTestCommandListener";
-    public t8 mExperimentManager = t8.n(AppRuntime.getAppContext());
+    public u8 mExperimentManager = u8.n(AppRuntime.getAppContext());
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException {

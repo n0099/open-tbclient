@@ -306,11 +306,10 @@ public class ColumnLayout extends ViewGroup {
                     if (layoutParams == null) {
                         layoutParams = generateDefaultLayoutParams();
                     }
-                    int i9 = ((FrameLayout.LayoutParams) layoutParams).gravity;
                     if (i8 == 1) {
-                        i5 = i9 & 7;
+                        i5 = ((FrameLayout.LayoutParams) layoutParams).gravity & 7;
                     } else {
-                        i5 = i9 & 112;
+                        i5 = ((FrameLayout.LayoutParams) layoutParams).gravity & 112;
                     }
                     if (i5 != 1) {
                         if (i5 != 3) {
@@ -318,48 +317,48 @@ public class ColumnLayout extends ViewGroup {
                                 if (i5 != 16) {
                                     if (i5 != 48) {
                                         if (i5 == 80) {
-                                            int i10 = i2 + ((FrameLayout.LayoutParams) layoutParams).leftMargin;
-                                            int i11 = i3 + measuredHeight2;
-                                            int measuredHeight3 = (i11 - ((FrameLayout.LayoutParams) layoutParams).bottomMargin) - view2.getMeasuredHeight();
-                                            int measuredWidth2 = view2.getMeasuredWidth() + i10;
-                                            view2.layout(i10, measuredHeight3, measuredWidth2, i11 - ((FrameLayout.LayoutParams) layoutParams).bottomMargin);
+                                            int i9 = i2 + ((FrameLayout.LayoutParams) layoutParams).leftMargin;
+                                            int i10 = i3 + measuredHeight2;
+                                            int measuredHeight3 = (i10 - ((FrameLayout.LayoutParams) layoutParams).bottomMargin) - view2.getMeasuredHeight();
+                                            int measuredWidth2 = view2.getMeasuredWidth() + i9;
+                                            view2.layout(i9, measuredHeight3, measuredWidth2, i10 - ((FrameLayout.LayoutParams) layoutParams).bottomMargin);
                                             i2 = measuredWidth2 + ((FrameLayout.LayoutParams) layoutParams).rightMargin;
                                         }
                                     } else {
-                                        int i12 = i2 + ((FrameLayout.LayoutParams) layoutParams).leftMargin;
-                                        measuredWidth = view2.getMeasuredWidth() + i12;
-                                        view2.layout(i12, ((FrameLayout.LayoutParams) layoutParams).topMargin + i3, measuredWidth, ((FrameLayout.LayoutParams) layoutParams).topMargin + i3 + view2.getMeasuredHeight());
+                                        int i11 = i2 + ((FrameLayout.LayoutParams) layoutParams).leftMargin;
+                                        measuredWidth = view2.getMeasuredWidth() + i11;
+                                        view2.layout(i11, ((FrameLayout.LayoutParams) layoutParams).topMargin + i3, measuredWidth, ((FrameLayout.LayoutParams) layoutParams).topMargin + i3 + view2.getMeasuredHeight());
                                         i7 = ((FrameLayout.LayoutParams) layoutParams).rightMargin;
                                     }
                                 } else {
-                                    int i13 = i2 + ((FrameLayout.LayoutParams) layoutParams).leftMargin;
-                                    measuredWidth = view2.getMeasuredWidth() + i13;
-                                    view2.layout(i13, ((((measuredHeight2 - ((FrameLayout.LayoutParams) layoutParams).topMargin) - ((FrameLayout.LayoutParams) layoutParams).bottomMargin) - view2.getMeasuredHeight()) + i3) >> 1, measuredWidth, ((((measuredHeight2 - ((FrameLayout.LayoutParams) layoutParams).topMargin) - ((FrameLayout.LayoutParams) layoutParams).bottomMargin) + view2.getMeasuredHeight()) + i3) >> 1);
+                                    int i12 = i2 + ((FrameLayout.LayoutParams) layoutParams).leftMargin;
+                                    measuredWidth = view2.getMeasuredWidth() + i12;
+                                    view2.layout(i12, ((((measuredHeight2 - ((FrameLayout.LayoutParams) layoutParams).topMargin) - ((FrameLayout.LayoutParams) layoutParams).bottomMargin) - view2.getMeasuredHeight()) + i3) >> 1, measuredWidth, ((((measuredHeight2 - ((FrameLayout.LayoutParams) layoutParams).topMargin) - ((FrameLayout.LayoutParams) layoutParams).bottomMargin) + view2.getMeasuredHeight()) + i3) >> 1);
                                     i7 = ((FrameLayout.LayoutParams) layoutParams).rightMargin;
                                 }
                                 i2 = measuredWidth + i7;
                             } else {
-                                int i14 = i2 + i4;
-                                int measuredWidth3 = (i14 - ((FrameLayout.LayoutParams) layoutParams).rightMargin) - view2.getMeasuredWidth();
-                                int i15 = i3 + ((FrameLayout.LayoutParams) layoutParams).topMargin;
-                                int i16 = i14 - ((FrameLayout.LayoutParams) layoutParams).rightMargin;
-                                measuredHeight = view2.getMeasuredHeight() + i15;
-                                view2.layout(measuredWidth3, i15, i16, measuredHeight);
+                                int i13 = i2 + i4;
+                                int measuredWidth3 = (i13 - ((FrameLayout.LayoutParams) layoutParams).rightMargin) - view2.getMeasuredWidth();
+                                int i14 = i3 + ((FrameLayout.LayoutParams) layoutParams).topMargin;
+                                int i15 = i13 - ((FrameLayout.LayoutParams) layoutParams).rightMargin;
+                                measuredHeight = view2.getMeasuredHeight() + i14;
+                                view2.layout(measuredWidth3, i14, i15, measuredHeight);
                                 i6 = ((FrameLayout.LayoutParams) layoutParams).bottomMargin;
                             }
                         } else {
-                            int i17 = ((FrameLayout.LayoutParams) layoutParams).leftMargin;
-                            int i18 = i2 + i17;
-                            int i19 = i3 + ((FrameLayout.LayoutParams) layoutParams).topMargin;
-                            int measuredWidth4 = i17 + i2 + view2.getMeasuredWidth();
-                            measuredHeight = view2.getMeasuredHeight() + i19;
-                            view2.layout(i18, i19, measuredWidth4, measuredHeight);
+                            int i16 = ((FrameLayout.LayoutParams) layoutParams).leftMargin;
+                            int i17 = i2 + i16;
+                            int i18 = i3 + ((FrameLayout.LayoutParams) layoutParams).topMargin;
+                            int measuredWidth4 = i16 + i2 + view2.getMeasuredWidth();
+                            measuredHeight = view2.getMeasuredHeight() + i18;
+                            view2.layout(i17, i18, measuredWidth4, measuredHeight);
                             i6 = ((FrameLayout.LayoutParams) layoutParams).bottomMargin;
                         }
                     } else {
-                        int i20 = i3 + ((FrameLayout.LayoutParams) layoutParams).topMargin;
-                        measuredHeight = view2.getMeasuredHeight() + i20;
-                        view2.layout(((((i4 - ((FrameLayout.LayoutParams) layoutParams).leftMargin) - ((FrameLayout.LayoutParams) layoutParams).rightMargin) - view2.getMeasuredWidth()) + i2) >> 1, i20, ((((i4 - ((FrameLayout.LayoutParams) layoutParams).leftMargin) - ((FrameLayout.LayoutParams) layoutParams).rightMargin) + view2.getMeasuredWidth()) + i2) >> 1, measuredHeight);
+                        int i19 = i3 + ((FrameLayout.LayoutParams) layoutParams).topMargin;
+                        measuredHeight = view2.getMeasuredHeight() + i19;
+                        view2.layout(((((i4 - ((FrameLayout.LayoutParams) layoutParams).leftMargin) - ((FrameLayout.LayoutParams) layoutParams).rightMargin) - view2.getMeasuredWidth()) + i2) >> 1, i19, ((((i4 - ((FrameLayout.LayoutParams) layoutParams).leftMargin) - ((FrameLayout.LayoutParams) layoutParams).rightMargin) + view2.getMeasuredWidth()) + i2) >> 1, measuredHeight);
                         i6 = ((FrameLayout.LayoutParams) layoutParams).bottomMargin;
                     }
                     i3 = measuredHeight + i6;

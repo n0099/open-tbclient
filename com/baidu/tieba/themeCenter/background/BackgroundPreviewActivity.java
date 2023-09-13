@@ -9,9 +9,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.lma;
+import com.baidu.tieba.foa;
+import com.baidu.tieba.sl5;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
-import com.baidu.tieba.zk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public lma b;
+    public foa b;
     public int c;
     public int d;
     public int e;
@@ -161,24 +161,24 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            lma lmaVar = this.b;
-            if (lmaVar != null) {
-                lmaVar.h();
+            foa foaVar = this.b;
+            if (foaVar != null) {
+                foaVar.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        lma lmaVar;
+        foa foaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (lmaVar = this.b) != null) {
-            showLoadingView(lmaVar.f());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (foaVar = this.b) != null) {
+            showLoadingView(foaVar.f());
             this.a.loadData();
         }
     }
 
-    public int u1() {
+    public int p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            lma lmaVar = this.b;
-            if (lmaVar != null) {
-                lmaVar.g();
+            foa foaVar = this.b;
+            if (foaVar != null) {
+                foaVar.g();
             }
         }
     }
@@ -205,7 +205,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                zk5.d().h();
+                sl5.d().h();
             }
         }
     }
@@ -224,10 +224,10 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             }
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
-            backgroundPreviewModel.S(this.f);
-            lma lmaVar = new lma(this);
-            this.b = lmaVar;
-            showLoadingView(lmaVar.f());
+            backgroundPreviewModel.R(this.f);
+            foa foaVar = new foa(this);
+            this.b = foaVar;
+            showLoadingView(foaVar.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

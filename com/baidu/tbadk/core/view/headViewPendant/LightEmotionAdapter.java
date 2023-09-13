@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.ja5;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.ta5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void q(ja5 ja5Var) {
+    public void q(ta5 ta5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ja5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ta5Var) == null) {
         }
     }
 
@@ -65,10 +65,10 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
             this.c = context;
             this.a = (TbImageView) view2.findViewById(R.id.emotion_view);
             this.b = (EMTextView) view2.findViewById(R.id.emotion_name);
-            a();
+            onChangeSkinType();
         }
 
-        public void a() {
+        public void onChangeSkinType() {
             EMTextView eMTextView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (eMTextView = this.b) != null) {
@@ -146,7 +146,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
 
     public void p(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !di.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !ei.isEmpty(str)) {
             lightEmotionView.b.setText(str);
         }
     }

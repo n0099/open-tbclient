@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ana;
-import com.baidu.tieba.ifa;
-import com.baidu.tieba.wma;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.bha;
+import com.baidu.tieba.qoa;
+import com.baidu.tieba.toa;
+import com.baidu.tieba.uoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<zma> a;
-    public ana b;
-    public List<wma> c;
+    public List<toa> a;
+    public uoa b;
+    public List<qoa> c;
     public b d;
     public boolean e;
     public NetMessageListener f;
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, List<wma> list, ana anaVar, List<zma> list2);
+        void a(int i, String str, List<qoa> list, uoa uoaVar, List<toa> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -127,14 +127,14 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
         registerListener(this.f);
     }
 
-    public void V(b bVar) {
+    public void U(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public boolean U() {
+    public boolean T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ifa.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            ifa.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            bha.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            bha.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

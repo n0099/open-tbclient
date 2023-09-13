@@ -73,7 +73,7 @@ public class BdExpandImageView extends AppCompatImageView {
         this.h = new Paint();
     }
 
-    public final void a() {
+    public final void b() {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (drawable = getDrawable()) != null) {
@@ -111,7 +111,7 @@ public class BdExpandImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            a();
+            b();
         }
     }
 
@@ -132,7 +132,7 @@ public class BdExpandImageView extends AppCompatImageView {
         if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
             super.setImageBitmap(bitmap);
             if (this.g) {
-                a();
+                b();
             }
         }
     }
@@ -143,7 +143,7 @@ public class BdExpandImageView extends AppCompatImageView {
         if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
             super.setImageDrawable(drawable);
             if (this.g) {
-                a();
+                b();
             }
         }
     }

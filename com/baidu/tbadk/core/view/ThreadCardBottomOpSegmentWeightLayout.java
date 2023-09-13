@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r95;
+import com.baidu.tieba.ba5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,8 +122,8 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.N();
             this.e.setVisibilityListener(this.y0);
-            this.e.B(true);
-            r95.b(this);
+            this.e.A(true);
+            ba5.b(this);
         }
     }
 
@@ -132,11 +132,11 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean J = this.e.J();
+            boolean I = this.e.I();
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
             int i = layoutParams.width;
             float f2 = layoutParams.weight;
-            if (J) {
+            if (I) {
                 f = 1.0f;
             } else {
                 f = 2.0f;
@@ -165,7 +165,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             super.y(view2);
             this.e.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.e.N(true);
+            this.e.M(true);
         }
     }
 }

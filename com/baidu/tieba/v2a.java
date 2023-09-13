@@ -1,48 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.content.Context;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class v2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public long d;
+public interface v2a {
 
-    public v2a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        int a(Context context, String[] strArr);
     }
 
-    public static v2a a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            v2a v2aVar = new v2a();
-            v2aVar.a = jSONObject.optInt("agree_num", -1);
-            v2aVar.b = jSONObject.optInt("share_num", -1);
-            v2aVar.c = jSONObject.optInt("reply_num", -1);
-            v2aVar.d = jSONObject.optLong("time", System.currentTimeMillis());
-            return v2aVar;
-        }
-        return (v2a) invokeL.objValue;
+    /* loaded from: classes8.dex */
+    public interface b {
+        int a(Context context, Map<String, String> map);
     }
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    }
+
+    /* loaded from: classes8.dex */
+    public interface d {
+    }
+
+    boolean a(String str);
+
+    void b(Context context, String[] strArr, boolean z, Bundle bundle);
+
+    boolean c(Context context, String[] strArr, Bundle bundle);
 }

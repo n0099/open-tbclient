@@ -5,10 +5,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.R;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.h98;
-import com.baidu.tieba.j98;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.ea8;
+import com.baidu.tieba.ga8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +23,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<bn> mTopicDataList;
+    public List<cn> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicListMessage() {
@@ -44,7 +43,7 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<bn> getTopicDataList() {
+    public List<cn> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -69,19 +68,16 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    h98 h98Var = new h98();
-                    h98Var.R = i2;
-                    h98Var.H(newTopicList);
-                    this.mTopicDataList.add(h98Var);
-                    j98 j98Var = new j98();
-                    j98Var.a = R.dimen.tbds1;
-                    j98Var.b = R.color.CAM_X0203;
-                    this.mTopicDataList.add(j98Var);
+                    ea8 ea8Var = new ea8();
+                    ea8Var.R = i2;
+                    ea8Var.H(newTopicList);
+                    this.mTopicDataList.add(ea8Var);
+                    this.mTopicDataList.add(new ga8());
                     i2++;
                 }
             }
-            List<bn> list = this.mTopicDataList;
-            ((j98) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            List<cn> list = this.mTopicDataList;
+            ((ga8) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

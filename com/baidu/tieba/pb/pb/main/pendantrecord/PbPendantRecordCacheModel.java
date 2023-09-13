@@ -3,14 +3,14 @@ package com.baidu.tieba.pb.pb.main.pendantrecord;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.zn9;
+import com.baidu.tieba.qp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PbPendantRecordCacheModel extends CacheModel<zn9, TbPageContext> {
+public class PbPendantRecordCacheModel extends CacheModel<qp9, TbPageContext> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,11 +62,11 @@ public class PbPendantRecordCacheModel extends CacheModel<zn9, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<zn9> getCacheDataClassName() {
+    public Class<qp9> getCacheDataClassName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return zn9.class;
+            return qp9.class;
         }
         return (Class) invokeV.objValue;
     }

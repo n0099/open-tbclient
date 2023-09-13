@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 0;
@@ -33,8 +33,8 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.heytap.mcssdk.constant.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public interface InterfaceC0589a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0584a {
         public static final int a = -1;
         public static final int b = -2;
         public static final int c = -3;
@@ -54,7 +54,7 @@ public class a {
         public static final int q = -17;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         public static final String a = "pushSdkLimit100";
         public static final String b = "57913";

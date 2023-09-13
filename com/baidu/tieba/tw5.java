@@ -1,367 +1,246 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.reflect.Array;
 /* loaded from: classes8.dex */
 public class tw5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile tw5 e = null;
-    public static String f = "ad_download_center";
-    public static int g = 3;
-    public static int h = 4;
-    public static String i = "MYPAGE_TAB";
-    public static String j = "POINT_VISIBLE";
-    public static String k = "POINT_GONE";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
-    public String c;
-    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948195639, "Lcom/baidu/tieba/tw5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948195639, "Lcom/baidu/tieba/tw5;");
-        }
-    }
-
-    public tw5() {
+    public static Bitmap a(Bitmap bitmap, int i, boolean z) {
+        InterceptResult invokeCommon;
+        int width;
+        int height;
+        int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.c = TbadkCoreApplication.getCurrentAccount();
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("person_download_apks", 0);
-        this.a = sharedPreferences;
-        this.b = sharedPreferences.edit();
-    }
-
-    public static tw5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (tw5.class) {
-                    if (e == null) {
-                        e = new tw5();
-                    }
-                }
-            }
-            return e;
-        }
-        return (tw5) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.FALSE));
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921744));
-            r(i, false);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.TRUE));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921741));
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921742));
-        }
-    }
-
-    public List<ApkDownloadInfoData> a(int i2) {
-        InterceptResult invokeI;
-        hl0 value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            HashMap hashMap = new HashMap();
-            e = d();
-            HashMap<String, hl0> a = yk0.b().a();
-            if (a != null) {
-                for (Map.Entry<String, hl0> entry : a.entrySet()) {
-                    if (entry != null && (value = entry.getValue()) != null && value.c.status == g) {
-                        if (i(value.h.getAbsolutePath()) && !j(value.d)) {
-                            ApkDownloadInfoData a2 = n75.a.a(value);
-                            if (a2 != null && !hashMap.containsKey(a2.getApkPackageName())) {
-                                hashMap.put(a2.getApkPackageName(), a2);
-                            }
-                        } else {
-                            e.l(value.d);
-                        }
-                    }
-                }
-            }
-            if (UbsABTestHelper.isAdNotInstallRemindA()) {
-                for (wba wbaVar : new TbDownloadManager().m().g()) {
-                    ApkDownloadInfoData b = n75.a.b(wbaVar);
-                    if (b != null) {
-                        if (i(b.getApkFile().getAbsolutePath()) && !j(b.getApkPackageName())) {
-                            if (!hashMap.containsKey(b.getApkPackageName())) {
-                                hashMap.put(b.getApkPackageName(), b);
-                            }
-                        } else {
-                            e.l(b.getApkPackageName());
-                        }
-                    }
-                }
-            }
-            if (hashMap.size() == 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (Object obj : hashMap.values()) {
-                arrayList.add(obj);
-            }
-            Collections.sort(arrayList);
-            if (i2 > 0 && arrayList.size() > i2) {
-                return ListUtils.subList(arrayList, 0, i2);
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null && !str.equals("")) {
-                try {
-                    if (new File(str).exists()) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null && !"".equals(str)) {
-                try {
-                    if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 0) != null) {
-                        return true;
-                    }
-                } catch (PackageManager.NameNotFoundException unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int i2 = i;
             if (z) {
-                n(true);
-                c();
-                h();
-                return;
+                width = bitmap.getWidth() / 2;
+                height = bitmap.getHeight() / 4;
+            } else {
+                width = bitmap.getWidth();
+                height = bitmap.getHeight();
             }
-            n(false);
-            p();
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            HashMap<String, String> f2 = f();
-            if (!TextUtils.isEmpty(str) && f2 != null && f2.size() > 0 && f2.containsKey(str)) {
-                f2.remove(str);
-                m(f2);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public HashMap<String, String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                JSONArray jSONArray = new JSONArray(this.a.getString(this.c, ""));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    JSONArray names = jSONObject.names();
-                    if (names != null) {
-                        for (int i3 = 0; i3 < names.length(); i3++) {
-                            String string = names.getString(i3);
-                            hashMap.put(string, jSONObject.getString(string));
-                        }
-                    }
-                }
-                return hashMap;
-            } catch (JSONException unused) {
+            if (width == 0 || height == 0) {
                 return null;
             }
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            HashMap<String, String> f2 = f();
-            if (f2 != null && f2.size() > 0) {
-                for (Map.Entry<String, String> entry : f2.entrySet()) {
-                    if (TextUtils.isEmpty(entry.getKey()) || TextUtils.isEmpty(entry.getValue())) {
-                        break;
-                    } else if (entry.getKey().equals(i) && entry.getValue().equals(j)) {
-                        return true;
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height);
+            if (i2 < 1) {
+                return null;
+            }
+            int i3 = width * height;
+            int[] iArr2 = new int[i3];
+            createBitmap.getPixels(iArr2, 0, width, 0, 0, width, height);
+            int i4 = width - 1;
+            int i5 = height - 1;
+            int i6 = i2 + i2 + 1;
+            int[] iArr3 = new int[i3];
+            int[] iArr4 = new int[i3];
+            int[] iArr5 = new int[i3];
+            int[] iArr6 = new int[Math.max(width, height)];
+            int i7 = (i6 + 1) >> 1;
+            int i8 = i7 * i7;
+            int i9 = i8 * 256;
+            int[] iArr7 = new int[i9];
+            for (int i10 = 0; i10 < i9; i10++) {
+                iArr7[i10] = i10 / i8;
+            }
+            int[][] iArr8 = (int[][]) Array.newInstance(int.class, i6, 3);
+            int i11 = i2 + 1;
+            int i12 = 0;
+            int i13 = 0;
+            int i14 = 0;
+            while (i12 < height) {
+                Bitmap bitmap2 = createBitmap;
+                int i15 = 0;
+                int i16 = 0;
+                int i17 = 0;
+                int i18 = 0;
+                int i19 = 0;
+                int i20 = 0;
+                int i21 = 0;
+                int i22 = 0;
+                int i23 = -i2;
+                int i24 = 0;
+                while (i23 <= i2) {
+                    int i25 = height;
+                    int i26 = i5;
+                    int i27 = iArr2[i13 + Math.min(i4, Math.max(i23, 0))];
+                    int[] iArr9 = iArr8[i23 + i2];
+                    iArr9[0] = (i27 & 16711680) >> 16;
+                    iArr9[1] = (i27 & 65280) >> 8;
+                    iArr9[2] = i27 & 255;
+                    int abs = i11 - Math.abs(i23);
+                    i24 += iArr9[0] * abs;
+                    i15 += iArr9[1] * abs;
+                    i16 += iArr9[2] * abs;
+                    if (i23 > 0) {
+                        i20 += iArr9[0];
+                        i21 += iArr9[1];
+                        i22 += iArr9[2];
+                    } else {
+                        i17 += iArr9[0];
+                        i18 += iArr9[1];
+                        i19 += iArr9[2];
                     }
+                    i23++;
+                    height = i25;
+                    i5 = i26;
                 }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                }
-            }
-            jSONArray.put(jSONObject);
-            this.b.putString(this.c, jSONArray.toString());
-            this.b.commit();
-        }
-    }
-
-    public void r(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
-            HashMap<String, String> f2 = f();
-            if (!TextUtils.isEmpty(str) && f2 != null && f2.size() > 0) {
-                for (Map.Entry<String, String> entry : f2.entrySet()) {
-                    if (entry != null && f2.containsKey(str)) {
-                        if (z) {
-                            f2.put(str, j);
-                        } else {
-                            f2.put(str, k);
-                        }
-                        m(f2);
+                int i28 = height;
+                int i29 = i5;
+                int i30 = i2;
+                int i31 = i24;
+                int i32 = 0;
+                while (i32 < width) {
+                    iArr3[i13] = iArr7[i31];
+                    iArr4[i13] = iArr7[i15];
+                    iArr5[i13] = iArr7[i16];
+                    int i33 = i31 - i17;
+                    int i34 = i15 - i18;
+                    int i35 = i16 - i19;
+                    int[] iArr10 = iArr8[((i30 - i2) + i6) % i6];
+                    int i36 = i17 - iArr10[0];
+                    int i37 = i18 - iArr10[1];
+                    int i38 = i19 - iArr10[2];
+                    if (i12 == 0) {
+                        iArr = iArr7;
+                        iArr6[i32] = Math.min(i32 + i2 + 1, i4);
+                    } else {
+                        iArr = iArr7;
                     }
+                    int i39 = iArr2[i14 + iArr6[i32]];
+                    iArr10[0] = (i39 & 16711680) >> 16;
+                    iArr10[1] = (i39 & 65280) >> 8;
+                    iArr10[2] = i39 & 255;
+                    int i40 = i20 + iArr10[0];
+                    int i41 = i21 + iArr10[1];
+                    int i42 = i22 + iArr10[2];
+                    i31 = i33 + i40;
+                    i15 = i34 + i41;
+                    i16 = i35 + i42;
+                    i30 = (i30 + 1) % i6;
+                    int[] iArr11 = iArr8[i30 % i6];
+                    i17 = i36 + iArr11[0];
+                    i18 = i37 + iArr11[1];
+                    i19 = i38 + iArr11[2];
+                    i20 = i40 - iArr11[0];
+                    i21 = i41 - iArr11[1];
+                    i22 = i42 - iArr11[2];
+                    i13++;
+                    i32++;
+                    iArr7 = iArr;
                 }
+                i14 += width;
+                i12++;
+                createBitmap = bitmap2;
+                height = i28;
+                i5 = i29;
             }
+            int i43 = height;
+            int i44 = i5;
+            int[] iArr12 = iArr7;
+            Bitmap bitmap3 = createBitmap;
+            int i45 = 0;
+            while (i45 < width) {
+                int i46 = -i2;
+                int i47 = i6;
+                int[] iArr13 = iArr6;
+                int i48 = 0;
+                int i49 = 0;
+                int i50 = 0;
+                int i51 = 0;
+                int i52 = 0;
+                int i53 = 0;
+                int i54 = 0;
+                int i55 = i46;
+                int i56 = i46 * width;
+                int i57 = 0;
+                int i58 = 0;
+                while (i55 <= i2) {
+                    int i59 = width;
+                    int max = Math.max(0, i56) + i45;
+                    int[] iArr14 = iArr8[i55 + i2];
+                    iArr14[0] = iArr3[max];
+                    iArr14[1] = iArr4[max];
+                    iArr14[2] = iArr5[max];
+                    int abs2 = i11 - Math.abs(i55);
+                    i57 += iArr3[max] * abs2;
+                    i58 += iArr4[max] * abs2;
+                    i48 += iArr5[max] * abs2;
+                    if (i55 > 0) {
+                        i52 += iArr14[0];
+                        i53 += iArr14[1];
+                        i54 += iArr14[2];
+                    } else {
+                        i49 += iArr14[0];
+                        i50 += iArr14[1];
+                        i51 += iArr14[2];
+                    }
+                    int i60 = i44;
+                    if (i55 < i60) {
+                        i56 += i59;
+                    }
+                    i55++;
+                    i44 = i60;
+                    width = i59;
+                }
+                int i61 = width;
+                int i62 = i44;
+                int i63 = i2;
+                int i64 = i45;
+                int i65 = i43;
+                int i66 = 0;
+                while (i66 < i65) {
+                    iArr2[i64] = (iArr2[i64] & (-16777216)) | (iArr12[i57] << 16) | (iArr12[i58] << 8) | iArr12[i48];
+                    int i67 = i57 - i49;
+                    int i68 = i58 - i50;
+                    int i69 = i48 - i51;
+                    int[] iArr15 = iArr8[((i63 - i2) + i47) % i47];
+                    int i70 = i49 - iArr15[0];
+                    int i71 = i50 - iArr15[1];
+                    int i72 = i51 - iArr15[2];
+                    if (i45 == 0) {
+                        iArr13[i66] = Math.min(i66 + i11, i62) * i61;
+                    }
+                    int i73 = iArr13[i66] + i45;
+                    iArr15[0] = iArr3[i73];
+                    iArr15[1] = iArr4[i73];
+                    iArr15[2] = iArr5[i73];
+                    int i74 = i52 + iArr15[0];
+                    int i75 = i53 + iArr15[1];
+                    int i76 = i54 + iArr15[2];
+                    i57 = i67 + i74;
+                    i58 = i68 + i75;
+                    i48 = i69 + i76;
+                    i63 = (i63 + 1) % i47;
+                    int[] iArr16 = iArr8[i63];
+                    i49 = i70 + iArr16[0];
+                    i50 = i71 + iArr16[1];
+                    i51 = i72 + iArr16[2];
+                    i52 = i74 - iArr16[0];
+                    i53 = i75 - iArr16[1];
+                    i54 = i76 - iArr16[2];
+                    i64 += i61;
+                    i66++;
+                    i2 = i;
+                }
+                i45++;
+                i2 = i;
+                i44 = i62;
+                i43 = i65;
+                iArr6 = iArr13;
+                i6 = i47;
+                width = i61;
+            }
+            int i77 = width;
+            bitmap3.setPixels(iArr2, 0, i77, 0, 0, i77, i43);
+            return bitmap3;
         }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

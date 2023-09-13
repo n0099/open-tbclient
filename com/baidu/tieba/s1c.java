@@ -1,419 +1,592 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.os.Process;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StatFs;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j1c;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.yy.transvod.player.log.TLog;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.tts.jni.TtsLogLoad;
+import com.huawei.hms.adapter.internal.CommonCode;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.UnsupportedEncodingException;
+import java.net.NetworkInterface;
+import java.util.Collections;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class s1c implements j1c, Runnable {
+public class s1c {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] m;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public int c;
-    public j1c.a d;
-    public Object e;
-    public Object f;
-    public LinkedList<Message> g;
-    public TreeMap<Long, Message> h;
-    public LinkedList<Message> i;
-    public TreeMap<Long, Message> j;
-    public AtomicInteger k;
-    public Thread l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100004, "Lcom/baidu/tieba/s1c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100004, "Lcom/baidu/tieba/s1c;");
-                return;
-            }
-        }
-        m = new String[]{"None", "Ready", "Running", "Paused", "Stopped"};
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.j1c
-    public int getStatus() {
+    public static void w(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, context) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Intent a;
+
+        public b(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        }
+
+        public /* synthetic */ b(Context context, a aVar) {
+            this(context);
+        }
+
+        public final int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.getIntExtra("level", 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public final int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.getIntExtra("scale", 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public final int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.getIntExtra("temperature", 0);
+            }
+            return invokeV.intValue;
+        }
+
+        public final int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.getIntExtra("voltage", 0);
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                String p = p();
+                if (!TextUtils.isEmpty(p)) {
+                    jSONObject.put(TtsLogLoad.KEY_OS, p);
+                }
+                String i = i(context);
+                if (!TextUtils.isEmpty(i)) {
+                    jSONObject.put("imei", i);
+                }
+                String m = m(context);
+                if (!TextUtils.isEmpty(m)) {
+                    jSONObject.put("meid", m);
+                }
+                String j = j(context);
+                if (!TextUtils.isEmpty(j)) {
+                    jSONObject.put(BaseStatisContent.IMSI, j);
+                }
+                String k = k(context);
+                if (!TextUtils.isEmpty(k)) {
+                    jSONObject.put("mac", k);
+                }
+                String h = h(context);
+                if (!TextUtils.isEmpty(h)) {
+                    jSONObject.put("iccid", h);
+                }
+                String s = s();
+                if (!TextUtils.isEmpty(s)) {
+                    jSONObject.put("serial", s);
+                }
+                String c = c(context);
+                if (!TextUtils.isEmpty(c)) {
+                    jSONObject.put("androidid", c);
+                }
+                String f = f();
+                if (!TextUtils.isEmpty(f)) {
+                    jSONObject.put("cpu", f);
+                }
+                String o = o();
+                if (!TextUtils.isEmpty(o)) {
+                    jSONObject.put("model", o);
+                }
+                String r = r();
+                if (!TextUtils.isEmpty(r)) {
+                    jSONObject.put("sdcard", r);
+                }
+                String q = q(context);
+                if (!TextUtils.isEmpty(q)) {
+                    jSONObject.put(CommonCode.MapKey.HAS_RESOLUTION, q);
+                }
+                String u = u(context);
+                if (!TextUtils.isEmpty(u)) {
+                    jSONObject.put(YyLiveRoomConfig.KEY_SSID, u);
+                }
+                String v = v(context);
+                if (!TextUtils.isEmpty(v)) {
+                    jSONObject.put("bssid", v);
+                }
+                String g = g();
+                if (!TextUtils.isEmpty(g)) {
+                    jSONObject.put("deviceName", g);
+                }
+                String e = e(context);
+                if (!TextUtils.isEmpty(e)) {
+                    jSONObject.put("connecttype", e);
+                }
+                try {
+                    str = b(context);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    str = "";
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("ua", str);
+                }
+                double d = d(context);
+                jSONObject.put("batterymaxcapacity", String.valueOf(d));
+                jSONObject.put("batterycurrentcapacity", String.valueOf(d));
+                b bVar = new b(context, null);
+                jSONObject.put("batterycurrentvoltage", bVar.h());
+                jSONObject.put("batterycurrenttemperature", bVar.g());
+                jSONObject.put("batterycurrentcapacity", (d * bVar.e()) / bVar.f());
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            String packageName = context.getPackageName();
+            if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
+                str = "weibo";
+            } else {
+                str = "ssosdk";
+            }
+            sb.append(Build.MANUFACTURER);
+            sb.append("-");
+            sb.append(Build.MODEL);
+            sb.append("__");
+            sb.append(str);
+            sb.append("__");
+            try {
+                sb.append("1.0".replaceAll("\\s+", "_"));
+            } catch (Exception unused) {
+                sb.append("unknown");
+            }
+            sb.append("__");
+            sb.append("android");
+            sb.append("__android");
+            sb.append(Build.VERSION.RELEASE);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            String str2 = "none";
+            try {
+                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            } catch (Exception unused) {
+            }
+            if (activeNetworkInfo != null) {
+                if (activeNetworkInfo.getType() == 0) {
+                    switch (activeNetworkInfo.getSubtype()) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            str = "2G";
+                            str2 = str;
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            str = "3G";
+                            str2 = str;
+                            break;
+                        case 13:
+                            str = "4G";
+                            str2 = str;
+                            break;
+                    }
+                } else if (activeNetworkInfo.getType() == 1) {
+                    str = "wifi";
+                    str2 = str;
+                }
+                return str2;
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getSimSerialNumber((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String n(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            try {
+                return new String(a(context).getBytes(), "UTF-8");
+            } catch (UnsupportedEncodingException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String u(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
+            try {
+                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+                if (connectionInfo != null) {
+                    return connectionInfo.getSSID();
+                }
+                return "";
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String v(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
+            try {
+                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+                if (connectionInfo != null) {
+                    return connectionInfo.getBSSID();
+                }
+                return "";
+            } catch (SecurityException unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static double d(Context context) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                obj = Class.forName("com.android.internal.os.PowerProfile").getConstructor(Context.class).newInstance(context);
+            } catch (Exception unused) {
+                obj = null;
+            }
+            try {
+                return ((Double) Class.forName("com.android.internal.os.PowerProfile").getMethod("getAveragePower", String.class).invoke(obj, "battery.capacity")).doubleValue();
+            } catch (Exception unused2) {
+                return 0.0d;
+            }
+        }
+        return invokeL.doubleValue;
+    }
+
+    public static String q(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            try {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
+                return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k.get();
-        }
-        return invokeV.intValue;
-    }
-
-    public s1c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = s1c.class.getSimpleName();
-        this.b = SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-        this.c = -2;
-        this.d = null;
-        this.e = new Object();
-        this.f = new Object();
-        this.g = new LinkedList<>();
-        this.h = new TreeMap<>();
-        this.i = new LinkedList<>();
-        this.j = new TreeMap<>();
-        this.k = new AtomicInteger(1);
-        this.l = null;
-        if (str != null) {
-            this.b = str;
-        }
-        this.c = 0;
-    }
-
-    public static int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i > 19) {
-                i = 19;
-            } else if (i < -8) {
-                i = -8;
-            }
-            return ((i - 19) * 9) / (-27);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // com.baidu.tieba.j1c
-    public void b(j1c.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d = aVar;
-            if (aVar != null) {
-                return;
-            }
-            throw new RuntimeException("mCallback is not set!");
-        }
-    }
-
-    @Override // com.baidu.tieba.j1c
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (getStatus() == 1) {
-                this.c = i;
-                return;
-            }
-            throw new IllegalStateException("invalid state");
-        }
-    }
-
-    @Override // com.baidu.tieba.j1c
-    public boolean e(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, runnable)) == null) {
-            Message obtain = Message.obtain((Handler) null, runnable);
-            boolean sendMessage = sendMessage(obtain);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             try {
-                obtain.recycle();
-            } catch (IllegalStateException unused) {
-                TLog.d(this.a, "message recycle error");
+                return Build.CPU_ABI;
+            } catch (Exception unused) {
+                return "";
             }
-            return sendMessage;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j1c
-    public boolean f(int i) {
-        InterceptResult invokeI;
+    public static String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return a(i, 0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            try {
+                return Build.BRAND;
+            } catch (Exception unused) {
+                return "";
+            }
         }
-        return invokeI.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j1c
-    public boolean sendMessage(Message message) {
+    public static String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            try {
+                return Build.MODEL;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            try {
+                return "Android " + Build.VERSION.RELEASE;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @TargetApi(26)
+    public static String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            try {
+                return Build.getSerial();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String k(Context context) {
         InterceptResult invokeL;
+        WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, message)) == null) {
-            return i(message, 0L);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j1c
-    public void setName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.j1c
-    public boolean a(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = i;
-            return i(obtain, j);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(10:4|5|(2:10|11)|15|50|19|20|21|22|11) */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0081, code lost:
-        r4 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0082, code lost:
-        r4.printStackTrace();
-        r4 = r7.a;
-        com.yy.transvod.player.log.TLog.m(r4, r7.b + "stop thread, join exception");
-     */
-    @Override // com.baidu.tieba.j1c
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                int i = this.k.get();
-                if (i != 2 && i != 3) {
-                    TLog.m(this.a, String.format("[%s] already stopped? mThreadStatus = %s", this.b, m[i]));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return l();
+            }
+            try {
+                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
+                    return "";
                 }
-                String str = this.a;
-                TLog.h(str, this.b + "stop thread, status to 4");
-                this.k.set(4);
-                synchronized (this.f) {
-                    this.f.notify();
-                }
-                int myTid = Process.myTid();
-                String str2 = this.a;
-                TLog.h(str2, this.b + "stop thread, join in");
-                this.l.join();
-                this.l = null;
-                this.k.set(1);
-                TLog.h(this.a, String.format("[%s] stop thread tid %d", this.b, Integer.valueOf(myTid)));
+                return ApiReplaceUtil.getMacAddress(connectionInfo);
+            } catch (Exception unused) {
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.j1c
-    public void start() {
+    public static String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.l != null) {
-                TLog.m(this.a, "is alive already");
-            } else if (this.d != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                synchronized (this) {
-                    try {
-                        this.k.set(2);
-                        Thread thread = new Thread(this, this.b);
-                        this.l = thread;
-                        thread.setPriority(h(this.c));
-                        this.l.start();
-                        String str = this.a;
-                        TLog.h(str, this.b + "  isAlive:" + this.l.isAlive());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        String str2 = this.a;
-                        TLog.d(str2, this.b + " start thread, exception:" + e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            try {
+                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
+                        if (hardwareAddress == null) {
+                            return "";
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        int length = hardwareAddress.length;
+                        for (int i = 0; i < length; i++) {
+                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                        }
+                        if (sb.length() > 0) {
+                            sb.deleteCharAt(sb.length() - 1);
+                        }
+                        return sb.toString();
                     }
                 }
-                StringBuilder sb = new StringBuilder();
-                String str3 = this.b;
-                if (str3 != null) {
-                    sb.append(str3);
-                }
-                sb.append(" YYThread2 start cost:");
-                sb.append(System.currentTimeMillis() - currentTimeMillis);
-                TLog.m(this.a, sb.toString());
-            } else {
-                throw new RuntimeException("mCallback is null");
+                return "";
+            } catch (Exception unused) {
+                return "";
             }
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j1c
-    public void g(int i) {
+    public static String r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.k.get() == 2) {
-            synchronized (this.f) {
-                Iterator<Message> it = this.g.iterator();
-                while (it.hasNext()) {
-                    Message next = it.next();
-                    if (next.what == i) {
-                        try {
-                            next.recycle();
-                        } catch (IllegalStateException unused) {
-                            TLog.d(this.a, "message recycle error");
-                        }
-                        it.remove();
-                    }
-                }
-                for (Map.Entry<Long, Message> entry : this.h.entrySet()) {
-                    if (entry.getValue().what == i) {
-                        this.h.remove(entry.getKey());
-                        try {
-                            entry.getValue().recycle();
-                        } catch (IllegalStateException unused2) {
-                            TLog.d(this.a, "message recycle error");
-                        }
-                    }
-                }
-                synchronized (this.e) {
-                    for (Map.Entry<Long, Message> entry2 : this.j.entrySet()) {
-                        if (entry2.getValue().what == i) {
-                            this.j.remove(entry2.getKey());
-                            try {
-                                entry2.getValue().recycle();
-                            } catch (IllegalStateException unused3) {
-                                TLog.d(this.a, "message recycle error");
-                            }
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            try {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());
+            } catch (Exception unused) {
+                return "";
             }
         }
+        return (String) invokeV.objValue;
     }
 
-    public boolean i(Message message, long j) {
-        InterceptResult invokeLJ;
+    public static String s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, message, j)) == null) {
-            int i = this.k.get();
-            if (i == 2) {
-                synchronized (this.f) {
-                    Message obtain = Message.obtain();
-                    obtain.copyFrom(message);
-                    if (j == 0) {
-                        this.g.add(obtain);
-                    } else {
-                        synchronized (this.e) {
-                            this.h.put(Long.valueOf(System.currentTimeMillis() + j), obtain);
-                        }
-                    }
-                    this.f.notify();
-                }
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return t();
             }
-            TLog.d(this.a, String.format("[%s] sendMessageDelayed() failed. mThreadStatus = %s", this.b, m[i]));
-            return false;
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, "ro.serialno", "unknown");
+            } catch (Exception unused) {
+                return "";
+            }
         }
-        return invokeLJ.booleanValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TLog.h(this.a, this.b + " onstart, priority=" + this.c);
-            this.d.onStart();
-            long j = 0L;
-            do {
-                synchronized (this.f) {
-                    try {
-                        if (this.g.isEmpty()) {
-                            this.f.wait(j);
-                        }
-                        LinkedList<Message> linkedList = this.g;
-                        this.g = this.i;
-                        this.i = linkedList;
-                        synchronized (this.e) {
-                            this.j.putAll(this.h);
-                            this.h.clear();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                LinkedList<Message> linkedList2 = new LinkedList();
-                synchronized (this.e) {
-                    Iterator it = ((TreeMap) this.j.clone()).entrySet().iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            Map.Entry entry = (Map.Entry) it.next();
-                            if (((Long) entry.getKey()).longValue() <= currentTimeMillis) {
-                                Message message = new Message();
-                                message.copyFrom((Message) entry.getValue());
-                                this.j.remove(entry.getKey());
-                                try {
-                                    ((Message) entry.getValue()).recycle();
-                                } catch (IllegalStateException unused) {
-                                    TLog.d(this.a, "message recycle error");
-                                }
-                                linkedList2.add(message);
-                            } else {
-                                j = ((Long) entry.getKey()).longValue() - currentTimeMillis;
-                                break;
-                            }
-                        } else {
-                            j = 0;
-                            break;
-                        }
-                    }
-                }
-                for (Message message2 : linkedList2) {
-                    this.d.handleMessage(message2);
-                }
-                while (true) {
-                    Message poll = this.i.poll();
-                    if (poll == null) {
-                        break;
-                    }
-                    int i = poll.what;
-                    if (i == -10003) {
-                        this.k.set(3);
-                        this.d.onPause();
-                    } else if (i == -10004) {
-                        this.d.onResume();
-                    } else {
-                        this.d.handleMessage(poll);
-                    }
-                    try {
-                        poll.recycle();
-                    } catch (IllegalStateException unused2) {
-                        TLog.d(this.a, "message recycle error");
-                    }
-                }
-            } while (this.k.get() != 4);
-            TLog.d(this.a, this.b + " stopped");
-            TLog.h(this.a, this.b + " onstop");
-            this.d.onStop();
-        }
+        return (String) invokeV.objValue;
     }
 }

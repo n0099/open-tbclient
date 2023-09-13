@@ -1,100 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.ue8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import protobuf.Item;
 /* loaded from: classes8.dex */
 public class ve8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
 
-    public ve8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class a implements ue8.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ue8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public static ve8 a(Item item) {
-        InterceptResult invokeL;
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, ue8.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            ve8 ve8Var = new ve8();
-            ve8Var.a = item.itemId;
-            ve8Var.b = item.itemName;
-            ve8Var.c = item.iconSize;
-            ve8Var.d = item.iconUrl;
-            ve8Var.e = item.tags;
-            ve8Var.f = item.score;
-            ve8Var.g = item.star;
-            ve8Var.h = item.buttonName;
-            ve8Var.i = item.buttonLink;
-            ve8Var.j = item.itemAppid;
-            ve8Var.k = item.categoryId;
-            ve8Var.l = item.buttonLinkType;
-            ve8Var.m = item.apkName;
-            ve8Var.n = item.forumName;
-            ve8Var.o = ApkDetailPojo.N(item.apkDetail);
-            return ve8Var;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            ue8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
-        return (ve8) invokeL.objValue;
-    }
-
-    public static ve8 b(tbclient.Item item) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            ve8 ve8Var = new ve8();
-            ve8Var.a = item.item_id;
-            ve8Var.b = item.item_name;
-            ve8Var.c = item.icon_size;
-            ve8Var.d = item.icon_url;
-            ve8Var.e = item.tags;
-            ve8Var.f = item.score;
-            ve8Var.g = item.star;
-            ve8Var.h = item.button_name;
-            ve8Var.i = item.button_link;
-            ve8Var.j = item.item_appid;
-            ve8Var.k = item.category_id;
-            ve8Var.l = item.button_link_type;
-            ve8Var.m = item.apk_name;
-            ve8Var.n = item.forum_name;
-            ve8Var.o = ApkDetailPojo.O(item.apk_detail);
-            return ve8Var;
-        }
-        return (ve8) invokeL.objValue;
     }
 }

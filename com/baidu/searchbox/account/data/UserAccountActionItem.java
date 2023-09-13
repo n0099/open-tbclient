@@ -3,6 +3,7 @@ package com.baidu.searchbox.account.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import org.json.JSONException;
@@ -72,7 +73,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     public enum UserAccountAction {
         LOGIN("login"),
         LOGOUT("logout"),
-        BIND("bind");
+        BIND(UbcRemoteStat.BIND_SERVICE);
         
         public String mName;
 

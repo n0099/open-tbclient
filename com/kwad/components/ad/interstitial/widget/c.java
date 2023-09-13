@@ -36,7 +36,7 @@ public final class c extends b {
     public boolean ia;
 
     /* renamed from: if  reason: not valid java name */
-    public TransViewPager f9if;
+    public TransViewPager f8if;
     public a ig;
     public ViewPagerIndicator ih;
     public SlideTipsView ij;
@@ -107,17 +107,17 @@ public final class c extends b {
             @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public final void onPageSelected(int i) {
                 e F;
-                e F2 = c.this.f9if.F(i);
+                e F2 = c.this.f8if.F(i);
                 if (F2 != null) {
                     F2.dW();
                 }
-                if (this.is != i && (F = c.this.f9if.F(this.is)) != null) {
+                if (this.is != i && (F = c.this.f8if.F(this.is)) != null) {
                     F.dX();
                 }
                 this.is = i;
             }
         };
-        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b2, this);
+        this.mRootView = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04b9, this);
         this.mContext = context;
         initView();
     }
@@ -139,10 +139,10 @@ public final class c extends b {
                     c.this.mAdTemplateList.addAll(list);
                     c.this.ig.setAdTemplateList(c.this.mAdTemplateList);
                     c.this.ig.notifyDataSetChanged();
-                    c.this.f9if.setOffscreenPageLimit(c.this.mAdTemplateList.size() - 1);
-                    c.this.f9if.addOnPageChangeListener(c.this.iq);
+                    c.this.f8if.setOffscreenPageLimit(c.this.mAdTemplateList.size() - 1);
+                    c.this.f8if.addOnPageChangeListener(c.this.iq);
                     c.this.dP();
-                    c.this.ih.setViewPager(c.this.f9if);
+                    c.this.ih.setViewPager(c.this.f8if);
                     c.this.ih.setVisibility(0);
                     c.this.aM.a(c.this.bX);
                     com.kwad.components.ad.interstitial.a.a.I(c.this.mContext);
@@ -162,7 +162,7 @@ public final class c extends b {
                 } else {
                     c.this.dQ();
                 }
-                c.this.f9if.setScrollable(true);
+                c.this.f8if.setScrollable(true);
             }
         });
     }
@@ -176,8 +176,8 @@ public final class c extends b {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float f;
-                c.this.f9if.scrollTo(com.kwad.sdk.b.kwai.a.a(c.this.mContext, ((Integer) valueAnimator.getAnimatedValue()).intValue()), 0);
-                c.this.f9if.onPageScrolled(0, com.kwad.sdk.b.kwai.a.a(c.this.mContext, f) / c.this.getWidth(), 0);
+                c.this.f8if.scrollTo(com.kwad.sdk.b.kwai.a.a(c.this.mContext, ((Integer) valueAnimator.getAnimatedValue()).intValue()), 0);
+                c.this.f8if.onPageScrolled(0, com.kwad.sdk.b.kwai.a.a(c.this.mContext, f) / c.this.getWidth(), 0);
             }
         });
         this.il.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.interstitial.widget.c.9
@@ -206,14 +206,14 @@ public final class c extends b {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                c.this.f9if.scrollTo(intValue, 0);
-                c.this.f9if.onPageScrolled(0, intValue / c.this.getWidth(), 0);
+                c.this.f8if.scrollTo(intValue, 0);
+                c.this.f8if.onPageScrolled(0, intValue / c.this.getWidth(), 0);
             }
         });
         this.il.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.components.ad.interstitial.widget.c.11
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public final void onAnimationEnd(Animator animator) {
-                c.this.f9if.setCurrentItem(1);
+                c.this.f8if.setCurrentItem(1);
                 c.this.ik.setVisibility(0);
                 TranslateAnimation translateAnimation = new TranslateAnimation(1, -0.5f, 1, -0.1f, 1, 0.0f, 1, 0.0f);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.8f);
@@ -229,10 +229,10 @@ public final class c extends b {
     }
 
     private void initView() {
-        this.f9if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091324);
-        this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091325);
-        this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09130e);
-        this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913f3);
+        this.f8if = (TransViewPager) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09132a);
+        this.ih = (ViewPagerIndicator) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09132b);
+        this.ij = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091314);
+        this.ik = (SlideTipsView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913f9);
         this.aM = new com.kwad.components.core.widget.kwai.b(this.mRootView, 100);
     }
 
@@ -250,11 +250,11 @@ public final class c extends b {
         aVar.a(new a.b() { // from class: com.kwad.components.ad.interstitial.widget.c.1
             @Override // com.kwad.components.ad.interstitial.widget.a.b
             public final void a(e eVar, int i) {
-                c.this.f9if.a(i, eVar);
+                c.this.f8if.a(i, eVar);
             }
         });
-        this.ig.a(new a.InterfaceC0616a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
-            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0616a
+        this.ig.a(new a.InterfaceC0611a() { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0611a
             public final void dL() {
                 if (c.this.io) {
                     return;
@@ -264,10 +264,10 @@ public final class c extends b {
                 }
                 c.this.ih.setPlayProgressListener(null);
                 c.this.ih.setVisibility(8);
-                c.this.f9if.setScrollable(false);
+                c.this.f8if.setScrollable(false);
             }
         });
-        this.f9if.setAdapter(this.ig);
+        this.f8if.setAdapter(this.ig);
         this.ig.setAdTemplateList(this.mAdTemplateList);
         this.ig.notifyDataSetChanged();
         this.aM.qi();

@@ -47,7 +47,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
     public static final String LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f10037e;
+    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100386;
 
     /* loaded from: classes9.dex */
     public interface OnButtonCheckedListener {

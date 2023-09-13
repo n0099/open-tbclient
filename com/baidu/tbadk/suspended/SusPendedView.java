@@ -16,8 +16,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ct5;
-import com.baidu.tieba.dt5;
+import com.baidu.tieba.wt5;
+import com.baidu.tieba.xt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public dt5 d;
+    public xt5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(dt5 dt5Var) {
+    public void setContentViewTop(xt5 xt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, dt5Var) == null) {
-            this.d = dt5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, xt5Var) == null) {
+            this.d = xt5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            dt5 dt5Var = this.d;
-            if (dt5Var == null) {
+            xt5 xt5Var = this.d;
+            if (xt5Var == null) {
                 return false;
             }
-            return dt5Var.C();
+            return xt5Var.E();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    dt5 dt5Var = this.d;
-                    if (dt5Var instanceof ct5) {
-                        ((ct5) dt5Var).U(f - f2);
+                    xt5 xt5Var = this.d;
+                    if (xt5Var instanceof wt5) {
+                        ((wt5) xt5Var).W(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

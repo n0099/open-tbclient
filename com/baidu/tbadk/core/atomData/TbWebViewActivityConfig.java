@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String GOD_INVITE_JUMP_URL = "https://tiebac.baidu.com/mo/q/god/inviteGod";
+    public static String GOD_INVITE_JUMP_URL = null;
     public static final String JUMP_PARAMS_PAGE_TYPE = "?page_type=open_full_screen_opacity_web_page";
     public static final String KEY_IS_FROM_SCHEMA = "key_is_from_schema";
     public static final String KEY_USE_CUSTOM_HISTORY_STACK = "use_custom_history_stack";
@@ -33,16 +34,17 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1411175622, "Lcom/baidu/tbadk/core/atomData/TbWebViewActivityConfig;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1411175622, "Lcom/baidu/tbadk/core/atomData/TbWebViewActivityConfig;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1411175622, "Lcom/baidu/tbadk/core/atomData/TbWebViewActivityConfig;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1411175622, "Lcom/baidu/tbadk/core/atomData/TbWebViewActivityConfig;");
-        }
+        GOD_INVITE_JUMP_URL = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS + "mo/q/god/inviteGod";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

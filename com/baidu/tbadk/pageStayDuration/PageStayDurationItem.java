@@ -3,7 +3,7 @@ package com.baidu.tbadk.pageStayDuration;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sr5;
+import com.baidu.tieba.ms5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class PageStayDurationItem {
     public String isDynamic;
     public boolean isRouteStat;
     public String isVertical;
-    public sr5 mTbPageExtra;
+    public ms5 mTbPageExtra;
     public String nid;
     public String objID;
     public String objLocation;
@@ -145,13 +145,13 @@ public class PageStayDurationItem {
         return (String) invokeV.objValue;
     }
 
-    public sr5 getTbPageExtra() {
+    public ms5 getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mTbPageExtra;
         }
-        return (sr5) invokeV.objValue;
+        return (ms5) invokeV.objValue;
     }
 
     public int getThreadType() {
@@ -272,10 +272,10 @@ public class PageStayDurationItem {
         }
     }
 
-    public void setTbPageExtra(sr5 sr5Var) {
+    public void setTbPageExtra(ms5 ms5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, sr5Var) == null) {
-            this.mTbPageExtra = sr5Var;
+        if (interceptable == null || interceptable.invokeL(1048602, this, ms5Var) == null) {
+            this.mTbPageExtra = ms5Var;
         }
     }
 

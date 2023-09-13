@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.mainentrance;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.x85;
+import com.baidu.tieba.g95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public class MainEntrance {
     public static final int PRIORITY_VIDEO_CHANNEL = 5;
     public static final int PRIORITY_WRITE_THREAD = 4;
     public static int initMainTabType;
-    public static x85 sMainTabInst;
+    public static g95 sMainTabInst;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -99,11 +99,11 @@ public class MainEntrance {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            x85 x85Var = sMainTabInst;
-            if (x85Var == null) {
+            g95 g95Var = sMainTabInst;
+            if (g95Var == null) {
                 return -1;
             }
-            return x85Var.getCurrentTabType();
+            return g95Var.getCurrentTabType();
         }
         return invokeV.intValue;
     }
@@ -112,11 +112,11 @@ public class MainEntrance {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            x85 x85Var = sMainTabInst;
-            if (x85Var == null) {
+            g95 g95Var = sMainTabInst;
+            if (g95Var == null) {
                 return null;
             }
-            return x85Var.d();
+            return g95Var.d();
         }
         return (Class) invokeV.objValue;
     }
@@ -125,11 +125,11 @@ public class MainEntrance {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            x85 x85Var = sMainTabInst;
-            if (x85Var == null) {
+            g95 g95Var = sMainTabInst;
+            if (g95Var == null) {
                 return null;
             }
-            return x85Var.f();
+            return g95Var.f();
         }
         return (String) invokeV.objValue;
     }
@@ -147,45 +147,45 @@ public class MainEntrance {
     }
 
     public static void goToMainTab(Context context) {
-        x85 x85Var;
+        g95 g95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, context) != null) || (x85Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeL(65541, null, context) != null) || (g95Var = sMainTabInst) == null) {
             return;
         }
-        x85Var.a(context);
+        g95Var.a(context);
     }
 
-    public static void setMainTabInst(x85 x85Var) {
+    public static void setMainTabInst(g95 g95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, x85Var) == null) {
-            sMainTabInst = x85Var;
+        if (interceptable == null || interceptable.invokeL(65545, null, g95Var) == null) {
+            sMainTabInst = g95Var;
         }
     }
 
     public static void goToMainTab(Context context, int i) {
-        x85 x85Var;
+        g95 g95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65542, null, context, i) != null) || (x85Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeLI(65542, null, context, i) != null) || (g95Var = sMainTabInst) == null) {
             return;
         }
-        x85Var.b(context, i);
+        g95Var.b(context, i);
     }
 
     public static void goToMainTab(Context context, int i, boolean z) {
-        x85 x85Var;
+        g95 g95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (x85Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (g95Var = sMainTabInst) == null) {
             return;
         }
-        x85Var.c(context, i, z);
+        g95Var.c(context, i, z);
     }
 
     public static void goToMainTabRefresh(Context context, int i, boolean z) {
-        x85 x85Var;
+        g95 g95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (x85Var = sMainTabInst) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65544, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (g95Var = sMainTabInst) == null) {
             return;
         }
-        x85Var.e(context, i, z);
+        g95Var.e(context, i, z);
     }
 }

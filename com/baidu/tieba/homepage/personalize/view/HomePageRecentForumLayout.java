@@ -27,11 +27,11 @@ import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.CommonSpaceItemDecoration;
-import com.baidu.tieba.di;
-import com.baidu.tieba.epa;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.f78;
 import com.baidu.tieba.homepage.personalize.adapter.RecommendRecentForumListAdapter;
-import com.baidu.tieba.u58;
-import com.baidu.tieba.z9a;
+import com.baidu.tieba.sba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public RecommendRecentForumListAdapter e;
     public ImageView f;
     public ImageView g;
-    public u58 h;
+    public f78 h;
     public BdUniqueId i;
     public BdResourceCallback<BdImage> j;
 
@@ -159,11 +159,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     }
 
     public final void e(boolean z) {
-        u58 u58Var;
+        f78 f78Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!z && (u58Var = this.h) != null && u58Var.c() != null && !di.isEmpty(epa.g(this.h.c()))) {
-                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(epa.g(this.h.c()), 45, this.j, this.i);
+            if (!z && (f78Var = this.h) != null && f78Var.c() != null && !ei.isEmpty(cra.g(this.h.c()))) {
+                BdImage bdImage = (BdImage) BdResourceLoader.getInstance().loadResource(cra.g(this.h.c()), 45, this.j, this.i);
                 if (bdImage != null) {
                     setBackground(bdImage.getAsBitmapDrawable());
                     return;
@@ -208,11 +208,11 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0861, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092773);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0d);
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0876, (ViewGroup) this, true);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0927a5);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0c);
             this.g = (ImageView) findViewById(R.id.arrow_img);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090bf8);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090bf4);
             this.d = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
             RecommendRecentForumListAdapter recommendRecentForumListAdapter = new RecommendRecentForumListAdapter(this.a);
@@ -227,26 +227,26 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        u58 u58Var;
+        f78 f78Var;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2 == null) {
             return;
         }
-        if ((view2 == this.c || view2 == this.g) && (u58Var = this.h) != null && !TextUtils.isEmpty(u58Var.g())) {
+        if ((view2 == this.c || view2 == this.g) && (f78Var = this.h) != null && !TextUtils.isEmpty(f78Var.g())) {
             UrlManager.getInstance().dealOneLink(this.a, new String[]{this.h.g()});
-            z9a.a().d(true);
+            sba.a().d(true);
         }
     }
 
-    public void setData(u58 u58Var) {
+    public void setData(f78 f78Var) {
         RecommendRecentForumListAdapter recommendRecentForumListAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, u58Var) == null) {
-            if (u58Var != null && (recommendRecentForumListAdapter = this.e) != null) {
-                this.h = u58Var;
-                recommendRecentForumListAdapter.setData(u58Var.f());
+        if (interceptable == null || interceptable.invokeL(1048581, this, f78Var) == null) {
+            if (f78Var != null && (recommendRecentForumListAdapter = this.e) != null) {
+                this.h = f78Var;
+                recommendRecentForumListAdapter.setData(f78Var.f());
                 this.e.notifyDataSetChanged();
-                if (!di.isEmpty(this.h.g())) {
+                if (!ei.isEmpty(this.h.g())) {
                     this.c.setVisibility(8);
                     this.g.setVisibility(8);
                 } else {
@@ -256,15 +256,15 @@ public class HomePageRecentForumLayout extends RelativeLayout implements View.On
                 if (this.d.getLayoutManager() instanceof LinearLayoutManager) {
                     LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.d.getLayoutManager();
                     if (this.h.h()) {
-                        if (u58Var.e() != Integer.MIN_VALUE && u58Var.d() != Integer.MIN_VALUE && !z9a.a().b()) {
-                            linearLayoutManager.scrollToPositionWithOffset(u58Var.e(), u58Var.d());
+                        if (f78Var.e() != Integer.MIN_VALUE && f78Var.d() != Integer.MIN_VALUE && !sba.a().b()) {
+                            linearLayoutManager.scrollToPositionWithOffset(f78Var.e(), f78Var.d());
                         }
                     } else {
                         linearLayoutManager.scrollToPosition(0);
-                        z9a.a().e(false);
+                        sba.a().e(false);
                     }
                 }
-                this.h.n(true);
+                this.h.o(true);
                 e(false);
                 f(TbadkApplication.getInst().getSkinType());
                 return;

@@ -2,21 +2,30 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.view.WindowManager;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,32 +34,51 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f55 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int i;
+public class f55 implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int n = 2131235802;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public TextView b;
+    public Context a;
+    public ViewGroup b;
     public TextView c;
     public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
+    public TbImageView e;
+    public WindowManager f;
+    public WindowManager.LayoutParams g;
+    public int h;
+    public int i;
+    public float j;
+    public int k;
+    public Runnable l;
+    public mu4 m;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947715139, "Lcom/baidu/tieba/f55;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947715139, "Lcom/baidu/tieba/f55;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertConfig.OperateBtnConfig a;
-        public final /* synthetic */ View.OnClickListener b;
+        public final /* synthetic */ f55 a;
 
-        public a(f55 f55Var, TBAlertConfig.OperateBtnConfig operateBtnConfig, View.OnClickListener onClickListener) {
+        public a(f55 f55Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f55Var, operateBtnConfig, onClickListener};
+                Object[] objArr = {f55Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,378 +88,242 @@ public class f55 {
                     return;
                 }
             }
-            this.a = operateBtnConfig;
-            this.b = onClickListener;
+            this.a = f55Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                View.OnClickListener onClickListener = this.a.listener;
-                if (onClickListener != null) {
-                    onClickListener.onClick(view2);
-                }
-                View.OnClickListener onClickListener2 = this.b;
-                if (onClickListener2 != null) {
-                    onClickListener2.onClick(view2);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-851511483, "Lcom/baidu/tieba/f55$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-851511483, "Lcom/baidu/tieba/f55$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[TBAlertConfig.OperateBtnStyle.values().length];
-            b = iArr;
-            try {
-                iArr[TBAlertConfig.OperateBtnStyle.MAIN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.ALERT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.FORCE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.SECONDARY.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                b[TBAlertConfig.OperateBtnStyle.BG_GRADIENT.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            int[] iArr2 = new int[TBAlertConfig.OperateType.values().length];
-            a = iArr2;
-            try {
-                iArr2[TBAlertConfig.OperateType.ONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[TBAlertConfig.OperateType.TWO.ordinal()] = 2;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[TBAlertConfig.OperateType.THREE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused8) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715139, "Lcom/baidu/tieba/f55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715139, "Lcom/baidu/tieba/f55;");
-                return;
-            }
-        }
-        i = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds96);
-    }
-
-    public f55() {
+    public f55(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public final TextView a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            TextView textView = new TextView(context);
-            this.f = textView;
-            EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0301).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0301).setCorner(R.string.J_X07).setBackGroundSelectorColor(17170445);
-            this.f.setMaxLines(1);
-            this.f.setSingleLine();
-            this.f.setGravity(17);
-            return this.f;
+        this.j = 1.0f;
+        this.k = 3000;
+        if (context == null) {
+            return;
         }
-        return (TextView) invokeL.objValue;
+        this.a = context;
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.new_task_completed_toast_layout, (ViewGroup) null);
+        this.b = viewGroup;
+        this.c = (TextView) viewGroup.findViewById(R.id.toast_message_content);
+        TextView textView = (TextView) this.b.findViewById(R.id.toast_btn);
+        this.d = textView;
+        textView.setOnClickListener(this);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.toast_bg);
+        this.e = tbImageView;
+        tbImageView.setDefaultBgResource(n);
+        this.e.setDrawCorner(true);
+        this.e.setConrers(15);
+        this.e.setRadius(BdUtilHelper.getDimens(context, R.dimen.tbds20));
+        this.i = BdUtilHelper.getDimens(context, R.dimen.tbds176);
+        this.h = BdUtilHelper.getDimens(context, R.dimen.tbds29);
+        SkinManager.setBackgroundResource(this.b, R.drawable.layerlist_new_complete_task_toast_shadow);
+        this.f = (WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+        g();
+        this.l = new a(this);
     }
 
-    public final TextView f(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            TextView textView = new TextView(context);
-            this.e = textView;
-            EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0101).setTextStyle(R.string.F_X01).setCorner(R.string.J_X07).setBackGroundSelectorColor(R.color.CAM_X0303);
-            this.e.setMaxLines(1);
-            this.e.setSingleLine();
-            this.e.setGravity(17);
-            return this.e;
-        }
-        return (TextView) invokeL.objValue;
-    }
-
-    public final TextView l(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            TextView textView = new TextView(context);
-            this.g = textView;
-            EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0105).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0902).setCorner(R.string.J_X07).setBackGroundSelectorColor(17170445);
-            this.g.setMaxLines(1);
-            this.g.setSingleLine();
-            this.g.setGravity(17);
-            return this.g;
-        }
-        return (TextView) invokeL.objValue;
-    }
-
-    public TextView m(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
-            EMTextView eMTextView = new EMTextView(context);
-            this.a = eMTextView;
-            EMManager.from(eMTextView).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            this.a.setMaxLines(1);
-            this.a.setSingleLine();
-            this.a.setGravity(17);
-            return this.a;
-        }
-        return (TextView) invokeL.objValue;
-    }
-
-    public final TextView b(@NonNull Context context, @NonNull TBAlertConfig.OperateBtnConfig operateBtnConfig) {
+    public static f55 h(Context context, mu4 mu4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, operateBtnConfig)) == null) {
-            this.h = new TextView(context);
-            TBSelector.makeDrawableSelector().setShape(0).radius((float) R.string.J_X07).gradientLinear(operateBtnConfig.mBgGradientDirection, operateBtnConfig.mBgGradientColor).into(this.h);
-            this.h.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.h.setMaxLines(1);
-            this.h.setSingleLine();
-            this.h.setGravity(17);
-            return this.h;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, mu4Var)) == null) {
+            f55 f55Var = new f55(context);
+            f55Var.a(mu4Var);
+            return f55Var;
         }
-        return (TextView) invokeLL.objValue;
+        return (f55) invokeLL.objValue;
     }
 
-    public TextView c(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
+    public final f55 a(mu4 mu4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z)) == null) {
-            if (z) {
-                return d(activity);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mu4Var)) == null) {
+            if (this.a == null) {
+                return this;
             }
-            return e(activity);
+            if (mu4Var == null) {
+                c();
+                return this;
+            }
+            this.m = mu4Var;
+            if (ei.isEmpty(mu4Var.e)) {
+                this.c.setText(this.a.getResources().getString(R.string.task_already_finish));
+            } else {
+                this.c.setText(mu4Var.e);
+            }
+            if (ei.isEmpty(mu4Var.f)) {
+                this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f030a));
+            } else {
+                this.d.setText(mu4Var.f);
+            }
+            if (ei.isEmpty(mu4Var.p)) {
+                SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
+            } else {
+                this.c.setTextColor(ColorUtils.parseColor(mu4Var.p));
+            }
+            if (ei.isEmpty(mu4Var.q)) {
+                SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);
+            } else {
+                this.d.setTextColor(ColorUtils.parseColor(mu4Var.q));
+            }
+            if (!ei.isEmpty(mu4Var.o)) {
+                this.d.setBackgroundDrawable(b(mu4Var.o));
+            }
+            if (!ei.isEmpty(mu4Var.j)) {
+                this.e.startLoad(mu4Var.j, 10, false);
+            }
+            int i = mu4Var.i;
+            if (i > 3) {
+                this.k = i * 1000;
+            }
+            this.j = (float) mu4Var.n;
+            i();
+            return this;
         }
-        return (TextView) invokeLZ.objValue;
+        return (f55) invokeL.objValue;
     }
 
-    public TextView d(@NonNull Context context) {
+    public final StateListDrawable b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            EMTextView eMTextView = new EMTextView(context);
-            this.b = eMTextView;
-            EMManager.from(eMTextView).setTextSize(R.dimen.T_X07).setTextLinePadding(R.dimen.M_T_X002).setTextColor(R.color.CAM_X0108).setTextStyle(R.string.F_X01);
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            Drawable drawable = this.a.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
+            gradientDrawable.setColor(ColorUtils.parseColor(str));
+            stateListDrawable.addState(new int[]{16842919}, drawable);
+            stateListDrawable.addState(new int[0], gradientDrawable);
+            return stateListDrawable;
         }
-        return (TextView) invokeL.objValue;
+        return (StateListDrawable) invokeL.objValue;
     }
 
-    public TextView e(@NonNull Context context) {
+    public final f55 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            this.c.setText(this.a.getResources().getString(R.string.task_already_finish));
+            this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f030a));
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);
+            i();
+            return this;
+        }
+        return (f55) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            this.g = layoutParams;
+            layoutParams.width = BdUtilHelper.getEquipmentWidth(this.a) - (this.h * 2);
+            this.g.height = BdUtilHelper.getDimens(this.a, R.dimen.tbds196);
+            WindowManager.LayoutParams layoutParams2 = this.g;
+            layoutParams2.type = 1000;
+            layoutParams2.format = -3;
+            layoutParams2.windowAnimations = R.style.obfuscated_res_0x7f1003f7;
+            layoutParams2.flags = 262152;
+            layoutParams2.gravity = 81;
+        }
+    }
+
+    public f55 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.a != null) {
+                this.f.addView(this.b, this.g);
+                SafeHandler.getInst().removeCallbacks(this.l);
+                SafeHandler.getInst().postDelayed(this.l, this.k);
+                if (this.m != null) {
+                    TiebaStatic.log(new StatisticItem("c13317").param("obj_source", this.m.a).param("obj_type", this.m.b));
+                }
+            }
+            return this;
+        }
+        return (f55) invokeV.objValue;
+    }
+
+    public final void d(String str) {
+        TbPageContext<?> e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !ei.isEmpty(str) && (e = e(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+            UrlManager.getInstance().dealOneLink(e, new String[]{str});
+        }
+    }
+
+    public final TbPageContext e(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            EMTextView eMTextView = new EMTextView(context);
-            this.c = eMTextView;
-            EMManager.from(eMTextView).setTextSize(R.dimen.T_X07).setTextLinePadding(R.dimen.M_T_X002).setTextColor(R.color.CAM_X0108).setTextStyle(R.string.F_X01);
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, activity)) == null) {
+            if (activity instanceof BaseActivity) {
+                return ((BaseActivity) activity).getPageContext();
+            }
+            if (activity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) activity).getPageContext();
+            }
+            return null;
         }
-        return (TextView) invokeL.objValue;
+        return (TbPageContext) invokeL.objValue;
     }
 
-    public final TextView g(@NonNull Context context) {
-        InterceptResult invokeL;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            TextView textView = new TextView(context);
-            this.d = textView;
-            EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0304).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBorderAlpha(R.string.A_X07).setCorner(R.string.J_X07).setBackGroundSelectorColor(17170445);
-            this.d.setMaxLines(1);
-            this.d.setSingleLine();
-            this.d.setGravity(17);
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.a != null) {
+                if (this.b.getWindowToken() != null) {
+                    this.f.removeView(this.b);
+                }
+                SafeHandler.getInst().removeCallbacks(this.l);
+            }
+            this.a = null;
         }
-        return (TextView) invokeL.objValue;
     }
 
-    public void h() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            TextView textView = this.f;
-            if (textView != null) {
-                EMManager.from(textView).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0301).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0301).setCorner(R.string.J_X07).setBackGroundSelectorColor(17170445);
-            }
-            TextView textView2 = this.g;
-            if (textView2 != null) {
-                EMManager.from(textView2).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0105).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0902).setCorner(R.string.J_X07).setBackGroundSelectorColor(17170445);
-            }
-            TextView textView3 = this.e;
-            if (textView3 != null) {
-                EMManager.from(textView3).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0101).setTextStyle(R.string.F_X01).setCorner(R.string.J_X07).setBackGroundSelectorColor(R.color.CAM_X0303);
-            }
-            TextView textView4 = this.d;
-            if (textView4 != null) {
-                EMManager.from(textView4).setTextSize(R.dimen.T_X07).setTextSelectorColor(R.color.CAM_X0304).setTextStyle(R.string.F_X01).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBorderAlpha(R.string.A_X07).setCorner(R.string.J_X07).setBackGroundSelectorColor(17170445);
-            }
-            TextView textView5 = this.a;
-            if (textView5 != null) {
-                EMManager.from(textView5).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            }
-            TextView textView6 = this.b;
-            if (textView6 != null) {
-                EMManager.from(textView6).setTextSize(R.dimen.T_X07).setTextLinePadding(R.dimen.M_T_X002).setTextColor(R.color.CAM_X0108).setTextStyle(R.string.F_X01);
-            }
-            TextView textView7 = this.c;
-            if (textView7 != null) {
-                EMManager.from(textView7).setTextSize(R.dimen.T_X07).setTextLinePadding(R.dimen.M_T_X002).setTextColor(R.color.CAM_X0108).setTextStyle(R.string.F_X01);
-            }
+            WindowManager.LayoutParams layoutParams = this.g;
+            layoutParams.y = this.i;
+            layoutParams.alpha = this.j;
         }
     }
 
-    public final View i(@NonNull Context context, @NonNull TBAlertConfig.OperateBtnConfig operateBtnConfig, @Nullable View.OnClickListener onClickListener) {
-        InterceptResult invokeLLL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        mu4 mu4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, operateBtnConfig, onClickListener)) == null) {
-            return j(context, operateBtnConfig, onClickListener, false);
+        if ((interceptable != null && interceptable.invokeL(1048585, this, view2) != null) || (mu4Var = this.m) == null) {
+            return;
         }
-        return (View) invokeLLL.objValue;
-    }
-
-    public final View j(@NonNull Context context, @NonNull TBAlertConfig.OperateBtnConfig operateBtnConfig, @Nullable View.OnClickListener onClickListener, boolean z) {
-        InterceptResult invokeCommon;
-        TextView g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{context, operateBtnConfig, onClickListener, Boolean.valueOf(z)})) == null) {
-            int i2 = b.b[operateBtnConfig.style.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 != 5) {
-                                g = null;
-                            } else {
-                                g = b(context, operateBtnConfig);
-                            }
-                        } else {
-                            g = l(context);
-                        }
-                    } else {
-                        g = f(context);
-                    }
-                } else {
-                    g = a(context);
-                }
-            } else {
-                g = g(context);
+        int i = mu4Var.d;
+        if (i == mu4.C) {
+            if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.m.l) && !ei.isEmpty(this.m.k)) {
+                d(this.m.k);
             }
-            g.setText(operateBtnConfig.btnText);
-            int i3 = operateBtnConfig.btnTextColor;
-            if (i3 != 0) {
-                g.setTextColor(i3);
-            }
-            if (z) {
-                EMManager.from(g).setTextSize(R.dimen.T_X08);
-            }
-            g.setOnClickListener(new a(this, operateBtnConfig, onClickListener));
-            return g;
+        } else if (i == mu4.D && !ei.isEmpty(mu4Var.k)) {
+            d(this.m.k);
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View k(@NonNull Context context, @NonNull TBAlertConfig.a aVar, @Nullable View.OnClickListener onClickListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, context, aVar, onClickListener)) == null) {
-            LinearLayout linearLayout = new LinearLayout(context);
-            linearLayout.setPadding(0, BdUtilHelper.getDimens(context, R.dimen.M_H_X008), 0, BdUtilHelper.getDimens(context, R.dimen.M_H_X008));
-            linearLayout.setGravity(17);
-            int i2 = b.a[aVar.a.ordinal()];
-            boolean z = true;
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
-                        linearLayout.setOrientation(1);
-                        View i3 = i(context, aVar.b, onClickListener);
-                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i);
-                        layoutParams.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X012), 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X012), BdUtilHelper.getDimens(context, R.dimen.M_H_X005));
-                        linearLayout.addView(i3, layoutParams);
-                        View i4 = i(context, aVar.c, onClickListener);
-                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, i);
-                        layoutParams2.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X012), 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X012), BdUtilHelper.getDimens(context, R.dimen.M_H_X005));
-                        linearLayout.addView(i4, layoutParams2);
-                        View i5 = i(context, aVar.d, onClickListener);
-                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, i);
-                        layoutParams3.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X012), 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X012), 0);
-                        linearLayout.addView(i5, layoutParams3);
-                    }
-                } else {
-                    linearLayout.setOrientation(0);
-                    if (aVar.b.btnText.length() <= 6 && aVar.c.btnText.length() <= 6) {
-                        z = false;
-                    }
-                    View j = j(context, aVar.b, onClickListener, z);
-                    LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(0, i);
-                    layoutParams4.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X012), 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X006) / 2, 0);
-                    layoutParams4.weight = 1.0f;
-                    linearLayout.addView(j, layoutParams4);
-                    View j2 = j(context, aVar.c, onClickListener, z);
-                    LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, i);
-                    layoutParams5.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X006) / 2, 0, BdUtilHelper.getDimens(context, R.dimen.M_W_X012), 0);
-                    layoutParams5.weight = 1.0f;
-                    linearLayout.addView(j2, layoutParams5);
-                }
-            } else {
-                linearLayout.setOrientation(0);
-                linearLayout.setWeightSum(837.0f);
-                View i6 = i(context, aVar.b, onClickListener);
-                LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(0, i);
-                layoutParams6.weight = 494.0f;
-                linearLayout.addView(i6, layoutParams6);
-            }
-            linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            return linearLayout;
-        }
-        return (View) invokeLLL.objValue;
+        TiebaStatic.log(new StatisticItem("c13318").param("obj_source", this.m.a).param("obj_type", this.m.b));
     }
 }

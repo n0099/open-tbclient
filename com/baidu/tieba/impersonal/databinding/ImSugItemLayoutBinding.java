@@ -62,17 +62,17 @@ public final class ImSugItemLayoutBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
             FrameLayout frameLayout = (FrameLayout) view2;
-            int i = R.id.obfuscated_res_0x7f092311;
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092311);
+            int i = R.id.obfuscated_res_0x7f092351;
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092351);
             if (linearLayout != null) {
-                i = R.id.obfuscated_res_0x7f092313;
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092313);
+                i = R.id.obfuscated_res_0x7f092353;
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092353);
                 if (imageView != null) {
-                    i = R.id.obfuscated_res_0x7f092315;
-                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092315);
+                    i = R.id.obfuscated_res_0x7f092355;
+                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092355);
                     if (findViewById != null) {
-                        i = R.id.obfuscated_res_0x7f092316;
-                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092316);
+                        i = R.id.obfuscated_res_0x7f092356;
+                        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092356);
                         if (textView != null) {
                             return new ImSugItemLayoutBinding(frameLayout, frameLayout, linearLayout, imageView, findViewById, textView);
                         }
@@ -89,7 +89,7 @@ public final class ImSugItemLayoutBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0435, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d043c, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gift.myGiftList.MyGiftListModel;
-import com.baidu.tieba.hy7;
-import com.baidu.tieba.ie5;
-import com.baidu.tieba.jy7;
-import com.baidu.tieba.p95;
+import com.baidu.tieba.re5;
+import com.baidu.tieba.rz7;
+import com.baidu.tieba.tz7;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public MyGiftListModel b;
-    public jy7 c;
+    public tz7 c;
     public String d;
     public int e;
     public String f;
@@ -70,29 +70,29 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         }
 
         @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.b
-        public void a(int i, String str, boolean z, hy7 hy7Var) {
+        public void a(int i, String str, boolean z, rz7 rz7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), hy7Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), rz7Var}) == null) {
                 this.a.closeLoadingDialog();
-                this.a.c.F().setVisibility(8);
-                this.a.c.E();
+                this.a.c.E().setVisibility(8);
+                this.a.c.D();
                 if (i != 0) {
                     this.a.showToast(str);
                     if (z) {
-                        this.a.c.L(hy7Var);
+                        this.a.c.K(rz7Var);
                         return;
                     } else {
-                        this.a.c.N(str, true);
+                        this.a.c.M(str, true);
                         return;
                     }
                 }
-                this.a.c.L(hy7Var);
+                this.a.c.K(rz7Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements p95.g {
+    public class b implements z95.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyGiftListActivity a;
@@ -115,20 +115,20 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             this.a = myGiftListActivity;
         }
 
-        @Override // com.baidu.tieba.p95.g
+        @Override // com.baidu.tieba.z95.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (BdUtilHelper.isNetOk()) {
-                    ie5.p0().m();
-                    this.a.b.Z(false);
+                    re5.p0().m();
+                    this.a.b.Y(false);
                     this.a.b.loadData();
-                    ie5.p0().k0(0);
-                    this.a.c.G();
+                    re5.p0().k0(0);
+                    this.a.c.F();
                     return;
                 }
-                this.a.c.E();
-                this.a.c.N(this.a.getString(R.string.obfuscated_res_0x7f0f0e29), true);
+                this.a.c.D();
+                this.a.c.M(this.a.getString(R.string.obfuscated_res_0x7f0f0e40), true);
             }
         }
     }
@@ -164,7 +164,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                 return;
             }
             if (!BdUtilHelper.isNetOk()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0e29);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e40);
                 return;
             }
             long uid = this.a.b.getUid();
@@ -207,7 +207,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public void k(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.a.b.Z(false);
+                this.a.b.Y(false);
                 this.a.b.loadData();
             }
         }
@@ -246,7 +246,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             Long l;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (l = (Long) customResponsedMessage.getData()) != null && !this.a.a && this.a.g == l.longValue()) {
-                this.a.b.Z(false);
+                this.a.b.Y(false);
                 this.a.b.loadData();
             }
         }
@@ -280,13 +280,13 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.b.V()) {
-                    this.a.b.Z(true);
+                if (this.a.b.U()) {
+                    this.a.b.Y(true);
                     this.a.b.loadData();
-                    this.a.c.F().setVisibility(0);
+                    this.a.c.E().setVisibility(0);
                     return;
                 }
-                this.a.c.F().setVisibility(8);
+                this.a.c.E().setVisibility(8);
             }
         }
     }
@@ -316,57 +316,18 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             this.c.onChangeSkinType(i);
-        }
-    }
-
-    public View.OnClickListener A1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new c(this);
-        }
-        return (View.OnClickListener) invokeV.objValue;
-    }
-
-    public String B1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09b3);
-            if (this.e == 2) {
-                return getPageContext().getString(R.string.obfuscated_res_0x7f0f13d6);
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void C1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jy7 jy7Var = new jy7(this, this.n, this.a);
-            this.c = jy7Var;
-            jy7Var.M(new b(this));
-            z1();
-        }
-    }
-
-    public final void z1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.A(this.l);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            ie5.p0().m();
+            re5.p0().m();
             Intent intent = getIntent();
             if (intent != null) {
                 this.d = intent.getStringExtra("id");
@@ -384,17 +345,56 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             this.b = myGiftListModel;
             myGiftListModel.mUserType = this.j;
             myGiftListModel.setUid(this.g);
-            this.a = this.b.T();
-            this.b.X(this.k);
-            C1();
+            this.a = this.b.S();
+            this.b.W(this.k);
+            z1();
             registerListener(this.m);
-            this.b.Z(false);
+            this.b.Y(false);
             if (BdUtilHelper.isNetOk()) {
-                this.c.O();
+                this.c.N();
             } else {
-                this.c.N(getString(R.string.obfuscated_res_0x7f0f0e29), true);
+                this.c.M(getString(R.string.obfuscated_res_0x7f0f0e40), true);
             }
-            ie5.p0().k0(0);
+            re5.p0().k0(0);
+        }
+    }
+
+    public final void w1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.z(this.l);
+        }
+    }
+
+    public View.OnClickListener x1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new c(this);
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public String y1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f09b9);
+            if (this.e == 2) {
+                return getPageContext().getString(R.string.obfuscated_res_0x7f0f13ef);
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            tz7 tz7Var = new tz7(this, this.n, this.a);
+            this.c = tz7Var;
+            tz7Var.L(new b(this));
+            w1();
         }
     }
 }

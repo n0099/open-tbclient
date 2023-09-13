@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class fy0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class fy0 implements qx0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ey0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ey0 a() {
-        InterceptResult invokeV;
-        ey0 ey0Var;
+    public fy0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (fy0.class) {
-                if (a == null) {
-                    a = new ey0();
-                }
-                ey0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ey0Var;
         }
-        return (ey0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qx0
+    @NonNull
+    public sx0 a(Map<String, String> map, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
+            return new my0(map, obj);
+        }
+        return (sx0) invokeLL.objValue;
     }
 }

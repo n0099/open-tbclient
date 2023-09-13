@@ -114,7 +114,7 @@ public class BuyTBeanActivityStatic {
                                     public void onSuccess(YYPayResult yYPayResult) {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yYPayResult) == null) {
-                                            TBWebViewActivity.YYPayResultCallback4CallJs.d();
+                                            TBWebViewActivity.YYPayResultCallback4CallJs.c();
                                         }
                                     }
 
@@ -122,7 +122,7 @@ public class BuyTBeanActivityStatic {
                                     public void onFail(int i, String str2) {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i, str2) == null) {
-                                            TBWebViewActivity.YYPayResultCallback4CallJs.d();
+                                            TBWebViewActivity.YYPayResultCallback4CallJs.c();
                                         }
                                     }
                                 });

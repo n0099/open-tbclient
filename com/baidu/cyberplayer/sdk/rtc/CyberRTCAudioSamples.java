@@ -4,10 +4,10 @@ import com.baidu.cyberplayer.sdk.Keep;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberRTCAudioSamples {
-    public final int a;
-    public final int b;
-    public final int c;
-    public final byte[] d;
+    public final int mAudioFormat;
+    public final int mChannelCount;
+    public final byte[] mData;
+    public final int mSampleRate;
 
     @Keep
     /* loaded from: classes3.dex */
@@ -16,25 +16,25 @@ public class CyberRTCAudioSamples {
     }
 
     public CyberRTCAudioSamples(int i, int i2, int i3, byte[] bArr) {
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = bArr;
+        this.mAudioFormat = i;
+        this.mChannelCount = i2;
+        this.mSampleRate = i3;
+        this.mData = bArr;
     }
 
     public int getAudioFormat() {
-        return this.a;
+        return this.mAudioFormat;
     }
 
     public int getChannelCount() {
-        return this.b;
+        return this.mChannelCount;
     }
 
     public byte[] getData() {
-        return this.d;
+        return this.mData;
     }
 
     public int getSampleRate() {
-        return this.c;
+        return this.mSampleRate;
     }
 }

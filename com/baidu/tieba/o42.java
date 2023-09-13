@@ -1,28 +1,40 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.graphics.Path;
+import android.text.TextPaint;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.Stack;
 /* loaded from: classes7.dex */
-public class o42 extends j42 {
+public class o42 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
+    public Stack<o42> a;
     public Paint b;
-    public PorterDuffXfermode c;
+    public Paint c;
+    public Paint d;
+    public TextPaint e;
+    public Path f;
+    public boolean g;
+    public CanvasView h;
+    public x52 i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
 
-    public o42() {
+    public o42(CanvasView canvasView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {canvasView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,34 +44,104 @@ public class o42 extends j42 {
                 return;
             }
         }
+        this.a = new Stack<>();
         this.b = new Paint();
-        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.c = new Paint();
+        this.d = new Paint();
+        this.e = new TextPaint();
+        this.f = new Path();
+        this.g = false;
+        this.j = -1;
+        this.k = 0;
+        this.l = 0;
+        this.m = -16777216;
+        this.h = canvasView;
+        d();
     }
 
-    @Override // com.baidu.tieba.j42
-    public void a(k42 k42Var, Canvas canvas) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && this.a != null) {
-            this.b.setXfermode(this.c);
-            canvas.drawRect(this.a, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.l = i;
         }
     }
 
-    @Override // com.baidu.tieba.j42
-    public void b(JSONArray jSONArray) {
+    public void c(Paint paint) {
+        x52 x52Var;
+        v42 v42Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = uo3.g((float) jSONArray.optDouble(0));
-                    int g2 = uo3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, uo3.g((float) jSONArray.optDouble(2)) + g, uo3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (nr1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) != null) || paint == null) {
+            return;
+        }
+        if (this.h != null && (x52Var = this.i) != null && (v42Var = x52Var.d) != null && !v42Var.c()) {
+            x52 x52Var2 = this.i;
+            paint.setShadowLayer(x52Var2.c, x52Var2.a, x52Var2.b, x52Var2.d.a());
+        }
+        int i = this.j;
+        if (i >= 0 && i <= 255) {
+            paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.m = -16777216;
+            this.c.setStyle(Paint.Style.STROKE);
+            this.b.setColor(-16777216);
+            this.c.setColor(-16777216);
+            this.d.setColor(-16777216);
+            this.e.setColor(-16777216);
+            this.c.setStrokeWidth(yo3.g(1.0f));
+            this.c.setAntiAlias(true);
+            this.e.setAntiAlias(true);
+            this.d.setAntiAlias(true);
+            this.f.reset();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.empty()) {
+            return;
+        }
+        o42 pop = this.a.pop();
+        this.b = pop.b;
+        this.c = pop.c;
+        this.d = pop.d;
+        this.e = pop.e;
+        this.f = pop.f;
+        this.g = pop.g;
+        this.a = pop.a;
+        this.i = pop.i;
+        this.j = pop.j;
+        this.k = pop.k;
+        this.l = pop.l;
+        this.m = pop.m;
+    }
+
+    public void f() throws CloneNotSupportedException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            o42 o42Var = (o42) super.clone();
+            o42Var.b = new Paint(this.b);
+            o42Var.c = new Paint(this.c);
+            o42Var.d = new Paint(this.d);
+            o42Var.e = new TextPaint(this.e);
+            o42Var.f = new Path(this.f);
+            o42Var.k = this.k;
+            o42Var.l = this.l;
+            o42Var.m = this.m;
+            this.a.push(o42Var);
         }
     }
 }

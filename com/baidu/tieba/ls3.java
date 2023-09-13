@@ -1,58 +1,41 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ig3;
+import com.baidu.pass.ecommerce.bean.AddressField;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
+import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ls3 extends gz1 {
+/* loaded from: classes6.dex */
+public class ls3 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface c {
+    /* loaded from: classes6.dex */
+    public interface d {
         void a(String str);
+
+        void failed();
     }
 
-    @Override // com.baidu.tieba.gz1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateBusiness" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetOpenBdussApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements wp3<gg3<ig3.e>> {
+    /* loaded from: classes6.dex */
+    public class a implements tr1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ ls3 c;
+        public final /* synthetic */ ls3 a;
 
-        public a(ls3 ls3Var, String str, JSONObject jSONObject) {
+        public a(ls3 ls3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ls3Var, str, jSONObject};
+                Object[] objArr = {ls3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,47 +45,35 @@ public class ls3 extends gz1 {
                     return;
                 }
             }
-            this.c = ls3Var;
-            this.a = str;
-            this.b = jSONObject;
+            this.a = ls3Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp3
-        /* renamed from: b */
-        public void a(gg3<ig3.e> gg3Var) {
+        @Override // com.baidu.tieba.tr1
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
-                if (!bg3.h(gg3Var)) {
-                    int b = gg3Var.b();
-                    bg3.f(b);
-                    this.c.d(this.a, new d32(b, bg3.f(b)));
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    this.a.mResult.putString("errorMsg", "login failed");
+                    this.a.finish();
                     return;
                 }
-                JSONArray optJSONArray = this.b.optJSONArray("tpls");
-                ArrayList arrayList = new ArrayList();
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(optJSONArray.optString(i));
-                }
-                this.c.z(this.b.optString("clientId"), arrayList, this.a);
+                this.a.l();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements c {
+    /* loaded from: classes6.dex */
+    public class b implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ls3 b;
+        public final /* synthetic */ ls3 a;
 
-        public b(ls3 ls3Var, String str) {
+        public b(ls3 ls3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ls3Var, str};
+                Object[] objArr = {ls3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -112,77 +83,144 @@ public class ls3 extends gz1 {
                     return;
                 }
             }
-            this.b = ls3Var;
-            this.a = str;
+            this.a = ls3Var;
         }
 
-        @Override // com.baidu.tieba.ls3.c
+        @Override // com.baidu.tieba.ls3.d
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                try {
-                    this.b.d(this.a, new d32(0, new JSONObject(str)));
-                } catch (JSONException unused) {
-                    this.b.d(this.a, new d32(10001, "internal error"));
+                if (TextUtils.isEmpty(str)) {
+                    this.a.mResult.putString("errorMsg", "addressId == null");
+                    this.a.finish();
                 }
+                this.a.m(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ls3.d
+        public void failed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.mResult.putString("errorMsg", "choose addressId failed");
+                this.a.finish();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ls3(@NonNull ez1 ez1Var) {
-        super(ez1Var);
+    /* loaded from: classes6.dex */
+    public class c extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ls3 a;
+
+        public c(ls3 ls3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ls3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ls3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.mResult.putString("errorMsg", exc.getMessage());
+                this.a.finish();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (jSONObject != null && jSONObject.optInt("errno", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    this.a.mResult.putString("address_info", optJSONObject.toString());
+                    this.a.finish();
+                    return;
+                }
+                this.a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
+                this.a.finish();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return ho3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    public ls3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ez1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ez1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @SuppressLint({"SwanBindApiNote"})
-    public d32 y(String str) {
-        InterceptResult invokeL;
+    public static String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getOpenBduss", false);
-            db3 b0 = db3.b0();
-            if (b0 == null) {
-                return new d32(1001, "null swan runtime");
-            }
-            Pair<d32, JSONObject> s = s(str);
-            d32 d32Var = (d32) s.first;
-            if (!d32Var.isSuccess()) {
-                return d32Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new d32(201, "empty cb");
-            }
-            b0.e0().g(cb3.K(), "scope_get_open_bduss", new a(this, optString, jSONObject));
-            return d32.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
         }
-        return (d32) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void z(String str, ArrayList<String> arrayList, String str2) {
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, str2) == null) {
-            if (!er3.F(cb3.K())) {
-                d(str2, new d32(202, "user is not logged in or the params are invalid"));
-            } else {
-                er3.o(cb3.K(), str, arrayList, new b(this, str2));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ir3.d(getAgent(), new b(this));
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!ir3.E(getAgent())) {
+                ir3.L(getAgent(), null, new a(this));
+                return false;
             }
+            l();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            li4.g().getRequest().url(d82.v(k())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(ou2.q().a()).build().executeAsync(new c(this));
         }
     }
 }

@@ -32,7 +32,7 @@ public class CloudMusicData extends OrmObject {
         public List<MusicList> music_list;
         @SerializedName("page")
         public Page page;
-        @SerializedName("tag_id")
+        @SerializedName(PushConstants.SUB_TAGS_STATUS_ID)
         public int tag_id;
 
         /* loaded from: classes8.dex */

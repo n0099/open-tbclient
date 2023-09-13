@@ -1,333 +1,121 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.o0b;
-import com.baidu.tieba.write.webwrite.fragment.BaseWebWriteFragment;
-import com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz;
+import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class c0b {
+public class c0b extends ej5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseWebWriteFragment a;
-    public boolean b;
-    public iza c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public Boolean h;
-    public String i;
-    public JSONObject j;
-    public BaseDraftBiz.b k;
-    public o0b.b l;
-    public Function1<? super ImageFileInfo, Unit> m;
+    public Context t;
 
-    public c0b(BaseWebWriteFragment fragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c0b(Context context, String str) {
+        super(context, (String) null, 15);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(fragment, "fragment");
-        this.a = fragment;
-        this.g = true;
-        this.i = "";
+        this.o = false;
+        this.t = context;
+        this.n = 3;
+        this.m = new EditorInfoContainer(context, str);
+        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
     }
 
-    public final void r(String str) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048598, this, str) == null) && str != null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_draft_fid_" + this.a.A2()), str);
-        }
-    }
-
-    public static /* synthetic */ void d(c0b c0bVar, int i, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
-            i = 100;
-        }
-        c0bVar.c(i);
-    }
-
-    public final void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public final void B(o0b.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            Intrinsics.checkNotNullParameter(bVar, "<set-?>");
-            this.l = bVar;
-        }
-    }
-
-    public final void C(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.j = jSONObject;
-        }
-    }
-
-    public final void D(iza izaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, izaVar) == null) {
-            Intrinsics.checkNotNullParameter(izaVar, "<set-?>");
-            this.c = izaVar;
-        }
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a.r2(i);
-        }
-    }
-
-    public final void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public final void u(BaseDraftBiz.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bVar) == null) {
-            Intrinsics.checkNotNullParameter(bVar, "<set-?>");
-            this.k = bVar;
-        }
-    }
-
-    public final void v(Function1<? super ImageFileInfo, Unit> function1) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, function1) == null) {
-            this.m = function1;
-        }
-    }
-
-    public final void w(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bool) == null) {
-            this.h = bool;
-        }
-    }
-
-    public final void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public final void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.i = str;
-        }
-    }
-
-    public final String E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.A2();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int F() {
-        InterceptResult invokeV;
-        int b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            b = d0b.b(this.a.A2());
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.o2();
-        }
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final BaseDraftBiz.b g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            BaseDraftBiz.b bVar = this.k;
-            if (bVar != null) {
-                return bVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).o();
             }
-            Intrinsics.throwUninitializedPropertyAccessException("draftListener");
-            return null;
         }
-        return (BaseDraftBiz.b) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tbadk.img.ImageFileInfo, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tbadk.img.ImageFileInfo, kotlin.Unit> */
-    public final Function1<ImageFileInfo, Unit> h() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.m;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final o0b.b l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            o0b.b bVar = this.l;
-            if (bVar != null) {
-                return bVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).p();
             }
-            Intrinsics.throwUninitializedPropertyAccessException("postListener");
-            return null;
         }
-        return (o0b.b) invokeV.objValue;
     }
 
-    public final JSONObject m() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.j;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final iza n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            iza izaVar = this.c;
-            if (izaVar != null) {
-                return izaVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).q();
             }
-            Intrinsics.throwUninitializedPropertyAccessException("writePageStateObserver");
-            return null;
-        }
-        return (iza) invokeV.objValue;
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.a.F2();
         }
     }
 
-    public final Boolean p() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).r();
+            }
         }
-        return (Boolean) invokeV.objValue;
     }
 
-    public final boolean q() {
-        InterceptResult invokeV;
+    public void k(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).w(str, i);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public final void b() {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_draft_fid_" + this.a.A2()), "");
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).x(i);
+            }
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).setFrom(str);
+            }
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            fj5 fj5Var = this.m;
+            if (fj5Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) fj5Var).C(z);
+            }
         }
     }
 }

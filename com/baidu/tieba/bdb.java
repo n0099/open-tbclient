@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bdb implements idb {
+public final class bdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ocb a;
-    public int b;
-    public int c;
-    public boolean d;
+    public SQLiteDatabase a;
 
     public bdb() {
         Interceptable interceptable = $ic;
@@ -29,127 +29,43 @@ public class bdb implements idb {
                 return;
             }
         }
-        this.d = true;
+        this.a = edb.a().c();
     }
 
-    @Override // com.baidu.tieba.idb
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            ocb ocbVar = this.a;
-            if (ocbVar == null || bArr == null) {
-                return 0;
-            }
-            this.b += bArr.length;
-            ocbVar.putBytes(bArr, i);
-            return this.b;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.idb
-    public boolean a() {
+    public final List<com.baidu.ubs.analytics.a.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.idb
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (ocb) qgb.a("com.baidu.ugc.audioedit.AudioChangeOperator");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+                aVar.v(rawQuery.getString(rawQuery.getColumnIndex("_eventId")));
+                aVar.w(rawQuery.getString(rawQuery.getColumnIndex("_parameter")));
+                aVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                aVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                aVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
+                aVar.s(rawQuery.getString(rawQuery.getColumnIndex("_productLine")));
+                aVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(aVar);
             }
-            ocb ocbVar = this.a;
-            if (ocbVar != null) {
-                ocbVar.initVoiceChanger(i, i2, i3, i4);
-            }
-            return this.a != null;
+            rawQuery.close();
+            return arrayList;
         }
-        return invokeIIII.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.idb
-    public byte[] a(int i) {
-        InterceptResult invokeI;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            ocb ocbVar = this.a;
-            if (ocbVar == null || ocbVar.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_click_log where _id <= " + i);
         }
-        return (byte[]) invokeI.objValue;
     }
 
-    public void b(int[] iArr) {
-        ocb ocbVar;
+    public final void c(com.baidu.ubs.analytics.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (ocbVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
         }
-        ocbVar.setVoiceChangeType(iArr);
-    }
-
-    @Override // com.baidu.tieba.idb
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.idb
-    public void c() {
-        ocb ocbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ocbVar = this.a) == null) {
-            return;
-        }
-        ocbVar.flush();
-    }
-
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        ocb ocbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (ocbVar = this.a) == null) {
-            return;
-        }
-        ocbVar.setVoiceChangeType(iArr, iArr2, dArr);
-    }
-
-    @Override // com.baidu.tieba.idb
-    public void d() {
-        ocb ocbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (ocbVar = this.a) == null) {
-            return;
-        }
-        ocbVar.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.idb
-    public void e() {
-        ocb ocbVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (ocbVar = this.a) == null) {
-            return;
-        }
-        ocbVar.clearQueues();
     }
 }

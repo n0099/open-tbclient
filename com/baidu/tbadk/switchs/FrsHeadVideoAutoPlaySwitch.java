@@ -13,7 +13,7 @@ public class FrsHeadVideoAutoPlaySwitch extends BaseNormalSwitch {
     public static final FrsHeadVideoAutoPlaySwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ue
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ve
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

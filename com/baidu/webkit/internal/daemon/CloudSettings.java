@@ -5,7 +5,6 @@ import android.os.Build;
 import android.util.Base64;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ConectivityUtils;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.RC4;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -119,7 +118,7 @@ public class CloudSettings implements INoProGuard, INetListener {
         if (WebKitFactory.getAppVersionString() != null) {
             addRawLogItem(sb, "appversion", WebKitFactory.getAppVersionString());
         }
-        addRawLogItem(sb, ETAG.KEY_DEV_VER, Build.VERSION.SDK_INT);
+        addRawLogItem(sb, "dev_ver", Build.VERSION.SDK_INT);
         addRawLogItem(sb, "net_type", ConectivityUtils.getNetType(context));
         try {
             addRawLogItem(sb, "model", new String(Base64.encode(Build.MODEL.getBytes(), 0)));

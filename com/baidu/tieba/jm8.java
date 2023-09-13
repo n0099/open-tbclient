@@ -1,170 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.CollapseState;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
 /* loaded from: classes6.dex */
-public class jm8 {
+public class jm8 implements lm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ChatFloatEntranceFragment.u a;
-    @NonNull
-    public gm8 b;
-    public String c;
-    public int d;
-    @Nullable
-    public CollapseState e;
+    public RelativeLayout a;
+    public TextView b;
+    public ImageView c;
+    public RecyclerView d;
+    public jm8 e;
 
-    public jm8(@NonNull ChatFloatEntranceFragment.u uVar, @NonNull gm8 gm8Var) {
+    public jm8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uVar, gm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.d = 0;
-        this.a = uVar;
-        this.b = gm8Var;
-    }
-
-    public void a(CollapseState collapseState) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, collapseState) != null) || collapseState == null) {
-            return;
-        }
-        if (collapseState.b == CollapseState.State.EXPAND) {
-            this.a.q.setVisibility(8);
-            this.a.s.setVisibility(8);
-            return;
-        }
-        e(collapseState);
-    }
-
-    public void b(int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.d = i;
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            if (i == 0) {
-                str = "frs_loop_hot_chat_day_resource";
-            } else {
-                str = "frs_loop_hot_chat_night_resource";
-            }
-            this.c = sharedPrefHelper.getString(str, "");
-            SkinManager.setImageResource(this.a.m, R.drawable.icon_chat_group_collapse);
-            this.a.o.setRadius(R.dimen.tbds134);
-            this.a.o.setSkinType(i);
-            if (i == 0) {
-                this.a.k.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds16));
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            gradientDrawable.setShape(1);
-            gradientDrawable.setUseLevel(false);
-            this.a.k.setBackground(gradientDrawable);
-            SkinManager.setImageResource(this.a.p, R.drawable.chat_collapse_at_me);
-            SkinManager.setImageResource(this.a.r, R.drawable.chat_collapse_three_exp);
-            d();
         }
     }
 
-    public void c(CollapseState collapseState) {
+    @Override // com.baidu.tieba.lm8
+    public RelativeLayout a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collapseState) != null) || collapseState == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.a;
         }
-        if (collapseState.a == CollapseState.Icon.DEFAULT) {
-            Glide.with(this.a.o).load(Integer.valueOf((int) R.drawable.bg_chat_group_collapse_gradual)).into(this.a.o);
-            this.a.m.setVisibility(0);
-            this.a.n.setVisibility(8);
-            return;
-        }
-        Glide.with(this.a.o).load(collapseState.e).into(this.a.o);
-        this.a.m.setVisibility(8);
-        this.a.n.setVisibility(0);
+        return (RelativeLayout) invokeV.objValue;
     }
 
-    public final void d() {
-        int i;
+    @Override // com.baidu.tieba.lm8
+    public RecyclerView c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.e != null && this.b.getViewContext() != null && this.e.c == CollapseState.Tip.AT_ME) {
-                Glide.with(this.b.getViewContext()).load(this.c).into(this.a.n);
-                return;
-            }
-            ImageView imageView = this.a.n;
-            if (this.d == 0) {
-                i = R.drawable.obfuscated_res_0x7f080759;
-            } else {
-                i = R.drawable.obfuscated_res_0x7f08075a;
-            }
-            SkinManager.setImageResource(imageView, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e.d;
         }
+        return (RecyclerView) invokeV.objValue;
     }
 
-    public void e(CollapseState collapseState) {
+    @Override // com.baidu.tieba.lm8
+    public ImageView d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, collapseState) != null) || collapseState == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e.c;
         }
-        CollapseState.Tip tip = collapseState.c;
-        if (tip != CollapseState.Tip.DEFAULT && collapseState.b != CollapseState.State.EXPAND) {
-            if (tip == CollapseState.Tip.AT_ME) {
-                this.a.q.setVisibility(0);
-                this.a.s.setVisibility(8);
-            } else {
-                this.a.q.setVisibility(8);
-                this.a.s.setVisibility(0);
-            }
-        } else {
-            this.a.q.setVisibility(8);
-            this.a.s.setVisibility(8);
-        }
-        d();
+        return (ImageView) invokeV.objValue;
     }
 
-    public void update(CollapseState collapseState, CollapseState collapseState2) {
+    @Override // com.baidu.tieba.lm8
+    public TextView e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, collapseState, collapseState2) != null) || collapseState2 == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.b;
         }
-        this.e = collapseState2;
-        if (collapseState.c != collapseState2.c) {
-            e(collapseState2);
+        return (TextView) invokeV.objValue;
+    }
+
+    public static jm8 f(@NonNull View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            jm8 jm8Var = new jm8();
+            jm8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918d5);
+            jm8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eae);
+            jm8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eca);
+            jm8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ebb);
+            jm8Var.e = jm8Var;
+            return jm8Var;
         }
-        if (collapseState.a != collapseState2.a) {
-            c(collapseState2);
-        }
-        if (collapseState.d != collapseState2.d) {
-            c(collapseState2);
-        }
-        if ((TextUtils.isEmpty(collapseState.e) && !TextUtils.isEmpty(collapseState2.e)) || (!TextUtils.isEmpty(collapseState.e) && !collapseState.e.equals(collapseState2.e))) {
-            c(collapseState2);
-        }
-        if (collapseState.b != collapseState2.b) {
-            a(collapseState2);
+        return (jm8) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lm8
+    public void b(int i, @NonNull cn8 cn8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cn8Var) == null) && !cn8Var.e()) {
+            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
         }
     }
 }

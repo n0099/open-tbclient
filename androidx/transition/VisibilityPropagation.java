@@ -22,7 +22,7 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
 
     @Override // androidx.transition.TransitionPropagation
     public void captureValues(TransitionValues transitionValues) {
-        View view2 = transitionValues.f1029view;
+        View view2 = transitionValues.f1028view;
         Integer num = (Integer) transitionValues.values.get(Visibility.PROPNAME_VISIBILITY);
         if (num == null) {
             num = Integer.valueOf(view2.getVisibility());

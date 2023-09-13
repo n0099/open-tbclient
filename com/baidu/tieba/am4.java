@@ -9,7 +9,9 @@ import java.util.List;
 public class am4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dk4> a;
+    public int a;
+    public String b;
+    public List<ik4> c;
 
     public am4() {
         Interceptable interceptable = $ic;

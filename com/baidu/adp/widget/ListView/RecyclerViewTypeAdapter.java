@@ -12,9 +12,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.om;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.pm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> implements gn<bn> {
+public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> implements hn<cn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<om<bn, TypeAdapter.ViewHolder>> a;
+    public SparseArray<pm<cn, TypeAdapter.ViewHolder>> a;
     @SuppressLint({"UseSparseArrays"})
     public SparseArray<Integer> b;
-    public List<bn> c;
+    public List<cn> c;
     public RecyclerView d;
     public int e;
 
@@ -59,12 +59,12 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         this.e = -1;
     }
 
-    @Override // com.baidu.tieba.gn
+    @Override // com.baidu.tieba.hn
     public int g(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            List<bn> list = this.c;
+            List<cn> list = this.c;
             if (list != null && list.size() != 0) {
                 int size = this.c.size();
                 int i3 = -1;
@@ -88,14 +88,14 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: n */
     public void onBindViewHolder(TypeAdapter.ViewHolder viewHolder, int i) {
-        om<bn, TypeAdapter.ViewHolder> omVar;
-        bn item;
+        pm<cn, TypeAdapter.ViewHolder> pmVar;
+        cn item;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048586, this, viewHolder, i) == null) && viewHolder != null && this.a != null && this.c != null) {
             int itemCount = getItemCount();
-            if (i >= 0 && i < itemCount && (omVar = this.a.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof bn)) {
+            if (i >= 0 && i < itemCount && (pmVar = this.a.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof cn)) {
                 try {
-                    omVar.onFillViewHolder(i, this.d, viewHolder, item);
+                    pmVar.onFillViewHolder(i, this.d, viewHolder, item);
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (GlobalBuildConfig.isDebug()) {
@@ -111,20 +111,20 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     /* renamed from: p */
     public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
-        om<bn, TypeAdapter.ViewHolder> omVar;
+        pm<cn, TypeAdapter.ViewHolder> pmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048591, this, viewGroup, i)) == null) {
             if (this.d == null) {
                 this.d = (RecyclerView) viewGroup;
             }
-            bn item = getItem(this.e);
-            SparseArray<om<bn, TypeAdapter.ViewHolder>> sparseArray = this.a;
+            cn item = getItem(this.e);
+            SparseArray<pm<cn, TypeAdapter.ViewHolder>> sparseArray = this.a;
             TypeAdapter.ViewHolder viewHolder = null;
-            if (sparseArray == null || (omVar = sparseArray.get(i)) == null) {
+            if (sparseArray == null || (pmVar = sparseArray.get(i)) == null) {
                 return null;
             }
             try {
-                viewHolder = omVar.onCreateViewHolder(viewGroup, item);
+                viewHolder = pmVar.onCreateViewHolder(viewGroup, item);
             } catch (Exception e) {
                 e.printStackTrace();
                 if (GlobalBuildConfig.isDebug()) {
@@ -132,14 +132,14 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
                 }
             }
             if (viewHolder == null) {
-                Log.e("RecyclerViewTypeAdapter", omVar.getClass().getName());
+                Log.e("RecyclerViewTypeAdapter", pmVar.getClass().getName());
             }
             return viewHolder;
         }
         return (TypeAdapter.ViewHolder) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.dn
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     }
 
     @NonNull
-    public List<bn> getData() {
+    public List<cn> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -167,7 +167,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<bn> list = this.c;
+            List<cn> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -177,13 +177,13 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
+    @Override // com.baidu.tieba.dn
     /* renamed from: m */
-    public bn getItem(int i) {
+    public cn getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            List<bn> list = this.c;
+            List<cn> list = this.c;
             if (list != null) {
                 int size = list.size();
                 if (i >= 0 && i < size) {
@@ -193,13 +193,13 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
             }
             return null;
         }
-        return (bn) invokeI.objValue;
+        return (cn) invokeI.objValue;
     }
 
-    public void setData(List<? extends bn> list) {
+    public void setData(List<? extends cn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            List<bn> list2 = this.c;
+            List<cn> list2 = this.c;
             if (list2 == null) {
                 this.c = new ArrayList();
             } else {
@@ -213,13 +213,13 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
         InterceptResult invokeI;
-        bn item;
+        cn item;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             this.e = i;
-            SparseArray<om<bn, TypeAdapter.ViewHolder>> sparseArray = this.a;
+            SparseArray<pm<cn, TypeAdapter.ViewHolder>> sparseArray = this.a;
             if (sparseArray != null && sparseArray.size() != 0 && (item = getItem(i)) != null && (type = item.getType()) != null && (num = this.b.get(type.getId())) != null) {
                 return num.intValue();
             }
@@ -228,19 +228,19 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.gn
-    public om<bn, TypeAdapter.ViewHolder> h(bn bnVar) {
+    @Override // com.baidu.tieba.hn
+    public pm<cn, TypeAdapter.ViewHolder> h(cn cnVar) {
         InterceptResult invokeL;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bnVar)) == null) {
-            if (bnVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cnVar)) == null) {
+            if (cnVar == null) {
                 return null;
             }
             int i = -1;
-            SparseArray<om<bn, TypeAdapter.ViewHolder>> sparseArray = this.a;
-            if (sparseArray != null && sparseArray.size() != 0 && (type = bnVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
+            SparseArray<pm<cn, TypeAdapter.ViewHolder>> sparseArray = this.a;
+            if (sparseArray != null && sparseArray.size() != 0 && (type = cnVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
                 i = num.intValue();
             }
             if (i < 0 || i >= this.a.size()) {
@@ -248,20 +248,20 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
             }
             return this.a.get(i);
         }
-        return (om) invokeL.objValue;
+        return (pm) invokeL.objValue;
     }
 
-    public void l(om<bn, TypeAdapter.ViewHolder> omVar) {
+    public void l(pm<cn, TypeAdapter.ViewHolder> pmVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, omVar) == null) && omVar != null && omVar.getType() != null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pmVar) == null) && pmVar != null && pmVar.getType() != null) {
             if (this.a == null) {
                 this.a = new SparseArray<>();
             }
-            if (omVar.getType() != null) {
-                omVar.setAdapter(this);
-                int id = omVar.getType().getId();
+            if (pmVar.getType() != null) {
+                pmVar.setAdapter(this);
+                int id = pmVar.getType().getId();
                 int size = this.a.size();
-                this.a.put(size, omVar);
+                this.a.put(size, pmVar);
                 this.b.put(id, Integer.valueOf(size));
             }
         }
@@ -271,17 +271,17 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: o */
     public void onBindViewHolder(@NonNull TypeAdapter.ViewHolder viewHolder, int i, @NonNull List<Object> list) {
-        om<bn, TypeAdapter.ViewHolder> omVar;
-        bn item;
+        pm<cn, TypeAdapter.ViewHolder> pmVar;
+        cn item;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048587, this, viewHolder, i, list) == null) {
             if (list.isEmpty()) {
                 super.onBindViewHolder(viewHolder, i, list);
             } else if (viewHolder != null && this.a != null && this.c != null) {
                 int itemCount = getItemCount();
-                if (i >= 0 && i < itemCount && (omVar = this.a.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof bn)) {
+                if (i >= 0 && i < itemCount && (pmVar = this.a.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof cn)) {
                     try {
-                        omVar.onFillViewHolder(i, (ViewGroup) this.d, (RecyclerView) viewHolder, (TypeAdapter.ViewHolder) item, list);
+                        pmVar.onFillViewHolder(i, (ViewGroup) this.d, (RecyclerView) viewHolder, (TypeAdapter.ViewHolder) item, list);
                     } catch (Exception e) {
                         e.printStackTrace();
                         if (GlobalBuildConfig.isDebug()) {
@@ -306,14 +306,14 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         if ((interceptable != null && interceptable.invokeCommon(1048592, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.a == null) {
             return;
         }
-        bn item = getItem(i);
-        om<bn, TypeAdapter.ViewHolder> omVar = null;
+        cn item = getItem(i);
+        pm<cn, TypeAdapter.ViewHolder> pmVar = null;
         int itemViewType = getItemViewType(i);
         if (itemViewType >= 0) {
-            omVar = this.a.valueAt(itemViewType);
+            pmVar = this.a.valueAt(itemViewType);
         }
-        if (omVar != null && omVar.getOnAdapterItemClickListener() != null) {
-            omVar.getOnAdapterItemClickListener().b(view2, item, omVar.getType(), viewGroup, i, j);
+        if (pmVar != null && pmVar.getOnAdapterItemClickListener() != null) {
+            pmVar.getOnAdapterItemClickListener().b(view2, item, pmVar.getType(), viewGroup, i, j);
         }
     }
 
@@ -324,16 +324,16 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
             if (this.a == null) {
                 return false;
             }
-            bn item = getItem(i);
-            om<bn, TypeAdapter.ViewHolder> omVar = null;
+            cn item = getItem(i);
+            pm<cn, TypeAdapter.ViewHolder> pmVar = null;
             int itemViewType = getItemViewType(i);
             if (itemViewType >= 0) {
-                omVar = this.a.valueAt(itemViewType);
+                pmVar = this.a.valueAt(itemViewType);
             }
-            if (omVar == null || omVar.getOnAdapterItemLongClickListener() == null) {
+            if (pmVar == null || pmVar.getOnAdapterItemLongClickListener() == null) {
                 return false;
             }
-            return omVar.getOnAdapterItemLongClickListener().a(view2, item, omVar.getType(), viewGroup, i, j);
+            return pmVar.getOnAdapterItemLongClickListener().a(view2, item, pmVar.getType(), viewGroup, i, j);
         }
         return invokeCommon.booleanValue;
     }

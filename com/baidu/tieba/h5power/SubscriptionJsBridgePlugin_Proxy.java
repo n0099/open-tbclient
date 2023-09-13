@@ -3,11 +3,11 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.sga;
-import com.baidu.tieba.tx4;
-import com.baidu.tieba.uga;
-import com.baidu.tieba.vl6;
+import com.baidu.tieba.kia;
+import com.baidu.tieba.mia;
+import com.baidu.tieba.oia;
+import com.baidu.tieba.tm6;
+import com.baidu.tieba.xx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,17 +20,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SubscriptionJsBridgePlugin_Proxy extends qga {
+public class SubscriptionJsBridgePlugin_Proxy extends kia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx4 mJsBridge;
+    public xx4 mJsBridge;
 
-    public SubscriptionJsBridgePlugin_Proxy(tx4 tx4Var) {
+    public SubscriptionJsBridgePlugin_Proxy(xx4 xx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tx4Var};
+            Object[] objArr = {xx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,79 +40,79 @@ public class SubscriptionJsBridgePlugin_Proxy extends qga {
                 return;
             }
         }
-        this.mJsBridge = tx4Var;
+        this.mJsBridge = xx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.qga
-    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
+    @Override // com.baidu.tieba.kia
+    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
-            if (sgaVar == null) {
-                sgaVar = new sga();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, oiaVar, miaVar)) == null) {
+            if (miaVar == null) {
+                miaVar = new mia();
             }
-            String b = ugaVar.b();
-            JSONObject e = ugaVar.e();
+            String b = oiaVar.b();
+            JSONObject e = oiaVar.e();
             if (b.equals("subscription/gamePush")) {
-                sgaVar.s(true);
-                sga c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
+                miaVar.s(true);
+                mia c = this.mJsBridge.c(webView, e.optString("gameId"), e.optString("gameName"), e.optString("gameTime"), e.optString("gameType"));
                 if (c != null) {
-                    sgaVar.y(c.f());
-                    sgaVar.u(c.b());
-                    sgaVar.o(c.a());
-                    sgaVar.x(c.e());
+                    miaVar.y(c.f());
+                    miaVar.u(c.b());
+                    miaVar.o(c.a());
+                    miaVar.x(c.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("subscription/gamePushStatus")) {
-                sgaVar.s(true);
-                sga e2 = this.mJsBridge.e(webView);
+                miaVar.s(true);
+                mia e2 = this.mJsBridge.e(webView);
                 if (e2 != null) {
-                    sgaVar.y(e2.f());
-                    sgaVar.u(e2.b());
-                    sgaVar.o(e2.a());
-                    sgaVar.x(e2.e());
+                    miaVar.y(e2.f());
+                    miaVar.u(e2.b());
+                    miaVar.o(e2.a());
+                    miaVar.x(e2.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("subscription/notifyNativeRefresh")) {
-                sgaVar.s(true);
-                sga f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"), e.optBoolean("isNotifyH5"));
+                miaVar.s(true);
+                mia f = this.mJsBridge.f(webView, e.optString("key"), e.optString("data"), e.optBoolean("isNotifyH5"));
                 if (f != null) {
-                    sgaVar.y(f.f());
-                    sgaVar.u(f.b());
-                    sgaVar.o(f.a());
-                    sgaVar.x(f.e());
+                    miaVar.y(f.f());
+                    miaVar.u(f.b());
+                    miaVar.o(f.a());
+                    miaVar.x(f.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             } else if (b.equals("subscription/getViewPosition")) {
-                sgaVar.s(true);
-                sga d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
+                miaVar.s(true);
+                mia d = this.mJsBridge.d(webView, e.optString("viewId"), e.optString("data"));
                 if (d != null) {
-                    sgaVar.y(d.f());
-                    sgaVar.u(d.b());
-                    sgaVar.o(d.a());
-                    sgaVar.x(d.e());
+                    miaVar.y(d.f());
+                    miaVar.u(d.b());
+                    miaVar.o(d.a());
+                    miaVar.x(d.e());
                 }
-                sgaVar.z(0);
+                miaVar.z(0);
             }
-            return sgaVar;
+            return miaVar;
         }
-        return (sga) invokeLLL.objValue;
+        return (mia) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public vl6 getJsBridge() {
+    @Override // com.baidu.tieba.kia
+    public tm6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (vl6) invokeV.objValue;
+        return (tm6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.kia
+    public List<mia> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

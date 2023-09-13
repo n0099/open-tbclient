@@ -1,48 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wh8 extends yh8<GroupInfoData> {
+public class wh8 extends cb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout m;
-    public BarImageView n;
-    public TextView o;
-    public TextView p;
-    public TextView q;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wh8(@NonNull Context context) {
-        super(context);
+    public wh8() {
+        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,100 +34,34 @@ public class wh8 extends yh8<GroupInfoData> {
         }
     }
 
-    @Override // com.baidu.tieba.rh8
-    public void a(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            GroupInfoData groupInfoData = (GroupInfoData) this.j;
-            long userIdLong = this.k.getUserIdLong();
-            String userName = this.k.getUserName();
-            String name_show = this.k.getName_show();
-            String portrait = this.k.getPortrait();
-            if (this.k.getIsMyFriend() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            yi8.b(groupInfoData, str, userIdLong, userName, name_show, portrait, z);
-            if (GroupInfoData.isValidGroup((GroupInfoData) this.j)) {
-                mi8.c((GroupInfoData) this.j, this.k, 1);
-            }
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.adp.framework.controller.MessageRule
+    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        SocketMessage socketMessage2 = socketMessage;
+        process2(socketMessage2, socketMessageTask);
+        return socketMessage2;
     }
 
-    @Override // com.baidu.tieba.rh8
-    public void b(String str) {
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            yi8.i(str, this.k.groupData, (GroupInfoData) this.j);
-        }
-    }
-
-    @Override // com.baidu.tieba.yh8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.g();
-            EMManager.from(this.m).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0207);
-            EMManager.from(this.o).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            EMManager.from(this.p).setTextColor(R.color.CAM_X0109);
-            EMManager.from(this.q).setTextColor(R.color.CAM_X0109);
-            this.n.setStrokeColorResId(R.color.CAM_X0401);
-        }
-    }
-
-    @Override // com.baidu.tieba.yh8
-    public void m(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            super.m(context);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_group, i());
-            this.m = (LinearLayout) inflate.findViewById(R.id.im_share_group_info_container);
-            BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.im_share_group_info_head);
-            this.n = barImageView;
-            barImageView.setPlaceHolder(1);
-            this.n.setAutoChangeStyle(true);
-            this.n.setShowInnerBorder(true);
-            this.n.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.L_X01));
-            this.n.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.n.setRadiusById(R.string.J_X04);
-            this.o = (TextView) inflate.findViewById(R.id.im_share_group_info_name);
-            this.p = (TextView) inflate.findViewById(R.id.im_share_group_info_forum_name);
-            this.q = (TextView) inflate.findViewById(R.id.im_share_group_info_member_count);
-            g();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yh8
-    /* renamed from: q */
-    public void o(GroupInfoData groupInfoData, MetaData metaData) {
-        String forumName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, groupInfoData, metaData) == null) {
-            super.o(groupInfoData, metaData);
-            if (groupInfoData == null) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
+            StringBuilder sb = new StringBuilder(200);
+            if (socketMessage instanceof MessageSyncMessage) {
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) socketMessage;
+                LongSparseArray<Long> groupMids = messageSyncMessage.getGroupMids();
+                for (int i = 0; i < groupMids.size(); i++) {
+                    sb.append(groupMids.keyAt(i));
+                    sb.append("-");
+                    sb.append(groupMids.valueAt(i));
+                    sb.append("|");
+                }
+                Logger.addLog("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
             }
-            this.n.startLoad(groupInfoData.getPortrait(), 10, false);
-            this.o.setText(groupInfoData.getName());
-            if (!TextUtils.isEmpty(groupInfoData.getDesc())) {
-                this.p.setText(groupInfoData.getDesc());
-                return;
-            }
-            TextView textView = this.p;
-            if (!TextUtils.isEmpty(groupInfoData.getForumShowName())) {
-                forumName = groupInfoData.getForumShowName();
-            } else {
-                forumName = groupInfoData.getForumName();
-            }
-            textView.setText(forumName);
-            if (groupInfoData.getMemberNum() > 0) {
-                this.q.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.group_member_share_slogan), StringHelper.numFormatOverWan(groupInfoData.getMemberNum())));
-            } else {
-                this.q.setText(TbadkCoreApplication.getInst().getString(R.string.group_share_slogan_default));
-            }
+            return socketMessage;
         }
+        return (SocketMessage) invokeLL.objValue;
     }
 }

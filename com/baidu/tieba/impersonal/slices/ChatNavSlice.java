@@ -42,11 +42,11 @@ public final class ChatNavSlice extends Slice {
         }
     }
 
-    public static final void Y(ChatNavSlice this$0, View view2) {
+    public static final void a0(ChatNavSlice this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            FragmentActivity activity = this$0.F().getActivity();
+            FragmentActivity activity = this$0.I().getActivity();
             if (activity != null) {
                 activity.finish();
             }
@@ -54,7 +54,7 @@ public final class ChatNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View P(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View R(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -69,10 +69,10 @@ public final class ChatNavSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void V(View view2, Bundle bundle) {
+    public void X(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.V(view2, bundle);
+            super.X(view2, bundle);
             SlicePersonalNavBinding slicePersonalNavBinding = this.j;
             if (slicePersonalNavBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -84,7 +84,7 @@ public final class ChatNavSlice extends Slice {
             marginLayoutParams.setMargins(BdUtilHelper.getDimens(imageView.getContext(), R.dimen.M_W_X003), 0, 0, 0);
             imageView.setLayoutParams(marginLayoutParams);
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_topbar_return40_svg, imageView.getContext().getResources().getColor(R.color.CAM_X0105), null));
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.ry8
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, imageView, new View.OnClickListener() { // from class: com.baidu.tieba.tz8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -92,7 +92,7 @@ public final class ChatNavSlice extends Slice {
                 public final void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        ChatNavSlice.Y(ChatNavSlice.this, view3);
+                        ChatNavSlice.a0(ChatNavSlice.this, view3);
                     }
                 }
             });

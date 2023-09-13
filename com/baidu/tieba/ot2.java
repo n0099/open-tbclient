@@ -1,107 +1,152 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface ot2 extends ap2 {
+public class ot2 extends nt2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(int i);
-
-        void b(int i);
-
-        void c(String str);
-
-        void d(@NonNull String str);
-
-        void e(String str);
-
-        void f();
-
-        void onEnded();
-
-        void onError(int i);
-
-        void onPrepared();
-
-        void onRelease(String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ot2(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    void B(boolean z);
+    @Override // com.baidu.tieba.rt2, com.baidu.tieba.qt2
+    public void a(String str, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
+            boolean equals = TextUtils.equals(str2, "auto");
+            boolean equals2 = TextUtils.equals(str2, "api");
+            lt2 lt2Var = this.a;
+            String str4 = "1";
+            if (equals) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            lt2Var.g("autoPlay", str3);
+            lt2 lt2Var2 = this.a;
+            if (!equals2) {
+                str4 = "0";
+            }
+            lt2Var2.g("playMethod", str4);
+        }
+    }
 
-    void C();
+    @Override // com.baidu.tieba.nt2, com.baidu.tieba.rt2, com.baidu.tieba.qt2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        String str;
+        long j;
+        long j2;
+        long j3;
+        long j4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
+            UbcFlowEvent g = hybridUbcFlow.g("fe_slave_dispatch_start");
+            UbcFlowEvent g2 = hybridUbcFlow.g("fe_master_page_oninit_start");
+            UbcFlowEvent g3 = hybridUbcFlow.g("master_page_onload_start");
+            UbcFlowEvent g4 = hybridUbcFlow.g("video_fe_init");
+            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init_end");
+            long j5 = 0;
+            if (g != null) {
+                lt2 lt2Var = this.a;
+                if (z) {
+                    j4 = g.g();
+                } else {
+                    j4 = 0;
+                }
+                lt2Var.i("fe_slave_dispatch_start", j4);
+            }
+            if (g2 != null) {
+                lt2 lt2Var2 = this.a;
+                if (z) {
+                    j3 = g2.g();
+                } else {
+                    j3 = 0;
+                }
+                lt2Var2.i("fe_master_page_oninit_start", j3);
+            }
+            if (g3 != null) {
+                lt2 lt2Var3 = this.a;
+                if (z) {
+                    j2 = g3.g();
+                } else {
+                    j2 = 0;
+                }
+                lt2Var3.i("master_page_onload_start", j2);
+            }
+            if (g4 != null) {
+                lt2 lt2Var4 = this.a;
+                if (z) {
+                    j = g4.g();
+                } else {
+                    j = 0;
+                }
+                lt2Var4.i("video_fe_init", j);
+            }
+            if (g5 != null) {
+                lt2 lt2Var5 = this.a;
+                if (z) {
+                    j5 = g5.g();
+                }
+                lt2Var5.i("video_fe_init_end", j5);
+            }
+            lt2 lt2Var6 = this.a;
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            lt2Var6.g("fmpArrived", str);
+            if (this.a.f()) {
+                this.a.k();
+                mt2.e();
+            }
+        }
+    }
 
-    void G(int i);
+    @Override // com.baidu.tieba.rt2, com.baidu.tieba.qt2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a.d("video_will_play")) {
+                this.a.h("video_play_cancel");
+            }
+            d();
+        }
+    }
 
-    void H();
-
-    void L(int i, int i2, int i3, int i4);
-
-    void N(ZeusPluginFactory.Invoker invoker);
-
-    boolean O(String str, String str2, String str3, boolean z);
-
-    boolean P();
-
-    a Q();
-
-    void S(Map map);
-
-    void T();
-
-    void V();
-
-    int a();
-
-    void a0(String str);
-
-    void b0();
-
-    String c();
-
-    ZeusPluginFactory.Invoker e0();
-
-    void f0(int i);
-
-    void g0(@NonNull a aVar);
-
-    Context getContext();
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    int getVideoHeight();
-
-    int getVideoSarDen();
-
-    int getVideoSarNum();
-
-    int getVideoWidth();
-
-    boolean i0();
-
-    boolean isPlaying();
-
-    void l(boolean z);
-
-    void m0();
-
-    void pause();
-
-    boolean prepareAsync();
-
-    void release();
-
-    void seekTo(int i);
-
-    void setSpeed(float f);
-
-    void setSurface(Surface surface);
-
-    void start();
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return TextUtils.equals(this.b, str);
+        }
+        return invokeL.booleanValue;
+    }
 }

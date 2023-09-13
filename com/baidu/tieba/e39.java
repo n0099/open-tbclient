@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes5.dex */
-public interface e39 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
-
-    void b(long j, String str, String str2, int i);
-
-    void c(long j, String str, Message message, boolean z);
+public interface e39<T extends ICardInfo> {
+    void doLoad(T t, TbPageContext tbPageContext);
 }

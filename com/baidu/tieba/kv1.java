@@ -1,8 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import com.baidu.tieba.ia2;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes6.dex */
 public interface kv1 {
-    void a(Activity activity, Bundle bundle, zy2 zy2Var);
+    int a();
+
+    VideoPlayerFactory b();
+
+    int c();
+
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(ia2.c cVar);
 }

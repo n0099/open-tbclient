@@ -10,7 +10,7 @@ public final class ULongArrayKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: ulongArrayOf-QwZRm1k  reason: not valid java name */
-    public static final long[] m1091ulongArrayOfQwZRm1k(long... elements) {
+    public static final long[] m1092ulongArrayOfQwZRm1k(long... elements) {
         Intrinsics.checkNotNullParameter(elements, "elements");
         return elements;
     }
@@ -22,8 +22,8 @@ public final class ULongArrayKt {
         Intrinsics.checkNotNullParameter(init, "init");
         long[] jArr = new long[i];
         for (int i2 = 0; i2 < i; i2++) {
-            jArr[i2] = init.invoke(Integer.valueOf(i2)).m1072unboximpl();
+            jArr[i2] = init.invoke(Integer.valueOf(i2)).m1073unboximpl();
         }
-        return ULongArray.m1075constructorimpl(jArr);
+        return ULongArray.m1076constructorimpl(jArr);
     }
 }

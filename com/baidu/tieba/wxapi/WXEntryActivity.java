@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ef9;
+import com.baidu.tieba.gg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -61,68 +61,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
+    public final void o1(ShowMessageFromWX.Req req) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.onChangeSkinType(i);
-            NavigationBar navigationBar = this.c;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(getPageContext(), i);
-            }
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onNewIntent(Intent intent) {
-        IWXAPI iwxapi;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            super.onNewIntent(intent);
-            setIntent(intent);
-            this.b = intent;
-            if (intent != null && (iwxapi = this.a) != null) {
-                iwxapi.handleIntent(intent, this);
-            }
-        }
-    }
-
-    @Override // com.tencent.mm.opensdk.openapi.IWXAPIEventHandler
-    public void onReq(BaseReq baseReq) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
-            s1((ShowMessageFromWX.Req) baseReq);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        IWXAPI iwxapi;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.layout_sapi_webview_login);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0c0c));
-            try {
-                this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Intent intent = getIntent();
-            this.b = intent;
-            if (intent != null && (iwxapi = this.a) != null) {
-                iwxapi.handleIntent(getIntent(), this);
-            }
-        }
-    }
-
-    public final void s1(ShowMessageFromWX.Req req) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, req) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, req) == null) {
             String str = req.message.messageExt;
             if (TextUtils.isEmpty(str)) {
                 return;
@@ -156,10 +97,69 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
     }
 
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        IWXAPI iwxapi;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.onCreate(bundle);
+            MessageManager.getInstance().runTask(2921332, (Class) null);
+            setContentView(R.layout.layout_sapi_webview_login);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0c21));
+            try {
+                this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Intent intent = getIntent();
+            this.b = intent;
+            if (intent != null && (iwxapi = this.a) != null) {
+                iwxapi.handleIntent(getIntent(), this);
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onChangeSkinType(i);
+            NavigationBar navigationBar = this.c;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(getPageContext(), i);
+            }
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        IWXAPI iwxapi;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            super.onNewIntent(intent);
+            setIntent(intent);
+            this.b = intent;
+            if (intent != null && (iwxapi = this.a) != null) {
+                iwxapi.handleIntent(intent, this);
+            }
+        }
+    }
+
+    @Override // com.tencent.mm.opensdk.openapi.IWXAPIEventHandler
+    public void onReq(BaseReq baseReq) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
+            o1((ShowMessageFromWX.Req) baseReq);
+        }
+    }
+
     @Override // com.tencent.mm.opensdk.openapi.IWXAPIEventHandler
     public void onResp(BaseResp baseResp) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, baseResp) != null) || baseResp == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, baseResp) != null) || baseResp == null) {
             return;
         }
         int type = baseResp.getType();
@@ -191,10 +191,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        ef9 ef9Var = new ef9();
-        ef9Var.a = this;
-        ef9Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, ef9Var);
+        gg9 gg9Var = new gg9();
+        gg9Var.a = this;
+        gg9Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, gg9Var);
         closeActivity();
     }
 }

@@ -1,145 +1,164 @@
 package com.baidu.tieba;
 
+import android.graphics.Point;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
+import com.baidu.tieba.kz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class ze9 {
+public class ze9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357211, "Lcom/baidu/tieba/ze9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948357211, "Lcom/baidu/tieba/ze9;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final void a(int i, int i2, int i3, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2}) == null) {
-            a.a(i, i2, i3, str, str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.b(str);
-        }
-    }
-
-    @JvmStatic
-    public static final void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            a.c(i, i2);
-        }
-    }
+    public final SimpleDragSortListView a;
+    public final a b;
+    public final kz5 c;
 
     /* loaded from: classes9.dex */
-    public static final class a {
+    public static class a extends lz5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int F;
+        public int G;
+        public ListView H;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        @Override // com.baidu.tieba.oz5, com.baidu.tieba.kz5.j
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            }
         }
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kz5 kz5Var, ListView listView) {
+            super(kz5Var, listView, 0, 2, 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kz5Var, listView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((kz5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.F = 0;
+            this.G = Integer.MAX_VALUE;
+            r(false);
+            this.H = listView;
         }
 
-        @JvmStatic
-        public final void a(int i, int i2, int i3, String objParam1, String fid) {
-            int i4;
+        @Override // com.baidu.tieba.lz5, com.baidu.tieba.kz5.j
+        public void c(View view2, Point point, Point point2) {
+            View view3;
+            int top;
+            int top2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), objParam1, fid}) == null) {
-                Intrinsics.checkNotNullParameter(objParam1, "objParam1");
-                Intrinsics.checkNotNullParameter(fid, "fid");
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_CLICK);
-                statisticItem.param("obj_name", i);
-                if (UbsABTestHelper.isFirstLoginTestA()) {
-                    i4 = 1;
-                } else if (UbsABTestHelper.isFirstLoginTestB()) {
-                    i4 = 2;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
+                int firstVisiblePosition = this.H.getFirstVisiblePosition();
+                int dividerHeight = this.H.getDividerHeight();
+                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
+                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
+                int childCount = this.H.getChildCount();
+                View view4 = null;
+                if (headerViewsCount >= 0 && headerViewsCount < childCount) {
+                    view3 = this.H.getChildAt(headerViewsCount);
                 } else {
-                    i4 = 3;
+                    view3 = null;
                 }
-                statisticItem.param("obj_type", i4);
-                statisticItem.param("obj_locate", i2);
-                statisticItem.param("obj_source", i3);
-                statisticItem.param("obj_param1", objParam1);
-                statisticItem.param("fid", fid);
-                TiebaStatic.log(statisticItem);
+                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
+                    view4 = this.H.getChildAt(headerViewsCount2);
+                }
+                if (view3 != null && point.y < (top2 = view3.getTop())) {
+                    point.y = top2;
+                }
+                if (view4 != null && point.y > (top = (view4.getTop() - dividerHeight) - view2.getHeight())) {
+                    point.y = top;
+                }
             }
         }
 
-        @JvmStatic
-        public final void b(String objName) {
+        @Override // com.baidu.tieba.lz5
+        public int w(MotionEvent motionEvent) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objName) == null) {
-                Intrinsics.checkNotNullParameter(objName, "objName");
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SEE_MORE_CLICK);
-                statisticItem.param("obj_name", objName);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(statisticItem);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+                int n = super.n(motionEvent);
+                int headerViewsCount = n - this.H.getHeaderViewsCount();
+                if (headerViewsCount >= this.F && headerViewsCount < this.G) {
+                    return n;
+                }
+                return -1;
             }
+            return invokeL.intValue;
         }
 
-        @JvmStatic
-        public final void c(int i, int i2) {
-            int i3;
+        public void z(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_INTEREST_GUIDE_SHOW);
-                statisticItem.param("obj_name", i);
-                if (UbsABTestHelper.isFirstLoginTestA()) {
-                    i3 = 1;
-                } else if (UbsABTestHelper.isFirstLoginTestB()) {
-                    i3 = 2;
-                } else {
-                    i3 = 3;
-                }
-                statisticItem.param("obj_type", i3);
-                statisticItem.param("obj_source", i2);
-                TiebaStatic.log(statisticItem);
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+                this.F = i;
+                this.G = i2;
             }
+        }
+    }
+
+    public ze9(SimpleDragSortListView simpleDragSortListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {simpleDragSortListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = simpleDragSortListView;
+        kz5 kz5Var = new kz5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
+        this.c = kz5Var;
+        simpleDragSortListView.setDragSortViewEventDelegate(kz5Var);
+        a aVar = new a(this.c, simpleDragSortListView);
+        this.b = aVar;
+        aVar.d(-1);
+        this.c.t0(this.b);
+        this.c.v0(this.b);
+        simpleDragSortListView.setOnTouchListener(this.b);
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c.p0(z);
+        }
+    }
+
+    public void c(kz5.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
+            this.c.u0(iVar);
+        }
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.b.z(i, i2);
         }
     }
 }

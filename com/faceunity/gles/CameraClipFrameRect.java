@@ -3,6 +3,7 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberRender;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -122,7 +123,7 @@ public class CameraClipFrameRect {
             GLES20.glUseProgram(this.mProgramHandle);
             GlUtil.checkGlError("glUseProgram");
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(36197, i);
+            GLES20.glBindTexture(CyberRender.GL_TEXTURE_EXTERNAL_OES, i);
             GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, GlUtil.IDENTITY_MATRIX, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr, 0);
@@ -139,7 +140,7 @@ public class CameraClipFrameRect {
             GlUtil.checkGlError("glDrawArrays");
             GLES20.glDisableVertexAttribArray(this.maPositionLoc);
             GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
-            GLES20.glBindTexture(36197, 0);
+            GLES20.glBindTexture(CyberRender.GL_TEXTURE_EXTERNAL_OES, 0);
             GLES20.glUseProgram(0);
         }
     }

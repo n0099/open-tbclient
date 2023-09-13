@@ -17,11 +17,11 @@ import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a07;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.dn5;
+import com.baidu.tieba.e17;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.z26;
+import com.baidu.tieba.v36;
+import com.baidu.tieba.wn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +30,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
-public class LatelyView extends FrameLayout implements z26<String> {
+/* loaded from: classes6.dex */
+public class LatelyView extends FrameLayout implements v36<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -39,16 +39,16 @@ public class LatelyView extends FrameLayout implements z26<String> {
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
     public LoadingView e;
-    public dn5 f;
+    public wn5 f;
 
-    @Override // com.baidu.tieba.z26
-    public void b(String str) {
+    @Override // com.baidu.tieba.v36
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class LatelyView extends FrameLayout implements z26<String> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.c(null);
+                this.a.b(null);
             }
         }
     }
@@ -143,63 +143,44 @@ public class LatelyView extends FrameLayout implements z26<String> {
             }
         }
         this.a = 3;
-        f();
+        e();
     }
 
-    @Override // com.baidu.tieba.z26
-    public void a() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
-            return;
-        }
-        this.a = skinType;
-        LoadingView loadingView = this.e;
-        if (loadingView != null) {
-            loadingView.onChangeSkinType();
-        }
-        dn5 dn5Var = this.f;
-        if (dn5Var != null) {
-            dn5Var.onChangeSkinType();
-        }
-        this.c.notifyDataSetChanged();
-    }
-
-    public void d() {
+    public void c() {
         LoadingView loadingView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (loadingView = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (loadingView = this.e) != null) {
             loadingView.dettachView(this);
             this.e = null;
         }
     }
 
-    public void e() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            dn5 dn5Var = this.f;
-            if (dn5Var != null) {
-                dn5Var.dettachView(this);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            wn5 wn5Var = this.f;
+            if (wn5Var != null) {
+                wn5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
         }
     }
 
-    public boolean g() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            dn5 dn5Var = this.f;
-            if (dn5Var != null) {
-                return dn5Var.isViewAttached();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            wn5 wn5Var = this.f;
+            if (wn5Var != null) {
+                return wn5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.z26
+    @Override // com.baidu.tieba.v36
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,19 +190,38 @@ public class LatelyView extends FrameLayout implements z26<String> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z26
+    @Override // com.baidu.tieba.v36
+    public void onChangeSkinType() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        LoadingView loadingView = this.e;
+        if (loadingView != null) {
+            loadingView.onChangeSkinType();
+        }
+        wn5 wn5Var = this.f;
+        if (wn5Var != null) {
+            wn5Var.onChangeSkinType();
+        }
+        this.c.notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tieba.v36
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            d();
+            c();
         }
     }
 
-    public final void f() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089d, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092170);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b2, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0921b0);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.s(1);
@@ -233,22 +233,22 @@ public class LatelyView extends FrameLayout implements z26<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z26
-    /* renamed from: h */
-    public void c(String str) {
+    @Override // com.baidu.tieba.v36
+    /* renamed from: g */
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = a07.n().j();
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            RecentlyVisitedForumData j = e17.n().j();
             if (j == null) {
-                i(false, false);
+                h(false, false);
                 return;
             }
             LinkedList<VisitedForumData> forumData = j.getForumData();
             if (ListUtils.isEmpty(forumData)) {
-                i(false, false);
+                h(false, false);
                 return;
             }
-            e();
+            d();
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             Iterator<VisitedForumData> it = forumData.iterator();
@@ -281,13 +281,13 @@ public class LatelyView extends FrameLayout implements z26<String> {
         }
     }
 
-    public void i(boolean z, boolean z2) {
+    public void h(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || g()) {
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || f()) {
             return;
         }
         if (this.f == null) {
-            this.f = new dn5(getContext(), new a(this));
+            this.f = new wn5(getContext(), new a(this));
         }
         this.f.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

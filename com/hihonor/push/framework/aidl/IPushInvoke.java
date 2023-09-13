@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.hihonor.push.framework.aidl.IPushCallback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IPushInvoke extends IInterface {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Default implements IPushInvoke {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,14 +51,14 @@ public interface IPushInvoke extends IInterface {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IPushInvoke {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.hihonor.push.framework.aidl.IPushInvoke";
         public static final int TRANSACTION_call = 1;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Proxy implements IPushInvoke {
             public static /* synthetic */ Interceptable $ic;
             public static IPushInvoke sDefaultImpl;

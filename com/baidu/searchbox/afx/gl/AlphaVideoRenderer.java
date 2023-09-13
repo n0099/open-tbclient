@@ -6,6 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 import android.view.Surface;
+import com.baidu.cyberplayer.sdk.CyberRender;
 import com.baidu.searchbox.afx.dove.DoveRecordRuntime;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
@@ -104,13 +105,13 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     }
 
     private void prepareSurface() {
-        GLES20.glTexParameterf(36197, 10241, 9728.0f);
-        GLES20.glTexParameterf(36197, 10240, 9729.0f);
+        GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10241, 9728.0f);
+        GLES20.glTexParameterf(CyberRender.GL_TEXTURE_EXTERNAL_OES, 10240, 9729.0f);
         int[] iArr = new int[1];
         GLES20.glGenTextures(1, iArr, 0);
         int i = iArr[0];
         GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, i);
+        GLES20.glBindTexture(CyberRender.GL_TEXTURE_EXTERNAL_OES, i);
         checkGlError("glBindTexture textureID");
         SurfaceTexture surfaceTexture = new SurfaceTexture(i);
         this.mSurfaceTexture = surfaceTexture;

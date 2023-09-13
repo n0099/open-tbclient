@@ -1,34 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class g4a implements nb7, lb7 {
+public class g4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.lb7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10731" : (String) invokeV.objValue;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public g4a() {
         Interceptable interceptable = $ic;
@@ -44,60 +32,24 @@ public final class g4a implements nb7, lb7 {
         }
     }
 
-    @Override // com.baidu.tieba.nb7
-    public Map<String, String> a(a77 businessInfo) {
+    public static g4a a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String str = businessInfo.a().get("weight");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            hashMap.put("obj_param1", str);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, "1");
-            String str3 = businessInfo.a().get("source");
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put("obj_source", str3);
-            String str4 = businessInfo.a().get("abtest_tag");
-            if (str4 == null) {
-                str4 = "";
-            }
-            hashMap.put("obj_name", str4);
-            String e = vn6.e();
-            Intrinsics.checkNotNullExpressionValue(e, "getCurrentTimeStamp()");
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, e);
-            int i = 0;
-            if (JavaTypesHelper.toInt(businessInfo.a().get("is_live_card"), 0) != 0) {
-                i = 2;
-            } else if (JavaTypesHelper.toInt(businessInfo.a().get("is_video_card"), 0) != 0) {
-                i = 1;
-            }
-            if (i == 0) {
-                String str5 = businessInfo.a().get("pic_count");
-                if (str5 == null) {
-                    str5 = "0";
-                }
-                hashMap.put("obj_type", str5);
-            } else {
-                hashMap.put("obj_type", String.valueOf(i));
-            }
-            String str6 = businessInfo.a().get("abtest_tag");
-            if (str6 == null) {
-                str6 = "";
-            }
-            hashMap.put("ab_tag", str6);
-            String str7 = businessInfo.a().get("nid");
-            if (str7 != null) {
-                str2 = str7;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, str2);
-            return hashMap;
+            g4a g4aVar = new g4a();
+            jSONObject.optString("brand_name");
+            g4aVar.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            g4aVar.b = jSONObject.optString("button_scheme");
+            g4aVar.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            g4aVar.d = jSONObject.optString("operate_recommend_reason");
+            g4aVar.e = jSONObject.optLong("trans_animation_delay", 0L);
+            g4aVar.f = jSONObject.optInt("layout_upgrade", 0);
+            return g4aVar;
         }
-        return (Map) invokeL.objValue;
+        return (g4a) invokeL.objValue;
     }
 }

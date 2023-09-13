@@ -166,16 +166,16 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (context = this.a) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03e8, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09224b);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092248);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092249);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ef, (ViewGroup) this, true);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09228b);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092288);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092289);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setIsBigV(false);
-        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09224a);
-        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092247);
-        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092246);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09228a);
+        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092287);
+        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092286);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -184,7 +184,7 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             if (TextUtils.isEmpty(str)) {
-                this.d.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811a8), 24, false);
+                this.d.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811c7), 24, false);
             } else {
                 this.d.startLoad(str, 12, false);
             }

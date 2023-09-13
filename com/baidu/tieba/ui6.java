@@ -1,7 +1,43 @@
 package com.baidu.tieba;
-
-import android.webkit.WebView;
 /* loaded from: classes8.dex */
 public interface ui6 {
-    void i(WebView webView, int i);
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        boolean a(float f);
+    }
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        float getSpeed();
+    }
+
+    /* loaded from: classes8.dex */
+    public interface c {
+        boolean onFinished();
+    }
+
+    boolean a();
+
+    boolean b();
+
+    int getMaxDuration();
+
+    float getProgress();
+
+    int getSlideNum();
+
+    boolean pause();
+
+    boolean reset();
+
+    boolean setMaxDuration(int i);
+
+    boolean setMinDuration(int i);
+
+    boolean setProgress(long j);
+
+    boolean setShowDeleteLastTip(boolean z);
+
+    boolean start();
 }

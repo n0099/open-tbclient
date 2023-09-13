@@ -1,149 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.net.Uri;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.view.Display;
-import android.view.WindowManager;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.idlehelp.IdleHandlerManager;
+import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.EnterForePvThread;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
 public class zw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] g;
-    public static final String[] h;
-    public static final String[] i;
-    public static Point j;
-    public static final List<String> k;
+    public static zw5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
+    public int a;
+    public long b;
     public long c;
-    public a d;
-    public a e;
-    public final Handler f;
+    public long d;
+    public int e;
+    public AtomicBoolean f;
+    public boolean g;
+    public Handler h;
+    public Runnable i;
 
     /* loaded from: classes9.dex */
-    public interface b {
-        void onShot(String str);
-    }
-
-    /* loaded from: classes9.dex */
-    public class a extends ContentObserver {
+    public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Uri a;
-        public final /* synthetic */ zw5 b;
+        public final /* synthetic */ zw5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zw5 zw5Var, Uri uri, Handler handler) {
-            super(handler);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zw5Var, uri, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Handler) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zw5Var;
-            this.a = uri;
-        }
-
-        @Override // android.database.ContentObserver
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                super.onChange(z);
-                this.b.i(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class c extends bx5<Cursor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<Context> a;
-        public Uri b;
-
-        public c(Context context, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uri;
-            this.a = new WeakReference<>(context);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bx5
-        /* renamed from: a */
-        public Cursor doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Context context = this.a.get();
-                if (context == null) {
-                    return null;
-                }
-                try {
-                    return context.getContentResolver().query(this.b, Build.VERSION.SDK_INT < 16 ? zw5.g : zw5.h, null, null, "date_added desc limit 1");
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return (Cursor) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class d implements gw5<Cursor> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<zw5> a;
-
-        public d(zw5 zw5Var) {
+        public a(zw5 zw5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,307 +61,346 @@ public class zw5 {
                     return;
                 }
             }
-            this.a = new WeakReference<>(zw5Var);
+            this.a = zw5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gw5
-        /* renamed from: a */
-        public void onReturnDataInUI(Cursor cursor) {
-            zw5 zw5Var;
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, cursor) != null) || (zw5Var = this.a.get()) == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what == 5) {
+                    if (!Boolean.TRUE.equals(message.obj)) {
+                        this.a.n();
+                        return false;
+                    }
+                    this.a.q();
+                    this.a.m();
+                    return false;
+                }
+                return false;
             }
-            zw5Var.j(cursor);
+            return invokeL.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948374385, "Lcom/baidu/tieba/zw5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zw5 a;
+
+        public b(zw5 zw5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948374385, "Lcom/baidu/tieba/zw5;");
-                return;
+            this.a = zw5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zw5 zw5Var = this.a;
+                if (zw5Var.f == null) {
+                    zw5Var.f = new AtomicBoolean(false);
+                }
+                if (this.a.f.get()) {
+                    return;
+                }
+                this.a.f.set(true);
+                if (this.a.l(true)) {
+                    TbadkCoreApplication.getInst().fixOppoTimeout();
+                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
+                    MutiProcessManager.publishEvent(new AppBackgroundSwitchEvent(true));
+                    TiebaStaticHelper.setCurrentActivity(null);
+                    TiebaStatic.save();
+                }
             }
         }
-        g = new String[]{"_data", "datetaken"};
-        h = new String[]{"_data", "datetaken", "width", "height"};
-        i = new String[]{StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
-        k = new ArrayList();
     }
 
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !l()) {
-            return;
-        }
-        if (this.d != null) {
-            try {
-                this.a.getContentResolver().unregisterContentObserver(this.d);
-            } catch (Exception e) {
-                e.printStackTrace();
+    /* loaded from: classes9.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(zw5 zw5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zw5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            this.d = null;
         }
-        if (this.e != null) {
-            try {
-                this.a.getContentResolver().unregisterContentObserver(this.e);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                a15.c().b();
             }
-            this.e = null;
         }
-        this.c = 0L;
-        this.b = null;
     }
 
-    public zw5(Context context) {
+    public zw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new Handler(Looper.getMainLooper());
-        this.a = context;
-        if (j == null) {
-            Point h2 = h();
-            j = h2;
-            if (h2 != null) {
-                BdLog.d("ScreenShotListenManager: Screen Real Size: " + j.x + " * " + j.y);
-                return;
-            }
-            BdLog.d("ScreenShotListenManager: Get screen real size failed.");
-        }
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
+        this.f = null;
+        this.g = false;
+        this.h = new Handler(Looper.getMainLooper(), new a(this));
+        this.i = new b(this);
     }
 
-    public static boolean l() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Looper.myLooper() != Looper.getMainLooper()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (l(false)) {
+                if (!this.g) {
+                    return true;
+                }
+                Intent intent = new Intent("com.tieba.baidu.notifyprocess");
+                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+                intent.putExtra("message", true);
+                TbadkCoreApplication.getInst().sendBroadcast(intent);
                 return false;
             }
-            return true;
+            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
+            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            intent2.putExtra("message", false);
+            TbadkCoreApplication.getInst().sendBroadcast(intent2);
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    public boolean l(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (k.contains(str)) {
-                BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.g = !z;
+        }
+    }
+
+    public static zw5 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (j == null) {
+                synchronized (zw5.class) {
+                    if (j == null) {
+                        j = new zw5();
+                    }
+                }
+            }
+            return j;
+        }
+        return (zw5) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e++;
+            p();
+            IdleHandlerManager.getInstance().addOrRunTask("CornerManager", new c(this));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e--;
+            p();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = 0;
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AtomicBoolean atomicBoolean = this.f;
+            if (atomicBoolean == null) {
                 return true;
             }
-            if (k.size() >= 20) {
-                for (int i2 = 0; i2 < 5; i2++) {
-                    k.remove(0);
-                }
-            }
-            k.add(str);
-            return false;
+            return atomicBoolean.get();
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean f(String str, long j2, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (j2 >= this.c && System.currentTimeMillis() - j2 <= 10000) {
-                Point point = j;
-                if (point != null && (i2 > point.x || i3 > point.y)) {
-                    Point point2 = j;
-                    if (i3 > point2.x || i2 > point2.y) {
-                        return false;
-                    }
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                String lowerCase = str.toLowerCase();
-                for (String str2 : i) {
-                    if (lowerCase.contains(str2)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final Point g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            return new Point(options.outWidth, options.outHeight);
-        }
-        return (Point) invokeL.objValue;
-    }
-
-    public final void i(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uri) == null) {
-            fx5.b(new c(this.a, uri), new d(this));
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    public final Point h() {
+    public boolean k() {
         InterceptResult invokeV;
-        Exception e;
-        Point point;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!l() || this.a == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            AtomicBoolean atomicBoolean = this.f;
+            if (atomicBoolean == null) {
+                return false;
             }
-            try {
-                point = new Point();
-                try {
-                    Display defaultDisplay = ((WindowManager) this.a.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
-                    if (Build.VERSION.SDK_INT >= 17) {
-                        defaultDisplay.getRealSize(point);
-                    } else {
-                        try {
-                            point.set(((Integer) Display.class.getMethod("getRawWidth", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue(), ((Integer) Display.class.getMethod("getRawHeight", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue());
-                        } catch (Exception e2) {
-                            point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
-                            BdLog.e(e2);
-                        }
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    BdLog.e(e);
-                    return point;
-                }
-            } catch (Exception e4) {
-                e = e4;
-                point = null;
-            }
-            return point;
+            return atomicBoolean.get();
         }
-        return (Point) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AsyncService.INSTANCE.sendRunnable(this.i);
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            Handler handler = this.h;
+            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.b = System.currentTimeMillis();
+            new EnterForePvThread().start();
+        }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !l() || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        this.c = System.currentTimeMillis();
-        this.d = new a(this, MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.f);
-        this.e = new a(this, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.f);
-        if (Build.VERSION.SDK_INT >= 29) {
-            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, true, this.d);
-            this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.e);
-            return;
-        }
-        this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.INTERNAL_CONTENT_URI, false, this.d);
-        this.a.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, false, this.e);
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    public final void j(Cursor cursor) {
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cursor) == null) {
-            try {
-                if (cursor == null) {
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                        return;
-                    }
-                    return;
-                }
-                try {
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (cursor == null || cursor.isClosed()) {
-                        return;
-                    }
-                }
-                if (!cursor.moveToFirst()) {
-                    if (cursor != null && !cursor.isClosed()) {
-                        cursor.close();
-                        return;
-                    }
-                    return;
-                }
-                int columnIndex = cursor.getColumnIndex("_data");
-                int columnIndex2 = cursor.getColumnIndex("datetaken");
-                int i5 = -1;
-                if (Build.VERSION.SDK_INT >= 16) {
-                    i5 = cursor.getColumnIndex("width");
-                    i2 = cursor.getColumnIndex("height");
-                } else {
-                    i2 = -1;
-                }
-                String string = cursor.getString(columnIndex);
-                long j2 = cursor.getLong(columnIndex2);
-                if (i5 >= 0 && i2 >= 0) {
-                    i4 = cursor.getInt(i5);
-                    i3 = cursor.getInt(i2);
-                } else {
-                    Point g2 = g(string);
-                    int i6 = g2.x;
-                    i3 = g2.y;
-                    i4 = i6;
-                }
-                k(string, j2, i4, i3);
-                if (cursor == null || cursor.isClosed()) {
-                    return;
-                }
-                cursor.close();
-            } catch (Throwable th) {
-                if (cursor != null && !cursor.isClosed()) {
-                    cursor.close();
-                }
-                throw th;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            AsyncService.INSTANCE.removeRunnable(this.i);
+            if (this.f == null) {
+                this.f = new AtomicBoolean(true);
             }
-        }
-    }
-
-    public final void k(String str, long j2, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (f(str, j2, i2, i3)) {
-                BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
-                if (this.b != null && !e(str)) {
-                    this.b.onShot(str);
-                    return;
-                }
+            if (!this.f.get()) {
                 return;
             }
-            BdLog.d("ScreenShotListenManager: Media content changed, but not screenshot: path = " + str + "; size = " + i2 + " * " + i3 + "; date = " + j2);
+            this.f.set(false);
+            this.a++;
+            if (l(true)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j2 = this.b;
+                if ((currentTimeMillis - j2 > 3600000 || j2 == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
+                    s();
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
+                MutiProcessManager.publishEvent(new AppBackgroundSwitchEvent(false));
+            }
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.e < 0) {
+                this.e = 0;
+            }
+            if (l(true) && this.c == 0 && this.e > 0) {
+                this.c = System.nanoTime();
+                this.d = System.currentTimeMillis();
+            }
+            this.h.removeMessages(5);
+            if (this.e == 0) {
+                SpeedStats.getInstance().onAppBackground();
+                r();
+                return;
+            }
+            AtomicBoolean atomicBoolean = this.f;
+            if (atomicBoolean == null || atomicBoolean.get()) {
+                SpeedStats.getInstance().onAppForeground();
+                Handler handler = this.h;
+                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
+            }
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.e == 0 && this.c > 0) {
+            long nanoTime = ((System.nanoTime() - this.c) / 1000000) / 1000;
+            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
+                if (PermissionUtil.isAgreePrivacyPolicy()) {
+                    new PvThread("use", String.valueOf(nanoTime)).start();
+                }
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "use", null, 1, "st_param", String.valueOf(nanoTime));
+            }
+            this.c = 0L;
+            this.d = 0L;
         }
     }
 }

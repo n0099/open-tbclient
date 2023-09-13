@@ -68,7 +68,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public int getDefaultTitleResId() {
-        return R.string.obfuscated_res_0x7f0f0ce7;
+        return R.string.obfuscated_res_0x7f0f0cfe;
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -157,7 +157,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         int i;
         Resources resources = context.getResources();
         DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-        if (Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels) > resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705d5)) {
+        if (Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels) > resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705db)) {
             i = R.attr.obfuscated_res_0x7f0404e2;
         } else {
             i = R.attr.obfuscated_res_0x7f0404da;
@@ -183,18 +183,18 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public String getSelectionDisplayString(@NonNull Context context) {
         Resources resources = context.getResources();
         if (this.selectedStartItem == null && this.selectedEndItem == null) {
-            return resources.getString(R.string.obfuscated_res_0x7f0f0ce8);
+            return resources.getString(R.string.obfuscated_res_0x7f0f0cff);
         }
         Long l = this.selectedEndItem;
         if (l == null) {
-            return resources.getString(R.string.obfuscated_res_0x7f0f0ce5, DateStrings.getDateString(this.selectedStartItem.longValue()));
+            return resources.getString(R.string.obfuscated_res_0x7f0f0cfc, DateStrings.getDateString(this.selectedStartItem.longValue()));
         }
         Long l2 = this.selectedStartItem;
         if (l2 == null) {
-            return resources.getString(R.string.obfuscated_res_0x7f0f0ce4, DateStrings.getDateString(l.longValue()));
+            return resources.getString(R.string.obfuscated_res_0x7f0f0cfb, DateStrings.getDateString(l.longValue()));
         }
         Pair<String, String> dateRangeString = DateStrings.getDateRangeString(l2, l);
-        return resources.getString(R.string.obfuscated_res_0x7f0f0ce6, dateRangeString.first, dateRangeString.second);
+        return resources.getString(R.string.obfuscated_res_0x7f0f0cfd, dateRangeString.first, dateRangeString.second);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -222,16 +222,16 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public View onCreateTextInputView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle, CalendarConstraints calendarConstraints, @NonNull final OnSelectionChangedListener<Pair<Long, Long>> onSelectionChangedListener) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0665, viewGroup, false);
-        final TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091829);
-        final TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091828);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0676, viewGroup, false);
+        final TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091841);
+        final TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091840);
         EditText editText = textInputLayout.getEditText();
         EditText editText2 = textInputLayout2.getEditText();
         if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
             editText.setInputType(17);
             editText2.setInputType(17);
         }
-        this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0ce1);
+        this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0cf8);
         SimpleDateFormat textInputFormat = UtcDates.getTextInputFormat();
         Long l = this.selectedStartItem;
         if (l != null) {

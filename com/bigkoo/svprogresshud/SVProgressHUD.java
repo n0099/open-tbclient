@@ -327,16 +327,16 @@ public class SVProgressHUD {
                     configMaskType(17170445, true, true);
                     return;
                 case 4:
-                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f0604a3, true, false);
+                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f0604a5, true, false);
                     return;
                 case 5:
-                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f0604a3, true, true);
+                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f0604a5, true, true);
                     return;
                 case 6:
-                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080322, true, false);
+                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080329, true, false);
                     return;
                 case 7:
-                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080322, true, true);
+                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080329, true, true);
                     return;
                 default:
                     return;
@@ -556,7 +556,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092323);
+            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092363);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -640,7 +640,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0596, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05a3, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

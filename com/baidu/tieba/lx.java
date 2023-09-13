@@ -2,24 +2,23 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ForumGoodsEnterLayout;
+import com.baidu.card.view.ForumEnterLayout;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class lx extends gx {
+public class lx extends hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w05 h;
-    public ForumGoodsEnterLayout i;
-    public int j;
-    public final View.OnClickListener k;
+    public b15 h;
+    public ForumEnterLayout i;
+    public final View.OnClickListener j;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -48,8 +47,8 @@ public class lx extends gx {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.h);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g() != null) {
+                this.a.g().a(view2, this.a.h);
             }
         }
     }
@@ -72,73 +71,56 @@ public class lx extends gx {
                 return;
             }
         }
-        this.k = new a(this);
+        this.j = new a(this);
         int dimens = BdUtilHelper.getDimens(context, R.dimen.M_H_X003);
         int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds0);
-        y(dimens);
-        x(dimens2);
-        ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
-        this.i = forumGoodsEnterLayout;
-        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
+        x(dimens);
+        u(dimens2);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
+            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
+        } else {
+            this.i = new ForumEnterLayout(context);
+        }
+        this.i.setOnAfterClickListener(this.j);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
-    /* renamed from: B */
-    public void onBindDataToView(w05 w05Var) {
+    @Override // com.baidu.tieba.ux
+    /* renamed from: A */
+    public void onBindDataToView(b15 b15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) {
-            this.h = w05Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, b15Var) == null) {
+            this.h = b15Var;
             this.i.setSourceForPb(this.a.j());
-            this.i.setFrstype(this.j);
-            this.i.setData(w05Var);
+            this.i.setData(b15Var);
         }
     }
 
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int dimens = BdUtilHelper.getDimens(this.b, R.dimen.M_H_X003);
-            y(dimens);
-            x(0);
-            D(this.i, dimens, 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.zw
-    public View k() {
+    @Override // com.baidu.tieba.ax
+    public View j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.i;
         }
         return (View) invokeV.objValue;
     }
 
-    public void D(View view2, int i, int i2) {
+    public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-            if (marginLayoutParams.topMargin != i || marginLayoutParams.bottomMargin != i2) {
-                marginLayoutParams.topMargin = i;
-                marginLayoutParams.bottomMargin = i2;
-                view2.setLayoutParams(marginLayoutParams);
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int dimens = BdUtilHelper.getDimens(this.b, R.dimen.M_H_X003);
+            int dimens2 = BdUtilHelper.getDimens(this.b, R.dimen.tbds0);
+            x(dimens);
+            u(dimens2);
         }
     }
 
-    @Override // com.baidu.tieba.ux
+    @Override // com.baidu.tieba.vx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
-            this.i.d(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.i.n(tbPageContext, i);
         }
     }
 }

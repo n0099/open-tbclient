@@ -1,68 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.query.JoinType;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class p41 {
+public abstract class p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JoinType a;
-    public final String b;
-    public final String c;
-    public final l41 d;
-    public final d41 e;
-    public final d41 f;
-    public final StringBuilder g;
-    public boolean h;
-    public boolean i;
 
-    public final void a(String str, String str2, d41 d41Var, d41 d41Var2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, d41Var, d41Var2) == null) {
-            this.g.append(str);
-            this.g.append(".");
-            this.g.append(d41Var.b);
-            this.g.append(" = ");
-            this.g.append(str2);
-            this.g.append(".");
-            this.g.append(d41Var2.b);
-        }
-    }
+    public abstract Column[] c();
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.h) {
-            return;
-        }
-        this.h = true;
-        this.g.append(" ");
-        this.g.append(this.a.toString());
-        this.g.append(" JOIN ");
-        this.g.append(this.d.g());
-        this.g.append(" AS ");
-        this.g.append(this.c);
-        this.g.append(" ON ");
-        if (this.i) {
-            this.g.append("(");
-        }
-        a(this.b, this.c, this.e, this.f);
-    }
+    public abstract h41[] d();
 
-    public String c() {
-        InterceptResult invokeV;
+    public abstract h41[][] e();
+
+    public abstract h41[] f();
+
+    public abstract String g();
+
+    public p41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b();
-            StringBuilder sb = new StringBuilder();
-            sb.append((CharSequence) this.g);
-            if (this.i) {
-                sb.append(") ");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static h41 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            return b(i, str, str2, i2, 0);
+        }
+        return (h41) invokeCommon.objValue;
+    }
+
+    public static h41 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return new h41(i, str, str2, i2, i3);
+        }
+        return (h41) invokeCommon.objValue;
     }
 }

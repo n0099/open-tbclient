@@ -1,17 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ky2 {
-    void onGetCurrentSong(String str);
+public class ky2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onGetDownloadProgress(int i);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "[swan_audio] " + str;
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void onGetDuration(int i);
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            h82.k(str, a(str2));
+        }
+    }
 
-    void onGetPosition(int i, int i2);
-
-    void onInvokeFailed();
-
-    void onStateChanged(BgMusicPlayState bgMusicPlayState);
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
+            h82.l(str, a(str2), th);
+        }
+    }
 }

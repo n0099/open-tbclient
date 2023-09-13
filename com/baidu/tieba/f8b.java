@@ -1,37 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.net.SocketTimeoutException;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.TimeUnit;
-import org.chromium.base.Log;
 /* loaded from: classes5.dex */
-public class f8b implements Executor {
+public class f8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BlockingQueue<Runnable> a;
-    public boolean b;
-    public boolean c;
-    public InterruptedIOException d;
-    public RuntimeException e;
-    public final String f;
+    public Context a;
+    public ImageView b;
+    public EMTextView c;
+    public View d;
 
-    public f8b(String str) {
+    public f8b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,100 +38,50 @@ public class f8b implements Executor {
                 return;
             }
         }
-        this.f = str;
-        this.a = new LinkedBlockingQueue();
+        this.a = context;
+        c();
     }
 
-    public void a() throws IOException {
+    public void d(int i) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(0);
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (imageView = this.b) != null) {
+            imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
         }
     }
 
-    public void quit() {
+    public void e(String str) {
+        EMTextView eMTextView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.c) != null) {
+            eMTextView.setText(str);
         }
     }
 
-    public void b(int i) throws IOException {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            long nanoTime = System.nanoTime();
-            long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
-            if (this.c) {
-                InterruptedIOException interruptedIOException = this.d;
-                if (interruptedIOException != null) {
-                    throw interruptedIOException;
-                }
-                throw this.e;
-            } else if (!this.b) {
-                this.b = true;
-                while (this.b) {
-                    if (i == 0) {
-                        try {
-                            c(false, 0L).run();
-                        } catch (InterruptedIOException e) {
-                            this.b = false;
-                            this.c = true;
-                            this.d = e;
-                            throw e;
-                        } catch (RuntimeException e2) {
-                            this.b = false;
-                            this.c = true;
-                            this.e = e2;
-                            throw e2;
-                        }
-                    } else {
-                        c(true, (convert - System.nanoTime()) + nanoTime).run();
-                    }
-                }
-            } else {
-                throw new IllegalStateException("Cannot run loop when it is already running.");
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
+            EMManager.from(this.c).setTextLinePadding(R.dimen.M_T_X001).setTextSize(R.dimen.T_X05);
         }
     }
 
-    public final Runnable c(boolean z, long j) throws InterruptedIOException {
-        Runnable poll;
-        InterceptResult invokeCommon;
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
-            try {
-                if (!z) {
-                    poll = this.a.take();
-                } else {
-                    poll = this.a.poll(j, TimeUnit.NANOSECONDS);
-                }
-                if (poll != null) {
-                    return poll;
-                }
-                Log.e("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.f);
-                throw new SocketTimeoutException();
-            } catch (InterruptedException e) {
-                InterruptedIOException interruptedIOException = new InterruptedIOException();
-                interruptedIOException.initCause(e);
-                throw interruptedIOException;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (Runnable) invokeCommon.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) throws RejectedExecutionException {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-            if (runnable != null) {
-                try {
-                    this.a.put(runnable);
-                    return;
-                } catch (InterruptedException e) {
-                    throw new RejectedExecutionException(e);
-                }
-            }
-            throw new IllegalArgumentException();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0a56, (ViewGroup) null);
+            this.d = inflate;
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0911c2);
+            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911f4);
+            a();
         }
     }
 }

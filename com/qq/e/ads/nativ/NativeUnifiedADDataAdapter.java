@@ -18,7 +18,6 @@ import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADEventListener;
 import com.qq.e.comm.adevent.ADListener;
-import com.qq.e.comm.adevent.AdEventType;
 import com.qq.e.comm.compliance.DownloadConfirmCallBack;
 import com.qq.e.comm.compliance.DownloadConfirmListener;
 import com.qq.e.comm.listeners.NegativeFeedbackListener;
@@ -593,7 +592,7 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
                     case 210:
                         nativeUnifiedADDataAdapter.c.onVideoReady();
                         return true;
-                    case AdEventType.VIDEO_LOADING /* 211 */:
+                    case 211:
                         nativeUnifiedADDataAdapter.c.onVideoLoading();
                         return true;
                 }

@@ -216,7 +216,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             try {
                 return egl10.eglCreateWindowSurface(eGLDisplay, eGLConfig, obj, null);
             } catch (IllegalArgumentException e) {
-                Log.e(GLTextureView.TAG, "eglCreateWindowSurface", e);
+                Log.e("GLTextureView", "eglCreateWindowSurface", e);
                 return null;
             }
         }
@@ -850,7 +850,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 String glGetString = gl10.glGetString(7937);
                 boolean z2 = false;
                 if (this.mGLESVersion < 131072) {
-                    if (!glGetString.startsWith(kMSM7K_RENDERER_PREFIX)) {
+                    if (!glGetString.startsWith("Q3Dimension MSM7500 ")) {
                         z = true;
                     } else {
                         z = false;
@@ -873,7 +873,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         private void flushBuilder() {
             if (this.mBuilder.length() > 0) {
-                Log.v(GLTextureView.TAG, this.mBuilder.toString());
+                Log.v("GLTextureView", this.mBuilder.toString());
                 StringBuilder sb = this.mBuilder;
                 sb.delete(0, sb.length());
             }

@@ -10,17 +10,17 @@ public class bk {
         public static final bk a = new bk();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f146a;
+        public int f145a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f147a;
+        public Object f146a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f148a;
+        public String f147a;
 
         public a(int i, Object obj) {
-            this.f146a = i;
-            this.f147a = obj;
+            this.f145a = i;
+            this.f146a = obj;
         }
     }
 
@@ -29,19 +29,19 @@ public class bk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m293a() {
+    private void m294a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m294a() {
+    public synchronized int m295a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m295a() {
+    public synchronized LinkedList<a> m296a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class bk {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m293a();
+        m294a();
     }
 }

@@ -8,29 +8,29 @@ public final class z extends XMPushService.j {
     public final /* synthetic */ id a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f1013a;
+    public final /* synthetic */ XMPushService f1012a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(int i, XMPushService xMPushService, id idVar) {
         super(i);
-        this.f1013a = xMPushService;
+        this.f1012a = xMPushService;
         this.a = idVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo755a() {
+    public String mo756a() {
         return "send app absent message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo472a() {
+    public void mo473a() {
         try {
-            ah.a(this.f1013a, ah.a(this.a.b(), this.a.m625a()));
+            ah.a(this.f1012a, ah.a(this.a.b(), this.a.m626a()));
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f1013a.a(10, e);
+            this.f1012a.a(10, e);
         }
     }
 }

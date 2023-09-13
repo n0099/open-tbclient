@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class q0a {
     public static /* synthetic */ Interceptable $ic;
-    public static q0a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public ConcurrentHashMap<String, r0a> c;
+    public xv9 a;
+    public yv9 b;
+    public qw9 c;
+    public List<pm> d;
+    public ArrayList<cn> e;
+    public BdTypeListView f;
 
-    public q0a() {
+    public q0a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,155 +40,81 @@ public class q0a {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
+        this.d = new ArrayList();
+        this.e = new ArrayList<>();
+        this.f = bdTypeListView;
+        a(tbPageContext);
     }
 
-    public static q0a a() {
-        InterceptResult invokeV;
+    public final void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (q0a.class) {
-                    if (d == null) {
-                        d = new q0a();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.a = new xv9(tbPageContext);
+            this.b = new yv9(tbPageContext, ix9.b);
+            iv9 iv9Var = new iv9(tbPageContext, this, tbPageContext.getUniqueId());
+            this.c = iv9Var;
+            this.b.u(iv9Var);
+            this.d.add(this.a);
+            this.d.add(this.b);
+            this.f.addAdapters(this.d);
         }
-        return (q0a) invokeV.objValue;
     }
 
-    public ConcurrentHashMap<String, r0a> b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof tm)) {
+            this.f.getAdapter2().notifyDataSetChanged();
         }
-        return (ConcurrentHashMap) invokeV.objValue;
     }
 
-    public r0a c(String str) {
+    public void e() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (bdTypeListView = this.f) != null) {
+            bdTypeListView.E();
+        }
+    }
+
+    public boolean c(String str) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null || this.c == null) {
-                return null;
-            }
-            String str2 = hashMap.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return this.c.get(str2);
-        }
-        return (r0a) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        ConcurrentHashMap<String, r0a> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            Iterator<String> it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                r0a r0aVar = this.c.get(it.next());
-                if (r0aVar != null && str.equals(r0aVar.b)) {
-                    it.remove();
-                }
-            }
-        }
-    }
-
-    public void g(boolean z) {
-        ConcurrentHashMap<String, r0a> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            r0a r0aVar = this.c.get(str);
-            if (r0aVar != null) {
-                r0aVar.e = z;
-            }
-        }
-    }
-
-    public r0a d(String str) {
-        InterceptResult invokeL;
+        ArrayList<cn> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap<String, r0a> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
+            boolean z = false;
+            if (ei.isEmpty(str)) {
+                return false;
             }
-            return concurrentHashMap.get(str);
-        }
-        return (r0a) invokeL.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap == null) {
-                return null;
-            }
-            return hashMap.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void i(HashMap<String, r0a> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
-                return;
-            }
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public void h(boolean z, String str) {
-        ConcurrentHashMap<String, r0a> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            for (String str2 : concurrentHashMap.keySet()) {
-                r0a r0aVar = this.c.get(str2);
-                if (r0aVar != null && str.equals(r0aVar.b)) {
-                    r0aVar.e = z;
+            if (this.f != null && (arrayList = this.e) != null) {
+                Iterator<cn> it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    cn next = it.next();
+                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
+                        z = true;
+                        it.remove();
+                        break;
+                    }
+                }
+                if (z) {
+                    ArrayList<cn> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
+                    this.e = mergeDynamicThreadByTime;
+                    this.f.setData(mergeDynamicThreadByTime);
+                    b();
                 }
             }
+            return z;
         }
+        return invokeL.booleanValue;
     }
 
-    public void j(String str, String str2) {
-        HashMap<String, String> hashMap;
+    public void d(ArrayList<cn> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void k(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void l(String str, HashMap<String, r0a> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
-            }
-            f(str);
-            this.c.putAll(hashMap);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) && arrayList != null && this.f != null) {
+            this.e.clear();
+            this.e.addAll(arrayList);
+            this.f.setData(this.e);
         }
     }
 }

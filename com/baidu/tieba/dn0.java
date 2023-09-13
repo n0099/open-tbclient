@@ -1,72 +1,130 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dn0 extends xk1<gn0> {
+public final class dn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<Activity, Set<Object>> a;
+    public static final dn0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements gn0 {
+    public static final class a implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final bn0 b;
 
-        public a(dn0 dn0Var) {
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dn0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = new bn0();
         }
 
-        @Override // com.baidu.tieba.gn0
-        public <T extends fn0> void a(@Nullable T t) {
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && t != null) {
-                this.b.b(t);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                Intrinsics.checkNotNullParameter(activity, "activity");
+                dn0.b.e(activity);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.gn0
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.b.g(obj);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947710179, "Lcom/baidu/tieba/dn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947710179, "Lcom/baidu/tieba/dn0;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.gn0
-        public <T extends fn0> void b(@NonNull Object obj, @NonNull in0<T> in0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, in0Var) == null) {
-                this.b.d(obj, in0Var);
+        b = new dn0();
+        a = new LinkedHashMap();
+        Context b2 = tj0.b();
+        if (b2 != null) {
+            if (!(b2 instanceof Application)) {
+                b2 = null;
             }
-        }
-
-        @Override // com.baidu.tieba.gn0
-        public <T extends fn0> void c(@NonNull Object obj, int i, @NonNull in0<T> in0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, in0Var) == null) {
-                this.b.c(obj, i, in0Var);
+            Application application = (Application) b2;
+            if (application != null) {
+                application.registerActivityLifecycleCallbacks(new a());
             }
         }
     }
@@ -75,25 +133,58 @@ public class dn0 extends xk1<gn0> {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
-    /* renamed from: a */
-    public gn0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public final <T extends gn0> void b(Activity activity, Object event, int i, jn0<T> subscriber) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, activity, event, i, subscriber) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(event, "event");
+            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
+            fn0.a().c(event, i, subscriber);
+            d(activity, subscriber);
         }
-        return (gn0) invokeV.objValue;
+    }
+
+    public final <T extends gn0> void c(Activity activity, Object event, jn0<T> subscriber) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, event, subscriber) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            Intrinsics.checkNotNullParameter(event, "event");
+            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
+            b(activity, event, 0, subscriber);
+        }
+    }
+
+    public final void d(Activity activity, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, obj) == null) {
+            if (!a.containsKey(activity) || a.get(activity) == null) {
+                a.put(activity, new LinkedHashSet());
+            }
+            Set<Object> set = a.get(activity);
+            if (set != null) {
+                set.add(obj);
+            }
+        }
+    }
+
+    public final void e(Activity activity) {
+        Set<Object> set;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (set = a.get(activity)) != null) {
+            for (Object obj : set) {
+                fn0.a().unregister(obj);
+            }
+            a.remove(activity);
+        }
     }
 }

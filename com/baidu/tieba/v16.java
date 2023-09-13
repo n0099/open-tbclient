@@ -1,5 +1,15 @@
 package com.baidu.tieba;
+
+import android.graphics.drawable.Drawable;
 /* loaded from: classes8.dex */
 public interface v16 {
-    void a(Object obj);
+    void setLastUpdatedLabel(CharSequence charSequence);
+
+    void setLoadingDrawable(Drawable drawable);
+
+    void setPullLabel(CharSequence charSequence);
+
+    void setRefreshingLabel(CharSequence charSequence);
+
+    void setReleaseLabel(CharSequence charSequence);
 }

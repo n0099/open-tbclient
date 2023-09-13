@@ -1,10 +1,18 @@
 package com.baidu.cyberplayer.sdk.videodownload;
 
+import com.baidu.cyberplayer.sdk.CyberPlayerCoreInvoker;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.cyberplayer.sdk.f;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberVideoDownloader {
+
+    @Keep
+    /* loaded from: classes3.dex */
+    public interface DownloadListener {
+        void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
+
+        void operationCallback(String str, int i, int i2);
+    }
 
     @Keep
     /* loaded from: classes3.dex */
@@ -22,14 +30,9 @@ public class CyberVideoDownloader {
         public static final int Sys104 = 1704;
         public static final int Sys110 = 1710;
         public static final int Unknown = 1999;
-    }
 
-    @Keep
-    /* loaded from: classes3.dex */
-    public interface DownloadListener {
-        void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
-
-        void operationCallback(String str, int i, int i2);
+        public DMDownloadError() {
+        }
     }
 
     @Keep
@@ -70,30 +73,30 @@ public class CyberVideoDownloader {
     }
 
     public static void cancelDownload(String str) {
-        f.f(str);
+        CyberPlayerCoreInvoker.cancelDownload(str);
     }
 
     public static void deleteDownload(String str) {
-        f.g(str);
+        CyberPlayerCoreInvoker.deleteDownload(str);
     }
 
     public static void pauseDownload(String str) {
-        f.e(str);
+        CyberPlayerCoreInvoker.pauseDownload(str);
     }
 
     public static void setDownloadListener(DownloadListener downloadListener) {
-        f.a(downloadListener);
+        CyberPlayerCoreInvoker.setDownloadListener(downloadListener);
     }
 
     public static void setWorkDir(String str) {
-        f.d(str);
+        CyberPlayerCoreInvoker.setWorkDir(str);
     }
 
     public static void setOption(String str, String str2) {
-        f.a(str, str2);
+        CyberPlayerCoreInvoker.setOption(str, str2);
     }
 
     public static String startDownload(String str, VideoSourceBean videoSourceBean) {
-        return f.a(str, videoSourceBean);
+        return CyberPlayerCoreInvoker.startDownload(str, videoSourceBean);
     }
 }

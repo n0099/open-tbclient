@@ -1,28 +1,71 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
+import android.text.style.ReplacementSpan;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.util.media.WebpUtils;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.feed.data.richtext.DrawableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class gb7 implements ab7 {
+public final class gb7 implements cb7, jb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public lk1<ab7> a;
+    public final String a;
+    public mb7 b;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jk1 b = jk1.b();
-            this.a = b;
-            b.a(new bb7());
+    /* loaded from: classes6.dex */
+    public static final class a extends BdResourceCallback<BdImage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DrawableSpan a;
+        public final /* synthetic */ gb7 b;
+
+        public a(DrawableSpan drawableSpan, gb7 gb7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {drawableSpan, gb7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = drawableSpan;
+            this.b = gb7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String key, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, key, i) == null) {
+                Intrinsics.checkNotNullParameter(key, "key");
+                if (bdImage != null) {
+                    TbImageMemoryCache.A().n(key, new BdImage(bdImage.getRawBitmap()));
+                    this.a.d(new BitmapDrawable(bdImage.getRawBitmap()));
+                    mb7 mb7Var = this.b.b;
+                    if (mb7Var != null) {
+                        mb7Var.onUpdate();
+                    }
+                }
+            }
         }
     }
 
@@ -39,30 +82,61 @@ public class gb7 implements ab7 {
                 return;
             }
         }
-        b();
+        this.a = "m";
     }
 
-    @Override // com.baidu.tieba.ab7
-    @NonNull
-    public List<ib7<?, ?>> a() {
-        InterceptResult invokeV;
-        List<ab7> list;
+    @Override // com.baidu.tieba.jb7
+    public void a(mb7 mb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            lk1<ab7> lk1Var = this.a;
-            if (lk1Var == null) {
-                list = null;
-            } else {
-                list = lk1Var.getList();
-            }
-            if (list != null) {
-                for (ab7 ab7Var : list) {
-                    arrayList.addAll(ab7Var.a());
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mb7Var) == null) {
+            this.b = mb7Var;
         }
-        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cb7
+    public SpannableString b(Context context, t97 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            SpannableString spannableString = new SpannableString(this.a);
+            spannableString.setSpan(d(richTextData), 0, this.a.length(), 33);
+            spannableString.setSpan(clickableSpan, 0, this.a.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLLL.objValue;
+    }
+
+    public final ReplacementSpan d(t97 t97Var) {
+        InterceptResult invokeL;
+        DrawableSpan.IconType iconType;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t97Var)) == null) {
+            String b = ee7.a.b(t97Var.c());
+            l97 a2 = ee7.a.a(b);
+            if (a2 != null) {
+                String type = a2.getType();
+                if (Intrinsics.areEqual(type, WebpUtils.TYPE_IMG_WEBP)) {
+                    iconType = DrawableSpan.IconType.WEBP;
+                } else if (Intrinsics.areEqual(type, "svg")) {
+                    iconType = DrawableSpan.IconType.SVG;
+                } else {
+                    iconType = DrawableSpan.IconType.PIC;
+                }
+                DrawableSpan drawableSpan = new DrawableSpan(a2.b(), iconType, a2.a());
+                drawableSpan.c(a2.c());
+                return drawableSpan;
+            }
+            BdImage F = TbImageMemoryCache.A().F(b);
+            if (F != null) {
+                return new DrawableSpan(new BitmapDrawable(F.getRawBitmap()));
+            }
+            DrawableSpan drawableSpan2 = new DrawableSpan(null);
+            BdResourceLoader.getInstance().loadResource(b, 10, new a(drawableSpan2, this), null);
+            return drawableSpan2;
+        }
+        return (ReplacementSpan) invokeL.objValue;
     }
 }

@@ -20,7 +20,7 @@ public class ImageViewerActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<ImageViewerConfig> {
+    public class a implements CustomMessageTask.CustomRunnable<ImageViewerConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

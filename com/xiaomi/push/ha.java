@@ -15,58 +15,58 @@ import java.util.List;
 public class ha {
 
     /* renamed from: a  reason: collision with other field name */
-    public static am f457a = new am(true);
+    public static am f456a = new am(true);
     public static volatile int a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static long f456a = System.currentTimeMillis();
+    public static long f455a = System.currentTimeMillis();
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f459a = new Object();
+    public static final Object f458a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    public static List<a> f461a = Collections.synchronizedList(new ArrayList());
+    public static List<a> f460a = Collections.synchronizedList(new ArrayList());
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f460a = "";
+    public static String f459a = "";
 
     /* renamed from: a  reason: collision with other field name */
-    public static com.xiaomi.push.providers.a f458a = null;
+    public static com.xiaomi.push.providers.a f457a = null;
 
     /* loaded from: classes10.dex */
     public static class a {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public long f462a;
+        public long f461a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f463a;
+        public String f462a;
         public int b;
 
         /* renamed from: b  reason: collision with other field name */
-        public long f464b;
+        public long f463b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f465b;
+        public String f464b;
 
         public a(String str, long j, int i, int i2, String str2, long j2) {
-            this.f463a = "";
-            this.f462a = 0L;
+            this.f462a = "";
+            this.f461a = 0L;
             this.a = -1;
             this.b = -1;
-            this.f465b = "";
-            this.f464b = 0L;
-            this.f463a = str;
-            this.f462a = j;
+            this.f464b = "";
+            this.f463b = 0L;
+            this.f462a = str;
+            this.f461a = j;
             this.a = i;
             this.b = i2;
-            this.f465b = str2;
-            this.f464b = j2;
+            this.f464b = str2;
+            this.f463b = j2;
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f463a, this.f463a) && TextUtils.equals(aVar.f465b, this.f465b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f462a - this.f462a) <= 5000;
+            return TextUtils.equals(aVar.f462a, this.f462a) && TextUtils.equals(aVar.f464b, this.f464b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f461a - this.f461a) <= 5000;
         }
     }
 
@@ -87,8 +87,8 @@ public class ha {
 
     public static long a(int i, long j, boolean z, long j2, boolean z2) {
         if (z && z2) {
-            long j3 = f456a;
-            f456a = j2;
+            long j3 = f455a;
+            f455a = j2;
             if (j2 - j3 > 30000 && j > 1024) {
                 return j * 2;
             }
@@ -97,28 +97,28 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m542a(Context context) {
-        com.xiaomi.push.providers.a aVar = f458a;
+    public static com.xiaomi.push.providers.a m543a(Context context) {
+        com.xiaomi.push.providers.a aVar = f457a;
         if (aVar != null) {
             return aVar;
         }
         com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
-        f458a = aVar2;
+        f457a = aVar2;
         return aVar2;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m543a(Context context) {
+    public static synchronized String m544a(Context context) {
         synchronized (ha.class) {
-            if (TextUtils.isEmpty(f460a)) {
+            if (TextUtils.isEmpty(f459a)) {
                 return "";
             }
-            return f460a;
+            return f459a;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m545a(Context context) {
+    public static void m546a(Context context) {
         a = b(context);
     }
 
@@ -128,12 +128,12 @@ public class ha {
         if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
             return;
         }
-        synchronized (f459a) {
-            isEmpty = f461a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m543a(context) : "", j));
+        synchronized (f458a) {
+            isEmpty = f460a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m544a(context) : "", j));
         }
         if (isEmpty) {
-            f457a.a(new hb(context), 5000L);
+            f456a.a(new hb(context), 5000L);
         }
     }
 
@@ -142,20 +142,20 @@ public class ha {
     }
 
     public static void a(a aVar) {
-        for (a aVar2 : f461a) {
+        for (a aVar2 : f460a) {
             if (aVar2.a(aVar)) {
-                aVar2.f464b += aVar.f464b;
+                aVar2.f463b += aVar.f463b;
                 return;
             }
         }
-        f461a.add(aVar);
+        f460a.add(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m546a(String str) {
+    public static synchronized void m547a(String str) {
         synchronized (ha.class) {
-            if (!j.m716d() && !TextUtils.isEmpty(str)) {
-                f460a = str;
+            if (!j.m717d() && !TextUtils.isEmpty(str)) {
+                f459a = str;
             }
         }
     }
@@ -178,17 +178,17 @@ public class ha {
 
     public static void b(Context context, List<a> list) {
         try {
-            synchronized (com.xiaomi.push.providers.a.f830a) {
-                SQLiteDatabase writableDatabase = m542a(context).getWritableDatabase();
+            synchronized (com.xiaomi.push.providers.a.f829a) {
+                SQLiteDatabase writableDatabase = m543a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("package_name", aVar.f463a);
-                    contentValues.put("message_ts", Long.valueOf(aVar.f462a));
+                    contentValues.put("package_name", aVar.f462a);
+                    contentValues.put("message_ts", Long.valueOf(aVar.f461a));
                     contentValues.put("network_type", Integer.valueOf(aVar.a));
-                    contentValues.put("bytes", Long.valueOf(aVar.f464b));
+                    contentValues.put("bytes", Long.valueOf(aVar.f463b));
                     contentValues.put("rcv", Integer.valueOf(aVar.b));
-                    contentValues.put(BaseStatisContent.IMSI, aVar.f465b);
+                    contentValues.put(BaseStatisContent.IMSI, aVar.f464b);
                     writableDatabase.insert("traffic", null, contentValues);
                 }
                 writableDatabase.setTransactionSuccessful();

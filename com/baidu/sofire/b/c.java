@@ -399,12 +399,12 @@ public class c {
 
     /* renamed from: com.baidu.sofire.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0184c implements GzfiCallback {
+    public static class C0173c implements GzfiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sofire.d.a a;
 
-        public C0184c(com.baidu.sofire.d.a aVar) {
+        public C0173c(com.baidu.sofire.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -979,7 +979,7 @@ public class c {
                 int i4 = bundle.getInt("timeout", 20);
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
                 if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    C0184c c0184c = new C0184c(a.AbstractBinderC0186a.a(iBinder));
+                    C0173c c0173c = new C0173c(a.AbstractBinderC0175a.a(iBinder));
                     synchronized (c.class) {
                         try {
                             if (com.baidu.sofire.b.b.e == null) {
@@ -987,10 +987,10 @@ public class c {
                             }
                             Pair<Integer, String> a2 = a(context);
                             if (a2 != null && ((Integer) a2.first).intValue() == 1) {
-                                c0184c.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
+                                c0173c.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
                             } else {
                                 synchronized (i) {
-                                    i.add(c0184c);
+                                    i.add(c0173c);
                                 }
                                 if (i4 > 0) {
                                     i3 = i4;

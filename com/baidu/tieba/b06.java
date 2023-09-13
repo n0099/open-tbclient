@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface b06 {
-    void a(View view2, int i, boolean z);
+    void a();
+
+    void b(int i, int i2, int i3, int i4);
+
+    Context getContext();
+
+    boolean post(Runnable runnable);
+
+    boolean removeCallbacks(Runnable runnable);
 }

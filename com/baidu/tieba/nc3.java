@@ -1,36 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
+import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.text.TextUtils;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.IOException;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nc3 extends ad3 {
+public class nc3 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public final String l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            switch (i) {
+                case 0:
+                case 1:
+                    return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
+                case 2:
+                    return "up-mirrored";
+                case 3:
+                    return "down";
+                case 4:
+                    return "down-mirrored";
+                case 5:
+                    return "left-mirrored";
+                case 6:
+                    return "left";
+                case 7:
+                    return "right-mirrored";
+                case 8:
+                    return "right";
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nc3(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/openApp4Ad");
+    public nc3(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/getImageInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,90 +74,100 @@ public class nc3 extends ad3 {
         }
     }
 
-    public static ResolveInfo j(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            if (hb3Var == null) {
+                h82.c("getImageInfo", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                return null;
+            String optString = ho3.d(unitedSchemeEntity.getParam("params")).optString("src");
+            if (TextUtils.isEmpty(optString)) {
+                h82.c("getImageInfo", "path null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            return queryIntentActivities.iterator().next();
+            JSONObject jSONObject = null;
+            if (pi3.s(optString) == PathType.BD_FILE) {
+                jSONObject = k(pi3.M(optString, hb3Var.b), optString);
+            } else if (pi3.s(optString) == PathType.RELATIVE) {
+                jSONObject = k(pi3.L(optString, hb3Var, hb3Var.k0()), optString);
+            }
+            if (jSONObject != null) {
+                h82.i("getImageInfo", "getImgInfo success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
+            return false;
         }
-        return (ResolveInfo) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static void k(Context context, ResolveInfo resolveInfo) {
+    public final ExifInterface j(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, context, resolveInfo) == null) && context != null && resolveInfo != null) {
-            Intent intent = new Intent("android.intent.action.MAIN");
-            intent.addCategory("android.intent.category.LAUNCHER");
-            ActivityInfo activityInfo = resolveInfo.activityInfo;
-            intent.setComponent(new ComponentName(activityInfo.packageName, activityInfo.name));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
             try {
-                ku2.a().b(context, intent, cb3.K().q().O(), null, resolveInfo.activityInfo.packageName);
-            } catch (Exception e) {
-                if (ad3.b) {
+                return new ExifInterface(str);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (ExifInterface) invokeL.objValue;
+    }
+
+    public final JSONObject k(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            h82.i("getImageInfo", "getImgInfo start");
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            int i = 1;
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            String str4 = options.outMimeType;
+            if (!TextUtils.isEmpty(str4)) {
+                String[] split = str4.split("/");
+                str3 = split[split.length - 1];
+            } else {
+                str3 = "";
+            }
+            if (!TextUtils.equals("png", str3)) {
+                ExifInterface j = j(str);
+                if (j == null) {
+                    return null;
+                }
+                i = j.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i3);
+                jSONObject.put("path", str2);
+                jSONObject.put("orientation", l(i));
+                jSONObject.put("type", str3);
+            } catch (JSONException e) {
+                h82.c("getImageInfo", "getImgInfo failed by json exception");
+                if (ed3.b) {
                     e.printStackTrace();
                 }
             }
+            h82.i("getImageInfo", "getImgInfo end");
+            return jSONObject;
         }
-    }
-
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            JSONObject a = ad3.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-                d82.i("OpenAdAppAction", "params parse error");
-                return false;
-            } else if (!ku2.a().d()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "Host denied");
-                d82.i("OpenAdAppAction", "Host denied");
-                return false;
-            } else {
-                String optString = a.optString("name");
-                String optString2 = a.optString("url");
-                if (TextUtils.isEmpty(optString) && TextUtils.isEmpty(optString2)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty params: Must contain 'url' or 'name' parameter");
-                    d82.i("OpenAdAppAction", "empty params: Must contain 'url' or 'name' parameter");
-                    return false;
-                }
-                if (!TextUtils.isEmpty(optString2)) {
-                    if (xo3.W(context, optString2)) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "deeplink launch failed");
-                    d82.i("OpenAdAppAction", "deeplink launch failed");
-                }
-                if (!TextUtils.isEmpty(optString)) {
-                    ResolveInfo j = j(context, optString);
-                    if (j != null) {
-                        k(context, j);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "app not installed");
-                    d82.i("OpenAdAppAction", "app not installed");
-                }
-                if (!TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "launch failed");
-                    d82.i("OpenAdAppAction", "launch failed");
-                }
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

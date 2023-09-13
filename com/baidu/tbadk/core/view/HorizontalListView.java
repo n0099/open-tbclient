@@ -649,7 +649,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                         if (action != 2) {
                             SwipeBackLayout.b bVar = this.w;
                             if (bVar != null) {
-                                bVar.f0();
+                                bVar.e0();
                             }
                         } else {
                             SwipeBackLayout.b bVar2 = this.w;
@@ -679,7 +679,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.v = false;
                 SwipeBackLayout.b bVar4 = this.w;
                 if (bVar4 != null) {
-                    bVar4.f0();
+                    bVar4.e0();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -704,7 +704,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     if (action != 2) {
                         SwipeBackLayout.b bVar = this.w;
                         if (bVar != null) {
-                            bVar.f0();
+                            bVar.e0();
                         }
                     } else {
                         SwipeBackLayout.b bVar2 = this.w;
@@ -722,7 +722,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     this.v = false;
                     SwipeBackLayout.b bVar3 = this.w;
                     if (bVar3 != null) {
-                        bVar3.f0();
+                        bVar3.e0();
                     }
                 }
             } else {

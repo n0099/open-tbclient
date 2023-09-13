@@ -13,8 +13,6 @@ public class tn2 {
     public int a;
     public int b;
     @V8JavascriptField
-    public String data;
-    @V8JavascriptField
     public String errMsg;
 
     public tn2() {
@@ -39,7 +37,7 @@ public class tn2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ReadFileStringCallBack" + this.b;
+            return "FileSystemJsCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

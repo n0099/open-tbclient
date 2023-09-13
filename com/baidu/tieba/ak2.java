@@ -1,35 +1,39 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class ak2 {
+public class ak2 extends vj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"SwitchIntDef"})
-    public static lk2 a(@NonNull jk2 jk2Var) {
-        InterceptResult invokeL;
+    public ak2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jk2Var)) == null) {
-            int i = jk2Var.a;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return new kk2(jk2Var);
-                        }
-                        return new ok2(jk2Var);
-                    }
-                    return new mk2(jk2Var);
-                }
-                return new pk2(jk2Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return new nk2(jk2Var);
         }
-        return (lk2) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gx2
+    public LifecycleProcessType b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return LifecycleProcessType.SWAN;
+        }
+        return (LifecycleProcessType) invokeV.objValue;
     }
 }

@@ -28,7 +28,7 @@ public final class a {
 
     /* renamed from: com.kwai.sodler.lib.kwai.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static final class C0714a {
+    public static final class C0709a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0714a.b(resources, assetManager);
+                        return C0709a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -102,7 +102,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0714a.b(resources, assetManager);
+                        return C0709a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -140,7 +140,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0714a.b(resources, assetManager);
+                        return C0709a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -178,7 +178,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0714a.b(resources, assetManager);
+                        return C0709a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -216,7 +216,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0714a.b(resources, assetManager);
+                        return C0709a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -272,7 +272,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, assetManager, displayMetrics, configuration)) == null) {
             Resources resources = context.getResources();
-            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0714a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
+            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0709a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
         }
         return (Resources) invokeLLLL.objValue;
     }

@@ -77,32 +77,32 @@ public final class FrsHeaderForumMountViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f0917b7;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917b7);
+            int i = R.id.obfuscated_res_0x7f0917c0;
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917c0);
             if (tbImageView != null) {
-                i = R.id.obfuscated_res_0x7f0917b8;
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917b8);
+                i = R.id.obfuscated_res_0x7f0917c1;
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c1);
                 if (textView != null) {
-                    i = R.id.obfuscated_res_0x7f0917b9;
-                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917b9);
+                    i = R.id.obfuscated_res_0x7f0917c2;
+                    TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c2);
                     if (textView2 != null) {
-                        i = R.id.obfuscated_res_0x7f0917ba;
-                        TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) view2.findViewById(R.id.obfuscated_res_0x7f0917ba);
+                        i = R.id.obfuscated_res_0x7f0917c3;
+                        TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) view2.findViewById(R.id.obfuscated_res_0x7f0917c3);
                         if (tbImageAutoSwitch != null) {
-                            i = R.id.obfuscated_res_0x7f0917bb;
-                            GifView gifView = (GifView) view2.findViewById(R.id.obfuscated_res_0x7f0917bb);
+                            i = R.id.obfuscated_res_0x7f0917c4;
+                            GifView gifView = (GifView) view2.findViewById(R.id.obfuscated_res_0x7f0917c4);
                             if (gifView != null) {
-                                i = R.id.obfuscated_res_0x7f0917bc;
-                                TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917bc);
+                                i = R.id.obfuscated_res_0x7f0917c5;
+                                TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c5);
                                 if (textView3 != null) {
-                                    i = R.id.obfuscated_res_0x7f0917bd;
-                                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0917bd);
+                                    i = R.id.obfuscated_res_0x7f0917c6;
+                                    View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0917c6);
                                     if (findViewById != null) {
-                                        i = R.id.obfuscated_res_0x7f0917be;
-                                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917be);
+                                        i = R.id.obfuscated_res_0x7f0917c7;
+                                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917c7);
                                         if (relativeLayout != null) {
-                                            i = R.id.obfuscated_res_0x7f0917bf;
-                                            TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917bf);
+                                            i = R.id.obfuscated_res_0x7f0917c8;
+                                            TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c8);
                                             if (textView4 != null) {
                                                 RelativeLayout relativeLayout2 = (RelativeLayout) view2;
                                                 return new FrsHeaderForumMountViewBinding(relativeLayout2, tbImageView, textView, textView2, tbImageAutoSwitch, gifView, textView3, findViewById, relativeLayout, textView4, relativeLayout2);
@@ -125,7 +125,7 @@ public final class FrsHeaderForumMountViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0370, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0376, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

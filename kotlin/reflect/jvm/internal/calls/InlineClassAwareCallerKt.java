@@ -143,7 +143,7 @@ public final class InlineClassAwareCallerKt {
     }
 
     public static final Class<?> toInlineClass(KotlinType kotlinType) {
-        return toInlineClass(kotlinType.getConstructor().mo2104getDeclarationDescriptor());
+        return toInlineClass(kotlinType.getConstructor().mo2105getDeclarationDescriptor());
     }
 
     public static final Class<?> toInlineClass(DeclarationDescriptor declarationDescriptor) {

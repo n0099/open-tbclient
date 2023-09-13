@@ -52,6 +52,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.FeedbackManager;
 import com.baidu.ufosdk.IFeedbackMethodCallback;
 import com.baidu.ufosdk.d0;
@@ -105,7 +106,7 @@ public class FeedbackEditActivity extends Activity {
     public TextView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public SpannableString f1195T;
+    public SpannableString f1191T;
     public ClickableSpan U;
     public SharedPreferences.Editor a;
     public SharedPreferences b;
@@ -175,8 +176,8 @@ public class FeedbackEditActivity extends Activity {
             this.G = getIntent().getIntExtra("come_from", -1);
             getIntent().getIntExtra("extend_feedback_channel", -1);
             this.L = getIntent().getIntExtra("showProblem", 0) == 1;
-            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030017);
-            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030016);
+            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030018);
+            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030017);
             if (TextUtils.isEmpty(this.v)) {
                 this.v = "newMessage";
             }
@@ -478,7 +479,7 @@ public class FeedbackEditActivity extends Activity {
                 TextView textView8 = new TextView(this);
                 SpannableString spannableString2 = new SpannableString("允许第三方网站使用您的反馈资料,《相关说明》");
                 spannableString2.setSpan(this.U, 16, spannableString2.length(), 33);
-                this.f1195T = spannableString2;
+                this.f1191T = spannableString2;
                 textView8.setText(spannableString2);
                 textView8.setTextSize(14.0f);
                 textView8.setTextColor(this.d ? -10066330 : -6710887);
@@ -1187,7 +1188,7 @@ public class FeedbackEditActivity extends Activity {
             hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("sdkvn", "4.1.9.1");
-            hashMap.put("os", com.baidu.ufosdk.b.e(context));
+            hashMap.put(TtsLogLoad.KEY_OS, com.baidu.ufosdk.b.e(context));
             hashMap.put("appvn", com.baidu.ufosdk.c.b());
             hashMap.put("baiducuid", com.baidu.ufosdk.b.f());
             hashMap.put("uid", com.baidu.ufosdk.b.c());
@@ -1460,11 +1461,11 @@ public class FeedbackEditActivity extends Activity {
                 FeedbackManager.getInstance(this).setFeedbackCallback(null);
                 this.C = null;
             }
-            SpannableString spannableString = this.f1195T;
+            SpannableString spannableString = this.f1191T;
             if (spannableString != null) {
                 spannableString.removeSpan(this.U);
                 this.U = null;
-                this.f1195T = null;
+                this.f1191T = null;
             }
             super.onDestroy();
         }

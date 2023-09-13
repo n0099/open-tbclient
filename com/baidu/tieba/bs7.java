@@ -1,24 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public interface bs7 {
-    void d(int i, @NonNull String str);
-
-    void g(boolean z);
-
-    void h(View.OnClickListener onClickListener);
-
-    void i(long j, long j2);
-
-    void j(@Nullable String str, @NonNull String str2);
-
-    void k(@NonNull LogicField logicField, int i);
-
-    void onChangeSkinType(int i);
-
-    void onDestory();
+    void a(int i, boolean z, int i2, boolean z2, ArrayList<cn> arrayList, boolean z3);
 }

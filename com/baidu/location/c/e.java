@@ -68,14 +68,14 @@ public class e {
     public long I;
     public long J;
     public long K;
-    public HandlerC0111e M;
+    public HandlerC0100e M;
     public long O;
     public long P;
     public a R;
     public b S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ArrayList<ArrayList<Float>> f1048T;
+    public ArrayList<ArrayList<Float>> f1046T;
     public ArrayList<ArrayList<Float>> U;
     public ArrayList<ArrayList<Float>> V;
     public ArrayList<ArrayList<Float>> W;
@@ -274,9 +274,9 @@ public class e {
             arrayList3.addAll(this.a.Z);
             this.a.b(arrayList3);
             e eVar = this.a;
-            eVar.f1048T = eVar.a(true, false, false, false, true, -1.0f);
+            eVar.f1046T = eVar.a(true, false, false, false, true, -1.0f);
             e eVar2 = this.a;
-            e.b = eVar2.a(eVar2.f1048T);
+            e.b = eVar2.a(eVar2.f1046T);
             e eVar3 = this.a;
             eVar3.U = eVar3.a(true, true, true, true, true, -1.0f);
             e eVar4 = this.a;
@@ -416,8 +416,8 @@ public class e {
                     arrayList3.addAll(this.a.Y);
                     arrayList3.addAll(this.a.Z);
                     this.a.b(arrayList3);
-                    this.a.f1048T = this.a.a(true, false, false, false, true, -1.0f);
-                    e.b = this.a.a(this.a.f1048T);
+                    this.a.f1046T = this.a.a(true, false, false, false, true, -1.0f);
+                    e.b = this.a.a(this.a.f1046T);
                     this.a.U = this.a.a(true, true, true, true, true, -1.0f);
                     this.a.V = this.a.a(true, true, true, true, false, -1.0f);
                     e.c = this.a.a(this.a.V);
@@ -442,13 +442,13 @@ public class e {
 
     /* renamed from: com.baidu.location.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC0111e extends Handler {
+    public static class HandlerC0100e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<e> a;
         public e b;
 
-        public HandlerC0111e(e eVar) {
+        public HandlerC0100e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -751,7 +751,7 @@ public class e {
         this.P = 0L;
         this.R = null;
         this.S = null;
-        this.f1048T = new ArrayList<>();
+        this.f1046T = new ArrayList<>();
         this.U = new ArrayList<>();
         this.V = new ArrayList<>();
         this.W = new ArrayList<>();
@@ -1280,7 +1280,7 @@ public class e {
                         this.g = (LocationManager) serviceContext.getSystemService("location");
                     } catch (Exception unused) {
                     }
-                    this.M = new HandlerC0111e(this);
+                    this.M = new HandlerC0100e(this);
                 }
             }
         }

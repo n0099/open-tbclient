@@ -1,57 +1,23 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
 public class h80 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777449, "Lcom/baidu/tieba/h80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777449, "Lcom/baidu/tieba/h80;");
-                return;
-            }
-        }
-        a = AppConfig.isDebug();
-        b = QuickPersistConfig.getInstance().getBoolean("enable_external_opt", true);
-        c = QuickPersistConfig.getInstance().getBoolean("enable_external_push_opt", false);
-        if (a) {
-            Log.d("ExternalABUtils", "external opt ab:" + a() + " push opt ab:" + b());
-        }
-    }
-
-    public static boolean a() {
+    @Inject(force = false)
+    public static g80 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return g80.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return invokeV.booleanValue;
+        return (g80) invokeV.objValue;
     }
 }

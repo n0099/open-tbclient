@@ -1,43 +1,39 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
-import com.baidu.tieba.h5;
-import com.baidu.tieba.m1.a;
-import com.baidu.tieba.p7;
-import com.baidu.tieba.t6;
-import com.baidu.tieba.v1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public abstract class m1<P extends a> extends h1<z3, P> {
+public class m1 extends i1<e7, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t6<p7.b<String, o4>> b;
-    public a c;
+    public e7 b;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.h1
-    /* renamed from: g */
-    public void c(f1 f1Var, String str, c3 c3Var, P p) {
+    /* renamed from: f */
+    public u6<c1> a(String str, d3 d3Var, a aVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, f1Var, str, c3Var, p) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, d3Var, aVar)) == null) {
+            return null;
         }
+        return (u6) invokeLLL.objValue;
     }
 
-    public abstract o4 h(c3 c3Var, P p);
-
     /* loaded from: classes7.dex */
-    public static class a extends d1<z3> {
+    public static class a extends e1<e7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public v1.b b;
+        public final Locale b;
+        public final String c;
 
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
+            this(null, null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,115 +41,93 @@ public abstract class m1<P extends a> extends h1<z3, P> {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr = newInitContext.callArgs;
+                    this((Locale) objArr[0], (String) objArr[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            v1.b bVar = new v1.b();
-            this.b = bVar;
-            Texture.TextureFilter textureFilter = Texture.TextureFilter.Linear;
-            bVar.g = textureFilter;
-            bVar.f = textureFilter;
-            Texture.TextureWrap textureWrap = Texture.TextureWrap.Repeat;
-            bVar.i = textureWrap;
-            bVar.h = textureWrap;
+        }
+
+        public a(Locale locale, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locale, str};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.b = locale;
+            this.c = str;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m1(k1 k1Var) {
-        super(k1Var);
+    public m1(l1 l1Var) {
+        super(l1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k1Var};
+            Object[] objArr = {l1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k1) newInitContext.callArgs[0]);
+                super((l1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new t6<>();
-        this.c = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v1, types: [V, com.baidu.tieba.o4] */
-    @Override // com.baidu.tieba.g1
-    /* renamed from: f */
-    public t6<b1> a(String str, c3 c3Var, P p) {
-        InterceptResult invokeLLL;
-        v1.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, c3Var, p)) == null) {
-            t6<b1> t6Var = new t6<>();
-            ?? h = h(c3Var, p);
-            if (h == 0) {
-                return t6Var;
-            }
-            p7.b<String, o4> bVar2 = new p7.b<>();
-            bVar2.a = str;
-            bVar2.b = h;
-            synchronized (this.b) {
-                this.b.a(bVar2);
-            }
-            if (p != null) {
-                bVar = p.b;
-            } else {
-                bVar = this.c.b;
-            }
-            t6.b<ModelMaterial> it = h.c.iterator();
-            while (it.hasNext()) {
-                t6<v4> t6Var2 = it.next().i;
-                if (t6Var2 != null) {
-                    t6.b<v4> it2 = t6Var2.iterator();
-                    while (it2.hasNext()) {
-                        t6Var.a(new b1(it2.next().a, Texture.class, bVar));
-                    }
-                }
-            }
-            return t6Var;
-        }
-        return (t6) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.h1
-    /* renamed from: i */
-    public z3 d(f1 f1Var, String str, c3 c3Var, P p) {
+    @Override // com.baidu.tieba.i1
+    /* renamed from: h */
+    public e7 d(g1 g1Var, String str, d3 d3Var, a aVar) {
         InterceptResult invokeLLLL;
-        o4 o4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, f1Var, str, c3Var, p)) == null) {
-            synchronized (this.b) {
-                o4Var = null;
-                for (int i = 0; i < this.b.b; i++) {
-                    if (this.b.get(i).a.equals(str)) {
-                        o4Var = this.b.get(i).b;
-                        this.b.h(i);
-                    }
-                }
-            }
-            if (o4Var == null) {
-                return null;
-            }
-            z3 z3Var = new z3(o4Var, new h5.a(f1Var));
-            Iterator<a7> it = z3Var.h().iterator();
-            while (it.hasNext()) {
-                if (it.next() instanceof Texture) {
-                    it.remove();
-                }
-            }
-            return z3Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, g1Var, str, d3Var, aVar)) == null) {
+            e7 e7Var = this.b;
+            this.b = null;
+            return e7Var;
         }
-        return (z3) invokeLLLL.objValue;
+        return (e7) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i1
+    /* renamed from: g */
+    public void c(g1 g1Var, String str, d3 d3Var, a aVar) {
+        Locale locale;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, g1Var, str, d3Var, aVar) == null) {
+            String str2 = null;
+            this.b = null;
+            if (aVar == null) {
+                locale = Locale.getDefault();
+            } else {
+                Locale locale2 = aVar.b;
+                if (locale2 == null) {
+                    locale2 = Locale.getDefault();
+                }
+                locale = locale2;
+                str2 = aVar.c;
+            }
+            if (str2 == null) {
+                this.b = e7.b(d3Var, locale);
+            } else {
+                this.b = e7.c(d3Var, locale, str2);
+            }
+        }
     }
 }

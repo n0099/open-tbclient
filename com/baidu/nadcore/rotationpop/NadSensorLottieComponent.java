@@ -3,12 +3,12 @@ package com.baidu.nadcore.rotationpop;
 import android.content.Context;
 import com.baidu.nadcore.rotation.NadSensorAbsHelper;
 import com.baidu.nadcore.rotationpop.NadLottiePopView;
-import com.baidu.tieba.a31;
-import com.baidu.tieba.b31;
 import com.baidu.tieba.c31;
-import com.baidu.tieba.gs0;
-import com.baidu.tieba.y21;
-import com.baidu.tieba.z21;
+import com.baidu.tieba.d31;
+import com.baidu.tieba.e31;
+import com.baidu.tieba.f31;
+import com.baidu.tieba.g31;
+import com.baidu.tieba.ks0;
 import java.util.List;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -20,7 +20,7 @@ import kotlin.text.StringsKt__StringsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\n\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0010\u0015\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000B\u001f\u0012\u0006\u0010(\u001a\u00020'\u0012\u0006\u0010*\u001a\u00020)\u0012\u0006\u0010%\u001a\u00020$¢\u0006\u0004\b+\u0010,J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u000f\u0010\u0007\u001a\u0004\u0018\u00010\u0006¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\n\u001a\u00020\t¢\u0006\u0004\b\n\u0010\u000bJ\r\u0010\r\u001a\u00020\f¢\u0006\u0004\b\r\u0010\u000eJ\r\u0010\u000f\u001a\u00020\f¢\u0006\u0004\b\u000f\u0010\u000eJ\u0019\u0010\u0010\u001a\u0004\u0018\u00010\u00062\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0012\u001a\u00020\f2\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0014\u001a\u00020\f2\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0014\u0010\u0013J\r\u0010\u0015\u001a\u00020\f¢\u0006\u0004\b\u0015\u0010\u000eJ\r\u0010\u0016\u001a\u00020\f¢\u0006\u0004\b\u0016\u0010\u000eJ\u0015\u0010\u0019\u001a\u00020\f2\u0006\u0010\u0018\u001a\u00020\u0017¢\u0006\u0004\b\u0019\u0010\u001aR\u0018\u0010\u001b\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001b\u0010\u001cR\u001d\u0010 \u001a\u00020\t8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001f\u0010\u000bR\u0016\u0010\"\u001a\u00020!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\"\u0010#R\u0016\u0010%\u001a\u00020$8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b%\u0010&¨\u0006-"}, d2 = {"Lcom/baidu/nadcore/rotationpop/NadSensorLottieComponent;", "Lcom/baidu/nadcore/model/NadRotationPopModel;", "model", "", "checkDataValid", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)Z", "Lcom/baidu/nadcore/rotation/NadSensorAbsHelper;", "getHelper", "()Lcom/baidu/nadcore/rotation/NadSensorAbsHelper;", "Lcom/baidu/nadcore/rotationpop/NadLottiePopView;", "getView", "()Lcom/baidu/nadcore/rotationpop/NadLottiePopView;", "", "release", "()V", "reset", "selectHelper", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)Lcom/baidu/nadcore/rotation/NadSensorAbsHelper;", "setData", "(Lcom/baidu/nadcore/model/NadRotationPopModel;)V", "setSensorActiveTime", "startSensor", "stopSensor", "", "progress", "updatePlayerProgress", "(I)V", "helper", "Lcom/baidu/nadcore/rotation/NadSensorAbsHelper;", "popView$delegate", "Lkotlin/Lazy;", "getPopView", "popView", "", "sensorActiveTimeArray", "[I", "Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;", "sensorListener", "Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;", "Landroid/content/Context;", "context", "Lcom/baidu/nadcore/rotationpop/NadLottiePopView$DefaultViewActionListener;", "viewListener", "<init>", "(Landroid/content/Context;Lcom/baidu/nadcore/rotationpop/NadLottiePopView$DefaultViewActionListener;Lcom/baidu/nadcore/rotation/NadSensorEventAbsListener;)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class NadSensorLottieComponent {
-    public final z21 a;
+    public final d31 a;
     public final Lazy b;
     public NadSensorAbsHelper c;
     public int[] d;
@@ -29,7 +29,7 @@ public final class NadSensorLottieComponent {
         return (NadLottiePopView) this.b.getValue();
     }
 
-    public NadSensorLottieComponent(final Context context, final NadLottiePopView.d viewListener, z21 sensorListener) {
+    public NadSensorLottieComponent(final Context context, final NadLottiePopView.d viewListener, d31 sensorListener) {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(viewListener, "viewListener");
         Intrinsics.checkNotNullParameter(sensorListener, "sensorListener");
@@ -52,15 +52,15 @@ public final class NadSensorLottieComponent {
         this.d = new int[]{0, 0};
     }
 
-    public final boolean a(gs0 gs0Var) {
+    public final boolean a(ks0 ks0Var) {
         boolean z;
-        String str = gs0Var.b;
+        String str = ks0Var.b;
         if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
             z = false;
         } else {
             z = true;
         }
-        if (z || gs0Var.d < 0) {
+        if (z || ks0Var.d < 0) {
             return false;
         }
         return true;
@@ -88,39 +88,39 @@ public final class NadSensorLottieComponent {
         String str;
         NadSensorAbsHelper nadSensorAbsHelper;
         Object tag = b().getTag();
-        if (!(tag instanceof gs0)) {
+        if (!(tag instanceof ks0)) {
             tag = null;
         }
-        gs0 gs0Var = (gs0) tag;
-        if (gs0Var != null && (str = gs0Var.n) != null && str.hashCode() == 109399814 && str.equals("shake") && (nadSensorAbsHelper = this.c) != null) {
+        ks0 ks0Var = (ks0) tag;
+        if (ks0Var != null && (str = ks0Var.n) != null && str.hashCode() == 109399814 && str.equals("shake") && (nadSensorAbsHelper = this.c) != null) {
             nadSensorAbsHelper.o();
         }
     }
 
-    public final NadSensorAbsHelper f(gs0 gs0Var) {
+    public final NadSensorAbsHelper f(ks0 ks0Var) {
         Context context = b().getContext();
         if (context == null) {
             return null;
         }
-        String str = gs0Var.n;
+        String str = ks0Var.n;
         int hashCode = str.hashCode();
         if (hashCode != -40300674) {
             if (hashCode != 109399814 || !str.equals("shake")) {
                 return null;
             }
-            b31 b31Var = new b31(context, this.a);
-            b31Var.m(new a31(0, 0, 0, 0.0f, false, gs0Var.s, gs0Var.t, gs0Var.u, 31, null));
-            return b31Var;
+            f31 f31Var = new f31(context, this.a);
+            f31Var.m(new e31(0, 0, 0, 0.0f, false, ks0Var.s, ks0Var.t, ks0Var.u, 31, null));
+            return f31Var;
         } else if (!str.equals("rotation")) {
             return null;
         } else {
-            y21 y21Var = new y21(context, this.a);
-            y21Var.s(0, gs0Var.f, gs0Var.g, gs0Var.h, true);
-            return y21Var;
+            c31 c31Var = new c31(context, this.a);
+            c31Var.s(0, ks0Var.f, ks0Var.g, ks0Var.h, true);
+            return c31Var;
         }
     }
 
-    public final void g(gs0 model) {
+    public final void g(ks0 model) {
         float f;
         Intrinsics.checkNotNullParameter(model, "model");
         if (!a(model)) {
@@ -138,12 +138,12 @@ public final class NadSensorLottieComponent {
             } else {
                 f = 0.0f;
             }
-            b().setParams(new c31(model.q, model.p, model.o, model.b, model.v, model.m, model.a, model.c, model.l, model.j, model.k, model.d, model.e, f));
+            b().setParams(new g31(model.q, model.p, model.o, model.b, model.v, model.m, model.a, model.c, model.l, model.j, model.k, model.d, model.e, f));
         }
     }
 
-    public final void h(gs0 gs0Var) {
-        List split$default = StringsKt__StringsKt.split$default((CharSequence) gs0Var.r, new String[]{"_"}, false, 0, 6, (Object) null);
+    public final void h(ks0 ks0Var) {
+        List split$default = StringsKt__StringsKt.split$default((CharSequence) ks0Var.r, new String[]{"_"}, false, 0, 6, (Object) null);
         if (split$default.size() == 2) {
             int size = split$default.size();
             for (int i = 0; i < size; i++) {

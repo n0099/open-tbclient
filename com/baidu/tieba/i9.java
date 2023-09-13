@@ -1,42 +1,27 @@
 package com.baidu.tieba;
 
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i9 {
+public abstract class i9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            view2.setLayerType(2, null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-    }
+    public abstract void c(Object obj);
 
-    public static void b(View view2) {
+    public i9() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            Paint paint = new Paint();
-            ColorMatrix colorMatrix = new ColorMatrix();
-            colorMatrix.setSaturation(0.0f);
-            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-            view2.setLayerType(2, paint);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

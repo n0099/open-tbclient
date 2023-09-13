@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class fia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static void a(WriteData writeData, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, writeData, str) == null) && writeData.getStatisticFrom() == 5) {
-            StatisticItem statisticItem = new StatisticItem("c14392");
-            statisticItem.addParam("topic_id", writeData.getTopicId());
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("tid", str);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    public abstract boolean a(MotionEvent motionEvent);
+
+    public abstract boolean b(MotionEvent motionEvent);
+
+    public abstract void c(View view2, Bundle bundle);
+
+    public abstract void d();
 }

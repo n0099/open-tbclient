@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface yl1 {
-    void onVideoSizeChanged(int i, int i2);
+    @Nullable
+    xj1 a();
 
-    void setDisplayMode(int i);
+    JSONObject b();
 }

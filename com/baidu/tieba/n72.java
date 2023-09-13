@@ -7,16 +7,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class n72 extends k62 {
+public final class n72 extends q62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
+    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n72() {
-        super("input", "viewId");
+        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,31 +29,21 @@ public final class n72 extends k62 {
                 return;
             }
         }
+        this.u = false;
     }
 
-    @Override // com.baidu.tieba.k62, com.baidu.tieba.p62, com.baidu.tieba.r62, com.baidu.tieba.t62, com.baidu.tieba.c13
+    @Override // com.baidu.tieba.q62, com.baidu.tieba.v62, com.baidu.tieba.x62, com.baidu.tieba.g13
     public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new j13();
+        this.u = jSONObject.optBoolean("loadState", false);
+        n13 n13Var = this.h;
+        if (n13Var != null && (jSONObject2 = this.j) != null) {
+            n13Var.i(jSONObject2.optBoolean("fixed", false));
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
-        }
-        this.N = z2;
     }
 }

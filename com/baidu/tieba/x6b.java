@@ -1,56 +1,217 @@
 package com.baidu.tieba;
 
-import androidx.annotation.VisibleForTesting;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.RequestFinishedInfo;
-@VisibleForTesting
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class x6b extends RequestFinishedInfo.Metrics {
+public class x6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public BdUniqueId b;
+    public final String c;
+    public b d;
+    public List<String> e;
+    public HttpMessageListener f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948253733, "Lcom/baidu/tieba/x6b;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a();
+
+        void c(RelevanceItemSearchData relevanceItemSearchData);
+
+        void d();
+
+        void onError(int i, String str);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x6b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(x6b x6bVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x6bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x6bVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948253733, "Lcom/baidu/tieba/x6b;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            RelevanceItemSearchData relevanceItemSearchData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.a.d != null) {
+                if (httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() != this.a.b) {
+                    return;
+                }
+                if (httpResponsedMessage instanceof RelevanceItemSearchResponse) {
+                    relevanceItemSearchData = ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData();
+                } else {
+                    relevanceItemSearchData = null;
+                }
+                if (relevanceItemSearchData != null && relevanceItemSearchData.getData() != null) {
+                    if (!ListUtils.equalList(this.a.e, relevanceItemSearchData.getData().getTab_option())) {
+                        this.a.e = relevanceItemSearchData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
+                    }
+                    if (httpResponsedMessage.getError() == 0) {
+                        if (ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
+                            if (this.a.a == 1) {
+                                this.a.d.a();
+                                return;
+                            } else {
+                                this.a.d.d();
+                                return;
+                            }
+                        } else if (relevanceItemSearchData != null) {
+                            this.a.d.c(relevanceItemSearchData);
+                            if (this.a.a == 1 && relevanceItemSearchData.getData().getItem_list().size() < 20) {
+                                this.a.d.d();
+                            }
+                            x6b.f(this.a);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    this.a.l();
+                    return;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
+                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e40));
+                this.a.l();
+            }
         }
     }
 
-    public x6b(long j, long j2, long j3, long j4, long j5, long j6, long j7, long j8, long j9, long j10, long j11, long j12, long j13, boolean z, long j14, long j15) {
+    public x6b(BdUniqueId bdUniqueId, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Boolean.valueOf(z), Long.valueOf(j14), Long.valueOf(j15)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {bdUniqueId, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
-        if (i3 != 0) {
-            int i4 = (j12 > (-1L) ? 1 : (j12 == (-1L) ? 0 : -1));
+        this.a = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f = aVar;
+        this.b = bdUniqueId;
+        this.c = str;
+        aVar.setTag(bdUniqueId);
+        k();
+        MessageManager.getInstance().registerListener(this.f);
+    }
+
+    public static /* synthetic */ int f(x6b x6bVar) {
+        int i = x6bVar.a;
+        x6bVar.a = i + 1;
+        return i;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            l();
+            i(str);
         }
-        if (i3 != 0) {
-            int i5 = (j13 > (-1L) ? 1 : (j13 == (-1L) ? 0 : -1));
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("keyword", str);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().removeMessage(this.b);
+            MessageManager.getInstance().unRegisterListener(this.b);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 1;
         }
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.searchbox.looper.ioc;
 
-import com.baidu.tieba.hk1;
-import com.baidu.tieba.v8a;
+import com.baidu.tieba.lk1;
+import com.baidu.tieba.oaa;
 /* loaded from: classes4.dex */
-public class ILooperNeedContext_LooperRuntime_Provider implements hk1 {
-    @Override // com.baidu.tieba.hk1
+public class ILooperNeedContext_LooperRuntime_Provider implements lk1 {
+    @Override // com.baidu.tieba.lk1
     public Object get() {
-        return new v8a();
+        return new oaa();
     }
 }

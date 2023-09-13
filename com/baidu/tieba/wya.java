@@ -1,98 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.base.BdPageContext;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HorizontalListView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.voice.tts.bdtts.BdTtsImpl;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class wya extends uya {
+public final class wya {
     public static /* synthetic */ Interceptable $ic;
+    public static final wya a;
     public transient /* synthetic */ FieldHolder $fh;
-    public View c;
-    public HorizontalListView d;
-    public j1b e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wya(BdPageContext bdPageContext) {
-        super(bdPageContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948288298, "Lcom/baidu/tieba/wya;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948288298, "Lcom/baidu/tieba/wya;");
+                return;
+            }
+        }
+        a = new wya();
+    }
+
+    public wya() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void A(i1b i1bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, i1bVar) == null) {
-            this.e.d(i1bVar);
-        }
-    }
-
-    public void z(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.e.c(list);
-        this.e.notifyDataSetChanged();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            y();
-        }
-    }
-
-    public View x() {
+    public final Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
+            return inst;
         }
-        return (View) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public void y() {
+    public final tya a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.e.notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            vya.a.a("TtsManager", "createTts");
+            BdTtsImpl bdTtsImpl = new BdTtsImpl();
+            bdTtsImpl.n(a.getContext());
+            return bdTtsImpl;
         }
-    }
-
-    @Override // com.baidu.tieba.uya
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0804, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (HorizontalListView) inflate.findViewById(R.id.obfuscated_res_0x7f090f94);
-            j1b j1bVar = new j1b();
-            this.e = j1bVar;
-            this.d.setAdapter((ListAdapter) j1bVar);
-        }
+        return (tya) invokeV.objValue;
     }
 }

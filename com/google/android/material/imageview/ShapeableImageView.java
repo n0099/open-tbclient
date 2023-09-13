@@ -32,7 +32,7 @@ import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
-    public static final int DEF_STYLE_RES = 2131755926;
+    public static final int DEF_STYLE_RES = 2131755934;
     public final Paint borderPaint;
     public final Paint clearPaint;
     public final RectF destination;

@@ -19,8 +19,8 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class HandlerC0149a extends Handler {
-        public HandlerC0149a() {
+    public class HandlerC0138a extends Handler {
+        public HandlerC0138a() {
         }
 
         @Override // android.os.Handler
@@ -34,7 +34,7 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
 
     public a(Context context, Camera camera) {
         super(context);
-        this.d = new HandlerC0149a();
+        this.d = new HandlerC0138a();
         this.b = camera;
         SurfaceHolder holder = getHolder();
         this.a = holder;

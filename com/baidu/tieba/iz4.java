@@ -1,54 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class iz4 {
+public class iz4 implements lk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile TbDownloadManager a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947870790, "Lcom/baidu/tieba/iz4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public iz4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947870790, "Lcom/baidu/tieba/iz4;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static TbDownloadManager a(DownloadData downloadData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.lk1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, downloadData)) == null) {
-            if (a == null) {
-                synchronized (CommonTbJsBridge.class) {
-                    if (a == null) {
-                        a = new TbDownloadManager();
-                    }
-                }
-            }
-            a.w(2);
-            if (a.p(downloadData) <= 0) {
-                a.w(1);
-                if (a.p(downloadData) <= 0) {
-                    a.w(xd7.a());
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new jz7());
+            arrayList.add(new m78());
+            arrayList.add(new gg8());
+            return arrayList;
         }
-        return (TbDownloadManager) invokeL.objValue;
+        return invokeV.objValue;
     }
 }

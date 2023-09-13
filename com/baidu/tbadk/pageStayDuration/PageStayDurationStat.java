@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.di;
-import com.baidu.tieba.ur5;
-import com.baidu.tieba.v75;
+import com.baidu.tieba.e85;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.os5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -270,9 +270,9 @@ public class PageStayDurationStat {
                     statisticItem.param("obj_id", pageStayDurationItem.objID);
                 }
                 if (pageStayDurationItem.getAdSource() != 0) {
-                    statisticItem.param(TiebaStatic.Params.T_PLUS_AD_SOURCE, pageStayDurationItem.getAdSource());
+                    statisticItem.param("ad_source", pageStayDurationItem.getAdSource());
                 }
-                ur5.b(context, statisticItem, pageStayDurationItem);
+                os5.b(context, statisticItem, pageStayDurationItem);
                 TiebaStatic.log(statisticItem);
                 return;
             }
@@ -323,10 +323,10 @@ public class PageStayDurationStat {
             if (!StringUtils.isNull(pageStayDurationItem.resourceType)) {
                 statisticItem2.param("resource_type", pageStayDurationItem.resourceType);
             }
-            if (!di.isEmpty(pageStayDurationItem.getTaskId())) {
+            if (!ei.isEmpty(pageStayDurationItem.getTaskId())) {
                 statisticItem2.param("task_id", String.valueOf(pageStayDurationItem.getTaskId()));
             }
-            if (!di.isEmpty(pageStayDurationItem.getAbTag())) {
+            if (!ei.isEmpty(pageStayDurationItem.getAbTag())) {
                 statisticItem2.param("ab_tag", pageStayDurationItem.getAbTag());
             }
             if (isSmartStat()) {
@@ -342,7 +342,7 @@ public class PageStayDurationStat {
                 statisticItem2.param("obj_location", pageStayDurationItem.getObjLocation());
             }
             if (pageStayDurationItem.getAdSource() != 0) {
-                statisticItem2.param(TiebaStatic.Params.T_PLUS_AD_SOURCE, pageStayDurationItem.getAdSource());
+                statisticItem2.param("ad_source", pageStayDurationItem.getAdSource());
             }
             String fromWhichSearchSource = TbSingleton.getInstance().getFromWhichSearchSource();
             if (!StringUtils.isNull(fromWhichSearchSource) && pageStayDurationItem.getSorceKeyList() != null && isInTwoJumpFromSearch(pageStayDurationItem.getSorceKeyList())) {
@@ -351,9 +351,9 @@ public class PageStayDurationStat {
                     TbSingleton.getInstance().setFromWhichSearchSource("");
                 }
             }
-            ur5.b(context, statisticItem2, pageStayDurationItem);
+            os5.b(context, statisticItem2, pageStayDurationItem);
             TiebaStatic.log(statisticItem2);
-            TiebaStatic.log(new StatisticItem("PushOptTime").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(pageStayDurationItem.getStayDurationTime())).param("obj_source", PageStayDurationHelper.toSourceTraceString(pageStayDurationItem.getSorceKeyList())).param("obj_locate", pageStayDurationItem.getCurrentPageKey()).param("obj_param1", v75.a().b()));
+            TiebaStatic.log(new StatisticItem("PushOptTime").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(pageStayDurationItem.getStayDurationTime())).param("obj_source", PageStayDurationHelper.toSourceTraceString(pageStayDurationItem.getSorceKeyList())).param("obj_locate", pageStayDurationItem.getCurrentPageKey()).param("obj_param1", e85.a().b()));
         }
     }
 }

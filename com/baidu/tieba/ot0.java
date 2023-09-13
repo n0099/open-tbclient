@@ -1,377 +1,32 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.tieba.et0;
-import com.baidu.tieba.qs0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 /* loaded from: classes7.dex */
-public class ot0 extends qs0 {
+public class ot0 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OkHttpClient a;
-    public vs0 b;
+    public pt0 a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qs0.a a;
-        public final /* synthetic */ boolean b;
-
-        /* renamed from: com.baidu.tieba.ot0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0431a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ IOException a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0431a(a aVar, IOException iOException) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, iOException};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = iOException;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.a.a(this.a, 502);
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.a.a(new Exception("body is null!"), this.a);
-                }
-            }
-        }
-
-        public a(ot0 ot0Var, qs0.a aVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ot0Var, aVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = z;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                hk0.c(new RunnableC0431a(this, iOException));
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                Headers.a aVar = new Headers.a();
-                int code = response.code();
-                ResponseBody body = response.body();
-                if (body != null) {
-                    for (Map.Entry<String, List<String>> entry : response.headers().toMultimap().entrySet()) {
-                        List<String> value = entry.getValue();
-                        if (value != null && value.size() > 0) {
-                            aVar.a(entry.getKey(), value.get(0));
-                        }
-                    }
-                    if (this.b) {
-                        try {
-                            try {
-                                this.a.c(aVar.c(), body.string(), code);
-                                return;
-                            } catch (Throwable th) {
-                                this.a.a(new Exception(th), 611);
-                                return;
-                            }
-                        } catch (Throwable th2) {
-                            this.a.a(new Exception(th2), 610);
-                            return;
-                        }
-                    }
-                    try {
-                        this.a.b(aVar.c(), body.byteStream(), code);
-                    } finally {
-                        try {
-                            return;
-                        } finally {
-                        }
-                    }
-                    return;
-                }
-                hk0.c(new b(this, code));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements qs0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ it0 a;
-        public final /* synthetic */ qt0 b;
-
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Headers a;
-            public final /* synthetic */ Object b;
-            public final /* synthetic */ int c;
-            public final /* synthetic */ b d;
-
-            public a(b bVar, Headers headers, Object obj, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, headers, obj, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = bVar;
-                this.a = headers;
-                this.b = obj;
-                this.c = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.d.a.b(this.a, this.b, this.c);
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ot0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0432b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Exception a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ b c;
-
-            public RunnableC0432b(b bVar, Exception exc, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, exc, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = exc;
-                this.b = i;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.c.a.a(this.a, this.b);
-                }
-            }
-        }
-
-        public b(ot0 ot0Var, it0 it0Var, qt0 qt0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ot0Var, it0Var, qt0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = it0Var;
-            this.b = qt0Var;
-        }
-
-        @Override // com.baidu.tieba.qs0.a
-        public void a(Exception exc, int i) {
-            it0 it0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (it0Var = this.a) != null) {
-                if (this.b.g) {
-                    hk0.c(new RunnableC0432b(this, exc, i));
-                } else {
-                    it0Var.a(exc, i);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.qs0.a
-        public void b(Headers headers, InputStream inputStream, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
-                throw new IllegalStateException("走错路了");
-            }
-        }
-
-        @Override // com.baidu.tieba.qs0.a
-        public void c(Headers headers, String str, int i) throws Exception {
-            it0 it0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, str, i) != null) || (it0Var = this.a) == null) {
-                return;
-            }
-            Object d = it0Var.d(headers, str, i);
-            if (this.b.g) {
-                hk0.c(new a(this, headers, d, i));
-            } else {
-                this.a.b(headers, d, i);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements qs0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ht0 a;
-
-        public c(ot0 ot0Var, ht0 ht0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ot0Var, ht0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ht0Var;
-        }
-
-        @Override // com.baidu.tieba.qs0.a
-        public void a(Exception exc, int i) {
-            ht0 ht0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (ht0Var = this.a) != null) {
-                ht0Var.a(exc, i);
-            }
-        }
-
-        @Override // com.baidu.tieba.qs0.a
-        public void b(Headers headers, InputStream inputStream, int i) throws Exception {
-            ht0 ht0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) && (ht0Var = this.a) != null) {
-                ht0Var.c(headers, inputStream, i);
-            }
-        }
-
-        @Override // com.baidu.tieba.qs0.a
-        public void c(Headers headers, String str, int i) throws Exception {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, str, i) == null) {
-                throw new IllegalStateException("走错路了");
-            }
-        }
-    }
-
-    public ot0() {
+    public ot0(pt0 pt0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pt0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -381,77 +36,153 @@ public class ot0 extends qs0 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
+        this.a = pt0Var;
     }
 
-    @Override // com.baidu.tieba.bt0
-    public <T> void a(@NonNull qt0 qt0Var, @Nullable it0<T> it0Var) {
+    public static int a(@NonNull String str, int i, int i2, char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qt0Var, it0Var) == null) {
-            d(qt0Var, true, new b(this, it0Var, qt0Var));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c) {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
         }
+        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.bt0
-    public void b(@NonNull qt0 qt0Var, @Nullable ht0 ht0Var) {
+    public static int d(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qt0Var, ht0Var) == null) {
-            d(qt0Var, false, new c(this, ht0Var));
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
         }
+        return invokeLII.intValue;
     }
 
-    public final OkHttpClient c(@NonNull qt0 qt0Var) {
+    public static String f(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            int d = d(str, i, i2);
+            return str.substring(d, e(str, d, i2));
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static int e(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i3 + 1;
+                }
+            }
+            return i;
+        }
+        return invokeLII.intValue;
+    }
+
+    public final String b(String str) {
         InterceptResult invokeL;
-        OkHttpClient.Builder newBuilder;
-        vs0 vs0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qt0Var)) == null) {
-            if (this.a != null && (vs0Var = this.b) != null && vs0Var.equals(qt0Var.f)) {
-                return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return "";
             }
-            this.b = qt0Var.f;
-            OkHttpClient okHttpClient = this.a;
-            if (okHttpClient == null) {
-                newBuilder = new OkHttpClient.Builder();
-            } else {
-                newBuilder = okHttpClient.newBuilder();
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
             }
-            newBuilder.dns(et0.a.a());
-            int i = this.b.b;
-            if (i > 0) {
-                newBuilder.readTimeout(i, TimeUnit.MILLISECONDS);
-            }
-            int i2 = this.b.c;
-            if (i2 > 0) {
-                newBuilder.writeTimeout(i2, TimeUnit.MILLISECONDS);
-            }
-            int i3 = this.b.a;
-            if (i3 > 0) {
-                newBuilder.connectTimeout(i3, TimeUnit.MILLISECONDS);
-            }
-            if (this.b.d != null) {
-                newBuilder.cookieJar(new kt0(this.b.d));
-            }
-            return newBuilder.build();
+            return sb.toString();
         }
-        return (OkHttpClient) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void d(@NonNull qt0 qt0Var, boolean z, @NonNull qs0.a aVar) {
+    public final List<Cookie> c(@NonNull HttpUrl httpUrl, @NonNull String str) {
+        InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{qt0Var, Boolean.valueOf(z), aVar}) == null) {
-            RequestError b2 = qt0Var.b();
-            if (b2 != null) {
-                aVar.a(b2, 1001);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int length = str.length();
+            int i = 0;
+            while (i < length) {
+                int a = a(str, i, length, WebvttCueParser.CHAR_SEMI_COLON);
+                int a2 = a(str, i, a, '=');
+                String f = f(str, i, a2);
+                if (a2 < a) {
+                    str2 = f(str, a2 + 1, a);
+                } else {
+                    str2 = "";
+                }
+                if (str2.startsWith("\"") && str2.endsWith("\"")) {
+                    str2 = str2.substring(1, str2.length() - 1);
+                }
+                String b = b(f);
+                String b2 = b(str2);
+                if (!TextUtils.isEmpty(b) && this.a.shouldSendCookie(httpUrl.toString(), b)) {
+                    arrayList.add(new Cookie.Builder().name(b).value(b2).domain(httpUrl.host()).build());
+                }
+                i = a + 1;
             }
-            this.a = c(qt0Var);
-            try {
-                this.a.newCall(rt0.a(qt0Var).build()).enqueue(new a(this, aVar, z));
-            } catch (RequestError e) {
-                aVar.a(e, 1001);
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        pt0 pt0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (httpUrl != null && (pt0Var = this.a) != null) {
+                String cookie = pt0Var.getCookie(httpUrl.toString());
+                if (!TextUtils.isEmpty(cookie)) {
+                    arrayList.addAll(c(httpUrl, cookie));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, httpUrl, list) != null) || httpUrl == null || h31.g(list) || this.a == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        String httpUrl2 = httpUrl.toString();
+        for (Cookie cookie : list) {
+            if (cookie != null) {
+                String cookie2 = cookie.toString();
+                if (!TextUtils.isEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
+                    arrayList.add(cookie2);
+                }
             }
         }
+        this.a.storeCookie(httpUrl.toString(), arrayList);
     }
 }

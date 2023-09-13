@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.source;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cc;
-import com.baidu.tieba.fd;
-import com.baidu.tieba.vd;
-import com.baidu.tieba.xc;
-import com.baidu.tieba.zd;
+import com.baidu.tieba.ae;
+import com.baidu.tieba.dc;
+import com.baidu.tieba.gd;
+import com.baidu.tieba.wd;
+import com.baidu.tieba.yc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
-public class ProtobufDataSource implements xc {
+public class ProtobufDataSource implements yc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Set<String> keySet;
@@ -40,7 +40,7 @@ public class ProtobufDataSource implements xc {
             }
         }
         this.message = message;
-        List<Field> b = cc.b(message.getClass());
+        List<Field> b = dc.b(message.getClass());
         this.keySet = new HashSet();
         if (b != null && b.size() > 0) {
             for (Field field : b) {
@@ -51,7 +51,7 @@ public class ProtobufDataSource implements xc {
         }
     }
 
-    @Override // com.baidu.tieba.xc
+    @Override // com.baidu.tieba.yc
     public Set<String> getKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,22 +65,22 @@ public class ProtobufDataSource implements xc {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return cc.d(this.message, str);
+            return dc.d(this.message, str);
         }
         return invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc
+    @Override // com.baidu.tieba.yc
     public Object getObjectByType(String str, Type type) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
             Object object = getObject(str);
             if (object != null) {
-                vd vdVar = new vd(type);
-                fd a = zd.a(object);
+                wd wdVar = new wd(type);
+                gd a = ae.a(object);
                 if (a != null) {
-                    return a.a(vdVar);
+                    return a.a(wdVar);
                 }
                 return object;
             }
@@ -89,11 +89,11 @@ public class ProtobufDataSource implements xc {
         return invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc
+    @Override // com.baidu.tieba.yc
     public void set(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
-            cc.i(this.message, str, obj);
+            dc.i(this.message, str, obj);
         }
     }
 }

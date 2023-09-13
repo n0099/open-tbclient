@@ -6,7 +6,7 @@ import androidx.lifecycle.LifecycleOwner;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.l;
+import com.baidu.tieba.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,22 +21,22 @@ public final class ForeBackLifecycleMonitorUtil implements DefaultLifecycleObser
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onCreate(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onCreate(this, lifecycleOwner);
+        m.$default$onCreate(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onDestroy(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onDestroy(this, lifecycleOwner);
+        m.$default$onDestroy(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onPause(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onPause(this, lifecycleOwner);
+        m.$default$onPause(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onResume(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onResume(this, lifecycleOwner);
+        m.$default$onResume(this, lifecycleOwner);
     }
 
     public ForeBackLifecycleMonitorUtil() {
@@ -58,7 +58,7 @@ public final class ForeBackLifecycleMonitorUtil implements DefaultLifecycleObser
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            l.$default$onStart(this, owner);
+            m.$default$onStart(this, owner);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921666, Boolean.FALSE));
         }
     }
@@ -68,7 +68,7 @@ public final class ForeBackLifecycleMonitorUtil implements DefaultLifecycleObser
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            l.$default$onStop(this, owner);
+            m.$default$onStop(this, owner);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921666, Boolean.TRUE));
         }
     }

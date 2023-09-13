@@ -12,26 +12,26 @@ import com.baidu.nadcore.business.uitemplate.NadVideoAdOverContainer;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dd1;
-import com.baidu.tieba.gu0;
+import com.baidu.tieba.hd1;
 import com.baidu.tieba.ku0;
-import com.baidu.tieba.sj0;
-import com.baidu.tieba.sr0;
-import com.baidu.tieba.vr0;
+import com.baidu.tieba.ou0;
+import com.baidu.tieba.tj0;
+import com.baidu.tieba.wr0;
+import com.baidu.tieba.zr0;
 /* loaded from: classes3.dex */
 public class PortraitVideoView extends AdFeedBaseView implements View.OnClickListener {
-    public gu0 i;
+    public ku0 i;
     public NadVideoAdOverContainer j;
     public ImageView k;
     public ViewGroup l;
-    public final ku0 m;
+    public final ou0 m;
 
     /* loaded from: classes3.dex */
-    public class a extends ku0 {
+    public class a extends ou0 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
+        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
         public void onEnd(int i) {
             if (PortraitVideoView.this.b != null && (PortraitVideoView.this.getTag() instanceof AdBaseModel)) {
                 PortraitVideoView.this.b.f((AdBaseModel) PortraitVideoView.this.getTag());
@@ -39,35 +39,35 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             PortraitVideoView.this.D();
         }
 
-        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
+        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
         public void onError(int i, int i2, String str) {
             if (PortraitVideoView.this.b != null && (PortraitVideoView.this.getTag() instanceof AdBaseModel)) {
                 PortraitVideoView.this.b.e((AdBaseModel) PortraitVideoView.this.getTag(), str);
             }
         }
 
-        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
+        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
         public void onPause() {
             if (PortraitVideoView.this.b != null && (PortraitVideoView.this.getTag() instanceof AdBaseModel)) {
                 PortraitVideoView.this.b.c((AdBaseModel) PortraitVideoView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
+        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
         public void onPrepared() {
             if (PortraitVideoView.this.b != null && (PortraitVideoView.this.getTag() instanceof AdBaseModel)) {
                 PortraitVideoView.this.b.d((AdBaseModel) PortraitVideoView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
+        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
         public void onResume() {
             if (PortraitVideoView.this.b != null && (PortraitVideoView.this.getTag() instanceof AdBaseModel)) {
                 PortraitVideoView.this.b.a((AdBaseModel) PortraitVideoView.this.getTag());
             }
         }
 
-        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
+        @Override // com.baidu.tieba.ou0, com.baidu.tieba.hu0
         public void onStart() {
             if (PortraitVideoView.this.b != null && (PortraitVideoView.this.getTag() instanceof AdBaseModel)) {
                 PortraitVideoView.this.b.b((AdBaseModel) PortraitVideoView.this.getTag());
@@ -88,10 +88,10 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
 
     /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
-        public final /* synthetic */ dd1 a;
+        public final /* synthetic */ hd1 a;
 
-        public c(dd1 dd1Var) {
-            this.a = dd1Var;
+        public c(hd1 hd1Var) {
+            this.a = hd1Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -124,9 +124,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(dd1 dd1Var) {
-        super.setViewStatChangeListener(dd1Var);
-        this.j.setOnUiClickListener(new c(dd1Var));
+    public void setViewStatChangeListener(hd1 hd1Var) {
+        super.setViewStatChangeListener(hd1Var);
+        this.j.setOnUiClickListener(new c(hd1Var));
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
@@ -150,16 +150,16 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
             return;
         }
-        gu0 gu0Var = this.i;
-        if (gu0Var != null && gu0Var.isPlaying()) {
+        ku0 ku0Var = this.i;
+        if (ku0Var != null && ku0Var.isPlaying()) {
             B();
         }
     }
 
-    public void z(LayoutInflater layoutInflater, vr0 vr0Var) {
+    public void z(LayoutInflater layoutInflater, zr0 zr0Var) {
         int i;
-        if (vr0Var != null && vr0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO) != 0) {
-            i = vr0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO);
+        if (zr0Var != null && zr0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO) != 0) {
+            i = zr0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO);
         } else {
             i = R.layout.nad_portrait_video;
         }
@@ -170,16 +170,16 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         this(context, attributeSet, i, null);
     }
 
-    public PortraitVideoView(Context context, AttributeSet attributeSet, int i, vr0 vr0Var) {
-        super(context, attributeSet, i, vr0Var);
-        z(LayoutInflater.from(context), vr0Var);
+    public PortraitVideoView(Context context, AttributeSet attributeSet, int i, zr0 zr0Var) {
+        super(context, attributeSet, i, zr0Var);
+        z(LayoutInflater.from(context), zr0Var);
         A(context);
         this.m = new a();
     }
 
     public void B() {
-        gu0 gu0Var = this.i;
-        if (gu0Var != null && gu0Var.isPlaying()) {
+        ku0 ku0Var = this.i;
+        if (ku0Var != null && ku0Var.isPlaying()) {
             this.i.pause();
             this.k.setVisibility(0);
         }
@@ -187,9 +187,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
 
     public void C() {
         this.l.setVisibility(0);
-        gu0 gu0Var = this.i;
-        if (gu0Var != null) {
-            gu0Var.start();
+        ku0 ku0Var = this.i;
+        if (ku0Var != null) {
+            ku0Var.start();
         }
     }
 
@@ -203,9 +203,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         if (this.j.z()) {
             x();
         }
-        gu0 gu0Var = this.i;
-        if (gu0Var != null) {
-            if (gu0Var.isPause()) {
+        ku0 ku0Var = this.i;
+        if (ku0Var != null) {
+            if (ku0Var.isPause()) {
                 this.i.resume();
             } else {
                 this.i.start();
@@ -231,13 +231,13 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         y();
         this.j.setOnNewTailFrameReplayClickListener(new b());
         if (this.i == null) {
-            gu0 a2 = gu0.a.a(sj0.b(), 0);
+            ku0 a2 = ku0.a.a(tj0.b(), 0);
             this.i = a2;
             a2.a(this.m);
         }
-        sr0 sr0Var = adBaseModel.j;
-        if (sr0Var != null) {
-            this.i.c(sr0Var);
+        wr0 wr0Var = adBaseModel.j;
+        if (wr0Var != null) {
+            this.i.c(wr0Var);
         }
         this.i.attachToContainer(this.l);
     }

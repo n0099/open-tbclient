@@ -1,20 +1,20 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.m8c;
-import com.baidu.tieba.mac;
-import com.baidu.tieba.mbc;
-import com.baidu.tieba.r7c;
-import com.baidu.tieba.tbc;
-import com.baidu.tieba.v7c;
+import com.baidu.tieba.ebc;
+import com.baidu.tieba.pbc;
+import com.baidu.tieba.pdc;
+import com.baidu.tieba.pec;
+import com.baidu.tieba.uac;
+import com.baidu.tieba.wec;
+import com.baidu.tieba.yac;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements r7c {
+public final class QueuedValueProducer<T> extends AtomicLong implements uac {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final v7c<? super T> child;
+    public final yac<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -22,13 +22,13 @@ public final class QueuedValueProducer<T> extends AtomicLong implements r7c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedValueProducer(v7c<? super T> v7cVar) {
-        this(v7cVar, r0);
-        Queue macVar;
-        if (tbc.b()) {
-            macVar = new mbc();
+    public QueuedValueProducer(yac<? super T> yacVar) {
+        this(yacVar, r0);
+        Queue pdcVar;
+        if (wec.b()) {
+            pdcVar = new pec();
         } else {
-            macVar = new mac();
+            pdcVar = new pdc();
         }
     }
 
@@ -44,12 +44,12 @@ public final class QueuedValueProducer<T> extends AtomicLong implements r7c {
         return true;
     }
 
-    @Override // com.baidu.tieba.r7c
+    @Override // com.baidu.tieba.uac
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                m8c.b(this, j);
+                pbc.b(this, j);
                 drain();
                 return;
             }
@@ -58,8 +58,8 @@ public final class QueuedValueProducer<T> extends AtomicLong implements r7c {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedValueProducer(v7c<? super T> v7cVar, Queue<Object> queue) {
-        this.child = v7cVar;
+    public QueuedValueProducer(yac<? super T> yacVar, Queue<Object> queue) {
+        this.child = yacVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -67,20 +67,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements r7c {
     private void drain() {
         Object poll;
         if (this.wip.getAndIncrement() == 0) {
-            v7c<? super T> v7cVar = this.child;
+            yac<? super T> yacVar = this.child;
             Queue<Object> queue = this.queue;
-            while (!v7cVar.isUnsubscribed()) {
+            while (!yacVar.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            v7cVar.onNext(null);
+                            yacVar.onNext(null);
                         } else {
-                            v7cVar.onNext(poll);
+                            yacVar.onNext(poll);
                         }
-                        if (v7cVar.isUnsubscribed()) {
+                        if (yacVar.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -89,7 +89,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements r7c {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        b8c.g(th, v7cVar, poll);
+                        ebc.g(th, yacVar, poll);
                         return;
                     }
                 }

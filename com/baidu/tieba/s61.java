@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s61 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a(Context context, IBinder iBinder) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, iBinder) == null) {
-            synchronized (s61.class) {
-                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
-                if (inputMethodManager != null) {
-                    try {
-                        inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-                    } catch (Exception unused) {
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = currentTimeMillis - a;
+            a = currentTimeMillis;
+            if (j > 0 && j < 1000) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

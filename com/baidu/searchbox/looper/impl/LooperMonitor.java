@@ -5,16 +5,16 @@ import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.ruka.ioc.ILooperMonitor;
 import com.baidu.searchbox.track.Track;
-import com.baidu.tieba.mrb;
-import com.baidu.tieba.nrb;
-import com.baidu.tieba.orb;
+import com.baidu.tieba.lub;
+import com.baidu.tieba.mub;
+import com.baidu.tieba.nub;
 @Singleton
 @Service
 /* loaded from: classes4.dex */
 public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
-    public nrb mBlockCanaryCore;
+    public mub mBlockCanaryCore;
     public boolean mMonitorStarted = false;
 
     private void startLooperPrint() {
@@ -51,9 +51,9 @@ public class LooperMonitor implements ILooperMonitor {
         }
     }
 
-    public void addBlockInterceptor(orb orbVar) {
-        if (orbVar != null) {
-            this.mBlockCanaryCore.b(orbVar);
+    public void addBlockInterceptor(nub nubVar) {
+        if (nubVar != null) {
+            this.mBlockCanaryCore.b(nubVar);
         }
     }
 
@@ -62,11 +62,11 @@ public class LooperMonitor implements ILooperMonitor {
         if (sLooperContextDispatcher == null) {
             sLooperContextDispatcher = new LooperContextDispatcher();
         }
-        mrb.init(context, sLooperContextDispatcher, i);
-        nrb.k(mrb.get());
-        nrb e = nrb.e();
+        lub.init(context, sLooperContextDispatcher, i);
+        mub.k(lub.get());
+        mub e = mub.e();
         this.mBlockCanaryCore = e;
-        e.b(mrb.get());
+        e.b(lub.get());
         startLooperPrint();
         startTrack(context);
     }

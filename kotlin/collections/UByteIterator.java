@@ -13,7 +13,7 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 /* loaded from: classes10.dex */
 public abstract class UByteIterator implements Iterator<UByte>, KMappedMarker {
     /* renamed from: nextUByte-w2LRezQ */
-    public abstract byte mo934nextUBytew2LRezQ();
+    public abstract byte mo935nextUBytew2LRezQ();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -23,11 +23,11 @@ public abstract class UByteIterator implements Iterator<UByte>, KMappedMarker {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ UByte next() {
-        return UByte.m861boximpl(m1308nextw2LRezQ());
+        return UByte.m862boximpl(m1309nextw2LRezQ());
     }
 
     /* renamed from: next-w2LRezQ  reason: not valid java name */
-    public final byte m1308nextw2LRezQ() {
-        return mo934nextUBytew2LRezQ();
+    public final byte m1309nextw2LRezQ() {
+        return mo935nextUBytew2LRezQ();
     }
 }

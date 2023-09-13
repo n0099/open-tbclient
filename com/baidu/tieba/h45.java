@@ -1,246 +1,267 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.UniversalLabel;
 /* loaded from: classes6.dex */
-public final class h45 {
+public class h45 extends b15 implements cn {
     public static /* synthetic */ Interceptable $ic;
-    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final int g;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public ThreadData t;
+    public int u;
+    public int v;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773760, "Lcom/baidu/tieba/h45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947773760, "Lcom/baidu/tieba/h45;");
-                return;
-            }
-        }
-        h = new a(null);
-    }
-
-    @JvmStatic
-    public static final h45 g(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? h.a(jSONObject) : (h45) invokeL.objValue;
-    }
-
-    @JvmStatic
-    public static final h45 h(UniversalLabel universalLabel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, universalLabel)) == null) ? h.b(universalLabel) : (h45) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof h45) {
-                h45 h45Var = (h45) obj;
-                return Intrinsics.areEqual(this.a, h45Var.a) && Intrinsics.areEqual(this.b, h45Var.b) && Intrinsics.areEqual(this.c, h45Var.c) && Intrinsics.areEqual(this.d, h45Var.d) && Intrinsics.areEqual(this.e, h45Var.e) && Intrinsics.areEqual(this.f, h45Var.f) && this.g == h45Var.g;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "UniversalLabelInfo(labelId=" + this.a + ", labelText=" + this.b + ", textColor=" + this.c + ", textColorBlack=" + this.d + ", backgroundColor=" + this.e + ", backgroundColorBlack=" + this.f + ", roundRadius=" + this.g + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final h45 a(JSONObject label) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, label)) == null) {
-                Intrinsics.checkNotNullParameter(label, "label");
-                String optString = label.optString("label_id");
-                Intrinsics.checkNotNullExpressionValue(optString, "label.optString(\"label_id\")");
-                String optString2 = label.optString("label_text");
-                Intrinsics.checkNotNullExpressionValue(optString2, "label.optString(\"label_text\")");
-                String optString3 = label.optString("text_color'");
-                Intrinsics.checkNotNullExpressionValue(optString3, "label.optString(\"text_color'\")");
-                String optString4 = label.optString("text_color_black");
-                Intrinsics.checkNotNullExpressionValue(optString4, "label.optString(\"text_color_black\")");
-                String optString5 = label.optString("background_color");
-                Intrinsics.checkNotNullExpressionValue(optString5, "label.optString(\"background_color\")");
-                String optString6 = label.optString("background_color_black");
-                Intrinsics.checkNotNullExpressionValue(optString6, "label.optString(\"background_color_black\")");
-                return new h45(optString, optString2, optString3, optString4, optString5, optString6, label.optInt("round_radius"));
-            }
-            return (h45) invokeL.objValue;
-        }
-
-        @JvmStatic
-        public final h45 b(UniversalLabel label) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label)) == null) {
-                Intrinsics.checkNotNullParameter(label, "label");
-                String str = label.label_id;
-                Intrinsics.checkNotNullExpressionValue(str, "label.label_id");
-                String str2 = label.label_text;
-                Intrinsics.checkNotNullExpressionValue(str2, "label.label_text");
-                String str3 = label.text_color;
-                Intrinsics.checkNotNullExpressionValue(str3, "label.text_color");
-                String str4 = label.text_color_black;
-                Intrinsics.checkNotNullExpressionValue(str4, "label.text_color_black");
-                String str5 = label.background_color;
-                Intrinsics.checkNotNullExpressionValue(str5, "label.background_color");
-                String str6 = label.background_color_black;
-                Intrinsics.checkNotNullExpressionValue(str6, "label.background_color_black");
-                Integer num = label.round_radius;
-                Intrinsics.checkNotNullExpressionValue(num, "label.round_radius");
-                return new h45(str, str2, str3, str4, str5, str6, num.intValue());
-            }
-            return (h45) invokeL.objValue;
-        }
-    }
-
-    public h45(String labelId, String labelText, String textColor, String textColorBlack, String backgroundColor, String backgroundColorBlack, int i) {
+    public h45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {labelId, labelText, textColor, textColorBlack, backgroundColor, backgroundColorBlack, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(labelId, "labelId");
-        Intrinsics.checkNotNullParameter(labelText, "labelText");
-        Intrinsics.checkNotNullParameter(textColor, "textColor");
-        Intrinsics.checkNotNullParameter(textColorBlack, "textColorBlack");
-        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-        Intrinsics.checkNotNullParameter(backgroundColorBlack, "backgroundColorBlack");
-        this.a = labelId;
-        this.b = labelText;
-        this.c = textColor;
-        this.d = textColorBlack;
-        this.e = backgroundColor;
-        this.f = backgroundColorBlack;
-        this.g = i;
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.u = 0;
+        this.v = 0;
     }
 
-    public final String a() {
+    @Override // com.baidu.tieba.b15
+    public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
+        SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            ThreadData threadData = this.t;
+            if (threadData != null && (sparseArray = threadData.feedBackReasonMap) != null && sparseArray.size() > 0) {
+                NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+                negativeFeedBackData.setTid(getThreadData().getTid());
+                negativeFeedBackData.setFid(getThreadData().getFid());
+                negativeFeedBackData.setNid(getThreadData().getNid());
+                negativeFeedBackData.setFeedBackReasonMap(this.t.feedBackReasonMap);
+                ThreadData threadData2 = this.t;
+                negativeFeedBackData.feedBackExtraMap = threadData2.feedBackExtraMap;
+                negativeFeedBackData.abTag = threadData2.mRecomAbTag;
+                negativeFeedBackData.weight = threadData2.mRecomWeight;
+                negativeFeedBackData.extra = threadData2.mRecomExtra;
+                negativeFeedBackData.source = threadData2.mRecomSource;
+                negativeFeedBackData.statFloor = threadData2.statFloor;
+                negativeFeedBackData.cardType = threadData2.getRecomCardType();
+                return negativeFeedBackData;
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    public final String b() {
+    @Override // com.baidu.tieba.b15
+    public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+            return this.t.mRecomReason;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String c() {
+    @Override // com.baidu.tieba.b15
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.t;
         }
-        return (String) invokeV.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    public final int d() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.cn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
+        OriginalThreadInfo originalThreadInfo;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            ThreadData threadData = this.t;
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getIsDailyThread()) {
+                if (this.t.getThreadVideoInfo() != null) {
+                    return ThreadData.TYPE_VIDEO;
+                }
+                return ThreadData.TYPE_NORMAL;
+            }
+            int is_top = this.t.getIs_top();
+            ThreadData threadData2 = this.t;
+            if (threadData2.threadType == 63) {
+                return ThreadData.TYPE_SMART_APP_IMAGE;
+            }
+            if (threadData2.getThreadAlaInfo() != null && this.t.threadType == 60) {
+                return ThreadData.TYPE_ALA_SHARE_THREAD;
+            }
+            if (this.t.getThreadAlaInfo() != null && ((i = this.t.threadType) == 49 || i == 69)) {
+                return ThreadData.TYPE_VIDEO_ALA_ONLIVE;
+            }
+            ThreadData threadData3 = this.t;
+            if (threadData3.threadType == 51) {
+                return ThreadData.TYPE_ALA_LIVE_EMPTY;
+            }
+            if (is_top != 2 && is_top != 1) {
+                if (threadData3.getThreadVideoInfo() != null && this.t.isInsertThread() && !this.t.isLiveInterviewLiveType()) {
+                    return ThreadData.TYPE_INSERT_VIDEO;
+                }
+                ThreadData threadData4 = this.t;
+                if (threadData4.isShareThread && (originalThreadInfo = threadData4.originalThreadData) != null) {
+                    if (originalThreadInfo.x) {
+                        if (originalThreadInfo.r != null) {
+                            return ThreadData.TYPE_NEW_VIDEO_SHARE_THREAD;
+                        }
+                        if (originalThreadInfo.i()) {
+                            return ThreadData.TYPE_ARTICLE_SHARE_THREAD;
+                        }
+                        return ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD;
+                    }
+                    return ThreadData.TYPE_SHARE_THREAD;
+                } else if (this.t.isInterviewLiveStyle()) {
+                    if (ThreadData.isFRSExtraLoaded.get()) {
+                        return ThreadData.TYPE_STAR_INTERVIEW;
+                    }
+                    return ThreadData.TYPE_NORMAL;
+                } else if (this.t.isActInfo() && this.t.getActInfoType() == 1) {
+                    if (ThreadData.isFRSExtraLoaded.get()) {
+                        return ThreadData.TYPE_LOTTERY;
+                    }
+                    return ThreadData.TYPE_NORMAL;
+                } else if (this.t.isLinkThread()) {
+                    return ThreadData.TYPE_LINK;
+                } else {
+                    if (this.t.isTopicThread()) {
+                        if (this.t.getHotTopicInfo() != null) {
+                            return ThreadData.TYPE_FRS_HOTTOPIC_VIDEO;
+                        }
+                        return ThreadData.TYPE_FRS_HOTTOPIC;
+                    }
+                    rha rhaVar = this.t.funAdData;
+                    if (rhaVar != null && rhaVar.h()) {
+                        if (this.t.funAdData.i()) {
+                            return AdvertAppInfo.H;
+                        }
+                        return AdvertAppInfo.I;
+                    } else if (this.r) {
+                        return ThreadData.TYPE_FORUM_HEADER;
+                    } else {
+                        if (this.a) {
+                            return ThreadData.TYPE_USER_NORMAL;
+                        }
+                        if (this.b) {
+                            return ThreadData.TYPE_CONTENT_TEXT_NORMAL;
+                        }
+                        if (this.c) {
+                            return ThreadData.TYPE_CONTENT_SINGLE_H_NORMAL;
+                        }
+                        if (this.d) {
+                            return ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL;
+                        }
+                        if (this.e) {
+                            return ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL;
+                        }
+                        if (this.f) {
+                            return ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL;
+                        }
+                        if (this.g) {
+                            return ThreadData.TYPE_BOTTOM_NORMAL;
+                        }
+                        if (this.h) {
+                            return ThreadData.TYPE_GODREPLY_NORMAL;
+                        }
+                        if (this.i) {
+                            return ThreadData.TYPE_VIDEO;
+                        }
+                        if (this.j) {
+                            return ThreadData.TYPE_FAKE_VIDEO;
+                        }
+                        if (this.t.isGodThread()) {
+                            if (this.k) {
+                                return ThreadData.TYPE_VIDEO_GOD;
+                            }
+                            return ThreadData.TYPE_GOD_NORMAL;
+                        } else if (this.l) {
+                            return ThreadData.TYPE_SMART_APP;
+                        } else {
+                            if (this.m) {
+                                return ThreadData.TYPE_ENTER_FORUM;
+                            }
+                            if (this.n) {
+                                return ThreadData.TYPE_ITEM;
+                            }
+                            if (this.o) {
+                                return ThreadData.TYPE_VOTE;
+                            }
+                            if (this.p) {
+                                return ThreadData.TYPE_SINGLE_LINK;
+                            }
+                            if (this.q) {
+                                return ThreadData.TYPE_MULTI_LINK;
+                            }
+                            if (this.s) {
+                                return ThreadData.TYPE_RECOMMEND_INFO;
+                            }
+                            return ThreadData.TYPE_NORMAL;
+                        }
+                    }
+                }
+            }
+            return ThreadData.TYPE_TOP;
         }
-        return invokeV.intValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

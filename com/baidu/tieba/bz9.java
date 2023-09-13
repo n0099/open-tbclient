@@ -1,49 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.MediaController;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public z25 b;
+    public int a;
+    public int b;
+    public MediaController.MediaPlayerControl c;
+    public b d;
+    public d e;
+    public c f;
+    public Handler g;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(int i, int i2);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public long c;
-        public String d;
-        public String e;
-        public long f;
-        public int g;
-        public int h;
-        public String i;
+        public final /* synthetic */ bz9 a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(bz9 bz9Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bz9Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = bz9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
+                int currentPosition = this.a.c.getCurrentPosition();
+                int duration = this.a.c.getDuration();
+                if (currentPosition < this.a.b) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                } else if (currentPosition == this.a.b && this.a.e != null) {
+                    this.a.e.a();
+                }
+                if (this.a.f != null) {
+                    this.a.f.a(duration, currentPosition);
+                }
+                this.a.b = currentPosition;
+                this.a.h();
             }
         }
     }
@@ -61,95 +98,60 @@ public class bz9 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new z25();
+        this.a = 1000;
+        this.b = 0;
+        this.g = new a(this, Looper.getMainLooper());
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a> list = this.a;
-            if (list != null && list.size() != 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void j(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            z25 z25Var = this.b;
-            if (z25Var != null && z25Var.b() == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.f = cVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        String str;
-        int i;
+    public void k(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String str2 = "";
-            if (jSONObject == null) {
-                return;
-            }
-            try {
-                this.b.i(jSONObject.getJSONObject("page"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.a.clear();
-                    int i2 = 0;
-                    while (i2 < optJSONArray.length()) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        if (jSONObject2 == null) {
-                            jSONArray = optJSONArray;
-                            str = str2;
-                            i = i2;
-                        } else {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
-                            String optString = jSONObject3.optString("name_show", str2);
-                            jSONObject3.optString("name", str2);
-                            long optLong = jSONObject2.optLong("pid", 0L);
-                            String optString2 = jSONObject2.optString("title", str2);
-                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
-                            String optString3 = jSONObject2.optString("content", str2);
-                            String optString4 = jSONObject2.optString("fname", str2);
-                            long optLong3 = jSONObject2.optLong("tid", 0L);
-                            jSONArray = optJSONArray;
-                            int optInt = jSONObject2.optInt("is_floor", 0);
-                            str = str2;
-                            int optInt2 = jSONObject2.optInt("is_replay", 0);
-                            i = i2;
-                            if (jSONObject2.optInt("thread_type", 0) != 33) {
-                                a aVar = new a();
-                                aVar.a = optLong;
-                                aVar.b = optString2;
-                                aVar.c = optLong2;
-                                aVar.d = optString3;
-                                aVar.e = optString4;
-                                aVar.f = optLong3;
-                                aVar.g = optInt;
-                                aVar.h = optInt2;
-                                aVar.i = optString;
-                                this.a.add(aVar);
-                            }
-                        }
-                        i2 = i + 1;
-                        optJSONArray = jSONArray;
-                        str2 = str;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.d(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
+        }
+    }
+
+    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
+            this.c = mediaPlayerControl;
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.removeMessages(1);
+            Handler handler = this.g;
+            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            h();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.g.removeMessages(1);
         }
     }
 }

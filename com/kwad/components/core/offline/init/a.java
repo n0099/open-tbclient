@@ -51,7 +51,7 @@ public abstract class a {
         com.kwai.sodler.kwai.a.a(context, nj, new b.a() { // from class: com.kwad.components.core.offline.init.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0711b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0706b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.a aVar, PluginError pluginError) {
                 super.a((AnonymousClass2) aVar, pluginError);
                 String tag2 = a.this.getTag();
@@ -60,7 +60,7 @@ public abstract class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0711b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0706b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.a aVar, com.kwai.sodler.lib.kwai.a aVar2) {
                 super.a((AnonymousClass2) aVar, (com.kwai.sodler.lib.b.a) aVar2);
                 String tag2 = a.this.getTag();

@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
+import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FROM = "aladdin_wake";
@@ -65,7 +66,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra("class", 13);
                 intent2.putExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID, intent.getStringExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
-            } else if (stringExtra.equals("pay")) {
+            } else if (stringExtra.equals(Logger.PAY_TYPE)) {
                 intent2.putExtra("class", 15);
                 intent2.putExtra(MemberPayActivityConfig.PAY_TYPE, intent.getStringExtra(MemberPayActivityConfig.PAY_TYPE));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));

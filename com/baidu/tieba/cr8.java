@@ -1,138 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.SparseIntArray;
-import android.view.View;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class cr8 extends GridLayoutManager.SpanSizeLookup {
+public class cr8 extends js8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecyclerView a;
-    public final int b;
-    public final SparseIntArray c;
-    public final int d;
+    public boolean e;
 
-    public cr8(RecyclerView recyclerView, int i) {
+    public cr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recyclerView, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new SparseIntArray();
-        this.a = recyclerView;
-        this.b = Math.max(1, d());
-        this.d = i;
-        setSpanIndexCacheEnabled(true);
+        this.e = true;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.is8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Math.max(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
-        }
-        return invokeV.intValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int measuredWidth = this.a.getMeasuredWidth();
-            if (measuredWidth == 0) {
-                measuredWidth = this.a.getWidth();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            is8 is8Var = this.c;
+            if (is8Var != null) {
+                z2 = is8Var.a(i, z, obj);
+            } else {
+                z2 = true;
             }
-            return (measuredWidth - this.a.getPaddingLeft()) - this.a.getPaddingRight();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (a() * 1.0f) / this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public void invalidateSpanIndexCache() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.clear();
-            super.invalidateSpanIndexCache();
-        }
-    }
-
-    public final int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (a() <= 0) {
-                return 1;
+            for (int i2 = 0; i2 < this.a.size(); i2++) {
+                hs8 hs8Var = this.a.get(i2);
+                if (hs8Var instanceof nr8) {
+                    nr8 nr8Var = (nr8) hs8Var;
+                    if (nr8Var.d() && i != i2) {
+                        nr8Var.e(false);
+                        i(i2);
+                    } else {
+                        if (i == i2) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        nr8Var.e(z3);
+                    }
+                }
             }
-            return ((int) Math.floor(f(i) / c())) + 1;
+            return z2;
         }
-        return invokeI.intValue;
+        return invokeCommon.booleanValue;
     }
 
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public int getSpanSize(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.js8
+    public List<hs8> j(List list) {
+        InterceptResult invokeL;
+        List<BotsDTO.BotListDTO.SkillDTO> list2;
+        lr8 lr8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return Math.min(this.b, e(i));
-        }
-        return invokeI.intValue;
-    }
-
-    public final int f(int i) {
-        InterceptResult invokeI;
-        RecyclerView.ViewHolder createViewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            RecyclerView.Adapter adapter = this.a.getAdapter();
-            int i2 = this.c.get(i, -1);
-            if (i2 != -1) {
-                return i2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i < list.size()) {
+                    Object obj = list.get(i);
+                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
+                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
+                        if (itemsDTO.getItemType() == 1) {
+                            lr8Var = new mr8(itemsDTO);
+                        } else {
+                            lr8 lr8Var2 = new lr8(itemsDTO);
+                            int i2 = this.d;
+                            if (i2 > -1) {
+                                if (i != i2) {
+                                    z = false;
+                                }
+                                lr8Var2.n(z);
+                            }
+                            lr8Var = lr8Var2;
+                        }
+                        arrayList.add(lr8Var);
+                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
+                        nr8 nr8Var = new nr8((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
+                        int i3 = this.d;
+                        if (i3 > -1) {
+                            if (i != i3) {
+                                z = false;
+                            }
+                            nr8Var.e(z);
+                        }
+                        arrayList.add(nr8Var);
+                    } else if (obj instanceof BaseMsg) {
+                        TextGenImageMsg textGenImageMsg = (TextGenImageMsg) obj;
+                        if (textGenImageMsg.getSubSkillConfig() != null && (list2 = textGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
+                            if (this.e) {
+                                arrayList.add(new jr8());
+                                this.e = false;
+                            }
+                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
+                                kr8 kr8Var = new kr8(skillDTO);
+                                kr8Var.e(textGenImageMsg);
+                                arrayList.add(kr8Var);
+                            }
+                        }
+                    } else if (obj instanceof AbilityItem) {
+                        arrayList.add(new or8((AbilityItem) obj));
+                    }
+                    i++;
+                } else {
+                    this.e = true;
+                    return arrayList;
+                }
             }
-            if (adapter == null || (createViewHolder = adapter.createViewHolder(this.a, adapter.getItemViewType(i))) == null) {
-                return 0;
-            }
-            adapter.onBindViewHolder(createViewHolder, i);
-            createViewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            int measuredWidth = createViewHolder.itemView.getMeasuredWidth() + this.d;
-            adapter.onViewRecycled(createViewHolder);
-            this.c.put(i, measuredWidth);
-            return measuredWidth;
+        } else {
+            return (List) invokeL.objValue;
         }
-        return invokeI.intValue;
     }
 }

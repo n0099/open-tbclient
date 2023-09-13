@@ -1,315 +1,296 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class k85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
-        ZipFile zipFile;
-        FileOutputStream fileOutputStream;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
-            File file2 = new File(str);
-            if (!file2.exists() && !file2.mkdirs()) {
-                return false;
-            }
-            boolean z = true;
-            ZipFile zipFile2 = null;
-            InputStream inputStream2 = null;
-            zipFile2 = null;
-            try {
-                try {
-                    zipFile = new ZipFile(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                Enumeration<? extends ZipEntry> entries = zipFile.entries();
-                while (entries.hasMoreElements()) {
-                    try {
-                        ZipEntry nextElement = entries.nextElement();
-                        String name = nextElement.getName();
-                        if (name == null || !name.contains("__MACOSX/")) {
-                            File file3 = new File(str, name);
-                            if (nextElement.isDirectory()) {
-                                file3.mkdirs();
-                            } else {
-                                inputStream = zipFile.getInputStream(nextElement);
-                                try {
-                                    fileOutputStream = new FileOutputStream(file3);
-                                    try {
-                                        try {
-                                            byte[] bArr = new byte[1024];
-                                            while (true) {
-                                                int read = inputStream.read(bArr);
-                                                if (read <= 0) {
-                                                    break;
-                                                }
-                                                fileOutputStream.write(bArr, 0, read);
-                                            }
-                                            fileOutputStream.flush();
-                                            if (inputStream != null) {
-                                                try {
-                                                    inputStream.close();
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
-                                                }
-                                            }
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                            }
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            inputStream2 = inputStream;
-                                            if (inputStream2 != null) {
-                                                try {
-                                                    inputStream2.close();
-                                                } catch (IOException e4) {
-                                                    e4.printStackTrace();
-                                                }
-                                            }
-                                            if (fileOutputStream != null) {
-                                                try {
-                                                    fileOutputStream.close();
-                                                } catch (IOException e5) {
-                                                    e5.printStackTrace();
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e6) {
-                                        e = e6;
-                                        e.printStackTrace();
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (IOException e7) {
-                                                e7.printStackTrace();
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (IOException e8) {
-                                                e8.printStackTrace();
-                                            }
-                                        }
-                                        z = false;
-                                    }
-                                } catch (Exception e9) {
-                                    e = e9;
-                                    fileOutputStream = null;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    fileOutputStream = null;
-                                }
-                            }
-                        }
-                    } catch (Exception e10) {
-                        e = e10;
-                        inputStream = null;
-                        fileOutputStream = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileOutputStream = null;
-                    }
-                }
-                try {
-                    zipFile.close();
-                } catch (IOException e11) {
-                    e11.printStackTrace();
-                }
-                return z;
-            } catch (Exception e12) {
-                e = e12;
-                zipFile2 = zipFile;
-                e.printStackTrace();
-                if (zipFile2 == null) {
-                    return false;
-                }
-                try {
-                    zipFile2.close();
-                    return false;
-                } catch (IOException e13) {
-                    e13.printStackTrace();
-                    return false;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                    } catch (IOException e14) {
-                        e14.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return a(new File(str), str2);
-        }
-        return invokeLL.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Class<?> a;
+        public final Object b;
+        public final Class<?> c;
+        public final Method d;
+        public final Object e;
+        public final Method f;
+        public final c g;
+        public final int h;
+        public final n85 i;
+        public int j;
 
-    public static void c(File file, String str) throws ZipException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
-            File file2 = new File(str);
-            if (!file2.exists()) {
-                file2.mkdirs();
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
             }
-            ZipFile zipFile = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                String name = nextElement.getName();
-                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
-                    InputStream inputStream = zipFile.getInputStream(nextElement);
-                    File file3 = new File(str + File.separator + name);
-                    if (!file3.exists()) {
-                        File parentFile = file3.getParentFile();
-                        if (!parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        file3.createNewFile();
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
-                    byte[] bArr = new byte[10240];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    inputStream.close();
-                    fileOutputStream.close();
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.i.a(this.a.f());
+                    this.a.g.c();
+                    this.a.g();
                 }
             }
         }
-    }
 
-    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
-            return;
-        }
-        File file = new File(str, str2);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isFile()) {
-            ZipEntry zipEntry = new ZipEntry(str2);
-            FileInputStream fileInputStream = new FileInputStream(file);
-            zipOutputStream.putNextEntry(zipEntry);
-            byte[] bArr = new byte[4096];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read != -1) {
-                    zipOutputStream.write(bArr, 0, read);
-                } else {
-                    zipOutputStream.closeEntry();
+        public b(int i, n85 n85Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), n85Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-        } else if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list.length <= 0) {
-                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
-                zipOutputStream.closeEntry();
+            this.j = 0;
+            this.c = Class.forName("android.view.Choreographer");
+            this.a = Class.forName("android.view.Choreographer$FrameCallback");
+            this.g = new c(this);
+            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
+            Method method = this.c.getMethod("getInstance", new Class[0]);
+            this.d = method;
+            this.e = method.invoke(null, new Object[0]);
+            this.f = this.c.getMethod("postFrameCallback", this.a);
+            this.h = i <= 0 ? 16 : i;
+            this.i = n85Var;
+        }
+
+        public /* synthetic */ b(int i, n85 n85Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            this(i, n85Var);
+        }
+
+        public final List<Long> f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ArrayList arrayList = new ArrayList(24);
+                List<Long> h = h();
+                int size = h.size();
+                int i = 0;
+                while (i < size - 1) {
+                    long longValue = h.get(i).longValue();
+                    i++;
+                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
+                }
+                return arrayList;
             }
-            for (int i = 0; i < list.length; i++) {
-                d(str, str2 + File.separator + list[i], zipOutputStream);
+            return (List) invokeV.objValue;
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.g.c();
+            }
+        }
+
+        public final List<Long> h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.g.a;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final void i() throws InvocationTargetException, IllegalAccessException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.f.invoke(this.e, this.b);
+            }
+        }
+
+        public final void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                int i = this.j;
+                if (i >= this.h) {
+                    SafeHandler.getInst().post(new a(this));
+                    return;
+                }
+                this.j = i + 1;
+                try {
+                    i();
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                }
             }
         }
     }
 
-    public static boolean e(String str, String str2) {
-        InterceptResult invokeLL;
-        ZipOutputStream zipOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            ZipOutputStream zipOutputStream2 = null;
-            try {
-                try {
-                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
-                } catch (Throwable th) {
-                    th = th;
+    /* loaded from: classes6.dex */
+    public static class c implements InvocationHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<Long> a;
+        public final List<Integer> b;
+        public b c;
+
+        public c(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Exception e3) {
-                e = e3;
             }
-            try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    ei.f(zipOutputStream);
-                    return false;
-                }
-                d(file.getParent(), file.getName(), zipOutputStream);
-                zipOutputStream.finish();
-                zipOutputStream.close();
-                ei.f(zipOutputStream);
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                ei.f(zipOutputStream2);
-                return false;
-            } catch (IOException e5) {
-                e = e5;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                ei.f(zipOutputStream2);
-                return false;
-            } catch (Exception e6) {
-                e = e6;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                ei.f(zipOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                zipOutputStream2 = zipOutputStream;
-                ei.f(zipOutputStream2);
-                throw th;
+            this.c = bVar;
+            this.a = new ArrayList(240);
+            this.b = new ArrayList(15);
+        }
+
+        public final void d(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.a.add(Long.valueOf(j));
+                this.c.j();
             }
         }
-        return invokeLL.booleanValue;
+
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c = null;
+                this.a.clear();
+                this.b.clear();
+            }
+        }
+
+        @Override // java.lang.reflect.InvocationHandler
+        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
+                String name = method.getName();
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
+                    d(((Long) objArr[0]).longValue());
+                    return null;
+                }
+                return null;
+            }
+            return invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final k85 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-705595103, "Lcom/baidu/tieba/k85$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-705595103, "Lcom/baidu/tieba/k85$d;");
+                    return;
+                }
+            }
+            a = new k85();
+        }
+    }
+
+    public k85() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public static k85 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return d.a;
+        }
+        return (k85) invokeV.objValue;
+    }
+
+    public void b(int i, n85 n85Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, n85Var) != null) || Build.VERSION.SDK_INT < 16) {
+            return;
+        }
+        try {
+            b bVar = new b(i, n85Var, null);
+            this.a = bVar;
+            bVar.j();
+        } catch (Throwable th) {
+            BdLog.e(th);
+        }
     }
 }

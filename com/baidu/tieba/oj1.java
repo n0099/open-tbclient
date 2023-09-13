@@ -1,18 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.sdk.container.interfaces.LoadState;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.p8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,26 +15,59 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oj1 implements ul1 {
+public class oj1 implements vl1, xl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl1 a;
-    public String b;
-    public final Context c;
-    public final jj1 d;
-    public p8.b e;
-    public int f;
-    public int g;
-    public tj1 h;
-    public int i;
-    public hj1 j;
-    public final ij1 k;
+    @NonNull
+    public final wl1 a;
+    @NonNull
+    public ViewGroup b;
+    @NonNull
+    public final xj1 c;
+    @NonNull
+    public final BaseVM d;
+    @Nullable
+    public nj1 e;
+    public long f;
+    public long g;
+    public final long h;
+    public long i;
+    public boolean j;
+    public sj1 k;
+
+    @Override // com.baidu.tieba.vl1
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vl1
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vl1
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements ij1 {
+    public class a implements bk1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oj1 a;
+
+        @Override // com.baidu.tieba.bk1
+        public void handleSchemeDispatchCallback(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            }
+        }
 
         public a(oj1 oj1Var) {
             Interceptable interceptable = $ic;
@@ -60,83 +87,59 @@ public class oj1 implements ul1 {
             this.a = oj1Var;
         }
 
-        @Override // com.baidu.tieba.ij1
-        public void a(Throwable th) {
-            String message;
+        @Override // com.baidu.tieba.bk1
+        public boolean c(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 if (this.a.e != null) {
-                    this.a.e.onFailed();
-                } else if (this.a.d != null) {
-                    jj1 jj1Var = this.a.d;
-                    if (th == null) {
-                        message = "unKnow";
-                    } else {
-                        message = th.getMessage();
-                    }
-                    jj1Var.b(message);
+                    return this.a.e.c(str);
                 }
+                return false;
             }
-        }
-
-        @Override // com.baidu.tieba.ij1
-        public void b(@NonNull tj1 tj1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tj1Var) != null) || p8.f().i()) {
-                return;
-            }
-            int f = rj1.f(tj1Var, this.a.i);
-            if (f == 0) {
-                this.a.h = tj1Var;
-                sl1 a = new al1().a(this.a.c, pj1.a(tj1Var));
-                if (a == null) {
-                    if (this.a.d != null) {
-                        this.a.d.b("创建 AdContainer 失败");
-                        return;
-                    }
-                    return;
-                } else if (!tj1Var.q()) {
-                    this.a.a = a;
-                    if (this.a.d != null) {
-                        kj1 kj1Var = new kj1(a, this.a.d.g(), tj1Var);
-                        kj1Var.m(this.a.d);
-                        a.c(kj1Var);
-                        a.a(kj1Var);
-                        kj1Var.l(this.a);
-                        this.a.k(!tj1Var.n());
-                        this.a.n(!tj1Var.l());
-                        this.a.d.e(this.a);
-                    }
-                    if (this.a.e != null) {
-                        this.a.e.onSuccess();
-                        return;
-                    }
-                    return;
-                } else {
-                    new BaseVM(this.a.h).c(null);
-                    if (this.a.d != null) {
-                        this.a.d.b("virtual order cannot show");
-                        return;
-                    }
-                    return;
-                }
-            }
-            if (this.a.e != null) {
-                this.a.e.onFailed();
-            } else if (this.a.d != null) {
-                jj1 jj1Var = this.a.d;
-                jj1Var.b("query 后物料效验失败: " + f);
-            }
-            BaseVM.h(f);
+            return invokeL.booleanValue;
         }
     }
 
-    public oj1(Context context, String str, cl1 cl1Var, jj1 jj1Var) {
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oj1 a;
+
+        public b(oj1 oj1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oj1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oj1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e.d();
+            }
+        }
+    }
+
+    public oj1(@NonNull wl1 wl1Var, @NonNull ViewGroup viewGroup, @NonNull xj1 xj1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, cl1Var, jj1Var};
+            Object[] objArr = {wl1Var, viewGroup, xj1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -146,175 +149,163 @@ public class oj1 implements ul1 {
                 return;
             }
         }
-        LoadState loadState = LoadState.INIT;
-        this.i = 0;
-        this.k = new a(this);
-        this.c = context;
-        this.b = str;
-        this.d = jj1Var;
-        if (cl1Var != null && cl1Var.a() != null && cl1Var.a().containsKey("launch_type")) {
-            try {
-                this.i = Integer.parseInt(cl1Var.a().get("launch_type"));
-            } catch (NumberFormatException unused) {
-                this.i = 0;
-            }
-        }
+        this.j = true;
+        this.h = System.currentTimeMillis();
+        this.a = wl1Var;
+        this.b = viewGroup;
+        this.c = xj1Var;
+        this.d = new BaseVM(xj1Var);
+        rj1.b(xj1Var);
     }
 
-    public void k(int i) {
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void l(sl1 sl1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sl1Var) == null) {
-            this.a = sl1Var;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.ul1
-    @Nullable
-    public tj1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return (tj1) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            this.a = null;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!p8.f().h()) {
-                m(rj1.n(this.i));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            q8.f().e();
+            if (!this.j) {
                 return;
             }
-            hj1 hj1Var = new hj1();
-            this.j = hj1Var;
-            hj1Var.j(this.b, this.k);
+            this.j = false;
+            this.d.e(str, this.i);
         }
     }
 
-    @Override // com.baidu.tieba.ul1
-    public JSONObject b() {
-        InterceptResult invokeV;
+    public void l(sj1 sj1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, sj1Var) == null) {
+            this.k = sj1Var;
+            wl1 wl1Var = this.a;
+            if (wl1Var != null) {
+                sj1Var.l(wl1Var);
+            }
+        }
+    }
+
+    public void m(@NonNull nj1 nj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, nj1Var) == null) {
+            this.e = nj1Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.xl1
+    public void onAdError(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            nj1 nj1Var = this.e;
+            if (nj1Var != null) {
+                nj1Var.f();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vl1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (wj1.s() && !TextUtils.isEmpty(this.c.p)) {
+                cj0.b(this.c.p);
+                if (ch0.a) {
+                    s51.a().showToast(this.a.getAdView().getContext(), "执行nad统一新协议跳转");
+                }
+            } else {
+                ek1.a(tj0.b(), this.c.o, new a(this));
+                if (ch0.a) {
+                    s51.a().showToast(this.a.getAdView().getContext(), "执行splash旧协议跳转");
+                }
+            }
+            j(BaseVM.CloseType.CLICK_AD_AREA.value);
+            this.d.b("");
+            nj1 nj1Var = this.e;
+            if (nj1Var != null) {
+                nj1Var.a();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xl1
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f = System.currentTimeMillis();
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.h != null) {
-                    jSONObject.put("source", this.h.E);
-                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.h.F);
+                jSONObject.put("adShowScene", this.c.D);
+                jSONObject.put("adSplashType", this.c.e);
+                if (this.c.D == 1) {
+                    long j = this.g - this.h;
+                    if (j > 0) {
+                        jSONObject.put("adLoadCostTime", j);
+                    }
                 }
-                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f);
-                jSONObject.put("full_type", this.g);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                jSONObject.put("adRenderCostTime", this.f - this.h);
+                long currentTimeMillis = System.currentTimeMillis();
+                jSONObject.put("show_time", currentTimeMillis);
+                k(currentTimeMillis);
+            } catch (JSONException unused) {
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void m(tj1 tj1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tj1Var) == null) {
-            if (tj1Var != null) {
-                this.h = tj1Var;
-                bl1 a2 = pj1.a(tj1Var);
-                sl1 a3 = new al1().a(this.c, a2);
-                if (a3 == null) {
-                    if (cj1.a.get().a()) {
-                        Log.e("PrologueAd", "创建 AdContainer 失败，params: " + a2.a());
-                    }
-                    jj1 jj1Var = this.d;
-                    if (jj1Var != null) {
-                        jj1Var.b("创建 AdContainer 失败");
-                        return;
-                    }
-                    return;
-                } else if (tj1Var.q()) {
-                    new BaseVM(this.h).c(null);
-                    jj1 jj1Var2 = this.d;
-                    if (jj1Var2 != null) {
-                        jj1Var2.b("virtual order cannot show");
-                        return;
-                    }
-                    return;
-                } else {
-                    this.a = a3;
-                    jj1 jj1Var3 = this.d;
-                    if (jj1Var3 != null) {
-                        kj1 kj1Var = new kj1(a3, jj1Var3.g(), tj1Var);
-                        kj1Var.m(this.d);
-                        a3.c(kj1Var);
-                        a3.a(kj1Var);
-                        kj1Var.l(this);
-                        k(!tj1Var.n());
-                        n(!tj1Var.l());
-                        this.d.e(this);
-                    }
-                    p8.b bVar = this.e;
-                    if (bVar != null) {
-                        bVar.onSuccess();
-                        return;
-                    }
-                    return;
-                }
-            }
-            p8.b bVar2 = this.e;
-            if (bVar2 != null) {
-                bVar2.onFailed();
-                return;
-            }
-            jj1 jj1Var4 = this.d;
-            if (jj1Var4 != null) {
-                jj1Var4.b("本地物料null");
+            this.d.c(jSONObject);
+            vj1.D(this.c);
+            zj1.e(this.c);
+            nj1 nj1Var = this.e;
+            if (nj1Var != null) {
+                nj1Var.onAdShow();
             }
         }
     }
 
-    public void o(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xl1
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
-            sl1 sl1Var = this.a;
-            if (viewGroup != null && sl1Var != null) {
-                sl1Var.load();
-                View adView = sl1Var.getAdView();
-                if (adView != null && adView.getParent() == null) {
-                    viewGroup.addView(adView);
-                    return;
-                }
-                i();
-                jj1 jj1Var = this.d;
-                if (jj1Var != null) {
-                    jj1Var.f();
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = System.currentTimeMillis();
+        }
+    }
+
+    @Override // com.baidu.tieba.vl1
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            nj1 nj1Var = this.e;
+            if (nj1Var != null) {
+                nj1Var.onSkip();
             }
-            i();
-            jj1 jj1Var2 = this.d;
-            if (jj1Var2 != null) {
-                jj1Var2.f();
+            j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+        }
+    }
+
+    @Override // com.baidu.tieba.xl1
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            if ("time_end".equals(str)) {
+                j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
+            } else if ("click_skip_button".equals(str)) {
+                j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+            } else if ("click_ad_area".equals(str)) {
+                j(BaseVM.CloseType.CLICK_AD_AREA.value);
+            } else {
+                j(BaseVM.CloseType.OTHER.value);
+            }
+            if (this.e != null) {
+                ik0.c(new b(this));
+            }
+        }
+    }
+
+    public final void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            String str = this.c.p;
+            if (!TextUtils.isEmpty(str)) {
+                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
+            }
+            String str2 = this.c.O;
+            if (!TextUtils.isEmpty(str2)) {
+                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
             }
         }
     }

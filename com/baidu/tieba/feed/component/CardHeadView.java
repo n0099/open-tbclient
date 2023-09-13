@@ -13,21 +13,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c77;
-import com.baidu.tieba.cb7;
 import com.baidu.tieba.d77;
-import com.baidu.tieba.db7;
+import com.baidu.tieba.d97;
 import com.baidu.tieba.feed.component.CardHeadView;
 import com.baidu.tieba.feed.widget.AutoDegradeTagView;
 import com.baidu.tieba.feed.widget.ForumAttentionView;
 import com.baidu.tieba.feed.widget.HeadImageView;
 import com.baidu.tieba.feed.widget.PersonAttentionView;
-import com.baidu.tieba.k77;
-import com.baidu.tieba.pb7;
-import com.baidu.tieba.r77;
-import com.baidu.tieba.r87;
-import com.baidu.tieba.y77;
-import com.baidu.tieba.z57;
+import com.baidu.tieba.h87;
+import com.baidu.tieba.i87;
+import com.baidu.tieba.ic7;
+import com.baidu.tieba.jc7;
+import com.baidu.tieba.p87;
+import com.baidu.tieba.vc7;
+import com.baidu.tieba.w87;
+import com.baidu.tieba.w97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +40,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0015\u001a\u00020\u0016H\u0002J\b\u0010\u0017\u001a\u00020\u0016H\u0002J\b\u0010\u0018\u001a\u00020\u0016H\u0002J\b\u0010\u0019\u001a\u00020\u0016H\u0002J\b\u0010\u001a\u001a\u00020\u0016H\u0002J\b\u0010\u001b\u001a\u00020\u0016H\u0016J\u000e\u0010\u001c\u001a\u00020\u00162\u0006\u0010\u001d\u001a\u00020\u001eR\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/feed/component/CardHeadView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "attentionView", "Lcom/baidu/tieba/feed/widget/PersonAttentionView;", "feedBackBtn", "Landroid/widget/ImageView;", "forumAttentionView", "Lcom/baidu/tieba/feed/widget/ForumAttentionView;", "headExtendInfo", "Lcom/baidu/tieba/feed/widget/AutoDegradeTagView;", "headImageView", "Lcom/baidu/tieba/feed/widget/HeadImageView;", "headMainView", "headRightLayout", "Landroid/widget/LinearLayout;", "initAttentionView", "", "initFeedBackBtn", "initHeadInfoLayout", "initImageView", "initRightLayout", "onChangeSkin", "updateState", "uiState", "Lcom/baidu/tieba/feed/component/uistate/CardHeadUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardHeadView extends RelativeLayout implements cb7 {
+public final class CardHeadView extends RelativeLayout implements ic7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -78,14 +78,14 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
     public static final class a implements AutoDegradeTagView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z57 a;
+        public final /* synthetic */ d77 a;
 
-        public a(z57 z57Var) {
+        public a(d77 d77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z57Var};
+                Object[] objArr = {d77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -95,7 +95,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                     return;
                 }
             }
-            this.a = z57Var;
+            this.a = d77Var;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0036, code lost:
@@ -105,7 +105,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(k77 data, View view2) {
+        public void a(p87 data, View view2) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, data, view2) == null) {
@@ -129,10 +129,10 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                 if (str != null) {
                     this.a.n().invoke(view2, str);
                 }
-                if (data instanceof y77) {
-                    for (r87 r87Var : ((y77) data).a()) {
-                        pb7.a.b(r87Var, this.a.g() + 1);
-                        this.a.f().invoke(r87Var);
+                if (data instanceof d97) {
+                    for (w97 w97Var : ((d97) data).a()) {
+                        vc7.a.b(w97Var, this.a.g() + 1);
+                        this.a.f().invoke(w97Var);
                     }
                 }
             }
@@ -143,14 +143,14 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
     public static final class b implements AutoDegradeTagView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z57 a;
+        public final /* synthetic */ d77 a;
 
-        public b(z57 z57Var) {
+        public b(d77 d77Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z57Var};
+                Object[] objArr = {d77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -160,7 +160,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                     return;
                 }
             }
-            this.a = z57Var;
+            this.a = d77Var;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0036, code lost:
@@ -170,7 +170,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(k77 data, View view2) {
+        public void a(p87 data, View view2) {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, data, view2) == null) {
@@ -223,7 +223,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         e();
         f();
         a();
-        b();
+        c();
         d();
     }
 
@@ -231,26 +231,26 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void h(z57 uiState, String str, View it) {
+    public static final void h(d77 uiState, String str, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, null, uiState, str, it) == null) {
             Intrinsics.checkNotNullParameter(uiState, "$uiState");
             Function2<View, String, Unit> m = uiState.m();
             Intrinsics.checkNotNullExpressionValue(it, "it");
             m.invoke(it, str);
-            for (r87 r87Var : uiState.q()) {
-                pb7.a.b(r87Var, uiState.g() + 1);
-                uiState.f().invoke(r87Var);
+            for (w97 w97Var : uiState.q()) {
+                vc7.a.b(w97Var, uiState.g() + 1);
+                uiState.f().invoke(w97Var);
             }
         }
     }
 
-    public static final void i(z57 uiState, View it) {
+    public static final void i(d77 uiState, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uiState, it) == null) {
             Intrinsics.checkNotNullParameter(uiState, "$uiState");
-            Function2<r77, View, Unit> l = uiState.l();
-            r77 i = uiState.i();
+            Function2<w87, View, Unit> l = uiState.l();
+            w87 i = uiState.i();
             Intrinsics.checkNotNullExpressionValue(it, "it");
             l.invoke(i, it);
         }
@@ -300,9 +300,49 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.ic7
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || jc7.a(this)) {
+            return;
+        }
+        HeadImageView headImageView = this.a;
+        ImageView imageView = null;
+        if (headImageView == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("headImageView");
+            headImageView = null;
+        }
+        headImageView.b();
+        AutoDegradeTagView autoDegradeTagView = this.b;
+        if (autoDegradeTagView == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("headMainView");
+            autoDegradeTagView = null;
+        }
+        autoDegradeTagView.b();
+        AutoDegradeTagView autoDegradeTagView2 = this.c;
+        if (autoDegradeTagView2 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("headExtendInfo");
+            autoDegradeTagView2 = null;
+        }
+        autoDegradeTagView2.b();
+        PersonAttentionView personAttentionView = this.f;
+        if (personAttentionView == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("attentionView");
+            personAttentionView = null;
+        }
+        personAttentionView.r();
+        ImageView imageView2 = this.e;
+        if (imageView2 == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("feedBackBtn");
+        } else {
+            imageView = imageView2;
+        }
+        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ImageView imageView = new ImageView(getContext());
             this.e = imageView;
             ImageView imageView2 = null;
@@ -322,7 +362,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                 Intrinsics.throwUninitializedPropertyAccessException("feedBackBtn");
                 imageView4 = null;
             }
-            imageView4.setId(R.id.obfuscated_res_0x7f0905e0);
+            imageView4.setId(R.id.obfuscated_res_0x7f0905e5);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds88);
             int dimens2 = BdUtilHelper.getDimens(getContext(), R.dimen.tbds8);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
@@ -347,46 +387,6 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         }
     }
 
-    @Override // com.baidu.tieba.cb7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || db7.a(this)) {
-            return;
-        }
-        HeadImageView headImageView = this.a;
-        ImageView imageView = null;
-        if (headImageView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("headImageView");
-            headImageView = null;
-        }
-        headImageView.c();
-        AutoDegradeTagView autoDegradeTagView = this.b;
-        if (autoDegradeTagView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("headMainView");
-            autoDegradeTagView = null;
-        }
-        autoDegradeTagView.c();
-        AutoDegradeTagView autoDegradeTagView2 = this.c;
-        if (autoDegradeTagView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("headExtendInfo");
-            autoDegradeTagView2 = null;
-        }
-        autoDegradeTagView2.c();
-        PersonAttentionView personAttentionView = this.f;
-        if (personAttentionView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("attentionView");
-            personAttentionView = null;
-        }
-        personAttentionView.r();
-        ImageView imageView2 = this.e;
-        if (imageView2 == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("feedBackBtn");
-        } else {
-            imageView = imageView2;
-        }
-        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-    }
-
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -409,7 +409,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                 Intrinsics.throwUninitializedPropertyAccessException("headRightLayout");
                 linearLayout3 = null;
             }
-            linearLayout3.setId(R.id.obfuscated_res_0x7f0905e3);
+            linearLayout3.setId(R.id.obfuscated_res_0x7f0905e8);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(15);
             layoutParams.addRule(11);
@@ -465,8 +465,8 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
             linearLayout.addView(autoDegradeTagView, layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams2.addRule(15);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0905e2);
-            layoutParams2.addRule(0, R.id.obfuscated_res_0x7f0905e3);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0905e7);
+            layoutParams2.addRule(0, R.id.obfuscated_res_0x7f0905e8);
             addView(linearLayout, layoutParams2);
         }
     }
@@ -483,7 +483,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                 Intrinsics.throwUninitializedPropertyAccessException("headImageView");
                 headImageView = null;
             }
-            headImageView.setId(R.id.obfuscated_res_0x7f0905e2);
+            headImageView.setId(R.id.obfuscated_res_0x7f0905e7);
             int dimens = BdUtilHelper.getDimens(getContext(), R.dimen.tbds148);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
             layoutParams.addRule(15);
@@ -497,14 +497,14 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
         }
     }
 
-    public final void g(final z57 uiState) {
+    public final void g(final d77 uiState) {
         boolean z;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, uiState) == null) {
             Intrinsics.checkNotNullParameter(uiState, "uiState");
-            c77 k = uiState.k();
-            d77 b2 = k.b();
+            h87 k = uiState.k();
+            i87 b2 = k.b();
             HeadImageView headImageView = this.a;
             AutoDegradeTagView autoDegradeTagView = null;
             if (headImageView == null) {
@@ -541,7 +541,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                     Intrinsics.throwUninitializedPropertyAccessException("headImageView");
                     headImageView3 = null;
                 }
-                headImageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.k57
+                headImageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.o67
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -549,7 +549,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            CardHeadView.h(z57.this, f, view2);
+                            CardHeadView.h(d77.this, f, view2);
                         }
                     }
                 });
@@ -579,7 +579,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                     Intrinsics.throwUninitializedPropertyAccessException("feedBackBtn");
                     imageView4 = null;
                 }
-                imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.u57
+                imageView4.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y67
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -587,7 +587,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            CardHeadView.i(z57.this, view2);
+                            CardHeadView.i(d77.this, view2);
                         }
                     }
                 });
@@ -691,7 +691,7 @@ public final class CardHeadView extends RelativeLayout implements cb7 {
                 autoDegradeTagView = autoDegradeTagView7;
             }
             autoDegradeTagView.setOnTagClickListener(new b(uiState));
-            c();
+            b();
         }
     }
 }

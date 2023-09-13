@@ -1,15 +1,15 @@
 package com.baidu.tieba.homepage.concern.adapter;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.homepage.personalize.view.HotCardView;
-import com.baidu.tieba.qz4;
+import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,10 +22,10 @@ import tbclient.ThemeColorInfo;
 public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public Context a;
     public List<ThreadData> b;
     public ThemeColorInfo c;
-    public qz4 d;
+    public vz4 d;
 
     /* loaded from: classes6.dex */
     public class HotCardViewHolder extends RecyclerView.ViewHolder {
@@ -57,12 +57,12 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
         }
     }
 
-    public HotCardListAdapter(TbPageContext tbPageContext) {
+    public HotCardListAdapter(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,13 +73,13 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
             }
         }
         this.b = new ArrayList();
-        this.a = tbPageContext;
+        this.a = context;
     }
 
-    public void o(qz4 qz4Var) {
+    public void o(vz4 vz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qz4Var) == null) {
-            this.d = qz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vz4Var) == null) {
+            this.d = vz4Var;
         }
     }
 

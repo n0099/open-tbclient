@@ -15,7 +15,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.ic0;
 /* loaded from: classes3.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public LiveTabEntity a;
@@ -69,12 +69,12 @@ public abstract class LiveBaseFragment extends Fragment {
         void onTabPageShowLog(String str, String str2);
     }
 
-    public abstract RecyclerView V1();
+    public abstract RecyclerView X1();
 
-    public abstract void Y1(boolean z);
+    public abstract void a2(boolean z);
 
-    public int U1() {
-        RecyclerView.LayoutManager layoutManager = V1().getLayoutManager();
+    public int W1() {
+        RecyclerView.LayoutManager layoutManager = X1().getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager) {
             return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
         }
@@ -85,18 +85,18 @@ public abstract class LiveBaseFragment extends Fragment {
         return Math.max(findLastVisibleItemPositions[0], findLastVisibleItemPositions[1]);
     }
 
-    public void c() {
-        X1(null);
+    public void b() {
+        Z1(null);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
         this.b = null;
-        hc0.a().e(this);
+        ic0.a().e(this);
     }
 
-    public boolean W1(String str, String str2, int i) {
+    public boolean Y1(String str, String str2, int i) {
         if (str == null) {
             str = "";
         }
@@ -106,7 +106,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return (str + "_" + str2 + "_" + i).equals(this.q);
     }
 
-    public void X1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
+    public void Z1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
         this.s = onLoadMoreListener;
         this.p = 1;
         String str = this.q;
@@ -122,27 +122,27 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public void Z1(boolean z) {
-        Y1(z);
+    public void b2(boolean z) {
+        a2(z);
     }
 
-    public void d2(String str) {
+    public void f2(String str) {
         this.f = str;
     }
 
-    public void e2(LiveFeedConfig liveFeedConfig) {
+    public void g2(LiveFeedConfig liveFeedConfig) {
         this.c = liveFeedConfig;
     }
 
-    public void f2(LiveFeedReserveWrapData liveFeedReserveWrapData) {
+    public void h2(LiveFeedReserveWrapData liveFeedReserveWrapData) {
         this.d = liveFeedReserveWrapData;
     }
 
-    public void g2(LiveFeedWrapData liveFeedWrapData) {
+    public void i2(LiveFeedWrapData liveFeedWrapData) {
         this.b = liveFeedWrapData;
     }
 
-    public void h2(a aVar) {
+    public void j2(a aVar) {
         this.r = aVar;
     }
 
@@ -151,7 +151,7 @@ public abstract class LiveBaseFragment extends Fragment {
         super.onCreate(bundle);
     }
 
-    public boolean a2() {
+    public boolean c2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -168,7 +168,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean b2() {
+    public boolean d2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -185,7 +185,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean c2() {
+    public boolean e2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {

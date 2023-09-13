@@ -1,34 +1,52 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.searchbox.player.model.YYOption;
-import com.baidu.searchbox.player.utils.BasicVideoParserKt;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.soloader.SoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.lang.ref.WeakReference;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
 /* loaded from: classes8.dex */
 public final class y71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final Set<String> b;
+    public static final List<File> c;
+    public static Map<String, WeakReference<Lock>> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public StringBuilder a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,536 +61,747 @@ public final class y71 {
                 return;
             }
         }
-        a = xt0.f();
+        b = Collections.synchronizedSet(new HashSet());
+        c = new ArrayList();
+        d = new ConcurrentHashMap();
     }
 
-    public static String a(JSONArray jSONArray) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String str = System.getenv("LD_LIBRARY_PATH");
+            if (str == null) {
+                str = "/vendor/lib:/system/lib";
+            }
+            for (String str2 : str.split(":")) {
+                File file = new File(str2);
+                if (!c.contains(file)) {
+                    c.add(file);
+                }
+            }
+        }
+    }
+
+    public y71() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new StringBuilder();
+    }
+
+    public static synchronized Lock e(String str) {
+        InterceptResult invokeL;
+        Lock reentrantLock;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (y71.class) {
+                WeakReference<Lock> weakReference = d.get(str);
+                if (weakReference == null || (reentrantLock = weakReference.get()) == null) {
+                    reentrantLock = new ReentrantLock();
+                    d.put(str, new WeakReference<>(reentrantLock));
+                }
+            }
+            return reentrantLock;
+        }
+        return (Lock) invokeL.objValue;
+    }
+
+    public final String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(".");
+            if (lastIndexOf != -1) {
+                str = str.substring(0, lastIndexOf);
             }
+            return str + "_crc";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static File g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return new File(context.getFilesDir(), "lib");
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public final String f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             try {
-                SparseArray sparseArray = new SparseArray();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    sparseArray.put(jSONObject.optInt(MultiRatePlayUrlHelper.RANK), jSONObject.optString("url"));
-                }
-                if (sparseArray.size() <= 0) {
-                    return null;
-                }
-                return (String) sparseArray.valueAt(0);
-            } catch (JSONException e) {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.nativeLibraryDir;
+            } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
-                return null;
+                return "";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static Map<String, String> e(String str) {
-        InterceptResult invokeL;
-        int indexOf;
-        String[] split;
+    public final void j(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            if (str != null && (indexOf = str.indexOf("#") + 1) > 0) {
-                for (String str2 : str.substring(indexOf).split("#")) {
-                    int indexOf2 = str2.indexOf("=");
-                    if (indexOf2 >= 0) {
-                        hashMap.put(str2.substring(0, indexOf2), str2.substring(indexOf2 + 1));
-                    }
-                }
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            b();
+            a(context);
         }
-        return (Map) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:103:0x041b  */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x042c  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x0436  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x0441  */
-    /* JADX WARN: Removed duplicated region for block: B:132:0x03ee A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x0498 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:140:0x02bd A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x02da  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0302  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x031a  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x032b  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x033c  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x035f  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0361  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0368  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x036a  */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x0374  */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0387  */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x0389  */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x0398  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x03b2  */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x03b4  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x03c3  */
+    public static void l(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) != null) || b.contains(str)) {
+            return;
+        }
+        m(context, str, null);
+    }
+
+    public final long h(ZipFile zipFile, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, zipFile, str)) == null) {
+            if (zipFile == null) {
+                return 0L;
+            }
+            try {
+                ZipEntry entry = zipFile.getEntry(str);
+                if (entry == null) {
+                    return 0L;
+                }
+                return entry.getCrc();
+            } catch (Exception unused) {
+                return 0L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public final long i(ZipFile zipFile, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, zipFile, str)) == null) {
+            if (zipFile == null) {
+                return 0L;
+            }
+            try {
+                ZipEntry entry = zipFile.getEntry(str);
+                if (entry == null) {
+                    return 0L;
+                }
+                return entry.getSize();
+            } catch (Exception unused) {
+                return 0L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public static void m(Context context, String str, x71 x71Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, x71Var) == null) {
+            if (x71Var == null) {
+                x71Var = w71.a();
+            }
+            y71 y71Var = new y71();
+            if (c.size() == 0) {
+                y71Var.j(context);
+            }
+            if (y71Var.r(context, str, x71Var)) {
+                b.add(str);
+            }
+        }
+    }
+
+    public final boolean n(x71 x71Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, x71Var, str, str2)) == null) {
+            try {
+                x71Var.load(str);
+                return true;
+            } catch (Throwable th) {
+                StringBuilder sb = this.a;
+                sb.append(str2 + ":::" + str + ":" + Log.getStackTraceString(th));
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean t(x71 x71Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, x71Var, str, str2)) == null) {
+            String c2 = z71.c(str);
+            try {
+                x71Var.loadLibrary(c2);
+                return true;
+            } catch (Throwable th) {
+                StringBuilder sb = this.a;
+                sb.append(str2 + ":::" + c2 + ":" + Log.getStackTraceString(th));
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.List<java.io.File> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new File(f(context)));
+            arrayList.add(new File(context.getFilesDir(), "lib"));
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (!c.contains(arrayList.get(i))) {
+                    c.add(arrayList.get(i));
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x009b */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.titan.sdk.runtime.Interceptable */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: java.nio.channels.FileChannel */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0078 A[Catch: IOException -> 0x007c, TRY_ENTER, TRY_LEAVE, TryCatch #11 {IOException -> 0x007c, blocks: (B:40:0x0078, B:57:0x0097), top: B:93:0x001b }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0097 A[Catch: IOException -> 0x007c, TRY_ENTER, TRY_LEAVE, TryCatch #11 {IOException -> 0x007c, blocks: (B:40:0x0078, B:57:0x0097), top: B:93:0x001b }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x008d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x006e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x00a8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x009e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.lang.Object[]] */
+    /* JADX WARN: Type inference failed for: r3v3 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static BdVideoSeries b(HashMap<Integer, String> hashMap) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        String str;
-        ClarityUrlList clarityList;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        String str9;
+    public final boolean c(Context context, ZipFile zipFile, String str, String str2, long j) {
+        FileChannel fileChannel;
+        InterceptResult invokeCommon;
+        FileChannel fileChannel2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            if (hashMap != null && hashMap.size() != 0) {
-                BdVideoSeries bdVideoSeries = new BdVideoSeries();
-                String str10 = hashMap.get(0);
-                String str11 = hashMap.get(5);
-                String str12 = hashMap.get(1);
-                String str13 = hashMap.get(3);
-                String str14 = hashMap.get(9);
-                String str15 = hashMap.get(6);
-                String str16 = hashMap.get(7);
-                String str17 = hashMap.get(16);
+        if (interceptable == 0 || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, (fileChannel = new Object[]{context, zipFile, str, str2, Long.valueOf(j)}))) == null) {
+            boolean z = false;
+            if (zipFile == null) {
+                return false;
+            }
+            File g = g(context);
+            if (!g.exists()) {
+                g.mkdirs();
+            }
+            File file = new File(g, str);
+            FileLock fileLock = null;
+            try {
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
                 try {
-                    z = Boolean.parseBoolean(hashMap.get(17));
-                } catch (Exception e) {
-                    b21.b("BdVideoNewParser", Log.getStackTraceString(e));
-                    z = false;
-                }
-                String str18 = hashMap.get(105);
-                String str19 = hashMap.get(106);
-                String str20 = hashMap.get(107);
-                String str21 = hashMap.get(108);
-                String str22 = hashMap.get(109);
-                String str23 = hashMap.get(110);
-                String str24 = hashMap.get(112);
-                boolean z2 = z;
-                String str25 = hashMap.get(111);
-                String str26 = hashMap.get(113);
-                String str27 = hashMap.get(114);
-                String str28 = hashMap.get(115);
-                String str29 = hashMap.get(120);
-                String str30 = hashMap.get(121);
-                String str31 = hashMap.get(122);
-                String str32 = hashMap.get(123);
-                String str33 = hashMap.get(124);
-                String str34 = hashMap.get(125);
-                String str35 = hashMap.get(305);
-                String str36 = hashMap.get(301);
-                String str37 = hashMap.get(302);
-                String str38 = hashMap.get(127);
-                String str39 = hashMap.get(304);
-                String str40 = hashMap.get(305);
-                bdVideoSeries.setMPD(hashMap.get(350));
-                bdVideoSeries.setMPDUrl(hashMap.get(351));
-                bdVideoSeries.setMPDVid(hashMap.get(352));
-                String str41 = hashMap.get(353);
-                String str42 = hashMap.get(103);
-                if (str42 != null) {
-                    i = x11.c(str42);
-                } else {
-                    i = 101;
-                }
-                bdVideoSeries.setFrom(str36);
-                bdVideoSeries.setPage(str33);
-                if (!TextUtils.isEmpty(bdVideoSeries.getMPD())) {
-                    bdVideoSeries.setClarityUrlList(bdVideoSeries.getMPD(), true);
-                    bdVideoSeries.setHasDecodedMPD(true);
-                } else {
-                    String str43 = hashMap.get(303);
-                    if (!TextUtils.isEmpty(str43)) {
-                        bdVideoSeries.setClarityUrlList(str43);
-                    }
-                }
-                if (!TextUtils.isEmpty(str21)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(str21);
-                        String optString = jSONObject.optString("preview_6s_url");
-                        bdVideoSeries.setShareMode(jSONObject.optJSONObject("share"));
-                        bdVideoSeries.setPreview6sUrl(optString);
-                        if (bdVideoSeries.getClarityList() == null) {
-                            bdVideoSeries.setClarityUrlList(jSONObject.optString(BasicVideoParserKt.CLARITY));
-                        }
+                    File file2 = new File(g, str + ".lock");
+                    if (!file2.exists()) {
                         try {
-                            String optString2 = jSONObject.optString("longVideo", null);
-                            if (optString2 != null) {
-                                bdVideoSeries.setLongVideo(new JSONObject(optString2).optString("cmd", null));
-                            } else {
-                                str = null;
+                            file2.createNewFile();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    try {
+                        fileChannel2 = new RandomAccessFile(file2, "rw").getChannel();
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        fileChannel2 = null;
+                    }
+                    try {
+                        try {
+                            fileLock = fileChannel2.lock();
+                        } catch (IOException e4) {
+                            try {
+                                e4.printStackTrace();
+                            } catch (FileNotFoundException e5) {
+                                e = e5;
+                                e.printStackTrace();
+                                if (fileLock != null) {
+                                    v(j, str, g);
+                                }
+                                if (fileLock != null) {
+                                }
+                                if (fileChannel2 != null) {
+                                }
+                                return z;
+                            }
+                        }
+                        if (fileLock != null && fileLock.isValid() && (z = u(zipFile, file, str2))) {
+                            v(j, str, g);
+                        }
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
+                            }
+                        }
+                    } catch (Exception e7) {
+                        e = e7;
+                        e.printStackTrace();
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e8) {
+                                e8.printStackTrace();
+                            }
+                        }
+                        if (fileChannel2 != null) {
+                            fileChannel2.close();
+                        }
+                        return z;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileLock.release();
+                        } catch (IOException e9) {
+                            e9.printStackTrace();
+                        }
+                    }
+                    if (fileChannel != 0) {
+                        try {
+                            fileChannel.close();
+                        } catch (IOException e10) {
+                            e10.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e11) {
+                e = e11;
+                fileChannel2 = null;
+                e.printStackTrace();
+                if (fileLock != null) {
+                }
+                if (fileChannel2 != null) {
+                }
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileChannel = 0;
+                if (0 != 0) {
+                }
+                if (fileChannel != 0) {
+                }
+                throw th;
+            }
+            if (fileChannel2 != null) {
+                fileChannel2.close();
+            }
+            return z;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean k(String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        BufferedReader bufferedReader;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                BufferedReader bufferedReader2 = null;
+                r1 = null;
+                r1 = null;
+                String str3 = null;
+                BufferedReader bufferedReader3 = null;
+                try {
+                    File file2 = new File(file.getParentFile(), d(file.getName()));
+                    if (file2.exists()) {
+                        bufferedReader = new BufferedReader(new FileReader(file2));
+                        try {
+                            try {
+                                bufferedReader3 = bufferedReader;
+                                str2 = bufferedReader.readLine();
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                    }
+                                }
+                                return !TextUtils.equals(String.valueOf(j), str3) ? false : false;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader2 = bufferedReader;
+                            if (bufferedReader2 != null) {
                                 try {
-                                    bdVideoSeries.setLongVideo(null);
-                                } catch (JSONException e2) {
-                                    e = e2;
-                                    bdVideoSeries.setLongVideo(str);
-                                    b21.b("BdVideoNewParser", Log.getStackTraceString(e));
-                                    if (!TextUtils.isEmpty(str25)) {
-                                    }
-                                    clarityList = bdVideoSeries.getClarityList();
-                                    if (clarityList == null) {
-                                    }
-                                    StringBuilder sb = new StringBuilder();
-                                    if (!TextUtils.isEmpty(str13)) {
-                                    }
-                                    if (!TextUtils.isEmpty(str14)) {
-                                    }
-                                    if (!TextUtils.isEmpty(str16)) {
-                                    }
-                                    int parseDoubleSafe = (int) BdVideoSeries.parseDoubleSafe(str35, -1.0d);
-                                    bdVideoSeries.setStartPosition(parseDoubleSafe);
-                                    bdVideoSeries.setDuration(BdVideoSeries.parseIntSafe(str24, 0));
-                                    bdVideoSeries.setHttpHeader(sb.toString());
-                                    bdVideoSeries.setProxy(str15);
-                                    if (str18 != null) {
-                                    }
-                                    bdVideoSeries.setRecommendList(str2);
-                                    if (str20 != null) {
-                                    }
-                                    bdVideoSeries.setPoster(str3);
-                                    bdVideoSeries.setExt(str21);
-                                    if (str25 == null) {
-                                    }
-                                    bdVideoSeries.setExtLog(str25);
-                                    bdVideoSeries.setNetToast(!TextUtils.equals(str22, "0"));
-                                    if (str26 != null) {
-                                    }
-                                    bdVideoSeries.setVid(str4);
-                                    if (!TextUtils.isEmpty(bdVideoSeries.getVid())) {
-                                    }
-                                    if (str27 != null) {
-                                    }
-                                    bdVideoSeries.setFormat(str5);
-                                    if (TextUtils.equals(str28, "1")) {
-                                    }
-                                    bdVideoSeries.setVideoFaceDetect(str37);
-                                    bdVideoSeries.setFloatingDisable(str40);
-                                    bdVideoSeries.setUrlExpireTime(str38);
-                                    BdVideo bdVideo = new BdVideo();
-                                    Map<String, String> e3 = e(str10);
-                                    str6 = e3.get("title");
-                                    if (!TextUtils.isEmpty(str6)) {
-                                    }
-                                    str7 = e3.get(PrefetchEvent.EVENT_KEY_PAGE_URL);
-                                    str8 = e3.get("show_title");
-                                    str9 = e3.get("show_share");
-                                    if (TextUtils.isEmpty(str6)) {
-                                    }
-                                    bdVideo.setTitle(str6);
-                                    bdVideo.setVideoId(str26);
-                                    if (!TextUtils.isEmpty(str7)) {
-                                    }
-                                    bdVideo.setSourceUrl(str11);
-                                    if (TextUtils.isEmpty(str8)) {
-                                    }
-                                    bdVideo.setShowTitle(str8);
-                                    if (TextUtils.isEmpty(str9)) {
-                                    }
-                                    bdVideo.setShowShare(str9);
-                                    bdVideo.setCurrentLength(parseDoubleSafe + "");
-                                    bdVideo.setPlayUrl(str10);
-                                    bdVideo.setType(i);
-                                    bdVideo.setTotalLength(str24);
-                                    ArrayList arrayList = new ArrayList();
-                                    arrayList.add(bdVideo);
-                                    bdVideoSeries.setTitle(str12);
-                                    bdVideoSeries.setVideoList(arrayList);
-                                    bdVideoSeries.setSelectedIndex(0);
-                                    bdVideoSeries.setAnimLogoEnable("1".equals(str29));
-                                    bdVideoSeries.setAnimLogoJumpScheme(str30);
-                                    bdVideoSeries.setAnimLogoDownloadScheme(str31);
-                                    bdVideoSeries.setAnimLogoDownloadToast(str32);
-                                    bdVideoSeries.setWebPlayerExt(str17);
-                                    if (!TextUtils.isEmpty(str34)) {
-                                    }
-                                    bdVideoSeries.setPlayConf(str39);
-                                    bdVideoSeries.setResourceType(str41);
-                                    bdVideoSeries.setStartOnPreparedEnable(z2);
-                                    return bdVideoSeries;
+                                    bufferedReader2.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
                                 }
                             }
-                        } catch (JSONException e4) {
-                            e = e4;
-                            str = null;
+                            throw th;
                         }
-                    } catch (JSONException e5) {
-                        e = e5;
-                        str = null;
+                    } else {
+                        str2 = null;
                     }
-                }
-                if (!TextUtils.isEmpty(str25)) {
-                    try {
-                        bdVideoSeries.setPd(new JSONObject(str25).optString("pd"));
-                    } catch (JSONException e6) {
-                        b21.b("BdVideoNewParser", Log.getStackTraceString(e6));
-                    }
-                }
-                clarityList = bdVideoSeries.getClarityList();
-                if (clarityList == null) {
-                    ClarityUrlList.c currentClarityUrl = clarityList.getCurrentClarityUrl();
-                    if (currentClarityUrl != null) {
-                        bdVideoSeries.setVideoBps(currentClarityUrl.h());
-                        bdVideoSeries.setMoovSize(currentClarityUrl.d());
-                        if (TextUtils.isEmpty(str14)) {
-                            str14 = wu0.c(currentClarityUrl.b(), currentClarityUrl.g(), str11);
+                    if (bufferedReader3 != null) {
+                        try {
+                            bufferedReader3.close();
+                        } catch (Exception e4) {
+                            e4.printStackTrace();
                         }
                     }
-                } else if (TextUtils.isEmpty(str14)) {
-                    str14 = wu0.c(null, str10, str11);
-                }
-                StringBuilder sb2 = new StringBuilder();
-                if (!TextUtils.isEmpty(str13)) {
-                    sb2.append("Cookie:");
-                    sb2.append(str13);
-                    sb2.append("\r\n");
-                }
-                if (!TextUtils.isEmpty(str14)) {
-                    sb2.append("Referer:");
-                    sb2.append(str14);
-                    sb2.append("\r\n");
-                }
-                if (!TextUtils.isEmpty(str16)) {
-                    sb2.append(str16);
-                }
-                int parseDoubleSafe2 = (int) BdVideoSeries.parseDoubleSafe(str35, -1.0d);
-                bdVideoSeries.setStartPosition(parseDoubleSafe2);
-                bdVideoSeries.setDuration(BdVideoSeries.parseIntSafe(str24, 0));
-                bdVideoSeries.setHttpHeader(sb2.toString());
-                bdVideoSeries.setProxy(str15);
-                if (str18 != null) {
-                    str2 = "";
-                } else {
-                    str2 = str18;
-                }
-                bdVideoSeries.setRecommendList(str2);
-                if (str20 != null) {
-                    str3 = "";
-                } else {
-                    str3 = str20;
-                }
-                bdVideoSeries.setPoster(str3);
-                bdVideoSeries.setExt(str21);
-                if (str25 == null) {
-                    str25 = "";
-                }
-                bdVideoSeries.setExtLog(str25);
-                bdVideoSeries.setNetToast(!TextUtils.equals(str22, "0"));
-                if (str26 != null) {
-                    str4 = "";
-                } else {
-                    str4 = str26;
-                }
-                bdVideoSeries.setVid(str4);
-                if (!TextUtils.isEmpty(bdVideoSeries.getVid())) {
-                    bdVideoSeries.setNid("sv_" + bdVideoSeries.getVid());
-                }
-                if (str27 != null) {
-                    str5 = "";
-                } else {
-                    str5 = str27;
-                }
-                bdVideoSeries.setFormat(str5);
-                if (TextUtils.equals(str28, "1")) {
-                    bdVideoSeries.setPlayLoop(true);
-                }
-                bdVideoSeries.setVideoFaceDetect(str37);
-                bdVideoSeries.setFloatingDisable(str40);
-                bdVideoSeries.setUrlExpireTime(str38);
-                BdVideo bdVideo2 = new BdVideo();
-                Map<String, String> e32 = e(str10);
-                str6 = e32.get("title");
-                if (!TextUtils.isEmpty(str6)) {
-                    try {
-                        str6 = URLDecoder.decode(str6, "UTF-8");
-                    } catch (UnsupportedEncodingException e7) {
-                        b21.b("BdVideoNewParser", Log.getStackTraceString(e7));
+                    str3 = str2;
+                } catch (Exception e5) {
+                    e = e5;
+                    bufferedReader = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (bufferedReader2 != null) {
                     }
+                    throw th;
                 }
-                str7 = e32.get(PrefetchEvent.EVENT_KEY_PAGE_URL);
-                str8 = e32.get("show_title");
-                str9 = e32.get("show_share");
-                if (TextUtils.isEmpty(str6)) {
-                    str6 = str12;
+                if (!TextUtils.equals(String.valueOf(j), str3) && j2 == file.length()) {
+                    return true;
                 }
-                bdVideo2.setTitle(str6);
-                bdVideo2.setVideoId(str26);
-                if (!TextUtils.isEmpty(str7)) {
-                    str11 = str7;
-                }
-                bdVideo2.setSourceUrl(str11);
-                if (TextUtils.isEmpty(str8)) {
-                    str8 = str19;
-                }
-                bdVideo2.setShowTitle(str8);
-                if (TextUtils.isEmpty(str9)) {
-                    str9 = str23;
-                }
-                bdVideo2.setShowShare(str9);
-                bdVideo2.setCurrentLength(parseDoubleSafe2 + "");
-                bdVideo2.setPlayUrl(str10);
-                bdVideo2.setType(i);
-                bdVideo2.setTotalLength(str24);
-                ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(bdVideo2);
-                bdVideoSeries.setTitle(str12);
-                bdVideoSeries.setVideoList(arrayList2);
-                bdVideoSeries.setSelectedIndex(0);
-                bdVideoSeries.setAnimLogoEnable("1".equals(str29));
-                bdVideoSeries.setAnimLogoJumpScheme(str30);
-                bdVideoSeries.setAnimLogoDownloadScheme(str31);
-                bdVideoSeries.setAnimLogoDownloadToast(str32);
-                bdVideoSeries.setWebPlayerExt(str17);
-                if (!TextUtils.isEmpty(str34)) {
-                    try {
-                        bdVideoSeries.setHotCommentList(j01.b(new JSONArray(str34)));
-                    } catch (Exception e8) {
-                        e8.printStackTrace();
-                    }
-                }
-                bdVideoSeries.setPlayConf(str39);
-                bdVideoSeries.setResourceType(str41);
-                bdVideoSeries.setStartOnPreparedEnable(z2);
-                return bdVideoSeries;
             }
-            return null;
+            return false;
         }
-        return (BdVideoSeries) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static BdVideoSeries c(String str) {
-        InterceptResult invokeL;
+    public final boolean u(ZipFile zipFile, File file, String str) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return d(f(str));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, zipFile, file, str)) == null) {
+            File file2 = new File(file.getAbsoluteFile() + ".tmp");
+            InputStream inputStream = null;
+            try {
+                if (zipFile != null) {
+                    try {
+                        InputStream inputStream2 = zipFile.getInputStream(zipFile.getEntry(str));
+                        try {
+                            fileOutputStream = new FileOutputStream(file2);
+                            try {
+                                if (z71.a(inputStream2, fileOutputStream, 256) > 0) {
+                                    boolean renameTo = file2.renameTo(file);
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                    }
+                                    return renameTo;
+                                }
+                                inputStream = inputStream2;
+                            } catch (Exception unused) {
+                                inputStream = inputStream2;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                    return false;
+                                }
+                                return false;
+                            } catch (Throwable th) {
+                                th = th;
+                                inputStream = inputStream2;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e4) {
+                                        e4.printStackTrace();
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e5) {
+                                        e5.printStackTrace();
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Exception unused2) {
+                            fileOutputStream = null;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileOutputStream = null;
+                        }
+                    } catch (Exception unused3) {
+                        fileOutputStream = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileOutputStream = null;
+                    }
+                } else {
+                    fileOutputStream = null;
+                }
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                    return false;
+                }
+                return false;
+            } catch (Exception e7) {
+                e7.printStackTrace();
+                return false;
+            }
         }
-        return (BdVideoSeries) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static BdVideoSeries d(HashMap<Integer, String> hashMap) {
-        InterceptResult invokeL;
+    public final boolean o(Context context, x71 x71Var, String str, long j, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, hashMap)) == null) {
-            BdVideoSeries b = b(hashMap);
-            if (b == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{context, x71Var, str, Long.valueOf(j), str2})) == null) {
+            File file = new File(f(context), str);
+            if (file.exists() && file.length() == j && n(x71Var, file.getAbsolutePath(), SoUtils.SOLOG.SO_NATIVE_LIB_LOAD)) {
+                return true;
             }
-            String str = hashMap.get(0);
-            String str2 = hashMap.get(303);
-            ClarityUrlList clarityList = b.getClarityList();
-            if (TextUtils.isEmpty(str) && clarityList != null) {
-                str = clarityList.getDefaultUrl();
-            }
-            if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final boolean p(Context context, x71 x71Var, String str, ZipFile zipFile, String str2, long j) {
+        InterceptResult invokeCommon;
+        long h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{context, x71Var, str, zipFile, str2, Long.valueOf(j)})) == null) {
+            String absolutePath = new File(g(context), str).getAbsolutePath();
+            Lock e = e(str);
+            e.lock();
+            try {
                 try {
-                    str = a(new JSONArray(str2));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            String str3 = hashMap.get(108);
-            if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-                try {
-                    str = a(new JSONObject(str3).getJSONArray(BasicVideoParserKt.CLARITY));
+                    h = h(zipFile, str2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-            }
-            if (b.getSelectedVideo() != null) {
-                b.getSelectedVideo().setPlayUrl(str);
-            }
-            return b;
-        }
-        return (BdVideoSeries) invokeL.objValue;
-    }
-
-    public static HashMap<Integer, String> f(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            HashMap<Integer, String> hashMap = new HashMap<>();
-            try {
-                JSONObject jSONObject2 = new JSONObject(str);
-                String optString = jSONObject2.optString("videoUrl");
-                if (TextUtils.isEmpty(optString)) {
-                    optString = jSONObject2.optString("video_url");
+                if (q(x71Var, absolutePath, h, j)) {
+                    return true;
                 }
-                hashMap.put(0, optString);
-                hashMap.put(106, "false");
-                hashMap.put(1, jSONObject2.optString("title"));
-                hashMap.put(110, YYOption.IsLive.VALUE_TRUE);
-                hashMap.put(124, jSONObject2.optString("page"));
-                String optString2 = jSONObject2.optString(BasicVideoParserKt.EXT_LOG);
-                if (!TextUtils.isEmpty(optString2)) {
-                    jSONObject = new JSONObject(optString2);
-                } else {
-                    jSONObject = new JSONObject();
-                }
-                jSONObject.put("ext_page", jSONObject2.optString("page"));
-                hashMap.put(111, jSONObject.toString());
-                hashMap.put(108, jSONObject2.optString("ext"));
-                String optString3 = jSONObject2.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
-                if (TextUtils.isEmpty(optString3)) {
-                    optString3 = jSONObject2.optString("page_url");
-                }
-                hashMap.put(5, optString3);
-                String optString4 = jSONObject2.optString("posterImage");
-                if (TextUtils.isEmpty(optString4)) {
-                    optString4 = jSONObject2.optString("poster_image");
-                }
-                hashMap.put(107, optString4);
-                hashMap.put(112, jSONObject2.optString("duration"));
-                hashMap.put(113, jSONObject2.optString("vid"));
-                hashMap.put(103, "3");
-                JSONObject optJSONObject = jSONObject2.optJSONObject("playerAnimation");
-                if (optJSONObject != null) {
-                    boolean equals = "1".equals(optJSONObject.optString("playerAnimationFlag"));
-                    String optString5 = optJSONObject.optString("animationJumpScheme");
-                    String optString6 = optJSONObject.optString("animationDownloadScheme");
-                    String optString7 = optJSONObject.optString("downloadToast");
-                    if (equals) {
-                        hashMap.put(120, "1");
-                        hashMap.put(121, optString5);
-                        hashMap.put(122, optString6);
-                        hashMap.put(123, optString7);
+                if (c(context, zipFile, str, str2, h)) {
+                    if (q(x71Var, absolutePath, h, j)) {
+                        return true;
                     }
                 }
-                hashMap.put(105, jSONObject2.optString("recommend_list"));
-                hashMap.put(301, jSONObject2.optString("from"));
-                hashMap.put(305, jSONObject2.optString("seekSeconds"));
-                hashMap.put(302, jSONObject2.optString("hasFaceDetect"));
-                hashMap.put(127, String.valueOf(jSONObject2.optInt("urlExpireTs")));
-                String optString8 = jSONObject2.optString(BasicVideoParserKt.CLARITY);
-                if (!TextUtils.isEmpty(optString8)) {
-                    hashMap.put(303, optString8);
-                }
-                String optString9 = jSONObject2.optString("play_conf");
-                if (!TextUtils.isEmpty(optString9)) {
-                    hashMap.put(304, optString9);
-                }
-                String optString10 = jSONObject2.optString("play_floating_conf");
-                if (!TextUtils.isEmpty(optString10)) {
-                    hashMap.put(305, optString10);
-                }
-                hashMap.put(350, jSONObject2.optString("mpd"));
-                hashMap.put(351, jSONObject2.optString("mpd_url"));
-                hashMap.put(352, jSONObject2.optString("mpd_vid"));
-                hashMap.put(353, jSONObject2.optString(BasicVideoParserKt.RESOURCE_TYPE));
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+                e.unlock();
+                return false;
+            } finally {
+                e.unlock();
             }
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public final boolean q(x71 x71Var, String str, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{x71Var, str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (k(str, j, j2) && n(x71Var, str, SoUtils.SOLOG.SO_RELEASE_LIB_LOAD)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final boolean r(Context context, String str, x71 x71Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, context, str, x71Var)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                if (t(x71Var, str, SoUtils.SOLOG.SO_LOAD_LIBRARY)) {
+                    return true;
+                }
+                return s(context, str, x71Var);
+            }
+            throw new IllegalArgumentException("load so library argument error,soName is null.");
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x003b A[Catch: all -> 0x00bc, TRY_ENTER, TRY_LEAVE, TryCatch #7 {all -> 0x00bc, blocks: (B:15:0x003b, B:22:0x0050, B:31:0x0095, B:39:0x00a7), top: B:73:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0050 A[Catch: all -> 0x00bc, TRY_ENTER, TRY_LEAVE, TryCatch #7 {all -> 0x00bc, blocks: (B:15:0x003b, B:22:0x0050, B:31:0x0095, B:39:0x00a7), top: B:73:0x0039 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean s(Context context, String str, x71 x71Var) {
+        InterceptResult invokeLLL;
+        Throwable th;
+        ZipFile zipFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, context, str, x71Var)) == null) {
+            String b2 = z71.b(str);
+            ZipFile zipFile2 = null;
+            try {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            try {
+                try {
+                    try {
+                        zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
+                    } catch (ZipException e) {
+                        this.a.append(Log.getStackTraceString(e));
+                        e.printStackTrace();
+                        zipFile = null;
+                        if (zipFile == null) {
+                        }
+                    }
+                } catch (IOException e2) {
+                    this.a.append(Log.getStackTraceString(e2));
+                    e2.printStackTrace();
+                    zipFile = null;
+                    if (zipFile == null) {
+                    }
+                }
+                if (zipFile == null) {
+                    z71.f(this.a.toString());
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return false;
+                }
+                int i = !z71.d() ? 1 : 0;
+                String str2 = z71.b[i] + File.separator + b2;
+                long i2 = i(zipFile, str2);
+                if (o(context, x71Var, b2, i2, str2)) {
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    return true;
+                } else if (p(context, x71Var, b2, zipFile, str2, i2)) {
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    return true;
+                } else {
+                    z71.f(this.a.toString());
+                    if (zipFile != null) {
+                        try {
+                            zipFile.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    return false;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException e7) {
+                        e7.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean v(long j, String str, File file) {
+        InterceptResult invokeCommon;
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), str, file})) == null) {
+            BufferedWriter bufferedWriter2 = null;
+            try {
+                try {
+                    bufferedWriter = new BufferedWriter(new FileWriter(new File(file, d(str))));
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                bufferedWriter.write(String.valueOf(j));
+                try {
+                    bufferedWriter.close();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return true;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                bufferedWriter2 = bufferedWriter;
+                e.printStackTrace();
+                if (bufferedWriter2 != null) {
+                    try {
+                        bufferedWriter2.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedWriter2 = bufferedWriter;
+                if (bufferedWriter2 != null) {
+                    try {
+                        bufferedWriter2.close();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

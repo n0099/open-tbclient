@@ -10,20 +10,21 @@ import java.util.Map;
 @Keep
 /* loaded from: classes3.dex */
 public class CyberAbTestManager {
-    public static Map<String, a> a = new HashMap();
+    public static final String TAG = "CyberAbTestManager";
+    public static Map<String, CyberAbTestModel> sCyberAbModels = new HashMap();
 
     @Keep
     public static synchronized void collectCyberAllKV(Map<String, String> map) {
         synchronized (CyberAbTestManager.class) {
-            for (Map.Entry<String, a> entry : a.entrySet()) {
-                a value = entry.getValue();
+            for (Map.Entry<String, CyberAbTestModel> entry : sCyberAbModels.entrySet()) {
+                CyberAbTestModel value = entry.getValue();
                 if (value != null) {
-                    Map<String, String> b = value.b();
-                    CyberLog.d("CyberAbTestManager", entry.getKey());
-                    for (Map.Entry<String, String> entry2 : b.entrySet()) {
-                        CyberLog.d("CyberAbTestManager", "--- key:" + entry2.getKey() + ", value:" + entry2.getValue());
+                    Map<String, String> allKV = value.getAllKV();
+                    CyberLog.d(TAG, entry.getKey());
+                    for (Map.Entry<String, String> entry2 : allKV.entrySet()) {
+                        CyberLog.d(TAG, "--- key:" + entry2.getKey() + ", value:" + entry2.getValue());
                     }
-                    map.putAll(b);
+                    map.putAll(allKV);
                 }
             }
         }
@@ -32,21 +33,21 @@ public class CyberAbTestManager {
     @Keep
     public static synchronized void collectOriginAbs(Map<String, String> map) {
         synchronized (CyberAbTestManager.class) {
-            for (Map.Entry<String, a> entry : a.entrySet()) {
+            for (Map.Entry<String, CyberAbTestModel> entry : sCyberAbModels.entrySet()) {
                 String key = entry.getKey();
-                a value = entry.getValue();
+                CyberAbTestModel value = entry.getValue();
                 if (key != null && value != null) {
-                    map.put(key, value.a());
+                    map.put(key, value.getOriginJson());
                 }
             }
         }
     }
 
     @Keep
-    public static a findCyberAbModel(String str) {
-        for (Map.Entry<String, a> entry : a.entrySet()) {
-            a value = entry.getValue();
-            if (value.b().containsKey(str)) {
+    public static CyberAbTestModel findCyberAbModel(String str) {
+        for (Map.Entry<String, CyberAbTestModel> entry : sCyberAbModels.entrySet()) {
+            CyberAbTestModel value = entry.getValue();
+            if (value.getAllKV().containsKey(str)) {
                 return value;
             }
         }
@@ -84,68 +85,28 @@ public class CyberAbTestManager {
     @Keep
     public static synchronized int getCyberAbValueInt(String str, int i) {
         synchronized (CyberAbTestManager.class) {
-            a findCyberAbModel = findCyberAbModel(str);
+            CyberAbTestModel findCyberAbModel = findCyberAbModel(str);
             if (findCyberAbModel == null) {
                 return i;
             }
-            return findCyberAbModel.a(str, i);
+            return findCyberAbModel.getIntValue(str, i);
         }
     }
 
     @Keep
     public static synchronized String getCyberAbValueString(String str, String str2) {
         synchronized (CyberAbTestManager.class) {
-            a findCyberAbModel = findCyberAbModel(str);
+            CyberAbTestModel findCyberAbModel = findCyberAbModel(str);
             if (findCyberAbModel == null) {
                 return str2;
             }
-            return findCyberAbModel.a(str, str2);
-        }
-    }
-
-    @Keep
-    public static synchronized int getCyberAbSwitchInt(String str, String str2, int i) {
-        synchronized (CyberAbTestManager.class) {
-            if (CyberPlayerManager.getCyberMediaContext() == null) {
-                return i;
-            }
-            if (CyberPlayerManager.getCyberMediaContext().getAbTestInterface() == null) {
-                return i;
-            }
-            a aVar = a.get(str);
-            if (aVar == null && (aVar = a.a(str)) != null) {
-                a.put(str, aVar);
-            }
-            if (aVar == null) {
-                return i;
-            }
-            return aVar.a(str2, i);
-        }
-    }
-
-    @Keep
-    public static synchronized String getCyberAbSwitchString(String str, String str2, String str3) {
-        synchronized (CyberAbTestManager.class) {
-            if (CyberPlayerManager.getCyberMediaContext() == null) {
-                return str3;
-            }
-            if (CyberPlayerManager.getCyberMediaContext().getAbTestInterface() == null) {
-                return str3;
-            }
-            a aVar = a.get(str);
-            if (aVar == null && (aVar = a.a(str)) != null) {
-                a.put(str, aVar);
-            }
-            if (aVar == null) {
-                return str3;
-            }
-            return aVar.a(str2, str3);
+            return findCyberAbModel.getStringValue(str, str2);
         }
     }
 
     @Keep
     public static synchronized void parseCyberMediaAllAbs() {
-        a a2;
+        CyberAbTestModel createAbModel;
         synchronized (CyberAbTestManager.class) {
             if (CyberPlayerManager.getCyberMediaContext() == null) {
                 return;
@@ -158,8 +119,8 @@ public class CyberAbTestManager {
             if (keys != null) {
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    if (next.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE) && (a2 = a.a(next)) != null) {
-                        a.put(next, a2);
+                    if (next.startsWith(CyberPlayerManager.INSTALL_OPT_ABTEST_SWITCH_START_CODE) && (createAbModel = CyberAbTestModel.createAbModel(next)) != null) {
+                        sCyberAbModels.put(next, createAbModel);
                     }
                 }
             }

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gw5;
+import com.baidu.tieba.cx5;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +39,7 @@ public class ItemMsgManage extends LinearLayout {
     public TextView h;
 
     /* loaded from: classes6.dex */
-    public class a implements gw5<Boolean> {
+    public class a implements cx5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemMsgManage a;
@@ -63,7 +63,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gw5
+        @Override // com.baidu.tieba.cx5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -141,17 +141,17 @@ public class ItemMsgManage extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f9, (ViewGroup) this, true);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09035a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02fd, (ViewGroup) this, true);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09035e);
             this.a = settingTextSwitchView;
             settingTextSwitchView.setTextLeftMargin(R.dimen.obfuscated_res_0x7f0701d5);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09034c);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090353);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090352);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090354);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09034e);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090355);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090356);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090350);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090357);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090356);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090358);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090352);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090359);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09035a);
             setVisibility(8);
         }
     }
@@ -219,7 +219,7 @@ public class ItemMsgManage extends LinearLayout {
                     i2 = 8;
                 }
                 relativeLayout2.setVisibility(i2);
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090351);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f090355);
                 if (z) {
                     i3 = 0;
                 } else {
@@ -242,16 +242,16 @@ public class ItemMsgManage extends LinearLayout {
                     int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
                     this.e.setVisibility(0);
                     if (intValue == -1) {
-                        String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f078e), StringHelper.numberUniformFormat(intValue2));
+                        String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0791), StringHelper.numberUniformFormat(intValue2));
                         if (intValue2 > 0) {
                             this.e.setText(format);
                         } else {
                             this.e.setVisibility(8);
                         }
                     } else if (intValue == 1) {
-                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f078f));
+                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0792));
                     } else if (intValue == 2) {
-                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f078d));
+                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0790));
                     } else {
                         this.e.setVisibility(8);
                     }

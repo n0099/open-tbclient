@@ -1,154 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.kya;
-import com.baidu.tieba.ps6;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.headcard.RecommendCollectLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SimpleForum;
-/* loaded from: classes8.dex */
-public class ywa implements ps6 {
+/* loaded from: classes9.dex */
+public class ywa extends ax<exa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kya a;
-    public ArrayList<TransmitForumData> b;
-    public List<SimpleForum> c;
-    public ps6.a d;
-    public boolean e;
-    public int f;
-    public kya.b g;
+    public RecommendCollectLayout f;
+    public int g;
 
-    /* loaded from: classes8.dex */
-    public class a implements kya.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ywa a;
-
-        public a(ywa ywaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ywaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ywaVar;
-        }
-
-        @Override // com.baidu.tieba.kya.b
-        public void a(List<SimpleForum> list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, list, i) != null) {
-                return;
-            }
-            this.a.c = list;
-            this.a.f = i;
-            this.a.h();
-        }
-
-        @Override // com.baidu.tieba.kya.b
-        public void onError() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.g();
-            }
-        }
-    }
-
-    public ywa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ywa(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.g = new a(this);
-        BdUniqueId gen = BdUniqueId.gen();
-        kya kyaVar = new kya(gen);
-        this.a = kyaVar;
-        kyaVar.i(this.g);
-        this.a.j(gen);
+        this.f = new RecommendCollectLayout(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.ps6
-    public void a(ps6.a aVar) {
+    @Override // com.baidu.tieba.ax
+    public View j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.d = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ax
+    public void p(BdUniqueId bdUniqueId) {
+        RecommendCollectLayout recommendCollectLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) && (recommendCollectLayout = this.f) != null) {
+            recommendCollectLayout.setPageUniqueId(bdUniqueId);
         }
     }
 
-    @Override // com.baidu.tieba.ps6
-    public void b() {
-        kya kyaVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ux
+    /* renamed from: s */
+    public void onBindDataToView(exa exaVar) {
+        RecommendCollectLayout recommendCollectLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && (kyaVar = this.a) != null) {
-            this.e = false;
-            kyaVar.l(null);
-            this.a.k(null);
-            this.a.h();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, exaVar) == null) && (recommendCollectLayout = this.f) != null) {
+            recommendCollectLayout.setData(exaVar);
+            this.f.setSourceForPb(this.g);
         }
     }
 
-    public final void g() {
+    public void t(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
         }
-        ps6.a aVar = this.d;
-        if (aVar != null) {
-            aVar.callback(null, false, 2, 0);
-        }
-        this.e = true;
     }
 
-    public final void h() {
-        Long l;
+    @Override // com.baidu.tieba.vx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        RecommendCollectLayout recommendCollectLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.clear();
-            if (ListUtils.getCount(this.c) > 0) {
-                for (SimpleForum simpleForum : this.c) {
-                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
-                        transmitForumData.tabItemDatas = new ArrayList<>();
-                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
-                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
-                            }
-                        }
-                        this.b.add(transmitForumData);
-                    }
-                }
-            }
-            ps6.a aVar = this.d;
-            if (aVar != null) {
-                aVar.callback(this.b, true, 2, this.f);
-            }
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (recommendCollectLayout = this.f) != null) {
+            recommendCollectLayout.onChangeSkinType(tbPageContext, i);
         }
     }
 }

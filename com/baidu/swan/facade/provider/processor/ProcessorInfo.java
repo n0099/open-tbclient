@@ -1,16 +1,16 @@
 package com.baidu.swan.facade.provider.processor;
 
-import com.baidu.tieba.jx3;
-import com.baidu.tieba.kx3;
-import com.baidu.tieba.lx3;
-import com.baidu.tieba.mx3;
+import com.baidu.tieba.nx3;
+import com.baidu.tieba.ox3;
+import com.baidu.tieba.px3;
+import com.baidu.tieba.qx3;
 /* loaded from: classes4.dex */
 public enum ProcessorInfo {
-    PARAMS(mx3.class, "params"),
-    FAVORITE(kx3.class, "favorite"),
-    HISTORY(lx3.class, "history");
+    PARAMS(qx3.class, "params"),
+    FAVORITE(ox3.class, "favorite"),
+    HISTORY(px3.class, "history");
     
-    public Class<? extends jx3> mClass;
+    public Class<? extends nx3> mClass;
     public int mMatcherCode = ordinal();
     public String mPath;
 
@@ -19,7 +19,7 @@ public enum ProcessorInfo {
         this.mPath = str;
     }
 
-    private Class<? extends jx3> getProcessorClass() {
+    private Class<? extends nx3> getProcessorClass() {
         return this.mClass;
     }
 
@@ -31,7 +31,7 @@ public enum ProcessorInfo {
         return this.mPath;
     }
 
-    public static Class<? extends jx3> getProcessorClass(int i) {
+    public static Class<? extends nx3> getProcessorClass(int i) {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : values()) {
             if (processorInfo != null && processorInfo.getMatcherCode() == i) {

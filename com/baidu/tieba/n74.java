@@ -1,29 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
 import android.util.Log;
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.tieba.rk3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class n74 {
+public class n74 extends pe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static p74[] b;
-    public static Point c;
-    public static float d;
-    public static float e;
-    public static boolean f;
-    public static int g;
-    public static long h;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.pe2
+    public int U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,247 +41,130 @@ public final class n74 {
                 return;
             }
         }
-        a = nr1.a;
-        c = new Point();
-        d = 1.0f;
-        e = 1.0f;
-        f = false;
+        k = rr1.a;
     }
 
-    public static long a() {
+    @Override // com.baidu.tieba.pe2
+    public PMSDownloadType V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
         }
-        return invokeV.longValue;
+        return (PMSDownloadType) invokeV.objValue;
     }
 
-    public static int b() {
+    @Override // com.baidu.tieba.pe2
+    public String W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ze2.f();
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c() {
+    @Override // com.baidu.tieba.pe2
+    public String X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ze2.e();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void k() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n74(aq3<Exception> aq3Var) {
+        super(aq3Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            g = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aq3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((aq3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public static float d(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) {
-            return td4.b(motionEvent.getX(i) * d);
-        }
-        return invokeLI.floatValue;
-    }
-
-    public static float e(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) {
-            return td4.b(motionEvent.getY(i) * e);
-        }
-        return invokeLI.floatValue;
-    }
-
-    public static void l(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
-            Point point = c;
-            point.x = i;
-            point.y = i2;
-        }
-    }
-
-    public static boolean f(EventTarget eventTarget) {
+    @Override // com.baidu.tieba.pe2
+    public an3 b0(ck4 ck4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eventTarget)) == null) {
-            if (eventTarget == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ck4Var)) == null) {
+            if (ck4Var == null) {
+                an3 an3Var = new an3();
+                an3Var.k(14L);
+                an3Var.b(2908L);
+                an3Var.d("小游戏Extension包 Extension null");
+                return an3Var;
             }
-            return eventTarget.hasEventListener("touchstart", "touchmove", "touchcancel", "touchend");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f = z;
-        }
-    }
-
-    public static void h(MotionEvent motionEvent, o74 o74Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65544, null, motionEvent, o74Var, z) == null) {
-            try {
-                if (!z) {
-                    int actionIndex = motionEvent.getActionIndex();
-                    o74Var.changedTouches = r1;
-                    p74[] p74VarArr = {new p74()};
-                    o74Var.changedTouches[0].identifier = motionEvent.getPointerId(actionIndex);
-                    o74Var.changedTouches[0].clientX = d(motionEvent, actionIndex);
-                    o74Var.changedTouches[0].clientY = e(motionEvent, actionIndex);
-                    return;
-                }
-                int pointerCount = motionEvent.getPointerCount();
-                if (b == null || b.length != pointerCount) {
-                    b = new p74[pointerCount];
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < pointerCount; i++) {
-                    p74 p74Var = new p74();
-                    p74Var.identifier = motionEvent.getPointerId(i);
-                    p74Var.clientX = d(motionEvent, i);
-                    p74Var.clientY = e(motionEvent, i);
-                    if (!p74Var.equals(b[i])) {
-                        arrayList.add(p74Var);
-                    }
-                    b[i] = p74Var;
-                }
-                if (arrayList.size() != 0) {
-                    p74[] p74VarArr2 = new p74[arrayList.size()];
-                    o74Var.changedTouches = p74VarArr2;
-                    arrayList.toArray(p74VarArr2);
-                }
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
+            nm2 nm2Var = new nm2();
+            nm2Var.b = ck4Var.i;
+            nm2Var.a = ck4Var.j;
+            nm2Var.c = ck4Var.a;
+            nm2Var.d = ck4Var.m;
+            boolean z = true;
+            if (ql2.b(1, nm2Var) != null) {
+                z = false;
             }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
-        if (r8.getActionIndex() != r3) goto L23;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void i(MotionEvent motionEvent, o74 o74Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, motionEvent, o74Var) == null) {
-            try {
-                int pointerCount = motionEvent.getPointerCount();
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                while (i < pointerCount) {
-                    int actionMasked = motionEvent.getActionMasked();
-                    boolean z = true;
-                    if (actionMasked != 6 && actionMasked != 1 && actionMasked != 3) {
-                        z = false;
-                    }
-                    int pointerId = motionEvent.getPointerId(i);
-                    p74 p74Var = new p74();
-                    p74Var.identifier = pointerId;
-                    p74Var.clientX = d(motionEvent, i);
-                    p74Var.clientY = e(motionEvent, i);
-                    arrayList.add(p74Var);
-                    i++;
-                }
-                o74Var.touches = new p74[arrayList.size()];
-                if (!arrayList.isEmpty()) {
-                    arrayList.toArray(o74Var.touches);
-                }
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static JSEvent j(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, motionEvent)) == null) {
-            o74 o74Var = new o74();
-            int actionMasked = motionEvent.getActionMasked();
-            String str = "touchend";
-            if (actionMasked != 0) {
-                if (actionMasked != 1) {
-                    if (actionMasked != 2) {
-                        if (actionMasked != 3) {
-                            if (actionMasked != 5) {
-                                if (actionMasked != 6) {
-                                    str = "toucherror";
-                                } else {
-                                    h(motionEvent, o74Var, false);
-                                }
-                            } else {
-                                h(motionEvent, o74Var, false);
-                            }
-                        } else {
-                            h(motionEvent, o74Var, false);
-                            str = "touchcancel";
-                        }
-                    } else {
-                        h(motionEvent, o74Var, true);
-                        str = "touchmove";
-                    }
-                } else {
-                    h(motionEvent, o74Var, false);
-                }
-                o74Var.timeStamp = motionEvent.getEventTime();
-                i(motionEvent, o74Var);
-                JSEvent jSEvent = new JSEvent(str);
-                jSEvent.data = o74Var;
-                if (!"touchmove".equals(str) && o74Var.changedTouches == null) {
+            if (z) {
+                if (k) {
+                    Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
                     return null;
                 }
+                return null;
             }
-            h(motionEvent, o74Var, false);
-            int i = g + 1;
-            g = i;
-            g = Math.min(i, 1000);
-            h = System.currentTimeMillis();
-            str = "touchstart";
-            o74Var.timeStamp = motionEvent.getEventTime();
-            i(motionEvent, o74Var);
-            JSEvent jSEvent2 = new JSEvent(str);
-            jSEvent2.data = o74Var;
-            return !"touchmove".equals(str) ? jSEvent2 : jSEvent2;
+            an3 an3Var2 = new an3();
+            an3Var2.k(14L);
+            an3Var2.b(2908L);
+            an3Var2.d("小游戏Extension包更新失败");
+            return an3Var2;
         }
-        return (JSEvent) invokeL.objValue;
+        return (an3) invokeL.objValue;
     }
 
-    public static void m(int i, int i2) {
-        float f2;
-        int i3;
-        int i4;
+    @Override // com.baidu.tieba.pe2
+    public an3 c0(ek4 ek4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
-            float f3 = 1.0f;
-            if (i != 0 && (i4 = c.x) != 0) {
-                f2 = i4 / i;
-            } else {
-                f2 = 1.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ek4Var)) == null) {
+            if (k) {
+                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + ek4Var);
             }
-            d = f2;
-            if (i2 != 0 && (i3 = c.y) != 0) {
-                f3 = i3 / i2;
+            if (ek4Var == null) {
+                an3 an3Var = new an3();
+                an3Var.k(13L);
+                an3Var.b(2907L);
+                an3Var.d("小游戏GameCore包 Framework null");
+                return an3Var;
             }
-            e = f3;
-            if (a) {
-                Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(d), Float.valueOf(e)));
+            rk3.b c = rk3.c(ek4Var, 1);
+            lr4.k(ek4Var.a);
+            if (c.c()) {
+                if (k) {
+                    Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");
+                }
+                long e = rk3.e(1);
+                if (e > 0) {
+                    SwanAppMessengerService.sendMessageWithDataToAllClient(117, e);
+                    return null;
+                }
+                return null;
             }
+            an3 an3Var2 = new an3();
+            an3Var2.k(13L);
+            an3Var2.b(2907L);
+            an3Var2.d("小游戏GameCore包更新失败");
+            return an3Var2;
         }
+        return (an3) invokeL.objValue;
     }
 }

@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeMap;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes5.dex */
-public class e7c implements a7c {
+public class e7c extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public TreeMap<String, String> b;
+    public final SSLSocketFactory a;
 
-    public e7c() {
+    public e7c() throws KeyManagementException, NoSuchAlgorithmException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,58 +34,112 @@ public class e7c implements a7c {
                 return;
             }
         }
-        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        SSLContext sSLContext = SSLContext.getInstance("TLS");
+        sSLContext.init(null, null, null);
+        this.a = sSLContext.getSocketFactory();
     }
 
-    @Override // com.baidu.tieba.d7c
-    public Iterator<String> g() {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Collections.unmodifiableSet(this.b.keySet()).iterator();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Socket createSocket = this.a.createSocket();
+            a(createSocket);
+            return createSocket;
         }
-        return (Iterator) invokeV.objValue;
+        return (Socket) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d7c
-    public byte[] getContent() {
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.getDefaultCipherSuites();
         }
-        return (byte[]) invokeV.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d7c
-    public String d(String str) {
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a.getSupportedCipherSuites();
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public final Socket a(Socket socket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.b.get(str);
-            if (str2 == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, socket)) == null) {
+            if (socket instanceof SSLSocket) {
+                ((SSLSocket) socket).setEnabledProtocols(new String[]{"TLSv1.2"});
             }
-            return str2;
+            return socket;
         }
-        return (String) invokeL.objValue;
+        return (Socket) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.d7c
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i) throws IOException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.containsKey(str);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            Socket createSocket = this.a.createSocket(str, i);
+            a(createSocket);
+            return createSocket;
         }
-        return invokeL.booleanValue;
+        return (Socket) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.a7c
-    public void put(String str, String str2) {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.b.put(str, str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
+            Socket createSocket = this.a.createSocket(str, i, inetAddress, i2);
+            a(createSocket);
+            return createSocket;
         }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i)) == null) {
+            Socket createSocket = this.a.createSocket(inetAddress, i);
+            a(createSocket);
+            return createSocket;
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
+            Socket createSocket = this.a.createSocket(inetAddress, i, inetAddress2, i2);
+            a(createSocket);
+            return createSocket;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Socket createSocket = this.a.createSocket(socket, str, i, z);
+            a(createSocket);
+            return createSocket;
+        }
+        return (Socket) invokeCommon.objValue;
     }
 }

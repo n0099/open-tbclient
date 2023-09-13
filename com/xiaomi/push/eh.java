@@ -53,7 +53,7 @@ public class eh implements ef {
             try {
                 if (TextUtils.isEmpty(a2)) {
                     dy.a(context, d, 1008, "info is empty");
-                } else if (a == 1 && !ec.m448a(context)) {
+                } else if (a == 1 && !ec.m449a(context)) {
                     dy.a(context, d, 1008, "A not in foreground");
                 } else {
                     String type = context.getContentResolver().getType(dx.a(b, a2));

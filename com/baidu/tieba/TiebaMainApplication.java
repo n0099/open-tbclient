@@ -30,7 +30,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            ns5.a().E(System.currentTimeMillis());
+            ht5.a().E(System.currentTimeMillis());
         }
     }
 
@@ -40,7 +40,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
-            ns5.a().s(currentTimeMillis);
+            ht5.a().s(currentTimeMillis);
         }
     }
 }

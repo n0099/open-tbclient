@@ -153,8 +153,8 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905bc);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ba, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905c1);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.a.setDefaultResource(17170445);
@@ -164,8 +164,8 @@ public class CardFrsGameRecommendGameItemView extends LinearLayout {
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
             this.a.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905bb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905bf);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);

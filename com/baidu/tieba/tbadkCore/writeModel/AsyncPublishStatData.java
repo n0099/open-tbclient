@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +109,7 @@ public class AsyncPublishStatData implements Serializable {
             jSONObject.put("parentId", this.parentId);
             jSONObject.put("startTime", this.startTime);
             jSONObject.put("endTime", this.endTime);
-            jSONObject.put("errorCode", this.errorCode);
+            jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             jSONObject.put("bdNetType", TbadkCoreApplication.getInst().getBdNetType());
             jSONObject.put("sendThreadDuration", this.sendThreadDuration);

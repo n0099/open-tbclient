@@ -12,7 +12,7 @@ public class l {
     public static volatile Handler a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f821a = new Object();
+    public static final Object f820a = new Object();
     public static volatile Handler b;
 
     public static Intent a(Context context, BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
@@ -28,7 +28,7 @@ public class l {
 
     public static Handler a() {
         if (b == null) {
-            synchronized (f821a) {
+            synchronized (f820a) {
                 if (b == null) {
                     HandlerThread handlerThread = new HandlerThread("receiver_task");
                     handlerThread.start();

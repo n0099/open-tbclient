@@ -10,15 +10,15 @@ public class dj implements Runnable {
     public final /* synthetic */ di a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f229a;
+    public final /* synthetic */ String f228a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Throwable f230a;
+    public final /* synthetic */ Throwable f229a;
 
     public dj(di diVar, String str, Throwable th) {
         this.a = diVar;
-        this.f229a = str;
-        this.f230a = th;
+        this.f228a = str;
+        this.f229a = th;
     }
 
     @Override // java.lang.Runnable
@@ -35,32 +35,32 @@ public class dj implements Runnable {
         String str4;
         List list5;
         List list6;
-        list = di.f226a;
-        simpleDateFormat = di.f225a;
+        list = di.f225a;
+        simpleDateFormat = di.f224a;
         str = this.a.b;
-        list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f229a), this.f230a));
-        list2 = di.f226a;
+        list.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat.format(new Date()), str, this.f228a), this.f229a));
+        list2 = di.f225a;
         if (list2.size() > 20000) {
-            list3 = di.f226a;
+            list3 = di.f225a;
             int size = (list3.size() - 20000) + 50;
             for (int i = 0; i < size; i++) {
                 try {
-                    list5 = di.f226a;
+                    list5 = di.f225a;
                     if (list5.size() > 0) {
-                        list6 = di.f226a;
+                        list6 = di.f225a;
                         list6.remove(0);
                     }
                 } catch (IndexOutOfBoundsException unused) {
                 }
             }
-            list4 = di.f226a;
-            simpleDateFormat2 = di.f225a;
+            list4 = di.f225a;
+            simpleDateFormat2 = di.f224a;
             str4 = this.a.b;
             list4.add(new Pair(String.format("%1$s %2$s %3$s ", simpleDateFormat2.format(new Date()), str4, "flush " + size + " lines logs."), null));
         }
         try {
             if (aa.d()) {
-                this.a.m361a();
+                this.a.m362a();
                 return;
             }
             str3 = this.a.b;

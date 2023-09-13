@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import com.baidu.tieba.pc3;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public interface pv1 {
-    boolean a(Activity activity, String str, pc3.b bVar);
+    long a(Context context);
 
-    boolean b(Context context, String str);
+    void b(Context context, String str, aq3<String> aq3Var);
 
-    boolean c(Activity activity, Uri uri, String str);
+    void c(Context context, JSONArray jSONArray, aq3<String> aq3Var);
 }

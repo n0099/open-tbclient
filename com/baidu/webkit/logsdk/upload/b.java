@@ -3,6 +3,7 @@ package com.baidu.webkit.logsdk.upload;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.webkit.logsdk.d.c;
 import java.net.URLEncoder;
 import java.util.ConcurrentModificationException;
@@ -28,7 +29,7 @@ public final class b {
             com.baidu.webkit.logsdk.a.b.a().e();
             jSONObject.putOpt("f1", com.baidu.webkit.logsdk.b.b.e());
             jSONObject.putOpt("f3", com.baidu.webkit.logsdk.b.b.g());
-            jSONObject.putOpt("log_level", Integer.valueOf(aVar.e.b));
+            jSONObject.putOpt(CyberCfgManager.KEY_INT_LOG_LEVEL, Integer.valueOf(aVar.e.b));
             String str = aVar.i;
             String a = (TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str)) ? "full".equals(aVar.e.e) ? com.baidu.webkit.logsdk.a.b.a().g().a(com.baidu.webkit.logsdk.a.b.d()) : com.baidu.webkit.logsdk.a.b.a().g().b(com.baidu.webkit.logsdk.a.b.d(), aVar.e.e) : aVar.i;
             if (!TextUtils.isEmpty(a)) {

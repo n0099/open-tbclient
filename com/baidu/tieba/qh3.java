@@ -18,14 +18,14 @@ public final class qh3 {
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fi3 a;
+        public final /* synthetic */ ji3 a;
 
-        public a(fi3 fi3Var) {
+        public a(ji3 ji3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fi3Var};
+                Object[] objArr = {ji3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,14 +35,14 @@ public final class qh3 {
                     return;
                 }
             }
-            this.a = fi3Var;
+            this.a = ji3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                kh3.k("1719", this.a.f());
+                oh3.k("934", this.a.f());
             }
         }
     }
@@ -60,20 +60,49 @@ public final class qh3 {
                 return;
             }
         }
-        a = nr1.a;
+        a = rr1.a;
     }
 
-    public static void onEvent(fi3 fi3Var) {
+    public static void a(ji3 ji3Var, ew2 ew2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, fi3Var) == null) {
-            if (fi3Var == null) {
+        if ((interceptable == null || interceptable.invokeLL(65537, null, ji3Var, ew2Var) == null) && ji3Var != null && ew2Var != null) {
+            ji3Var.a = ai3.n(ew2Var.G());
+            ji3Var.f = ew2Var.H();
+            ji3Var.c = ew2Var.T();
+            ji3Var.a("swan", mk3.h(ew2Var.G()));
+            ji3Var.a("appversion", ew2Var.v1());
+            ji3Var.a("thirdversion", ew2Var.w1());
+            ji3Var.b(ai3.k(ew2Var.W()));
+            ji3Var.d(ew2Var.s0().getString("ubc"));
+        }
+    }
+
+    public static void b(ki3 ki3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ki3Var) == null) {
+            if (ki3Var == null) {
                 if (a) {
-                    Log.w("SwanAppPermissionDialogUbc", "event is null");
+                    Log.w("SwanAppFuncUbc", "event is null");
                     return;
                 }
                 return;
             }
-            xn3.j(new a(fi3Var), "SwanAppPermissionDialogUbc");
+            ji3 ji3Var = new ji3();
+            ji3Var.f = ki3Var.f;
+            ji3Var.a = ki3Var.a;
+            ji3Var.g = ki3Var.g;
+            ji3Var.c = ki3Var.c;
+            ji3Var.b = ki3Var.b;
+            ji3Var.e = ki3Var.e;
+            ji3Var.e(ki3Var.c());
+            c(ji3Var);
+        }
+    }
+
+    public static void c(ji3 ji3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, ji3Var) == null) {
+            bo3.j(new a(ji3Var), "SwanAppFuncClickUBC");
         }
     }
 }

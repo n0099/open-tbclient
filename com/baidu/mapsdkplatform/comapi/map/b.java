@@ -1,6 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import com.baidu.platform.comapi.map.MapController;
+import com.baidu.searchbox.dns.stratege.DnsStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,6 +26,6 @@ public class b extends c {
         }
         this.c = 10;
         this.b = MapController.HEATMAP_LAYER_TAG;
-        this.d = 180000;
+        this.d = DnsStrategy.Factory.PRE_FETCH_INTERVAL;
     }
 }

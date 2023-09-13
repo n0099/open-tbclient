@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes8.dex */
-public class sj3 extends ProviderDelegation {
+public class sj3 extends rj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,35 +28,48 @@ public class sj3 extends ProviderDelegation {
         }
     }
 
-    @Nullable
-    public static AshmemFileDescriptor c(@NonNull String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("name", str);
-            bundle.putInt("size", i);
-            s73 c = q73.c(sj3.class, bundle);
-            if (c.a()) {
-                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-                return (AshmemFileDescriptor) c.a.getParcelable("result");
-            }
-            return null;
-        }
-        return (AshmemFileDescriptor) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
+    @Override // com.baidu.tieba.rj3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(qj3 qj3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            String string = bundle.getString("name", null);
-            int i = bundle.getInt("size", 0);
-            Bundle bundle2 = new Bundle();
-            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            bundle2.putParcelable("result", xj3.a(string, i));
-            return bundle2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qj3Var)) == null) {
+            Bundle bundle = new Bundle();
+            pj3 b = vj3.b(qj3Var.a);
+            if (b == null) {
+                if (!rj3.a) {
+                    return bundle;
+                }
+                throw new IllegalArgumentException("illegal sp.");
+            }
+            int i = qj3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (rj3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                bundle.putFloat("result_value", b.getFloat(qj3Var.c, Float.parseFloat(qj3Var.d)));
+                            }
+                        } else {
+                            bundle.putString("result_value", b.getString(qj3Var.c, qj3Var.d));
+                        }
+                    } else {
+                        bundle.putBoolean("result_value", b.getBoolean(qj3Var.c, Boolean.parseBoolean(qj3Var.d)));
+                    }
+                } else {
+                    bundle.putLong("result_value", b.getLong(qj3Var.c, Long.parseLong(qj3Var.d)));
+                }
+            } else {
+                bundle.putInt("result_value", b.getInt(qj3Var.c, Integer.parseInt(qj3Var.d)));
+            }
+            if (rj3.a) {
+                Log.d("SwanAppSpDelegation", "Get: " + qj3Var);
+            }
+            return bundle;
         }
         return (Bundle) invokeL.objValue;
     }

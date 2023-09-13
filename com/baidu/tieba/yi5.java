@@ -1,39 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yi5 extends li5 {
+public class yi5 extends ej5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.item_edit_tool), 35, i);
+    public yi5(int i) {
+        super((String) null, 1, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.pic_more_connect64;
-        this.h = R.drawable.pic_more_connect64;
-        this.k = false;
-        this.i = false;
-        this.p = new int[]{61};
+        if (i != 7 && i != 9) {
+            this.d = R.drawable.icon_pure_post_keyboard24_svg;
+            this.i = true;
+        } else {
+            this.d = R.drawable.icon_mask_post_keyboard24_selection;
+            this.f = R.color.CAM_X0105;
+            this.j = true;
+        }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.switch_to_keyboard);
     }
 }

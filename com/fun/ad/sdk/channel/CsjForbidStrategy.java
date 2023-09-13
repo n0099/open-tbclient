@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.anb;
+import com.baidu.tieba.zpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class CsjForbidStrategy implements IAdForbidStrategy {
                 return;
             }
         }
-        this.lastAntiSpamErrTime = anb.a();
+        this.lastAntiSpamErrTime = zpb.a();
     }
 
     @Override // com.fun.ad.sdk.internal.api.IAdForbidStrategy
@@ -52,7 +52,7 @@ public class CsjForbidStrategy implements IAdForbidStrategy {
                     LogPrinter.d("csj还没有超出228错误的限制时间，不发起load", new Object[0]);
                     return 228;
                 }
-                long j = anb.a.getLong(str, 0L);
+                long j = zpb.a.getLong(str, 0L);
                 LogPrinter.d("上次出现112错误的时间：" + j, new Object[0]);
                 if (j != 0) {
                     if (currentTimeMillis - j < 3600000) {
@@ -60,7 +60,7 @@ public class CsjForbidStrategy implements IAdForbidStrategy {
                         return 112;
                     }
                     LogPrinter.d("该广告位 " + str + " 的112错误的限制时间已经过去了", new Object[0]);
-                    anb.b.remove(str).apply();
+                    zpb.b.remove(str).apply();
                 }
                 LogPrinter.d("上次出现-8错误的时间：" + this.lastToFastErrTime, new Object[0]);
                 if (currentTimeMillis - this.lastToFastErrTime < 10000) {
@@ -85,13 +85,13 @@ public class CsjForbidStrategy implements IAdForbidStrategy {
                 } else {
                     if (str2.contains("112")) {
                         LogPrinter.d("记录112出现的时间" + System.currentTimeMillis(), new Object[0]);
-                        anb.b.putLong(str, System.currentTimeMillis()).apply();
+                        zpb.b.putLong(str, System.currentTimeMillis()).apply();
                         return;
                     }
                     if (str2.contains("228")) {
                         this.lastAntiSpamErrTime = System.currentTimeMillis();
                         LogPrinter.d("记录228出现的时间" + this.lastAntiSpamErrTime, new Object[0]);
-                        anb.b.putLong("key_ad_anti_spam_time", this.lastAntiSpamErrTime).apply();
+                        zpb.b.putLong("key_ad_anti_spam_time", this.lastAntiSpamErrTime).apply();
                     }
                 }
             }

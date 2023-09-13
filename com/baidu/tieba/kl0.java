@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.security.PermissionStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kl0 {
@@ -15,7 +13,6 @@ public class kl0 {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
 
     public kl0() {
         Interceptable interceptable = $ic;
@@ -27,42 +24,23 @@ public class kl0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
     }
 
-    @NonNull
-    public static kl0 a(String str) {
+    @Nullable
+    public static kl0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
             kl0 kl0Var = new kl0();
-            JSONObject c = e31.c(str);
-            kl0Var.a = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_1);
-            kl0Var.b = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_2);
-            kl0Var.c = c.optString(PermissionStorage.PermissionItem.ITEM_EXT_3);
+            kl0Var.a = jSONObject.optString("text", "");
+            kl0Var.b = jSONObject.optString("toast", "已复制到剪切板");
             return kl0Var;
         }
         return (kl0) invokeL.objValue;
-    }
-
-    public static String b(@NonNull kl0 kl0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kl0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_1, kl0Var.a);
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_2, kl0Var.b);
-                jSONObject.put(PermissionStorage.PermissionItem.ITEM_EXT_3, kl0Var.c);
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -74,9 +74,9 @@ public class UserPrivateHelper {
             return;
         }
         String str = TbadkCoreApplication.getCurrentAccount() + "@2";
-        int N = personPrivateData.N();
+        int M = personPrivateData.M();
         if (!privateSettings.containsKey(str)) {
-            privateSettings.put(str, Integer.valueOf(N));
+            privateSettings.put(str, Integer.valueOf(M));
         }
     }
 

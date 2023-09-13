@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public class hb7 implements ua7 {
+public final class hb7 implements cb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
 
     public hb7() {
         Interceptable interceptable = $ic;
@@ -29,43 +30,29 @@ public class hb7 implements ua7 {
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
-        Runnable runnable;
+    @Override // com.baidu.tieba.cb7
+    public SpannableString b(Context context, t97 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        m87 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
-            } else {
-                runnable = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            y97 f = richTextData.f();
+            SpannableString spannableString = new SpannableString(f.c());
+            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
+                if ((clickableSpan instanceof db7) && (b = f.b()) != null) {
+                    ((db7) clickableSpan).a(ce7.a.a(b));
+                }
+                int length = f.c().length();
+                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
+                    length = f.c().length() - 1;
+                }
+                spannableString.setSpan(clickableSpan, 0, length, 33);
             }
-            if (runnable != null) {
-                runnable.run();
-            }
-            if (runnable != null) {
-                return true;
-            }
-            return false;
+            return spannableString;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ua7
-    public final void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
-        }
-    }
-
-    public final void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
-        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

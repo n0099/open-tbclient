@@ -1,5 +1,5 @@
 package com.huawei.hms.adapter.internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface BinderCode {
     public static final int BINDER_SYSTEM_ERROR = -1;
     public static final int OK = 0;

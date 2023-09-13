@@ -23,12 +23,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cp9;
-import com.baidu.tieba.df8;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.fg8;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.uc8;
+import com.baidu.tieba.tq9;
+import com.baidu.tieba.wd8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,20 +37,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class MsgrightView extends uc8 {
+public class MsgrightView extends wd8 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String R = "com.baidu.tieba.im.chat.MsgrightView";
+    public static final String S = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
-    public ProgressBar H;
-    public ImageView I;
-    public TextView J;
-    public HeadImageView K;
-    public FrameLayout L;
-    public TextView M;
+    public ProgressBar I;
+    public ImageView J;
+    public TextView K;
+    public HeadImageView L;
+    public FrameLayout M;
     public TextView N;
-    public CenterTextView O;
-    public RelativeLayout P;
-    public cp9 Q;
+    public TextView O;
+    public CenterTextView P;
+    public RelativeLayout Q;
+    public tq9 R;
 
     static {
         InterceptResult invokeClinit;
@@ -102,7 +102,7 @@ public class MsgrightView extends uc8 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements df8.c {
+    public class b implements fg8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -127,14 +127,14 @@ public class MsgrightView extends uc8 {
             this.a = chatMessage;
         }
 
-        @Override // com.baidu.tieba.df8.c
+        @Override // com.baidu.tieba.fg8.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (str.contains(TbConfig.URL_UEG_REPORT)) {
-                    cp9 cp9Var = this.b.Q;
-                    if (cp9Var != null) {
-                        cp9Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                    tq9 tq9Var = this.b.R;
+                    if (tq9Var != null) {
+                        tq9Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                         return;
                     }
                     return;
@@ -182,13 +182,13 @@ public class MsgrightView extends uc8 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, cp9 cp9Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, tq9 tq9Var) {
         super(tbPageContext, R.layout.msg_msgright_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cp9Var};
+            Object[] objArr = {tbPageContext, tq9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,51 +200,52 @@ public class MsgrightView extends uc8 {
                 return;
             }
         }
-        this.Q = null;
-        this.Q = cp9Var;
-        I();
-        this.J = (TextView) u(R.id.img_msgitem_progressbar);
-        this.H = (ProgressBar) u(R.id.obfuscated_res_0x7f091d87);
-        this.I = (ImageView) u(R.id.btn_msgitem_resend);
-        this.K = (HeadImageView) u(R.id.img_msgitem_photo);
-        this.O = (CenterTextView) u(R.id.tv_msgerror);
-        this.P = (RelativeLayout) u(R.id.rl_errmsg);
-        this.L = (FrameLayout) u(R.id.message_text_container);
-        EMManager.from(this.P).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0603);
-        EMManager.from(this.O).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0101);
-        this.K.setAutoChangeStyle(false);
-        this.K.setDrawerType(1);
-        this.K.setRadius(BdUtilHelper.dip2px(this.mContext.getContext(), 4.0f));
-        this.K.setPlaceHolder(1);
-        this.K.setOnClickListener(new a(this));
-        this.M = (TextView) u(R.id.has_read);
-        this.N = (TextView) u(R.id.has_sent);
+        this.R = null;
+        this.R = tq9Var;
+        H();
+        this.K = (TextView) t(R.id.img_msgitem_progressbar);
+        this.I = (ProgressBar) t(R.id.obfuscated_res_0x7f091dad);
+        this.J = (ImageView) t(R.id.btn_msgitem_resend);
+        this.L = (HeadImageView) t(R.id.img_msgitem_photo);
+        this.P = (CenterTextView) t(R.id.tv_msgerror);
+        this.Q = (RelativeLayout) t(R.id.rl_errmsg);
+        this.M = (FrameLayout) t(R.id.message_text_container);
+        EMManager.from(this.Q).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0603);
+        EMManager.from(this.P).setTextSize(R.dimen.T_X09).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0101);
+        this.L.setAutoChangeStyle(false);
+        this.L.setDrawerType(1);
+        this.L.setRadius(BdUtilHelper.dip2px(this.mContext.getContext(), 4.0f));
+        this.L.setPlaceHolder(1);
+        this.L.setOnClickListener(new a(this));
+        this.N = (TextView) t(R.id.has_read);
+        this.O = (TextView) t(R.id.has_sent);
         this.m.setIsLeft(false);
         this.n.setIsLeft(false);
     }
 
-    @Override // com.baidu.tieba.uc8
-    public void K() {
+    @Override // com.baidu.tieba.wd8
+    public void J() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.E == TbadkCoreApplication.getInst().getSkinType()) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.F == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        super.K();
+        super.J();
         SkinManager.setBackgroundResource(this.j, R.drawable.selector_msg_text_bubble_me);
-        this.q.u(R);
-        this.r.l(R);
+        this.q.u(S);
+        this.r.l(S);
+        this.s.l(S);
         SkinManager.setBackgroundResource(this.n, R.drawable.selector_msg_text_bubble_me);
         SkinManager.setBackgroundResource(this.m, R.drawable.selector_msg_text_bubble_me);
-        this.k.f(R);
+        this.k.f(S);
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
-        ChatShareChatroomCard chatShareChatroomCard = this.s;
+        ChatShareChatroomCard chatShareChatroomCard = this.t;
         if (chatShareChatroomCard != null) {
-            chatShareChatroomCard.h(R.drawable.icon_pic_im_bubble_share_right, false);
+            chatShareChatroomCard.f(R.drawable.icon_pic_im_bubble_share_right, false);
         }
-        this.t.e(R.drawable.icon_pic_im_bubble_share_right, false);
+        this.u.d(R.drawable.icon_pic_im_bubble_share_right, false);
     }
 
-    @Override // com.baidu.tieba.uc8
+    @Override // com.baidu.tieba.wd8
     public void M(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, chatMessage) == null) {
@@ -252,11 +253,11 @@ public class MsgrightView extends uc8 {
             String str = null;
             if (chatMessage == null) {
                 this.i.setVisibility(8);
-                this.H.setVisibility(8);
                 this.I.setVisibility(8);
-                this.M.setVisibility(4);
+                this.J.setVisibility(8);
                 this.N.setVisibility(4);
-                this.P.setVisibility(8);
+                this.O.setVisibility(4);
+                this.Q.setVisibility(8);
                 this.j.setVisibility(0);
                 this.j.setText(null);
                 O(8);
@@ -268,121 +269,121 @@ public class MsgrightView extends uc8 {
                 this.o.setVisibility(8);
                 this.q.setVisibility(8);
                 this.r.setVisibility(8);
-                ChatShareChatroomCard chatShareChatroomCard = this.s;
+                ChatShareChatroomCard chatShareChatroomCard = this.t;
                 if (chatShareChatroomCard != null) {
                     chatShareChatroomCard.setVisibility(8);
                 }
-                this.t.setVisibility(8);
+                this.u.setVisibility(8);
                 return;
             }
             try {
-                f0(chatMessage);
-                l0(chatMessage);
-                this.K.setDefaultResource(R.drawable.obfuscated_res_0x7f0811b0);
+                g0(chatMessage);
+                m0(chatMessage);
+                this.L.setDefaultResource(R.drawable.obfuscated_res_0x7f0811cf);
                 if (chatMessage.getUserInfo() != null) {
-                    this.K.setUserId(chatMessage.getUserInfo().getUserId());
+                    this.L.setUserId(chatMessage.getUserInfo().getUserId());
                     if (TbadkCoreApplication.isLogin()) {
                         str = TbadkCoreApplication.getCurrentAvatar();
                     }
                     if (str != null && str.length() > 0) {
-                        this.K.startLoad(str, 12, false);
+                        this.L.startLoad(str, 12, false);
                     }
                 }
-                this.K.setContentDescription(chatMessage.getUserInfo().getName_show());
-                if (F()) {
+                this.L.setContentDescription(chatMessage.getUserInfo().getName_show());
+                if (E()) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     layoutParams.rightMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-                    this.L.setLayoutParams(layoutParams);
-                    this.K.setVisibility(8);
+                    this.M.setLayoutParams(layoutParams);
+                    this.L.setVisibility(8);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams2.addRule(11);
                     layoutParams2.addRule(3, R.id.message_container);
                     layoutParams2.rightMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X006);
                     layoutParams2.topMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X002);
                     layoutParams2.bottomMargin = SelectorHelper.getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+                    this.O.setLayoutParams(layoutParams2);
                     this.N.setLayoutParams(layoutParams2);
-                    this.M.setLayoutParams(layoutParams2);
                 }
-                this.H.setVisibility(8);
                 this.I.setVisibility(8);
-                this.M.setVisibility(4);
+                this.J.setVisibility(8);
                 this.N.setVisibility(4);
-                this.P.setVisibility(8);
+                this.O.setVisibility(4);
+                this.Q.setVisibility(8);
                 if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null) {
                     switch (chatMessage.getLocalData().getStatus().shortValue()) {
                         case 1:
-                            this.H.setVisibility(0);
+                            this.I.setVisibility(0);
                             break;
                         case 2:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            this.O.setText(R.string.message_text_error_because_network);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            this.P.setText(R.string.message_text_error_because_network);
                             break;
                         case 3:
-                            this.H.setVisibility(8);
-                            if (this.w) {
+                            this.I.setVisibility(8);
+                            if (this.x) {
                                 if (chatMessage.isHasRead()) {
-                                    this.M.setVisibility(0);
-                                    this.N.setVisibility(4);
+                                    this.N.setVisibility(0);
+                                    this.O.setVisibility(4);
                                     break;
                                 } else {
-                                    this.M.setVisibility(4);
-                                    this.N.setVisibility(0);
+                                    this.N.setVisibility(4);
+                                    this.O.setVisibility(0);
                                     break;
                                 }
                             }
                             break;
                         case 4:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            this.O.setText(R.string.message_text_error_because_refuse_friend);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            this.P.setText(R.string.message_text_error_because_refuse_friend);
                             break;
                         case 5:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            this.O.setText(R.string.message_text_error_because_refuse_stranger);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            this.P.setText(R.string.message_text_error_because_refuse_stranger);
                             break;
                         case 6:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            this.O.setText(R.string.message_text_error_because_refuse);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            this.P.setText(R.string.message_text_error_because_refuse);
                             break;
                         case 7:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            this.O.setText(R.string.message_text_error_because_cancellation);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            this.P.setText(R.string.message_text_error_because_cancellation);
                             break;
                         case 8:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            this.O.setText(R.string.message_text_error_because_banned);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            this.P.setText(R.string.message_text_error_because_banned);
                             break;
                         case 9:
-                            this.I.setVisibility(0);
-                            this.P.setVisibility(0);
-                            if (di.isEmpty(chatMessage.getLocalData().getErrorString())) {
-                                this.O.setText(R.string.message_text_error_because_network);
+                            this.J.setVisibility(0);
+                            this.Q.setVisibility(0);
+                            if (ei.isEmpty(chatMessage.getLocalData().getErrorString())) {
+                                this.P.setText(R.string.message_text_error_because_network);
                                 break;
                             } else {
-                                df8 f = df8.f(TbadkCoreApplication.getInst().getContext());
+                                fg8 f = fg8.f(TbadkCoreApplication.getInst().getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
-                                    f.h(this.O);
+                                    f.h(this.P);
                                     f.j(new b(this, chatMessage));
                                     if (chatMessage.getError() == 220907) {
                                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_USER_GROWUP_LEVEL_DIALOG_SHOW).param("obj_type", "1").param("obj_locate", "1"));
                                         break;
                                     }
                                 } else {
-                                    this.O.setText(chatMessage.getLocalData().getErrorString());
+                                    this.P.setText(chatMessage.getLocalData().getErrorString());
                                     break;
                                 }
                             }
                             break;
                     }
                 }
-                if (this.I.getVisibility() == 0) {
-                    this.I.setOnClickListener(new c(this));
+                if (this.J.getVisibility() == 0) {
+                    this.J.setOnClickListener(new c(this));
                 }
                 this.j.setVisibility(8);
                 O(8);
@@ -393,74 +394,78 @@ public class MsgrightView extends uc8 {
                 this.o.setVisibility(8);
                 this.q.setVisibility(8);
                 this.r.setVisibility(8);
-                if (this.s != null) {
-                    this.s.setVisibility(8);
+                if (this.t != null) {
+                    this.t.setVisibility(8);
                 }
-                this.t.setVisibility(8);
+                this.u.setVisibility(8);
                 int msgType = chatMessage.getMsgType();
                 if (msgType != 1) {
                     if (msgType != 2) {
                         if (msgType != 3) {
                             if (msgType != 4) {
                                 if (msgType != 9) {
-                                    if (msgType != 37) {
-                                        if (msgType != 38) {
-                                            switch (msgType) {
-                                                case 32:
-                                                    j0(chatMessage);
-                                                    return;
-                                                case 33:
-                                                    d0(chatMessage);
-                                                    return;
-                                                case 34:
-                                                    e0(chatMessage);
-                                                    return;
-                                                default:
-                                                    return;
+                                    if (msgType != 40) {
+                                        if (msgType != 37) {
+                                            if (msgType != 38) {
+                                                switch (msgType) {
+                                                    case 32:
+                                                        k0(chatMessage);
+                                                        return;
+                                                    case 33:
+                                                        d0(chatMessage);
+                                                        return;
+                                                    case 34:
+                                                        e0(chatMessage);
+                                                        return;
+                                                    default:
+                                                        return;
+                                                }
                                             }
+                                            i0(chatMessage);
+                                            return;
                                         }
-                                        h0(chatMessage);
+                                        b0(chatMessage);
                                         return;
                                     }
-                                    b0(chatMessage);
+                                    f0(chatMessage, S);
                                     return;
                                 }
-                                c0(view2, chatMessage, R);
+                                c0(view2, chatMessage, S);
                                 return;
                             }
                             a0(chatMessage, true);
                             return;
                         }
-                        k0(chatMessage, R);
+                        l0(chatMessage, S);
                         this.k.setVisibility(0);
                         return;
                     }
-                    g0(view2, chatMessage, R);
+                    h0(view2, chatMessage, S);
                     return;
                 }
-                i0(chatMessage, R);
+                j0(chatMessage, S);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.uc8
+    @Override // com.baidu.tieba.wd8
     public void X(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {
             if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
-                if (this.J.getVisibility() != 8) {
-                    this.J.setVisibility(8);
+                if (this.K.getVisibility() != 8) {
+                    this.K.setVisibility(8);
                     this.p.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
                 }
             } else if (chatMessage.getProgressValue() < 100 && chatMessage.getIsUploading()) {
                 this.p.getImage().setColorFilter(TbadkCoreApplication.getInst().getApp().getResources().getColor(R.color.common_color_10227), PorterDuff.Mode.SRC_ATOP);
-                TextView textView = this.J;
+                TextView textView = this.K;
                 textView.setText(chatMessage.getProgressValue() + "%");
-                this.J.setVisibility(0);
-            } else if (this.J.getVisibility() != 8) {
-                this.J.setVisibility(8);
+                this.K.setVisibility(0);
+            } else if (this.K.getVisibility() != 8) {
+                this.K.setVisibility(8);
                 this.p.getImage().setColorFilter(0, PorterDuff.Mode.SRC_ATOP);
             }
         }

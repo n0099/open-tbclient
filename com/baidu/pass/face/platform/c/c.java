@@ -48,7 +48,7 @@ public class c implements ILivenessStrategy {
     public HashMap<String, ImageInfo> r = new HashMap<>();
     public HashMap<String, ImageInfo> s = new HashMap<>();
     public long v = 0;
-    public volatile EnumC0132c x = EnumC0132c.LivenessCrop;
+    public volatile EnumC0121c x = EnumC0121c.LivenessCrop;
     public long y = -1;
 
     /* renamed from: com.baidu.pass.face.platform.c.c$1  reason: invalid class name */
@@ -58,18 +58,18 @@ public class c implements ILivenessStrategy {
         public static final /* synthetic */ int[] b;
 
         static {
-            int[] iArr = new int[EnumC0132c.values().length];
+            int[] iArr = new int[EnumC0121c.values().length];
             b = iArr;
             try {
-                iArr[EnumC0132c.LivenessReady.ordinal()] = 1;
+                iArr[EnumC0121c.LivenessReady.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                b[EnumC0132c.LivenessTips.ordinal()] = 2;
+                b[EnumC0121c.LivenessTips.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                b[EnumC0132c.LivenessOK.ordinal()] = 3;
+                b[EnumC0121c.LivenessOK.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[FaceStatusNewEnum.values().length];
@@ -113,7 +113,7 @@ public class c implements ILivenessStrategy {
 
     /* renamed from: com.baidu.pass.face.platform.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public enum EnumC0132c {
+    public enum EnumC0121c {
         LivenessReady,
         LivenessTips,
         LivenessOK,
@@ -187,7 +187,7 @@ public class c implements ILivenessStrategy {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(com.baidu.pass.face.platform.model.a aVar, BDFaceImageInstance bDFaceImageInstance) {
-        EnumC0132c enumC0132c;
+        EnumC0121c enumC0121c;
         if (bDFaceImageInstance == null) {
             return;
         }
@@ -231,19 +231,19 @@ public class c implements ILivenessStrategy {
                 return;
             } else {
                 this.i.setFaceInfo(faceExtInfo);
-                if (this.x == EnumC0132c.LivenessCrop) {
+                if (this.x == EnumC0121c.LivenessCrop) {
                     if (this.z >= this.t.getCacheImageNum()) {
-                        this.x = EnumC0132c.LivenessReady;
+                        this.x = EnumC0121c.LivenessReady;
                     } else if (a(bDFaceImageInstance, faceExtInfo, this.f.a(), this.z)) {
                         this.z++;
                     }
                 }
-                if (this.x == EnumC0132c.LivenessReady || this.x == EnumC0132c.LivenessTips) {
+                if (this.x == EnumC0121c.LivenessReady || this.x == EnumC0121c.LivenessTips) {
                     if (faceExtInfo.getFaceId() != this.y) {
                         this.f.i();
                         FaceSDKManager.getInstance().a();
                         if (this.y != -1) {
-                            this.x = EnumC0132c.LivenessCrop;
+                            this.x = EnumC0121c.LivenessCrop;
                             this.z = 0;
                             HashMap<String, ImageInfo> hashMap = this.r;
                             if (hashMap != null) {
@@ -264,8 +264,8 @@ public class c implements ILivenessStrategy {
                 int i = AnonymousClass1.b[this.x.ordinal()];
                 if (i == 1) {
                     if (a(this.f.b(), faceExtInfo)) {
-                        enumC0132c = EnumC0132c.LivenessTips;
-                        this.x = enumC0132c;
+                        enumC0121c = EnumC0121c.LivenessTips;
+                        this.x = enumC0121c;
                     }
                     bDFaceImageInstance.destory();
                     return;
@@ -276,8 +276,8 @@ public class c implements ILivenessStrategy {
                         }
                         if (this.f.f()) {
                             this.f.h();
-                            enumC0132c = EnumC0132c.LivenessReady;
-                            this.x = enumC0132c;
+                            enumC0121c = EnumC0121c.LivenessReady;
+                            this.x = enumC0121c;
                         } else if (this.f.c()) {
                             b(FaceStatusNewEnum.OK, faceExtInfo);
                         }
@@ -285,8 +285,8 @@ public class c implements ILivenessStrategy {
                     bDFaceImageInstance.destory();
                     return;
                 } else if (this.f.d()) {
-                    enumC0132c = EnumC0132c.LivenessOK;
-                    this.x = enumC0132c;
+                    enumC0121c = EnumC0121c.LivenessOK;
+                    this.x = enumC0121c;
                     bDFaceImageInstance.destory();
                     return;
                 } else {

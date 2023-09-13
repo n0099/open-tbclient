@@ -102,16 +102,16 @@ public class SwitcherTextView extends TextSwitcher {
     public void setAddAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setInAnimation(getContext(), R.anim.obfuscated_res_0x7f010183);
-            setOutAnimation(getContext(), R.anim.obfuscated_res_0x7f010184);
+            setInAnimation(getContext(), R.anim.obfuscated_res_0x7f010187);
+            setOutAnimation(getContext(), R.anim.obfuscated_res_0x7f010188);
         }
     }
 
     public void setReduceAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setInAnimation(getContext(), R.anim.obfuscated_res_0x7f010074);
-            setOutAnimation(getContext(), R.anim.obfuscated_res_0x7f010075);
+            setInAnimation(getContext(), R.anim.obfuscated_res_0x7f010083);
+            setOutAnimation(getContext(), R.anim.obfuscated_res_0x7f010084);
         }
     }
 }

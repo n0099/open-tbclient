@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.tw5;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.px5;
+import com.baidu.tieba.q75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
+public class DownloadFlowAdapter<T extends q75> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> a;
@@ -39,7 +39,7 @@ public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
     public Context c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public tw5 f;
+    public px5 f;
     public Map<String, String> g;
 
     public void d() {
@@ -86,7 +86,7 @@ public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
         new ArrayList();
         this.g = new HashMap();
         this.c = context;
-        this.f = tw5.d();
+        this.f = px5.d();
         i();
     }
 
@@ -147,10 +147,10 @@ public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
                     }
                     Map.Entry<String, String> next = it.next();
                     if (next != null && this.g.containsKey(str) && next.getKey().equals(str)) {
-                        if (next.getValue().equals(tw5.j)) {
+                        if (next.getValue().equals(px5.j)) {
                             return true;
                         }
-                        if (next.getValue().equals(tw5.k)) {
+                        if (next.getValue().equals(px5.k)) {
                         }
                     }
                 }
@@ -168,9 +168,9 @@ public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
         }
     }
 
-    public void g(List<T> list, g75 g75Var) {
+    public void g(List<T> list, p75 p75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, g75Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, p75Var) == null) && list != null && !list.isEmpty()) {
             e(list);
             f(this.b);
             notifyDataSetChanged();
@@ -200,12 +200,12 @@ public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
     }
 
     public void i() {
-        tw5 tw5Var;
+        px5 px5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (tw5Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (px5Var = this.f) == null) {
             return;
         }
-        this.g = tw5Var.f();
+        this.g = px5Var.f();
         notifyDataSetChanged();
     }
 

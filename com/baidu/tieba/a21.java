@@ -1,23 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.media.AudioManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class a21 {
+public final class a21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
+    public static final boolean a(Context context) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            AudioManager a = i21.a(context);
+            if (a != null) {
+                z = a.isWiredHeadsetOn();
+            } else {
+                z = false;
+            }
+            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            f21.b("BdHeadsetUtils", "当前耳机连接状态>>> 有线耳机=" + z + ", 蓝牙=" + z2);
+            if (!z && !z2) {
                 return false;
             }
-            return new File(str).exists();
+            return true;
         }
         return invokeL.booleanValue;
     }

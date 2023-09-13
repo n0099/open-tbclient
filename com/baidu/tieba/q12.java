@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d92;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,30 +15,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q12 extends j12 {
+public class q12 extends n12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gz1
+    @Override // com.baidu.tieba.kz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetDeviceProfileApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ q12 b;
+        public final /* synthetic */ Context a;
 
-        public a(q12 q12Var, String str) {
+        public a(q12 q12Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q12Var, str};
+                Object[] objArr = {q12Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,93 +47,31 @@ public class q12 extends j12 {
                     return;
                 }
             }
-            this.b = q12Var;
-            this.a = str;
+            this.a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new d32(0, b.a().b()));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !za3.d()) {
+                za3.f(this.a, R.string.obfuscated_res_0x7f0f0473).G();
             }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-        public float c;
-        public float d;
-        public float e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @NonNull
-        public static b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                b bVar = new b();
-                bVar.a = d92.d();
-                d92.c i = d92.i();
-                bVar.b = i.c;
-                bVar.c = i.a;
-                bVar.d = i.b;
-                bVar.e = c92.b();
-                return bVar;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public JSONObject b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("deviceTotalMem", this.a);
-                    jSONObject.put("deviceUsedMem", this.b);
-                    jSONObject.put("hostUsedMem", this.c);
-                    jSONObject.put("appUsedMem", this.d);
-                    jSONObject.put("appUsedCpu", this.e);
-                } catch (JSONException e) {
-                    d82.l("GetDeviceProfileApi", "#toJSONObject 失败", e);
-                }
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q12(@NonNull ez1 ez1Var) {
-        super(ez1Var);
+    public q12(@NonNull iz1 iz1Var) {
+        super(iz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ez1Var};
+            Object[] objArr = {iz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ez1) newInitContext.callArgs[0]);
+                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -140,23 +79,50 @@ public class q12 extends j12 {
         }
     }
 
-    public d32 x(String str) {
-        InterceptResult invokeL;
+    @SuppressLint({"KotlinPropertyAccess"})
+    public h32 x() {
+        InterceptResult invokeV;
+        String charSequence;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceProfile", false);
-            Pair<d32, JSONObject> s = s(str);
-            d32 d32Var = (d32) s.first;
-            if (!d32Var.isSuccess()) {
-                return d32Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getClipboardData", false);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                CharSequence a2 = cp3.b(getContext()).a();
+                if (TextUtils.isEmpty(a2)) {
+                    charSequence = "";
+                } else {
+                    charSequence = a2.toString();
+                }
+                jSONObject.put("data", charSequence);
+                return new h32(0, jSONObject);
+            } catch (JSONException e) {
+                p("#getClipboardData json put data fail", e, false);
+                return new h32(1001, "JSONException");
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new d32(202, "cb is empty");
-            }
-            xn3.k(new a(this, optString), "GetDeviceProfileApi");
-            return d32.f();
         }
-        return (d32) invokeL.objValue;
+        return (h32) invokeV.objValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public h32 y(String str) {
+        InterceptResult invokeL;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setClipboardData", false);
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                return h32Var;
+            }
+            cp3.b(getContext()).c(((JSONObject) s.second).optString("data"));
+            hb3 q = gb3.K().q();
+            if (q != null && (w = q.w()) != null) {
+                bp3.f0(new a(this, w), 200L);
+            }
+            return h32.f();
+        }
+        return (h32) invokeL.objValue;
     }
 }

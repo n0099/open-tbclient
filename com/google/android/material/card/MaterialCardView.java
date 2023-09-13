@@ -30,7 +30,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
-    public static final int DEF_STYLE_RES = 2131755888;
+    public static final int DEF_STYLE_RES = 2131755896;
     public static final String LOG_TAG = "MaterialCardView";
     @NonNull
     public final MaterialCardViewHelper cardViewHelper;

@@ -7,6 +7,8 @@ import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tieba.cra;
+import com.baidu.tieba.memberCenter.tail.data.TailEditActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,6 +28,7 @@ public class ThreadRecommendInfoData implements Serializable {
     public ThemeColorInfo backgroundColor;
     public String businessId;
     public int businessType;
+    public ThemeColorInfo dotColorInfo;
     public String forumAvatar;
     public String forumName;
     public String jumpIcon;
@@ -42,6 +45,7 @@ public class ThreadRecommendInfoData implements Serializable {
     public int showNum;
     public String showType;
     public ThemeColorInfo stripColor;
+    public ThemeColorInfo tailColorInfo;
 
     public ThreadRecommendInfoData() {
         Interceptable interceptable = $ic;
@@ -95,6 +99,8 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.jumpIcon = jSONObject.optString("jump_icon");
                 this.jumpText = jSONObject.optString("jump_text");
                 parseJumpLinkAlbumType(this.jumpLink);
+                this.dotColorInfo = cra.j(jSONObject.optJSONObject("dot_color"));
+                this.tailColorInfo = cra.j(jSONObject.optJSONObject(TailEditActivityConfig.TAIL_COLOR));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -120,6 +126,8 @@ public class ThreadRecommendInfoData implements Serializable {
         this.stripColor = threadRecommendInfo.strip_color;
         this.backgroundColor = threadRecommendInfo.background_color;
         this.jumpTextColor = threadRecommendInfo.jump_text_color;
+        this.dotColorInfo = threadRecommendInfo.dot_color;
+        this.tailColorInfo = threadRecommendInfo.tail_color;
         this.jumpLink = threadRecommendInfo.jump_link;
         this.businessType = threadRecommendInfo.business_type.intValue();
         this.businessId = threadRecommendInfo.business_id;

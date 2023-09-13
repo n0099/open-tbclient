@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public interface km5 {
-    String a(ImageFileInfo imageFileInfo);
+    void a();
+
+    void b(ByteBuffer byteBuffer);
+
+    void onStart();
 }

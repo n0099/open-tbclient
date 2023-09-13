@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c0b;
-import com.baidu.tieba.jza;
-import com.baidu.tieba.kza;
-import com.baidu.tieba.u4b;
+import com.baidu.tieba.c7b;
+import com.baidu.tieba.f7b;
+import com.baidu.tieba.k2b;
+import com.baidu.tieba.p1b;
+import com.baidu.tieba.q1b;
 import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.tieba.write.webwrite.hybirdlistener.QuestionTagListener;
-import com.baidu.tieba.x4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,18 +35,18 @@ public final class QuestionTagListener extends BizBase {
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> g;
 
-    @Override // com.baidu.tieba.mza
-    public jza[] d() {
+    @Override // com.baidu.tieba.s1b
+    public p1b[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (jza[]) invokeV.objValue;
+        return (p1b[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuestionTagListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, c0b writePageState) {
+    public QuestionTagListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, k2b writePageState) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -58,7 +58,7 @@ public final class QuestionTagListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c0b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (k2b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,11 +74,11 @@ public final class QuestionTagListener extends BizBase {
     public final void t(final String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            new x4b().u(this.g.getPageActivity(), str2, k().getForumId(), new u4b() { // from class: com.baidu.tieba.e0b
+            new f7b().u(this.g.getPageActivity(), str2, k().getForumId(), new c7b() { // from class: com.baidu.tieba.m2b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.u4b
+                @Override // com.baidu.tieba.c7b
                 public final void a(QuestionTagListData.QuestionTag questionTag) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, questionTag) == null) {
@@ -96,7 +96,7 @@ public final class QuestionTagListener extends BizBase {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(tag, "tag");
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("tag_id", tag.id);
+            jSONObject.put(PushConstants.SUB_TAGS_STATUS_ID, tag.id);
             jSONObject.put(PushConstants.SUB_TAGS_STATUS_NAME, tag.tagName);
             jSONObject.put("is_question_tag_manual_created", true);
             jSONObject.put("refer", refer);
@@ -106,18 +106,18 @@ public final class QuestionTagListener extends BizBase {
         }
     }
 
-    @Override // com.baidu.tieba.mza
+    @Override // com.baidu.tieba.s1b
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new WrapListener[]{h().invoke("writePage.selectQuestionTag", new QuestionTagListener$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mza
-    public kza[] f() {
+    @Override // com.baidu.tieba.s1b
+    public q1b[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new kza[]{p(25072, new QuestionTagListener$requestCodeHandlers$1(this))} : (kza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new q1b[]{p(25072, new QuestionTagListener$requestCodeHandlers$1(this))} : (q1b[]) invokeV.objValue;
     }
 
     public final TbPageContext<?> getContext() {
@@ -169,7 +169,7 @@ public final class QuestionTagListener extends BizBase {
                 return;
             }
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("tag_id", questionTag.id);
+            jSONObject.put(PushConstants.SUB_TAGS_STATUS_ID, questionTag.id);
             jSONObject.put(PushConstants.SUB_TAGS_STATUS_NAME, questionTag.tagName);
             jSONObject.put("is_question_tag_manual_created", false);
             jSONObject.put("refer", str);

@@ -1,55 +1,51 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.mv2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import okhttp3.HttpUrl;
-import okhttp3.MultipartBody;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dd3 extends f23 {
+public class dd3 extends ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback {
+    public class a implements aq3<hg3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ Context b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ hb3 e;
         public final /* synthetic */ dd3 f;
 
-        public a(dd3 dd3Var, CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
+        public a(dd3 dd3Var, JSONObject jSONObject, Context context, String str, CallbackHandler callbackHandler, hb3 hb3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dd3Var, callbackHandler, str, str2, str3, str4};
+                Object[] objArr = {dd3Var, jSONObject, context, str, callbackHandler, hb3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,60 +56,53 @@ public class dd3 extends f23 {
                 }
             }
             this.f = dd3Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = str4;
+            this.a = jSONObject;
+            this.b = context;
+            this.c = str;
+            this.d = callbackHandler;
+            this.e = hb3Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(hg3 hg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                ji3.b("uploadFile", 3011, exc.getMessage(), 1001, exc.getMessage());
-                qw2.T().Q();
-                this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
-                this.f.q(this.e);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hg3Var) == null) {
+                if (ar3.f(this.a)) {
+                    this.f.p(this.f.s(se3.e(), this.a.optString("path")), this.b, this.c, this.d, this.a, this.e);
+                    return;
+                }
+                String r = this.f.r(hg3Var, this.a);
+                if (!bp3.G() && TextUtils.isEmpty(r)) {
+                    r = nv3.e().g(this.e.O(), this.e.k(), this.a.optString("path"));
+                }
+                String str = r;
+                if (ed3.b) {
+                    Log.d("ShareAction", "final share url is " + str);
+                }
+                this.f.p(str, this.b, this.c, this.d, this.a, this.e);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                qw2.T().Q();
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.f.z(response, this.a, this.b, this.c, this.d, this.e);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements x23 {
+    public class b implements aq3<kg3<mg3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
         public final /* synthetic */ String c;
-        public final /* synthetic */ CallbackHandler d;
-        public final /* synthetic */ dd3 e;
+        public final /* synthetic */ JSONObject d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ dd3 f;
 
-        public b(dd3 dd3Var, long j, String str, String str2, CallbackHandler callbackHandler) {
+        public b(dd3 dd3Var, Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dd3Var, Long.valueOf(j), str, str2, callbackHandler};
+                Object[] objArr = {dd3Var, context, callbackHandler, str, jSONObject, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -123,268 +112,366 @@ public class dd3 extends f23 {
                     return;
                 }
             }
-            this.e = dd3Var;
-            this.a = j;
-            this.b = str;
-            this.c = str2;
-            this.d = callbackHandler;
+            this.f = dd3Var;
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
+            this.d = jSONObject;
+            this.e = str2;
         }
 
-        @Override // com.baidu.tieba.x23
-        public void a(long j) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(kg3<mg3.e> kg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeJ(1048576, this, j) != null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                this.f.n(this.a, this.b, this.c, this.d, fg3.h(kg3Var), this.e);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements mv2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ dd3 c;
+
+        public c(dd3 dd3Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd3Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = dd3Var;
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.mv2.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.e.x(this.a, j, this.b, this.c, this.d);
+            this.c.q(this.a, this.b, false);
+        }
+
+        @Override // com.baidu.tieba.mv2.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            this.c.q(this.a, this.b, true);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dd3(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/uploadFile");
+    public dd3(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/share");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ac3) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0;
     }
 
-    public static void A(MultipartBody.Builder builder, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, builder, jSONObject) == null) && builder != null && jSONObject != null && jSONObject.length() >= 1) {
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    String optString = jSONObject.optString(next);
-                    if (!TextUtils.isEmpty(optString)) {
-                        builder.addFormDataPart(next, optString);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void B(MultipartBody.Builder builder, String str, String str2, h23 h23Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, builder, str, str2, h23Var) == null) && builder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && h23Var != null) {
-            builder.addFormDataPart(str, str2, h23Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
-            if (db3Var == null) {
-                ji3.b("uploadFile", 2001, "swanApp is null", 1001, "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
-            }
-            JSONObject a2 = ad3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                ji3.b("uploadFile", 1001, "illegal params", 202, "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
-            }
-            String optString = a2.optString("onProgressUpdate");
-            String optString2 = a2.optString("headersReceivedEvent");
-            String optString3 = a2.optString("cb");
-            if (TextUtils.isEmpty(optString3)) {
-                ji3.b("uploadFile", 1001, "illegal resultCallback", 202, "illegal resultCallback");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal resultCallback");
-                return false;
-            }
-            String g0 = db3.g0();
-            if (TextUtils.isEmpty(g0)) {
-                ji3.b("uploadFile", 1001, "illegal appId", 202, "illegal appId");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
-                return false;
-            }
-            String a3 = s02.a(g0);
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            Request w = w(a2, optString, a3, valueOf, db3Var, callbackHandler);
-            if (w == null) {
-                ji3.b("uploadFile", 1001, "params is invalid, build request fail", -1, "");
-                unitedSchemeEntity.result = t(this.e);
-                q(valueOf);
-                return false;
-            }
-            JSONObject optJSONObject = a2.optJSONObject("header");
-            u23 u23Var = new u23();
-            HashMap<String, String> m = f23.m(optJSONObject, true);
-            String optString4 = a2.optString("__plugin__");
-            if (!TextUtils.isEmpty(optString4)) {
-                ek4 h = b73.h(optString4);
-                if (m == null) {
-                    m = new HashMap<>();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            if (context != null && hb3Var != null) {
+                if (hb3Var.n0()) {
+                    if (ed3.b) {
+                        Log.d("ShareAction", "ShareAction does not supported when app is invisible.");
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                    return false;
                 }
-                m.put("X-SWAN-HOSTSIGN", a73.b(h));
+                JSONObject a2 = ed3.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    h82.c("Share", "params invalid");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params invalid");
+                    return false;
+                }
+                String optString = a2.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    h82.c("Share", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params invalid");
+                    return false;
+                }
+                try {
+                    a2.put(GameAssistConstKt.KEY_ICONURL, a2.optString("imageUrl", ""));
+                } catch (JSONException e) {
+                    if (ed3.b) {
+                        Log.d("ShareAction", e.toString());
+                    }
+                }
+                hb3Var.e0().e("mapp_i_share_update_weburl", new a(this, a2, context, optString, callbackHandler, hb3Var));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
-            HashMap<String, String> hashMap = m;
-            hashMap.putAll(v23.a("uploadFile", a2.optString("__plugin__")));
-            u23Var.a(hashMap);
-            qw2.T().Z();
-            gi4 gi4Var = new gi4(w.url().toString(), w.body(), new a(this, callbackHandler, optString, optString3, optString2, valueOf));
-            gi4Var.c = hashMap;
-            gi4Var.i = w.tag();
-            gi4Var.f = true;
-            gi4Var.g = false;
-            gi4Var.h = true;
-            gi4Var.k = 2;
-            hi4.g().e(gi4Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a3), 0));
-            return true;
+            h82.c("Share", "context or swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "system error");
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00e7, code lost:
-        if (android.text.TextUtils.isEmpty(r0) == false) goto L48;
-     */
-    @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Request w(@Nullable JSONObject jSONObject, @Nullable String str, @Nullable String str2, @Nullable String str3, @Nullable db3 db3Var, @Nullable CallbackHandler callbackHandler) {
-        InterceptResult invokeCommon;
-        HttpUrl f;
-        String str4;
+    public String m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, str2, str3, db3Var, callbackHandler})) == null) {
-            if (jSONObject == null || (f = s02.f(jSONObject.optString("url"))) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            hb3 b0 = hb3.b0();
+            if (b0 == null) {
                 return null;
             }
-            String httpUrl = f.toString();
-            if (TextUtils.isEmpty(httpUrl)) {
-                return null;
-            }
-            int c = ub3.c("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
-            this.e = c;
-            if (c != 0) {
-                return null;
-            }
-            String optString = jSONObject.optString("filePath", "");
-            if (TextUtils.isEmpty(optString) || hr4.x(optString)) {
-                return null;
-            }
-            String a2 = qw2.T().G().a(optString);
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            File file = new File(a2);
-            if (!file.exists() || !file.isFile()) {
-                return null;
-            }
-            long length = file.length();
-            if (length > 524288000) {
-                if (ad3.b) {
-                    Log.i("UploadFileAction", "file over size: " + (length / 1048576) + " MB.");
-                }
-                this.e = 5;
-                return null;
-            }
-            String optString2 = jSONObject.optString("name", "");
-            if (TextUtils.isEmpty(optString2)) {
-                return null;
-            }
-            if (jSONObject.has("formData") && !(jSONObject.opt("formData") instanceof JSONObject)) {
-                return null;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-            this.c.put(str3, 0L);
-            String name = file.getName();
-            if (!TextUtils.isEmpty(name)) {
-                str4 = zn3.d(zn3.b(name));
-            }
-            str4 = IMAudioTransRequest.CONTENT_TYPE;
-            h23 h23Var = new h23(file, str4, new b(this, length, str, str3, callbackHandler));
-            MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-            A(type, optJSONObject);
-            B(type, optString2, file.getName(), h23Var);
-            return new Request.Builder().url(httpUrl).tag(str2).post(type.build()).build();
+            return pi3.M(str, b0.b);
         }
-        return (Request) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void x(long j, long j2, String str, String str2, CallbackHandler callbackHandler) {
+    public final void n(@NonNull Context context, CallbackHandler callbackHandler, String str, @NonNull JSONObject jSONObject, boolean z, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, callbackHandler}) == null) && j > 0 && j2 <= j && j2 != 0 && !TextUtils.isEmpty(str) && callbackHandler != null) {
-            int floor = (int) Math.floor((100 * j2) / j);
-            if (System.currentTimeMillis() - p(str2) > 500 || floor == 100) {
-                if (floor <= 100) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, callbackHandler, str, jSONObject, Boolean.valueOf(z), str2}) == null) {
+            String optString = jSONObject.optString("shareUrl");
+            JSONArray optJSONArray = jSONObject.optJSONArray("defaultPannel");
+            try {
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put(GameAssistConstKt.KEY_LINKURL, str2);
+                }
+                if (!TextUtils.isEmpty(optString) && (zo3.q(optString) || z)) {
+                    jSONObject.put("customShareUrl", true);
+                    jSONObject.put(GameAssistConstKt.KEY_LINKURL, optString);
+                }
+                if (optJSONArray != null && optJSONArray.length() > 0 && !z) {
+                    jSONObject.put("pannel", optJSONArray);
+                }
+            } catch (JSONException e) {
+                if (ed3.b) {
+                    Log.d("ShareAction", e.toString());
+                }
+            }
+            t(context, callbackHandler, str, jSONObject);
+        }
+    }
+
+    public final JSONObject o(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            String optString = jSONObject.optString("imageUrl");
+            if (optString.startsWith("bdfile")) {
+                String m = m(optString);
+                if (m == null) {
+                    return jSONObject;
+                }
+                try {
+                    jSONObject.putOpt("imageUrl", ep3.a(uw2.T().getActivity(), new File(m)).toString());
+                } catch (JSONException e) {
+                    if (ed3.b) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("command");
+            if (optJSONObject == null) {
+                return jSONObject;
+            }
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject("info");
+            if (optJSONObject2 == null) {
+                return jSONObject;
+            }
+            String optString2 = optJSONObject2.optString("img_show");
+            if (optString2.startsWith("bdfile")) {
+                String m2 = m(optString2);
+                if (m2 == null) {
+                    return jSONObject;
+                }
+                Uri a2 = ep3.a(uw2.T().getActivity(), new File(m2));
+                if (a2 == null) {
+                    return jSONObject;
+                }
+                try {
+                    optJSONObject2.putOpt("img_show", a2.toString());
+                    optJSONObject.putOpt("info", optJSONObject2);
+                    jSONObject.putOpt("command", optJSONObject);
+                } catch (JSONException e2) {
+                    if (ed3.b) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            String optString3 = optJSONObject2.optString(WordCommandManager.KEY_IMAGE_SAVE);
+            if (optString3.startsWith("bdfile")) {
+                String m3 = m(optString3);
+                if (m3 == null) {
+                    return jSONObject;
+                }
+                Uri a3 = ep3.a(uw2.T().getActivity(), new File(m3));
+                if (a3 == null) {
+                    return jSONObject;
+                }
+                try {
+                    optJSONObject2.putOpt(WordCommandManager.KEY_IMAGE_SAVE, a3.toString());
+                    optJSONObject.putOpt("info", optJSONObject2);
+                    jSONObject.putOpt("command", optJSONObject);
+                } catch (JSONException e3) {
+                    if (ed3.b) {
+                        e3.printStackTrace();
+                    }
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void p(String str, @NonNull Context context, @NonNull String str2, @NonNull CallbackHandler callbackHandler, @NonNull JSONObject jSONObject, @NonNull hb3 hb3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, context, str2, callbackHandler, jSONObject, hb3Var}) == null) {
+            String optString = jSONObject.optString("shareUrl");
+            JSONArray optJSONArray = jSONObject.optJSONArray("pannel");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("defaultPannel");
+            if (optJSONArray == null || optJSONArray.length() <= 0) {
+                if (optJSONArray2 != null) {
                     try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("progress", floor);
-                        jSONObject.put("totalBytesSent", j2);
-                        jSONObject.put("totalBytesExpectedToSend", j);
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                    } catch (Exception e) {
-                        if (ad3.b) {
-                            e.printStackTrace();
+                        if (optJSONArray2.length() > 0) {
+                            jSONObject.put("pannel", optJSONArray2);
+                        }
+                    } catch (JSONException e) {
+                        if (ed3.b) {
+                            Log.d("ShareAction", e.toString());
                         }
                     }
                 }
-                this.c.put(str2, Long.valueOf(System.currentTimeMillis()));
-            }
-        }
-    }
-
-    public final void y(@NonNull JSONObject jSONObject, @Nullable ResponseBody responseBody) throws IOException, JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, jSONObject, responseBody) != null) || responseBody == null) {
-            return;
-        }
-        String string = responseBody.string();
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        try {
-            jSONObject.put("data", new JSONObject(string));
-        } catch (JSONException unused) {
-            jSONObject.put("data", string);
-        }
-    }
-
-    public final void z(Response response, CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{response, callbackHandler, str, str2, str3, str4}) == null) {
-            try {
-                try {
-                    r(str3, f23.s(response.headers()));
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("statusCode", response.code());
-                    y(jSONObject, response.body());
-                    if (jSONObject.toString().length() > 26214400) {
-                        ji3.b("uploadFile", 3002, "response json length over limits", 1001, "response json length over limits");
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
-                    } else {
-                        callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                    }
-                } catch (Exception e) {
-                    if (ad3.b) {
-                        e.printStackTrace();
-                    }
-                    ji3.b("uploadFile", 2009, "json exception", 1001, e.getMessage());
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put(GameAssistConstKt.KEY_LINKURL, str);
                 }
-            } finally {
-                q(str4);
+                if (TextUtils.isEmpty(optString)) {
+                    t(context, callbackHandler, str2, jSONObject);
+                    return;
+                } else if (zo3.q(optString)) {
+                    jSONObject.put(GameAssistConstKt.KEY_LINKURL, optString);
+                    jSONObject.put("customShareUrl", true);
+                    t(context, callbackHandler, str2, jSONObject);
+                    return;
+                }
             }
+            if (ar3.f(jSONObject)) {
+                n(context, callbackHandler, str2, jSONObject, true, str);
+            } else {
+                hb3Var.e0().g(context, "mapp_i_share_update_linkurl", new b(this, context, callbackHandler, str2, jSONObject, str));
+            }
+        }
+    }
+
+    public final void q(CallbackHandler callbackHandler, String str, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048581, this, callbackHandler, str, z) == null) && callbackHandler != null && !TextUtils.isEmpty(str)) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("result", z);
+            } catch (JSONException e) {
+                if (ed3.b) {
+                    Log.d("ShareAction", e.toString());
+                }
+            }
+            if (z) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            h82.i("Share", "result=" + z);
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
+        }
+    }
+
+    public String r(hg3 hg3Var, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, hg3Var, jSONObject)) == null) {
+            if (hg3Var != null && !hg3Var.d && hg3Var.j == 1 && !TextUtils.isEmpty(hg3Var.o.optString("web_url"))) {
+                return s(hg3Var.o.optString("web_url"), jSONObject.optString("path"));
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String s(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                if (!str.endsWith("/")) {
+                    str = str + "/";
+                }
+                if (str2.startsWith("/")) {
+                    str2 = str2.substring(1);
+                }
+                str = str + str2;
+            }
+            return zo3.a(zo3.a(str, "_swebfr", "1"), "_swebFromHost", ou2.n().a());
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final void t(@NonNull Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, callbackHandler, str, jSONObject) == null) {
+            jSONObject.remove("defaultPannel");
+            jSONObject.remove("shareUrl");
+            hb3 b0 = hb3.b0();
+            if (b0 != null) {
+                String T2 = b0.W().T();
+                String a2 = zm2.a();
+                JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
+                if (optJSONObject != null) {
+                    ho3.f(optJSONObject, "source", T2);
+                    if (!TextUtils.isEmpty(a2)) {
+                        ho3.f(optJSONObject, "nid", a2);
+                    }
+                } else {
+                    JSONObject f = ho3.f(null, "source", T2);
+                    if (!TextUtils.isEmpty(a2)) {
+                        ho3.f(f, "nid", a2);
+                    }
+                    ho3.f(jSONObject, "categoryInfo", f);
+                }
+            }
+            ou2.f0().a(context, o(jSONObject), new c(this, callbackHandler, str));
         }
     }
 }

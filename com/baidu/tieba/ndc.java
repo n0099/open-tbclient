@@ -1,233 +1,182 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
-public class ndc {
+public final class ndc<E> extends ldc<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Window b;
-    public View c;
-    public View d;
-    public View e;
-    public kdc f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public ViewTreeObserver.OnGlobalLayoutListener p;
+    public final AtomicLong c;
+    public long d;
+    public final AtomicLong e;
+    public final int f;
 
-    /* loaded from: classes7.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ndc a;
-
-        public a(ndc ndcVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000060, "Lcom/baidu/tieba/ndc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ndcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ndcVar;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            int i2;
-            int i3;
-            int height;
-            int i4;
-            int i5;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.o) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000060, "Lcom/baidu/tieba/ndc;");
                 return;
             }
-            Rect rect = new Rect();
-            this.a.c.getWindowVisibleDisplayFrame(rect);
-            boolean z = true;
-            if (this.a.f.x) {
-                int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
-                if (this.a.f.z != null) {
-                    if (height2 <= this.a.n) {
-                        z = false;
-                    }
-                    this.a.f.z.a(z, height2);
-                }
-            } else if (this.a.e != null) {
-                if (this.a.f.s) {
-                    height = this.a.d.getHeight() + this.a.l + this.a.m;
-                    i4 = rect.bottom;
-                } else if (this.a.f.n) {
-                    height = this.a.d.getHeight() + this.a.l;
-                    i4 = rect.bottom;
-                } else {
-                    height = this.a.d.getHeight();
-                    i4 = rect.bottom;
-                }
-                int i6 = height - i4;
-                if (this.a.f.e) {
-                    i5 = i6 - this.a.n;
-                } else {
-                    i5 = i6;
-                }
-                if (this.a.f.e && i6 == this.a.n) {
-                    i6 -= this.a.n;
-                }
-                if (i5 != this.a.k) {
-                    this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i6 + this.a.j);
-                    this.a.k = i5;
-                    if (this.a.f.z != null) {
-                        if (i5 <= this.a.n) {
-                            z = false;
-                        }
-                        this.a.f.z.a(z, i5);
-                    }
-                }
-            } else {
-                int height3 = this.a.d.getHeight() - rect.bottom;
-                if (this.a.f.v && this.a.f.w) {
-                    if (Build.VERSION.SDK_INT == 19 || odc.i()) {
-                        i2 = this.a.n;
-                    } else if (this.a.f.e) {
-                        i2 = this.a.n;
-                    } else {
-                        i3 = height3;
-                        if (this.a.f.e && height3 == this.a.n) {
-                            height3 -= this.a.n;
-                        }
-                        int i7 = height3;
-                        height3 = i3;
-                        i = i7;
-                    }
-                    i3 = height3 - i2;
-                    if (this.a.f.e) {
-                        height3 -= this.a.n;
-                    }
-                    int i72 = height3;
-                    height3 = i3;
-                    i = i72;
-                } else {
-                    i = height3;
-                }
-                if (height3 != this.a.k) {
-                    if (this.a.f.s) {
-                        this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
-                    } else if (this.a.f.n) {
-                        this.a.d.setPadding(0, this.a.l, 0, i);
-                    } else {
-                        this.a.d.setPadding(0, 0, 0, i);
-                    }
-                    this.a.k = height3;
-                    if (this.a.f.z != null) {
-                        if (height3 <= this.a.n) {
-                            z = false;
-                        }
-                        this.a.f.z.a(z, height3);
-                    }
-                }
+        }
+        g = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.longValue;
+    }
+
+    public final long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.get();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (g() == f()) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return c(a(this.e.get()));
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.e.get();
+            int a = a(j);
+            AtomicReferenceArray<E> atomicReferenceArray = this.a;
+            E d = d(atomicReferenceArray, a);
+            if (d == null) {
+                return null;
+            }
+            e(atomicReferenceArray, a, null);
+            h(j + 1);
+            return d;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            long f = f();
+            while (true) {
+                long g2 = g();
+                long f2 = f();
+                if (f == f2) {
+                    return (int) (g2 - f2);
+                }
+                f = f2;
+            }
+        } else {
+            return invokeV.intValue;
         }
     }
 
-    public ndc(Activity activity, Window window) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ndc(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, window};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.p = new a(this);
-        this.a = activity;
-        this.b = window;
-        View decorView = window.getDecorView();
-        this.c = decorView;
-        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-        if (frameLayout == null) {
-            return;
-        }
-        View childAt = frameLayout.getChildAt(0);
-        this.e = childAt;
-        frameLayout = childAt != null ? childAt : frameLayout;
-        this.d = frameLayout;
-        this.g = frameLayout.getPaddingLeft();
-        this.h = this.d.getPaddingTop();
-        this.i = this.d.getPaddingRight();
-        this.j = this.d.getPaddingBottom();
-        jdc jdcVar = new jdc(this.a);
-        this.l = jdcVar.i();
-        this.n = jdcVar.d();
-        this.m = jdcVar.a();
-        this.o = jdcVar.l();
+        this.c = new AtomicLong();
+        this.e = new AtomicLong();
+        this.f = Math.min(i / 4, g.intValue());
     }
 
-    public void o(int i) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.b.setSoftInputMode(i);
-                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
+                AtomicReferenceArray<E> atomicReferenceArray = this.a;
+                int i = this.b;
+                long j = this.c.get();
+                int b = b(j, i);
+                if (j >= this.d) {
+                    long j2 = this.f + j;
+                    if (d(atomicReferenceArray, b(j2, i)) == null) {
+                        this.d = j2;
+                    } else if (d(atomicReferenceArray, b) != null) {
+                        return false;
+                    }
+                }
+                e(atomicReferenceArray, b, e);
+                i(j + 1);
+                return true;
             }
-            this.a = null;
+            throw new NullPointerException("Null is not a valid element");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.e.lazySet(j);
         }
     }
 
-    public void p(int i) {
+    public final void i(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
-            this.b.setSoftInputMode(i);
-            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.c.lazySet(j);
         }
-    }
-
-    public void r(kdc kdcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kdcVar) == null) {
-            this.f = kdcVar;
-        }
-    }
-
-    public static ndc q(Activity activity, Window window) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) {
-            return new ndc(activity, window);
-        }
-        return (ndc) invokeLL.objValue;
     }
 }

@@ -1,11 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface fp6 extends bn {
-    void J(boolean z);
-
-    int getPosition();
-
-    void j(boolean z);
-
-    boolean s();
+public class fp6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

@@ -1,20 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class d84 implements is1 {
+public class d84 implements u84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,39 +25,31 @@ public class d84 implements is1 {
         }
     }
 
-    @Override // com.baidu.tieba.is1
-    public List<ad3> a(ac3 ac3Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u84
+    public byte[] a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ac3Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new t64(ac3Var));
-            arrayList.add(new u64(ac3Var));
-            return arrayList;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null && bArr != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 76158) {
+                    if (hashCode == 1952093519 && str.equals("BASE64")) {
+                        c = 1;
+                    }
+                } else if (str.equals("MD5")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    return Base64.encode(bArr, 2);
+                }
+                return nr4.d(bArr, false).getBytes();
+            }
+            return bArr;
         }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.is1
-    public List<ad3> c(ac3 ac3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ac3Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new mb4(ac3Var));
-            arrayList.add(new lb4(ac3Var));
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.is1
-    public List<ad3> b(ac3 ac3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ac3Var)) == null) {
-            return Arrays.asList(new g74(ac3Var), new v54(ac3Var), new e64(ac3Var), new r64(ac3Var));
-        }
-        return (List) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

@@ -1,67 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.media.AudioManager;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.ui.VerticalVolumeBar;
-import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.player.ui.BdLayerTitleBarView;
+import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.tieba.m61;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cw0 extends tv0 {
+public class cw0 extends xv0 implements BdLayerTitleBarView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VerticalVolumeBar b;
-    public AudioManager c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public final Runnable h;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw0 a;
-
-        public a(cw0 cw0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cw0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cw0Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A();
-            }
-        }
-    }
+    public BdLayerTitleBarView b;
 
     public cw0() {
         Interceptable interceptable = $ic;
@@ -73,191 +30,93 @@ public class cw0 extends tv0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = new a(this);
     }
 
-    public final void A() {
-        VerticalVolumeBar verticalVolumeBar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (verticalVolumeBar = this.b) != null && verticalVolumeBar.getVisibility() == 0) {
-            this.b.setVisibility(8);
-            e(iw0.w(LayerEvent.ACTION_HIDE_VOLUME_BAR));
-        }
-    }
-
-    @Override // com.baidu.tieba.uv0
+    @Override // com.baidu.tieba.yv0
     @NonNull
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nv0
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.j();
-            A();
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && r() != null && r().X()) {
-            r().Y(false);
-        }
-    }
-
-    public final void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (this.b == null) {
-                i();
-            }
-            this.b.setLayoutParams(y(z));
-            A();
-        }
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Activity activity = q().getActivity();
-            if (activity != null && activity.hasWindowFocus()) {
-                if ((!q().Y() && !q().W()) || this.e) {
-                    A();
-                    return;
-                }
-                VerticalVolumeBar verticalVolumeBar = this.b;
-                if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() != 0) {
-                    this.b.setVisibility(0);
-                    sw0 w = iw0.w(LayerEvent.ACTION_SHOW_VOLUME_BAR);
-                    e(w);
-                    o(w);
-                }
-                z();
-                if (this.c == null) {
-                    this.c = (AudioManager) getContext().getApplicationContext().getSystemService("audio");
-                }
-                int streamMaxVolume = this.c.getStreamMaxVolume(3);
-                int streamVolume = this.c.getStreamVolume(3);
-                VerticalVolumeBar verticalVolumeBar2 = this.b;
-                if (verticalVolumeBar2 != null) {
-                    if (!this.f) {
-                        verticalVolumeBar2.setMax(streamMaxVolume);
-                        this.b.setProgress(streamVolume);
-                    } else {
-                        verticalVolumeBar2.setMax(100);
-                        this.b.setProgress(this.g);
-                    }
-                }
-                r().y().removeCallbacks(this.h);
-                r().y().postDelayed(this.h, 1000L);
-                return;
-            }
-            A();
-        }
-    }
-
-    @Override // com.baidu.tieba.nv0
+    @Override // com.baidu.tieba.rv0
     public void i() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = new BdLayerTitleBarView(getContext());
+            this.b.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            this.b.setVisibility(4);
+            this.b.setListener(this);
+        }
+    }
+
+    @Override // com.baidu.nadcore.player.ui.BdLayerTitleBarView.a
+    public void onBack() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
-            this.b = verticalVolumeBar;
-            verticalVolumeBar.setLayoutParams(y(false));
-            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.nad_videoplayer_video_volume_bar_color));
-            this.b.setBackgroundResource(R.drawable.nad_videoplayer_video_volume_bar_shadow_bg);
-            int dimension = (int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_shadow_width);
-            int i = dimension / 2;
-            this.b.setPadding(i, dimension, i, dimension);
-            this.b.setVisibility(8);
+            q().d1(2);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.nv0
-    public void k(@NonNull sw0 sw0Var) {
+    @Override // com.baidu.tieba.rv0
+    public void k(@NonNull ww0 ww0Var) {
         char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sw0Var) == null) {
-            String c2 = sw0Var.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ww0Var) == null) {
+            String c2 = ww0Var.c();
             switch (c2.hashCode()) {
-                case -915923721:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME)) {
-                        c = 7;
+                case -882902390:
+                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -745690976:
+                    if (c2.equals(InteractiveEvent.ACTION_INTERACTIVE_START)) {
+                        c = 5;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552621273:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 5;
+                        c = 6;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552580917:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -316059751:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_LIGHT)) {
                         c = 4;
                         break;
                     }
                     c = 65535;
                     break;
-                case -21461611:
-                    if (c2.equals(LayerEvent.ACTION_TOUCH_DOWN)) {
+                case -461848373:
+                    if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
                         c = 1;
                         break;
                     }
                     c = 65535;
                     break;
-                case -14542718:
-                    if (c2.equals(LayerEvent.ACTION_HIDE_VOLUME_BAR)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 649538615:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME_COMPLETE)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1547354793:
-                    if (c2.equals(ControlEvent.ACTION_STOP)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1822725860:
-                    if (c2.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
                         c = 0;
                         break;
                     }
                     c = 65535;
                     break;
-                case 2064424334:
-                    if (c2.equals(LayerEvent.ACTION_POSITION_SLIDE)) {
-                        c = 3;
+                case 250537257:
+                    if (c2.equals(LayerEvent.ACTION_NET_ERROR_SHOW)) {
+                        c = 2;
                         break;
                     }
                     c = 65535;
@@ -266,96 +125,47 @@ public class cw0 extends tv0 {
                     c = 65535;
                     break;
             }
-            switch (c) {
-                case 0:
-                    B();
-                    return;
-                case 1:
-                    if (!this.d) {
-                        A();
+            if (c != 0 && c != 1 && c != 2) {
+                if (c != 4 && c != 5) {
+                    if (c == 6 && !q().Y()) {
+                        s(true, false);
                         return;
                     }
                     return;
-                case 2:
-                case 3:
-                case 4:
-                    A();
-                    return;
-                case 5:
-                    C(true);
-                    return;
-                case 6:
-                    C(false);
-                    return;
-                case 7:
-                    this.f = true;
-                    this.g = sw0Var.g(20);
-                    B();
-                    return;
-                case '\b':
-                    this.f = false;
-                    return;
-                case '\t':
-                    VerticalVolumeBar verticalVolumeBar = this.b;
-                    if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() == 0) {
-                        this.b.setVisibility(8);
-                        return;
-                    }
-                    return;
-                default:
-                    return;
+                }
+                this.b.a(false);
+            } else if (q().V0()) {
+                this.b.e(false, true, q().r1());
             }
         }
     }
 
-    @Override // com.baidu.tieba.tv0
+    @Override // com.baidu.tieba.rv0
+    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
+            super.n(playerStatus, playerStatus2);
+            if (playerStatus == PlayerStatus.PLAYING && q().V0()) {
+                tz0 tz0Var = this.a;
+                if ((tz0Var instanceof kz0) && !((kz0) tz0Var).X()) {
+                    this.b.a(true);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xv0
     public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            super.s(z, z2);
             if (z) {
-                A();
+                if (q().V0() && q().f1() == 0) {
+                    this.b.e(true, !q().Y(), q().r1());
+                }
+            } else if (q().V0() && q().f1() == 0 && this.b.getVisibility() != 4 && q().Y()) {
+                this.b.a(true);
             }
         }
-    }
-
-    public FrameLayout.LayoutParams y(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        float dimension;
-        float dimension2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            int dimension3 = (int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_shadow_width);
-            int min = Math.min(m61.c.e(getContext()), m61.c.c(getContext()));
-            if (!z) {
-                i = ((min / 16) * 9) / 2;
-            } else {
-                i = min / 2;
-            }
-            int i2 = i + dimension3;
-            int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_height));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new FrameLayout.LayoutParams(i2, dimension4);
-            }
-            layoutParams.width = i2;
-            layoutParams.height = dimension4;
-            if (!z) {
-                dimension = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_leftmargin);
-            } else {
-                dimension = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_full_leftmargin);
-            }
-            layoutParams.leftMargin = ((int) dimension) - dimension3;
-            layoutParams.gravity = 80;
-            if (!z) {
-                dimension2 = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_bottomargin);
-            } else {
-                dimension2 = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_full_bottomargin);
-            }
-            layoutParams.bottomMargin = ((int) dimension2) - dimension3;
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeZ.objValue;
     }
 }

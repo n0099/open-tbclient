@@ -12,7 +12,7 @@ public class a {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? R.style.obfuscated_res_0x7f1003b6 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? R.style.obfuscated_res_0x7f1003be : invokeV.intValue;
     }
 
     public static int a(boolean z) {

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class g82 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static String b;
-    public static String c;
-    public static f82 d;
-    public static int e;
+    public static final Map<String, mx1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,120 +31,103 @@ public class g82 {
                 return;
             }
         }
-        a = nr1.a;
-        b = "";
-        c = "";
-        e = 0;
+        a = rr1.a;
+        b = new HashMap(2);
     }
 
-    public static String a() {
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
+        }
+    }
+
+    public static mx1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+            if (a) {
+                Log.d("ConsoleCache", "create new sConsole");
+            }
+            h82.n(true);
+            return bi2.U().f0().b(AppRuntime.getAppContext());
         }
-        return (String) invokeV.objValue;
+        return (mx1) invokeV.objValue;
     }
 
-    public static String c() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
-                return true;
+            hb3 b0 = hb3.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return f82.b(j32.a(b0.b));
+            }
+            if (a) {
+                Log.w("ConsoleCache", "swanApp is null or appId is empty");
+                return false;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean f() {
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized mx1 b() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (e == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
+        String str;
+        mx1 mx1Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + b;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + c;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void g(Bundle bundle) {
-        f82 f82Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (f82Var = d) != null) {
-            f82Var.b(bundle);
-        }
-    }
-
-    public static void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            b = str;
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            c = str;
-        }
-    }
-
-    public static void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
-            String i = co3.i(bundle, "extraWSUrl");
-            String i2 = co3.i(bundle, "adb_debug_path");
-            if (!TextUtils.isEmpty(i)) {
-                d = new y82();
-                e = 1;
-            } else if (!TextUtils.isEmpty(i2)) {
-                d = new i82();
-                e = 2;
-            } else {
-                if (a) {
-                    Log.d("UserDebugParams", "not debug mode");
+            synchronized (g82.class) {
+                hb3 b0 = hb3.b0();
+                if (b0 != null && !TextUtils.isEmpty(b0.getAppId())) {
+                    str = b0.getAppId();
+                    String a2 = j32.a(str);
+                    mx1Var = b.get(a2);
+                    if (mx1Var == null) {
+                        e();
+                        mx1Var = a();
+                        b.put(a2, mx1Var);
+                        if (a) {
+                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
+                        }
+                    }
+                    if (a) {
+                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
+                    }
                 }
-                e = 0;
-                d = null;
-                return;
+                str = "_no_id_";
+                String a22 = j32.a(str);
+                mx1Var = b.get(a22);
+                if (mx1Var == null) {
+                }
+                if (a) {
+                }
             }
-            d.a(bundle);
+            return mx1Var;
+        }
+        return (mx1) invokeV.objValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (g82.class) {
+                if (b.size() > 0) {
+                    for (String str : b.keySet()) {
+                        mx1 mx1Var = b.get(str);
+                        if (mx1Var != null) {
+                            mx1Var.D();
+                        }
+                    }
+                    b.clear();
+                }
+            }
         }
     }
 }

@@ -1,106 +1,108 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
 import java.util.AbstractMap;
-import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class fl {
-    public static /* synthetic */ Interceptable $ic;
+public class fl {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "11446";
+    public static String b = "type";
+    public static String c = "value";
+    public static String d = "ext";
+    public static String e = "suc";
+    public static String f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public abstract String a();
-
-    public fl() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304551, "Lcom/baidu/tieba/fl;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = false;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a) {
-            return;
-        }
-        this.a = true;
-        if (TextUtils.isEmpty(a())) {
-            return;
-        }
-        try {
-            new JSONObject().put("version", i);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448304551, "Lcom/baidu/tieba/fl;");
         }
     }
 
-    public void c(int i, long j) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "-";
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
-            String str = a + "_download";
-            if (i == 0) {
-                el.c(str, arrayList);
-            } else {
-                el.b(str, arrayList);
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, f);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void d(int i, int i2) {
+    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_install";
-            if (i == 13) {
-                el.c(str, arrayList);
-            } else {
-                el.b(str, arrayList);
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, e);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    public void e(int i, int i2) {
+    public static void d(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_launch";
-            if (i == 14) {
-                el.c(str, arrayList);
-            } else {
-                el.b(str, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
         }
     }
 }

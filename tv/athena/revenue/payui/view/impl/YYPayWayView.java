@@ -19,25 +19,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aec;
-import com.baidu.tieba.dgc;
-import com.baidu.tieba.fgc;
-import com.baidu.tieba.ggc;
-import com.baidu.tieba.ghc;
-import com.baidu.tieba.ifc;
-import com.baidu.tieba.jhc;
-import com.baidu.tieba.pfc;
-import com.baidu.tieba.rfc;
-import com.baidu.tieba.sfc;
-import com.baidu.tieba.sgc;
-import com.baidu.tieba.tfc;
-import com.baidu.tieba.vgc;
-import com.baidu.tieba.wcc;
-import com.baidu.tieba.wfc;
-import com.baidu.tieba.whc;
-import com.baidu.tieba.xgc;
-import com.baidu.tieba.yfc;
+import com.baidu.tieba.akc;
+import com.baidu.tieba.bjc;
+import com.baidu.tieba.cjc;
+import com.baidu.tieba.dhc;
+import com.baidu.tieba.gjc;
+import com.baidu.tieba.ijc;
+import com.baidu.tieba.jjc;
+import com.baidu.tieba.jkc;
+import com.baidu.tieba.lic;
+import com.baidu.tieba.mkc;
+import com.baidu.tieba.sic;
+import com.baidu.tieba.uic;
+import com.baidu.tieba.vic;
+import com.baidu.tieba.vjc;
+import com.baidu.tieba.wic;
+import com.baidu.tieba.yjc;
 import com.baidu.tieba.zfc;
+import com.baidu.tieba.zic;
+import com.baidu.tieba.zkc;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
@@ -66,19 +66,19 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.PayViewState;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes2.dex */
-public class YYPayWayView extends LinearLayout implements ghc {
-    public List<tfc> a;
+public class YYPayWayView extends LinearLayout implements jkc {
+    public List<wic> a;
     public GridView b;
-    public jhc c;
+    public mkc c;
     public View d;
     public ImageView e;
     public int f;
     public int g;
-    public ghc.a h;
-    public tfc i;
+    public jkc.a h;
+    public wic i;
     public Button j;
-    public pfc k;
-    public ghc.b l;
+    public sic k;
+    public jkc.b l;
     public Context m;
     public TextView n;
     public PayUIKitConfig o;
@@ -88,11 +88,11 @@ public class YYPayWayView extends LinearLayout implements ghc {
     public TextView s;
     public TextView t;
     public Window u;
-    public aec v;
+    public dhc v;
     public String w;
     public PayFlowType x;
 
-    @Override // com.baidu.tieba.ahc
+    @Override // com.baidu.tieba.dkc
     public View getContentView() {
         return this;
     }
@@ -109,11 +109,11 @@ public class YYPayWayView extends LinearLayout implements ghc {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends whc {
+    public class b extends zkc {
         public b() {
         }
 
-        @Override // com.baidu.tieba.whc
+        @Override // com.baidu.tieba.zkc
         public void a(View view2) {
             YYPayWayView.this.l();
         }
@@ -151,7 +151,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
         /* renamed from: a */
         public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
             if (productListResult != null && productListResult.getPayWayInfoList() != null) {
-                rfc.i(productListResult.getPaysSettingInfo(), "YYPayWayView");
+                uic.i(productListResult.getPaysSettingInfo(), "YYPayWayView");
                 YYPayWayView.this.B(productListResult.getPayWayInfoList());
                 YYPayWayView.this.z(productListResult.getBubbleActMsg());
             } else {
@@ -169,7 +169,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
         }
     }
 
-    public YYPayWayView(Activity activity, int i, int i2, ghc.b bVar, PayUIKitConfig payUIKitConfig, aec aecVar) {
+    public YYPayWayView(Activity activity, int i, int i2, jkc.b bVar, PayUIKitConfig payUIKitConfig, dhc dhcVar) {
         super(activity);
         PayFlowType payFlowType;
         String str;
@@ -179,7 +179,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
         if (bVar == null) {
             RLog.error("YYPayWayView", "YYPayWayView construct error viewParams null", new Object[0]);
         }
-        LayoutInflater.from(new ContextThemeWrapper(activity, vgc.a.a(payUIKitConfig))).inflate(R.layout.pay_ui_layout_pay_way_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, yjc.a.a(payUIKitConfig))).inflate(R.layout.pay_ui_layout_pay_way_view, (ViewGroup) this, true);
         this.l = bVar;
         this.k = bVar.c;
         this.m = activity;
@@ -187,13 +187,13 @@ public class YYPayWayView extends LinearLayout implements ghc {
         this.f = i;
         this.g = i2;
         this.q = bVar.d;
-        this.v = aecVar;
+        this.v = dhcVar;
         if (bVar != null) {
             String str2 = bVar.j;
             this.w = str2 != null ? str2 : "0";
         }
         RLog.debug("YYPayWayView", "mSplitOrderPayScene:" + this.w);
-        this.c = new jhc(activity, payUIKitConfig, this.a);
+        this.c = new mkc(activity, payUIKitConfig, this.a);
         GridView gridView = (GridView) findViewById(R.id.grid_recharge_way);
         this.b = gridView;
         gridView.setSelector(R.drawable.pay_ui_selector_transparent);
@@ -210,7 +210,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
         textView.setOnClickListener(new c());
         this.d = findViewById(R.id.root_loading);
         this.e = (ImageView) findViewById(R.id.iv_loading_circle);
-        ghc.b bVar2 = this.l;
+        jkc.b bVar2 = this.l;
         if (bVar2 != null) {
             payFlowType = bVar2.g;
         } else {
@@ -222,45 +222,45 @@ public class YYPayWayView extends LinearLayout implements ghc {
         } else {
             str = "4";
         }
-        zfc.b(this.f, this.g, str, "", "", this.w);
+        cjc.b(this.f, this.g, str, "", "", this.w);
         y();
         B(this.l.a);
         z(this.l.b);
     }
 
-    @Override // com.baidu.tieba.ahc
+    @Override // com.baidu.tieba.dkc
     public void attachWindow(Window window) {
         RLog.debug("YYPayWayView", "attachWindow window:" + window);
         this.u = window;
-        ghc.b bVar = this.l;
+        jkc.b bVar = this.l;
         if (bVar != null) {
             refreshWindow(bVar.h);
         }
         C(SpeedStatsMainTable.ATTACH_WINDOW_STAGE);
     }
 
-    public final boolean k(sfc sfcVar) {
+    public final boolean k(vic vicVar) {
         SplitOrderConfigResult splitOrderConfigResult;
         List<SplitRecordItem> list;
-        if (sfcVar != null && (splitOrderConfigResult = sfcVar.a) != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty() && sfcVar.b != null) {
+        if (vicVar != null && (splitOrderConfigResult = vicVar.a) != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty() && vicVar.b != null) {
             return true;
         }
         return false;
     }
 
-    @Override // com.baidu.tieba.ghc
-    public void setCallback(ghc.a aVar) {
+    @Override // com.baidu.tieba.jkc
+    public void setCallback(jkc.a aVar) {
         this.h = aVar;
     }
 
     public final void A() {
-        fgc.b(this.d, this.e);
+        ijc.b(this.d, this.e);
     }
 
-    @Override // com.baidu.tieba.ghc
+    @Override // com.baidu.tieba.jkc
     public boolean d() {
-        ghc.a aVar;
-        sfc b2 = this.v.b();
+        jkc.a aVar;
+        vic b2 = this.v.b();
         if (k(b2) && (aVar = this.h) != null) {
             aVar.c(b2);
             return true;
@@ -269,27 +269,27 @@ public class YYPayWayView extends LinearLayout implements ghc {
     }
 
     public final void n() {
-        fgc.a(this.d, this.e);
+        ijc.a(this.d, this.e);
     }
 
     public final void w() {
         GridView gridView;
         if (this.a.size() > 4 && (gridView = this.b) != null) {
             ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
-            layoutParams.height += dgc.a(24.0f);
+            layoutParams.height += gjc.a(24.0f);
             this.b.setLayoutParams(layoutParams);
         }
     }
 
     public final void B(List<PayWayInfo> list) {
         this.a.clear();
-        this.a.addAll(sgc.a(list));
+        this.a.addAll(vjc.a(list));
         if (this.a.size() > 0) {
             this.i = this.a.get(0);
             this.c.c(0);
         }
         if (Env.instance().isTestEnv() && this.a.size() > 0) {
-            this.a.add(new tfc(PayType.MOCK_TEST_PAY, "MOCK支付", ""));
+            this.a.add(new wic(PayType.MOCK_TEST_PAY, "MOCK支付", ""));
         }
         this.c.notifyDataSetChanged();
         w();
@@ -298,9 +298,9 @@ public class YYPayWayView extends LinearLayout implements ghc {
 
     public final void m(int i) {
         double d2;
-        pfc pfcVar = this.k;
-        if (pfcVar != null) {
-            d2 = pfcVar.a();
+        sic sicVar = this.k;
+        if (sicVar != null) {
+            d2 = sicVar.a();
         } else {
             d2 = 0.0d;
         }
@@ -309,14 +309,14 @@ public class YYPayWayView extends LinearLayout implements ghc {
         hashMap.put("payMethod", this.i.a.getMethod());
         hashMap.put("charge_id", String.valueOf(i));
         hashMap.put(PayUiEventContent.AMOUNT, String.valueOf(d2));
-        wfc.b(this.f, this.g, this.x, 106, hashMap);
+        zic.b(this.f, this.g, this.x, 106, hashMap);
     }
 
-    @Override // com.baidu.tieba.ahc
+    @Override // com.baidu.tieba.dkc
     public void refreshWindow(WindowParams windowParams) {
         RLog.debug("YYPayWayView", "refreshWindow params:" + windowParams + " mWindow:" + this.u);
         if (this.u != null && windowParams != null) {
-            ghc.b bVar = this.l;
+            jkc.b bVar = this.l;
             if (bVar != null) {
                 bVar.h = windowParams;
             }
@@ -332,7 +332,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
 
     public final void C(String str) {
         IFeedbackServiceProxy iFeedbackServiceProxy;
-        if (this.u != null && rfc.d() != null) {
+        if (this.u != null && uic.d() != null) {
             View findViewById = this.u.findViewById(R.id.btn_left);
             int i = 0;
             if (findViewById == null) {
@@ -347,21 +347,21 @@ public class YYPayWayView extends LinearLayout implements ghc {
                 iFeedbackServiceProxy = null;
             }
             boolean z = true;
-            z = (rfc.d().feedbackSwitch != 1 || iFeedbackServiceProxy == null) ? false : false;
+            z = (uic.d().feedbackSwitch != 1 || iFeedbackServiceProxy == null) ? false : false;
             if (!z) {
                 i = 8;
             }
             findViewById.setVisibility(i);
             if (z) {
-                zfc.b(this.f, this.g, "26", "", "", "");
+                cjc.b(this.f, this.g, "26", "", "", "");
             }
-            RLog.info("YYPayWayView", "updateTopLeftBtn from:" + str + " proxy:" + iFeedbackServiceProxy + " feedbackSwitch:" + rfc.d().feedbackSwitch + " yyPayUIKit:" + uIKit);
+            RLog.info("YYPayWayView", "updateTopLeftBtn from:" + str + " proxy:" + iFeedbackServiceProxy + " feedbackSwitch:" + uic.d().feedbackSwitch + " yyPayUIKit:" + uIKit);
             return;
         }
-        RLog.warn("YYPayWayView", "updateTopLeftBtn from:" + str + " mWindow:" + this.u + " paysSettingInfo:" + rfc.d());
+        RLog.warn("YYPayWayView", "updateTopLeftBtn from:" + str + " mWindow:" + this.u + " paysSettingInfo:" + uic.d());
     }
 
-    @Override // com.baidu.tieba.ghc
+    @Override // com.baidu.tieba.jkc
     public void a() {
         String str;
         RLog.info("YYPayWayView", "onBtnCloseClick mSplitOrderPayScene:" + this.w + " mPayFlowType:" + this.x);
@@ -374,41 +374,41 @@ public class YYPayWayView extends LinearLayout implements ghc {
         } else {
             str = PayUVEventType.PAY_WAY_DIALOG_CLOSE_BTN_CLICK;
         }
-        zfc.b(this.f, this.g, str, this.i.a.getChannel(), this.i.a.getMethod(), this.w);
+        cjc.b(this.f, this.g, str, this.i.a.getChannel(), this.i.a.getMethod(), this.w);
     }
 
     public final void q() {
-        ghc.b bVar = this.l;
+        jkc.b bVar = this.l;
         if (bVar == null) {
             RLog.error("YYPayWayView", "onBtnLeftClick error mViewParams null", new Object[0]);
             return;
         }
         boolean z = bVar.i;
         if (z) {
-            ghc.a aVar = this.h;
+            jkc.a aVar = this.h;
             if (aVar != null) {
                 aVar.toHelpCenterPage();
             }
         } else {
-            ifc.d(this.f, this.g);
+            lic.d(this.f, this.g);
         }
-        zfc.b(this.f, this.g, PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, "", "", "");
+        cjc.b(this.f, this.g, PayUVEventType.PAY_WAY_FAQ_ENTRANCE_CLICK, "", "", "");
         RLog.info("YYPayWayView", "onBtnLeftClick showFaqPage:" + z + " mCallback:" + this.h);
     }
 
-    @Override // com.baidu.tieba.ahc
+    @Override // com.baidu.tieba.dkc
     public void refreshView() {
         Map<String, String> map;
         boolean z = false;
         if (this.a.size() <= 0) {
             A();
-            ghc.b bVar = this.l;
+            jkc.b bVar = this.l;
             if (bVar != null) {
                 map = bVar.e;
             } else {
                 map = null;
             }
-            wcc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.f, this.g);
+            zfc yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.f, this.g);
             if (yYPayMiddleService == null) {
                 RLog.error("YYPayWayView", "refreshView error yyPayMiddleService null", new Object[0]);
                 return;
@@ -424,37 +424,37 @@ public class YYPayWayView extends LinearLayout implements ghc {
         PayFlowType payFlowType;
         PayUIKitConfig payUIKitConfig = this.o;
         if (payUIKitConfig != null) {
-            String g = rfc.g(payUIKitConfig);
+            String g = uic.g(payUIKitConfig);
             RLog.debug("YYPayWayView", "agreeUrl:" + g);
             if (this.m instanceof Activity) {
-                ghc.b bVar = this.l;
+                jkc.b bVar = this.l;
                 if (bVar != null) {
                     payFlowType = bVar.g;
                 } else {
                     payFlowType = null;
                 }
                 if (payFlowType != null) {
-                    ggc.a(payFlowType, this.f, this.g, this.o, (Activity) this.m, g, "Y币充值协议");
+                    jjc.a(payFlowType, this.f, this.g, this.o, (Activity) this.m, g, "Y币充值协议");
                 } else {
                     RLog.error("YYPayWayView", "onUserItemClick error payFlowType null", new Object[0]);
                 }
             } else {
                 RLog.error("YYPayWayView", "mContext not Activity", new Object[0]);
             }
-            yfc.b(this.f, this.g, PayUIEventType.paypageprotocol);
+            bjc.b(this.f, this.g, PayUIEventType.paypageprotocol);
             RLog.warn("YYPayWayView", PayUIEventType.paypageprotocol);
         }
     }
 
     public void l() {
-        pfc pfcVar;
-        pfc pfcVar2;
-        tfc tfcVar = this.i;
-        if (tfcVar == null) {
+        sic sicVar;
+        sic sicVar2;
+        wic wicVar = this.i;
+        if (wicVar == null) {
             RLog.error("YYPayWayView", "mPayWay null", new Object[0]);
         } else if (this.c == null) {
             RLog.error("YYPayWayView", "mPayWayListAdapter null", new Object[0]);
-        } else if (tfcVar.a == PayType.WECHAT_PAY && !PackageInstallUtil.isInstallWechat(this.m)) {
+        } else if (wicVar.a == PayType.WECHAT_PAY && !PackageInstallUtil.isInstallWechat(this.m)) {
             Toast.makeText(this.m, "未安装微信", 1).show();
         } else if (this.i.a == PayType.QQ_PAY && !PackageInstallUtil.isInstallQQ(this.m)) {
             Toast.makeText(this.m, "未安装QQ", 1).show();
@@ -463,20 +463,20 @@ public class YYPayWayView extends LinearLayout implements ghc {
             Toast.makeText(context, context.getString(R.string.pay_ui_pay_too_frequency_msg), 1).show();
             RLog.warn("YYPayWayView", "pay too frequency return mPayWay:" + this.i);
         } else {
-            if (Env.instance().isTestEnv() && this.i.a == PayType.MOCK_TEST_PAY && (pfcVar2 = this.k) != null) {
-                ProductInfo productInfo = pfcVar2.a;
+            if (Env.instance().isTestEnv() && this.i.a == PayType.MOCK_TEST_PAY && (sicVar2 = this.k) != null) {
+                ProductInfo productInfo = sicVar2.a;
                 if (productInfo.srcAmount > 10.0d) {
                     productInfo.srcAmount = 10.0d;
                     productInfo.destAmount = 1000L;
                 }
             }
-            if (this.h != null && (pfcVar = this.k) != null && pfcVar.a != null) {
-                if (p(this.i, pfcVar)) {
+            if (this.h != null && (sicVar = this.k) != null && sicVar.a != null) {
+                if (p(this.i, sicVar)) {
                     this.h.a(this.i, this.k, this.q);
                 } else {
                     this.h.b(this.i, this.k, this.q);
                 }
-                yfc.c(this.f, this.g, PayUIEventType.paypagepaybt, String.valueOf(this.k.a.srcAmount));
+                bjc.c(this.f, this.g, PayUIEventType.paypagepaybt, String.valueOf(this.k.a.srcAmount));
                 RLog.warn("YYPayWayView", "paypagepaybt amount:" + this.k.a.srcAmount);
             } else {
                 RLog.error("YYPayWayView", "mCallback or mPayAmount or productInfo null", new Object[0]);
@@ -501,16 +501,16 @@ public class YYPayWayView extends LinearLayout implements ghc {
     }
 
     public final void s(int i) {
-        if (xgc.a.a(this.m)) {
+        if (akc.a.a(this.m)) {
             Toast.makeText(this.m, "请求服务失败(" + i + "e)", 1).show();
         }
-        ghc.a aVar = this.h;
+        jkc.a aVar = this.h;
         if (aVar != null) {
             aVar.onRefreshViewFail(-1, "server payway list empty");
         }
     }
 
-    @Override // com.baidu.tieba.zgc
+    @Override // com.baidu.tieba.ckc
     public void setViewState(PayViewState payViewState) {
         if (payViewState == PayViewState.WAITING_VIEW_STATE) {
             RLog.debug("YYPayWayView", "setViewState waiting");
@@ -547,14 +547,14 @@ public class YYPayWayView extends LinearLayout implements ghc {
         this.t.setVisibility(8);
     }
 
-    public final boolean p(tfc tfcVar, pfc pfcVar) {
+    public final boolean p(wic wicVar, sic sicVar) {
         boolean z;
-        if (pfcVar.c() <= tfcVar.f && tfcVar.a == PayType.ALI_PAY && pfcVar.c() > 0.0d) {
+        if (sicVar.c() <= wicVar.f && wicVar.a == PayType.ALI_PAY && sicVar.c() > 0.0d) {
             z = true;
         } else {
             z = false;
         }
-        RLog.info("YYPayWayView", "isSupportSignPay result=" + z + ", perFreePassAmount=" + tfcVar.f + ", payType=" + tfcVar.a);
+        RLog.info("YYPayWayView", "isSupportSignPay result=" + z + ", perFreePassAmount=" + wicVar.f + ", payType=" + wicVar.a);
         return z;
     }
 
@@ -575,7 +575,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
 
     public final void t(int i, int i2, String str) {
         StringBuilder sb;
-        if (xgc.a.a(this.m)) {
+        if (akc.a.a(this.m)) {
             if (i2 == -500) {
                 sb = new StringBuilder();
                 sb.append("网络不给力,请稍后重试(");
@@ -592,7 +592,7 @@ public class YYPayWayView extends LinearLayout implements ghc {
             }
             Toast.makeText(this.m, sb.toString(), 1).show();
         }
-        ghc.a aVar = this.h;
+        jkc.a aVar = this.h;
         if (aVar != null) {
             aVar.onRefreshViewFail(i2, str);
         }
@@ -603,13 +603,13 @@ public class YYPayWayView extends LinearLayout implements ghc {
         PayFlowType payFlowType;
         String str;
         ProductInfo productInfo;
-        pfc pfcVar = this.k;
-        if (pfcVar != null && (productInfo = pfcVar.a) != null) {
+        sic sicVar = this.k;
+        if (sicVar != null && (productInfo = sicVar.a) != null) {
             i = productInfo.cid;
         } else {
             i = 0;
         }
-        ghc.b bVar = this.l;
+        jkc.b bVar = this.l;
         if (bVar != null) {
             payFlowType = bVar.g;
         } else {
@@ -623,9 +623,9 @@ public class YYPayWayView extends LinearLayout implements ghc {
         String str2 = str;
         RLog.info("YYPayWayView", "reportPayWayItemClick mSplitOrderPayScene:" + this.w);
         if (!"1".equals(this.w) && !"2".equals(this.w)) {
-            zfc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), String.valueOf(i));
+            cjc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), String.valueOf(i));
         } else {
-            zfc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), this.w);
+            cjc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), this.w);
         }
         m(i);
     }
@@ -636,13 +636,13 @@ public class YYPayWayView extends LinearLayout implements ghc {
         String str;
         ProductInfo productInfo;
         RLog.info("YYPayWayView", "resportConfirmBtnClick mSplitOrderPayScene:" + this.w);
-        pfc pfcVar = this.k;
-        if (pfcVar != null && (productInfo = pfcVar.a) != null) {
+        sic sicVar = this.k;
+        if (sicVar != null && (productInfo = sicVar.a) != null) {
             i = productInfo.cid;
         } else {
             i = 0;
         }
-        ghc.b bVar = this.l;
+        jkc.b bVar = this.l;
         if (bVar != null) {
             payFlowType = bVar.g;
         } else {
@@ -655,20 +655,20 @@ public class YYPayWayView extends LinearLayout implements ghc {
         }
         String str2 = str;
         if (!"1".equals(this.w) && !"2".equals(this.w)) {
-            zfc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), String.valueOf(i));
+            cjc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), String.valueOf(i));
         } else {
-            zfc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), this.w);
+            cjc.b(this.f, this.g, str2, this.i.a.getChannel(), this.i.a.getMethod(), this.w);
         }
     }
 
     public final void y() {
-        pfc pfcVar;
+        sic sicVar;
         boolean z;
         String format;
         String format2;
-        ghc.b bVar = this.l;
-        if (bVar != null && (pfcVar = bVar.c) != null) {
-            double c2 = pfcVar.c();
+        jkc.b bVar = this.l;
+        if (bVar != null && (sicVar = bVar.c) != null) {
+            double c2 = sicVar.c();
             boolean z2 = true;
             if (c2 == ((long) c2)) {
                 z = true;

@@ -1,5 +1,6 @@
 package com.baidu.mobstat;
 
+import com.baidu.tts.client.SpeechSynthesizer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -144,10 +145,10 @@ public abstract class ci extends cf implements ce, Runnable {
         int port = this.b.getPort();
         if (port == -1) {
             String scheme = this.b.getScheme();
-            if (scheme.equals("wss")) {
+            if (scheme.equals(SpeechSynthesizer.REQUEST_PROTOCOL_WSS)) {
                 return 443;
             }
-            if (scheme.equals("ws")) {
+            if (scheme.equals(SpeechSynthesizer.REQUEST_PROTOCOL_WS)) {
                 return 80;
             }
             throw new RuntimeException("unknown scheme: " + scheme);

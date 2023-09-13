@@ -13,6 +13,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.d45;
 import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.tieba.im.db.pojo.GraffitiInfoPojo;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
@@ -21,8 +22,7 @@ import com.baidu.tieba.im.db.pojo.PbContentPojo;
 import com.baidu.tieba.im.db.pojo.PluginUserPojo;
 import com.baidu.tieba.im.db.pojo.TiebaPlusInfoPojo;
 import com.baidu.tieba.im.db.pojo.TogetherHiPojo;
-import com.baidu.tieba.ve8;
-import com.baidu.tieba.y35;
+import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -339,7 +339,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             shareThreadMsgData.thread_type = threadData.threadType;
             shareThreadMsgData.id = JavaTypesHelper.toLong(threadData.getTid(), 0L);
             if (threadData.isImShareFromPb()) {
-                shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().j0);
+                shareThreadMsgData.rich_abstract = parseContentTb(threadData.getPbFirstShareData().r0);
             } else {
                 shareThreadMsgData.rich_abstract = parseContentTb(threadData.getRichAbstractList());
             }
@@ -378,7 +378,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 shareThreadMsgData.author_name_show = threadData.getAuthor().getName_show();
             }
             if (threadData.getForumData() != null) {
-                y35 forumData = threadData.getForumData();
+                d45 forumData = threadData.getForumData();
                 shareThreadMsgData.forum_id = JavaTypesHelper.toLong(forumData.a, 0L);
                 shareThreadMsgData.forum_avatar = forumData.c;
                 shareThreadMsgData.forum_name = forumData.b;
@@ -399,13 +399,13 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             }
             if (!ListUtils.isEmpty(threadData.getMedias())) {
                 parseMediaDataList(shareThreadMsgData, threadData.getMedias());
-            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().e0() != null) {
+            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().f0() != null) {
                 shareThreadMsgData.media_list = new ArrayList();
-                Iterator<TbRichTextImageInfo> it = threadData.getPbFirstShareData().e0().R().iterator();
+                Iterator<TbRichTextImageInfo> it = threadData.getPbFirstShareData().f0().Q().iterator();
                 while (it.hasNext()) {
                     TbRichTextImageInfo next = it.next();
                     MediaPojo mediaPojo = new MediaPojo();
-                    mediaPojo.srcPic = next.Q();
+                    mediaPojo.srcPic = next.P();
                     mediaPojo.width = next.getWidth();
                     mediaPojo.height = next.getHeight();
                     shareThreadMsgData.media_list.add(mediaPojo);
@@ -541,25 +541,25 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                     }
                     if (pbContentPojo.item != null) {
                         Item.Builder builder8 = new Item.Builder();
-                        ve8 ve8Var = pbContentPojo.item;
-                        builder8.item_id = ve8Var.a;
-                        builder8.item_name = ve8Var.b;
-                        builder8.icon_size = ve8Var.c;
-                        builder8.icon_url = ve8Var.d;
-                        if (ve8Var.e != null) {
+                        xf8 xf8Var = pbContentPojo.item;
+                        builder8.item_id = xf8Var.a;
+                        builder8.item_name = xf8Var.b;
+                        builder8.icon_size = xf8Var.c;
+                        builder8.icon_url = xf8Var.d;
+                        if (xf8Var.e != null) {
                             builder8.tags = new ArrayList(pbContentPojo.item.e);
                         }
-                        ve8 ve8Var2 = pbContentPojo.item;
-                        builder8.score = ve8Var2.f;
-                        builder8.star = ve8Var2.g;
-                        builder8.button_name = ve8Var2.h;
-                        builder8.button_link = ve8Var2.i;
-                        builder8.item_appid = ve8Var2.j;
-                        builder8.category_id = ve8Var2.k;
-                        builder8.button_link_type = ve8Var2.l;
-                        builder8.apk_name = ve8Var2.m;
-                        builder8.forum_name = ve8Var2.n;
-                        if (ve8Var2.o != null) {
+                        xf8 xf8Var2 = pbContentPojo.item;
+                        builder8.score = xf8Var2.f;
+                        builder8.star = xf8Var2.g;
+                        builder8.button_name = xf8Var2.h;
+                        builder8.button_link = xf8Var2.i;
+                        builder8.item_appid = xf8Var2.j;
+                        builder8.category_id = xf8Var2.k;
+                        builder8.button_link_type = xf8Var2.l;
+                        builder8.apk_name = xf8Var2.m;
+                        builder8.forum_name = xf8Var2.n;
+                        if (xf8Var2.o != null) {
                             ApkDetail.Builder builder9 = new ApkDetail.Builder();
                             ApkDetailPojo apkDetailPojo = pbContentPojo.item.o;
                             builder9.developer = apkDetailPojo.developer;
@@ -594,7 +594,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 ArrayList arrayList = new ArrayList();
                 for (protobuf.PbContent pbContent : list) {
                     PbContentPojo pbContentPojo = new PbContentPojo();
-                    pbContentPojo.N(pbContent);
+                    pbContentPojo.M(pbContent);
                     arrayList.add(pbContentPojo);
                 }
                 return arrayList;
@@ -612,7 +612,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
                 ArrayList arrayList = new ArrayList();
                 for (PbContent pbContent : list) {
                     PbContentPojo pbContentPojo = new PbContentPojo();
-                    pbContentPojo.O(pbContent);
+                    pbContentPojo.N(pbContent);
                     arrayList.add(pbContentPojo);
                 }
                 return arrayList;
@@ -676,7 +676,7 @@ public final class ShareThreadMsgData extends OrmObject implements Serializable 
             shareThreadMsgData.media_list = new ArrayList();
             for (Media media : list) {
                 MediaPojo mediaPojo = new MediaPojo();
-                mediaPojo.O(media);
+                mediaPojo.N(media);
                 if (StringUtils.isNull(mediaPojo.srcPic)) {
                     if (!StringUtils.isNull(mediaPojo.originPic)) {
                         mediaPojo.srcPic = mediaPojo.originPic;

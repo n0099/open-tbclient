@@ -1,20 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import org.json.JSONObject;
+import java.net.MalformedURLException;
 /* loaded from: classes7.dex */
 public interface os1 {
-    JSONObject a();
+    String a();
 
-    void b(String str);
+    boolean b();
 
-    void c(CallbackHandler callbackHandler, String str);
-
-    void d(CallbackHandler callbackHandler, String str);
-
-    void e(String str);
-
-    void f(CallbackHandler callbackHandler, String str);
-
-    void g(CallbackHandler callbackHandler, String str);
+    String c(String str) throws MalformedURLException;
 }

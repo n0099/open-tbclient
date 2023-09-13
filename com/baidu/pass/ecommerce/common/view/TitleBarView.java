@@ -29,9 +29,9 @@ public class TitleBarView extends RelativeLayout {
         if (this.isDarkMode) {
             TextView textView = this.rightBtn;
             if (z) {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f0609fe);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f060a05);
             } else {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f0609fd);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f060a04);
             }
             textView.setTextColor(color);
         }
@@ -74,18 +74,18 @@ public class TitleBarView extends RelativeLayout {
     }
 
     private void init() {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0555, (ViewGroup) this, true);
-        this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b8);
-        this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b7);
-        this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920ba);
-        this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920b9);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0562, (ViewGroup) this, true);
+        this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920f7);
+        this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920f6);
+        this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920f9);
+        this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920f8);
     }
 
     public void setDarkMode() {
         this.isDarkMode = true;
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f08134e);
-        this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fa));
-        this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a00));
-        this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fd));
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f081371);
+        this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a01));
+        this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a07));
+        this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a04));
     }
 }

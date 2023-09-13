@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qw0 extends sw0 {
+public abstract class qw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d01 a;
 
     public qw0() {
         Interceptable interceptable = $ic;
@@ -25,12 +26,26 @@ public class qw0 extends sw0 {
         }
     }
 
-    public static sw0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return sw0.m(str, 1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
         }
-        return (sw0) invokeL.objValue;
+    }
+
+    public void b(@NonNull d01 d01Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d01Var) == null) {
+            this.a = d01Var;
+        }
+    }
+
+    public void c(@NonNull ww0 ww0Var) {
+        d01 d01Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ww0Var) != null) || (d01Var = this.a) == null) {
+            return;
+        }
+        d01Var.d(ww0Var);
     }
 }

@@ -301,9 +301,9 @@ public class RelativeCardView extends RelativeLayout {
             float[] fArr = new float[3];
             Color.colorToHSV(color2, fArr);
             if (fArr[2] > 0.5f) {
-                color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0604db);
+                color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0604dd);
             } else {
-                color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0604da);
+                color = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0604dc);
             }
             valueOf = ColorStateList.valueOf(color);
         }

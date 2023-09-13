@@ -91,7 +91,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(R.layout.obfuscated_res_0x7f0d057b);
+            setContentView(R.layout.obfuscated_res_0x7f0d0588);
             init();
             setupViews();
         } catch (Throwable th) {

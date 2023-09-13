@@ -55,7 +55,7 @@ public class ProgressBarDialog extends BoxAlertDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return new ProgressBarDialog(context, R.style.obfuscated_res_0x7f10014f);
+                return new ProgressBarDialog(context, R.style.obfuscated_res_0x7f100151);
             }
             return (BoxAlertDialog) invokeL.objValue;
         }
@@ -224,10 +224,10 @@ public class ProgressBarDialog extends BoxAlertDialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0839, (ViewGroup) null);
             this.mContentView = inflate;
-            this.mContentText = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907dc);
-            this.mProgressBar = (RoundProgressBar) this.mContentView.findViewById(R.id.obfuscated_res_0x7f0907d8);
+            this.mContentText = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907d1);
+            this.mProgressBar = (RoundProgressBar) this.mContentView.findViewById(R.id.obfuscated_res_0x7f0907cd);
             return this.mContentView;
         }
         return (View) invokeV.objValue;

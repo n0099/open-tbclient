@@ -1,81 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.RecommendBannerCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wr6 {
+public class wr6 extends yb7<RecommendBannerCardView, b67> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280238, "Lcom/baidu/tieba/wr6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948280238, "Lcom/baidu/tieba/wr6;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wr6() {
+        super("recommend_banner");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes8.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // com.baidu.tieba.yb7, com.baidu.tieba.oc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            RecommendBannerCardView recommendBannerCardView = new RecommendBannerCardView(viewGroup.getContext());
+            recommendBannerCardView.a(viewGroup);
+            de7.i(recommendBannerCardView, Integer.valueOf(de7.e() * 2));
+            return recommendBannerCardView;
         }
+        return (View) invokeL.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oc7
+    /* renamed from: e */
+    public void b(@NonNull RecommendBannerCardView recommendBannerCardView, @NonNull b67 b67Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBannerCardView, b67Var) == null) {
+            Object obj = b67Var.a().a;
+            if (obj instanceof h78) {
+                recommendBannerCardView.setVisibility(0);
+                recommendBannerCardView.update((h78) obj);
+                return;
             }
-        }
-
-        public final String a(a77 businessInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-                if (Intrinsics.areEqual(businessInfo.a().get("is_link_thread"), "1")) {
-                    return "4";
-                }
-                if (Intrinsics.areEqual(businessInfo.a().get(VideoPlayActivityConfig.IS_SHARE_THREAD), "1")) {
-                    return "5";
-                }
-                if (Intrinsics.areEqual(businessInfo.a().get("thread_type"), "0")) {
-                    return "1";
-                }
-                if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK) && !Intrinsics.areEqual(businessInfo.a().get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
-                    return "1";
-                }
-                return "2";
-            }
-            return (String) invokeL.objValue;
+            recommendBannerCardView.setVisibility(8);
         }
     }
 }

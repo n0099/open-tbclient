@@ -3,8 +3,8 @@ package com.baidu.tieba.newinterest.fragment;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.se9;
-import com.baidu.tieba.ze9;
+import com.baidu.tieba.bg9;
+import com.baidu.tieba.uf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String[] b;
-    public List<se9> c;
+    public List<uf9> c;
     public View d;
 
     public BaseInterestedForumFragment() {
@@ -34,7 +34,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public int U1() {
+    public int W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,7 +43,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         return invokeV.intValue;
     }
 
-    public void V1() {
+    public void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             hideLoadingView(this.d);
@@ -56,12 +56,12 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                ze9.c(2, this.a);
+                bg9.c(2, this.a);
             }
         }
     }
 
-    public void W1(String str) {
+    public void Y1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             hideLoadingView(this.d);
@@ -69,7 +69,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public void X1(List<se9> list) {
+    public void Z1(List<uf9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.c = list;

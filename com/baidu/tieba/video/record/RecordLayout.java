@@ -27,9 +27,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void m1();
+        void i1();
 
-        void v0();
+        void r0();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,7 +102,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070375);
+            this.d = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070379);
         }
     }
 
@@ -123,15 +123,15 @@ public class RecordLayout extends RelativeLayout {
                     int rawX = (int) (motionEvent.getRawX() - this.e);
                     if (Math.abs(xVelocity) > this.b && Math.abs(rawX) > this.d) {
                         if (rawX > 0) {
-                            this.f.m1();
+                            this.f.i1();
                         } else {
-                            this.f.v0();
+                            this.f.r0();
                         }
                     } else if (Math.abs(rawX) > BdUtilHelper.getEquipmentWidth(getContext()) * 0.5d) {
                         if (rawX > 0) {
-                            this.f.m1();
+                            this.f.i1();
                         } else {
-                            this.f.m1();
+                            this.f.i1();
                         }
                     }
                     this.a.clear();

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hy9;
+import com.baidu.tieba.yz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public hy9 c;
+    public yz9 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -77,7 +77,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPause();
             this.c.stopPlay();
         }
@@ -86,7 +86,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
             this.c.startPlay();
         }
@@ -103,9 +103,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            hy9 hy9Var = new hy9(this, frameLayout2);
-            this.c = hy9Var;
-            hy9Var.setStageType("2006");
+            yz9 yz9Var = new yz9(this, frameLayout2);
+            this.c = yz9Var;
+            yz9Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();
@@ -117,10 +117,24 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
+    public final void o1(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (bundle != null) {
+                this.a = bundle.getString("video_url", "");
+                this.b = bundle.getString("thumb_url", "");
+            } else if (getIntent() != null) {
+                this.a = getIntent().getStringExtra("video_url");
+                this.b = getIntent().getStringExtra("thumb_url");
+            }
+            this.c.H0(this.b, this.a);
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
             UtilHelper.changeStatusBarIconAndTextColor(true, this);
         }
@@ -129,10 +143,10 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             initView();
-            s1(bundle);
+            o1(bundle);
             setContentView(this.d);
         }
     }
@@ -140,24 +154,10 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putString("video_url", this.a);
             bundle.putString("thumb_url", this.b);
-        }
-    }
-
-    public final void s1(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            if (bundle != null) {
-                this.a = bundle.getString("video_url", "");
-                this.b = bundle.getString("thumb_url", "");
-            } else if (getIntent() != null) {
-                this.a = getIntent().getStringExtra("video_url");
-                this.b = getIntent().getStringExtra("thumb_url");
-            }
-            this.c.F0(this.b, this.a);
         }
     }
 }

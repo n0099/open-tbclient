@@ -14,13 +14,13 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.em5;
-import com.baidu.tieba.fza;
-import com.baidu.tieba.hza;
-import com.baidu.tieba.mb5;
+import com.baidu.tieba.bu6;
+import com.baidu.tieba.cu6;
+import com.baidu.tieba.l1b;
+import com.baidu.tieba.n1b;
+import com.baidu.tieba.wb5;
 import com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt;
-import com.baidu.tieba.xs6;
-import com.baidu.tieba.ys6;
+import com.baidu.tieba.xm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,19 +77,19 @@ public final class LocalFileInterceptorKt {
         return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.gza.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.m1b.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
     public static final /* synthetic */ WebResourceResponse a(Uri uri, WebResourceRequest webResourceRequest) {
         return e(uri, webResourceRequest);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.gza.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.m1b.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
     public static final /* synthetic */ WebResourceResponse c(Uri uri, WebResourceRequest webResourceRequest) {
         return j(uri, webResourceRequest);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.gza.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
-    public static final /* synthetic */ WebResourceResponse b(Map map, WriteData writeData, hza hzaVar, Uri uri, WebResourceRequest webResourceRequest) {
-        return f(map, writeData, hzaVar, uri, webResourceRequest);
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.m1b.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
+    public static final /* synthetic */ WebResourceResponse b(Map map, WriteData writeData, n1b n1bVar, Uri uri, WebResourceRequest webResourceRequest) {
+        return f(map, writeData, n1bVar, uri, webResourceRequest);
     }
 
     public static final WebResourceResponse e(Uri uri, WebResourceRequest webResourceRequest) {
@@ -113,7 +113,7 @@ public final class LocalFileInterceptorKt {
             String queryParameter = uri.getQueryParameter("voiceId");
             if (!TextUtils.isEmpty(queryParameter)) {
                 try {
-                    return ImageLoader.f(FilesKt__FileReadWriteKt.readBytes(new File(mb5.b(queryParameter))), "audio/amr", webResourceRequest);
+                    return ImageLoader.f(FilesKt__FileReadWriteKt.readBytes(new File(wb5.b(queryParameter))), "audio/amr", webResourceRequest);
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return null;
@@ -124,7 +124,7 @@ public final class LocalFileInterceptorKt {
         return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public static final WebResourceResponse f(Map<String, String> map, WriteData writeData, hza hzaVar, Uri uri, WebResourceRequest webResourceRequest) {
+    public static final WebResourceResponse f(Map<String, String> map, WriteData writeData, n1b n1bVar, Uri uri, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLLLLL;
         ImageFileInfo imageFileInfo;
         WebResourceResponse e;
@@ -135,7 +135,7 @@ public final class LocalFileInterceptorKt {
         LinkedList<ImageFileInfo> chosedFiles2;
         Object obj2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, map, writeData, hzaVar, uri, webResourceRequest)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, map, writeData, n1bVar, uri, webResourceRequest)) == null) {
             String queryParameter = uri.getQueryParameter("ref");
             HashMap hashMap = null;
             if (queryParameter == null) {
@@ -171,7 +171,7 @@ public final class LocalFileInterceptorKt {
                         imageFileInfo2 = null;
                     }
                     if (imageFileInfo2 != null) {
-                        e = g(imageFileInfo2, hzaVar, webResourceRequest);
+                        e = g(imageFileInfo2, n1bVar, webResourceRequest);
                     } else {
                         HybridLog.getInstance().i("LocalFileInterceptor", "加载本地图片失败，writeImagesInfo中没有:" + queryParameter);
                         e = null;
@@ -221,38 +221,38 @@ public final class LocalFileInterceptorKt {
         return (WebResourceResponse) invokeLLLLL.objValue;
     }
 
-    public static final WebResourceResponse g(ImageFileInfo imageFileInfo, hza hzaVar, WebResourceRequest webResourceRequest) {
+    public static final WebResourceResponse g(ImageFileInfo imageFileInfo, n1b n1bVar, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, imageFileInfo, hzaVar, webResourceRequest)) == null) {
-            final ys6 ys6Var = new ys6();
-            em5 em5Var = new em5() { // from class: com.baidu.tieba.dza
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, imageFileInfo, n1bVar, webResourceRequest)) == null) {
+            final cu6 cu6Var = new cu6();
+            xm5 xm5Var = new xm5() { // from class: com.baidu.tieba.j1b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.em5
+                @Override // com.baidu.tieba.xm5
                 public final void a(BdImage bdImage, String str, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLZ(1048576, this, bdImage, str, z) == null) {
-                        LocalFileInterceptorKt.h(ys6.this, bdImage, str, z);
+                        LocalFileInterceptorKt.h(cu6.this, bdImage, str, z);
                     }
                 }
             };
             BdImage bdImage = null;
-            if (imageFileInfo != null && hzaVar != null) {
-                bdImage = hza.d(hzaVar, imageFileInfo, em5Var, true, false, 8, null);
+            if (imageFileInfo != null && n1bVar != null) {
+                bdImage = n1b.d(n1bVar, imageFileInfo, xm5Var, true, false, 8, null);
             }
             if (bdImage != null) {
                 WebResourceResponse f = ImageLoader.f(bdImage.getImageByte(), WordCommandManager.IMAGE_PNG, webResourceRequest);
                 Intrinsics.checkNotNullExpressionValue(f, "{\n        ImageLoader.wr…mage/png\", request)\n    }");
                 return f;
             }
-            return new WebResourceResponse(WordCommandManager.IMAGE_PNG, "UTF-8", new xs6(ys6Var));
+            return new WebResourceResponse(WordCommandManager.IMAGE_PNG, "UTF-8", new bu6(cu6Var));
         }
         return (WebResourceResponse) invokeLLL.objValue;
     }
 
-    public static final void h(ys6 future, BdImage bdImage, String str, boolean z) {
+    public static final void h(cu6 future, BdImage bdImage, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{future, bdImage, str, Boolean.valueOf(z)}) == null) {
             Intrinsics.checkNotNullParameter(future, "$future");
@@ -264,14 +264,14 @@ public final class LocalFileInterceptorKt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, imageFileInfo)) == null) {
-            ys6 ys6Var = new ys6();
-            fza.a aVar = fza.a;
+            cu6 cu6Var = new cu6();
+            l1b.a aVar = l1b.a;
             String filePath = imageFileInfo.getFilePath();
             Intrinsics.checkNotNullExpressionValue(filePath, "info.filePath");
-            fza.a.b(aVar, filePath, 0, 0, new Function1<BdImage, Unit>(imageFileInfo, ys6Var) { // from class: com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt$localPreviewImage$1
+            l1b.a.b(aVar, filePath, 0, 0, new Function1<BdImage, Unit>(imageFileInfo, cu6Var) { // from class: com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt$localPreviewImage$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ys6<byte[]> $future;
+                public final /* synthetic */ cu6<byte[]> $future;
                 public final /* synthetic */ ImageFileInfo $info;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -281,7 +281,7 @@ public final class LocalFileInterceptorKt {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {imageFileInfo, ys6Var};
+                        Object[] objArr = {imageFileInfo, cu6Var};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -293,7 +293,7 @@ public final class LocalFileInterceptorKt {
                         }
                     }
                     this.$info = imageFileInfo;
-                    this.$future = ys6Var;
+                    this.$future = cu6Var;
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
@@ -309,17 +309,17 @@ public final class LocalFileInterceptorKt {
                     byte[] bArr;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdImage) == null) {
-                        ys6<byte[]> ys6Var2 = this.$future;
+                        cu6<byte[]> cu6Var2 = this.$future;
                         if (bdImage != null) {
                             bArr = bdImage.getImageByte();
                         } else {
                             bArr = null;
                         }
-                        ys6Var2.b(bArr);
+                        cu6Var2.b(bArr);
                     }
                 }
             }, 6, null);
-            return new WebResourceResponse(WordCommandManager.IMAGE_PNG, "UTF-8", new xs6(ys6Var));
+            return new WebResourceResponse(WordCommandManager.IMAGE_PNG, "UTF-8", new bu6(cu6Var));
         }
         return (WebResourceResponse) invokeL.objValue;
     }

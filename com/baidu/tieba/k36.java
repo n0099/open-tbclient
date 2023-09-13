@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.ViewConfiguration;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,64 +13,153 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class k36 {
     public static /* synthetic */ Interceptable $ic;
-    public static final k36 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<j36> a;
+    public View a;
+    public b b;
+    public VelocityTracker c;
+    public float d;
+    public float e;
+    public long f;
+    public long g;
+    public boolean h;
+    public boolean i;
+    public int j;
+    public int k;
+    public int l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862203, "Lcom/baidu/tieba/k36;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947862203, "Lcom/baidu/tieba/k36;");
-                return;
-            }
-        }
-        b = new k36();
+    /* loaded from: classes6.dex */
+    public interface b {
+        void D0(float f, float f2);
+
+        void onViewClick();
+
+        void onViewDragToRight();
     }
 
-    public k36() {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k36 a;
+
+        public a(k36 k36Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k36Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k36Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.i && this.a.h && this.a.b != null) {
+                this.a.b.onViewClick();
+            }
+        }
+    }
+
+    public k36(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
-    }
-
-    public static k36 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        this.a = view2;
+        ViewConfiguration viewConfiguration = ViewConfiguration.get(view2.getContext());
+        if (viewConfiguration != null) {
+            this.l = viewConfiguration.getScaledPagingTouchSlop();
         }
-        return (k36) invokeV.objValue;
+        this.k = ViewConfiguration.getMaximumFlingVelocity();
+        this.j = ViewConfiguration.getMinimumFlingVelocity();
     }
 
-    public j36 a(int i) {
-        InterceptResult invokeI;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
         }
-        return (j36) invokeI.objValue;
     }
 
-    public void c(int i, j36 j36Var) {
+    public boolean d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, j36Var) == null) {
-            this.a.put(i, j36Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            if (this.c == null) {
+                this.c = VelocityTracker.obtain();
+            }
+            this.c.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 0) {
+                if (action != 1) {
+                    if (action == 3) {
+                        e();
+                    }
+                } else {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (currentTimeMillis - this.f < 100 && currentTimeMillis - this.g < 500) {
+                        this.i = true;
+                    } else {
+                        this.i = false;
+                    }
+                    VelocityTracker velocityTracker = this.c;
+                    velocityTracker.computeCurrentVelocity(1000, this.k);
+                    if (Math.abs(velocityTracker.getYVelocity()) > this.j && Math.abs(this.e - motionEvent.getY()) > 50.0f) {
+                        this.i = false;
+                        this.h = false;
+                    }
+                    if (this.i) {
+                        b bVar2 = this.b;
+                        if (bVar2 != null) {
+                            bVar2.D0(motionEvent.getRawX(), motionEvent.getRawY());
+                        }
+                    } else if (Math.abs(this.d - motionEvent.getX()) > this.l && (this.d - motionEvent.getX()) - 50.0f > Math.abs(this.e - motionEvent.getY()) && (bVar = this.b) != null) {
+                        bVar.onViewDragToRight();
+                    }
+                    if (!this.i && this.h && Math.abs(this.d - motionEvent.getX()) < 30.0f && Math.abs(this.e - motionEvent.getY()) < 30.0f) {
+                        this.a.postDelayed(new a(this), 300L);
+                    }
+                    this.g = currentTimeMillis;
+                    e();
+                }
+            } else {
+                this.d = motionEvent.getX();
+                this.e = motionEvent.getY();
+                this.f = System.currentTimeMillis();
+                this.h = true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e() {
+        VelocityTracker velocityTracker;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.c) != null) {
+            velocityTracker.clear();
+            this.c.recycle();
+            this.c = null;
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h9;
+import com.baidu.tieba.i9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorCode;
     public String mErrorString;
-    public h9 mLoadDataCallBack;
+    public i9 mLoadDataCallBack;
     public int mLoadDataMode;
     public boolean mNeedShowSeverToast;
     public BdUniqueId unique_id;
@@ -177,10 +177,10 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void setLoadDataCallBack(h9 h9Var) {
+    public void setLoadDataCallBack(i9 i9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, h9Var) == null) {
-            this.mLoadDataCallBack = h9Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, i9Var) == null) {
+            this.mLoadDataCallBack = i9Var;
         }
     }
 

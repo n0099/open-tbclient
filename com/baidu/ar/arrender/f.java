@@ -18,6 +18,7 @@ import com.baidu.ar.arplay.core.renderer.IARPRenderer;
 import com.baidu.ar.bean.RotationType;
 import com.baidu.ar.bean.Size;
 import com.baidu.ar.libloader.ILibLoader;
+import com.baidu.cyberplayer.sdk.CyberRender;
 import com.baidu.storage.swankv.SwanKV;
 import java.io.File;
 import java.lang.ref.SoftReference;
@@ -513,7 +514,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
             this.hx.getARPRenderer().setInputTexture(duMixInput.getInputTexture().getType(), duMixInput.getInputTexture().getId(), duMixInput.getInputWidth(), duMixInput.getInputHeight());
             return;
         }
-        int i = duMixInput.isCameraInput() ? 36197 : 3553;
+        int i = duMixInput.isCameraInput() ? CyberRender.GL_TEXTURE_EXTERNAL_OES : 3553;
         if (duMixInput.getInputSurface() != null) {
             a(duMixInput.getInputSurface(), i, duMixInput.getInputWidth(), duMixInput.getInputHeight());
             return;

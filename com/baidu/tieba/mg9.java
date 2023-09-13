@@ -1,80 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.CallRobotEntrance;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes7.dex */
-public final class mg9 implements Runnable {
+public class mg9 extends jg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<PbFragment> a;
-    public final String b;
+    public ViewStub o;
+    public ViewStub p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public TextView t;
+    public TextView u;
+    public TextView v;
+    public TextView w;
 
-    public mg9(String token, PbFragment pbFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg9(TbPageContext tbPageContext, View view2) {
+        super(tbPageContext, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {token, pbFragment};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(token, "token");
-        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
-        this.a = new WeakReference<>(pbFragment);
-        this.b = token;
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0929d8);
+        this.o = viewStub;
+        viewStub.inflate();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+        layoutParams.topMargin = ((BdUtilHelper.getEquipmentHeight(tbPageContext.getPageActivity()) / 2) + BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds239)) - BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds140);
+        this.o.setLayoutParams(layoutParams);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09289d);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0929d5);
+        this.p = viewStub2;
+        viewStub2.inflate();
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a8);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a1f);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925a9);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090177);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925aa);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d85);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0067  */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        PbFragment pbFragment;
-        String str;
+    @Override // com.baidu.tieba.jg9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pbFragment = this.a.get()) != null && pbFragment.Y5() != null && pbFragment.W() != null && pbFragment.Y5().T0() != null && pbFragment.W().s1() != null) {
-            RobotEntrance K = pbFragment.W().s1().K();
-            if (K != null) {
-                List<RobotSkillInfo> list = K.robot_skill_info;
-                List<RobotSkill> list2 = K.bottom_bar_robot_skill;
-                if (list != null && list2 != null) {
-                    CallRobotEntrance c = BotEntranceManager.c.c().c(list, list2);
-                    Intrinsics.checkNotNull(c);
-                    str = c.style_conf.android_extra.bot_timeout_content;
-                    Intrinsics.checkNotNullExpressionValue(str, "robotEntrance!!.style_co…extra.bot_timeout_content");
-                    if (TextUtils.isEmpty(str)) {
-                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f7);
-                        Intrinsics.checkNotNullExpressionValue(str, "getInst()\n              …bot_loading_timeout_text)");
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
+            EMManager.from(this.q).setTextColor(R.color.CAM_X0105).setTextSize(R.dimen.T_X03).setTextStyle(R.string.F_X02);
+            EMManager.from(this.r).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+            EMManager.from(this.t).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+            EMManager.from(this.v).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+            EMManager.from(this.s).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+            EMManager.from(this.u).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+            EMManager.from(this.w).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.tbds29).setTextStyle(R.string.F_X01);
+        }
+    }
+
+    @Override // com.baidu.tieba.jg9
+    public void c(kg9 kg9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg9Var) != null) || kg9Var == null) {
+            return;
+        }
+        this.q.setText(kg9Var.a);
+        f(kg9Var.a());
+    }
+
+    @Override // com.baidu.tieba.jg9
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            super.d(onClickListener);
+            this.s.setOnClickListener(onClickListener);
+            this.u.setOnClickListener(onClickListener);
+            this.w.setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
+                        this.s.setText(R.string.obfuscated_res_0x7f0f0efb);
+                        return;
                     }
-                    go9.d(this.b, str, "", 2);
-                    pbFragment.Y5().T0().f0();
+                    return;
                 }
+                this.s.setText(R.string.obfuscated_res_0x7f0f0efa);
+                return;
             }
-            str = "";
-            if (TextUtils.isEmpty(str)) {
-            }
-            go9.d(this.b, str, "", 2);
-            pbFragment.Y5().T0().f0();
+            this.s.setText(R.string.obfuscated_res_0x7f0f0ef9);
         }
     }
 }

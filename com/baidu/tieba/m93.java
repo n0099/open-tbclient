@@ -1,44 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import android.os.Bundle;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.n93;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class m93 {
+public final class m93 extends h73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
-        InterceptResult invokeLLI;
+    public m93() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
-            if (context != null && viewGroup != null) {
-                FullScreenFloatView b = b(context, i);
-                viewGroup.addView(b);
-                return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (FullScreenFloatView) invokeLLI.objValue;
     }
 
-    public static FullScreenFloatView b(Context context, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.h73
+    public void b(Bundle params) {
+        n93.a b;
+        n93.a b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+            String string2 = params.getString("swanId");
+            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String string4 = params.getString("hostName");
+            if (ProcessUtils.isMainProcess()) {
+                if (string != null && (b2 = n93.c.b()) != null) {
+                    b2.a(string, string3, string4);
+                }
+                if (string2 != null && (b = n93.c.b()) != null) {
+                    b.b(string2, string3, string4);
+                }
             }
-            int i2 = R.layout.obfuscated_res_0x7f0d00ad;
-            if (i != 1 && i == 2) {
-                i2 = R.layout.obfuscated_res_0x7f0d00ae;
-            }
-            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
         }
-        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

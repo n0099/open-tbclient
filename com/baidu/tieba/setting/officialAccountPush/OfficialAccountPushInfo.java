@@ -31,7 +31,7 @@ public class OfficialAccountPushInfo implements Parcelable {
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements Parcelable.Creator<OfficialAccountPushInfo> {
+    public class a implements Parcelable.Creator<OfficialAccountPushInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

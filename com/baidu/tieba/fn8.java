@@ -1,33 +1,35 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class fn8 {
+public class fn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, hn8> a;
-    public hn8 b;
-    public long c;
-
-    @JvmOverloads
-    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            e(this, abilityItem, baseMsg, null, 4, null);
-        }
-    }
+    @Nullable
+    public List<String> a;
+    @Nullable
+    public String b;
+    @Nullable
+    public String c;
+    @Nullable
+    public String d;
+    @Nullable
+    public String e;
+    @Nullable
+    public String f;
+    @Nullable
+    public String g;
 
     public fn8() {
         Interceptable interceptable = $ic;
@@ -39,70 +41,102 @@ public final class fn8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedHashMap();
     }
 
-    public static /* synthetic */ void e(fn8 fn8Var, AbilityItem abilityItem, BaseMsg baseMsg, Object obj, int i, Object obj2) {
-        if ((i & 4) != 0) {
-            obj = null;
-        }
-        fn8Var.d(abilityItem, baseMsg, obj);
-    }
-
-    public final void a(hn8 handler) {
+    @Nullable
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            Intrinsics.checkNotNullParameter(handler, "handler");
-            if (handler.c()) {
-                this.b = handler;
-            }
-            for (String str : handler.e()) {
-                this.a.put(str, handler);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            hn8 hn8Var = this.b;
-            if (hn8Var != null) {
-                hn8Var.b(abilityItem, baseMsg, null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
+        return (String) invokeV.objValue;
     }
 
-    @JvmOverloads
-    public final void d(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
-        Unit unit;
+    @Nullable
+    public List<String> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseMsg, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            try {
-                hn8 hn8Var = this.a.get(abilityItem.getType());
-                if (hn8Var != null) {
-                    hn8Var.b(abilityItem, baseMsg, obj);
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Nullable
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Nullable
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.b = jSONObject.optString("hot_nums_text");
+        this.c = jSONObject.optString("add_url");
+        this.d = jSONObject.optString("manage_url");
+        this.e = jSONObject.optString("manager_switch");
+        this.f = jSONObject.optString("is_like");
+        this.g = jSONObject.optString("frs_scheme");
+        JSONArray optJSONArray = jSONObject.optJSONArray("head_img");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString)) {
+                    this.a.add(optString);
                 }
-                if (unit == null) {
-                    b(abilityItem, baseMsg);
-                }
-            } catch (Exception e) {
-                rm8.g("ability_handle_exception", this.c, e);
             }
-        }
-    }
-
-    public final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.c = j;
         }
     }
 }

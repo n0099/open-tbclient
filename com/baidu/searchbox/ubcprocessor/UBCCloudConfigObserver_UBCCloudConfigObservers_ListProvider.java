@@ -1,14 +1,14 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.tieba.hk1;
-import com.baidu.tieba.zib;
+import com.baidu.tieba.hlb;
+import com.baidu.tieba.lk1;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements hk1 {
-    @Override // com.baidu.tieba.hk1
+public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements lk1 {
+    @Override // com.baidu.tieba.lk1
     public Object get() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new zib());
+        arrayList.add(new hlb());
         return arrayList;
     }
 }

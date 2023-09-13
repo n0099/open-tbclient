@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.interfaces.yy;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class YYStatInfo {
     public static final String LOAD_TYPE_LOADED = "launch";
     public static final String LOAD_TYPE_NOT_DOWNLOAD = "download";

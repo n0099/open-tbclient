@@ -1,29 +1,34 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p7c;
+import com.baidu.tieba.wac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.CompositeException;
 /* loaded from: classes7.dex */
-public class ncc<T, R> extends occ<T, R> {
+public final class ncc<T> implements wac.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ybc<T> b;
+    public final wac<T> a;
+    public final gbc<? super T> b;
+    public final gbc<Throwable> c;
 
     /* loaded from: classes7.dex */
-    public class a implements p7c.a<R> {
+    public static final class a<T> extends xac<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ occ a;
+        public final xac<? super T> b;
+        public final gbc<? super T> c;
+        public final gbc<Throwable> d;
 
-        public a(occ occVar) {
+        public a(xac<? super T> xacVar, gbc<? super T> gbcVar, gbc<Throwable> gbcVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {occVar};
+                Object[] objArr = {xacVar, gbcVar, gbcVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -33,64 +38,70 @@ public class ncc<T, R> extends occ<T, R> {
                     return;
                 }
             }
-            this.a = occVar;
+            this.b = xacVar;
+            this.c = gbcVar;
+            this.d = gbcVar2;
         }
 
-        public void call(v7c<? super R> v7cVar) {
+        @Override // com.baidu.tieba.xac
+        public void b(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, v7cVar) == null) {
-                this.a.O(v7cVar);
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                try {
+                    this.d.call(th);
+                    this.b.b(th);
+                } catch (Throwable th2) {
+                    ebc.e(th2);
+                    this.b.b(new CompositeException(th, th2));
+                }
             }
         }
 
-        @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((v7c) ((v7c) obj));
+        @Override // com.baidu.tieba.xac
+        public void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                try {
+                    this.c.call(t);
+                    this.b.c(t);
+                } catch (Throwable th) {
+                    ebc.h(th, this, t);
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ncc(occ<T, R> occVar) {
-        super(new a(occVar));
+    public ncc(wac<T> wacVar, gbc<? super T> gbcVar, gbc<Throwable> gbcVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {occVar};
+            Object[] objArr = {wacVar, gbcVar, gbcVar2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((p7c.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ybc<>(occVar);
+        this.a = wacVar;
+        this.b = gbcVar;
+        this.c = gbcVar2;
     }
 
-    @Override // com.baidu.tieba.q7c
-    public void onCompleted() {
+    public void call(xac<? super T> xacVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.onCompleted();
+        if (interceptable == null || interceptable.invokeL(1048576, this, xacVar) == null) {
+            a aVar = new a(xacVar, this.b, this.c);
+            xacVar.a(aVar);
+            this.a.j(aVar);
         }
     }
 
-    @Override // com.baidu.tieba.q7c
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.q7c
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.b.onNext(t);
-        }
+    @Override // com.baidu.tieba.wac.c, com.baidu.tieba.gbc
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((xac) ((xac) obj));
     }
 }

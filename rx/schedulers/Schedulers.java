@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.dcc;
-import com.baidu.tieba.gcc;
-import com.baidu.tieba.hcc;
-import com.baidu.tieba.s7c;
-import com.baidu.tieba.s9c;
-import com.baidu.tieba.t9c;
-import com.baidu.tieba.u9c;
-import com.baidu.tieba.x9c;
-import com.baidu.tieba.z9c;
+import com.baidu.tieba.adc;
+import com.baidu.tieba.cdc;
+import com.baidu.tieba.gfc;
+import com.baidu.tieba.jfc;
+import com.baidu.tieba.kfc;
+import com.baidu.tieba.vac;
+import com.baidu.tieba.vcc;
+import com.baidu.tieba.wcc;
+import com.baidu.tieba.xcc;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final s7c a;
-    public final s7c b;
-    public final s7c c;
+    public final vac a;
+    public final vac b;
+    public final vac c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static s7c computation() {
-        return dcc.f(a().a);
+    public static vac computation() {
+        return gfc.f(a().a);
     }
 
-    public static s7c immediate() {
-        return u9c.a;
+    public static vac immediate() {
+        return xcc.a;
     }
 
-    public static s7c io() {
-        return dcc.k(a().b);
+    public static vac io() {
+        return gfc.k(a().b);
     }
 
-    public static s7c newThread() {
-        return dcc.l(a().c);
+    public static vac newThread() {
+        return gfc.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            t9c.d.shutdown();
+            wcc.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            t9c.d.start();
+            wcc.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static s7c trampoline() {
-        return z9c.a;
+    public static vac trampoline() {
+        return cdc.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof x9c) {
-            ((x9c) this.a).shutdown();
+        if (this.a instanceof adc) {
+            ((adc) this.a).shutdown();
         }
-        if (this.b instanceof x9c) {
-            ((x9c) this.b).shutdown();
+        if (this.b instanceof adc) {
+            ((adc) this.b).shutdown();
         }
-        if (this.c instanceof x9c) {
-            ((x9c) this.c).shutdown();
+        if (this.c instanceof adc) {
+            ((adc) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof x9c) {
-            ((x9c) this.a).start();
+        if (this.a instanceof adc) {
+            ((adc) this.a).start();
         }
-        if (this.b instanceof x9c) {
-            ((x9c) this.b).start();
+        if (this.b instanceof adc) {
+            ((adc) this.b).start();
         }
-        if (this.c instanceof x9c) {
-            ((x9c) this.c).start();
+        if (this.c instanceof adc) {
+            ((adc) this.c).start();
         }
     }
 
     public Schedulers() {
-        hcc f = gcc.c().f();
-        s7c g = f.g();
+        kfc f = jfc.c().f();
+        vac g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = hcc.a();
+            this.a = kfc.a();
         }
-        s7c i = f.i();
+        vac i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = hcc.c();
+            this.b = kfc.c();
         }
-        s7c j = f.j();
+        vac j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = hcc.e();
+            this.c = kfc.e();
         }
     }
 
-    public static s7c from(Executor executor) {
-        return new s9c(executor);
+    public static vac from(Executor executor) {
+        return new vcc(executor);
     }
 }

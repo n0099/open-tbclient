@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.ji;
-import com.baidu.tieba.oga;
-import com.baidu.tieba.sga;
+import com.baidu.tieba.iia;
+import com.baidu.tieba.ki;
+import com.baidu.tieba.mia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class CommonTbJsBridge implements oga {
+public class CommonTbJsBridge implements iia {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements oga {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oga
+    @Override // com.baidu.tieba.iia
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements oga {
         return invokeLLLL.booleanValue;
     }
 
-    public sga getSupplementInfo() {
+    public mia getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            sga sgaVar = new sga();
+            mia miaVar = new mia();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements oga {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = ji.c(sb.toString());
+            String c = ki.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements oga {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                sgaVar.o(jSONObject.toString());
-                return sgaVar;
+                miaVar.o(jSONObject.toString());
+                return miaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                sgaVar.o("");
-                return sgaVar;
+                miaVar.o("");
+                return miaVar;
             }
         }
-        return (sga) invokeV.objValue;
+        return (mia) invokeV.objValue;
     }
 }

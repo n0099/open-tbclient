@@ -166,7 +166,7 @@ public final class SugViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public final ImageView b() {
+    public final ImageView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -175,7 +175,7 @@ public final class SugViewHolder extends RecyclerView.ViewHolder {
         return (ImageView) invokeV.objValue;
     }
 
-    public final TextView c() {
+    public final TextView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -184,7 +184,7 @@ public final class SugViewHolder extends RecyclerView.ViewHolder {
         return (TextView) invokeV.objValue;
     }
 
-    public final View d() {
+    public final View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

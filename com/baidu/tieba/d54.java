@@ -1,26 +1,34 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.HashMap;
+import java.util.Locale;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d54 implements c54 {
+public class d54 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, e54> a;
-    public HashMap<String, ArrayList<c54>> b;
-    public String c;
-    public k94 d;
-    public final Object e;
+
+    public static boolean b(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f <= 1.0f && f >= 0.0f : invokeF.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,118 +43,156 @@ public class d54 implements c54 {
                 return;
             }
         }
-        f = nr1.a;
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("494433", ".mp3");
+        a.put("524946", ".wav");
     }
 
-    public d54(String str) {
+    public static String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String e = e();
+            if (j() && !TextUtils.isEmpty(e)) {
+                return e;
             }
+            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.c = str;
+        return (String) invokeV.objValue;
     }
 
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
-            }
-            if (this.d == null) {
-                this.d = k94.b();
-            }
-            e54 e54Var = new e54(this.d, this.c, str, this);
-            this.a.put(str, e54Var);
-            e54Var.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.c54
-    public void a(String str, String str2) {
-        ArrayList<c54> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).a(str, str2);
-                        if (f) {
-                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
-    }
-
-    public void e(String str, c54 c54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, c54Var) == null) {
-            synchronized (this.e) {
-                if (!d(str)) {
-                    if (f) {
-                        Log.e("AudioDownloadManager", "start load url = " + str);
-                    }
-                    c(str);
-                } else if (f) {
-                    Log.e("AudioDownloadManager", "re load url = " + str);
-                }
-                b(str, c54Var);
-            }
-        }
-    }
-
-    public final void b(String str, c54 c54Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, c54Var) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(c54Var);
-                return;
-            }
-            ArrayList<c54> arrayList = new ArrayList<>();
-            arrayList.add(c54Var);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final boolean d(String str) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.containsKey(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (bArr != null && bArr.length > 0) {
+                for (byte b : bArr) {
+                    String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                    if (upperCase.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(upperCase);
+                }
+                String sb2 = sb.toString();
+                if (rr1.a) {
+                    Log.e("AudioDataUtils", "audio buffer header: " + sb2);
+                }
+                return sb2;
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.c54
-    public void fail(int i, String str) {
-        ArrayList<c54> arrayList;
+    public static String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).fail(i, str);
-                    }
-                    this.a.remove(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf != -1) {
+                str2 = str.substring(lastIndexOf);
+            } else {
+                str2 = "";
+            }
+            return "/" + hb3.g0() + "/" + str.hashCode() + str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static b54 c(e54 e54Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, e54Var)) == null) {
+            b54 b54Var = new b54();
+            b54Var.a = e54Var.b;
+            b54Var.e = e54Var.autoplay;
+            b54Var.f = e54Var.loop;
+            b54Var.c = e54Var.src;
+            b54Var.d = e54Var.startTime;
+            b54Var.g = e54Var.obeyMuteSwitch;
+            b54Var.i = e54Var.volume;
+            b54Var.j = i().toString();
+            return b54Var;
+        }
+        return (b54) invokeL.objValue;
+    }
+
+    public static String h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            if (bArr != null && 3 <= bArr.length) {
+                byte[] bArr2 = new byte[3];
+                for (int i = 0; i < 3; i++) {
+                    bArr2[i] = bArr[i];
+                }
+                return a.get(a(bArr2));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = rn2.p() + "/usr";
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return File.separator + "bdata" + File.separator;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return "mounted".equals(Environment.getExternalStorageState());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static JSONObject i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("onCanplay", "canplay");
+                jSONObject.put("onPlay", "play");
+                jSONObject.put("onEnded", "ended");
+                jSONObject.put(MissionEvent.MESSAGE_PAUSE, DownloadStatisticConstants.UBC_TYPE_PAUSE);
+                jSONObject.put("onSeeking", "seeking");
+                jSONObject.put("onSeeked", "seeked");
+                jSONObject.put(MissionEvent.MESSAGE_STOP, "stop");
+                jSONObject.put(GameAssistConstKt.TYPE_CALLBACK_ERROR, "error");
+                jSONObject.put("onTimeUpdate", "timeupdate");
+                jSONObject.put("onBufferingUpdate", "buffered");
+                jSONObject.put("onWaiting", "waiting");
+            } catch (Exception e) {
+                if (rr1.a) {
+                    e.printStackTrace();
                 }
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

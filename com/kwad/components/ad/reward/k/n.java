@@ -101,7 +101,7 @@ public final class n extends d implements View.OnClickListener {
         if (this.vM.getLayoutParams() != null) {
             ViewGroup.LayoutParams layoutParams = this.vM.getLayoutParams();
             if (cB) {
-                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e4);
+                int dimensionPixelSize = this.vM.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e9);
                 layoutParams.width = -1;
                 layoutParams.height = dimensionPixelSize;
             } else {
@@ -113,15 +113,15 @@ public final class n extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091333);
-        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f091337);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091336);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133a);
-        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f091339);
-        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091334);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091335);
-        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091332);
-        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091331);
+        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091339);
+        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133d);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133c);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091340);
+        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09133f);
+        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133a);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133b);
+        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091338);
+        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091337);
         this.vM.setOnClickListener(this);
         this.vQ.setOnClickListener(this);
         this.vP.setOnClickListener(this);
@@ -171,12 +171,12 @@ public final class n extends d implements View.OnClickListener {
         ViewGroup.LayoutParams layoutParams = this.nC.getLayoutParams();
         int i = 18;
         if (layoutParams != null) {
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e5);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ea);
             if (!cB) {
-                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
+                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704ec);
                 i = 14;
             } else if (am) {
-                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e6);
+                dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704eb);
                 i = 24;
             }
             layoutParams.width = dimensionPixelSize;
@@ -212,20 +212,20 @@ public final class n extends d implements View.OnClickListener {
         ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
         if (z) {
             if (marginLayoutParams != null) {
-                marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e1);
+                marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e7);
             }
             this.vM.setBackgroundColor(-1);
-            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a1));
-            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079d));
+            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a3));
+            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079f));
             this.qC = com.kwad.sdk.b.kwai.a.A(this.mj);
             com.kwad.sdk.b.kwai.a.i(this.mj, 49);
         } else {
             if (marginLayoutParams != null) {
                 marginLayoutParams.bottomMargin = 0;
             }
-            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a2));
-            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079e));
-            this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06079f));
+            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a4));
+            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a0));
+            this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0607a1));
         }
         if (marginLayoutParams != null) {
             this.vM.setLayoutParams(marginLayoutParams);

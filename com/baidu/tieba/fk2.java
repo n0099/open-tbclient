@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zt2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fk2 implements ck2 {
+public class fk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fk2 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
     public fk2() {
         Interceptable interceptable = $ic;
@@ -25,44 +22,42 @@ public class fk2 implements ck2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new String[]{li3.w(), li3.y(), if2.c()};
     }
 
-    @Override // com.baidu.tieba.ck2
-    public ArraySet<String> a() {
+    public static fk2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = hr4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (fk2.class) {
+                    if (a == null) {
+                        a = new fk2();
+                    }
                 }
             }
-            if (nr1.a) {
-                b(arraySet);
-            }
-            d82.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
+            return a;
         }
-        return (ArraySet) invokeV.objValue;
+        return (fk2) invokeV.objValue;
     }
 
-    public final void b(ArraySet<String> arraySet) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h82.k("SwanRecoveryManager", "RecoverPlatform");
+            nk2 nk2Var = new nk2();
+            nk2Var.a = 1;
+            dk2.c(nk2Var);
         }
-        String[] strArr = {ul2.b().getAbsolutePath(), kk3.c().getAbsolutePath(), zt2.b.d(), sn3.b(), cu2.k(), a53.b()};
-        for (int i = 0; i < 6; i++) {
-            String K = hr4.K(strArr[i]);
-            if (!TextUtils.isEmpty(K)) {
-                arraySet.add(K);
-            }
+    }
+
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return lk2.c(i);
         }
+        return invokeI.intValue;
     }
 }

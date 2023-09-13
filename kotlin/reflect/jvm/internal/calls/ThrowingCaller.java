@@ -20,7 +20,7 @@ public final class ThrowingCaller implements Caller {
 
     @Override // kotlin.reflect.jvm.internal.calls.Caller
     /* renamed from: getMember */
-    public /* bridge */ /* synthetic */ Member mo2096getMember() {
+    public /* bridge */ /* synthetic */ Member mo2097getMember() {
         return (Member) getMember();
     }
 

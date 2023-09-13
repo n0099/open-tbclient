@@ -2,21 +2,14 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.tieba.du2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialOperation;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class a73 {
     public static /* synthetic */ Interceptable $ic;
@@ -36,91 +29,74 @@ public class a73 {
                 return;
             }
         }
-        a = nr1.a;
+        a = rr1.a;
     }
 
-    public static String a(String str, long j, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
+    public static void a() {
+        String[] list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            db3 M = db3.M();
-            if (M == null) {
-                str3 = "";
-            } else {
-                str3 = f32.a(M.O());
-            }
-            String[] strArr = {str3, str, String.valueOf(j), str2};
-            Arrays.sort(strArr);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                sb.append(strArr[i]);
-            }
-            try {
-                return vn3.c("SHA-1", sb.toString().getBytes(), false);
-            } catch (NoSuchAlgorithmException e) {
-                if (!a) {
-                    return "";
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = du2.q().list()) != null && list.length > 0) {
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str)) {
+                    ik4 ik4Var = new ik4();
+                    ik4Var.g = str;
+                    ik4Var.i = -1L;
+                    ej4.i().f(ik4Var);
                 }
-                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
-                return "";
+            }
+            du2.e.d();
+        }
+    }
+
+    public static void b(String str) {
+        File s;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = du2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
+            List<ik4> q = o63.q(str);
+            for (String str2 : list) {
+                long j = -1;
+                try {
+                    j = Long.parseLong(str2);
+                } catch (NumberFormatException e) {
+                    if (a) {
+                        z63.b(Log.getStackTraceString(e));
+                    }
+                }
+                if (!c(j, q)) {
+                    lr4.L(du2.t(str, str2));
+                    z63.b("delete plugin name = " + str + " ; version = " + str2);
+                }
+            }
+            ik4 ik4Var = null;
+            if (q != null) {
+                if (q.size() == 1) {
+                    ik4Var = q.get(0);
+                } else if (q.size() >= 2) {
+                    ik4Var = q.get(1);
+                }
+            }
+            if (ik4Var != null) {
+                ej4.i().f(ik4Var);
             }
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static boolean c(String str, String str2, ek4 ek4Var) {
-        InterceptResult invokeLLL;
-        int length;
+    public static boolean c(long j, List<ik4> list) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, ek4Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && ek4Var != null) {
-                String str3 = ek4Var.q;
-                if (TextUtils.isEmpty(str3)) {
-                    return false;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
-                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
-                        return false;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
+            if (j >= 0 && list != null && list.size() != 0) {
+                int min = Math.min(list.size(), 2);
+                for (int i = 0; i < min; i++) {
+                    ik4 ik4Var = list.get(i);
+                    if (ik4Var != null && (j == ik4Var.i || j == wo3.c(ik4Var.j))) {
+                        return true;
                     }
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                    return ub3.b(new URI(str2).getHost(), arrayList);
-                } catch (URISyntaxException | JSONException e) {
-                    v63.b(Log.getStackTraceString(e));
                 }
             }
             return false;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static String b(ek4 ek4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ek4Var)) == null) {
-            if (ek4Var == null) {
-                return "";
-            }
-            String str = ek4Var.p;
-            JSONObject jSONObject = new JSONObject();
-            String uuid = UUID.randomUUID().toString();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            try {
-                jSONObject.put("noncestr", uuid);
-                jSONObject.put("timestamp", currentTimeMillis);
-                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
-            } catch (JSONException e) {
-                v63.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
+        return invokeJL.booleanValue;
     }
 }

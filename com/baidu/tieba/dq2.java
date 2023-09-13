@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class dq2 extends xo2<nr2> {
+public class dq2 extends bp2<rr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xo2
+    @Override // com.baidu.tieba.bp2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onZoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setItemType" : (String) invokeV.objValue;
     }
 
     public dq2() {
@@ -36,16 +36,16 @@ public class dq2 extends xo2<nr2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xo2
+    @Override // com.baidu.tieba.bp2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull nr2 nr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, nr2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) == null) {
             String str = command.what;
-            d(nr2Var, str, "" + command.obj, true);
+            d(rr2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Integer) {
-                nr2Var.z(((Integer) obj).intValue());
+            if (obj instanceof String) {
+                rr2Var.m((String) obj);
             }
         }
     }

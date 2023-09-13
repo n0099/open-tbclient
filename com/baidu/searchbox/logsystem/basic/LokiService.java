@@ -84,7 +84,7 @@ public class LokiService extends Service {
             File file3 = new File(stringExtra2);
             if (file3.exists() && file3.isFile()) {
                 file = file3;
-                logType = (LogType) intent.getSerializableExtra("logtype");
+                logType = (LogType) intent.getSerializableExtra(Constant.LOG_TYPE);
                 String stringExtra3 = intent.getStringExtra(Constant.LOG_PROCESS_NAME);
                 if (logType != null) {
                     return 2;
@@ -142,7 +142,7 @@ public class LokiService extends Service {
             }
         }
         file = null;
-        logType = (LogType) intent.getSerializableExtra("logtype");
+        logType = (LogType) intent.getSerializableExtra(Constant.LOG_TYPE);
         String stringExtra32 = intent.getStringExtra(Constant.LOG_PROCESS_NAME);
         if (logType != null) {
         }

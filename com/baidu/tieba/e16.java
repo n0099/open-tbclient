@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.style.ReplacementSpan;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,105 +11,105 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e16 extends ReplacementSpan {
+public class e16 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
+    public static e16 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
+    public r16 a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681535, "Lcom/baidu/tieba/e16;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947681535, "Lcom/baidu/tieba/e16;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947681535, "Lcom/baidu/tieba/e16;")) == null) {
+            return;
         }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
-        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
-        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947681535, "Lcom/baidu/tieba/e16;");
+        }
     }
 
-    public e16(d16 d16Var) {
+    public e16() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d16Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
-        this.b = R.color.CAM_X0305;
-        this.c = j;
-        this.d = k;
-        this.e = m;
-        this.f = 0;
-        this.g = l;
-        this.h = 0;
-        if (d16Var != null) {
-            this.a = d16Var.a;
-            this.b = d16Var.b;
-            this.c = d16Var.c;
-            this.e = d16Var.d;
-            this.d = d16Var.e;
-            this.f = d16Var.f;
-            this.g = d16Var.g;
-            this.h = d16Var.h;
+    }
+
+    public static e16 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new e16();
+            }
+            return b;
+        }
+        return (e16) invokeV.objValue;
+    }
+
+    public void a() {
+        r16 r16Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (r16Var = this.a) != null && r16Var.b() != null) {
+            this.a.b().dismiss();
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public boolean c(j16 j16Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            canvas.save();
-            canvas.translate(0.0f, this.h);
-            paint.setColor(SkinManager.getColor(this.b));
-            paint.setAntiAlias(true);
-            float descent = this.e - (paint.descent() - paint.ascent());
-            float f2 = i4;
-            RectF rectF = new RectF(this.f + f, (paint.ascent() + f2) - descent, this.f + f + this.i + (this.d * 2), paint.descent() + f2);
-            int i6 = this.c;
-            canvas.drawRoundRect(rectF, i6, i6, paint);
-            paint.setColor(this.a);
-            canvas.drawText(charSequence, i, i2, this.d + f + this.f, f2 - (descent / 2.0f), paint);
-            canvas.restore();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j16Var)) == null) {
+            r16 r16Var = this.a;
+            if (r16Var != null && r16Var.b() != null) {
+                return this.a.b().c(j16Var);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(int i) {
+        r16 r16Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (r16Var = this.a) != null && r16Var.b() != null) {
+            this.a.b().b(i);
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public boolean f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int measureText = (int) paint.measureText(charSequence, i, i2);
-            this.i = measureText;
-            return measureText + (this.d * 2) + this.f + this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            r16 r16Var = this.a;
+            if (r16Var != null && r16Var.b() != null) {
+                return this.a.b().a(str);
+            }
+            return false;
         }
-        return invokeCommon.intValue;
+        return invokeL.booleanValue;
+    }
+
+    public void e(TbPageContext tbPageContext, ViewGroup viewGroup, h16 h16Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, viewGroup, h16Var) == null) {
+            r16 r16Var = this.a;
+            if (r16Var == null || !r16Var.a) {
+                this.a = new s16(tbPageContext, viewGroup, h16Var);
+            }
+            if (this.a.b() != null) {
+                this.a.b().show();
+            }
+        }
     }
 }

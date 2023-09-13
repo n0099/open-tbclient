@@ -1,15 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class dj0 implements hk1 {
+public abstract class dj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String a();
 
     public dj0() {
         Interceptable interceptable = $ic;
@@ -25,30 +32,28 @@ public class dj0 implements hk1 {
         }
     }
 
-    @Override // com.baidu.tieba.hk1
-    public Object get() {
-        InterceptResult invokeV;
+    @CallSuper
+    public boolean b(@NonNull Context context, @NonNull hj0 hj0Var, @Nullable Map<String, Object> map, @Nullable lj0 lj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new gh0());
-            arrayList.add(new hh0());
-            arrayList.add(new ih0());
-            arrayList.add(new jh0());
-            arrayList.add(new kh0());
-            arrayList.add(new lh0());
-            arrayList.add(new nh0());
-            arrayList.add(new ii0());
-            arrayList.add(new qm0());
-            arrayList.add(new np0());
-            arrayList.add(new op0());
-            arrayList.add(new vp0());
-            arrayList.add(new n51());
-            arrayList.add(new a91());
-            arrayList.add(new db1());
-            arrayList.add(new f56());
-            return arrayList;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, hj0Var, map, lj0Var)) == null) {
+            y31.b((String) j31.b(hj0Var.d(), "charge_url"));
+            return true;
         }
-        return invokeV.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public void c(lj0 lj0Var, @Nullable hj0 hj0Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{lj0Var, hj0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            qj0.b(lj0Var, hj0Var, i, z);
+        }
+    }
+
+    public void d(lj0 lj0Var, @Nullable hj0 hj0Var, @Nullable String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{lj0Var, hj0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            qj0.c(lj0Var, hj0Var, str, i, z);
+        }
     }
 }

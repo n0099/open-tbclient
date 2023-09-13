@@ -1,862 +1,210 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.spswitch.utils.EmotionUbcHelper;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.data.ImShareCardCommonData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.data.GamePlayOrderMsgData;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.data.ShareChatroomMsgData;
-import com.baidu.tieba.im.data.ShareForumMsgData;
-import com.baidu.tieba.im.data.ShareThreadMsgData;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.ri8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import protobuf.ImCommonShareInfo;
-import protobuf.ImShareChatroomInfo;
-import protobuf.MsgInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ui8 {
+public class ui8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public aj8<T> a;
+    public ri8 b;
+    public si8 c;
+    public T d;
+    public b e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948212069, "Lcom/baidu/tieba/ui8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void b();
+
+        void onCancel();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements si8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ ui8 b;
+
+        public a(ui8 ui8Var, Context context) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ui8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948212069, "Lcom/baidu/tieba/ui8;");
+            this.b = ui8Var;
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.si8
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
+                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
+                if (this.b.a != null) {
+                    this.b.a.h();
+                }
+                this.b.b.dismiss();
+                if (this.b.e != null) {
+                    this.b.e.onCancel();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.si8
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b.b != null) {
+                BdUtilHelper.hideSoftKeyPad(this.a, this.b.a.j());
+                if (this.b.a != null) {
+                    this.b.a.h();
+                }
+                this.b.b.dismiss();
+                if (this.b.e != null) {
+                    this.b.e.b();
+                }
+            }
+        }
+    }
+
+    public ui8(Context context, aj8<T> aj8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aj8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Pattern.compile("(#\\([^#\\)\\(]+\\))");
+        e(context);
+        f(context, aj8Var);
     }
 
-    public static boolean A(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 6) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            this.c = new a(this, context);
+        }
+    }
+
+    public /* synthetic */ void h(Context context) {
+        if (g(context, this.b.getWindow().getDecorView().findViewById(16908290))) {
+            BdUtilHelper.hideSoftKeyPad(context, this.a.j());
+            return;
+        }
+        aj8<T> aj8Var = this.a;
+        if (aj8Var != null) {
+            aj8Var.h();
+        }
+        this.b.dismiss();
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d != null) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean B(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 2) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b != null && d()) {
+            this.b.show();
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean C(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public final void f(final Context context, aj8<T> aj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, aj8Var) == null) {
+            this.a = aj8Var;
+            aj8Var.n(this.c);
+            ri8 ri8Var = new ri8(context, R.style.obfuscated_res_0x7f10010d);
+            this.b = ri8Var;
+            ri8Var.setContentView(this.a.j());
+            this.b.a(new ri8.a() { // from class: com.baidu.tieba.qi8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    public static String E(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return "";
-            }
-            return D(chatMessage.getMsgType(), chatMessage.getContent());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static MsgCacheData m(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, chatMessage)) == null) {
-            try {
-                MsgCacheData msgCacheData = new MsgCacheData();
-                msgCacheData.setRich_content(null);
-                return msgCacheData;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (MsgCacheData) invokeL.objValue;
-    }
-
-    public static fe8 n(CommonMsgPojo commonMsgPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, commonMsgPojo)) == null) {
-            if (commonMsgPojo == null || commonMsgPojo.getMsg_type() != 7) {
-                return null;
-            }
-            return p(commonMsgPojo.getContent());
-        }
-        return (fe8) invokeL.objValue;
-    }
-
-    public static long q(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return -1L;
-            }
-            if (JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
-                return chatMessage.getToUserId();
-            }
-            return chatMessage.getUserId();
-        }
-        return invokeL.longValue;
-    }
-
-    public static boolean z(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 4) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String D(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            ImShareCardCommonData imShareCardCommonData = null;
-            r6 = null;
-            ShareChatroomMsgData shareChatroomMsgData = null;
-            imShareCardCommonData = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            int i3 = 0;
-            if (i != 1 && i != 30) {
-                if (i == 2) {
-                    if (DataExt.toMapList(str).get(0).get(EmotionUbcHelper.MEME_ID) != null) {
-                        i3 = 1;
-                    }
-                    Application app = TbadkCoreApplication.getInst().getApp();
-                    if (i3 != 0) {
-                        i2 = R.string.last_msg_emotion;
-                    } else {
-                        i2 = R.string.last_msg_pic;
-                    }
-                    return app.getString(i2);
-                } else if (i == 3) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
-                } else {
-                    if (i == 32) {
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_thread_share);
-                    }
-                    if (i == 33) {
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_forum_share);
-                    }
-                    if (i == 37) {
-                        if (!StringUtils.isNull(str)) {
-                            try {
-                                shareChatroomMsgData = (ShareChatroomMsgData) DataExt.toEntity(str, ShareChatroomMsgData.class);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_chatroom_share);
-                        if (shareChatroomMsgData != null) {
-                            return string + shareChatroomMsgData.getName();
-                        }
-                        return string;
-                    }
-                    String str3 = "";
-                    if (i == 38) {
-                        if (!StringUtils.isNull(str)) {
-                            try {
-                                imShareCardCommonData = (ImShareCardCommonData) DataExt.toEntity(str, ImShareCardCommonData.class);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        if (imShareCardCommonData == null) {
-                            return "";
-                        }
-                        if (imShareCardCommonData.getType() == 1) {
-                            str3 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
-                        } else if (imShareCardCommonData.getType() == 2) {
-                            str3 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
-                        }
-                        return str3 + imShareCardCommonData.getTitle();
-                    } else if (i == 11) {
-                        return a(str);
-                    } else {
-                        if (i == 23) {
-                            return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
-                        }
-                        if (i == 4) {
-                            try {
-                                JSONArray jSONArray = new JSONArray(str);
-                                if (jSONArray.length() > 0) {
-                                    String optString = jSONArray.getJSONObject(0).optString("face_name");
-                                    if (optString != null && optString.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
-                                        return PreferencesUtil.LEFT_MOUNT + optString.substring(2, optString.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
-                                    }
-                                    return optString;
-                                }
-                                return null;
-                            } catch (JSONException e3) {
-                                e3.printStackTrace();
-                                try {
-                                    String optString2 = new JSONObject(str).optString("face_name");
-                                    if (optString2 != null && optString2.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString2.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
-                                        return PreferencesUtil.LEFT_MOUNT + optString2.substring(2, optString2.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
-                                    }
-                                    return optString2;
-                                } catch (JSONException e4) {
-                                    e4.printStackTrace();
-                                }
-                            }
-                        } else if (i == 5) {
-                            return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_invite);
-                        } else {
-                            if (i == 6) {
-                                try {
-                                    return new JSONObject(str).optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                                } catch (JSONException e5) {
-                                    e5.printStackTrace();
-                                    return "";
-                                }
-                            } else if (i == 7) {
-                                String string2 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic_text);
-                                if (TextUtils.isEmpty(str)) {
-                                    return string2;
-                                }
-                                try {
-                                    JSONArray jSONArray2 = new JSONArray(str);
-                                    if (jSONArray2.length() > 0) {
-                                        while (i3 < jSONArray2.length()) {
-                                            String string3 = ((JSONObject) jSONArray2.get(i3)).getString("text");
-                                            if (!TextUtils.isEmpty(string3)) {
-                                                return string3;
-                                            }
-                                            i3++;
-                                        }
-                                    }
-                                    return string2;
-                                } catch (JSONException e6) {
-                                    e6.printStackTrace();
-                                    return string2;
-                                }
-                            } else if (i == 35) {
-                                String string4 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic_text);
-                                if (TextUtils.isEmpty(str)) {
-                                    return string4;
-                                }
-                                try {
-                                    JSONArray jSONArray3 = new JSONArray(str);
-                                    if (jSONArray3.length() > 0) {
-                                        while (i3 < jSONArray3.length()) {
-                                            String string5 = ((JSONObject) jSONArray3.get(i3)).getString("title");
-                                            if (!TextUtils.isEmpty(string5)) {
-                                                return string5;
-                                            }
-                                            i3++;
-                                        }
-                                    }
-                                    return string4;
-                                } catch (JSONException e7) {
-                                    e7.printStackTrace();
-                                    return string4;
-                                }
-                            } else if (i == 25) {
-                                if (TextUtils.isEmpty(str)) {
-                                    return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
-                                }
-                                try {
-                                    JSONArray jSONArray4 = new JSONArray(str);
-                                    if (jSONArray4.length() <= 0) {
-                                        return "";
-                                    }
-                                    JSONObject optJSONObject = jSONArray4.optJSONObject(0);
-                                    String optString3 = optJSONObject.optString("nick_name");
-                                    String optString4 = optJSONObject.optString("caller_content");
-                                    int optInt = optJSONObject.optInt("remind_count");
-                                    int optInt2 = optJSONObject.optInt("msg_type");
-                                    if (optInt2 == 1) {
-                                        return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_msg), optString3, optString4);
-                                    }
-                                    if (optInt2 == 3) {
-                                        return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.urge_times_notify_default), Integer.valueOf(optInt));
-                                    }
-                                    return optString4;
-                                } catch (JSONException e8) {
-                                    e8.printStackTrace();
-                                    return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
-                                }
-                            } else if (i == 9) {
-                                return j(str);
-                            } else {
-                                if (i != 34) {
-                                    return null;
-                                }
-                                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(str, GamePlayOrderMsgData.class);
-                                if (gamePlayOrderMsgData != null && !StringUtils.isNull(gamePlayOrderMsgData.getTitle())) {
-                                    return gamePlayOrderMsgData.getTitle();
-                                }
-                                return "[游戏组队消息]";
-                            }
-                        }
+                @Override // com.baidu.tieba.ri8.a
+                public final void onClick() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        ui8.this.h(context);
                     }
                 }
-            } else {
-                if (str.length() > 1 && str.charAt(0) == '[') {
-                    str2 = g(str);
-                } else {
-                    str2 = null;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                if (str == null) {
-                    return null;
-                }
-                return str;
-            }
-        } else {
-            return (String) invokeIL.objValue;
+            });
+            Window window = this.b.getWindow();
+            window.addFlags(512);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.y = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f100424);
+            window.setGravity(80);
+            window.setLayout(-1, -2);
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("eventId");
-                String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_FAKE)) {
-                    return optString2;
-                }
-                if (optJSONObject == null) {
-                    return null;
-                }
-                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON)) {
-                    return optString2;
-                }
-                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_STRANGER_FIRST_MSG)) {
-                }
-                return optString2;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static GamePlayOrderMsgData b(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 34) {
-                if (chatMessage.getObjContent() != null) {
-                    return (GamePlayOrderMsgData) chatMessage.getObjContent();
-                }
-                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), GamePlayOrderMsgData.class);
-                if (gamePlayOrderMsgData != null) {
-                    gamePlayOrderMsgData.setLast(!"expired".equals(chatMessage.getExtra()));
-                    chatMessage.setEncodeContent(gamePlayOrderMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(gamePlayOrderMsgData);
-                return gamePlayOrderMsgData;
-            }
-            return null;
-        }
-        return (GamePlayOrderMsgData) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ImShareCardCommonData c(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, chatMessage)) == null) {
-            ImShareCardCommonData imShareCardCommonData = null;
-            if (chatMessage != null && chatMessage.getMsgType() == 38) {
-                if (chatMessage.getObjContent() instanceof ImShareCardCommonData) {
-                    return (ImShareCardCommonData) chatMessage.getObjContent();
-                }
-                try {
-                    imShareCardCommonData = (ImShareCardCommonData) DataExt.toEntity(chatMessage.getContent(), ImShareCardCommonData.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (imShareCardCommonData != null) {
-                    chatMessage.setEncodeContent(imShareCardCommonData.toEncodeContent());
-                    chatMessage.setObjContent(imShareCardCommonData);
-                }
-            }
-            return imShareCardCommonData;
-        }
-        return (ImShareCardCommonData) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ShareChatroomMsgData d(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, chatMessage)) == null) {
-            ShareChatroomMsgData shareChatroomMsgData = null;
-            if (chatMessage != null && chatMessage.getMsgType() == 37) {
-                if (chatMessage.getObjContent() instanceof ShareChatroomMsgData) {
-                    return (ShareChatroomMsgData) chatMessage.getObjContent();
-                }
-                try {
-                    shareChatroomMsgData = (ShareChatroomMsgData) DataExt.toEntity(chatMessage.getContent(), ShareChatroomMsgData.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (shareChatroomMsgData != null) {
-                    chatMessage.setEncodeContent(shareChatroomMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(shareChatroomMsgData);
-            }
-            return shareChatroomMsgData;
-        }
-        return (ShareChatroomMsgData) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ShareForumMsgData e(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 33) {
-                if (chatMessage.getObjContent() != null) {
-                    return (ShareForumMsgData) chatMessage.getObjContent();
-                }
-                ShareForumMsgData shareForumMsgData = (ShareForumMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareForumMsgData.class);
-                if (shareForumMsgData != null) {
-                    chatMessage.setEncodeContent(shareForumMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(shareForumMsgData);
-                return shareForumMsgData;
-            }
-            return null;
-        }
-        return (ShareForumMsgData) invokeL.objValue;
-    }
-
-    @Nullable
-    public static ShareThreadMsgData f(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 32) {
-                if (chatMessage.getObjContent() != null) {
-                    return (ShareThreadMsgData) chatMessage.getObjContent();
-                }
-                ShareThreadMsgData shareThreadMsgData = (ShareThreadMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareThreadMsgData.class);
-                if (shareThreadMsgData != null) {
-                    chatMessage.setEncodeContent(shareThreadMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(shareThreadMsgData);
-                return shareThreadMsgData;
-            }
-            return null;
-        }
-        return (ShareThreadMsgData) invokeL.objValue;
-    }
-
-    public static final String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() >= 2) {
-                    String optString = jSONArray.optString(0);
-                    if (1 == jSONArray.optInt(1)) {
-                        sb.append(TbadkCoreApplication.getInst().getString(R.string.last_msg_extra_share));
-                    }
-                    if (optString != null) {
-                        sb.append(optString);
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static final String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && !optJSONObject.isNull("type")) {
-                        int optInt = optJSONObject.optInt("type");
-                        if (optInt == 0) {
-                            sb.append(optJSONObject.opt("text"));
-                        } else if (optInt == 2) {
-                            sb.append(SmallTailInfo.EMOTION_PREFIX);
-                            sb.append(optJSONObject.opt("c"));
-                            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                        }
-                    }
-                }
-            } catch (Error e) {
-                e.printStackTrace();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return null;
-            }
-            UserData userInfo = chatMessage.getUserInfo();
-            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserName())) {
-                str = chatMessage.getUserInfo().getUserName();
-            } else {
-                str = "";
-            }
-            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                return E(chatMessage);
-            }
-            if (chatMessage.getMsgType() == 11) {
-                return E(chatMessage);
-            }
-            if (chatMessage.getToUserId() != 0) {
-                return E(chatMessage);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                return str + ":" + E(chatMessage);
-            }
-            return E(chatMessage);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static VoiceMsgData r(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, chatMessage)) == null) {
-            VoiceMsgData voiceMsgData = null;
-            if (chatMessage == null || chatMessage.getMsgType() != 3) {
-                return null;
-            }
-            if (chatMessage.getObjContent() != null) {
-                return (VoiceMsgData) chatMessage.getObjContent();
-            }
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                VoiceMsgData voiceMsgData2 = new VoiceMsgData();
-                chatMessage.setObjContent(voiceMsgData2);
-                return voiceMsgData2;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(content);
-                if (jSONArray.length() <= 0) {
-                    return null;
-                }
-                if (jSONArray.length() > 0) {
-                    try {
-                        voiceMsgData = (VoiceMsgData) OrmObject.objectWithJson(jSONArray.getJSONObject(0), VoiceMsgData.class);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                chatMessage.setObjContent(voiceMsgData);
-                return voiceMsgData;
-            } catch (Exception unused) {
-                return voiceMsgData;
-            }
-        }
-        return (VoiceMsgData) invokeL.objValue;
-    }
-
-    public static int i(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            return context.getResources().getDimensionPixelSize(i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public static String k(String str, boolean z) {
-        InterceptResult invokeLZ;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65552, null, str, z)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONArray(str).getJSONObject(0);
-                if (z) {
-                    str2 = "big_src";
-                } else {
-                    str2 = "src";
-                }
-                return jSONObject.optString(str2);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static String l(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65553, null, jSONObject, z)) == null) {
-            if (z) {
-                str = "big_src";
-            } else {
-                str = "src";
-            }
-            return jSONObject.optString(str);
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static fe8 o(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (split = str.split("_")) != null && split.length == 2) {
-                fe8 fe8Var = new fe8();
-                fe8Var.a = split[0];
-                fe8Var.b = split[1];
-                return fe8Var;
-            }
-            return null;
-        }
-        return (fe8) invokeL.objValue;
-    }
-
-    public static fe8 p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    return o(jSONArray.getJSONObject(0).optString("msg_src"));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-        return (fe8) invokeL.objValue;
-    }
-
-    public static boolean x(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return true;
-            }
-            String content = chatMessage.getContent();
-            if (!StringUtils.isJSONArray(content)) {
-                return false;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(content);
-                if (jSONArray.length() <= 0) {
-                    return true;
-                }
-                if (((JSONObject) jSONArray.get(0)).optInt("switch", -1) == 0) {
-                    return true;
-                }
-                return false;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean y(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, chatMessage)) == null) {
-            try {
-                if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
-                    if (chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                        return true;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean s(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+    public final boolean g(Context context, View view2) {
         InterceptResult invokeLL;
-        ImCommonShareInfo imCommonShareInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 38 || (imCommonShareInfo = msgInfo.shareInfo) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, view2)) == null) {
+            if (view2 == null) {
                 return false;
             }
-            ImShareCardCommonData b = ImShareCardCommonData.Companion.b(imCommonShareInfo);
-            b.setHasRead(y(chatMessage) ? 1 : 0);
-            chatMessage.setContent(OrmObject.jsonStrWithObject(b));
-            chatMessage.setObjContent(b);
-            chatMessage.setEncodeContent(b.toEncodeContent());
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            if (iArr[1] >= context.getResources().getDisplayMetrics().heightPixels / 2) {
+                return false;
+            }
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean u(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
-        InterceptResult invokeLL;
-        ImShareChatroomInfo imShareChatroomInfo;
+    public void j(T t, MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 37 || (imShareChatroomInfo = msgInfo.shareChatroomInfo) == null) {
-                return false;
-            }
-            ShareChatroomMsgData b = ShareChatroomMsgData.Companion.b(imShareChatroomInfo);
-            b.setHasRead(y(chatMessage) ? 1 : 0);
-            chatMessage.setContent(OrmObject.jsonStrWithObject(b));
-            chatMessage.setObjContent(b);
-            chatMessage.setEncodeContent(b.toEncodeContent());
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, t, metaData) == null) {
+            this.d = t;
+            this.a.o(t, metaData);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean t(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo, @Nullable boolean z) {
-        InterceptResult invokeLLZ;
-        GamePlayOrderMsgData parseFromMsgInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65561, null, chatMessage, msgInfo, z)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 34 || (parseFromMsgInfo = GamePlayOrderMsgData.parseFromMsgInfo(msgInfo, z)) == null) {
-                return false;
-            }
-            parseFromMsgInfo.setHasRead(y(chatMessage));
-            chatMessage.setContent(OrmObject.jsonStrWithObject(parseFromMsgInfo));
-            chatMessage.setObjContent(parseFromMsgInfo);
-            chatMessage.setEncodeContent(parseFromMsgInfo.toEncodeContent());
-            return true;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean v(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
-        InterceptResult invokeLL;
-        ShareForumMsgData ofImForumInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 33 || (ofImForumInfo = ShareForumMsgData.ofImForumInfo(msgInfo.forumInfo)) == null) {
-                return false;
-            }
-            ofImForumInfo.setHasRead(y(chatMessage));
-            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImForumInfo));
-            chatMessage.setObjContent(ofImForumInfo);
-            chatMessage.setEncodeContent(ofImForumInfo.toEncodeContent());
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean w(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
-        InterceptResult invokeLL;
-        ShareThreadMsgData ofImShareThreadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 32 || (ofImShareThreadInfo = ShareThreadMsgData.ofImShareThreadInfo(msgInfo.threadInfo)) == null) {
-                return false;
-            }
-            ofImShareThreadInfo.setHasRead(y(chatMessage));
-            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImShareThreadInfo));
-            chatMessage.setObjContent(ofImShareThreadInfo);
-            chatMessage.setEncodeContent(ofImShareThreadInfo.toEncodeContent());
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

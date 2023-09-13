@@ -12,7 +12,7 @@ import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\b\u0086\b\u0018\u00002\u00020\u0001B)\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0005\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0003¢\u0006\u0002\u0010\u0007J\t\u0010\n\u001a\u00020\u0003HÂ\u0003J\t\u0010\u000b\u001a\u00020\u0003HÂ\u0003J\t\u0010\f\u001a\u00020\u0003HÂ\u0003J\t\u0010\r\u001a\u00020\u0003HÂ\u0003J1\u0010\u000e\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u00032\b\b\u0002\u0010\u0006\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\u000f\u001a\u00020\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012HÖ\u0003J\b\u0010\u0013\u001a\u00020\tH\u0016J\t\u0010\u0014\u001a\u00020\u0015HÖ\u0001J\b\u0010\u0016\u001a\u00020\u0003H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0017"}, d2 = {"Lcom/baidu/tieba/tracker/core/data/TraceEventNode;", "Lcom/baidu/tieba/tracker/core/data/AbsEventNode;", "from", "", "scene", "type", "subPage", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "timestamp", "", "component1", "component2", "component3", "component4", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", "getTimeStamp", TTDownloadField.TT_HASHCODE, "", "toString", "tracker"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\b\u0086\b\u0018\u00002\u00020\u0001B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\u0003¢\u0006\u0002\u0010\bJ\t\u0010\u000b\u001a\u00020\u0003HÂ\u0003J\t\u0010\f\u001a\u00020\u0003HÂ\u0003J\t\u0010\r\u001a\u00020\u0006HÂ\u0003J\t\u0010\u000e\u001a\u00020\u0003HÂ\u0003J1\u0010\u000f\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u00062\b\b\u0002\u0010\u0007\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\u0010\u001a\u00020\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u0013HÖ\u0003J\b\u0010\u0014\u001a\u00020\nH\u0016J\t\u0010\u0015\u001a\u00020\u0016HÖ\u0001J\b\u0010\u0017\u001a\u00020\u0003H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/tracker/core/data/TraceEventNode;", "Lcom/baidu/tieba/tracker/core/data/AbsEventNode;", "from", "", "scene", "type", "Lcom/baidu/tieba/tracker/core/data/TraceType;", "subPage", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/tracker/core/data/TraceType;Ljava/lang/String;)V", "timestamp", "", "component1", "component2", "component3", "component4", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", "", "getTimeStamp", TTDownloadField.TT_HASHCODE, "", "toString", "tracker"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
 public final class TraceEventNode extends AbsEventNode {
     public static /* synthetic */ Interceptable $ic;
@@ -21,7 +21,7 @@ public final class TraceEventNode extends AbsEventNode {
     public final String scene;
     public final String subPage;
     public final long timestamp;
-    public final String type;
+    public final TraceType type;
 
     private final String component1() {
         InterceptResult invokeV;
@@ -35,10 +35,10 @@ public final class TraceEventNode extends AbsEventNode {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.scene : (String) invokeV.objValue;
     }
 
-    private final String component3() {
+    private final TraceType component3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.type : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.type : (TraceType) invokeV.objValue;
     }
 
     private final String component4() {
@@ -47,7 +47,7 @@ public final class TraceEventNode extends AbsEventNode {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? this.subPage : (String) invokeV.objValue;
     }
 
-    public static /* synthetic */ TraceEventNode copy$default(TraceEventNode traceEventNode, String str, String str2, String str3, String str4, int i, Object obj) {
+    public static /* synthetic */ TraceEventNode copy$default(TraceEventNode traceEventNode, String str, String str2, TraceType traceType, String str3, int i, Object obj) {
         if ((i & 1) != 0) {
             str = traceEventNode.from;
         }
@@ -55,15 +55,15 @@ public final class TraceEventNode extends AbsEventNode {
             str2 = traceEventNode.scene;
         }
         if ((i & 4) != 0) {
-            str3 = traceEventNode.type;
+            traceType = traceEventNode.type;
         }
         if ((i & 8) != 0) {
-            str4 = traceEventNode.subPage;
+            str3 = traceEventNode.subPage;
         }
-        return traceEventNode.copy(str, str2, str3, str4);
+        return traceEventNode.copy(str, str2, traceType, str3);
     }
 
-    public final TraceEventNode copy(String from, String scene, String type, String subPage) {
+    public final TraceEventNode copy(String from, String scene, TraceType type, String subPage) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, from, scene, type, subPage)) == null) {
@@ -85,7 +85,7 @@ public final class TraceEventNode extends AbsEventNode {
             }
             if (obj instanceof TraceEventNode) {
                 TraceEventNode traceEventNode = (TraceEventNode) obj;
-                return Intrinsics.areEqual(this.from, traceEventNode.from) && Intrinsics.areEqual(this.scene, traceEventNode.scene) && Intrinsics.areEqual(this.type, traceEventNode.type) && Intrinsics.areEqual(this.subPage, traceEventNode.subPage);
+                return Intrinsics.areEqual(this.from, traceEventNode.from) && Intrinsics.areEqual(this.scene, traceEventNode.scene) && this.type == traceEventNode.type && Intrinsics.areEqual(this.subPage, traceEventNode.subPage);
             }
             return false;
         }
@@ -99,7 +99,7 @@ public final class TraceEventNode extends AbsEventNode {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TraceEventNode(String from, String scene, String type, String subPage) {
+    public TraceEventNode(String from, String scene, TraceType type, String subPage) {
         super(null, 1, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -130,11 +130,15 @@ public final class TraceEventNode extends AbsEventNode {
         params.set("from", this.from);
         params.set("type", this.type);
         params.set("page", this.scene);
-        params.set("source", this.subPage);
+        if (this.subPage.length() == 0) {
+            params.set("source", this.scene);
+        } else {
+            params.set("source", this.subPage);
+        }
     }
 
-    public /* synthetic */ TraceEventNode(String str, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, (i & 4) != 0 ? "" : str3, (i & 8) != 0 ? "" : str4);
+    public /* synthetic */ TraceEventNode(String str, String str2, TraceType traceType, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, traceType, (i & 8) != 0 ? "" : str3);
     }
 
     @Override // com.baidu.tieba.tracker.core.data.IEventNode

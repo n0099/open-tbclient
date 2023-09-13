@@ -1,6 +1,6 @@
 package com.yy.transvod.player.mediacodec;
 
-import com.baidu.tieba.n2c;
+import com.baidu.tieba.q5c;
 import com.yy.transvod.player.log.TLog;
 import java.nio.ByteBuffer;
 import java.util.Locale;
@@ -146,8 +146,8 @@ public final class MediaInfo {
 
     public final String toString() {
         if (h(this)) {
-            return String.format(Locale.CHINA, "type:%s, frameSize:%dx%d, planeSize:%dx%d", n2c.a[this.a], Integer.valueOf(this.b), Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.e));
+            return String.format(Locale.CHINA, "type:%s, frameSize:%dx%d, planeSize:%dx%d", q5c.a[this.a], Integer.valueOf(this.b), Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.e));
         }
-        return String.format(Locale.CHINA, "type:%s, sampleRate:%d, samples:%d, channels:%d", n2c.a[this.a], Integer.valueOf(this.j), Integer.valueOf(this.g), Integer.valueOf(this.h));
+        return String.format(Locale.CHINA, "type:%s, sampleRate:%d, samples:%d, channels:%d", q5c.a[this.a], Integer.valueOf(this.j), Integer.valueOf(this.g), Integer.valueOf(this.h));
     }
 }

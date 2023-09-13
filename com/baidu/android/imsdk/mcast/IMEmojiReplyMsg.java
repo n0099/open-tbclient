@@ -52,7 +52,7 @@ public class IMEmojiReplyMsg extends Message {
         this.mEmojiPackageId = i2;
         this.mEmojiContent = str;
         setNeedReplay(true);
-        setType(Constants.METHOD_IM_EMOJI);
+        setType(214);
         setListenerKey(str2);
     }
 
@@ -71,7 +71,7 @@ public class IMEmojiReplyMsg extends Message {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("method", Constants.METHOD_IM_EMOJI);
+                jSONObject.put("method", 214);
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));

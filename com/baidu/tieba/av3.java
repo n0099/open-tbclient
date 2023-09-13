@@ -1,16 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class av3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface av3 {
+    String b();
 
-    public static void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
-            zu3.a().edit().putLong("latest_update_time", j).apply();
-        }
-    }
+    String c();
+
+    String e();
+
+    String g();
+
+    String h();
+
+    boolean isDebug();
 }

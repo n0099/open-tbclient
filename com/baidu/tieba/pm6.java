@@ -1,83 +1,123 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.common.jscore.BridgeConfig_tbadkcore;
+import com.baidu.tieba.common.jscore.JsInterfaces_tbadkcore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pm6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
-                    }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
-                    }
-                    return "";
-                } catch (Exception unused) {
-                    return "";
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066896, "Lcom/baidu/tieba/pm6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948066896, "Lcom/baidu/tieba/pm6;");
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        new HashSet();
+        a = new HashSet();
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String mimeTypeFromExtension;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+                b();
+            } catch (Exception unused) {
             }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            JsInterfaces_tbadkcore.register();
+            BridgeConfig_tbadkcore.register();
+        }
+    }
+
+    public static void c(String str) {
+        JSONArray jSONArray;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.clear();
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONArray = null;
+            }
+            if (mn6.c(jSONArray)) {
+                return;
+            }
+            tj6 tj6Var = (tj6) ServiceManager.getService(tj6.a);
+            if (tj6Var != null) {
+                str2 = tj6Var.b();
+            } else {
+                str2 = com.kuaishou.weapon.p0.q1.e;
+            }
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("limitVersion", "99.99.99.99");
+                    String optString2 = optJSONObject.optString("url", "");
+                    if (!TextUtils.isEmpty(optString2) && tn6.a(str2, optString)) {
+                        gn6.b("newHybrid", "我被加入到了黑名单:" + optString2);
+                        a.add(optString2);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) && jSONObject != null) {
+            try {
+                c(jSONObject.optString("wv_black_url_list", "[]"));
+                nm6.b(jSONObject.optString("wv_prefetch_config", "[]"));
+            } catch (Exception unused) {
+                gn6.b("newHybrid", "parseSupportUrlList error!");
+            }
+        }
+    }
+
+    public static boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            tj6 tj6Var = (tj6) ServiceManager.getService(tj6.a);
+            if (tj6Var == null || !tj6Var.a() || TextUtils.isEmpty(str) || str.contains("https://unknown-tmp/") || str.contains("https://ad-tmp/")) {
+                return false;
             }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
+            for (String str2 : a) {
+                if (str.contains(str2)) {
+                    return false;
+                }
             }
-            return str;
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

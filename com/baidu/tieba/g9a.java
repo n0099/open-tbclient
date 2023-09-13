@@ -1,87 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.tbadk.switchs.UbcAddCookieSwitch;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class g9a implements CookieManager {
+public class g9a extends d9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public g9a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g9a(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "/ztbox?action=zubc";
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.j9a
+    public void a(ShareEntity shareEntity, k9a k9aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (UbcAddCookieSwitch.Companion.isOn()) {
-                boolean z = true;
-                if (!((str == null || !StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) this.a, false, 2, (Object) null)) ? false : false)) {
-                    return "";
+        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, k9aVar) == null) {
+            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
+                if (TextUtils.isEmpty(shareEntity.getContent())) {
+                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
+                } else {
+                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
                 }
-            }
-            String cookie = CookieManager.WEBKIT_COOKIES.getCookie(str);
-            Intrinsics.checkNotNullExpressionValue(cookie, "WEBKIT_COOKIES.getCookie(httpUrl)");
-            return cookie;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) {
-            if (UbcAddCookieSwitch.Companion.isOn()) {
-                boolean z = true;
-                if (!((str == null || !StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) this.a, false, 2, (Object) null)) ? false : false)) {
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.SEND");
+                intent.putExtra("android.intent.extra.TEXT", str);
+                intent.setType("text/plain");
+                Context context = this.b;
+                if (m9a.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f13dc)))) {
+                    if (k9aVar != null) {
+                        k9aVar.U0(0, 1);
+                        return;
+                    }
+                    return;
+                } else if (k9aVar != null) {
+                    k9aVar.U0(0, 2);
+                    return;
+                } else {
                     return;
                 }
             }
-            CookieManager.WEBKIT_COOKIES.storeCookie(str, list);
+            BdUtilHelper.showToast(d(), (int) R.string.obfuscated_res_0x7f0f13ab);
+            if (k9aVar != null) {
+                k9aVar.U0(0, 2);
+            }
         }
     }
 }

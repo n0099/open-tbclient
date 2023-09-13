@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.operators.CachedObservable$ReplayProducer;
 /* loaded from: classes7.dex */
-public abstract class qbc<E> extends rbc<E> {
+public final class qbc<T> extends fdc implements tac<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qbc() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    public abstract void c(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
+
+    public abstract void d();
+
+    public abstract void e(CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer);
 }

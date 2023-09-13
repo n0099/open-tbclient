@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.immessagecenter.service.MessageCenterAIBotService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public final class yx8 extends wx8 {
+/* loaded from: classes9.dex */
+public final class yx8 extends bl1<lg8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,5 +23,17 @@ public final class yx8 extends wx8 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.bl1
+    /* renamed from: a */
+    public lg8 createService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return MessageCenterAIBotService.b.a();
+        }
+        return (lg8) invokeV.objValue;
     }
 }

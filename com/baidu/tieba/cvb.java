@@ -1,90 +1,114 @@
 package com.baidu.tieba;
 
+import android.app.PendingIntent;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes5.dex */
-public class cvb extends tub {
+public class cvb implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, tub> a;
-    public static final Object b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ dvb a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689626, "Lcom/baidu/tieba/cvb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947689626, "Lcom/baidu/tieba/cvb;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public cvb(Context context, String str) {
+    public cvb(dvb dvbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {dvbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        yub.d(context, str);
+        this.a = dvbVar;
     }
 
-    public static tub a(Context context) {
+    public static Uri b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static ArCoreApk.Availability c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
+            try {
+                if (d(context) != null) {
+                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
+                }
+                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
+            } catch (UnavailableDeviceNotCompatibleException unused) {
+                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
+            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
+                return ArCoreApk.Availability.UNKNOWN_ERROR;
             }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
         }
-        return (tub) invokeL.objValue;
+        return (ArCoreApk.Availability) invokeL.objValue;
     }
 
-    public static tub b(Context context, String str) {
-        InterceptResult invokeLL;
-        tub tubVar;
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            synchronized (this.a) {
+                dvb.c(this.a, availability);
+                dvb.f(this.a, false);
             }
-            synchronized (b) {
-                tubVar = a.get(str);
-                if (tubVar == null) {
-                    a.put(str, new cvb(context, str));
-                }
-            }
-            return tubVar;
         }
-        return (tub) invokeLL.objValue;
+    }
+
+    public static PendingIntent d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
+                if (call == null) {
+                    return null;
+                }
+                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
+                if (pendingIntent != null) {
+                    return pendingIntent;
+                }
+                String string = call.getString("exceptionType", "");
+                if (string.isEmpty()) {
+                    return null;
+                }
+                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
+                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
+                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
+                        String string2 = call.getString("exceptionText", null);
+                        if (string2 != null) {
+                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
+                        }
+                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
+                    }
+                    throw new UnavailableUserDeclinedInstallationException();
+                }
+                throw new UnavailableDeviceNotCompatibleException();
+            } catch (ReflectiveOperationException | RuntimeException e) {
+                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
+                return null;
+            }
+        }
+        return (PendingIntent) invokeL.objValue;
     }
 }

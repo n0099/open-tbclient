@@ -6,8 +6,8 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
-import com.baidu.tieba.df5;
-import com.baidu.tieba.k66;
+import com.baidu.tieba.g76;
+import com.baidu.tieba.nf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.List;
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k66 a;
+    public g76 a;
     public byte[] b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,11 +61,11 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             }
         }
         this.b = new byte[0];
-        this.a = k66.d();
+        this.a = g76.d();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<df5> N(String str) {
+    public List<nf5> M(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -74,27 +74,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<df5> c = this.a.c();
+                List<nf5> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (df5 df5Var : c) {
-                    String e = df5Var.e();
-                    String c2 = df5Var.c();
+                for (nf5 nf5Var : c) {
+                    String e = nf5Var.e();
+                    String c2 = nf5Var.c();
                     if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(df5Var);
+                        arrayList.add(nf5Var);
                     } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(df5Var);
+                        arrayList.add(nf5Var);
                     }
                 }
-                for (df5 df5Var2 : c) {
-                    String e2 = df5Var2.e();
-                    String c3 = df5Var2.c();
-                    if (!arrayList.contains(df5Var2)) {
+                for (nf5 nf5Var2 : c) {
+                    String e2 = nf5Var2.e();
+                    String c3 = nf5Var2.c();
+                    if (!arrayList.contains(nf5Var2)) {
                         if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(df5Var2);
+                            arrayList.add(nf5Var2);
                         } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(df5Var2);
+                            arrayList.add(nf5Var2);
                         }
                     }
                 }

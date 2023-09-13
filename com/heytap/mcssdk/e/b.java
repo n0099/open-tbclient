@@ -14,7 +14,7 @@ import com.heytap.msp.push.mode.DataMessage;
 import com.heytap.msp.push.statis.StatisticUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int a = 1;

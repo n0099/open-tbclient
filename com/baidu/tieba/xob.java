@@ -1,78 +1,63 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tieba.vob;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.rewardvideo.RewardVideoAD;
-import java.util.Map;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
 /* loaded from: classes8.dex */
-public class xob extends sob<RewardVideoAD> {
+public class xob extends vob.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public final /* synthetic */ fpb f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xob(RewardVideoAD rewardVideoAD) {
-        super(rewardVideoAD);
+    public xob(vob vobVar, xpb xpbVar, String str, fpb fpbVar) {
+        super(vobVar, xpbVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rewardVideoAD};
+            Object[] objArr = {vobVar, xpbVar, str, fpbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((vob) objArr2[0], (xpb) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = "";
+        this.f = fpbVar;
     }
 
-    @Override // com.baidu.tieba.sob
-    public String e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vob.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((RewardVideoAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sob
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sob
-    public void b(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((RewardVideoAD) this.a).sendLossNotification(map);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            super.onAdClicked(view2, i);
+            fpb fpbVar = this.f;
+            String str = this.b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = fpbVar.j;
+            if (funSplashAdInteractionListener != null) {
+                funSplashAdInteractionListener.onAdClicked(str);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.sob
-    public void d(Map<String, Object> map) {
+    @Override // com.baidu.tieba.vob.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((RewardVideoAD) this.a).sendWinNotification(map);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            super.onAdShow(view2, i);
+            fpb fpbVar = this.f;
+            fpbVar.g = fpbVar.b.getWidth();
+            fpbVar.h = fpbVar.b.getHeight();
         }
-    }
-
-    @Override // com.baidu.tieba.sob
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((RewardVideoAD) this.a).getECPM();
-        }
-        return invokeV.intValue;
     }
 }

@@ -1,64 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.Callable;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cwb<TResult> implements tvb<TResult> {
+public class cwb implements Callable<bwb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uvb<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final Intent a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xvb a;
-        public final /* synthetic */ cwb b;
-
-        public a(cwb cwbVar, xvb xvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cwbVar, xvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cwbVar;
-            this.a = xvbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onComplete(this.a);
-                    }
-                }
-            }
-        }
-    }
-
-    public cwb(Executor executor, uvb<TResult> uvbVar) {
+    public cwb(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, uvbVar};
+            Object[] objArr = {intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,26 +33,63 @@ public final class cwb<TResult> implements tvb<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = uvbVar;
-        this.b = executor;
+        this.a = intent;
     }
 
-    @Override // com.baidu.tieba.tvb
-    public final void cancel() {
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.bwb, java.lang.Object] */
+    @Override // java.util.concurrent.Callable
+    public bwb call() throws Exception {
+        InterceptResult invokeV;
+        byte[] bArr;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Intent intent = this.a;
+            if (intent == null) {
+                return null;
             }
+            long j = 0;
+            try {
+                j = intent.getLongExtra("msg_id", 0L);
+            } catch (Exception e) {
+                fwb.b("PassByMsgIntentParser", "parserMsgId", e);
+            }
+            try {
+                bArr = this.a.getByteArrayExtra("msg_content");
+            } catch (Exception e2) {
+                fwb.b("PassByMsgIntentParser", "parseMsgContent", e2);
+                bArr = null;
+            }
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr);
+            byte[] bArr2 = new byte[256];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
+            while (!inflater.finished()) {
+                try {
+                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
+                } catch (DataFormatException unused) {
+                    inflater.end();
+                    str = null;
+                } catch (Throwable th) {
+                    inflater.end();
+                    throw th;
+                }
+            }
+            inflater.end();
+            str = byteArrayOutputStream.toString("utf-8");
+            if (str == null) {
+                return null;
+            }
+            String optString = new JSONObject(str).optString("data");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            bwb bwbVar = new bwb();
+            bwbVar.d(j);
+            bwbVar.c(optString);
+            return bwbVar;
         }
-    }
-
-    @Override // com.baidu.tieba.tvb
-    public final void onComplete(xvb<TResult> xvbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xvbVar) == null) {
-            this.b.execute(new a(this, xvbVar));
-        }
+        return invokeV.objValue;
     }
 }

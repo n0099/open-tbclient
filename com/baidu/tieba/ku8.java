@@ -1,158 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficialBarFeedActivityConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.StrangerListActivityConfig;
-import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
-import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
+import com.baidu.tbadk.coreExtra.util.DialogUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public final class ku8 implements AdapterView.OnItemClickListener {
+public final class ku8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final BdUniqueId b;
-    public final MsgChatCenterSliceView c;
-    public final MessageAggregationListAdapter d;
-    public final MsgChatCenterSliceViewModel e;
 
-    public ku8(Context context, BdUniqueId uniqueId, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter, MsgChatCenterSliceViewModel viewModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, uniqueId, sliceView, messageAggregationListAdapter, viewModel};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947925691, "Lcom/baidu/tieba/ku8;")) == null) {
+            return;
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
-        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
-        Intrinsics.checkNotNullParameter(viewModel, "viewModel");
-        this.a = context;
-        this.b = uniqueId;
-        this.c = sliceView;
-        this.d = messageAggregationListAdapter;
-        this.e = viewModel;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947925691, "Lcom/baidu/tieba/ku8;");
+        }
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        boolean z;
-        String str;
-        String str2;
+    @JvmStatic
+    public static final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i < 0) {
-            return;
-        }
-        MessageAggregationListAdapter messageAggregationListAdapter = this.d;
-        String str3 = null;
-        if (messageAggregationListAdapter != null) {
-            imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
-        } else {
-            imMessageCenterShowItemData = null;
-        }
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getDataType() == 2) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(imMessageCenterShowItemData.getForumName(), FrsActivityConfig.FRS_FROM_IM_REC_FORUM)));
-            qw8.a.f(imMessageCenterShowItemData);
-            return;
-        }
-        if (imMessageCenterShowItemData != null) {
-            qw8.a.d(imMessageCenterShowItemData, this.a);
-        }
-        StatisticItem statisticItem = new StatisticItem("c13720");
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        if (imMessageCenterShowItemData != null) {
-            str = imMessageCenterShowItemData.getOwnerName();
-        } else {
-            str = null;
-        }
-        if (TextUtils.isEmpty(str)) {
-            sw8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
-        } else if (Intrinsics.areEqual(str, "5")) {
-            TiebaStatic.log("c12931");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(this.a)));
-        } else if (Intrinsics.areEqual(str, "8")) {
-            long j2 = JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L);
-            OfficalBarChatActivityConfig officalBarChatActivityConfig = new OfficalBarChatActivityConfig(this.a, j2, imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType());
-            qw8.a.g(j2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, officalBarChatActivityConfig));
-        } else if (Intrinsics.areEqual(str, "7")) {
-            TiebaStatic.log(new StatisticItem("c12614"));
-            statisticItem.param("obj_type", 6);
-            qw8.a.e(imMessageCenterShowItemData);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(this.a)));
-            return;
-        } else if (Intrinsics.areEqual(str, "9")) {
-            this.c.Y(imMessageCenterShowItemData);
-            if (imMessageCenterShowItemData.getAtInfoData() != null) {
-                imMessageCenterShowItemData.setAtInfoData(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 4);
             }
-            imMessageCenterShowItemData.setUnReadCount(0);
-            this.e.B(false);
-            this.e.o().X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
-            this.e.E(null, imMessageCenterShowItemData, 2);
-            qw8.a.c(imMessageCenterShowItemData);
-            this.e.o().K();
-        } else {
-            sw8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
+            return q1a.d.a().b("agree_message_bar");
         }
-        if (imMessageCenterShowItemData != null) {
-            str2 = imMessageCenterShowItemData.getFriendName();
-        } else {
-            str2 = null;
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            if (imMessageCenterShowItemData != null) {
-                str3 = imMessageCenterShowItemData.getFriendName();
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 3);
             }
-            if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cc1))) {
-                statisticItem.param("obj_type", 8);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cc4))) {
-                statisticItem.param("obj_type", 9);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cc2))) {
-                statisticItem.param("obj_type", 10);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cbd))) {
-                statisticItem.param("obj_type", 4);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cbf))) {
-                statisticItem.param("obj_type", 5);
+            return q1a.d.a().b("at_message_bar");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 5);
             }
+            return q1a.d.a().b("fan_message_bar");
         }
-        TiebaStatic.log(statisticItem);
-        if (imMessageCenterShowItemData != null) {
-            qw8.a.b(imMessageCenterShowItemData, this.a);
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 0);
+            }
+            return q1a.d.a().b("im");
         }
+        return invokeV.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
+                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 6);
+            }
+            return q1a.d.a().b("reply_message_bar");
+        }
+        return invokeV.booleanValue;
     }
 }

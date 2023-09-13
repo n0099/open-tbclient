@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +46,7 @@ public class AsyncPublishImagesStatData implements Serializable {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("startTime", this.startTime);
             jSONObject.put("endTime", this.endTime);
-            jSONObject.put("errorCode", this.errorCode);
+            jSONObject.put(CloudStabilityUBCUtils.KEY_ERROR_CODE, this.errorCode);
             jSONObject.put("errorMessage", this.errorMessage);
             if (this.imageInfo != null) {
                 JSONArray jSONArray = new JSONArray();

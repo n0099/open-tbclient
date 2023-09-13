@@ -1,54 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.common.data.ApiException;
+import com.fun.ad.sdk.internal.api.PidLoader;
 /* loaded from: classes6.dex */
-public abstract class hub<TResult> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final IMessageEntity b;
-    public final rtb c;
-    public RequestHeader d;
-    public pub<TResult> e;
-
-    public abstract void a(ApiException apiException, Object obj);
-
-    public hub(String str, IMessageEntity iMessageEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        getClass().getSimpleName();
-        this.a = str;
-        this.b = iMessageEntity;
-        this.c = rtb.b(str);
-    }
-
-    public final void b(ApiException apiException, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
-            if (this.e != null) {
-                a(apiException, obj);
-                return;
-            }
-            String str = "This Task has been canceled, uri:" + this.a;
-        }
-    }
+public interface hub<N> {
+    N a(PidLoader pidLoader, String str);
 }

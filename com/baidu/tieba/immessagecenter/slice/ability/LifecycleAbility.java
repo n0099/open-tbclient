@@ -21,23 +21,39 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     public transient /* synthetic */ FieldHolder $fh;
 
     @CallSuper
-    public void B() {
+    public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
     @CallSuper
-    public void C() {
+    public void D(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, owner, event) == null) {
+            Intrinsics.checkNotNullParameter(owner, "owner");
+            Intrinsics.checkNotNullParameter(event, "event");
+        }
+    }
+
+    @CallSuper
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @CallSuper
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
     @CallSuper
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
@@ -45,7 +61,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
@@ -53,7 +69,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
@@ -61,7 +77,7 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
@@ -69,28 +85,12 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
     @CallSuper
-    public void p(LifecycleOwner owner, Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, owner, event) == null) {
-            Intrinsics.checkNotNullParameter(owner, "owner");
-            Intrinsics.checkNotNullParameter(event, "event");
-        }
-    }
-
-    @CallSuper
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    @CallSuper
-    public void r(LifecycleOwner owner, Lifecycle.Event event) {
+    public void q(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
@@ -99,25 +99,25 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     }
 
     @CallSuper
-    public void s() {
+    public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
     @CallSuper
-    public void v() {
+    public void v(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, owner, event) == null) {
+            Intrinsics.checkNotNullParameter(owner, "owner");
+            Intrinsics.checkNotNullParameter(event, "event");
         }
     }
 
     @CallSuper
-    public void w(LifecycleOwner owner, Lifecycle.Event event) {
+    public void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, owner, event) == null) {
-            Intrinsics.checkNotNullParameter(owner, "owner");
-            Intrinsics.checkNotNullParameter(event, "event");
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
@@ -139,10 +139,10 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public final void performCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            B();
-            q();
-            s();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            E();
+            r();
+            w();
         }
     }
 
@@ -150,10 +150,10 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public final void performDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            C();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            F();
             onDestroy();
-            v();
+            A();
         }
     }
 
@@ -161,12 +161,12 @@ public abstract class LifecycleAbility implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     public final void performAny(LifecycleOwner owner, Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, owner, event) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, owner, event) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
             Intrinsics.checkNotNullParameter(event, "event");
-            w(owner, event);
-            p(owner, event);
-            r(owner, event);
+            D(owner, event);
+            q(owner, event);
+            v(owner, event);
         }
     }
 }

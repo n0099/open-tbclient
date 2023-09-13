@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface ib0 {
-    void a(Context context, String str);
+    void U(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    void b(Context context);
+    void W0(List<String> list);
 
-    void c();
+    void h(int i);
 
-    void d();
+    void hideLoading();
 
-    void e(Context context);
+    void i();
 
-    void f(Context context, int i);
+    void m(jb0 jb0Var);
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    void o(List<String> list);
 
-    void h();
+    void q(SearchResultBean searchResultBean);
 
-    void i(String str);
+    void showToast(String str);
 
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+    void w0(List<? extends LiveRoomEntity> list);
 
-    void onDetach();
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(ib0 ib0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                ib0Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
-        }
-    }
+    void z0();
 }

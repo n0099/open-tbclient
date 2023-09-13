@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
+import com.baidu.tieba.ei;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,7 +107,7 @@ public final class Thread2GroupShareView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return di.charSequence2String(editText.getText(), null);
+            return ei.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }

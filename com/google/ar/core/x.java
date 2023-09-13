@@ -2,15 +2,15 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.ksb;
-import com.baidu.tieba.lsb;
-import com.baidu.tieba.psb;
+import com.baidu.tieba.jvb;
+import com.baidu.tieba.kvb;
+import com.baidu.tieba.ovb;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ psb b;
+    public final /* synthetic */ ovb b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -20,8 +20,8 @@ public final class x extends com.google.a.b.a.a.a.e {
     public final void b(Bundle bundle) {
     }
 
-    public x(psb psbVar, AtomicBoolean atomicBoolean) {
-        this.b = psbVar;
+    public x(ovb ovbVar, AtomicBoolean atomicBoolean) {
+        this.b = ovbVar;
         this.a = atomicBoolean;
     }
 
@@ -40,13 +40,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            psb psbVar = this.b;
-            ksb ksbVar = psbVar.c;
-            ksb.n(psbVar.a, psbVar.b);
+            ovb ovbVar = this.b;
+            jvb jvbVar = ovbVar.c;
+            jvb.n(ovbVar.a, ovbVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            psb psbVar2 = this.b;
-            ksb ksbVar2 = psbVar2.c;
-            ksb.b(psbVar2.a, bundle, psbVar2.b);
+            ovb ovbVar2 = this.b;
+            jvb jvbVar2 = ovbVar2.c;
+            jvb.b(ovbVar2.a, bundle, ovbVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -64,11 +64,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.CANCELLED);
                     return;
                 default:
-                    lsb lsbVar = this.b.b;
+                    kvb kvbVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    lsbVar.b(new FatalException(sb2.toString()));
+                    kvbVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

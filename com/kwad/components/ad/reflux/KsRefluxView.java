@@ -65,16 +65,16 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
     }
 
     private void L(@NonNull Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04c8, this);
-        this.kN = findViewById(R.id.obfuscated_res_0x7f091370);
-        this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f091363);
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091371);
-        this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f09136c);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09136a);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04cf, this);
+        this.kN = findViewById(R.id.obfuscated_res_0x7f091376);
+        this.kO = (ImageView) findViewById(R.id.obfuscated_res_0x7f091369);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091377);
+        this.kM = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f091372);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091370);
         this.kP = findViewById;
         findViewById.setOnClickListener(this);
         this.kO.setOnClickListener(this);
-        ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f09136b)).setContentViewListener(this);
+        ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f091371)).setContentViewListener(this);
     }
 
     @Nullable
@@ -97,7 +97,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                     }
                 }
             });
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f0704f4), 0.0f);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f0704fb), 0.0f);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.reflux.KsRefluxView.5
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public final void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -149,7 +149,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         if (measuredHeight == 0) {
             return null;
         }
-        ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704ee));
+        ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704f3));
         ofInt.setDuration(300L);
         ofInt.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.reflux.KsRefluxView.3

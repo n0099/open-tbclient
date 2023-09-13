@@ -1,40 +1,60 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.IdRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.AndroidUtils;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sta {
+public class sta implements rta {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    @IdRes
-    public int b;
-    @IdRes
-    public int c;
-    public Object d;
-    public int e;
-    public int f;
+    public pta a;
+    public ota b;
+    public TbPageContext<?> c;
+
+    @Override // com.baidu.tieba.rta
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final sta a;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ sta b;
 
-        public a() {
+        public a(sta staVar, ShareItem shareItem) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {staVar, shareItem};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,84 +64,60 @@ public final class sta {
                     return;
                 }
             }
-            this.a = new sta();
+            this.b = staVar;
+            this.a = shareItem;
         }
 
-        public final sta a() {
-            InterceptResult invokeV;
-            boolean z;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.a != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return this.a;
-                }
-                throw new IllegalStateException("必须设置引导视图 GuideView".toString());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                AndroidUtils.copyToClipboard(this.a.linkUrl);
+                BdUtilHelper.showToast(this.b.c.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
             }
-            return (sta) invokeV.objValue;
-        }
-
-        public final a b(Object viewTag) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewTag)) == null) {
-                Intrinsics.checkNotNullParameter(viewTag, "viewTag");
-                this.a.c(viewTag);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a c(@IdRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.a.d(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                Intrinsics.checkNotNullParameter(view2, "view");
-                this.a.e(view2);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.a.f(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a f(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.a.g(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
-    public sta() {
+    /* loaded from: classes8.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sta a;
+
+        public b(sta staVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {staVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = staVar;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.h();
+        }
+    }
+
+    public sta(TbPageContext<?> tbPageContext, ota otaVar, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, otaVar, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,95 +127,104 @@ public final class sta {
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
+        this.c = tbPageContext;
+        this.b = otaVar;
+        qta qtaVar = new qta();
+        this.a = qtaVar;
+        qtaVar.b(intent);
+        this.a.e(tbPageContext.getUniqueId());
     }
 
-    public final View b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rta
+    public void a() {
+        ota otaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (otaVar = this.b) != null) {
+            otaVar.showErrorView();
+        }
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c == null) {
+            return;
+        }
+        if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
+            return;
+        }
+        i();
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void c() {
+        pta ptaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ptaVar = this.a) != null) {
+            SharedPrefHelper.getInstance().putBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount(ptaVar.c()), false);
+        }
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void d() {
+        pta ptaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ptaVar = this.a) != null && this.b != null) {
+            this.b.x0(ptaVar.getVideoUrl());
+        }
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void e() {
+        ota otaVar;
+        pta ptaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (otaVar = this.b) != null && (ptaVar = this.a) != null) {
+            otaVar.g0(ptaVar.a(), this.a.g());
+        }
+    }
+
+    public final void h() {
+        pta ptaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ptaVar = this.a) != null && this.b != null) {
+            this.b.u0(ptaVar.getVideoUrl());
+        }
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void onClose() {
+        ota otaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (otaVar = this.b) != null) {
+            otaVar.finishActivity();
+        }
+    }
+
+    @Override // com.baidu.tieba.rta
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            h();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
+            ShareItem shareItem = new ShareItem();
+            shareItem.title = this.a.d();
+            shareItem.content = this.a.i();
+            shareItem.linkUrl = this.a.f();
+            shareItem.spareLinkUrl = this.a.f();
+            if (!ei.isEmpty(this.a.h())) {
+                shareItem.imageUri = Uri.parse(this.a.h());
             }
-            Intrinsics.throwUninitializedPropertyAccessException("guideView");
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
-        r5 = com.baidu.tieba.rta.c(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final PointF a(ViewGroup rootView) {
-        InterceptResult invokeL;
-        View findViewById;
-        RectF rectF;
-        float f;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            Object obj = this.d;
-            if (obj != null) {
-                findViewById = rootView.findViewWithTag(obj);
-            } else {
-                findViewById = rootView.findViewById(this.c);
-            }
-            if (findViewById == null || rectF == null) {
-                rectF = new RectF();
-            }
-            View findViewById2 = b().findViewById(this.b);
-            float f2 = rectF.left + this.e;
-            if (findViewById2 != null) {
-                f = rectF.bottom - (findViewById2.getTop() + findViewById2.getHeight());
-                i = this.f;
-            } else {
-                f = rectF.bottom;
-                i = this.f;
-            }
-            return new PointF(f2, f + i);
-        }
-        return (PointF) invokeL.objValue;
-    }
-
-    public final void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.d = obj;
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<set-?>");
-            this.a = view2;
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
+            shareDialogConfig.setIsCopyLink(true);
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setOnDismissListener(new b(this));
+            this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

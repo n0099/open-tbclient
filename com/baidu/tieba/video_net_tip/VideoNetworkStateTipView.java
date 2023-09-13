@@ -143,7 +143,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.mid_video_network_state_tip, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb9);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd9);
             TextView textView = (TextView) findViewById(R.id.free_flow);
             this.c = textView;
             textView.setOnClickListener(new a(this));

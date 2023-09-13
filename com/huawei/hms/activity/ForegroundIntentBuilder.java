@@ -18,7 +18,7 @@ import com.huawei.hms.common.internal.RequestHeader;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.huawei.hms.support.api.entity.core.CoreNaming;
 import com.huawei.hms.utils.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ForegroundIntentBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

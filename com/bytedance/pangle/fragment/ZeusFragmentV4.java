@@ -18,7 +18,7 @@ public class ZeusFragmentV4 extends Fragment {
         a.a(ZeusFragmentV4.class);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.z1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.a2
     @Nullable
     public Context getContext() {
         try {

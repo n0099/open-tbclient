@@ -1,182 +1,98 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.os.SystemClock;
+import android.media.AudioManager;
+import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieCompositionFactory;
-import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.game.guide.dialog.CoinClickDialog;
-import com.baidu.swan.game.guide.view.GameGuideView;
-import com.baidu.swan.game.guide.view.GameGuideViewContainer;
-import com.baidu.tieba.ao3;
-import com.baidu.tieba.aw2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.ad.component.AdImageVIew;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.view.InteractiveEndFrameView;
+import com.baidu.swan.game.ad.view.RewardLoadWebView;
+import com.baidu.swan.game.ad.view.RewardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class c14 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 0;
-    public static boolean b = false;
-    public static long c = 0;
-    public static GameGuideConfigInfo d = null;
-    public static GameGuideView e = null;
-    public static String f = "";
-    public static String g = "";
-    public static int h = 0;
-    public static GameGuideViewContainer i = null;
-    public static String j = null;
-    public static boolean k = false;
-    public static boolean l = false;
-    public static boolean m = true;
-    public static cq3 n;
-    public static final c14 o;
+public abstract class c14 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h04 A;
+    public boolean B;
+    public Runnable C;
+    public View.OnClickListener D;
+    public View.OnClickListener E;
+    public View.OnClickListener F;
+    public RelativeLayout a;
+    public View b;
+    public RewardVideoView c;
+    public c04 d;
+    public int e;
+    public ProgressBar f;
+    public LinearLayout g;
+    public ImageView h;
+    public TextView i;
+    public TextView j;
+    public View k;
+    public TextView l;
+    public RelativeLayout m;
+    public int n;
+    public int o;
+    public Context p;
+    public AdElementInfo q;
+    public final Handler r;
+    public uz3 s;
+    public RewardLoadWebView t;
+    public RewardLoadWebView u;
+    public InteractiveEndFrameView v;
+    public Resources w;
+    public d04 x;
+    public boolean y;
+    public vz3 z;
 
-    public final void a0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-        }
-    }
+    public abstract void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo);
+
+    public abstract String q();
+
+    public abstract View u();
 
     /* loaded from: classes5.dex */
-    public static final class e implements ao3.b {
+    public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameGuideConfigInfo a;
 
-        public e(GameGuideConfigInfo gameGuideConfigInfo) {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a(c14 c14Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameGuideConfigInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gameGuideConfigInfo;
-        }
-
-        /* loaded from: classes5.dex */
-        public static final class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                    return;
-                }
-                c14.o.c0(this.a.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.ao3.b
-        public final void a(String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (bitmap == null) {
-                    c14.o.a0(false);
-                    if (nr1.a) {
-                        Log.e("GamenowPlaytimeManager", "下载导流view的图片失败， url = " + str);
-                    }
-                    z14.n().d("fail", c14.i(c14.o), "下发配置中导流view的资源不可用");
-                    return;
-                }
-                bitmap.setDensity(480);
-                GameGuideConfigInfo.ViewInfo viewInfo = this.a.viewInfo;
-                if (viewInfo != null) {
-                    viewInfo.iconNormalImg = bitmap;
-                }
-                db3 b0 = db3.b0();
-                if (b0 == null) {
-                    c14.o.a0(false);
-                    z14.n().d("fail", c14.i(c14.o), "小游戏非法");
-                    return;
-                }
-                SwanAppActivity w = b0.w();
-                Intrinsics.checkNotNullExpressionValue(w, "swanApp.swanActivity");
-                if (w.isDestroyed()) {
-                    c14.o.a0(false);
-                    z14.n().d("fail", c14.i(c14.o), "小游戏非法");
-                    return;
-                }
-                c14.o.a0(true);
-                c14.o.T(this.a);
-                c14.o.K();
-                xo3.e0(new a(this));
-                String b = c14.b(c14.o);
-                if (b != null && !c14.i(c14.o) && this.a.expirationTime > 0) {
-                    b14.c().a(b0.O(), b, SystemClock.elapsedRealtime() + this.a.expirationTime);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                Object[] objArr = {c14Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -186,176 +102,61 @@ public final class c14 {
                 }
             }
         }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            String string;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                if (bundle != null && (string = bundle.getString("type", "")) != null) {
-                    switch (string.hashCode()) {
-                        case -1261832223:
-                            if (string.equals("addCoins")) {
-                                c14.h = c14.g(c14.o) + bundle.getInt("coinsNum", 0);
-                                GameGuideConfigInfo z = c14.o.z();
-                                if (z != null) {
-                                    int g = c14.g(c14.o);
-                                    int i2 = z.maxNums;
-                                    if (g > i2) {
-                                        c14 c14Var = c14.o;
-                                        c14.h = i2;
-                                    }
-                                }
-                                c14 c14Var2 = c14.o;
-                                c14Var2.S(c14.g(c14Var2));
-                                break;
-                            }
-                            break;
-                        case -977015124:
-                            if (string.equals("setHasShowedTips")) {
-                                c14.o.X(true);
-                                break;
-                            }
-                            break;
-                        case -426887517:
-                            if (string.equals("setPlayTime")) {
-                                c14.o.Z(bundle.getLong("playTime", 0L));
-                                break;
-                            }
-                            break;
-                        case -338307689:
-                            if (string.equals("getPlayTime")) {
-                                bundle2.putLong("playTime", c14.d(c14.o));
-                                break;
-                            }
-                            break;
-                        case 45198779:
-                            if (string.equals("onGameTimeUsed")) {
-                                c14.o.d0();
-                                break;
-                            }
-                            break;
-                        case 142663368:
-                            if (string.equals("initGameGuideInfo")) {
-                                long F = c14.o.F();
-                                if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
-                                    c14 c14Var3 = c14.o;
-                                    c14.a = F;
-                                }
-                                int J = c14.o.J();
-                                GameGuideConfigInfo z2 = c14.o.z();
-                                if (z2 != null && J > (i = z2.maxNums)) {
-                                    c14.o.S(i);
-                                    J = i;
-                                }
-                                c14 c14Var4 = c14.o;
-                                c14.h = J;
-                                break;
-                            }
-                            break;
-                        case 854427704:
-                            if (string.equals("getHasShowedTips")) {
-                                bundle2.putBoolean("hasShowedTips", c14.o.E());
-                                break;
-                            }
-                            break;
-                        case 1950665292:
-                            if (string.equals("getCoins")) {
-                                bundle2.putInt("coinsNum", c14.g(c14.o));
-                                break;
-                            }
-                            break;
-                    }
-                }
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c14 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-941122811, "Lcom/baidu/tieba/c14$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-941122811, "Lcom/baidu/tieba/c14$b;");
-                    return;
-                }
-            }
-            a = new b();
-        }
-
-        public b() {
+        public b(c14 c14Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = c14Var;
         }
 
         @Override // java.lang.Runnable
-        public final void run() {
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                db3 b0 = db3.b0();
-                if (b0 == null) {
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "非法小游戏");
-                    }
-                    z14.n().a("小游戏非法");
-                    c14.o.a0(false);
-                    return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.K();
+                int currentPosition = this.a.d.getCurrentPosition();
+                c14 c14Var = this.a;
+                c14Var.J(c14Var.e, currentPosition);
+                int min = Math.min(currentPosition + 1000, this.a.e);
+                this.a.f.setProgress(min / 1000);
+                if (min < this.a.e) {
+                    this.a.r.postDelayed(this.a.C, 100L);
                 }
-                String cacheConfig = b14.c().e(b0.O());
-                if (TextUtils.isEmpty(cacheConfig)) {
-                    z14.n().d("start", c14.i(c14.o), "");
-                    c14.o.R();
-                    return;
-                }
-                if (nr1.a) {
-                    Log.d("GamenowPlaytimeManager", "展示缓存数据， 小游戏为  " + b0.Z());
-                }
-                c14 c14Var = c14.o;
-                c14.k = true;
-                z14.n().d("start", c14.i(c14.o), "");
-                c14 c14Var2 = c14.o;
-                Intrinsics.checkNotNullExpressionValue(cacheConfig, "cacheConfig");
-                c14Var2.O(cacheConfig);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class c<T> implements LottieListener<LottieComposition> {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameGuideConfigInfo a;
+        public final /* synthetic */ c14 a;
 
-        public c(GameGuideConfigInfo gameGuideConfigInfo) {
+        public c(c14 c14Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameGuideConfigInfo};
+                Object[] objArr = {c14Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -365,874 +166,555 @@ public final class c14 {
                     return;
                 }
             }
-            this.a = gameGuideConfigInfo;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public final void onResult(LottieComposition lottieComposition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                GameGuideConfigInfo.ViewInfo viewInfo = this.a.viewInfo;
-                if (viewInfo != null) {
-                    viewInfo.iconDoneLottie = lottieComposition;
-                }
-                c14.o.y(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class d<T> implements LottieListener<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public static final d a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-941122749, "Lcom/baidu/tieba/c14$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-941122749, "Lcom/baidu/tieba/c14$d;");
-                    return;
-                }
-            }
-            a = new d();
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public final void onResult(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                c14.o.a0(false);
-                z14.n().d("fail", c14.i(c14.o), "下发配置中导流view的资源不可用");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class f extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (nr1.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("请求配置信息失败，err = ");
-                    if (exc != null) {
-                        str = exc.getMessage();
-                    } else {
-                        str = null;
-                    }
-                    sb.append(str);
-                    Log.e("GamenowPlaytimeManager", sb.toString());
-                }
-                c14.o.a0(false);
-                z14.n().d("fail", c14.i(c14.o), "网络请求失败");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    if (nr1.a) {
-                        Log.e("GamenowPlaytimeManager", "配置信息下发异常，code = " + i + ",  response = " + str);
-                    }
-                    c14.o.a0(false);
-                    z14.n().d("fail", c14.i(c14.o), "下发数据非法");
-                    return;
-                }
-                if (nr1.a) {
-                    Log.d("GamenowPlaytimeManager", "配置信息 =   " + str);
-                }
-                c14.o.O(str);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class g implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public static final g a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-941122656, "Lcom/baidu/tieba/c14$g;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-941122656, "Lcom/baidu/tieba/c14$g;");
-                    return;
-                }
-            }
-            a = new g();
-        }
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
+            this.a = c14Var;
         }
 
         @Override // android.view.View.OnClickListener
-        public final void onClick(View view2) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.c == null) {
                 return;
             }
-            c14.o.N();
+            if (this.a.c.d()) {
+                this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081104);
+                this.a.c.e(false);
+                return;
+            }
+            this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081103);
+            this.a.c.e(true);
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class h implements cq3 {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c14 a;
 
-        public h() {
+        public d(c14 c14Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c14Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c14Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.s != null) {
+                this.a.s.e(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c14 a;
+
+        public e(c14 c14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c14Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.z != null) {
+                this.a.z.f(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements RewardVideoView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c14 a;
+
+        public f(c14 c14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = c14Var;
+        }
+
+        @Override // com.baidu.swan.game.ad.view.RewardVideoView.a
+        public void onVolumeChanged(int i) {
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                AudioManager audioManager = (AudioManager) this.a.p.getSystemService("audio");
+                if (Build.VERSION.SDK_INT >= 28) {
+                    i2 = audioManager.getStreamMinVolume(3);
+                } else {
+                    i2 = 0;
+                }
+                if (i > i2 && this.a.c.d()) {
+                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081104);
+                    this.a.c.e(false);
+                } else if (i <= i2 && !this.a.c.d()) {
+                    this.a.h.setImageResource(R.drawable.obfuscated_res_0x7f081103);
+                    this.a.c.e(true);
                 }
             }
         }
+    }
 
-        @Override // com.baidu.tieba.cq3
-        public void e() {
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public g(c14 c14Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c14Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GameGuideView c = c14.c(c14.o);
-                if (c != null) {
-                    c.p();
-                }
-                b24.f.k();
-            }
-        }
-
-        @Override // com.baidu.tieba.cq3
-        public void onViewDestroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-                return;
-            }
-            c14.o.P();
-        }
-
-        @Override // com.baidu.tieba.cq3
-        public void k() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                b24.f.j();
-                GameGuideView c = c14.c(c14.o);
-                if (c != null) {
-                    c.o(b24.f.f());
-                }
-                qw2.T().c();
-                if (c14.o.C()) {
-                    c14.o.Q();
+                int h = zz3.b().h();
+                if (zz3.b().o(this.a)) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
+                    layoutParams.topMargin = this.a.getTop() + h;
+                    this.a.setLayoutParams(layoutParams);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947621891, "Lcom/baidu/tieba/c14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947621891, "Lcom/baidu/tieba/c14;");
-                return;
-            }
-        }
-        o = new c14();
-        n = new h();
-    }
-
-    public c14() {
+    public c14(Context context, AdElementInfo adElementInfo, d04 d04Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, d04Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final GameGuideViewContainer B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return i;
-        }
-        return (GameGuideViewContainer) invokeV.objValue;
-    }
-
-    public final boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = rj3.a().getBoolean("hasChoiceNotShow", false);
-            l = z;
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean z = rj3.a().getBoolean("hasInstallResult", true);
-            m = z;
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return rj3.a().getBoolean("key_gt_ths", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final long F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return rj3.a().getLong("key_l_gt", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public final String H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return rj3.a().getInt("coinsNum", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            e = null;
-            i = null;
-            k = false;
-        }
-    }
-
-    public final void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            long j2 = a;
-            if (j2 < 30000) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            long j3 = j2 % 30000;
-            a = j3;
-            Y(j3);
+        }
+        this.r = new Handler();
+        this.B = false;
+        this.C = new b(this);
+        this.D = new c(this);
+        this.E = new d(this);
+        this.F = new e(this);
+        this.p = context;
+        this.q = adElementInfo;
+        this.n = zz3.b().k();
+        this.o = zz3.b().j();
+        this.w = this.p.getResources();
+        this.x = d04Var;
+        this.y = b14.i();
+        w();
+        this.A = new h04(this.p);
+        x(this.g);
+    }
+
+    public void E(uz3 uz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uz3Var) == null) {
+            this.s = uz3Var;
+        }
+    }
+
+    public void F(vz3 vz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vz3Var) == null) {
+            this.z = vz3Var;
+        }
+    }
+
+    public void G(String str) {
+        RewardVideoView rewardVideoView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (rewardVideoView = this.c) != null) {
+            rewardVideoView.f(str);
+        }
+    }
+
+    public final void x(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
+            view2.post(new g(this, view2));
+        }
+    }
+
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            m();
+            I();
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            m();
+            I();
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            H();
+        }
+    }
+
+    public final void H() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null) {
+            this.r.removeCallbacksAndMessages(null);
+            this.r.postDelayed(this.C, 0L);
+        }
+    }
+
+    public final void I() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f != null) {
+            this.r.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            I();
+            RewardLoadWebView rewardLoadWebView = this.t;
+            if (rewardLoadWebView != null) {
+                rewardLoadWebView.c();
+                this.t = null;
+            }
+            RewardLoadWebView rewardLoadWebView2 = this.u;
+            if (rewardLoadWebView2 != null) {
+                rewardLoadWebView2.c();
+                this.u = null;
+            }
+            InteractiveEndFrameView interactiveEndFrameView = this.v;
+            if (interactiveEndFrameView != null) {
+                interactiveEndFrameView.t();
+                this.v = null;
+            }
+        }
+    }
+
+    public RewardVideoView.a o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return new f(this);
+        }
+        return (RewardVideoView.a) invokeV.objValue;
+    }
+
+    public View r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public c04 s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            RewardVideoView rewardVideoView = this.c;
+            if (rewardVideoView != null) {
+                return rewardVideoView.getPlayer();
+            }
+            return null;
+        }
+        return (c04) invokeV.objValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.B;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.a.setOnTouchListener(new a(this));
+            this.h.setOnClickListener(this.D);
+            this.i.setOnClickListener(this.E);
+        }
+    }
+
+    public void y() {
+        c04 c04Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (c04Var = this.d) != null) {
+            this.e = c04Var.getDuration();
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            I();
+        }
+    }
+
+    public final void J(long j, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) != null) || !this.y) {
+            return;
+        }
+        if (j > 15000 && i <= 15000) {
+            if (i < 5000) {
+                this.g.setVisibility(8);
+                this.j.setVisibility(8);
+                this.k.setVisibility(8);
+                this.i.setVisibility(8);
+                return;
+            } else if (i < 10000) {
+                this.g.setVisibility(0);
+                this.j.setVisibility(0);
+                this.k.setVisibility(8);
+                this.i.setVisibility(8);
+                return;
+            } else {
+                this.g.setVisibility(0);
+                this.j.setVisibility(0);
+                this.k.setVisibility(0);
+                this.i.setVisibility(0);
+                return;
+            }
+        }
+        this.j.setText(R.string.obfuscated_res_0x7f0f15be);
+        this.i.setVisibility(0);
+        this.k.setVisibility(0);
+        this.j.setVisibility(0);
+    }
+
+    public final void K() {
+        c04 c04Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.q != null && (c04Var = this.d) != null) {
+            this.e = c04Var.getDuration();
+            int min = Math.min(this.q.getRewardTime(), this.e / 1000);
+            int skipTime = this.q.getSkipTime();
+            int currentPosition = this.d.getCurrentPosition() / 1000;
+            String string = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f15c0);
+            String string2 = this.p.getResources().getString(R.string.obfuscated_res_0x7f0f15c1);
+            if (currentPosition <= min) {
+                this.j.setText(String.format(string, Integer.valueOf(min - currentPosition)));
+            } else {
+                this.j.setText(String.format(string2, Integer.valueOf((this.e / 1000) - currentPosition)));
+            }
+            if (currentPosition <= skipTime) {
+                this.i.setVisibility(8);
+                this.k.setVisibility(8);
+                return;
+            }
+            this.i.setVisibility(0);
+            this.k.setVisibility(0);
+        }
+    }
+
+    public void p() {
+        AdElementInfo adElementInfo;
+        c04 c04Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            H();
+            ProgressBar progressBar = this.f;
+            if (progressBar != null && (c04Var = this.d) != null) {
+                progressBar.setMax(c04Var.getDuration() / 1000);
+                this.f.setVisibility(4);
+            }
+            if (this.j != null && this.d != null && (adElementInfo = this.q) != null) {
+                this.j.setText(String.format(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f15c0), Integer.valueOf(Math.max(this.q.getSkipTime(), Math.min(adElementInfo.getRewardTime(), this.d.getDuration())) / 1000)));
+                if (this.q.getSkipTime() >= 0) {
+                    this.i.setVisibility(8);
+                    this.k.setVisibility(8);
+                }
+            }
+            if (this.g.getVisibility() != 0) {
+                this.g.setVisibility(0);
+            }
+            if (this.m.getVisibility() != 0) {
+                this.m.setAnimation(AnimationUtils.loadAnimation(this.p, R.anim.obfuscated_res_0x7f0100f8));
+                this.m.setVisibility(0);
+            }
+            c04 c04Var2 = this.d;
+            if (c04Var2 != null) {
+                J(c04Var2.getDuration(), this.d.getCurrentPosition());
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            TextView textView = new TextView(this.p);
+            this.l = textView;
+            textView.setBackground(this.w.getDrawable(R.drawable.obfuscated_res_0x7f081100));
+            this.l.setTextColor(this.w.getColor(R.color.obfuscated_res_0x7f0604ed));
+            this.l.setText(this.w.getString(R.string.obfuscated_res_0x7f0f0476));
+            this.l.setTextSize(2, 16.0f);
+            this.l.setOnClickListener(this.E);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(a14.a(96.0f), a14.a(30.0f));
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.addRule(13);
+            this.l.setGravity(17);
+            layoutParams.setMargins(0, this.g.getTop(), this.w.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070488), 0);
+            this.a.addView(this.l, layoutParams);
+            x(this.l);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
+            this.B = true;
+            this.g.setVisibility(4);
+            this.m.setVisibility(4);
+            this.i.setVisibility(4);
+            if (!TextUtils.isEmpty(this.q.getEndFrameUrl())) {
+                InteractiveEndFrameView interactiveEndFrameView = new InteractiveEndFrameView(this.p);
+                this.v = interactiveEndFrameView;
+                interactiveEndFrameView.s(this.q, this.a);
+                this.a.addView(this.v, new RelativeLayout.LayoutParams(-1, -1));
+                q04.i(this.q, this.A);
+            } else if (!TextUtils.isEmpty(this.q.getEndFrameHtml())) {
+                RewardLoadWebView rewardLoadWebView = new RewardLoadWebView(this.p);
+                this.u = rewardLoadWebView;
+                rewardLoadWebView.b("reward_end_frame_html", this.q, this.x);
+                this.a.addView(this.u, new RelativeLayout.LayoutParams(-1, -1));
+                q04.i(this.q, this.A);
+            } else {
+                View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0739, (ViewGroup) null);
+                this.a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091f4a)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925d1)).setText(this.q.getTitle());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09087d)).setText(this.q.getDescription());
+                Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09092c);
+                if (this.q.getActionType() == 1) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1353));
+                }
+                if (this.q.getActionType() == 2) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1505));
+                }
+                inflate.findViewById(R.id.obfuscated_res_0x7f0907c8).setOnClickListener(this.F);
+                button.setOnClickListener(this.F);
+            }
+            l();
         }
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            xn3.k(b.a, "thread_gamenowGuideInitAndCheck");
-        }
-    }
-
-    public final GameGuideConfigInfo z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            return d;
-        }
-        return (GameGuideConfigInfo) invokeV.objValue;
-    }
-
-    public static final /* synthetic */ String b(c14 c14Var) {
-        return j;
-    }
-
-    public static final /* synthetic */ GameGuideView c(c14 c14Var) {
-        return e;
-    }
-
-    public static final /* synthetic */ long d(c14 c14Var) {
-        return a;
-    }
-
-    public static final /* synthetic */ int g(c14 c14Var) {
-        return h;
-    }
-
-    public static final /* synthetic */ boolean i(c14 c14Var) {
-        return k;
-    }
-
-    public final void S(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            rj3.a().putInt("coinsNum", i2);
-        }
-    }
-
-    public final void T(GameGuideConfigInfo gameGuideConfigInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, gameGuideConfigInfo) == null) {
-            d = gameGuideConfigInfo;
-        }
-    }
-
-    public final void V(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            l = z;
-            rj3.a().putBoolean("hasChoiceNotShow", z);
-        }
-    }
-
-    public final void W(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            m = z;
-            rj3.a().putBoolean("hasInstallResult", z);
-        }
-    }
-
-    public final void X(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            rj3.a().putBoolean("key_gt_ths", z);
-        }
-    }
-
-    public final void Y(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            rj3.a().putLong("key_l_gt", j2);
-        }
-    }
-
-    public final void Z(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            if (j2 < 0) {
-                if (nr1.a) {
-                    Log.d("GamenowPlaytimeManager", "游戏时长不能为负数");
-                    return;
-                }
-                return;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.b = u();
+            this.b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
+            this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f4e);
+            RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.video_view);
+            this.c = rewardVideoView;
+            rewardVideoView.setVolumeChangeListener(o());
+            if (this.y) {
+                this.c.setOnClickListener(this.F);
             }
-            if (j2 > SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                j2 = 90000;
+            this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f092396);
+            this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092a10);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092a11);
+            if (this.c.d()) {
+                this.h.setImageResource(R.drawable.obfuscated_res_0x7f081103);
             }
-            a = j2;
-            Y(j2);
-        }
-    }
-
-    public final void x(GameGuideConfigInfo gameGuideConfigInfo) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, gameGuideConfigInfo) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            GameGuideConfigInfo.ViewInfo viewInfo = gameGuideConfigInfo.viewInfo;
-            if (viewInfo != null) {
-                str = viewInfo.iconDoneUrl;
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090729);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09072c);
+            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f09072d);
+            this.m = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090335);
+            if (!TextUtils.isEmpty(this.q.getBannerHtml())) {
+                this.t = new RewardLoadWebView(this.p);
+                this.m.addView(this.t, new RelativeLayout.LayoutParams(-1, -1));
+                C(this.m, this.q);
+                this.t.b(q(), this.q, this.x);
             } else {
-                str = null;
-            }
-            LottieCompositionFactory.fromUrl(appContext, str).addListener(new c(gameGuideConfigInfo)).addFailureListener(d.a);
-        }
-    }
-
-    public final void y(GameGuideConfigInfo gameGuideConfigInfo) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, gameGuideConfigInfo) == null) {
-            GameGuideConfigInfo.ViewInfo viewInfo = gameGuideConfigInfo.viewInfo;
-            if (viewInfo != null) {
-                str = viewInfo.iconNormalUrl;
-            } else {
-                str = null;
-            }
-            ao3.e(str, new e(gameGuideConfigInfo));
-        }
-    }
-
-    public final long A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return a;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "getPlayTime");
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-            Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
-            if (!callOnMainWithContentProvider.isOk()) {
-                return 0L;
-            }
-            return callOnMainWithContentProvider.mResult.getLong("playTime", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public final int G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return h;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "getCoins");
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-            Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
-            if (!callOnMainWithContentProvider.isOk()) {
-                return 0;
-            }
-            return callOnMainWithContentProvider.mResult.getInt("coinsNum", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final void M() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                d0();
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "onGameTimeUsed");
-            Intrinsics.checkNotNullExpressionValue(DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle), "DelegateUtils.callOnMain…tion::class.java, bundle)");
-        }
-    }
-
-    public final void Q() {
-        GameGuideViewContainer gameGuideViewContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (gameGuideViewContainer = i) != null) {
-            qw2 T2 = qw2.T();
-            Intrinsics.checkNotNullExpressionValue(T2, "SwanAppController.getInstance()");
-            T2.W().f(n);
-            qw2 T3 = qw2.T();
-            Intrinsics.checkNotNullExpressionValue(T3, "SwanAppController.getInstance()");
-            us1 W = T3.W();
-            Intrinsics.checkNotNullExpressionValue(W, "SwanAppController.getIns…swanGameNARootViewManager");
-            FrameLayout rootView = W.getRootView();
-            if (rootView != null) {
-                rootView.removeView(gameGuideViewContainer);
-            }
-            o.P();
-        }
-    }
-
-    public final void b0() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048603, this) != null) || b) {
-            return;
-        }
-        b = true;
-        if (ProcessUtils.isMainProcess()) {
-            X(true);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("type", "setHasShowedTips");
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-    }
-
-    public final void K() {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                long F = F();
-                if (0 <= F && SapiWebView.DEFAULT_TIMEOUT_MILLIS >= F) {
-                    a = F;
+                View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0738, (ViewGroup) null);
+                this.m.addView(inflate);
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091f4a)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925d1)).setText(this.q.getTitle());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09087d)).setText(this.q.getDescription());
+                Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09092c);
+                if (this.q.getActionType() == 1) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1353));
                 }
-                int J = J();
-                GameGuideConfigInfo gameGuideConfigInfo = d;
-                if (gameGuideConfigInfo != null && J > (i2 = gameGuideConfigInfo.maxNums)) {
-                    o.S(i2);
-                    J = i2;
+                if (this.q.getActionType() == 2) {
+                    button.setText(this.p.getResources().getString(R.string.obfuscated_res_0x7f0f1505));
                 }
-                h = J;
-                return;
+                this.m.setOnClickListener(this.F);
+                button.setOnClickListener(this.F);
             }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "initGameGuideInfo");
-            Intrinsics.checkNotNullExpressionValue(DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle), "DelegateUtils.callOnMain…tion::class.java, bundle)");
-        }
-    }
-
-    public final boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (b) {
-                return true;
-            }
-            if (ProcessUtils.isMainProcess()) {
-                boolean E = E();
-                b = E;
-                return E;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "getHasShowedTips");
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-            Intrinsics.checkNotNullExpressionValue(callOnMainWithContentProvider, "DelegateUtils.callOnMain…tion::class.java, bundle)");
-            if (!callOnMainWithContentProvider.isOk()) {
-                return false;
-            }
-            boolean z = callOnMainWithContentProvider.mResult.getBoolean("hasShowedTips", false);
-            b = z;
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void N() {
-        GameGuideConfigInfo gameGuideConfigInfo;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (gameGuideConfigInfo = d) != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - c < 500) {
-                if (nr1.a) {
-                    Log.d("GamenowPlaytimeManager", "快速点击");
-                    return;
-                }
-                return;
-            }
-            db3 b0 = db3.b0();
-            if (b0 != null) {
-                c = currentTimeMillis;
-                long f2 = b24.f.f() / 30000;
-                if (f2 <= 0) {
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "时长没有满足一个豆以上");
-                    }
-                } else if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "没有网络");
-                    }
-                    va3.g(AppRuntime.getAppContext(), "网络异常，请稍后重试").G();
-                } else {
-                    int i2 = (int) f2;
-                    z14.n().i(i2);
-                    int i3 = gameGuideConfigInfo.perCoinNum * i2;
-                    int G = G();
-                    if (G >= gameGuideConfigInfo.maxNums) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "before    expectedRewardCoins = " + i3 + " , currentRewardCoinsNum = " + G + ",  isMax = " + z);
-                    }
-                    int i4 = i3 + G;
-                    int i5 = gameGuideConfigInfo.maxNums;
-                    if (i4 > i5) {
-                        i3 = i5 - G;
-                    }
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "after    realRewardCoins = " + i3);
-                    }
-                    if (!z) {
-                        b24.f.h();
-                        GameGuideView gameGuideView = e;
-                        if (gameGuideView != null) {
-                            gameGuideView.r();
-                        }
-                        v(i3);
-                    }
-                    qw2.T().p();
-                    Intent intent = new Intent(b0.w(), CoinClickDialog.class);
-                    intent.putExtra("isShowMax", z);
-                    intent.putExtra("rewardCoinsThisTime", i3);
-                    intent.putExtra("totalRewardCoins", G + i3);
-                    b0.w().startActivity(intent);
-                }
-            }
-        }
-    }
-
-    public final void O(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno", -1);
-                if (optInt != 0) {
-                    if (nr1.a) {
-                        Log.e("GamenowPlaytimeManager", "返回结果异常，errNo = " + optInt + "， response = " + str);
-                    }
-                    z14.n().d("fail", k, "下发数据非法");
-                    return;
-                }
-                GameGuideConfigInfo parseData = GameGuideConfigInfo.parseData(jSONObject.optJSONObject("data"));
-                if (parseData == null) {
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "配置信息下发异常");
-                    }
-                    z14.n().d("fail", k, "下发数据非法");
-                    return;
-                }
-                W(parseData.install_result);
-                String str2 = parseData.targetAppPackageId;
-                Intrinsics.checkNotNullExpressionValue(str2, "configInfo.targetAppPackageId");
-                f = str2;
-                String str3 = parseData.targetAppDownloadUrl;
-                Intrinsics.checkNotNullExpressionValue(str3, "configInfo.targetAppDownloadUrl");
-                g = str3;
-                if (parseData.status == 0) {
-                    if (nr1.a) {
-                        Log.d("GamenowPlaytimeManager", "下发数据 status = 0，不展示");
-                    }
-                    db3 b0 = db3.b0();
-                    if (!k && parseData.expirationTime > 0 && b0 != null) {
-                        b14.c().a(b0.O(), str, SystemClock.elapsedRealtime() + parseData.expirationTime);
-                    }
-                    z14.n().d("fail", k, "配置下发不展示");
-                    return;
-                }
-                j = str;
-                if (parseData.popupSelection == 2) {
-                    d = parseData;
-                } else if (C()) {
-                    z14.n().a("hasClosedWithNotShow");
-                    d = parseData;
-                } else {
-                    x(parseData);
-                }
-                z14.n().d("success", k, "");
-            } catch (Throwable th) {
-                if (nr1.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("解析配置信息失败，err = ");
-                    th.printStackTrace();
-                    sb.append(Unit.INSTANCE);
-                    Log.e("GamenowPlaytimeManager", sb.toString());
-                }
-                z14.n().d("fail", k, "下发数据非法");
-            }
-        }
-    }
-
-    public final void c0(GameGuideConfigInfo gameGuideConfigInfo) {
-        GameGuideConfigInfo.ViewInfo viewInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048604, this, gameGuideConfigInfo) == null) && (viewInfo = gameGuideConfigInfo.viewInfo) != null) {
-            z14.n().l();
-            Context appContext = AppRuntime.getAppContext();
-            Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
-            Resources resources = appContext.getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f2) + resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070176) + uo3.g(10.0f);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 8388613;
-            db3 b0 = db3.b0();
-            if (b0 != null) {
-                i = new GameGuideViewContainer(ku2.c());
-                int e2 = mo3.e(b0.w());
-                if (mo3.d()) {
-                    layoutParams.topMargin = dimensionPixelSize + e2;
-                } else {
-                    layoutParams.topMargin = dimensionPixelSize;
-                }
-                qw2 T2 = qw2.T();
-                Intrinsics.checkNotNullExpressionValue(T2, "SwanAppController.getInstance()");
-                us1 W = T2.W();
-                Intrinsics.checkNotNullExpressionValue(W, "SwanAppController.getIns…swanGameNARootViewManager");
-                W.getRootView().addView(i, layoutParams);
-                Context appContext2 = AppRuntime.getAppContext();
-                Intrinsics.checkNotNullExpressionValue(appContext2, "AppRuntime.getAppContext()");
-                LottieComposition lottieComposition = viewInfo.iconDoneLottie;
-                Intrinsics.checkNotNullExpressionValue(lottieComposition, "it.iconDoneLottie");
-                Bitmap bitmap = viewInfo.iconNormalImg;
-                Intrinsics.checkNotNullExpressionValue(bitmap, "it.iconNormalImg");
-                String str = viewInfo.progressColor;
-                Intrinsics.checkNotNullExpressionValue(str, "it.progressColor");
-                String str2 = viewInfo.tips;
-                Intrinsics.checkNotNullExpressionValue(str2, "it.tips");
-                GameGuideView gameGuideView = new GameGuideView(appContext2, lottieComposition, bitmap, str, str2);
-                e = gameGuideView;
-                GameGuideViewContainer gameGuideViewContainer = i;
-                if (gameGuideViewContainer != null) {
-                    gameGuideViewContainer.addView(gameGuideView);
-                }
-                qw2 T3 = qw2.T();
-                Intrinsics.checkNotNullExpressionValue(T3, "SwanAppController.getInstance()");
-                T3.W().e(n);
-                GameGuideView gameGuideView2 = e;
-                if (gameGuideView2 != null) {
-                    gameGuideView2.setOnClickListener(g.a);
-                }
-                if (!b24.f.g()) {
-                    b24.f.j();
-                    GameGuideView gameGuideView3 = e;
-                    if (gameGuideView3 != null) {
-                        gameGuideView3.o(b24.f.f());
-                    }
-                }
-            }
-        }
-    }
-
-    public final void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            db3 M = db3.M();
-            if (M == null) {
-                z14.n().d("fail", k, "小游戏非法");
-                return;
-            }
-            String i2 = ku2.h0().i(AppRuntime.getAppContext());
-            if (i2 == null) {
-                i2 = "";
-            }
-            String h2 = ik3.h(1);
-            fg3 a2 = ku2.q().a();
-            Application c2 = ku2.c();
-            Intrinsics.checkNotNullExpressionValue(c2, "SwanAppRuntime.getAppContext()");
-            aw2.a W = M.W();
-            Intrinsics.checkNotNullExpressionValue(W, "swanApp.info");
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) M.i0().postFormRequest().url("https://gamecenter.baidu.com/api/minigame/get_flowout_config")).cookieManager(a2)).addParam("cuid", i2).addParam("appkey", M.O()).addParam("host", c2.getPackageName()).addParam("from", W.T()).addParam("gamecore_version", h2).requestFrom(16)).requestSubFrom(1602)).build().executeAsync(new f());
-        }
-    }
-
-    public final void U(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                Z(j2);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "setPlayTime");
-            bundle.putLong("playTime", j2);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
-        }
-    }
-
-    public final void v(int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                int i4 = h + i2;
-                h = i4;
-                GameGuideConfigInfo gameGuideConfigInfo = d;
-                if (gameGuideConfigInfo != null && i4 > (i3 = gameGuideConfigInfo.maxNums)) {
-                    h = i3;
-                }
-                S(h);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("type", "addCoins");
-            bundle.putInt("coinsNum", i2);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, bundle);
+            this.d = this.c.getPlayer();
+            v();
         }
     }
 }

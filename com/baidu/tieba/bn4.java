@@ -1,35 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static bn4 d;
+    public static volatile bn4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public String b;
-    public String c;
+    public final a a;
+    public an4 b;
 
     /* loaded from: classes5.dex */
-    public static class a extends nr4 {
+    public static class a extends rr4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
-            super("updatecore_node_tipmsgs");
+            super("swan_clean_stratey");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,81 +55,63 @@ public class bn4 {
             }
         }
         this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14e3);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f14e4);
     }
 
     public static bn4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
+            if (c == null) {
                 synchronized (bn4.class) {
-                    if (d == null) {
-                        d = new bn4();
+                    if (c == null) {
+                        c = new bn4();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (bn4) invokeV.objValue;
     }
 
-    public String d() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getString("tips_config_version", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("version", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    public String a(long j) {
-        InterceptResult invokeJ;
+    @NonNull
+    public an4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                synchronized (bn4.class) {
+                    if (this.b == null) {
+                        this.b = an4.b(this.a.getString("data", ""));
+                    }
+                }
+            }
+            return this.b;
         }
-        return (String) invokeJ.objValue;
+        return (an4) invokeV.objValue;
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    public void d(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return this.a.getString(String.format("%04d", Long.valueOf(j)), this.c);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
+        if (TextUtils.isEmpty(optString)) {
             return;
         }
-        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
+        String optString2 = jSONObject.optString("data");
+        if (TextUtils.isEmpty(optString2)) {
+            return;
         }
-        f(hashMap, optString);
-    }
-
-    public void f(HashMap<String, String> hashMap, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) && hashMap != null && !hashMap.isEmpty() && !TextUtils.isEmpty(str)) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            edit.putString("tips_config_version", str);
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                edit.putString(entry.getKey(), entry.getValue());
-            }
-            edit.apply();
-        }
+        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

@@ -1,20 +1,31 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.ne;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sk9 {
+public final class sk9 {
     public static /* synthetic */ Interceptable $ic;
-    public static sk9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ne<byte[]> a;
-    public ne<byte[]> b;
+    @Inject
+    public final ok1<yp5> a;
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            mk1 b = mk1.b();
+            this.a = b;
+            b.a(new zp5());
+        }
+    }
 
     public sk9() {
         Interceptable interceptable = $ic;
@@ -29,106 +40,90 @@ public class sk9 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
+        f();
     }
 
-    public static synchronized sk9 b() {
+    public final yp5 a() {
         InterceptResult invokeV;
-        sk9 sk9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (sk9.class) {
-                if (c == null) {
-                    c = new sk9();
-                }
-                sk9Var = c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ok1<yp5> ok1Var = this.a;
+            if (ok1Var != null) {
+                return ok1Var.get();
             }
-            return sk9Var;
+            return null;
         }
-        return (sk9) invokeV.objValue;
+        return (yp5) invokeV.objValue;
     }
 
-    public final void c() {
+    public final BaseFragment b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                r45.k();
-                this.a = r45.i("tb.pb_mark");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            yp5 a = a();
+            if (a != null) {
+                return a.t();
             }
-            if (this.b == null) {
-                r45.k();
-                this.b = r45.i("tb.pb_normal");
-            }
+            return null;
         }
+        return (BaseFragment) invokeV.objValue;
     }
 
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        ne.b<byte[]> h;
-        byte[] bArr;
+    public final long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (UbsABTestHelper.isNoCachePb()) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            yp5 a = a();
+            if (a != null) {
+                return a.n();
             }
-            if (z) {
-                ne<byte[]> neVar = this.a;
-                if (neVar != null && str != null) {
-                    h = neVar.h(str);
-                }
-                h = null;
-            } else {
-                ne<byte[]> neVar2 = this.b;
-                if (neVar2 != null && str != null) {
-                    h = neVar2.h(str);
-                }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
+            return 0L;
         }
-        return (byte[]) invokeLZ.objValue;
+        return invokeV.longValue;
     }
 
-    public void d(String str, boolean z) {
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                ne<byte[]> neVar = this.a;
-                if (neVar != null && str != null) {
-                    neVar.i(str, new byte[0], 0L);
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            yp5 a = a();
+            if (a != null && a.s()) {
+                return true;
             }
-            ne<byte[]> neVar2 = this.b;
-            if (neVar2 != null && str != null) {
-                neVar2.i(str, new byte[0], 0L);
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        yp5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
+            a.q(i, i2, intent);
         }
     }
 
-    public void f(String str, byte[] bArr) {
+    public final void g(boolean z) {
+        yp5 a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
+            a.u(z);
         }
     }
 
-    public void e(String str, boolean z, byte[] bArr) {
+    public final void h(BdUniqueId bdUniqueId) {
+        yp5 a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
+            a.setUniqueId(bdUniqueId);
+        }
+    }
+
+    public final void i(boolean z) {
+        yp5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
+            a.setUserVisibleHint(z);
         }
     }
 }

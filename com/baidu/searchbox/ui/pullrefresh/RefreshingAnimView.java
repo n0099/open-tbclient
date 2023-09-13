@@ -70,7 +70,7 @@ public class RefreshingAnimView extends View {
     public Paint mTransparentPaint;
     public float mWidth;
     public static final double SQRT_TWO = Math.sqrt(2.0d);
-    public static final int DEFAULT_ANIM_VIEW_COLOR = com.baidu.tieba.R.color.obfuscated_res_0x7f06096c;
+    public static final int DEFAULT_ANIM_VIEW_COLOR = com.baidu.tieba.R.color.obfuscated_res_0x7f06096f;
 
     /* loaded from: classes4.dex */
     public interface OnLoadingAnimationListener {
@@ -467,7 +467,7 @@ public class RefreshingAnimView extends View {
         this.mCamera = new Camera();
         this.mMatrix = new Matrix();
         changeState(1);
-        setId(com.baidu.tieba.R.id.obfuscated_res_0x7f091eba);
+        setId(com.baidu.tieba.R.id.obfuscated_res_0x7f091ee3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

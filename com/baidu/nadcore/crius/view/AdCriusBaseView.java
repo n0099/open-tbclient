@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.render.CriusRender;
-import com.baidu.tieba.gd1;
+import com.baidu.tieba.kd1;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayout {
@@ -78,9 +78,9 @@ public abstract class AdCriusBaseView<T extends CriusData> extends RelativeLayou
             return;
         }
         this.b.removeAllViews();
-        gd1 gd1Var = (gd1) ServiceManager.getService(gd1.a);
-        if (gd1Var != null) {
-            this.c = this.d.initCriusView(getContext(), t, gd1Var.b(), z, gd1Var.a());
+        kd1 kd1Var = (kd1) ServiceManager.getService(kd1.a);
+        if (kd1Var != null) {
+            this.c = this.d.initCriusView(getContext(), t, kd1Var.b(), z, kd1Var.a());
         } else {
             this.c = this.d.initCriusView(getContext(), t, false, z, -1);
         }

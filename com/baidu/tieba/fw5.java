@@ -1,41 +1,189 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.ImageSpan;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.tracker.PvData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.tracker.Tracker;
+import com.baidu.tieba.tracker.core.data.EventParams;
+import com.baidu.tieba.tracker.core.data.IEventNode;
+import com.baidu.tieba.tracker.core.data.TraceType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
-public class fw5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public final class fw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
+    public static final fw5 a;
+    public static final Map<String, PvData> b;
+    public static final b c;
+    public static final c d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean c(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return false;
+    /* loaded from: classes5.dex */
+    public static final class a extends fpa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeCommon.booleanValue;
+
+        @Override // com.baidu.tieba.fpa
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new ew5().b();
+                MessageManager.getInstance().registerListener(fw5.c);
+                MessageManager.getInstance().registerListener(fw5.d);
+            }
+        }
+
+        @Override // com.baidu.tieba.fpa
+        public void b(String ubcId, List<? extends IEventNode> events) {
+            EventParams trackParams;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ubcId, events) == null) {
+                Intrinsics.checkNotNullParameter(ubcId, "ubcId");
+                Intrinsics.checkNotNullParameter(events, "events");
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                for (IEventNode iEventNode : events) {
+                    IEventNode endNode = iEventNode.getEndNode();
+                    if (endNode != null && (trackParams = endNode.getTrackParams()) != null) {
+                        String valueOf = String.valueOf(trackParams.get("page"));
+                        String valueOf2 = String.valueOf(trackParams.get("source"));
+                        PvData pvData = (PvData) linkedHashMap.get(valueOf + valueOf2);
+                        if (pvData == null) {
+                            pvData = new PvData(valueOf, valueOf2, 0, 0);
+                        }
+                        if (Intrinsics.areEqual(trackParams.get("type"), TraceType.Error.name())) {
+                            pvData.setPv_lost(pvData.getPv_lost() + 1);
+                        }
+                        pvData.setPv(pvData.getPv() + 1);
+                        linkedHashMap.put(valueOf + valueOf2, pvData);
+                    }
+                }
+                fw5.a.i(linkedHashMap);
+            }
+        }
+
+        @Override // com.baidu.tieba.fpa
+        public void c(String ubcId, IEventNode event) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ubcId, event) == null) {
+                Intrinsics.checkNotNullParameter(ubcId, "ubcId");
+                Intrinsics.checkNotNullParameter(event, "event");
+                IEventNode endNode = event.getEndNode();
+                if (endNode != null) {
+                    fw5 fw5Var = fw5.a;
+                    fw5Var.h(fw5Var.g(event, endNode));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b() {
+            super(CmdConfigHttp.CMD_HTTP_STATISTICS_REPORT);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                boolean z = false;
+                if (httpResponsedMessage != null && httpResponsedMessage.getError() == 0) {
+                    z = true;
+                }
+                if (z) {
+                    fw5.b.clear();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(2001011);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> msg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if ((msg instanceof BackgroundSwitchMessage) && Intrinsics.areEqual(((BackgroundSwitchMessage) msg).getData(), Boolean.TRUE)) {
+                    Tracker.i.a().j();
+                }
+            }
+        }
     }
 
     static {
@@ -51,212 +199,120 @@ public class fw5 {
                 return;
             }
         }
-        a = Pattern.compile("#([^#(]+)#", 2);
+        a = new fw5();
+        b = new LinkedHashMap();
+        c = new b();
+        d = new c();
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public fw5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (str.charAt(0) == '#' && str.charAt(str.length() - 1) == '#') {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append("#");
-            sb.append(str);
-            sb.append("#");
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(TbConfig.TIEBA_ADDRESS + "n/video/opersquare?tab=hot&topic_name=");
-            int length = str.length();
-            if (length > 2 && str.charAt(0) == '#') {
-                int i = length - 1;
-                if (str.charAt(i) == '#') {
-                    str2 = str.substring(1, i);
-                    stringBuffer.append(str2);
-                    return stringBuffer.toString();
-                }
-            }
-            str2 = null;
-            stringBuffer.append(str2);
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static SpannableString i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return new SpannableString("");
-            }
-            Matcher matcher = a.matcher(str);
-            SpannableString spannableString = new SpannableString(str);
-            while (matcher.find()) {
-                int start = matcher.start();
-                int end = matcher.end();
-                if (!e(str.substring(start, end))) {
-                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
-                }
-            }
-            return spannableString;
-        }
-        return (SpannableString) invokeL.objValue;
-    }
-
-    public static void j(Spannable spannable) {
-        ImageSpan[] imageSpanArr;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, spannable) != null) || spannable == null) {
-            return;
-        }
-        String obj = spannable.toString();
-        if (StringUtils.isNull(obj)) {
-            return;
-        }
-        Matcher matcher = a.matcher(obj);
-        while (matcher.find()) {
-            int start = matcher.start();
-            int end = matcher.end();
-            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
-                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                Tracker a2 = Tracker.i.a();
+                TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
+                a2.m(inst);
+                Tracker.i.c(new a());
+            } catch (Throwable th) {
+                BdLog.e(th);
             }
         }
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            return c(tbPageContext, true, true);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if ("#".equals(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (str != null && str.startsWith("#") && str.endsWith("#") && "".equals(str.substring(1, str.length() - 1).trim())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(dh5 dh5Var) {
+    public final JSONObject g(IEventNode iEventNode, IEventNode iEventNode2) {
+        InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, dh5Var) == null) {
-            int i = dh5Var.b;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                str = "";
-                            } else {
-                                str = "1";
-                            }
-                        } else {
-                            str = TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM;
-                        }
-                    } else {
-                        str = "pb";
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iEventNode, iEventNode2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (Tracker.i.a().i().contains(jSONObject.optString("page", "unknown"))) {
+                    str = "1";
                 } else {
-                    str = "frs";
+                    str = "0";
                 }
-            } else {
-                str = "index";
+                jSONObject.put("is_hit_white", str);
+                Iterator<Object> it = iEventNode2.getTrackParams().iterator();
+                while (it.hasNext()) {
+                    Map.Entry entry = (Map.Entry) it.next();
+                    jSONObject.put((String) entry.getKey(), entry.getValue());
+                }
+                Iterator<Object> it2 = iEventNode.getTrackParams().iterator();
+                while (it2.hasNext()) {
+                    Map.Entry entry2 = (Map.Entry) it2.next();
+                    jSONObject.put((String) entry2.getKey(), entry2.getValue());
+                }
+                jSONObject.put("start_time", String.valueOf(iEventNode.getTimeStamp()));
+                jSONObject.put("end_time", String.valueOf(iEventNode2.getTimeStamp()));
+                jSONObject.put("duration", String.valueOf(iEventNode2.getTimeStamp() - iEventNode.getTimeStamp()));
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", str));
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (r5v0 org.json.JSONObject), (']' char)] */
+    public final void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_EXCEPTION_REPORT);
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            sb.append(jSONObject);
+            sb.append(']');
+            httpMessage.addParam("log_data", sb.toString());
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static boolean g(Spannable spannable, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: java.lang.Object : ?: CAST (java.lang.Object) (r5v3 java.lang.StringBuilder)), (']' char)] */
+    public final void i(Map<String, PvData> map) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, spannable, i)) == null) {
-            if (spannable != null && !StringUtils.isNull(spannable.toString())) {
-                Matcher matcher = a.matcher(spannable.toString());
-                while (matcher.find()) {
-                    int start = matcher.start();
-                    int end = matcher.end();
-                    if (i > start && end > i) {
-                        return true;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            for (Map.Entry<String, PvData> entry : map.entrySet()) {
+                if (b.get(entry.getKey()) != null) {
+                    entry.getValue().merge(b.get(entry.getKey()));
+                } else {
+                    b.put(entry.getKey(), entry.getValue());
                 }
             }
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void k(SpanGroupEditText spanGroupEditText) {
-        int i;
-        int i2;
-        ImageSpan[] imageSpanArr;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, spanGroupEditText) == null) && spanGroupEditText != null && spanGroupEditText.getText() != null && spanGroupEditText.getSpanGroupManager() != null) {
-            SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
-            if (spanGroupManager.I().size() > 0) {
-                cb5 cb5Var = spanGroupManager.I().get(0);
-                i2 = cb5Var.f();
-                i = cb5Var.c();
-            } else {
-                i = 0;
-                i2 = 0;
-            }
-            Editable text = spanGroupEditText.getText();
-            String obj = text.toString();
-            if (StringUtils.isNull(obj)) {
-                return;
-            }
-            Matcher matcher = a.matcher(obj);
-            while (matcher.find()) {
-                int start = matcher.start();
-                int end = matcher.end();
-                if (end > i2 && i > end) {
-                    for (Object obj2 : text.getSpans(i2, text.length(), Object.class)) {
-                        if ((obj2 instanceof EMRichTextAnyIconSpan) || (obj2 instanceof ForegroundColorSpan)) {
-                            text.removeSpan(obj2);
-                        }
-                    }
-                    spanGroupManager.delete(i2, i, true);
-                    i = -1;
-                    i2 = 0;
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, PvData> entry2 : b.entrySet()) {
+                if (sb.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) text.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
-                    text.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                if (z) {
+                    sb.append(",");
                 }
+                sb.append(DataExt.toJson(entry2.getValue()));
             }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_STATISTICS_REPORT);
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append('[');
+            sb2.append((Object) sb);
+            sb2.append(']');
+            httpMessage.addParam("monitor_data", sb2.toString());
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

@@ -1,53 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.browser.core.async.BdRunnable;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.WebviewHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class o66 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText a;
-    public TextView b;
-    public ImageView c;
-    public TextWatcher d;
-    public c e;
-    public Context f;
-    public TbPageContext<?> g;
-    public View.OnClickListener h;
+    public b a;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a(String str);
+    public interface b {
+        void a(JSONObject jSONObject);
     }
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a extends BdRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o66 a;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ o66 e;
 
-        public a(o66 o66Var) {
+        /* renamed from: com.baidu.tieba.o66$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0421a extends BdRunnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ JSONObject c;
+            public final /* synthetic */ a d;
+
+            public C0421a(a aVar, JSONObject jSONObject) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, jSONObject};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.c = jSONObject;
+            }
+
+            @Override // com.baidu.browser.core.async.BdRunnable
+            public void c() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.d.e.a.a(this.c);
+                }
+            }
+        }
+
+        public a(o66 o66Var, Map map, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o66Var};
+                Object[] objArr = {o66Var, map, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,163 +93,232 @@ public class o66 {
                     return;
                 }
             }
-            this.a = o66Var;
+            this.e = o66Var;
+            this.c = map;
+            this.d = str;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.b) {
-                    String charSequence2String = di.charSequence2String(this.a.a.getText(), null);
-                    if (StringUtils.isNULL(charSequence2String)) {
-                        return;
-                    }
-                    if (charSequence2String.trim().length() == 0) {
-                        if (charSequence2String.length() > 0) {
-                            this.a.g.showToast(R.string.obfuscated_res_0x7f0f0a93);
-                            return;
-                        }
-                        return;
-                    }
-                    this.a.i(charSequence2String.trim());
-                    this.a.b.setClickable(false);
-                } else if (view2 == this.a.c) {
-                    this.a.k("");
-                }
-            }
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.o66.a(com.baidu.tieba.o66, java.util.Map):java.util.Map
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
+        @Override // com.baidu.browser.core.async.BdRunnable
+        public void c() {
+            /*
+                r4 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.o66.a.$ic
+                if (r0 != 0) goto L74
+            L4:
+                java.lang.String r0 = "application/json; charset=utf-8"
+                okhttp3.MediaType r0 = okhttp3.MediaType.parse(r0)
+                org.json.JSONObject r1 = new org.json.JSONObject
+                r1.<init>()
+                com.baidu.tieba.o66 r2 = r4.e     // Catch: org.json.JSONException -> L1e
+                java.util.Map r3 = r4.c     // Catch: org.json.JSONException -> L1e
+                com.baidu.tieba.o66.a(r2, r3)     // Catch: org.json.JSONException -> L1e
+                com.baidu.tieba.o66 r2 = r4.e     // Catch: org.json.JSONException -> L1e
+                java.util.Map r3 = r4.c     // Catch: org.json.JSONException -> L1e
+                com.baidu.tieba.o66.b(r2, r3, r1)     // Catch: org.json.JSONException -> L1e
+                goto L22
+            L1e:
+                r2 = move-exception
+                r2.printStackTrace()
+            L22:
+                okhttp3.OkHttpClient r2 = new okhttp3.OkHttpClient
+                r2.<init>()
+                java.lang.String r1 = java.lang.String.valueOf(r1)
+                okhttp3.RequestBody r0 = okhttp3.RequestBody.create(r0, r1)
+                okhttp3.Request$Builder r1 = new okhttp3.Request$Builder
+                r1.<init>()
+                java.lang.String r3 = r4.d
+                okhttp3.Request$Builder r1 = r1.url(r3)
+                okhttp3.Request$Builder r0 = r1.post(r0)
+                okhttp3.Request r0 = r0.build()
+                r1 = 0
+                okhttp3.Call r0 = r2.newCall(r0)     // Catch: java.io.IOException -> L4c
+                okhttp3.Response r1 = r0.execute()     // Catch: java.io.IOException -> L4c
+                goto L50
+            L4c:
+                r0 = move-exception
+                r0.printStackTrace()
+            L50:
+                okhttp3.ResponseBody r0 = r1.body()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                java.lang.String r0 = r0.string()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                org.json.JSONObject r1 = new org.json.JSONObject     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                r1.<init>(r0)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                com.baidu.tieba.gw r0 = com.baidu.tieba.gw.f()     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                com.baidu.tieba.o66$a$a r2 = new com.baidu.tieba.o66$a$a     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                r2.<init>(r4, r1)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                r0.h(r2)     // Catch: org.json.JSONException -> L6a java.io.IOException -> L6f
+                goto L73
+            L6a:
+                r0 = move-exception
+                r0.printStackTrace()
+                goto L73
+            L6f:
+                r0 = move-exception
+                r0.printStackTrace()
+            L73:
+                return
+            L74:
+                r2 = r0
+                r3 = 1048576(0x100000, float:1.469368E-39)
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeV(r3, r4)
+                if (r0 == 0) goto L4
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.o66.a.c():void");
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o66 a;
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        public b(o66 o66Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        String str;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984250, "Lcom/baidu/tieba/o66;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o66Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = o66Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (TextUtils.isEmpty(editable)) {
-                    this.a.c.setVisibility(8);
-                } else {
-                    this.a.c.setVisibility(0);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984250, "Lcom/baidu/tieba/o66;");
+                return;
             }
         }
+        if (GlobalBuildConfig.isDebug()) {
+            str = "http://";
+        } else {
+            str = "https://";
+        }
+        b = str;
+        c = b + "afdconf.baidu.com/afd/download";
     }
 
-    public o66(TbPageContext<?> tbPageContext, View view2) {
+    public o66(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
-        this.g = tbPageContext;
-        this.f = tbPageContext.getPageActivity();
-        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09193f);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091943);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09193e);
-        this.b.setOnClickListener(this.h);
-        this.c.setOnClickListener(this.h);
-        b bVar = new b(this);
-        this.d = bVar;
-        this.a.addTextChangedListener(bVar);
-        f(TbadkCoreApplication.getInst().getSkinType());
+        this.a = bVar;
     }
 
-    public void f(int i) {
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ java.util.Map a(com.baidu.tieba.o66 r0, java.util.Map r1) {
+        /*
+            r0.d(r1)
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.o66.a(com.baidu.tieba.o66, java.util.Map):java.util.Map");
+    }
+
+    public void g(Map<String, String> map, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0111, 1);
-            this.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            SkinManager.setImageResource(this.c, R.drawable.icon_search_close);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, map, str) == null) {
+            gw.f().g(new a(this, map, str));
         }
     }
 
-    public final void i(String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (cVar = this.e) != null) {
-            cVar.a(str);
-        }
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ org.json.JSONObject b(com.baidu.tieba.o66 r0, java.util.Map r1, org.json.JSONObject r2) throws org.json.JSONException {
+        /*
+            r0.f(r1, r2)
+            return r2
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.o66.b(com.baidu.tieba.o66, java.util.Map, org.json.JSONObject):org.json.JSONObject");
     }
 
-    public void j(boolean z) {
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b.setClickable(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+            }
+            return UtilHelper.getGprsIpAddress();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void k(String str) {
+    public final Map<String, String> d(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.setText(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            map.put("_client_version", TbConfig.getVersion());
+            map.put("uid", TbadkCoreApplication.getCurrentAccount());
+            map.put("cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            map.put("ua", WebviewHelper.getGlobalUserAgent());
+            String e = lk0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                map.put("model", e);
+            }
+            String h = lk0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                map.put(HttpRequest.OS_VERSION, h);
+            }
+            String b2 = lk0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                map.put("imei", b2);
+            }
+            String a2 = lk0.c().a(false);
+            if (!TextUtils.isEmpty(a2)) {
+                map.put(HttpRequest.ANDROID_ID, a2);
+            }
+            map.put(HttpRequest.CLIENT_TYPE, "2");
+            map.put("nt", String.valueOf(BdNetTypeUtil.netType()));
+            map.put("ip", e());
+            map.put("ssl", "1");
+            return map;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public void l(c cVar) {
+    public final JSONObject f(Map<String, String> map, JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.e = cVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
+            if (i39.f(map)) {
+                return jSONObject;
+            }
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.putOpt(entry.getKey(), entry.getValue());
+            }
+            return jSONObject;
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            BdUtilHelper.hideSoftKeyPad(this.f, this.a);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.removeTextChangedListener(this.d);
-        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

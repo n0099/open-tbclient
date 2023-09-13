@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface nj7 {
-    void a(int i);
+    void S1();
 
-    void cancel();
+    void h();
+
+    void y0(boolean z);
 }

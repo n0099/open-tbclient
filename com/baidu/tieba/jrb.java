@@ -1,321 +1,156 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.frb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.github.anrwatchdog.ANRError;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.qq.e.ads.nativ.NativeADEventListener;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class jrb extends Thread {
+public class jrb extends FunNativeAd2Bridger<vrb, com.fun.module.gdt.t> {
     public static /* synthetic */ Interceptable $ic;
-    public static final f o;
-    public static final e p;
-    public static final g q;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public e b;
-    public g c;
-    public final Handler d;
-    public final int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public krb k;
-    public volatile long l;
-    public volatile boolean m;
-    public final Runnable n;
+    public final frb.c b;
+    public final /* synthetic */ qrb c;
+    public final /* synthetic */ frb d;
 
-    /* loaded from: classes6.dex */
-    public interface e {
-        long a(long j);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void onAppNotResponding(ANRError aNRError);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface g {
-        void a(InterruptedException interruptedException);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jrb.f
-        public void onAppNotResponding(ANRError aNRError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
-                throw aNRError;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.jrb.e
-        public long a(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return 0L;
-            }
-            return invokeJ.longValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jrb.g
-        public void a(InterruptedException interruptedException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interruptedException) == null) {
-                Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jrb a;
-
-        public d(jrb jrbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jrbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jrbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.a.l = 0L;
-            this.a.m = false;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947894319, "Lcom/baidu/tieba/jrb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947894319, "Lcom/baidu/tieba/jrb;");
-                return;
-            }
-        }
-        o = new a();
-        p = new b();
-        q = new c();
-    }
-
-    public jrb(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jrb(frb frbVar, ReporterPidLoader reporterPidLoader, vrb vrbVar, String str, qrb qrbVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {frbVar, reporterPidLoader, vrbVar, str, qrbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = new Handler(Looper.getMainLooper());
-        this.f = "";
-        this.g = false;
-        this.h = true;
-        this.i = false;
-        this.j = false;
-        this.k = null;
-        this.l = 0L;
-        this.m = false;
-        this.n = new d(this);
-        this.e = i;
+        this.d = frbVar;
+        this.c = qrbVar;
+        this.b = new frb.c(frbVar, vrbVar, str);
     }
 
-    public jrb c(f fVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public /* bridge */ /* synthetic */ void showExpress(Activity activity, ExpressInflater expressInflater, String str, vrb vrbVar, BaseNativeAd2<vrb, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        a(expressInflater, str, vrbVar, funAdInteractionListener);
+    }
+
+    public static void b(com.fun.module.gdt.t tVar, vrb vrbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, tVar, vrbVar) == null) {
+            tVar.b((NativeUnifiedADData) vrbVar.a);
+        }
+    }
+
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/app/Activity;Lcom/fun/ad/sdk/ExpressInflater;Ljava/lang/String;Lcom/baidu/tieba/vrb;Lcom/fun/ad/sdk/internal/api/BaseNativeAd2<Lcom/baidu/tieba/vrb;Lcom/fun/module/gdt/t;>;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
+    public void a(ExpressInflater expressInflater, String str, final vrb vrbVar, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, expressInflater, str, vrbVar, funAdInteractionListener) == null) {
+            final com.fun.module.gdt.t tVar = (com.fun.module.gdt.t) expressInflater.getExpressView();
+            frb frbVar = this.d;
+            FunNativeAdListenerHelper<vrb, NativeADEventListener> funNativeAdListenerHelper = frbVar.e;
+            pid = frbVar.mPid;
+            funNativeAdListenerHelper.startShow(vrbVar, str, pid, this.b, funAdInteractionListener);
+            this.b.d = new frb.e() { // from class: com.baidu.tieba.oqb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.frb.e
+                public final void onADStatusChanged() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        jrb.b(com.fun.module.gdt.t.this, vrbVar);
+                    }
+                }
+            };
+            this.d.n(tVar, vrbVar, this.b);
+            expressInflater.inflate();
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.gdt.t] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.gdt.t createExpressView(vrb vrbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            if (fVar == null) {
-                this.a = o;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vrbVar)) == null) {
+            return this.d.g(FunAdSdk.getAppContext(), (NativeUnifiedADData) vrbVar.a);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, vrb vrbVar, BaseNativeAd2<vrb, com.fun.module.gdt.t> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        NativeAdContainer nativeAdContainer;
+        NativeAdContainer nativeAdContainer2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, customInflater, str, vrbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            vrb vrbVar2 = vrbVar;
+            ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener = this.c.c.getGdtADStatusChangeListener();
+            if (gdtADStatusChangeListener != null) {
+                this.b.d = new irb(this, gdtADStatusChangeListener);
             } else {
-                this.a = fVar;
+                this.b.d = null;
             }
-            return this;
-        }
-        return (jrb) invokeL.objValue;
-    }
-
-    public jrb d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (jrb) invokeZ.objValue;
-    }
-
-    public jrb e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f = null;
-            return this;
-        }
-        return (jrb) invokeV.objValue;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setName("|ANR-WatchDog|");
-            long j = this.e;
-            long j2 = 0;
-            while (!isInterrupted()) {
-                if (this.l == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.l += j;
-                if (z) {
-                    this.d.post(this.n);
-                }
-                try {
-                    Thread.sleep(j);
-                    if (this.i && this.j) {
-                        if (this.k == null) {
-                            this.k = new krb();
-                        }
-                        if (this.l == 0 && !this.m) {
-                            this.j = false;
-                            ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.k.b(), j2);
-                            if (NewMainAllStackTrace != null) {
-                                this.a.onAppNotResponding(NewMainAllStackTrace);
-                            }
-                        } else {
-                            j2 = this.l;
-                            this.k.a();
-                        }
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                FunNativeView funNativeView = (FunNativeView) inflate;
+                Iterator<WeakReference<NativeAdContainer>> it = qqb.b.a.iterator();
+                while (it.hasNext()) {
+                    NativeAdContainer nativeAdContainer3 = it.next().get();
+                    if (nativeAdContainer3 == null) {
+                        it.remove();
+                    } else if (nativeAdContainer3 == funNativeView.getRoot()) {
+                        it.remove();
+                        nativeAdContainer2 = nativeAdContainer3;
+                        break;
                     }
-                    if (this.l != 0 && !this.m) {
-                        if (!this.h && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
-                            Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                            this.m = true;
-                        } else {
-                            j = this.b.a(this.l);
-                            if (j <= 0) {
-                                if (this.f != null) {
-                                    this.a.onAppNotResponding(ANRError.New(this.l, this.f, this.g));
-                                } else if (this.i) {
-                                    this.j = true;
-                                    krb krbVar = new krb();
-                                    this.k = krbVar;
-                                    krbVar.a();
-                                } else {
-                                    this.a.onAppNotResponding(ANRError.NewMainOnly(this.l));
-                                }
-                                j = this.e;
-                                this.m = true;
-                            }
-                        }
-                    }
-                } catch (InterruptedException e2) {
-                    this.c.a(e2);
-                    return;
                 }
+                if (funNativeView.getRoot() instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) funNativeView.getRoot();
+                    nativeAdContainer2 = nativeAdContainer;
+                }
+                nativeAdContainer2 = null;
+            } else {
+                if (inflate instanceof NativeAdContainer) {
+                    nativeAdContainer = (NativeAdContainer) inflate;
+                    nativeAdContainer2 = nativeAdContainer;
+                }
+                nativeAdContainer2 = null;
             }
+            this.d.q(vrbVar2, str, nativeAdContainer2, this.c.d, customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
     }
 }

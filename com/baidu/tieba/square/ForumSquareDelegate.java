@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.aca;
-import com.baidu.tieba.bca;
-import com.baidu.tieba.bn;
-import com.baidu.tieba.gca;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.square.model.ForumSquareModel;
+import com.baidu.tieba.tda;
+import com.baidu.tieba.uda;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ForumSquareDelegate implements bca {
+public class ForumSquareDelegate implements uda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context mContext;
     public String mCurrentClassName;
     public ForumSquareModel mForumSquareModel;
     public ForumSquareView mForumSquareView;
-    public aca mSquareViewController;
+    public tda mSquareViewController;
     public final TbPageContext mTbPageContext;
     public CustomMessageListener refreshForumSquareListener;
 
@@ -104,16 +104,16 @@ public class ForumSquareDelegate implements bca {
         this.mTbPageContext.registerListener(this.refreshForumSquareListener);
     }
 
-    @Override // com.baidu.tieba.bca
+    @Override // com.baidu.tieba.uda
     public void onError(String str, ErrorData errorData) {
         ForumSquareView forumSquareView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, errorData) == null) && (forumSquareView = this.mForumSquareView) != null && this.mForumSquareModel != null) {
             forumSquareView.showNormalUI();
-            gca Z = this.mForumSquareModel.Z(str);
-            if (Z != null && (!Z.d || !ListUtils.isEmpty(Z.a()))) {
-                this.mForumSquareView.setForumListData(Z.a());
-                checkLoadMoreStateUI(str, Z.a());
+            zda Y = this.mForumSquareModel.Y(str);
+            if (Y != null && (!Y.d || !ListUtils.isEmpty(Y.a()))) {
+                this.mForumSquareView.setForumListData(Y.a());
+                checkLoadMoreStateUI(str, Y.a());
                 return;
             }
             this.mForumSquareView.hideLoadMoreView();
@@ -121,7 +121,7 @@ public class ForumSquareDelegate implements bca {
         }
     }
 
-    @Override // com.baidu.tieba.bca
+    @Override // com.baidu.tieba.uda
     public void onNoData(ErrorData errorData) {
         ForumSquareView forumSquareView;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class ForumSquareDelegate implements bca {
         }
     }
 
-    private void checkLoadMoreStateUI(String str, List<bn> list) {
+    private void checkLoadMoreStateUI(String str, List<cn> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, this, str, list) == null) && this.mForumSquareView != null && this.mForumSquareModel != null) {
             if (ListUtils.isEmpty(list)) {
@@ -146,7 +146,7 @@ public class ForumSquareDelegate implements bca {
             } else if (ListUtils.getCount(list) < 10) {
                 this.mForumSquareView.loadMoreAsEnd();
             } else {
-                this.mForumSquareView.showLoadMore(this.mForumSquareModel.a0(str));
+                this.mForumSquareView.showLoadMore(this.mForumSquareModel.Z(str));
             }
         }
     }
@@ -155,7 +155,7 @@ public class ForumSquareDelegate implements bca {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mForumSquareView.showLoadingUI();
-            this.mForumSquareModel.c0(this.mCurrentClassName);
+            this.mForumSquareModel.b0(this.mCurrentClassName);
         }
     }
 
@@ -184,7 +184,7 @@ public class ForumSquareDelegate implements bca {
             }
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null) {
-                forumSquareModel.c0(getClassName());
+                forumSquareModel.b0(getClassName());
             }
         }
     }
@@ -192,9 +192,9 @@ public class ForumSquareDelegate implements bca {
     public void startLoadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            aca acaVar = new aca(this.mContext, this, this.mForumSquareView);
-            this.mSquareViewController = acaVar;
-            acaVar.e();
+            tda tdaVar = new tda(this.mContext, this, this.mForumSquareView);
+            this.mSquareViewController = tdaVar;
+            tdaVar.e();
             startLoadNetData();
         }
     }
@@ -205,10 +205,10 @@ public class ForumSquareDelegate implements bca {
             String className = getClassName();
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null && this.mForumSquareView != null) {
-                boolean b0 = forumSquareModel.b0();
-                boolean showLoadMore = this.mForumSquareView.showLoadMore(this.mForumSquareModel.a0(className));
-                if (!b0 && showLoadMore) {
-                    this.mForumSquareModel.c0(className);
+                boolean a0 = forumSquareModel.a0();
+                boolean showLoadMore = this.mForumSquareView.showLoadMore(this.mForumSquareModel.Z(className));
+                if (!a0 && showLoadMore) {
+                    this.mForumSquareModel.b0(className);
                 }
             }
         }
@@ -221,17 +221,17 @@ public class ForumSquareDelegate implements bca {
             this.mCurrentClassName = str;
             ForumSquareModel forumSquareModel = this.mForumSquareModel;
             if (forumSquareModel != null && this.mForumSquareView != null) {
-                gca Z = forumSquareModel.Z(str);
-                if (Z != null && (!Z.d || !ListUtils.isEmpty(Z.a()))) {
+                zda Y = forumSquareModel.Y(str);
+                if (Y != null && (!Y.d || !ListUtils.isEmpty(Y.a()))) {
                     this.mForumSquareView.showNormalUI();
-                    checkLoadMoreStateUI(str, Z.a());
-                    this.mForumSquareView.setForumListData(Z.a());
-                    this.mForumSquareView.scrollToPositionWithOffset(Z.f, Z.g);
+                    checkLoadMoreStateUI(str, Y.a());
+                    this.mForumSquareView.setForumListData(Y.a());
+                    this.mForumSquareView.scrollToPositionWithOffset(Y.f, Y.g);
                     return;
                 }
                 this.mForumSquareView.showForumListLoadingUI();
                 checkLoadMoreStateUI(str, null);
-                this.mForumSquareModel.c0(str);
+                this.mForumSquareModel.b0(str);
                 this.mForumSquareView.scrollToPositionWithOffset(0, 0);
             }
         }
@@ -240,11 +240,11 @@ public class ForumSquareDelegate implements bca {
     /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
         if (r5.equals(r1) == false) goto L11;
      */
-    @Override // com.baidu.tieba.bca
+    @Override // com.baidu.tieba.uda
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSucc(String str, List<String> list, List<bn> list2) {
+    public void onSucc(String str, List<String> list, List<cn> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, list, list2) == null) && this.mForumSquareModel != null && this.mForumSquareView != null) {
             boolean z = false;
@@ -255,14 +255,14 @@ public class ForumSquareDelegate implements bca {
                 this.mCurrentClassName = str;
                 this.mForumSquareView.showNormalUI();
                 this.mForumSquareView.setClassListData(str, list, z);
-                this.mForumSquareView.setForumListData(list2, this.mForumSquareModel.f0(list2, 300));
+                this.mForumSquareView.setForumListData(list2, this.mForumSquareModel.e0(list2, 300));
                 checkLoadMoreStateUI(str, list2);
             }
             z = true;
             this.mCurrentClassName = str;
             this.mForumSquareView.showNormalUI();
             this.mForumSquareView.setClassListData(str, list, z);
-            this.mForumSquareView.setForumListData(list2, this.mForumSquareModel.f0(list2, 300));
+            this.mForumSquareView.setForumListData(list2, this.mForumSquareModel.e0(list2, 300));
             checkLoadMoreStateUI(str, list2);
         }
     }
@@ -287,13 +287,13 @@ public class ForumSquareDelegate implements bca {
     }
 
     public void saveScrollPosition(String str) {
-        gca Z;
+        zda Y;
         Pair<Integer, Integer> currentScrollPosition;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (Z = this.mForumSquareModel.Z(str)) == null || (currentScrollPosition = this.mForumSquareView.getCurrentScrollPosition()) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || this.mForumSquareView == null || this.mForumSquareModel == null || TextUtils.isEmpty(str) || (Y = this.mForumSquareModel.Y(str)) == null || (currentScrollPosition = this.mForumSquareView.getCurrentScrollPosition()) == null) {
             return;
         }
-        Z.f = ((Integer) currentScrollPosition.first).intValue();
-        Z.g = ((Integer) currentScrollPosition.second).intValue();
+        Y.f = ((Integer) currentScrollPosition.first).intValue();
+        Y.g = ((Integer) currentScrollPosition.second).intValue();
     }
 }

@@ -1,11 +1,35 @@
 package com.baidu.tieba;
 
-import java.lang.reflect.Type;
-/* loaded from: classes7.dex */
-public interface ldb {
-    String a(Object obj);
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public final class ldb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    <T> T b(String str, Class<T> cls);
-
-    <T> T c(String str, Type type);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (sdb.i() && vdb.f(context) != 1) {
+                return false;
+            }
+            return mdb.c(mdb.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
+        }
+        return invokeLL.booleanValue;
+    }
 }

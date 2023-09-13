@@ -1,271 +1,388 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.model.YYOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.HashMap;
+import kotlin.collections.ArraysKt___ArraysKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Regex;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
-public abstract class xz0 implements zz0 {
+public class xz0 extends qz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<Integer, CopyOnWriteArrayList<tx0>> a;
-    @Nullable
-    public ux0 b;
-    @Nullable
-    public List<ux0> c;
-    @Nullable
-    public List<wx0> d;
+    public String h;
 
-    public abstract /* synthetic */ String getType();
-
-    public abstract void l(@NonNull sw0 sw0Var);
-
-    public xz0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz0(String kernelType) {
+        super(kernelType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kernelType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        Intrinsics.checkNotNullParameter(kernelType, "kernelType");
+        this.h = "";
     }
 
-    @Override // com.baidu.tieba.zz0
-    public void release() {
+    @Override // com.baidu.tieba.qz0, com.baidu.tieba.jz0, com.baidu.tieba.xx0
+    public void k(ww0 event) {
+        BdVideoSeries o1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            List<wx0> list = this.d;
-            if (list != null) {
-                list.clear();
-                this.d = null;
-            }
-            this.a.clear();
-            this.b = null;
-            List<ux0> list2 = this.c;
-            if (list2 != null) {
-                list2.clear();
-                this.c = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zz0
-    @Deprecated
-    public void a(@Nullable ux0 ux0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ux0Var) == null) {
-            this.b = ux0Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.zz0
-    public void b(@NonNull wx0 wx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wx0Var) == null) {
-            j(wx0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.zz0
-    public void e(tx0 tx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tx0Var) == null) {
-            for (CopyOnWriteArrayList<tx0> copyOnWriteArrayList : this.a.values()) {
-                copyOnWriteArrayList.remove(tx0Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zz0
-    public void f(@NonNull wx0 wx0Var) {
-        List<wx0> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, wx0Var) == null) && (list = this.d) != null) {
-            list.remove(wx0Var);
-        }
-    }
-
-    public final void h(sw0 sw0Var) {
-        List<wx0> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sw0Var) == null) && (list = this.d) != null) {
-            for (wx0 wx0Var : list) {
-                wx0Var.a(sw0Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zz0
-    public void c(int i, @NonNull tx0 tx0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, tx0Var) == null) {
-            CopyOnWriteArrayList<tx0> copyOnWriteArrayList = this.a.get(Integer.valueOf(i));
-            if (copyOnWriteArrayList == null) {
-                copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-            }
-            if (!copyOnWriteArrayList.contains(tx0Var)) {
-                int expectOrder = tx0Var.getExpectOrder();
-                if (expectOrder != 0) {
-                    if (expectOrder != 1) {
-                        if (expectOrder == 2) {
-                            copyOnWriteArrayList.add(copyOnWriteArrayList.size(), tx0Var);
-                        }
-                    } else {
-                        copyOnWriteArrayList.add(0, tx0Var);
-                    }
-                } else {
-                    copyOnWriteArrayList.add(tx0Var);
+        if (interceptable == null || interceptable.invokeL(1048590, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(LayerEvent.ACTION_CHANGE_CLARITY, event.c())) {
+                Object f = event.f(31);
+                if (!(f instanceof r01)) {
+                    f = null;
+                }
+                r01 r01Var = (r01) f;
+                du0 u = u();
+                if (u != null && (o1 = u.o1()) != null) {
+                    Intrinsics.checkNotNullExpressionValue(o1, "this");
+                    K0(o1, r01Var);
                 }
             }
-            this.a.put(Integer.valueOf(i), copyOnWriteArrayList);
+            super.k(event);
         }
     }
 
-    @Override // com.baidu.tieba.zz0
-    public void d(@NonNull sw0 sw0Var) {
+    public final String A0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sw0Var) == null) {
-            String type = getType();
-            b21.i(type, System.identityHashCode(this) + " notifyEvent " + sw0Var);
-            if (sw0Var.j() == 1) {
-                if (i(sw0Var)) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qz0, com.baidu.tieba.jz0
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.D();
+            this.e.M(tj0.e());
+        }
+    }
+
+    public void G0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            n0(CyberPlayerManager.OPT_SR_OPTION, String.valueOf(tu0.c()));
+        }
+    }
+
+    @Override // com.baidu.tieba.qz0
+    public ux0 P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            wy0 wy0Var = this.e;
+            if (wy0Var instanceof yy0) {
+                if (wy0Var != null) {
+                    return ((yy0) wy0Var).X();
                 }
-                g(sw0Var);
-                sw0Var.o();
-                return;
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.kernel.CyberVideoKernel");
             }
-            l(sw0Var);
+            return null;
+        }
+        return (ux0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jz0, com.baidu.tieba.wz0
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onLayerRelease();
         }
     }
 
-    public final void k(sw0 sw0Var) {
+    @Override // com.baidu.tieba.qz0
+    public void v0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sw0Var) == null) {
-            if (sw0Var.i() == 0) {
-                String type = getType();
-                b21.b(type, System.identityHashCode(this) + ": dispatch event :" + sw0Var);
-                return;
-            }
-            String type2 = getType();
-            b21.i(type2, System.identityHashCode(this) + ": dispatch event :" + sw0Var);
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            super.v0();
         }
     }
 
-    public void g(sw0 sw0Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jz0
+    /* renamed from: y0 */
+    public du0 u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sw0Var) == null) {
-            k(sw0Var);
-            h(sw0Var);
-            CopyOnWriteArrayList<tx0> copyOnWriteArrayList = this.a.get(Integer.valueOf(sw0Var.getType()));
-            if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                Iterator<tx0> it = copyOnWriteArrayList.iterator();
-                while (it.hasNext()) {
-                    tx0 next = it.next();
-                    if (!sw0Var.b(next)) {
-                        switch (sw0Var.getType()) {
-                            case -1:
-                            case 6:
-                                next.a(sw0Var);
-                                continue;
-                            case 1:
-                                next.n(sw0Var);
-                                continue;
-                            case 2:
-                                next.q(sw0Var);
-                                continue;
-                            case 3:
-                                next.k(sw0Var);
-                                continue;
-                            case 4:
-                                next.d(sw0Var);
-                                continue;
-                            case 5:
-                                next.h((PlayerStatus) sw0Var.f(2), (PlayerStatus) sw0Var.f(1));
-                                continue;
-                            case 7:
-                                if (next instanceof b11) {
-                                    ((b11) next).g(sw0Var);
-                                    break;
-                                } else {
-                                    next.a(sw0Var);
-                                    continue;
-                                }
-                            case 8:
-                                next.j(sw0Var);
-                                continue;
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            cu0 u = super.u();
+            if (!(u instanceof du0)) {
+                u = null;
+            }
+            return (du0) u;
+        }
+        return (du0) invokeV.objValue;
+    }
+
+    public final HashMap<String, String> B0(String str, ClarityUrlList clarityUrlList) {
+        InterceptResult invokeLL;
+        HashMap<String, String> hashMap;
+        ClarityUrlList.c currentClarityUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, clarityUrlList)) == null) {
+            HashMap<String, String> hashMap2 = new HashMap<>();
+            if (clarityUrlList != null && (currentClarityUrl = clarityUrlList.getCurrentClarityUrl()) != null) {
+                hashMap = currentClarityUrl.j();
+            } else {
+                hashMap = null;
+            }
+            if (hashMap != null) {
+                ClarityUrlList.c currentClarityUrl2 = clarityUrlList.getCurrentClarityUrl();
+                Intrinsics.checkNotNullExpressionValue(currentClarityUrl2, "clarityUrlList.currentClarityUrl");
+                hashMap2.putAll(currentClarityUrl2.j());
+            }
+            if (!Intrinsics.areEqual(str, "flv") && !Intrinsics.areEqual(str, "yy")) {
+                hashMap2.put(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "false");
+            } else {
+                hashMap2.put(CyberPlayerManager.OPT_IS_LIVE_VIDEO, YYOption.IsLive.VALUE_TRUE);
+            }
+            return hashMap2;
+        }
+        return (HashMap) invokeLL.objValue;
+    }
+
+    public final void C0(BdVideoSeries bdVideoSeries, int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bdVideoSeries, i) == null) {
+            if (ArraysKt___ArraysKt.contains(new Integer[]{1, 22, 6}, Integer.valueOf(i))) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            n0(CyberPlayerManager.OPT_FEED_VIDEO, str);
+            n0(CyberPlayerManager.OPT_ENABLE_SEI_DATA_NOTIFICATION, "1");
+            n0(CyberPlayerManager.OPT_VIDEO_BPS, String.valueOf(bdVideoSeries.getVideoBps()));
+            n0(CyberPlayerManager.OPT_VIDEO_MOOV_SIZE, String.valueOf(bdVideoSeries.getMoovSize()));
+        }
+    }
+
+    public void K0(BdVideoSeries series, r01 r01Var) {
+        int i;
+        ClarityUrlList.c currentClarityUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, series, r01Var) == null) {
+            Intrinsics.checkNotNullParameter(series, "series");
+            if (r01Var != null) {
+                i = r01Var.d;
+            } else {
+                i = -1;
+            }
+            ClarityUrlList clarityList = series.getClarityList();
+            if (clarityList != null && (currentClarityUrl = clarityList.getCurrentClarityUrl()) != null) {
+                currentClarityUrl.b();
+            }
+            String str = (r01Var == null || (str = r01Var.a) == null) ? "" : "";
+            p0(series.getProxy());
+            k0(z0(series.getHttpHeader()));
+            H0(series.getSelectedVideo(), i);
+            F0(series);
+            J0(series);
+            C0(series, i);
+            E0(i, str);
+            G0();
+            D0();
+            I0(series);
+        }
+    }
+
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ix0 a = ix0.a();
+            Intrinsics.checkNotNullExpressionValue(a, "PlayerExperimentManager.get()");
+            float b = a.b();
+            ix0 a2 = ix0.a();
+            Intrinsics.checkNotNullExpressionValue(a2, "PlayerExperimentManager.get()");
+            float c = a2.c();
+            float f = 0;
+            if (b >= f) {
+                n0("device_dynamic_score", String.valueOf(b));
+            }
+            if (c >= f) {
+                n0("device_static_score", String.valueOf(c));
+            }
+        }
+    }
+
+    public final void E0(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            f21.a("pcdn is close");
+            n0(CyberPlayerManager.OPT_ENABLE_PCDN, "0");
+            n0(CyberPlayerManager.OPT_ENABLE_P2P, "0");
+        }
+    }
+
+    @Override // com.baidu.tieba.qz0
+    public void t0(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
+            super.t0(str, z);
+        }
+    }
+
+    public final void F0(BdVideoSeries bdVideoSeries) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bdVideoSeries) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", String.valueOf((int) DpStatConstants.SESSION_TYPE_STAGE_INFO));
+            String from = bdVideoSeries.getFrom();
+            Intrinsics.checkNotNullExpressionValue(from, "series.from");
+            hashMap.put("video_from", from);
+            String page = bdVideoSeries.getPage();
+            Intrinsics.checkNotNullExpressionValue(page, "series.page");
+            hashMap.put("video_page", page);
+            String pd = bdVideoSeries.getPd();
+            Intrinsics.checkNotNullExpressionValue(pd, "series.pd");
+            hashMap.put("video_source", pd);
+            if (Intrinsics.areEqual(bdVideoSeries.getFormat(), "flv")) {
+                hashMap.put("bd_live", "1");
+            } else if (Intrinsics.areEqual(bdVideoSeries.getFormat(), "yy")) {
+                hashMap.put("yy_live", "1");
+            }
+            j0(CyberPlayerManager.STR_STATISTICS_INFO, hashMap);
+        }
+    }
+
+    @Override // com.baidu.tieba.qz0, com.baidu.tieba.jz0, com.baidu.tieba.xx0
+    public void d(ww0 event) {
+        BdVideoSeries o1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String c = event.c();
+            int hashCode = c.hashCode();
+            if (hashCode != -882902390) {
+                if (hashCode == 1370689931 && c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                    event.g(1);
+                }
+            } else if (c.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                Object f = event.f(3);
+                if (!(f instanceof r01)) {
+                    f = null;
+                }
+                r01 r01Var = (r01) f;
+                du0 u = u();
+                if (u != null && (o1 = u.o1()) != null) {
+                    String vid = o1.getVid();
+                    Intrinsics.checkNotNullExpressionValue(vid, "vid");
+                    this.h = vid;
+                    Intrinsics.checkNotNullExpressionValue(o1, "this");
+                    K0(o1, r01Var);
                 }
             }
+            super.d(event);
         }
     }
 
-    public boolean i(sw0 sw0Var) {
+    public final HashMap<String, String> z0(String str) {
         InterceptResult invokeL;
+        boolean z;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, sw0Var)) == null) {
-            ux0 ux0Var = this.b;
-            if (ux0Var != null && ux0Var.getInterceptorLayer() != sw0Var.k() && this.b.e(sw0Var)) {
-                b21.b("AbsMessenger", "isNeedIntercept() = true, event = " + sw0Var);
-                sw0Var.o();
-                return true;
-            }
-            List<ux0> list = this.c;
-            if (list != null) {
-                for (ux0 ux0Var2 : list) {
-                    if (ux0Var2.getInterceptorLayer() != sw0Var.k() && ux0Var2.e(sw0Var)) {
-                        b21.b("AbsMessenger", "isNeedIntercept() = true, event = " + sw0Var);
-                        sw0Var.o();
-                        return true;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
+            if (str != null) {
+                if (str.length() > 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return false;
+                if (z) {
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    Object[] array = new Regex("\r\n").split(str, 0).toArray(new String[0]);
+                    if (array != null) {
+                        for (String str2 : (String[]) array) {
+                            int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str2, ":", 0, false, 6, (Object) null);
+                            if (indexOf$default > 0 && indexOf$default < str2.length()) {
+                                if (str2 != null) {
+                                    String substring = str2.substring(0, indexOf$default);
+                                    Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                                    int i = indexOf$default + 1;
+                                    if (str2 != null) {
+                                        String substring2 = str2.substring(i);
+                                        Intrinsics.checkNotNullExpressionValue(substring2, "(this as java.lang.String).substring(startIndex)");
+                                        hashMap.put(substring, substring2);
+                                    } else {
+                                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                                    }
+                                } else {
+                                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                                }
+                            }
+                        }
+                        return hashMap;
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T>");
+                }
+                return null;
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    public final void j(wx0 wx0Var) {
+    public final void H0(BdVideo bdVideo, int i) {
+        String title;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, wx0Var) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList();
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdVideo, i) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, String.valueOf(i));
+            String str = "";
+            hashMap.put(CyberPlayerManager.STAGE_INFO_SOURCE, (bdVideo == null || (r1 = bdVideo.getSourceUrl()) == null) ? "" : "");
+            if (bdVideo != null && (title = bdVideo.getTitle()) != null) {
+                str = title;
             }
-            if (!this.d.contains(wx0Var)) {
-                int expectOrder = wx0Var.getExpectOrder();
-                if (expectOrder != 0) {
-                    if (expectOrder != 1) {
-                        if (expectOrder == 2) {
-                            List<wx0> list = this.d;
-                            list.add(list.size(), wx0Var);
-                            return;
-                        }
-                        return;
-                    }
-                    this.d.add(0, wx0Var);
-                    return;
-                }
-                this.d.add(wx0Var);
-            }
+            hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, str);
+            j0(CyberPlayerManager.STR_STAGE_INFO, hashMap);
+        }
+    }
+
+    public final void I0(BdVideoSeries bdVideoSeries) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdVideoSeries) == null) {
+            n0(CyberPlayerManager.OPT_VIDEO_BPS, String.valueOf(bdVideoSeries.getVideoBps()));
+            n0(CyberPlayerManager.OPT_VIDEO_MOOV_SIZE, String.valueOf(bdVideoSeries.getMoovSize()));
+        }
+    }
+
+    public final void J0(@NonNull BdVideoSeries bdVideoSeries) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdVideoSeries) == null) {
+            ClarityUrlList clarityList = bdVideoSeries.getClarityList();
+            String format = bdVideoSeries.getFormat();
+            r0(format, B0(format, clarityList));
         }
     }
 }

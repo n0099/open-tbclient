@@ -8,7 +8,7 @@ import com.baidu.searchbox.playerserver.PlayerPolicyManager;
 @Keep
 /* loaded from: classes3.dex */
 public class PlayerConfigManager {
-    public static final PlayerConfigManager a = new PlayerConfigManager();
+    public static final PlayerConfigManager ourInstance = new PlayerConfigManager();
 
     @Keep
     /* loaded from: classes3.dex */
@@ -23,7 +23,7 @@ public class PlayerConfigManager {
     }
 
     public static PlayerConfigManager getInstance() {
-        return a;
+        return ourInstance;
     }
 
     public String getPlayConfigMerged() {
@@ -35,21 +35,21 @@ public class PlayerConfigManager {
     }
 
     public void updatePlayerConfig(String str) {
-        f.a(str);
+        CyberPlayerCoreInvoker.updatePlayerConfig(str);
     }
 
     public static void startRequestPlayerServerCfg() {
-        if (!q.o() || !CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_SERVER, true)) {
+        if (!Utils.isMainProcess() || !CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_SERVER, true)) {
             return;
         }
-        if (CyberAbTestManager.getAbSwitchInt("request_ps_after_cyber_loaded", 1) == 1 && !f.a(1)) {
+        if (CyberAbTestManager.getAbSwitchInt("request_ps_after_cyber_loaded", 1) == 1 && !CyberPlayerCoreInvoker.isLoaded(1)) {
             return;
         }
-        if (CyberCfgManager.getInstance().getCfgBoolValue("enable_auto_req_ps", false)) {
+        if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_AUTO_REQ_PS, false)) {
             PlayerPolicyManager.getInstance().update();
             return;
         }
-        PlayerPolicyManager.getInstance().updateManually(CyberCfgManager.getInstance().getCfgIntValue("fst_stage_req_interval", 20));
+        PlayerPolicyManager.getInstance().updateManually(CyberCfgManager.getInstance().getCfgIntValue(CyberCfgManager.KEY_INT_FST_STAGE_REQ_INTERVAL, 20));
     }
 
     public Uri rebuildUrlForPlay(Uri uri, String str, int i, int i2) {

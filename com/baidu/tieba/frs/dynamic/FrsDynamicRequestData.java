@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.wq5;
+import com.baidu.tieba.qr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
 /* loaded from: classes5.dex */
-public class FrsDynamicRequestData extends OrmObject implements INetRequestData, wq5 {
+public class FrsDynamicRequestData extends OrmObject implements INetRequestData, qr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1107common;
+    public CommonReq f1097common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -28,7 +28,7 @@ public class FrsDynamicRequestData extends OrmObject implements INetRequestData,
     public int scrH;
     public int scrW;
 
-    @Override // com.baidu.tieba.vq5
+    @Override // com.baidu.tieba.pr5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class FrsDynamicRequestData extends OrmObject implements INetRequestData,
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wq5
+    @Override // com.baidu.tieba.qr5
     public String getCacheTableName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class FrsDynamicRequestData extends OrmObject implements INetRequestData,
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wq5
+    @Override // com.baidu.tieba.qr5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class FrsDynamicRequestData extends OrmObject implements INetRequestData,
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wq5
+    @Override // com.baidu.tieba.qr5
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

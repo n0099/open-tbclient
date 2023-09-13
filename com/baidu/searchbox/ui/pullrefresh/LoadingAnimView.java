@@ -98,7 +98,7 @@ public class LoadingAnimView extends View {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
             if (this.mLoadingViewColor == 0) {
-                this.mLoadingViewColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06096a);
+                this.mLoadingViewColor = getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06096d);
             }
             this.mPaint.setColor(this.mLoadingViewColor);
             this.mPaint.setAlpha((int) ((((1.0d - (Math.abs(this.mAnimationFactor - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));

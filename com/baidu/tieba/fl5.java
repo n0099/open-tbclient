@@ -1,61 +1,101 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
+@ModifyClass
 /* loaded from: classes5.dex */
-public class fl5 {
+public class fl5 extends ve {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<gl5> a(nl5 nl5Var) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ve
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nl5Var)) == null) {
-            if (nl5Var.c("\u0089PNG") && nl5Var.c("\r\n\u001a\n")) {
-                ArrayList arrayList = new ArrayList();
-                while (nl5Var.available() > 0) {
-                    arrayList.add(b(nl5Var));
-                }
-                return arrayList;
-            }
-            throw new IOException("APNG Format error");
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
-        return (List) invokeL.objValue;
     }
 
-    public static gl5 b(nl5 nl5Var) throws IOException {
-        InterceptResult invokeL;
-        gl5 gl5Var;
+    @Override // com.baidu.tieba.ve
+    /* renamed from: getCrashKeys */
+    public String[] mo129getCrashKeys() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nl5Var)) == null) {
-            int position = nl5Var.position();
-            int e = nl5Var.e();
-            int d = nl5Var.d();
-            if (d == cl5.d) {
-                gl5Var = new cl5();
-            } else if (d == hl5.k) {
-                gl5Var = new hl5();
-            } else if (d == il5.c) {
-                gl5Var = new il5();
-            } else if (d == jl5.c) {
-                gl5Var = new jl5();
-            } else if (d == kl5.c) {
-                gl5Var = new kl5();
-            } else if (d == ll5.f) {
-                gl5Var = new ll5();
-            } else {
-                gl5Var = new gl5();
-            }
-            gl5Var.b = position;
-            gl5Var.a = e;
-            gl5Var.c(nl5Var);
-            nl5Var.e();
-            return gl5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (gl5) invokeL.objValue;
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ve
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ve
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.ve
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "aitools_global_switch_android" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ve
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public fl5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Modify(description = "发帖展示AI辅助发帖入口")
+    public static boolean isOn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (SwitchManager.getInstance().findType("aitools_global_switch_android") == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

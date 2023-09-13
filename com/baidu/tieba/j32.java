@@ -1,48 +1,122 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class j32 {
+public class j32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mv2 a;
 
-    public j32() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            int indexOf = str.indexOf("_dev");
+            if (indexOf > 0) {
+                return str.substring(0, indexOf);
+            }
+            int indexOf2 = str.indexOf("_trial");
+            if (indexOf2 > 0) {
+                return str.substring(0, indexOf2);
+            }
+            return str;
         }
-        this.a = new mv2();
+        return (String) invokeL.objValue;
     }
 
-    public void a(Activity activity) {
+    public static int b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.a.a(activity);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            if (str.contains("_dev")) {
+                return 1;
+            }
+            if (str.endsWith("_trial")) {
+                return 3;
+            }
+            if (!str.contains("_trial")) {
+                return 0;
+            }
+            return 2;
         }
+        return invokeL.intValue;
     }
 
-    public void b(li2 li2Var, Context context) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, li2Var, context) == null) {
-            UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-            this.a.e(li2Var, context, li2Var, unitedSchemeMainDispatcher);
-            wb3.a(unitedSchemeMainDispatcher);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            int lastIndexOf = str.lastIndexOf("_dev");
+            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
+                return str.substring(lastIndexOf);
+            }
+            int lastIndexOf2 = str.lastIndexOf("_trial");
+            if (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) {
+                return "";
+            }
+            return str.substring(lastIndexOf2);
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(ew2 ew2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ew2Var)) == null) {
+            if (ew2Var != null && ew2Var.getType() == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(ew2 ew2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ew2Var)) == null) {
+            if (ew2Var == null || ew2Var.getType() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Deprecated
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.contains("_")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(ew2 ew2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ew2Var)) == null) {
+            if (ew2Var != null && ew2Var.getType() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

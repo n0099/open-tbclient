@@ -1,455 +1,615 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qob;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.http.ContentType;
+import com.fun.ad.sdk.internal.api.http.PostRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
-import com.qq.e.ads.splash.SplashADZoomOutListener;
-import com.qq.e.comm.util.AdError;
-import java.lang.ref.WeakReference;
+import com.fun.j0;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mob extends xnb<qnb> {
+public class mob implements Reporter {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final boolean b;
+    public final Handler c;
+    public final LinkedList<d> d;
     public boolean e;
-    public WeakReference<b> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mob(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = new WeakReference<>(null);
-    }
+    /* loaded from: classes7.dex */
+    public interface d {
+        int a();
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new cob(pid) : (AdRipper) invokeL.objValue;
-    }
+        d a(d dVar);
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            qnb qnbVar = (qnb) obj;
-        }
-    }
+        boolean b();
 
-    @Override // com.baidu.tieba.xnb
-    public void e(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
-            this.e = false;
-            SplashAD splashAD = new SplashAD(context.getApplicationContext(), this.mPid.pid, new a(this, r0, funAdSlot), 0);
-            SplashAD[] splashADArr = {splashAD};
-            splashAD.fetchAdOnly();
-        }
+        void c();
+
+        JSONArray d();
+
+        boolean isEmpty();
     }
 
     /* loaded from: classes7.dex */
-    public class a implements SplashADZoomOutListener {
+    public static abstract class f implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public qnb c;
-        public final /* synthetic */ SplashAD[] d;
-        public final /* synthetic */ FunAdSlot e;
-        public final /* synthetic */ mob f;
 
-        public a(mob mobVar, SplashAD[] splashADArr, FunAdSlot funAdSlot) {
+        public f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mobVar, splashADArr, funAdSlot};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ f(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980809, "Lcom/baidu/tieba/mob;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947980809, "Lcom/baidu/tieba/mob;");
+                return;
+            }
+        }
+        f = !mob.class.desiredAssertionStatus();
+    }
+
+    public mob(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = new LinkedList<>();
+        this.e = true;
+        this.a = str;
+        this.b = z;
+        HandlerThread handlerThread = new HandlerThread("reporter2");
+        handlerThread.start();
+        a aVar = new a(this, handlerThread.getLooper());
+        this.c = aVar;
+        if (z) {
+            aVar.obtainMessage(3, dob.k(), 0).sendToTarget();
+        }
+        com.fun.j0.b(new b(this));
+    }
+
+    public final boolean c(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Response response;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
+            try {
+                response = new PostRequest(this.a, new RequestParams(jSONArray.toString(), ContentType.JSON), true).perform();
+            } catch (IOException e2) {
+                LogPrinter.e(e2);
+                response = null;
+            }
+            return response != null && response.getResponseCode() == 200;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, obj) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(str2, obj);
+            } catch (JSONException unused) {
+            }
+            logEvent(str, jSONObject);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
+            logEvent(str, new JSONObject(map));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mob a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mob mobVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mobVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mobVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            int i2 = message.arg1;
+                            int l = dob.l();
+                            int h = dob.h();
+                            int i3 = (i2 - l) - h;
+                            LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(l), Integer.valueOf(h), Integer.valueOf(i3));
+                            if (i3 > 0) {
+                                dob.g("key_rpt_mis_c", i3);
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    LogPrinter.v("turn on report switch", new Object[0]);
+                    this.a.e = true;
+                }
+                mob.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements j0.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mob a;
+
+        public b(mob mobVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mobVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mobVar;
+        }
+
+        @Override // com.fun.j0.b
+        public void a(@Nullable NetworkInfo networkInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    this.a.c.removeMessages(1);
+                    this.a.c.sendEmptyMessage(1);
+                    return;
+                }
+                this.a.c.removeMessages(1);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final JSONArray a;
+        public final /* synthetic */ mob b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(mob mobVar, e eVar) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mobVar, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mobVar;
+            this.a = new JSONArray();
+            a(eVar);
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.length() : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.length() >= 10 : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public JSONArray d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                for (int i = 0; i < this.a.length(); i++) {
+                    try {
+                        HostAppInfo.fillHostAppInfo(this.a.optJSONObject(i));
+                    } catch (JSONException unused) {
+                    }
+                }
+                return this.a;
+            }
+            return (JSONArray) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.length() <= 0 : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public d a(d dVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar)) == null) {
+                if (b()) {
+                    return this;
+                }
+                if (dVar instanceof e) {
+                    e eVar = (e) dVar;
+                    this.a.put(eVar.e());
+                    eVar.e = true;
+                    eVar.d = null;
+                    return this;
+                } else if (dVar instanceof c) {
+                    c cVar = (c) dVar;
+                    while (!b() && cVar.a.length() > 0) {
+                        this.a.put(cVar.a.remove(0));
+                    }
+                    return this;
+                } else {
+                    throw new IllegalArgumentException("Unknown Event type:" + dVar);
+                }
+            }
+            return (d) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.v("ArrayEvent reported succeed with len:%d", Integer.valueOf(this.a.length()));
+                if (this.b.b) {
+                    dob.g("key_rpt_suc_c", dob.l() + this.a.length());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final JSONObject b;
+        public long c;
+        public JSONObject d;
+        public boolean e;
+        public final /* synthetic */ mob f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(mob mobVar, String str, JSONObject jSONObject) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mobVar, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.f = mobVar;
-            this.d = splashADArr;
-            this.e = funAdSlot;
+            this.a = str;
+            this.b = jSONObject;
+            this.c = System.currentTimeMillis();
+            if (FunAdSdk.isLogEnabled()) {
+                LogPrinter.v("report Event:" + this, new Object[0]);
+            }
         }
 
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public boolean isSupportZoomOut() {
+        @Override // com.baidu.tieba.mob.d
+        public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                LogPrinter.d("isSupportZoomOut", new Object[0]);
-                return true;
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public d a(d dVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar)) == null) {
+                if (dVar instanceof e) {
+                    c cVar = new c(this.f, this);
+                    cVar.a(dVar);
+                    return cVar;
+                } else if (dVar instanceof c) {
+                    c cVar2 = (c) dVar;
+                    cVar2.a(this);
+                    return cVar2;
+                } else {
+                    throw new IllegalArgumentException("Unknown Event type:" + dVar);
+                }
+            }
+            return (d) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return false;
             }
             return invokeV.booleanValue;
         }
 
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADExposure() {
+        @Override // com.baidu.tieba.mob.d
+        public JSONArray d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                JSONObject e = e();
+                if (e == null) {
+                    return null;
+                }
+                try {
+                    HostAppInfo.fillHostAppInfo(e);
+                } catch (JSONException unused) {
+                }
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put(e);
+                return jSONArray;
+            }
+            return (JSONArray) invokeV.objValue;
+        }
+
+        public JSONObject e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.e) {
+                    return null;
+                }
+                if (this.d == null) {
+                    this.d = HostAppInfo.buildBaseJson(this.a, this.b, this.c);
+                }
+                return this.d;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e() == null : invokeV.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return "{key='" + this.a + "', content=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mob.d
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.f.onAdShow((mob) this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADLoaded(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-                LogPrinter.d();
-                qnb qnbVar = new qnb(this.d[0]);
-                this.c = qnbVar;
-                this.f.onAdLoaded(qnbVar, new String[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADPresent() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADTick(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                int errorCode = adError.getErrorCode();
-                LogPrinter.e("onNoAD code: " + errorCode + ", message: " + adError.getErrorMsg(), new Object[0]);
-                if (errorCode == 4005) {
-                    this.f.onAdError(this.c, adError.getErrorMsg());
-                } else {
-                    this.f.onError(errorCode, adError.getErrorMsg());
-                }
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public void onZoomOutPlayFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                LogPrinter.d("onZoomOutPlayFinish", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.f.onAdClicked((mob) this.c, this.b, new String[0]);
-                this.b = true;
-                b bVar = this.f.f.get();
-                if (bVar != null) {
-                    String sid = this.e.getSid();
-                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.e;
-                    if (funSplashAdInteractionListener != null) {
-                        funSplashAdInteractionListener.onAdClicked(sid);
-                    }
-                }
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
-        public void onZoomOut() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.f.e = true;
-                b bVar = this.f.f.get();
-                if (bVar != null) {
-                    bVar.c = true;
-                }
-                LogPrinter.d("onZoomOut", new Object[0]);
-                this.f.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.qq.e.ads.splash.SplashADListener
-        public void onADDismissed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                mob mobVar = this.f;
-                if (!mobVar.e) {
-                    mobVar.onAdClose(this.c);
-                    return;
-                }
-                b bVar = mobVar.f.get();
-                if (bVar != null) {
-                    bVar.a();
+                LogPrinter.v("JSONEvent reported succeed", new Object[0]);
+                if (e() != null && this.f.b) {
+                    dob.g("key_rpt_suc_c", dob.l() + 1);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements FunSplashAd {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public qob a;
-        public SplashAD b;
-        public boolean c;
-        public ViewGroup d;
-        public FunSplashAdInteractionListener e;
-
-        /* loaded from: classes7.dex */
-        public class a implements qob.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+    public static void a(mob mobVar) {
+        d pollFirst;
+        JSONArray jSONArray;
+        d peekFirst;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, mobVar) == null) {
+            while (mobVar.e) {
+                synchronized (mobVar.d) {
+                    pollFirst = mobVar.d.pollFirst();
+                    if (pollFirst != null) {
+                        while (!pollFirst.b() && !mobVar.d.isEmpty() && (peekFirst = mobVar.d.peekFirst()) != null) {
+                            pollFirst = pollFirst.a(peekFirst);
+                            if (peekFirst.isEmpty()) {
+                                mobVar.d.removeFirst();
+                            } else if (!f && !pollFirst.b()) {
+                                throw new AssertionError();
+                            }
+                        }
+                    } else {
                         return;
                     }
                 }
-                this.a = bVar;
-            }
-        }
-
-        public b(SplashAD splashAD) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {splashAD};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = splashAD;
-        }
-
-        @Override // com.fun.ad.sdk.FunSplashAd
-        public void removeMiniWindow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                a();
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qob qobVar = this.a;
-                if (qobVar != null) {
-                    qobVar.g = null;
-                    qobVar.h = null;
-                }
-                ViewUtils.removeFromParent(this.d);
-                this.d = null;
-                this.a = null;
-                this.b = null;
-                this.e = null;
-            }
-        }
-
-        @Override // com.fun.ad.sdk.FunSplashAd
-        public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
-            InterceptResult invokeCommon;
-            b bVar;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
-                if (activity != null) {
-                    if (!this.c) {
-                        LogPrinter.d("isZoomOutPulled == false, will not show mini window", new Object[0]);
-                        return false;
+                if (mobVar.c(pollFirst.d())) {
+                    pollFirst.c();
+                    if (mobVar.b) {
+                        int h = dob.h();
+                        int j = dob.j();
+                        if (h > 0 || j > 0) {
+                            int l = dob.l();
+                            JSONObject jSONObject = new JSONObject();
+                            try {
+                                jSONObject.put("fai", h);
+                                jSONObject.put("suc", l);
+                                jSONObject.put("mis", j);
+                            } catch (JSONException unused) {
+                            }
+                            JSONObject e2 = new e(mobVar, "k_rpt", jSONObject).e();
+                            if (e2 == null) {
+                                jSONArray = null;
+                            } else {
+                                try {
+                                    HostAppInfo.fillHostAppInfo(e2);
+                                } catch (JSONException unused2) {
+                                }
+                                JSONArray jSONArray2 = new JSONArray();
+                                jSONArray2.put(e2);
+                                jSONArray = jSONArray2;
+                            }
+                            if (mobVar.c(jSONArray)) {
+                                dob.f(h, l, j);
+                            }
+                        }
                     }
-                    qob qobVar = this.a;
-                    if (qobVar == null) {
-                        return false;
-                    }
-                    this.e = funSplashAdInteractionListener;
-                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
-                    ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
-                    a aVar = new a(this);
-                    qobVar.getClass();
-                    LogPrinter.d("zoomOut startZoomOut activity", new Object[0]);
-                    com.fun.module.gdt.p pVar = null;
-                    if (viewGroup != null && viewGroup2 != null) {
-                        if (qobVar.g != null && qobVar.h != null) {
-                            int[] iArr = new int[2];
-                            viewGroup.getLocationOnScreen(iArr);
-                            int[] iArr2 = qobVar.k;
-                            int i2 = iArr2[0] - iArr[0];
-                            int i3 = iArr2[1] - iArr[1];
-                            ViewUtils.removeFromParent(qobVar.h);
-                            viewGroup.addView(qobVar.h, new FrameLayout.LayoutParams(qobVar.i, qobVar.j));
-                            qobVar.h.setX(i2);
-                            qobVar.h.setY(i3);
-                            View view2 = qobVar.h;
-                            qobVar.g = null;
-                            qobVar.h = null;
-                            if (view2 != null) {
-                                Context context = viewGroup2.getContext();
-                                int[] iArr3 = new int[2];
-                                view2.getLocationOnScreen(iArr3);
-                                int width = view2.getWidth();
-                                int height = view2.getHeight();
-                                int width2 = viewGroup.getWidth();
-                                int height2 = viewGroup.getHeight();
-                                if (width2 == 0) {
-                                    width2 = qobVar.l;
-                                }
-                                if (height2 == 0) {
-                                    height2 = qobVar.m;
-                                }
-                                int i4 = qobVar.a;
-                                float f = i4 / width;
-                                int i5 = qobVar.b;
-                                float f2 = i5 / height;
-                                if (qobVar.e == 0) {
-                                    i = qobVar.c;
-                                } else {
-                                    i = (width2 - qobVar.c) - i4;
-                                }
-                                float f3 = i;
-                                float f4 = (height2 - qobVar.d) - i5;
-                                LogPrinter.d("zoomOut animationContainerWidth:" + width2 + " animationContainerHeight:" + height2, new Object[0]);
-                                StringBuilder sb = new StringBuilder();
-                                sb.append("zoomOut splashScreenX:");
-                                sb.append(iArr3[0]);
-                                sb.append(" splashScreenY:");
-                                sb.append(iArr3[1]);
-                                LogPrinter.d(sb.toString(), new Object[0]);
-                                LogPrinter.d("zoomOut splashWidth:" + width + " splashHeight:" + height, new Object[0]);
-                                LogPrinter.d("zoomOut width:" + qobVar.a + " height:" + qobVar.b, new Object[0]);
-                                LogPrinter.d("zoomOut animationDistX:" + f3 + " animationDistY:" + f4, new Object[0]);
-                                ViewUtils.removeFromParent(view2);
-                                viewGroup.addView(view2, new FrameLayout.LayoutParams(width, height));
-                                com.fun.module.gdt.p pVar2 = new com.fun.module.gdt.p(context, qobVar.c);
-                                view2.setPivotX(0.0f);
-                                view2.setPivotY(0.0f);
-                                if (z) {
-                                    view2.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(qobVar.f).setListener(new pob(qobVar, aVar, view2, viewGroup2, f3, f4, iArr3, pVar2));
-                                } else {
-                                    qobVar.a(view2, viewGroup2, f3, f4, iArr3, pVar2, aVar);
-                                }
-                                bVar = this;
-                                pVar = pVar2;
-                                bVar.d = pVar;
-                                return true;
+                } else {
+                    synchronized (mobVar.d) {
+                        if (mobVar.d.size() >= 1000) {
+                            if (mobVar.b) {
+                                dob.e(pollFirst.a());
                             }
                         } else {
-                            LogPrinter.d("zoomOut splashAD or splashView is null", new Object[0]);
+                            mobVar.d.addFirst(pollFirst);
+                            LogPrinter.v("turn off report switch, reScheduleReport delay:%dms", 1500L);
+                            mobVar.e = false;
+                            if (!mobVar.c.hasMessages(2)) {
+                                mobVar.c.sendEmptyMessageDelayed(2, 1500L);
+                            }
                         }
-                    } else {
-                        LogPrinter.d("zoomOut animationContainer or zoomOutContainer is null", new Object[0]);
                     }
-                    bVar = this;
-                    bVar.d = pVar;
-                    return true;
                 }
-                throw new IllegalArgumentException();
             }
-            return invokeCommon.booleanValue;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            qnb qnbVar = (qnb) obj;
-            onShowStart(qnbVar);
-            ((SplashAD) qnbVar.a).showAd(viewGroup);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            qnb qnbVar = (qnb) obj;
-            onShowStart(qnbVar);
-            ((SplashAD) qnbVar.a).showAd(viewGroup);
-            b bVar = new b((SplashAD) qnbVar.a);
-            this.f = new WeakReference<>(bVar);
-            View decorView = activity.getWindow().getDecorView();
-            if (bVar.a == null) {
-                bVar.a = new qob(decorView.getContext());
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
+            boolean z = false;
+            if (rnb.i(str, jSONObject)) {
+                LogPrinter.d("filter key:%s content:%s", str, jSONObject);
+                return;
             }
-            qob qobVar = bVar.a;
-            qobVar.g = bVar.b;
-            qobVar.h = viewGroup;
-            viewGroup.getLocationOnScreen(qobVar.k);
-            qobVar.i = viewGroup.getWidth();
-            qobVar.j = viewGroup.getHeight();
-            qobVar.l = decorView.getWidth();
-            qobVar.m = decorView.getHeight();
-            return bVar;
+            e eVar = new e(this, str, jSONObject);
+            if (this.b) {
+                dob.o();
+            }
+            synchronized (this.d) {
+                if (this.d.size() >= 1000) {
+                    d removeFirst = this.d.removeFirst();
+                    if (this.b && removeFirst != null) {
+                        dob.e(removeFirst.a());
+                    }
+                }
+                this.d.add(eVar);
+            }
+            if (!this.c.hasMessages(1)) {
+                Handler handler = this.c;
+                long j = 0;
+                long j2 = dob.b.getLong("key_flt", 0L);
+                if (j2 > 0 && System.currentTimeMillis() - j2 >= 86400000) {
+                    z = true;
+                }
+                if (z) {
+                    j = 5000;
+                }
+                handler.sendEmptyMessageDelayed(1, j);
+            }
         }
-        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

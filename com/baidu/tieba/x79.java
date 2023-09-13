@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
+import com.baidu.searchbox.live.interfaces.service.YYPayService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class x79 extends xk1<ThirdPartWxRechargeService> {
+public class x79 extends bl1<YYPayService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class x79 extends xk1<ThirdPartWxRechargeService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
+    @Override // com.baidu.tieba.bl1
     /* renamed from: a */
-    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
+    public YYPayService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new y79();
         }
-        return (ThirdPartWxRechargeService) invokeV.objValue;
+        return (YYPayService) invokeV.objValue;
     }
 }

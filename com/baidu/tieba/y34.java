@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y34 extends j34 {
+public class y34 extends n34 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,12 +30,12 @@ public class y34 extends j34 {
                 return;
             }
         }
-        c = nr1.a;
+        c = rr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y34() {
-        super("getSid");
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,23 +51,30 @@ public class y34 extends j34 {
         }
     }
 
-    @Override // com.baidu.tieba.j34
-    public d32 a(JSONObject jSONObject, ho2 ho2Var) {
+    @Override // com.baidu.tieba.n34
+    public h32 a(@NonNull JSONObject jSONObject, @NonNull lo2 lo2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
-            String k = ku2.g0().k();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("sid", k);
-            } catch (JSONException e) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lo2Var)) == null) {
+            hb3 b0 = hb3.b0();
+            if (b0 != null && b0.w() != null) {
+                try {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                    lo3.f(b0.w());
+                }
+                lo2Var.onSuccess(null);
+            } else {
+                lo2Var.onFail(100, "swan or activity is null");
                 if (c) {
-                    e.printStackTrace();
+                    Log.d("StartAppUsagePage", "swan or activity is null");
                 }
             }
-            ho2Var.onSuccess(jSONObject2);
             return null;
         }
-        return (d32) invokeLL.objValue;
+        return (h32) invokeLL.objValue;
     }
 }

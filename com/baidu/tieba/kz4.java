@@ -1,74 +1,92 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import com.baidu.adp.base.BdActivityStack;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class kz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
 
-    public static Context a(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, webView)) == null) {
-            if (webView == null) {
-                return BdActivityStack.getInst().currentActivity();
-            }
-            Activity a = kl6.a(webView.getContext());
-            if (a == null) {
-                a = TbadkCoreApplication.getInst().getCurrentActivity();
-            }
-            if (a == null) {
-                a = BdActivityStack.getInst().currentActivity();
-            }
-            if (a == null) {
-                return webView.getContext();
-            }
-            return a;
-        }
-        return (Context) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final kz4 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                if (!TextUtils.isEmpty(str) && str.startsWith(ww4.a)) {
-                    Uri parse = Uri.parse(str);
-                    if (parse == null) {
-                        return str;
-                    }
-                    String queryParameter = parse.getQueryParameter("url");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        return queryParameter;
-                    }
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-644672601, "Lcom/baidu/tieba/kz4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            } catch (Exception unused) {
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-644672601, "Lcom/baidu/tieba/kz4$a;");
+                    return;
+                }
             }
-            return str;
+            a = new kz4();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Bitmap b(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public kz4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bitmap)) == null) {
-            if (bitmap == null) {
-                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bitmap;
         }
-        return (Bitmap) invokeL.objValue;
+        this.a = new ArrayList();
+    }
+
+    public static kz4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (kz4) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a.clear();
+            if (list != null && !list.isEmpty()) {
+                this.a.addAll(list);
+            }
+        }
     }
 }

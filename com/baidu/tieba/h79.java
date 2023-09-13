@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
+import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h79 extends xk1<ILivePlayerService> {
+public class h79 extends bl1<FollowStatusService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class h79 extends xk1<ILivePlayerService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xk1
+    @Override // com.baidu.tieba.bl1
     /* renamed from: a */
-    public ILivePlayerService createService() throws ServiceNotFoundException {
+    public FollowStatusService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new i79();
         }
-        return (ILivePlayerService) invokeV.objValue;
+        return (FollowStatusService) invokeV.objValue;
     }
 }

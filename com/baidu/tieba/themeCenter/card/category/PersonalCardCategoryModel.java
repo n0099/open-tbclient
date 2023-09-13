@@ -7,10 +7,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ana;
-import com.baidu.tieba.ifa;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.vla;
+import com.baidu.tieba.bha;
+import com.baidu.tieba.moa;
+import com.baidu.tieba.pna;
+import com.baidu.tieba.uoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import java.util.List;
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ana a;
-    public List<sma> b;
+    public uoa a;
+    public List<moa> b;
     public int c;
     public boolean d;
     public b e;
@@ -31,7 +31,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
 
     /* loaded from: classes8.dex */
     public interface b {
-        void a(int i, String str, ana anaVar, List<sma> list, boolean z);
+        void a(int i, String str, uoa uoaVar, List<moa> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -83,7 +83,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                PersonalCardCategoryModel.N(this.a);
+                PersonalCardCategoryModel.M(this.a);
                 if (this.a.e != null) {
                     this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
                     return;
@@ -135,25 +135,25 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        ifa.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        ifa.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        bha.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        bha.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int N(PersonalCardCategoryModel personalCardCategoryModel) {
+    public static /* synthetic */ int M(PersonalCardCategoryModel personalCardCategoryModel) {
         int i = personalCardCategoryModel.c;
         personalCardCategoryModel.c = i - 1;
         return i;
     }
 
-    public void Y(b bVar) {
+    public void X(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void V() {
+    public void U() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.d) {
             return;
@@ -185,10 +185,10 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void W(long j, int i) {
+    public void V(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            X(j, i);
+            W(j, i);
             b bVar = this.e;
             if (bVar != null) {
                 bVar.a(0, null, this.a, this.b, this.d);
@@ -196,24 +196,24 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void X(long j, int i) {
-        List<sma> list;
+    public void W(long j, int i) {
+        List<moa> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
-            for (sma smaVar : list) {
-                if (smaVar != null && smaVar.a() != null && smaVar.a().size() > 0) {
-                    for (vla vlaVar : smaVar.a()) {
-                        if (vlaVar != null) {
-                            if (vlaVar.a() == j) {
+            for (moa moaVar : list) {
+                if (moaVar != null && moaVar.a() != null && moaVar.a().size() > 0) {
+                    for (pna pnaVar : moaVar.a()) {
+                        if (pnaVar != null) {
+                            if (pnaVar.a() == j) {
                                 if (i == 1) {
-                                    vlaVar.s(1);
+                                    pnaVar.s(1);
                                 } else {
-                                    vlaVar.s(0);
+                                    pnaVar.s(0);
                                 }
                             } else if (i == 1) {
-                                vlaVar.s(0);
-                            } else if (vlaVar.a() == vla.k) {
-                                vlaVar.s(1);
+                                pnaVar.s(0);
+                            } else if (pnaVar.a() == pna.k) {
+                                pnaVar.s(1);
                             }
                         }
                     }

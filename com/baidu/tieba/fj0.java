@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class fj0 implements hk1 {
+public abstract class fj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Nullable
+    public abstract String a();
+
+    public abstract String b();
+
+    public abstract boolean d(Context context, hj0 hj0Var, @Nullable Map<String, Object> map, @Nullable lj0 lj0Var);
 
     public fj0() {
         Interceptable interceptable = $ic;
@@ -25,15 +34,10 @@ public class fj0 implements hk1 {
         }
     }
 
-    @Override // com.baidu.tieba.hk1
-    public Object get() {
-        InterceptResult invokeV;
+    public void c(lj0 lj0Var, @Nullable hj0 hj0Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new v91());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{lj0Var, hj0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            qj0.b(lj0Var, hj0Var, i, z);
         }
-        return invokeV.objValue;
     }
 }

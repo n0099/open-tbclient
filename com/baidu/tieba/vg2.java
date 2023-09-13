@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vg2 implements ug2 {
+public class vg2 implements sg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final og2 b;
-
-    @Override // com.baidu.tieba.ug2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    public final LruCache<String, Long> a;
 
     static {
         InterceptResult invokeClinit;
@@ -40,17 +32,7 @@ public class vg2 implements ug2 {
                 return;
             }
         }
-        c = nr1.a;
-    }
-
-    @Override // com.baidu.tieba.ug2
-    public og2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (og2) invokeV.objValue;
+        b = rr1.a;
     }
 
     public vg2(int i) {
@@ -68,34 +50,42 @@ public class vg2 implements ug2 {
                 return;
             }
         }
-        this.a = i >= 20 ? Math.min(i, 300) : 20;
-        this.b = new rg2(10);
+        i = i <= 0 ? 10 : i;
+        this.a = new LruCache<>(i);
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "lru size - " + i);
+        }
     }
 
-    @Override // com.baidu.tieba.ug2
-    public boolean c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.sg2
+    public tg2 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (c) {
-                Log.d("LocalLruStrategy", "prelink url - " + str3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (b) {
+                Log.d("SwanPrelinkLocalRecorder", "prelink LRU size - " + this.a.size());
             }
-            pg2 a = this.b.a(str2, str3);
-            boolean z = true;
-            if (a == null) {
-                if (c) {
-                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
-                }
-                return true;
+            Long l = this.a.get(str2);
+            if (l == null) {
+                return null;
             }
-            if (System.currentTimeMillis() - a.b < this.a * 1000) {
-                z = false;
-            }
-            if (c) {
-                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
-            }
-            return z;
+            tg2 tg2Var = new tg2();
+            tg2Var.a = ProcessUtils.getCurProcessName();
+            tg2Var.b = l.longValue();
+            return tg2Var;
         }
-        return invokeLLL.booleanValue;
+        return (tg2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.sg2
+    public void b(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) != null) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        if (b) {
+            Log.d("SwanPrelinkLocalRecorder", "record : appId-" + str + ", url-" + str2);
+        }
+        this.a.put(str2, Long.valueOf(System.currentTimeMillis()));
     }
 }

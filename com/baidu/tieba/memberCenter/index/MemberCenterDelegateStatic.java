@@ -35,7 +35,7 @@ public class MemberCenterDelegateStatic extends FragmentDelegate {
     public CustomMessageListener b;
 
     /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -196,7 +196,7 @@ public class MemberCenterDelegateStatic extends FragmentDelegate {
                 fragmentTabStructure.frag = new MemberCenterFragment();
             }
             fragmentTabStructure.type = 14;
-            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f0c61;
+            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f0c76;
             return fragmentTabStructure;
         }
         return (FragmentTabStructure) invokeV.objValue;
@@ -213,7 +213,7 @@ public class MemberCenterDelegateStatic extends FragmentDelegate {
             fragmentTapTip.indicator = this.mIndicator;
             fragmentTapTip.offsetX = BdUtilHelper.dip2px(context, 3.0f);
             ImageView imageView = this.a;
-            fragmentTapTip.f1084view = imageView;
+            fragmentTapTip.f1082view = imageView;
             fragmentTapTip.bgDayRes = R.drawable.icon_news_down_bar_one;
             imageView.setVisibility(8);
             this.mIndicator.addTip("member_center_red_tip", fragmentTapTip);

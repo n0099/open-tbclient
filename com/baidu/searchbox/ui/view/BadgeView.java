@@ -287,7 +287,7 @@ public class BadgeView extends TextView {
     }
 
     private int createNormalBg() {
-        int color = getResources().getColor(R.color.obfuscated_res_0x7f060382);
+        int color = getResources().getColor(R.color.obfuscated_res_0x7f060384);
         if (this.isChangeBackgroundColor) {
             if (NightModeHelper.isNightMode()) {
                 return this.backgroundColorNight;
@@ -323,7 +323,7 @@ public class BadgeView extends TextView {
         if (this.mIsNormalSize) {
             return R.drawable.badge_bg_small_text_normal_style;
         }
-        return R.drawable.obfuscated_res_0x7f080227;
+        return R.drawable.obfuscated_res_0x7f08022c;
     }
 
     private void updateBadgeLayout() {
@@ -408,7 +408,7 @@ public class BadgeView extends TextView {
     }
 
     public void updateNightMode() {
-        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060381));
+        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060383));
         if (this.mType == Type.SMALL_TEXT) {
             Drawable createSmallTextBg = createSmallTextBg();
             this.smallTextBg = createSmallTextBg;
@@ -460,7 +460,7 @@ public class BadgeView extends TextView {
     }
 
     private void init(Context context, AttributeSet attributeSet) {
-        this.mLrPaddingInBigTextType = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018c), 2);
+        this.mLrPaddingInBigTextType = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070190), 2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.android.common.ui.R.styleable.badge);
         this.mType = Type.getType(obtainStyledAttributes.getInt(1, Type.DOT.value));
         this.mCountFormatType = CountFormatType.getCountFormatType(obtainStyledAttributes.getInt(0, CountFormatType.MAX_99.value));
@@ -468,7 +468,7 @@ public class BadgeView extends TextView {
         if (getLayoutParams() == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 53));
         }
-        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060381));
+        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060383));
         setGravity(17);
     }
 
@@ -476,22 +476,22 @@ public class BadgeView extends TextView {
         Resources resources = getResources();
         switch (AnonymousClass3.$SwitchMap$com$baidu$searchbox$ui$view$BadgeView$DefaultPosition[defaultPosition.ordinal()]) {
             case 1:
-                setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070191), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018f));
-                return;
-            case 2:
-                setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070192), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070190));
-                return;
-            case 3:
                 setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070195), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070193));
                 return;
-            case 4:
+            case 2:
                 setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070196), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070194));
+                return;
+            case 3:
+                setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019b), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070197));
+                return;
+            case 4:
+                setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019d), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070199));
                 return;
             case 5:
                 setBadgeViewPosition(view2, layoutParams, 0, 0);
                 return;
             case 6:
-                setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019d), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019b));
+                setBadgeViewPosition(view2, layoutParams, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701a1), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701a0));
                 return;
             default:
                 return;
@@ -540,8 +540,8 @@ public class BadgeView extends TextView {
                 if (i3 == 3) {
                     layoutParams.width = -2;
                     if (this.bigTextHeight == 0 || this.bigTextSize == 0 || i2 != this.currentFontLevel) {
-                        this.bigTextHeight = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018b), 2);
-                        this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e0, 2);
+                        this.bigTextHeight = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018f), 2);
+                        this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e4, 2);
                     }
                     layoutParams.height = this.bigTextHeight;
                     int i4 = this.mLrPaddingInBigTextType;
@@ -567,7 +567,7 @@ public class BadgeView extends TextView {
             layoutParams.height = i;
             if (this.smallTextBg == null || this.smallTextSize == 0 || i2 != this.currentFontLevel || this.mIsNormalSize) {
                 this.smallTextBg = createSmallTextBg();
-                this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070338, 2);
+                this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f07033c, 2);
             }
             setBackground(this.smallTextBg);
             setMinWidth(0);
@@ -579,7 +579,7 @@ public class BadgeView extends TextView {
             return;
         }
         if (this.dotSize == 0 || i2 != this.currentFontLevel) {
-            this.dotSize = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018d), 2);
+            this.dotSize = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070191), 2);
         }
         if (this.mIsNormalSize) {
             this.dotSize = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.badge_dot_normal_size), 2);
@@ -599,10 +599,10 @@ public class BadgeView extends TextView {
         if (i != 1) {
             if (i != 2) {
                 if (i == 3) {
-                    this.bigTextHeight = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018b), 2);
-                    this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e0, 2);
+                    this.bigTextHeight = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018f), 2);
+                    this.bigTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f0702e4, 2);
                     layoutParams.height = this.bigTextHeight;
-                    int scaledSize = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018c), 2);
+                    int scaledSize = FontSizeHelper.getScaledSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070190), 2);
                     this.mLrPaddingInBigTextType = scaledSize;
                     setPadding(scaledSize, 0, scaledSize, 0);
                     setTextSize(0, this.bigTextSize);
@@ -611,12 +611,12 @@ public class BadgeView extends TextView {
                 return;
             }
             this.smallTextBg = createSmallTextBg();
-            this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f070338, 2);
+            this.smallTextSize = FontSizeHelper.getScaledSizeRes(0, R.dimen.obfuscated_res_0x7f07033c, 2);
             setBackground(this.smallTextBg);
             setTextSize(0, this.smallTextSize);
             return;
         }
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07018d);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070191);
         if (this.mIsNormalSize) {
             dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.badge_dot_normal_size);
         }

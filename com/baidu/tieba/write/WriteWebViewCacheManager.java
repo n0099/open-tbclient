@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.hxa;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.mza;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.wl6;
+import com.baidu.tieba.um6;
 import com.baidu.tieba.write.WriteWebViewCacheManager$skinChangeListener$2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -265,7 +265,7 @@ public final class WriteWebViewCacheManager {
                             String currentSkinTypeString = SkinManager.getCurrentSkinTypeString();
                             Intrinsics.checkNotNullExpressionValue(currentSkinTypeString, "getCurrentSkinTypeString()");
                             linkedHashMap.put("skin", currentSkinTypeString);
-                            wl6.a().d(entry.getValue(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
+                            um6.a().d(entry.getValue(), CommonTbJsBridge.CHANGE_SKIN_TYPE, linkedHashMap);
                         }
                     }
                 }
@@ -326,7 +326,7 @@ public final class WriteWebViewCacheManager {
             this.a.remove(url);
             Context context2 = tbWebView.getContext();
             if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(hxa.a.b(context));
+                ((MutableContextWrapper) context2).setBaseContext(mza.a.b(context));
             }
             return tbWebView;
         }
@@ -344,7 +344,7 @@ public final class WriteWebViewCacheManager {
         } else {
             mutableContextWrapper = new MutableContextWrapper(TbadkCoreApplication.getInst());
         }
-        TbWebView a2 = hxa.a.a(mutableContextWrapper);
+        TbWebView a2 = mza.a.a(mutableContextWrapper);
         a2.loadUrl(str + "&page_lifecycle_type=preheat_enabled");
         a2.getPerfData().i = true;
         this.a.put(str, a2);

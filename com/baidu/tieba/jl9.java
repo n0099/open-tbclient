@@ -1,82 +1,135 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.pb.adapter.PbRecomChildTitleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jl9 extends vk9<kl9, PbImageAlaRecommendVH> {
+public class jl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public yh9 h;
+    public BdUniqueId a;
+    public rr9 b;
+    public TbPageContext<?> c;
+    public List<pm> d;
+    public in e;
+    public kl9 f;
+    public ll9 g;
+    public ml9 h;
+    public nl9 i;
+    public ol9 j;
+    public pl9 k;
+    public PbRecomChildTitleAdapter l;
+    public bn9 m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jl9(aq9 aq9Var, BdUniqueId bdUniqueId) {
-        super(aq9Var, kl9.q);
+    public jl9(rr9 rr9Var, BdUniqueId bdUniqueId, in inVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aq9Var, bdUniqueId};
+            Object[] objArr = {rr9Var, bdUniqueId, inVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((aq9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = bdUniqueId;
+        this.d = new ArrayList();
+        this.e = inVar;
+        this.a = bdUniqueId;
+        this.b = rr9Var;
+        this.c = rr9Var.getPageContext();
+        c();
+        f(inVar);
+        inVar.addAdapters(this.d);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: u */
-    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<pm> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d079c, viewGroup, false), this.a.getPageContext(), this.g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (PbImageAlaRecommendVH) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void y(yh9 yh9Var) {
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yh9Var) == null) {
-            this.h = yh9Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.vk9, com.baidu.tieba.om
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (kl9) obj, (PbImageAlaRecommendVH) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, kl9 kl9Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kl9Var, pbImageAlaRecommendVH})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) kl9Var, (kl9) pbImageAlaRecommendVH);
-            if (pbImageAlaRecommendVH != null) {
-                pbImageAlaRecommendVH.d(kl9Var);
-                pbImageAlaRecommendVH.i(this.h);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PbRecomChildTitleAdapter pbRecomChildTitleAdapter = this.l;
+            if (pbRecomChildTitleAdapter != null && pbRecomChildTitleAdapter.u() != null) {
+                return this.l.u().itemView;
             }
-            return view2;
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public void d() {
+        in inVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (inVar = this.e) != null && inVar.getListAdapter() != null) {
+            this.e.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.h = new ml9(this.c, cq6.G0);
+            this.g = new ll9(this.c, cq6.H0);
+            this.f = new kl9(this.c, cq6.I0);
+            this.i = new nl9(this.c, cq6.F0);
+            this.j = new ol9(this.c, cq6.L0);
+            this.k = new pl9(this.c, dq6.U);
+            this.l = new PbRecomChildTitleAdapter(this.b, nq6.b);
+            this.m = new bn9(this.b, ij9.c, this.a);
+            this.d.add(this.h);
+            this.d.add(this.g);
+            this.d.add(this.f);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.d.add(this.k);
+            this.d.add(this.l);
+            this.d.add(this.m);
+        }
+    }
+
+    public final void f(in inVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, inVar) == null) {
+            this.h.z(inVar);
+            this.g.z(inVar);
+            this.f.z(inVar);
+            this.i.z(inVar);
+            this.j.z(inVar);
+            this.k.C(inVar);
+        }
+    }
+
+    public void g(List<cn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.e.setData(list);
+        }
     }
 }

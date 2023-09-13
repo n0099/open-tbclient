@@ -105,8 +105,8 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    TbImageMemoryCache B = TbImageMemoryCache.B();
-                    BdImage D = B.D(optString4 + 10);
+                    TbImageMemoryCache A = TbImageMemoryCache.A();
+                    BdImage D = A.D(optString4 + 10);
                     if (D != null && D.getRawBitmap() != null) {
                         NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, D.getRawBitmap(), false);
                     } else if (!StringUtils.isNull(optString4)) {

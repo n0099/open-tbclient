@@ -19,6 +19,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -30,11 +31,11 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.ub;
+import com.baidu.tieba.ey5;
+import com.baidu.tieba.hb5;
+import com.baidu.tieba.vb;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
-import com.baidu.tieba.xa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +53,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public xa5.a f;
+    public hb5.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -181,7 +182,7 @@ public class RichTextEditor extends LinearLayout {
             this.a.p(view2);
             this.a.d.getChosedFiles().remove(imageFileInfo);
             if (imageFileInfo.isTempFile()) {
-                ub.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                vb.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
             }
             if (this.a.l != null) {
                 this.a.l.a(imageFileInfo, view2);
@@ -199,7 +200,7 @@ public class RichTextEditor extends LinearLayout {
                 writeImagesInfo.setChosedFiles(linkedList);
                 writeImagesInfo.setOriginalImgIndex(this.a.d.getChosedFiles().indexOf(imageFileInfo));
                 writeImagesInfo.setOriginalImgViewIndex(this.a.indexOfChild(view2));
-                new WriteMulitImageActivityConfig((Activity) this.a.getContext(), 12012, writeImagesInfo, 0).start();
+                new WriteMulitImageActivityConfig((Activity) this.a.getContext(), CyberPlayerManager.MEDIA_INFO_MEDIA_FILE_PATH, writeImagesInfo, 0).start();
             }
         }
     }
@@ -235,7 +236,7 @@ public class RichTextEditor extends LinearLayout {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (ix5.c(spanned.toString()) - (i4 - i3)) + ix5.c(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (ey5.c(spanned.toString()) - (i4 - i3)) + ey5.c(charSequence.toString()) > this.a) {
                     if (this.b.k != null) {
                         this.b.k.a();
                     }
@@ -312,7 +313,7 @@ public class RichTextEditor extends LinearLayout {
         this.m = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081295));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812b8));
         setShowDividers(2);
         this.a = new a(this);
     }
@@ -382,7 +383,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(xa5.a aVar) {
+    public void setOnSpanGroupChangedListener(hb5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.f = aVar;
@@ -641,7 +642,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setForumId(this.g);
             spanGroupEditText.setOnClickListener(this.e);
             spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f09125d, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f091263, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;

@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,66 +10,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class wb2 {
+public final class wb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public RequestStatus b;
-    public List<tb2> c;
-    public List<tb2> d;
-    public long e;
+    public final sb2 a;
+    public boolean b;
+    public boolean c;
+    public jc2 d;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wb2 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-323346875, "Lcom/baidu/tieba/wb2$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-323346844, "Lcom/baidu/tieba/wb2$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-323346875, "Lcom/baidu/tieba/wb2$a;");
+                    classClinitInterceptable.invokePostClinit(-323346844, "Lcom/baidu/tieba/wb2$b;");
                     return;
                 }
             }
-            int[] iArr = new int[RequestStatus.values().length];
-            a = iArr;
-            try {
-                iArr[RequestStatus.STATUS_FAILED.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RequestStatus.STATUS_CORE_FAILED.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RequestStatus.STATUS_SERVER_FAILED.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RequestStatus.STATUS_SLOW.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RequestStatus.STATUS_UNKNOWN.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
+            a = new wb2(null);
         }
     }
 
@@ -86,60 +62,41 @@ public class wb2 {
                 return;
             }
         }
-        f = nr1.a;
+        e = rr1.a;
     }
 
-    public long a() {
+    public static wb2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return System.currentTimeMillis() - this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return invokeV.longValue;
+        return (wb2) invokeV.objValue;
     }
 
-    public int b() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<tb2> list = this.c;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public RequestStatus e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (RequestStatus) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public int f() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<tb2> list = this.d;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
         }
-        return invokeV.intValue;
     }
 
     public wb2() {
@@ -155,112 +112,71 @@ public class wb2 {
                 return;
             }
         }
-        this.b = RequestStatus.STATUS_SUCCESS;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = 0L;
+        tb2 tb2Var = new tb2();
+        this.a = tb2Var;
+        tb2Var.a(new vb2(this.a.getLooper()));
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            String g = rn3.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            for (tb2 tb2Var : this.d) {
-                if (tb2Var != null) {
-                    try {
-                        sb.append(String.format("\n%s请求%s耗时较长：%s ms；", g, new URL(tb2Var.a).getPath(), Long.valueOf(tb2Var.d())));
-                    } catch (MalformedURLException e) {
-                        if (f) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                h82.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
             }
-            for (tb2 tb2Var2 : this.c) {
-                if (tb2Var2 != null) {
-                    try {
-                        sb.append(String.format("\n%s请求%s请求失败；", g, new URL(tb2Var2.a).getPath()));
-                    } catch (MalformedURLException e2) {
-                        if (f) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
+            jc2 jc2Var = this.d;
+            if (jc2Var != null) {
+                jc2Var.a();
+                this.d = null;
             }
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public /* synthetic */ wb2(a aVar) {
+        this();
+    }
+
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            switch (a.a[this.b.ordinal()]) {
-                case 1:
-                    sb.append("业务请求：失败率超");
-                    sb.append(50);
-                    sb.append("%；");
-                    break;
-                case 2:
-                    sb.append("业务请求：核心业务请求失败；");
-                    break;
-                case 3:
-                    sb.append("业务请求：开发者服务异常；");
-                    break;
-                case 4:
-                    sb.append("业务请求：无异常；");
-                    break;
-                case 5:
-                    sb.append("业务请求：响应缓慢；");
-                    break;
-                case 6:
-                    sb.append("业务请求：未知；");
-                    break;
-            }
-            if (g() > 0) {
-                sb.append(String.format("共发起请求%s个，失败%s个，缓慢%s个；", Integer.valueOf(g()), Integer.valueOf(b()), Integer.valueOf(f())));
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i(j);
+            j(false);
         }
-        return (String) invokeV.objValue;
     }
 
-    public void h(List<tb2> list) {
+    public void g(jc2 jc2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, list) == null) && list != null && !list.isEmpty()) {
-            this.c = list;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jc2Var) == null) {
+            this.d = jc2Var;
+        }
+    }
+
+    public void h(rb2 rb2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, rb2Var) == null) {
+            this.a.b(rb2Var);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c = z;
         }
     }
 
     public void i(long j) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public void j(RequestStatus requestStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, requestStatus) == null) {
-            this.b = requestStatus;
-        }
-    }
-
-    public void k(List<tb2> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, list) == null) && list != null && !list.isEmpty()) {
-            this.d = list;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (e) {
+                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
+            }
+            if (j < 3000 && j > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.b = z;
         }
     }
 }

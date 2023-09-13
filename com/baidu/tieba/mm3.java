@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mm3 extends gm3 {
+public class mm3 extends km3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mm3(ac3 ac3Var) {
-        super(ac3Var, "/swanAPI/setTabBarBadge");
+    public mm3(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/closeTabBarBadge");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ac3Var};
+            Object[] objArr = {ec3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ac3) objArr2[0], (String) objArr2[1]);
+                super((ec3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,34 +36,30 @@ public class mm3 extends gm3 {
         }
     }
 
-    @Override // com.baidu.tieba.ad3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                d82.c("setTabBarBadge", "paramsJson is null");
+                h82.c("closeTabBarBadge", "paramsJson is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
             int optInt = optParamsAsJo.optInt("index");
-            String optString = optParamsAsJo.optString("text");
-            if (optString.length() > 3) {
-                optString = context.getString(R.string.obfuscated_res_0x7f0f020f);
-            }
-            if (gm3.k()) {
-                d82.c("SetTabBarBadgeAction", "fail not TabBar page");
+            if (km3.k()) {
+                h82.c("CloseTabBarBadgeAction", "fail not TabBar page");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
                 return false;
             }
-            pm3 j = gm3.j();
+            tm3 j = km3.j();
             if (j == null) {
-                d82.c("SetTabBarBadgeAction", "tabBarViewController is null");
+                h82.c("CloseTabBarBadgeAction", "tabBarViewController is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!j.w(optInt, optString)) {
-                d82.c("setTabBarBadge", "set bottom badge fail");
+            } else if (!j.i(optInt)) {
+                h82.c("closeTabBarBadge", "close bottom badge fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {

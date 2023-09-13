@@ -5,12 +5,12 @@ import android.webkit.WebView;
 import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.SearchJsBridge;
-import com.baidu.tieba.nx4;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.rga;
-import com.baidu.tieba.sga;
-import com.baidu.tieba.uga;
-import com.baidu.tieba.vl6;
+import com.baidu.tieba.kia;
+import com.baidu.tieba.lia;
+import com.baidu.tieba.mia;
+import com.baidu.tieba.oia;
+import com.baidu.tieba.rx4;
+import com.baidu.tieba.tm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,17 +24,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class HybridJsBridgePlugin_Proxy extends qga {
+public class HybridJsBridgePlugin_Proxy extends kia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nx4 mJsBridge;
+    public rx4 mJsBridge;
 
-    public HybridJsBridgePlugin_Proxy(nx4 nx4Var) {
+    public HybridJsBridgePlugin_Proxy(rx4 rx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nx4Var};
+            Object[] objArr = {rx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class HybridJsBridgePlugin_Proxy extends qga {
                 return;
             }
         }
-        this.mJsBridge = nx4Var;
+        this.mJsBridge = rx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -54,156 +54,157 @@ public class HybridJsBridgePlugin_Proxy extends qga {
         this.mNotificationNameList.add("nativeNetworkProxyResult");
     }
 
-    @Override // com.baidu.tieba.qga
-    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
+    @Override // com.baidu.tieba.kia
+    public mia dispatch(WebView webView, oia oiaVar, mia miaVar) {
         InterceptResult invokeLLL;
-        sga sgaVar2;
+        mia miaVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
-            if (sgaVar == null) {
-                sgaVar2 = new sga();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, oiaVar, miaVar)) == null) {
+            if (miaVar == null) {
+                miaVar2 = new mia();
             } else {
-                sgaVar2 = sgaVar;
+                miaVar2 = miaVar;
             }
-            String b = ugaVar.b();
-            JSONObject e = ugaVar.e();
+            String b = oiaVar.b();
+            JSONObject e = oiaVar.e();
             if (b.equals("hybrid/deleteSearchHistory")) {
-                sgaVar2.s(true);
-                sga e2 = this.mJsBridge.e(webView, e.optString("query"));
+                miaVar2.s(true);
+                mia e2 = this.mJsBridge.e(webView, e.optString("query"));
                 if (e2 != null) {
-                    sgaVar2.y(e2.f());
-                    sgaVar2.u(e2.b());
-                    sgaVar2.o(e2.a());
-                    sgaVar2.x(e2.e());
+                    miaVar2.y(e2.f());
+                    miaVar2.u(e2.b());
+                    miaVar2.o(e2.a());
+                    miaVar2.x(e2.e());
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             } else if (b.equals("hybrid/deleteAllSearchHistory")) {
-                sgaVar2.s(true);
-                sga d = this.mJsBridge.d(webView);
+                miaVar2.s(true);
+                mia d = this.mJsBridge.d(webView);
                 if (d != null) {
-                    sgaVar2.y(d.f());
-                    sgaVar2.u(d.b());
-                    sgaVar2.o(d.a());
-                    sgaVar2.x(d.e());
+                    miaVar2.y(d.f());
+                    miaVar2.u(d.b());
+                    miaVar2.o(d.a());
+                    miaVar2.x(d.e());
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             } else if (b.equals("hybrid/openSearchPage")) {
-                sgaVar2.s(true);
-                sga n = this.mJsBridge.n(webView, e.optString("query"), e.optInt(AdvisoryMsgBusinessExtra.SUBTYPE_KEY));
+                miaVar2.s(true);
+                mia n = this.mJsBridge.n(webView, e.optString("query"), e.optInt(AdvisoryMsgBusinessExtra.SUBTYPE_KEY));
                 if (n != null) {
-                    sgaVar2.y(n.f());
-                    sgaVar2.u(n.b());
-                    sgaVar2.o(n.a());
-                    sgaVar2.x(n.e());
+                    miaVar2.y(n.f());
+                    miaVar2.u(n.b());
+                    miaVar2.o(n.a());
+                    miaVar2.x(n.e());
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             } else if (b.equals("hybrid/getSearchHistory")) {
-                sgaVar2.s(true);
-                sga i = this.mJsBridge.i(webView);
+                miaVar2.s(true);
+                mia i = this.mJsBridge.i(webView);
                 this.mNotificationNameList.add(SearchJsBridge.METHOD_GET_SEARCH_HISTORY);
                 if (i != null) {
-                    sgaVar2.y(i.f());
-                    sgaVar2.u(i.b());
-                    sgaVar2.o(i.a());
-                    sgaVar2.x(i.e());
-                    if (!sgaVar2.h()) {
-                        sgaVar2.n(false);
-                        addObserver(webView, SearchJsBridge.METHOD_GET_SEARCH_HISTORY, sgaVar2, false);
+                    miaVar2.y(i.f());
+                    miaVar2.u(i.b());
+                    miaVar2.o(i.a());
+                    miaVar2.x(i.e());
+                    if (!miaVar2.h()) {
+                        miaVar2.n(false);
+                        addObserver(webView, SearchJsBridge.METHOD_GET_SEARCH_HISTORY, miaVar2, false);
                     }
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             } else if (b.equals("hybrid/getSearchAdCookie")) {
-                sgaVar2.s(true);
-                sga f = this.mJsBridge.f(webView);
+                miaVar2.s(true);
+                mia f = this.mJsBridge.f(webView);
                 if (f != null) {
-                    sgaVar2.y(f.f());
-                    sgaVar2.u(f.b());
-                    sgaVar2.o(f.a());
-                    sgaVar2.x(f.e());
+                    miaVar2.y(f.f());
+                    miaVar2.u(f.b());
+                    miaVar2.o(f.a());
+                    miaVar2.x(f.e());
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             } else if (b.equals("hybrid/requestByNativeNew")) {
-                sgaVar2.s(true);
-                sga o = this.mJsBridge.o(webView, e.optString("url"), e.optString("type"), e.optString("module"), e.optJSONObject("data"));
+                miaVar2.s(true);
+                mia o = this.mJsBridge.o(webView, e.optString("url"), e.optString("type"), e.optString("module"), e.optJSONObject("data"));
                 this.mNotificationNameList.add("RequestByNativeToH5");
                 if (o != null) {
-                    sgaVar2.y(o.f());
-                    sgaVar2.u(o.b());
-                    sgaVar2.o(o.a());
-                    sgaVar2.x(o.e());
-                    if (!sgaVar2.h()) {
-                        sgaVar2.n(false);
-                        addObserver(webView, "RequestByNativeToH5", sgaVar2, false);
+                    miaVar2.y(o.f());
+                    miaVar2.u(o.b());
+                    miaVar2.o(o.a());
+                    miaVar2.x(o.e());
+                    if (!miaVar2.h()) {
+                        miaVar2.n(false);
+                        addObserver(webView, "RequestByNativeToH5", miaVar2, false);
                     }
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             } else if (b.equals("hybrid/nativeNetworkProxy")) {
-                sgaVar2.s(true);
-                sga l = this.mJsBridge.l(webView, e.optString("path"), e.optString("host"), e.optString("type"), e.optJSONObject("data"), e.optInt("needBduss"), e.optInt("needTbs"));
+                miaVar2.s(true);
+                mia l = this.mJsBridge.l(webView, e.optString("path"), e.optString("host"), e.optString("type"), e.optJSONObject("data"), e.optInt("needBduss"), e.optInt("needTbs"));
                 this.mNotificationNameList.add("nativeNetworkProxyResult");
                 if (l != null) {
-                    sgaVar2.y(l.f());
-                    sgaVar2.u(l.b());
-                    sgaVar2.o(l.a());
-                    sgaVar2.x(l.e());
-                    if (!sgaVar2.h()) {
-                        sgaVar2.n(false);
-                        addObserver(webView, "nativeNetworkProxyResult", sgaVar2, false);
+                    miaVar2.y(l.f());
+                    miaVar2.u(l.b());
+                    miaVar2.o(l.a());
+                    miaVar2.x(l.e());
+                    if (!miaVar2.h()) {
+                        miaVar2.n(false);
+                        addObserver(webView, "nativeNetworkProxyResult", miaVar2, false);
                     }
                 }
-                sgaVar2.z(0);
+                miaVar2.z(0);
             }
-            return sgaVar2;
+            return miaVar2;
         }
-        return (sga) invokeLLL.objValue;
+        return (mia) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public vl6 getJsBridge() {
+    @Override // com.baidu.tieba.kia
+    public tm6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (vl6) invokeV.objValue;
+        return (tm6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qga
-    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.kia
+    public List<mia> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            sga sgaVar = null;
+            mia miaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(SearchJsBridge.METHOD_GET_SEARCH_HISTORY)) {
-                sgaVar = this.mJsBridge.h(webView, hashMap);
+                miaVar = this.mJsBridge.h(webView, hashMap);
             } else if (str.equals(SearchJsBridge.METHOD_SET_SEARCH_HISTORY)) {
-                sgaVar = this.mJsBridge.q(webView, hashMap);
+                miaVar = this.mJsBridge.q(webView, hashMap);
             } else if (str.equals("RequestByNativeToH5")) {
-                sgaVar = this.mJsBridge.p(webView, hashMap);
+                miaVar = this.mJsBridge.p(webView, hashMap);
             } else if (str.equals("nativeNetworkProxyResult")) {
-                sgaVar = this.mJsBridge.m(webView, hashMap);
+                miaVar = this.mJsBridge.m(webView, hashMap);
             }
-            if (sgaVar != null) {
-                sgaVar.z(0);
+            if (miaVar != null) {
+                miaVar.z(0);
             }
-            List<rga> list = this.mAsyncCallBackMethodList.get(str);
-            if (sgaVar != null && list != null) {
-                Iterator<rga> it = list.iterator();
-                if (!TextUtils.isEmpty(sgaVar.e())) {
+            List<lia> list = this.mAsyncCallBackMethodList.get(str);
+            if (miaVar != null && list != null) {
+                Iterator<lia> it = list.iterator();
+                if (!TextUtils.isEmpty(miaVar.e())) {
                     while (it.hasNext()) {
-                        rga next = it.next();
-                        if (next.b().equals(sgaVar.e())) {
-                            sga sgaVar2 = new sga();
-                            sgaVar2.w(next.a());
-                            sgaVar2.y(sgaVar.f());
-                            sgaVar2.u(sgaVar.b());
-                            sgaVar2.o(sgaVar.a());
-                            sgaVar2.A(sgaVar.l());
-                            arrayList.add(sgaVar2);
+                        lia next = it.next();
+                        if (next.b().equals(miaVar.e())) {
+                            mia miaVar2 = new mia();
+                            miaVar2.w(next.a());
+                            miaVar2.y(miaVar.f());
+                            miaVar2.u(miaVar.b());
+                            miaVar2.o(miaVar.a());
+                            miaVar2.j = miaVar.j;
+                            miaVar2.A(miaVar.l());
+                            arrayList.add(miaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -211,14 +212,15 @@ public class HybridJsBridgePlugin_Proxy extends qga {
                     }
                 } else {
                     while (it.hasNext()) {
-                        rga next2 = it.next();
-                        sga sgaVar3 = new sga();
-                        sgaVar3.w(next2.a());
-                        sgaVar3.y(sgaVar.f());
-                        sgaVar3.u(sgaVar.b());
-                        sgaVar3.o(sgaVar.a());
-                        sgaVar3.A(sgaVar.l());
-                        arrayList.add(sgaVar3);
+                        lia next2 = it.next();
+                        mia miaVar3 = new mia();
+                        miaVar3.w(next2.a());
+                        miaVar3.y(miaVar.f());
+                        miaVar3.u(miaVar.b());
+                        miaVar3.o(miaVar.a());
+                        miaVar3.j = miaVar.j;
+                        miaVar3.A(miaVar.l());
+                        arrayList.add(miaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

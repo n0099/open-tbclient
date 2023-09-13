@@ -1,96 +1,92 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class d14 implements l84 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "hasDownloadApk";
+public class d14 extends c14 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean G;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947651682, "Lcom/baidu/tieba/d14;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947651682, "Lcom/baidu/tieba/d14;");
-        }
-    }
-
-    public d14() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d14(Context context, AdElementInfo adElementInfo, d04 d04Var) {
+        super(context, adElementInfo, d04Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, d04Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (d04) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "com.baidu.gamenow";
+        this.G = false;
     }
 
-    @Override // com.baidu.tieba.l84
-    public boolean a(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c14
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (!(obj instanceof Download)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+            int videoWidth = adElementInfo.getVideoWidth();
+            int videoHeight = adElementInfo.getVideoHeight();
+            this.n = zz3.b().k();
+            this.o = zz3.b().j();
+            if (videoWidth < videoHeight) {
+                this.G = true;
+                int i = this.n;
+                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
+                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
+                layoutParams.leftMargin = (this.n - i2) - i3;
+                layoutParams.addRule(15);
+                layoutParams.removeRule(13);
+                layoutParams.removeRule(12);
+                layoutParams.bottomMargin = 0;
+                relativeLayout.setLayoutParams(layoutParams);
+                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f060903));
             }
-            Download download = (Download) obj;
-            if (TextUtils.equals(h14.a, download.getKeyByUser())) {
-                return true;
+        }
+    }
+
+    @Override // com.baidu.tieba.c14
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.G) {
+                return "reward_banner_land_html";
             }
-            return TextUtils.isEmpty(do3.d(download.getFromParam()).optString("apk_id"));
+            return "reward_banner_html";
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l84
-    public void b(Object obj) {
+    @Override // com.baidu.tieba.c14
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0736, (ViewGroup) null);
         }
-        l14 l14Var = new l14((Download) obj);
-        z14.n().f("reallyDownloaded", new y14(), l14Var.m(), l14Var.j(), l14Var.l());
-    }
-
-    @Override // com.baidu.tieba.l84
-    public void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
-            return;
-        }
-        Download download = (Download) obj;
-        l14 l14Var = new l14(download);
-        z14.n().f("statusInstalled", new y14(), download.getKeyByUser(), l14Var.j(), l14Var.l());
-        if (TextUtils.equals(l14Var.m(), this.a)) {
-            rj3.a().putBoolean(b, true);
-            z14.n().p(13, l14Var.m(), l14Var.h(), l14Var.l());
-        }
+        return (View) invokeV.objValue;
     }
 }

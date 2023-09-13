@@ -1,41 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.util.Log;
+import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import androidx.webkit.WebViewAssetLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class et4 {
+public final class et4 implements WebViewAssetLoader.PathHandler {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final File a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745860, "Lcom/baidu/tieba/et4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947745860, "Lcom/baidu/tieba/et4;");
+    public et4(@NonNull Context context, @NonNull File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, file};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        try {
+            this.a = new File(dt4.a(file));
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
+        }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
+    @NonNull
+    @WorkerThread
+    public WebResourceResponse handle(@NonNull String str) {
+        InterceptResult invokeL;
+        File b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                b = dt4.b(this.a, str);
+            } catch (IOException e) {
+                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+            }
+            if (b != null) {
+                return new WebResourceResponse(dt4.c(str), null, dt4.e(b));
+            }
+            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
+            return new WebResourceResponse(null, null, null);
         }
-        return invokeV.booleanValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 }

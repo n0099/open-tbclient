@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: PollingModel.java */
 /* loaded from: classes8.dex */
-public interface x85 {
-    void a(Context context);
+public final /* synthetic */ class x85 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    public static void a(PollingModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, dVar) == null) {
+        }
+    }
 }

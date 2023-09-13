@@ -7,13 +7,13 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.cw5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.AbilityEffectItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BubbleInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ExcellentInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.UserExtraInfo;
 import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
+import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class CommonMsgField extends OrmObject implements Serializable, Cloneable
     public static final String FROM_ANDROID = "android";
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @cw5(deserialize = false, serialize = false)
+    @yw5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
     @Nullable
     @SerializedName("bubble_info")
@@ -53,12 +53,12 @@ public class CommonMsgField extends OrmObject implements Serializable, Cloneable
     public boolean isLocalMsgId;
     public int level;
     @SerializedName("msg_id")
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public long msgId;
     @SerializedName("msg_key")
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public String msgKey;
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public String portrait;
     @Nullable
     @SerializedName("quick_operate")
@@ -67,24 +67,24 @@ public class CommonMsgField extends OrmObject implements Serializable, Cloneable
     public int robotRole;
     public int role;
     @SerializedName("room_id")
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public long roomId;
     @Nullable
     @SerializedName("second_data")
     public List<EnableDegradeUserData> secondDegradeUserDataList;
     @Nullable
     @SerializedName("task_info")
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public TaskInfo taskInfo;
     public int type;
     @Nullable
     @SerializedName("user_extra_info")
     public UserExtraInfo userExtraInfo;
     @SerializedName("user_id")
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public long userId;
     @SerializedName("user_name")
-    @cw5(serialize = false)
+    @yw5(serialize = false)
     public String userName;
     @Nullable
     public String version;

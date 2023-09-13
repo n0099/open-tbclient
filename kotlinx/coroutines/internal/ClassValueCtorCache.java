@@ -11,11 +11,11 @@ public final class ClassValueCtorCache extends CtorCache {
     public static final ClassValueCtorCache INSTANCE = new ClassValueCtorCache();
     public static final ClassValueCtorCache$cache$1 cache = new ClassValue<Function1<? super Throwable, ? extends Throwable>>() { // from class: kotlinx.coroutines.internal.ClassValueCtorCache$cache$1
         public /* bridge */ /* synthetic */ Object computeValue(Class cls) {
-            return m2332computeValue((Class<?>) cls);
+            return m2333computeValue((Class<?>) cls);
         }
 
         /* renamed from: computeValue  reason: collision with other method in class */
-        public Function1<Throwable, Throwable> m2332computeValue(Class<?> cls) {
+        public Function1<Throwable, Throwable> m2333computeValue(Class<?> cls) {
             if (cls != null) {
                 return ExceptionsConstructorKt.access$createConstructor(cls);
             }

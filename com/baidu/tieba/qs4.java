@@ -1,64 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class qs4 extends GestureDetector.SimpleOnGestureListener {
+public final class qs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
+    public static final SparseArray<Integer> b;
+    public static final SparseArray<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final GestureDetector b;
-    public rs4 c;
-    public MediaGestureMode d;
-    public int e;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-479362342, "Lcom/baidu/tieba/qs4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-479362342, "Lcom/baidu/tieba/qs4$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[MediaGestureMode.values().length];
-            a = iArr;
-            try {
-                iArr[MediaGestureMode.VOLUME.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[MediaGestureMode.BRIGHTNESS.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[MediaGestureMode.FAST_FORWARD.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -73,160 +33,89 @@ public final class qs4 extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        f = nr1.a;
+        a = rr1.a;
+        SparseArray<Integer> sparseArray = new SparseArray<>(32);
+        b = sparseArray;
+        sparseArray.put(10015, 2001);
+        b.put(10013, 2002);
+        b.put(904, 2003);
+        b.put(10012, 2004);
+        b.put(10004, 2006);
+        b.put(701, 2007);
+        b.put(10005, 2008);
+        b.put(10006, 2009);
+        b.put(10007, -2301);
+        b.put(10008, 2101);
+        b.put(923, 2103);
+        b.put(10009, 2105);
+        b.put(10010, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6));
+        b.put(10003, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7));
+        b.put(10011, 2108);
+        b.put(10014, 3001);
+        b.put(3002, 3002);
+        b.put(3003, 3003);
+        b.put(3004, 3005);
+        SparseArray<String> sparseArray2 = new SparseArray<>();
+        c = sparseArray2;
+        sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
+        c.put(10014, "MEDIA_ERR_NETWORK");
+        c.put(3002, "MEDIA_ERR_NETWORK");
+        c.put(3003, "MEDIA_ERR_NETWORK");
+        c.put(3004, "MEDIA_ERR_NETWORK");
+        c.put(-2022, "MEDIA_ERR_NETWORK");
+        c.put(-111, "MEDIA_ERR_NETWORK");
+        c.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    public qs4(Context context) {
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
         }
-        this.d = MediaGestureMode.INTI;
-        this.a = context;
-        this.b = new GestureDetector(context, this);
+        return (String) invokeI.objValue;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public static JSONObject c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (f) {
-                Log.d("MediaGestureDetector", "onDoubleTap:" + motionEvent);
-            }
-            rs4 rs4Var = this.c;
-            if (rs4Var != null) {
-                return rs4Var.onDoubleTap(motionEvent);
-            }
-            return super.onDoubleTap(motionEvent);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return d(StatConstants.KEY_EXT_ERR_MSG, a(i));
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeI.objValue;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (f) {
-                Log.d("MediaGestureDetector", "onDown:" + motionEvent);
-            }
-            this.d = MediaGestureMode.INTI;
-            rs4 rs4Var = this.c;
-            if (rs4Var != null) {
-                return rs4Var.onDown(motionEvent);
-            }
-            return super.onDown(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (f) {
-                Log.d("MediaGestureDetector", "onSingleTapUp:" + motionEvent);
-            }
-            rs4 rs4Var = this.c;
-            if (rs4Var != null) {
-                return rs4Var.a(motionEvent);
-            }
-            return super.onSingleTapUp(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        rs4 rs4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 1 && (rs4Var = this.c) != null) {
-                rs4Var.b(motionEvent, this.d);
-            }
-            return this.b.onTouchEvent(motionEvent);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void d(rs4 rs4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rs4Var) == null) {
-            this.c = rs4Var;
-        }
-    }
-
-    public final MediaGestureMode b(MediaGestureMode mediaGestureMode, float f2, float f3, float f4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaGestureMode, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            if (mediaGestureMode == MediaGestureMode.INTI) {
-                if (Math.abs(f3) - Math.abs(f4) > 3.0f) {
-                    mediaGestureMode = MediaGestureMode.FAST_FORWARD;
-                    if (f) {
-                        Log.d("MediaGestureDetector", "horizontal slide");
-                    }
-                } else if (f2 <= this.e / 2) {
-                    mediaGestureMode = MediaGestureMode.BRIGHTNESS;
-                    if (f) {
-                        Log.d("MediaGestureDetector", "brightness slide");
-                    }
-                } else {
-                    mediaGestureMode = MediaGestureMode.VOLUME;
-                    if (f) {
-                        Log.d("MediaGestureDetector", "volume slide");
-                    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (b.indexOfKey(i) < 0) {
+                if (a) {
+                    Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
+                    return 100;
                 }
+                return 100;
             }
-            return mediaGestureMode;
+            return b.get(i).intValue();
         }
-        return (MediaGestureMode) invokeCommon.objValue;
+        return invokeI.intValue;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        InterceptResult invokeCommon;
+    public static JSONObject d(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (f) {
-                Log.d("MediaGestureDetector", "onScroll:" + motionEvent + " e2:" + motionEvent2 + " distanceX:" + f2 + " distanceY:" + f3);
-            }
-            if (this.c == null) {
-                return super.onScroll(motionEvent, motionEvent2, f2, f3);
-            }
-            MediaGestureMode b = b(this.d, motionEvent.getX(), f2, f3);
-            this.d = b;
-            int i = a.a[b.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return false;
-                    }
-                    return this.c.d(motionEvent, motionEvent2, f2, f3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (obj instanceof Integer) {
+                    jSONObject.put(str, ((Integer) obj).intValue());
+                } else if (obj instanceof String) {
+                    jSONObject.put(str, obj);
                 }
-                return this.c.e(motionEvent, motionEvent2, f2, f3);
+            } catch (JSONException unused) {
             }
-            return this.c.c(motionEvent, motionEvent2, f2, f3);
+            return jSONObject;
         }
-        return invokeCommon.booleanValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

@@ -56,41 +56,41 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
         int dimens = BdUtilHelper.getDimens(BdBaseApplication.getInst().getApp(), R.dimen.obfuscated_res_0x7f070198);
         int color = SkinManager.getColor(R.color.black_alpha10);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925be);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092600);
         this.a = textView;
         textView.setOnClickListener(onClickListener);
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09171e);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091727);
         this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910bb);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ea);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252a);
         this.f.setIsRound(true);
         this.f.setBorderColor(color);
         this.f.setBorderWidth(dimens);
         this.f.setOnClickListener(onClickListener);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09171f);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091728);
         this.g = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910bc);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924eb);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252b);
         this.g.setIsRound(true);
         this.g.setBorderColor(color);
         this.g.setBorderWidth(dimens);
         this.g.setOnClickListener(onClickListener);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091720);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091729);
         this.h = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910bd);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ec);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252c);
         this.h.setIsRound(true);
         this.h.setBorderColor(color);
         this.h.setBorderWidth(dimens);
         this.h.setOnClickListener(onClickListener);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091721);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172a);
         this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910be);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ed);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252d);
         this.i.setIsRound(true);
         this.i.setBorderColor(color);
         this.i.setBorderWidth(dimens);
         this.i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c03);
+        this.n = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bff);
     }
 
-    public void b(BawuRoleInfoPub bawuRoleInfoPub, int i) {
+    public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
         String str;
         String str2;
         String str3;
@@ -157,7 +157,7 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void c(int i) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (this.f.getVisibility() == 0) {

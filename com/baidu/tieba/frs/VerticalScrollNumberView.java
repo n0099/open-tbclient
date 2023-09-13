@@ -53,7 +53,7 @@ public class VerticalScrollNumberView extends LinearLayout {
             this.b = BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070201);
             this.c = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070225);
             this.d = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f07041c);
+            this.e = BdUtilHelper.getDimens(this.a, R.dimen.obfuscated_res_0x7f070420);
         }
     }
 

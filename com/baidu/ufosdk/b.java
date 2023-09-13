@@ -32,6 +32,7 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.ufosdk.FeedbackConfigurations;
 import com.baidu.ufosdk.hybrid.base.WebLoaderActivity;
 import com.baidu.ufosdk.screencapedt.ScreenCapEditActivity;
@@ -560,17 +561,17 @@ public class b {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:69|70|(2:72|73)(1:104)|74|75|(2:77|(7:86|87|88|(2:90|(1:95)(1:94))|96|(1:92)|95)(2:81|(1:85)))|100|(1:79)|86|87|88|(0)|96|(0)|95) */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0208, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0206, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0209, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0207, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:147:0x0282 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x01d9 A[Catch: all -> 0x02b5, Exception -> 0x02b9, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0203 A[Catch: Exception -> 0x0208, all -> 0x02b5, TRY_LEAVE, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x020f A[Catch: all -> 0x02b5, Exception -> 0x02b9, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x026e A[Catch: all -> 0x02b5, Exception -> 0x02b9, TryCatch #12 {all -> 0x02b5, blocks: (B:14:0x011f, B:15:0x013f, B:17:0x0145, B:20:0x015c, B:21:0x016b, B:23:0x0175, B:28:0x018c, B:30:0x0192, B:32:0x01a8, B:71:0x0259, B:73:0x026e, B:75:0x0278, B:78:0x027f, B:79:0x0282, B:34:0x01b5, B:36:0x01bb, B:39:0x01c4, B:41:0x01ca, B:50:0x01d9, B:52:0x01df, B:54:0x01eb, B:56:0x01f1, B:57:0x01f5, B:58:0x01fd, B:60:0x0203, B:66:0x020f, B:68:0x0215, B:69:0x0228, B:63:0x0209, B:47:0x01d3, B:70:0x023f, B:80:0x0294), top: B:137:0x011f }] */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x0280 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x01d7 A[Catch: all -> 0x02b3, Exception -> 0x02b7, TryCatch #9 {Exception -> 0x02b7, blocks: (B:14:0x011d, B:15:0x013d, B:17:0x0143, B:20:0x015a, B:21:0x0169, B:23:0x0173, B:28:0x018a, B:30:0x0190, B:32:0x01a6, B:71:0x0257, B:73:0x026c, B:75:0x0276, B:78:0x027d, B:79:0x0280, B:50:0x01d7, B:52:0x01dd, B:54:0x01e9, B:56:0x01ef, B:57:0x01f3, B:66:0x020d, B:68:0x0213, B:69:0x0226, B:63:0x0207, B:47:0x01d1, B:70:0x023d, B:80:0x0292), top: B:136:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0201 A[Catch: Exception -> 0x0206, all -> 0x02b3, TRY_LEAVE, TryCatch #13 {all -> 0x02b3, blocks: (B:14:0x011d, B:15:0x013d, B:17:0x0143, B:20:0x015a, B:21:0x0169, B:23:0x0173, B:28:0x018a, B:30:0x0190, B:32:0x01a6, B:71:0x0257, B:73:0x026c, B:75:0x0276, B:78:0x027d, B:79:0x0280, B:34:0x01b3, B:36:0x01b9, B:39:0x01c2, B:41:0x01c8, B:50:0x01d7, B:52:0x01dd, B:54:0x01e9, B:56:0x01ef, B:57:0x01f3, B:58:0x01fb, B:60:0x0201, B:66:0x020d, B:68:0x0213, B:69:0x0226, B:63:0x0207, B:47:0x01d1, B:70:0x023d, B:80:0x0292), top: B:136:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x020d A[Catch: all -> 0x02b3, Exception -> 0x02b7, TryCatch #9 {Exception -> 0x02b7, blocks: (B:14:0x011d, B:15:0x013d, B:17:0x0143, B:20:0x015a, B:21:0x0169, B:23:0x0173, B:28:0x018a, B:30:0x0190, B:32:0x01a6, B:71:0x0257, B:73:0x026c, B:75:0x0276, B:78:0x027d, B:79:0x0280, B:50:0x01d7, B:52:0x01dd, B:54:0x01e9, B:56:0x01ef, B:57:0x01f3, B:66:0x020d, B:68:0x0213, B:69:0x0226, B:63:0x0207, B:47:0x01d1, B:70:0x023d, B:80:0x0292), top: B:136:0x011d }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x026c A[Catch: all -> 0x02b3, Exception -> 0x02b7, TryCatch #9 {Exception -> 0x02b7, blocks: (B:14:0x011d, B:15:0x013d, B:17:0x0143, B:20:0x015a, B:21:0x0169, B:23:0x0173, B:28:0x018a, B:30:0x0190, B:32:0x01a6, B:71:0x0257, B:73:0x026c, B:75:0x0276, B:78:0x027d, B:79:0x0280, B:50:0x01d7, B:52:0x01dd, B:54:0x01e9, B:56:0x01ef, B:57:0x01f3, B:66:0x020d, B:68:0x0213, B:69:0x0226, B:63:0x0207, B:47:0x01d1, B:70:0x023d, B:80:0x0292), top: B:136:0x011d }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -601,7 +602,7 @@ public class b {
             hashMap.put("id", str8);
             hashMap.put("interval", String.valueOf(a.a));
             hashMap.put("model", "");
-            hashMap.put("os", "android");
+            hashMap.put(TtsLogLoad.KEY_OS, "android");
             hashMap.put("sdkvn", "4.1.9.1");
             hashMap.put("baiducuid", f());
             String str11 = "extra";
@@ -677,37 +678,37 @@ public class b {
                                                             } else {
                                                                 jSONArray = null;
                                                             }
-                                                            try {
-                                                            } catch (Exception e2) {
-                                                                e = e2;
-                                                                e.printStackTrace();
-                                                                str6 = null;
-                                                                if (jSONArray == null) {
-                                                                }
-                                                                hashMap3.put("flagRobot", 0);
-                                                                if (jSONObject2.has("answer")) {
-                                                                }
-                                                                str7 = null;
-                                                                if (str7 == null) {
-                                                                }
-                                                                hashMap3.put("flagRobot", 0);
-                                                                hashMap3.put("content", jSONArray2.getJSONObject(i).getString("content"));
-                                                                hashMap3.put("toggle", "yes");
-                                                                hashMap3.put("time", jSONArray2.getJSONObject(i).getString("time"));
-                                                                if (jSONArray2.getJSONObject(i).has("evaluation")) {
-                                                                }
-                                                                ArrayList<? extends Parcelable> arrayList3 = arrayList;
-                                                                arrayList3.add(hashMap3);
-                                                                i++;
-                                                                arrayList2 = arrayList3;
-                                                                str10 = str14;
-                                                                str11 = str15;
-                                                                intent3 = intent2;
-                                                                str8 = str;
-                                                            }
+                                                        } catch (Exception e2) {
+                                                            e = e2;
+                                                            jSONArray = null;
+                                                        }
+                                                        try {
                                                         } catch (Exception e3) {
                                                             e = e3;
-                                                            jSONArray = null;
+                                                            e.printStackTrace();
+                                                            str6 = null;
+                                                            if (jSONArray == null) {
+                                                            }
+                                                            hashMap3.put("flagRobot", 0);
+                                                            if (jSONObject2.has("answer")) {
+                                                            }
+                                                            str7 = null;
+                                                            if (str7 == null) {
+                                                            }
+                                                            hashMap3.put("flagRobot", 0);
+                                                            hashMap3.put("content", jSONArray2.getJSONObject(i).getString("content"));
+                                                            hashMap3.put("toggle", "yes");
+                                                            hashMap3.put("time", jSONArray2.getJSONObject(i).getString("time"));
+                                                            if (jSONArray2.getJSONObject(i).has("evaluation")) {
+                                                            }
+                                                            ArrayList<? extends Parcelable> arrayList3 = arrayList;
+                                                            arrayList3.add(hashMap3);
+                                                            i++;
+                                                            arrayList2 = arrayList3;
+                                                            str10 = str14;
+                                                            str11 = str15;
+                                                            intent3 = intent2;
+                                                            str8 = str;
                                                         }
                                                         if (jSONObject2.has("tip")) {
                                                             str6 = jSONObject2.getString("tip");
@@ -784,11 +785,11 @@ public class b {
                                             intent.putExtras(bundle);
                                             intent.setPackage(c.a());
                                             context2 = context;
-                                        } catch (Throwable th2) {
-                                            th = th2;
+                                        } catch (Exception unused2) {
                                             context2 = context;
                                         }
-                                    } catch (Exception unused2) {
+                                    } catch (Throwable th2) {
+                                        th = th2;
                                         context2 = context;
                                     }
                                     try {
@@ -873,13 +874,13 @@ public class b {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(12:38|39|(2:41|(5:47|48|49|(1:51)|(2:57|58)(2:55|56))(2:45|46))|62|(1:43)|47|48|49|(0)|(1:53)|57|58) */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x01a4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x01a3, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x01a5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x01a4, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x019f A[Catch: Exception -> 0x01a4, all -> 0x027f, TRY_LEAVE, TryCatch #5 {Exception -> 0x01a4, blocks: (B:52:0x0199, B:54:0x019f), top: B:110:0x0199 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x019e A[Catch: Exception -> 0x01a3, all -> 0x027e, TRY_LEAVE, TryCatch #6 {Exception -> 0x01a3, blocks: (B:52:0x0198, B:54:0x019e), top: B:110:0x0198 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1124,13 +1125,13 @@ public class b {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(11:66|67|(2:69|(5:74|75|76|(1:78)|(1:83)(1:82))(1:73))|87|(1:71)|74|75|76|(0)|(1:80)|83) */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x01b4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x01b3, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b4, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01af A[Catch: Exception -> 0x01b4, all -> 0x02ca, TRY_LEAVE, TryCatch #5 {all -> 0x02ca, blocks: (B:27:0x0105, B:33:0x0127, B:41:0x0156, B:43:0x015c, B:45:0x0170, B:78:0x021b, B:80:0x0230, B:82:0x0241, B:86:0x024d, B:96:0x027f, B:89:0x025c, B:92:0x026c, B:95:0x0278, B:47:0x017d, B:49:0x0183, B:55:0x0192, B:57:0x0198, B:58:0x01a1, B:59:0x01a9, B:61:0x01af, B:66:0x01ba, B:68:0x01c0, B:69:0x01d3, B:64:0x01b5, B:52:0x018b, B:70:0x01e7, B:72:0x01f3, B:74:0x01fd, B:77:0x0208, B:75:0x0201, B:76:0x0205, B:97:0x02a8), top: B:145:0x0105 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x01ae A[Catch: Exception -> 0x01b3, all -> 0x02c9, TRY_LEAVE, TryCatch #6 {all -> 0x02c9, blocks: (B:27:0x0104, B:33:0x0126, B:41:0x0155, B:43:0x015b, B:45:0x016f, B:78:0x021a, B:80:0x022f, B:82:0x0240, B:86:0x024c, B:96:0x027e, B:89:0x025b, B:92:0x026b, B:95:0x0277, B:47:0x017c, B:49:0x0182, B:55:0x0191, B:57:0x0197, B:58:0x01a0, B:59:0x01a8, B:61:0x01ae, B:66:0x01b9, B:68:0x01bf, B:69:0x01d2, B:64:0x01b4, B:52:0x018a, B:70:0x01e6, B:72:0x01f2, B:74:0x01fc, B:77:0x0207, B:75:0x0200, B:76:0x0204, B:97:0x02a7), top: B:145:0x0104 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1927,8 +1928,8 @@ public class b {
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x01db */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00ce */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x01da */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x00cd */
     /* JADX WARN: Can't wrap try/catch for region: R(3:(3:42|43|(2:52|53)(3:45|(2:47|48)(2:50|51)|49))|39|40) */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r17v0 */

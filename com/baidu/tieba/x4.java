@@ -1,84 +1,99 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Matrix3;
 import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.JsonValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h7;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.i7;
+import com.baidu.tieba.u6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class x4 implements a7, h7.c {
+public class x4 implements i7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void a(h7 h7Var, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, h7Var, jsonValue) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.a7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void f(f1 f1Var, a5 a5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f1Var, a5Var) == null) {
-        }
-    }
-
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320113, "Lcom/baidu/tieba/x4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448320113, "Lcom/baidu/tieba/x4;");
-                return;
-            }
-        }
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Quaternion();
-        new Quaternion();
-        new Matrix3();
-        new Matrix4();
-    }
+    public d5 a;
+    public u6<e5> b;
+    public g5<?, ?> c;
+    public float d;
 
     public x4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        new Matrix4();
+        new Vector3(1.0f, 1.0f, 1.0f);
+        this.b = new u6<>(true, 3, e5.class);
+        d(0.016666668f);
+    }
+
+    @Override // com.baidu.tieba.i7.c
+    public void a(i7 i7Var, JsonValue jsonValue) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, i7Var, jsonValue) == null) {
+            String str = (String) i7Var.l("name", String.class, jsonValue);
+            this.a = (d5) i7Var.l("emitter", d5.class, jsonValue);
+            this.b.b((u6) i7Var.m("influencers", u6.class, e5.class, jsonValue));
+            this.c = (g5) i7Var.l("renderer", g5.class, jsonValue);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.dispose();
+            u6.b<e5> it = this.b.iterator();
+            while (it.hasNext()) {
+                it.next().dispose();
+            }
+        }
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            update(y0.b.e());
+        }
+    }
+
+    public void c(g1 g1Var, b5 b5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, g1Var, b5Var) == null) {
+            this.a.f(g1Var, b5Var);
+            u6.b<e5> it = this.b.iterator();
+            while (it.hasNext()) {
+                it.next().f(g1Var, b5Var);
+            }
+            this.c.f(g1Var, b5Var);
+        }
+    }
+
+    public final void d(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            d(f);
+            this.a.update();
+            u6.b<e5> it = this.b.iterator();
+            while (it.hasNext()) {
+                it.next().update();
             }
         }
     }

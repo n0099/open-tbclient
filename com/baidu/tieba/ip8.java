@@ -1,75 +1,147 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ip8 extends fr8 {
+public class ip8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AbilityItem a;
 
-    @Override // com.baidu.tieba.fr8
-    public int a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861304, "Lcom/baidu/tieba/ip8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947861304, "Lcom/baidu/tieba/ip8;");
+                return;
+            }
+        }
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds28_5);
+        b = UtilHelper.getDimenPixelSize(R.dimen.tbds31);
+        c = UtilHelper.getDimenPixelSize(R.dimen.tbds83);
+    }
+
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (BdUtilHelper.getEquipmentWidth(TbadkApplication.getInst()) - (a * 2)) / ((b * 2) + c);
         }
         return invokeV.intValue;
     }
 
-    public ip8(AbilityItem abilityItem) {
+    @Nullable
+    public static EmojiData b(@NonNull String str, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {abilityItem};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = abilityItem;
-    }
-
-    public AbilityItem b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (AbilityItem) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AbilityItem abilityItem = this.a;
-            if (abilityItem == null || abilityItem.getStyleConf() == null) {
-                return "";
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                if (this.a.getStyleConf().getDark() == null || this.a.getStyleConf().getDark().getIcon() == null) {
-                    return "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            try {
+                URL url = new URL(str);
+                for (EmojiData emojiData : list) {
+                    URL url2 = new URL(emojiData.getContent());
+                    if (url.getHost().equals(url2.getHost()) && url.getPath().equals(url2.getPath())) {
+                        return emojiData;
+                    }
                 }
-                return this.a.getStyleConf().getDark().getIcon();
-            } else if (this.a.getStyleConf().getDay() == null || this.a.getStyleConf().getDay().getIcon() == null) {
-                return "";
-            } else {
-                return this.a.getStyleConf().getDay().getIcon();
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
         }
-        return (String) invokeV.objValue;
+        return (EmojiData) invokeLL.objValue;
+    }
+
+    public static boolean c(@NonNull GroupInputViewController groupInputViewController) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, groupInputViewController)) == null) {
+            return !groupInputViewController.j1(Arrays.asList(Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN), Integer.valueOf((int) TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE)));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull Reaction reaction, @NonNull List<EmojiData> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, reaction, list)) == null) {
+            EmojiData b2 = b(reaction.getContent(), list);
+            if (b2 != null) {
+                return b2.hasReplied();
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void e(@NonNull io8 io8Var, int i, @NonNull BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65541, null, io8Var, i, baseMsg) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("scene", Integer.valueOf(i));
+            io8Var.d(new AbilityItem("open_emoji_panel", hashMap, null), baseMsg, null);
+        }
+    }
+
+    public static void f(@NonNull io8 io8Var, @NonNull EmojiData emojiData, @NonNull BaseMsg baseMsg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65542, null, io8Var, emojiData, baseMsg, i) == null) {
+            g(io8Var, new Reaction("", emojiData.getContent()), baseMsg, i);
+        }
+    }
+
+    public static void g(@NonNull io8 io8Var, @NonNull Reaction reaction, @NonNull BaseMsg baseMsg, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65543, null, io8Var, reaction, baseMsg, i) == null) {
+            List<EmojiData> emojiList = baseMsg.getCommonMsgField().getEmojiList();
+            boolean z = true;
+            if (emojiList != null) {
+                boolean d = d(reaction, emojiList);
+                if (i != 1) {
+                    int i2 = 2;
+                    if (i == 2) {
+                        z = true ^ d;
+                        if (!z) {
+                            i2 = 3;
+                        }
+                        as8.h(i2);
+                    }
+                } else if (d) {
+                    return;
+                } else {
+                    as8.h(1);
+                }
+            }
+            HashMap hashMap = new HashMap();
+            hashMap.put("content", reaction.getContent());
+            hashMap.put(SpeedStatsUtils.UBC_KEY_OPTION, Boolean.valueOf(z));
+            io8Var.d(new AbilityItem("send_emoji_msg", hashMap, null), baseMsg, null);
+        }
     }
 }

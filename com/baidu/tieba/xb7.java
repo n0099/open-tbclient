@@ -1,60 +1,116 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardHeadView;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
+import java.util.Map;
+@Autowired
 /* loaded from: classes8.dex */
-public class xb7 extends sa7<CardHeadView, z57> {
+public class xb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xb7(String str) {
-        super(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948294684, "Lcom/baidu/tieba/xb7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948294684, "Lcom/baidu/tieba/xb7;");
+                return;
+            }
+        }
+        GlobalBuildConfig.isDebug();
+    }
+
+    public xb7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.sa7, com.baidu.tieba.ib7
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Inject
+    public static sb7 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            wc7.k(a, 0);
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return ds6.a();
         }
-        return (View) invokeL.objValue;
+        return (sb7) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ib7
-    /* renamed from: e */
-    public void b(@NonNull CardHeadView cardHeadView, @NonNull z57 z57Var) {
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, z57Var) == null) {
-            cardHeadView.g(z57Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    sb.append("&");
+                    sb.append(URLEncoder.encode(str2, "UTF-8"));
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str3, "UTF-8"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    for (String str2 : map.keySet()) {
+                        sb.append("&");
+                        sb.append(URLEncoder.encode(str2, "UTF-8"));
+                        sb.append("=");
+                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            d().a(context, str);
         }
     }
 }

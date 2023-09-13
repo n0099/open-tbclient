@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.tc6;
+import com.baidu.tieba.rd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<tc6> followList;
+    public List<rd6> followList;
     public boolean hasMore;
     public int pn;
-    public List<tc6> recommendList;
+    public List<rd6> recommendList;
     public int totalFollowCount;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,9 +63,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject = jSONObject2.optJSONObject("user");
                         JSONObject optJSONObject2 = jSONObject2.optJSONObject("ala_live_info");
                         if (optJSONObject != null && optJSONObject2 != null) {
-                            tc6 tc6Var = new tc6();
-                            tc6Var.a(optJSONObject, optJSONObject2);
-                            this.followList.add(tc6Var);
+                            rd6 rd6Var = new rd6();
+                            rd6Var.a(optJSONObject, optJSONObject2);
+                            this.followList.add(rd6Var);
                         }
                     }
                 }
@@ -76,9 +76,9 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
                         JSONObject optJSONObject3 = jSONObject3.optJSONObject("user");
                         JSONObject optJSONObject4 = jSONObject3.optJSONObject("ala_live_info");
                         if (optJSONObject3 != null && optJSONObject4 != null) {
-                            tc6 tc6Var2 = new tc6();
-                            tc6Var2.a(optJSONObject3, optJSONObject4);
-                            this.recommendList.add(tc6Var2);
+                            rd6 rd6Var2 = new rd6();
+                            rd6Var2.a(optJSONObject3, optJSONObject4);
+                            this.recommendList.add(rd6Var2);
                         }
                     }
                 }

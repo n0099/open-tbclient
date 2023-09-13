@@ -1,105 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.fh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes5.dex */
 public class dh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fh1 a;
 
-    public dh1(Context context) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        ?? r3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
+                try {
+                    try {
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        ei1.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        ei1.a(new Closeable[]{r3});
+                        return bitmap;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    ei1.a(new Closeable[]{bitmap});
+                    throw th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                ei1.a(new Closeable[]{bitmap});
+                throw th;
             }
+            return bitmap;
         }
-        File b = b(context, "bitmap");
-        if (!b.exists()) {
-            b.mkdirs();
-        }
-        try {
-            this.a = fh1.q(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
-            return;
-        }
-        try {
-            fh1.c m = this.a.m(jh1.b(str));
-            if (m == null) {
-                return;
-            }
-            if (zg1.b(str, m.f(0))) {
-                m.e();
-            } else {
-                m.a();
-            }
-            this.a.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public File b(Context context, String str) {
+    public static boolean b(String str, OutputStream outputStream) {
         InterceptResult invokeLL;
-        String path;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
-                path = context.getExternalCacheDir().getPath();
-            } else {
-                path = context.getCacheDir().getPath();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
+            try {
+                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(outputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
+                }
+            } catch (IOException e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
             }
-            return new File(path + File.separator + str);
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        bufferedOutputStream.write(bArr, 0, read);
+                    } else {
+                        ei1.a(bufferedInputStream, bufferedOutputStream);
+                        return true;
+                    }
+                }
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = bufferedInputStream;
+                try {
+                    e.printStackTrace();
+                    ei1.a(bufferedInputStream2, bufferedOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    ei1.a(bufferedInputStream2, bufferedOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedInputStream2 = bufferedInputStream;
+                ei1.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
-        return (File) invokeLL.objValue;
-    }
-
-    public Bitmap c(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            fh1.e o = this.a.o(jh1.b(str));
-            if (o == null) {
-                return null;
-            }
-            FileInputStream fileInputStream = (FileInputStream) o.a(0);
-            if (i > 0 && i2 > 0) {
-                return ih1.b(fileInputStream.getFD(), i, i2);
-            }
-            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
-        }
-        return (Bitmap) invokeLII.objValue;
     }
 }

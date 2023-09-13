@@ -15,12 +15,12 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class lr implements qr {
+/* loaded from: classes6.dex */
+public final class lr implements rr {
     public static /* synthetic */ Interceptable $ic;
     public static final b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Integer a;
+    public int a;
     public final byte[] b;
 
     static {
@@ -40,7 +40,7 @@ public final class lr implements qr {
     }
 
     @JvmStatic
-    public static final a a() {
+    public static final a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
@@ -49,11 +49,12 @@ public final class lr implements qr {
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof lr) {
                     lr lrVar = (lr) obj;
-                    return Intrinsics.areEqual(this.a, lrVar.a) && Intrinsics.areEqual(this.b, lrVar.b);
+                    if (!(this.a == lrVar.a) || !Intrinsics.areEqual(this.b, lrVar.b)) {
+                    }
                 }
                 return false;
             }
@@ -65,11 +66,10 @@ public final class lr implements qr {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Integer num = this.a;
-            int hashCode = (num != null ? num.hashCode() : 0) * 31;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a * 31;
             byte[] bArr = this.b;
-            return hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0);
+            return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
@@ -77,17 +77,17 @@ public final class lr implements qr {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Random(GMTUnixTime=" + this.a + ", randomBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "Extension(type=" + this.a + ", dataBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
+        public int a;
         public byte[] b;
 
         public a() {
@@ -100,27 +100,29 @@ public final class lr implements qr {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = -1;
         }
 
         public final lr c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return new lr(this.a, lt.c(this.b));
+                return new lr(this.a, mt.c(this.b));
             }
             return (lr) invokeV.objValue;
         }
 
-        public final a a(Integer num) {
-            InterceptResult invokeL;
+        public final a a(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
-                this.a = num;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.a = i;
                 return this;
             }
-            return (a) invokeL.objValue;
+            return (a) invokeI.objValue;
         }
 
         public final a b(byte[] bArr) {
@@ -134,7 +136,7 @@ public final class lr implements qr {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +175,7 @@ public final class lr implements qr {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    return new lr(Integer.valueOf(jSONObject.optInt("GMTUnixTime")), lt.b(jSONObject.optString("RandomBytes")));
+                    return new lr(jSONObject.optInt("Type"), mt.b(jSONObject.optString("Data")));
                 } catch (Exception e) {
                     e.printStackTrace();
                     DebugTrace debugTrace = DebugTrace.a;
@@ -185,33 +187,53 @@ public final class lr implements qr {
         }
     }
 
-    public lr(Integer num, byte[] bArr) {
+    public lr(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {num, bArr};
+            Object[] objArr = {Integer.valueOf(i), bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = num;
+        this.a = i;
         this.b = bArr;
     }
 
-    @Override // com.baidu.tieba.qr
-    public JSONObject c() {
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] d = mt.d(this.b);
+            Intrinsics.checkExpressionValueIsNotNull(d, "StringUtils.base64Decode(dataBytes)");
+            return d;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rr
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("GMTUnixTime", this.a);
-            jSONObject.putOpt("RandomBytes", lt.a(this.b));
+            jSONObject.putOpt("Type", Integer.valueOf(this.a));
+            jSONObject.putOpt("Data", mt.a(this.b));
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

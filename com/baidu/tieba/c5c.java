@@ -1,50 +1,80 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class c5c {
+public class c5c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int[] b;
-    public int[] c;
+    public ArrayList<Long> b;
+    public long c;
+    public int d;
+    public boolean e;
 
-    public c5c() {
+    public c5c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList<>();
+        this.c = 0L;
+        this.d = 0;
+        this.e = false;
+        this.a = i;
     }
 
-    public static void a(c5c c5cVar, w4c w4cVar) {
+    public synchronized long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, c5cVar, w4cVar) == null) {
-            int length = c5cVar.c.length;
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                c5cVar.c[i2] = i;
-                z4c.n(c5cVar.a, c5cVar.b, i, w4cVar);
-                i += 1080;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.b.isEmpty()) {
+                    return 0L;
+                }
+                long longValue = this.b.remove(0).longValue();
+                this.c -= longValue;
+                if (!this.b.isEmpty()) {
+                    long size = this.c / this.b.size();
+                }
+                return longValue;
             }
         }
+        return invokeV.longValue;
     }
 
-    public static void b(c5c c5cVar, int i, int i2) {
+    public synchronized void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, c5cVar, i, i2) == null) {
-            c5cVar.a = i;
-            c5cVar.b = new int[i2 * 1080];
-            c5cVar.c = new int[i2];
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            synchronized (this) {
+                this.b.add(Long.valueOf(j));
+                this.c += j;
+                if (this.b.size() > this.a) {
+                    this.c -= this.b.remove(0).longValue();
+                }
+                long size = this.c / this.b.size();
+                if (this.d == 0) {
+                    return;
+                }
+                if (this.e && this.b.size() <= this.d) {
+                    long size2 = this.c / this.b.size();
+                }
+            }
         }
     }
 }

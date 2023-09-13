@@ -5,8 +5,8 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ld9;
-import com.baidu.tieba.md9;
+import com.baidu.tieba.ne9;
+import com.baidu.tieba.oe9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ld9 mData;
+    public ne9 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetFaceGroupInfoResponseMessage(int i) {
@@ -56,43 +56,43 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public ld9 getData() {
+    public ne9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (ld9) invokeV.objValue;
+        return (ne9) invokeV.objValue;
     }
 
-    public ld9 parseData(JSONObject jSONObject) {
+    public ne9 parseData(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
             if (jSONObject == null) {
                 return null;
             }
-            ld9 ld9Var = new ld9();
+            ne9 ne9Var = new ne9();
             String optString = jSONObject.optString("id");
-            ld9Var.a = optString;
+            ne9Var.a = optString;
             if (TextUtils.isEmpty(optString)) {
                 return null;
             }
-            ld9Var.b = jSONObject.optString("name");
+            ne9Var.b = jSONObject.optString("name");
             jSONObject.optInt("type");
             jSONObject.optString("owner");
             jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
             jSONObject.optString("timestamp");
             jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
-            ld9Var.c = jSONObject.optString("covername");
-            ld9Var.d = jSONObject.optString("url");
-            ld9Var.e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
-            return ld9Var;
+            ne9Var.c = jSONObject.optString("covername");
+            ne9Var.d = jSONObject.optString("url");
+            ne9Var.e = parsePicsData(jSONObject.optJSONArray(SocialConstants.PARAM_IMAGE));
+            return ne9Var;
         }
-        return (ld9) invokeL.objValue;
+        return (ne9) invokeL.objValue;
     }
 
-    public List<md9> parsePicsData(JSONArray jSONArray) {
+    public List<oe9> parsePicsData(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
@@ -103,15 +103,15 @@ public class GetFaceGroupInfoResponseMessage extends JsonHttpResponsedMessage {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    md9 md9Var = new md9();
-                    md9Var.b = jSONObject.optString("id");
+                    oe9 oe9Var = new oe9();
+                    oe9Var.b = jSONObject.optString("id");
                     jSONObject.optString("url");
                     jSONObject.optString("thumbnail");
-                    md9Var.c = jSONObject.optString("name");
-                    md9Var.d = jSONObject.optString("thumbname");
-                    md9Var.f = jSONObject.optInt("width");
-                    md9Var.e = jSONObject.optInt("height");
-                    arrayList.add(md9Var);
+                    oe9Var.c = jSONObject.optString("name");
+                    oe9Var.d = jSONObject.optString("thumbname");
+                    oe9Var.f = jSONObject.optInt("width");
+                    oe9Var.e = jSONObject.optInt("height");
+                    arrayList.add(oe9Var);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -31,7 +31,7 @@ import com.baidu.searchbox.download.util.DownloadHelper;
 import com.baidu.searchbox.download.util.ExternalStorageCallBack;
 import com.baidu.searchbox.downloads.DSUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.a20;
+import com.baidu.tieba.b20;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -841,7 +841,7 @@ public class DownloadManager {
                         if (ApkCloudStatisticsUtils.enableAppsearchCloudStatic()) {
                             doCloudResumeStatisticJob(cursor.getLong(cursor.getColumnIndex("_id")));
                         }
-                        a20.d(cursor.getLong(cursor.getColumnIndex("_id")));
+                        b20.d(cursor.getLong(cursor.getColumnIndex("_id")));
                         cursor.moveToNext();
                     }
                 } catch (Exception e) {
@@ -865,7 +865,7 @@ public class DownloadManager {
                     }
                 }
                 this.mResolver.update(this.mBaseUri, contentValues, getWhereClauseForIds(jArr2), getWhereArgsForIds(jArr2));
-                a20.q(jArr);
+                b20.q(jArr);
                 if (Constants.LOGV) {
                     Log.i("DownloadManager", "resumeDownload() set status: Downloads.Impl.STATUS_PENDING");
                 }

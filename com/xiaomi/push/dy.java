@@ -11,16 +11,16 @@ public class dy {
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        eg m449a = ec.a(context).m449a();
-        if (m449a != null) {
-            m449a.a(context, hashMap);
+        eg m450a = ec.a(context).m450a();
+        if (m450a != null) {
+            m450a.a(context, hashMap);
         }
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        eg m449a = ec.a(context).m449a();
-        if (m449a != null) {
-            m449a.c(context, hashMap);
+        eg m450a = ec.a(context).m450a();
+        if (m450a != null) {
+            m450a.c(context, hashMap);
         }
     }
 
@@ -51,9 +51,9 @@ public class dy {
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        eg m449a = ec.a(context).m449a();
-        if (m449a != null) {
-            m449a.b(context, hashMap);
+        eg m450a = ec.a(context).m450a();
+        if (m450a != null) {
+            m450a.b(context, hashMap);
         }
     }
 }

@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -25,13 +24,12 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c75;
+import com.baidu.tieba.db5;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.li;
-import com.baidu.tieba.qz4;
-import com.baidu.tieba.ta5;
-import com.baidu.tieba.ux;
-import com.baidu.tieba.zfa;
+import com.baidu.tieba.l75;
+import com.baidu.tieba.mi;
+import com.baidu.tieba.tha;
+import com.baidu.tieba.vz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,22 +42,21 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class HotCardView extends LinearLayout implements ux {
+public class HotCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer l;
-    public static int m;
+    public static final Integer k;
+    public static int l;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public EMTextView a;
     public EMTextView b;
     public EMTextView c;
-    public EMTextView d;
-    public TbImageView e;
-    public ViewFlipper f;
-    public int g;
-    public ThreadData h;
-    public View i;
-    public int j;
-    public qz4 k;
+    public TbImageView d;
+    public ViewFlipper e;
+    public int f;
+    public ThreadData g;
+    public View h;
+    public int i;
+    public vz4 j;
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
@@ -96,8 +93,8 @@ public class HotCardView extends LinearLayout implements ux {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.k != null) {
-                this.b.k.d(view2, "", this.a, 0L);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.j != null) {
+                this.b.j.d(view2, "", this.a, 0L);
             }
         }
     }
@@ -115,26 +112,26 @@ public class HotCardView extends LinearLayout implements ux {
                 return;
             }
         }
-        l = 1;
+        k = 1;
     }
 
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
         }
         return (ThreadData) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotCardView(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public HotCardView(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,30 +142,29 @@ public class HotCardView extends LinearLayout implements ux {
                 return;
             }
         }
-        this.j = 3;
-        this.a = tbPageContext;
+        this.i = 3;
         b();
     }
 
-    public void setOutOnClickListener(qz4 qz4Var) {
+    public void setOutOnClickListener(vz4 vz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qz4Var) == null) {
-            this.k = qz4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vz4Var) == null) {
+            this.j = vz4Var;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d085d, (ViewGroup) this, true);
+            this.h = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0872, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09258f);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907c5);
-            this.d = (EMTextView) findViewById(R.id.more_label_view);
-            this.e = (TbImageView) findViewById(R.id.image_content);
-            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f090761);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0925d1);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907ba);
+            this.c = (EMTextView) findViewById(R.id.more_label_view);
+            this.d = (TbImageView) findViewById(R.id.image_content);
+            this.e = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f090755);
+            this.a.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
             this.b.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
-            this.c.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
             c();
         }
     }
@@ -176,52 +172,64 @@ public class HotCardView extends LinearLayout implements ux {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g = BdUtilHelper.getDimens(getContext(), R.dimen.tbds237);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
-            int i = this.g;
+            this.f = BdUtilHelper.getDimens(getContext(), R.dimen.tbds237);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.d.getLayoutParams();
+            int i = this.f;
             marginLayoutParams.width = i;
             marginLayoutParams.height = (i * 3) / 4;
-            this.e.setLayoutParams(marginLayoutParams);
-            this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.e.setDrawCorner(true);
-            this.e.setPlaceHolder(2);
-            this.e.setConrers(15);
-            this.e.setRadiusById(R.string.J_X05);
-            this.e.setForegroundColor(0);
-            this.e.setBorderSurroundContent(true);
-            this.e.setDrawBorder(true);
-            this.e.setBorderWidth(BdUtilHelper.getDimens(getContext(), R.dimen.tbds1));
-            this.e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.d.setLayoutParams(marginLayoutParams);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setDrawCorner(true);
+            this.d.setPlaceHolder(2);
+            this.d.setConrers(15);
+            this.d.setRadiusById(R.string.J_X05);
+            this.d.setForegroundColor(0);
+            this.d.setBorderSurroundContent(true);
+            this.d.setDrawBorder(true);
+            this.d.setBorderWidth(BdUtilHelper.getDimens(getContext(), R.dimen.tbds1));
+            this.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
 
-    public final void d(@NonNull ThreadData threadData, int i, ThemeColorInfo themeColorInfo) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, threadData, i, themeColorInfo) == null) {
-            this.f.removeAllViews();
-            this.f.stopFlipping();
-            List<zfa> postList = threadData.getPostList();
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || this.i == i) {
+            return;
+        }
+        this.i = i;
+        EMManager.from(this.a).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105);
+        EMManager.from(this.b).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0107);
+        EMManager.from(this.c).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X02).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
+        this.d.setSkinType(i);
+    }
+
+    public final void e(@NonNull ThreadData threadData, int i, ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, threadData, i, themeColorInfo) == null) {
+            this.e.removeAllViews();
+            this.e.stopFlipping();
+            List<tha> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());
                     recommendHotReplyLayout.setOutOnClickListener(new a(this, i));
                     recommendHotReplyLayout.setData(postList.get(i2), themeColorInfo);
-                    this.f.addView(recommendHotReplyLayout, new ViewGroup.LayoutParams(-1, -2));
+                    this.e.addView(recommendHotReplyLayout, new ViewGroup.LayoutParams(-1, -2));
                 }
-                if (this.f.getChildCount() > 1) {
-                    this.f.startFlipping();
+                if (this.e.getChildCount() > 1) {
+                    this.e.startFlipping();
                 } else {
-                    this.f.stopFlipping();
+                    this.e.stopFlipping();
                 }
             }
         }
     }
 
-    public final void e(ThreadData threadData) {
+    public final void f(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
-            this.e.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             this.d.setVisibility(8);
+            this.c.setVisibility(8);
             ArrayList<MediaData> medias = threadData.getMedias();
             if (!ListUtils.isEmpty(medias)) {
                 LinkedList linkedList = new LinkedList();
@@ -234,29 +242,16 @@ public class HotCardView extends LinearLayout implements ux {
                 if (ListUtils.isEmpty(linkedList)) {
                     return;
                 }
-                this.e.setVisibility(0);
-                this.e.startLoad(ThreadCardUtils.getThumbnailsUrl((MediaData) linkedList.get(0)), 10, false);
-                if (linkedList.size() > l.intValue()) {
-                    this.d.setText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(linkedList.size() - l.intValue())}));
-                    this.d.setVisibility(0);
+                this.d.setVisibility(0);
+                this.d.startLoad(ThreadCardUtils.getThumbnailsUrl((MediaData) linkedList.get(0)), 10, false);
+                if (linkedList.size() > k.intValue()) {
+                    this.c.setText(TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(linkedList.size() - k.intValue())}));
+                    this.c.setVisibility(0);
                     return;
                 }
-                this.d.setVisibility(8);
+                this.c.setVisibility(8);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ux
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048581, this, tbPageContext, i) != null) || this.j == i) {
-            return;
-        }
-        this.j = i;
-        EMManager.from(this.b).setTextStyle(R.string.F_X02).setTextSize(R.dimen.T_X05).setTextColor(R.color.CAM_X0105);
-        EMManager.from(this.c).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0107);
-        EMManager.from(this.d).setTextColor(R.color.CAM_X0101).setTextStyle(R.string.F_X02).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
-        this.e.setSkinType(i);
     }
 
     public void setData(ThreadData threadData, int i, ThemeColorInfo themeColorInfo) {
@@ -264,33 +259,33 @@ public class HotCardView extends LinearLayout implements ux {
         if ((interceptable != null && interceptable.invokeLIL(1048582, this, threadData, i, themeColorInfo) != null) || threadData == null) {
             return;
         }
-        this.h = threadData;
-        e(threadData);
+        this.g = threadData;
+        f(threadData);
         int i2 = 2;
-        m = (BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 2)) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005) * 2);
-        if (this.e.getVisibility() == 0) {
-            m = (m - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006)) - this.g;
+        l = (BdUtilHelper.getEquipmentWidth(getContext()) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X004) * 2)) - (BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005) * 2);
+        if (this.d.getVisibility() == 0) {
+            l = (l - BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X006)) - this.f;
         }
         if (threadData.getIsNoTitle() == 1) {
-            this.c.setVisibility(8);
+            this.b.setVisibility(8);
         } else {
-            this.c.setVisibility(0);
-            this.c.setText(threadData.getAbstractText());
-            i2 = (2 - li.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
+            this.b.setVisibility(0);
+            this.b.setText(threadData.getAbstractText());
+            i2 = (2 - mi.a(l, this.b.getPaint(), this.b.getText().toString(), 2)) + 1;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(threadData.getTitleText());
-        float[] B = c75.B(R.string.J_X04);
+        float[] B = l75.B(R.string.J_X04);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        ta5 ta5Var = new ta5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
-        ta5Var.b(dimenPixelSize2);
-        ta5Var.a(false);
+        db5 db5Var = new db5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
+        db5Var.b(dimenPixelSize2);
+        db5Var.a(false);
         String valueOf = String.valueOf(i);
         spannableStringBuilder.insert(0, (CharSequence) valueOf);
-        spannableStringBuilder.setSpan(ta5Var, 0, valueOf.length(), 17);
-        this.b.setMaxLines(i2);
-        this.b.setText(spannableStringBuilder);
-        d(threadData, i - 1, themeColorInfo);
-        onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        spannableStringBuilder.setSpan(db5Var, 0, valueOf.length(), 17);
+        this.a.setMaxLines(i2);
+        this.a.setText(spannableStringBuilder);
+        e(threadData, i - 1, themeColorInfo);
+        d(TbadkCoreApplication.getInst().getSkinType());
     }
 }

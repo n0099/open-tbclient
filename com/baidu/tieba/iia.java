@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.util.PriorityOrganizer;
+import android.webkit.JsPromptResult;
 /* loaded from: classes6.dex */
 public interface iia {
-    int getCurrentTabType();
-
-    @NonNull
-    PriorityOrganizer q0();
+    @Deprecated
+    boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult);
 }

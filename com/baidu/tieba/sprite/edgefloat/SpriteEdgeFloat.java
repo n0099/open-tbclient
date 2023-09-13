@@ -7,13 +7,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.maa;
-import com.baidu.tieba.saa;
+import com.baidu.tieba.fca;
+import com.baidu.tieba.lca;
+import com.baidu.tieba.mca;
+import com.baidu.tieba.oda;
+import com.baidu.tieba.pfa;
+import com.baidu.tieba.rfa;
 import com.baidu.tieba.sprite.view.NormalSpriteView;
-import com.baidu.tieba.taa;
-import com.baidu.tieba.vba;
-import com.baidu.tieba.wda;
-import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,12 +32,12 @@ import kotlin.jvm.internal.Intrinsics;
 public final class SpriteEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final taa a;
+    public final mca a;
     public final Lazy b;
     public final Lazy c;
     public final Lazy d;
 
-    public SpriteEdgeFloat(final Activity activity, taa spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
+    public SpriteEdgeFloat(final Activity activity, mca spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class SpriteEdgeFloat {
         Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
         Intrinsics.checkNotNullParameter(pageSupportList, "pageSupportList");
         this.a = spriteStateMap;
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<saa>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<lca>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteEdgeFloat this$0;
@@ -85,15 +85,15 @@ public final class SpriteEdgeFloat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final saa invoke() {
+            public final lca invoke() {
                 InterceptResult invokeV;
-                taa taaVar;
+                mca mcaVar;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (saa) invokeV.objValue;
+                    return (lca) invokeV.objValue;
                 }
-                taaVar = this.this$0.a;
-                return new saa(taaVar);
+                mcaVar = this.this$0.a;
+                return new lca(mcaVar);
             }
         });
         this.c = LazyKt__LazyJVMKt.lazy(new Function0<NormalSpriteView>(activity) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$normalSpriteView$2
@@ -181,18 +181,18 @@ public final class SpriteEdgeFloat {
                     return (EdgeFloat) invokeV.objValue;
                 }
                 f = this.this$0.f();
-                maa maaVar = new maa(f);
-                maaVar.x(this.$gravity);
-                maaVar.H(this.$startX);
-                maaVar.I(this.$startY);
-                maaVar.d(this.$canDrag);
-                maaVar.C(this.$pageSupportList);
-                return maaVar.c();
+                fca fcaVar = new fca(f);
+                fcaVar.x(this.$gravity);
+                fcaVar.H(this.$startX);
+                fcaVar.I(this.$startY);
+                fcaVar.d(this.$canDrag);
+                fcaVar.C(this.$pageSupportList);
+                return fcaVar.c();
             }
         });
     }
 
-    public final void k(wda event) {
+    public final void k(pfa event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -215,7 +215,7 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final void o(vba data) {
+    public final void o(oda data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -223,13 +223,13 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final yda c() {
+    public final rfa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return g().c();
         }
-        return (yda) invokeV.objValue;
+        return (rfa) invokeV.objValue;
     }
 
     public final EdgeFloat d() {
@@ -241,13 +241,13 @@ public final class SpriteEdgeFloat {
         return (EdgeFloat) invokeV.objValue;
     }
 
-    public final saa e() {
+    public final lca e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return g();
         }
-        return (saa) invokeV.objValue;
+        return (lca) invokeV.objValue;
     }
 
     public final NormalSpriteView f() {
@@ -259,13 +259,13 @@ public final class SpriteEdgeFloat {
         return (NormalSpriteView) invokeV.objValue;
     }
 
-    public final saa g() {
+    public final lca g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (saa) this.b.getValue();
+            return (lca) this.b.getValue();
         }
-        return (saa) invokeV.objValue;
+        return (lca) invokeV.objValue;
     }
 
     public final void h() {

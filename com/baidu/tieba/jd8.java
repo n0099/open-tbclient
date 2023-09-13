@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface jd8 {
-    void onCanceled();
+    void a();
 
-    void onPostExecute();
+    void b(String str);
 
-    void onPreExecute();
-
-    void onProgressUpdate(int i, String str, int i2);
+    void c(int i, float f);
 }

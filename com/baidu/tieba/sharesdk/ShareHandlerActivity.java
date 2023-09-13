@@ -7,18 +7,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tieba.di;
+import com.baidu.tieba.d9a;
+import com.baidu.tieba.e9a;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.f9a;
+import com.baidu.tieba.g9a;
+import com.baidu.tieba.h9a;
+import com.baidu.tieba.i9a;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.k7a;
-import com.baidu.tieba.l7a;
-import com.baidu.tieba.m7a;
+import com.baidu.tieba.k9a;
 import com.baidu.tieba.model.ShareReportModel;
-import com.baidu.tieba.n7a;
-import com.baidu.tieba.o7a;
-import com.baidu.tieba.p7a;
-import com.baidu.tieba.r7a;
+import com.baidu.tieba.n9a;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
-import com.baidu.tieba.u7a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,14 +29,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes8.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbShareCallback {
+public class ShareHandlerActivity extends ShareBaseActivity implements k9a, WbShareCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
     public ShareEntity c;
-    public k7a d;
-    public o7a e;
+    public d9a d;
+    public h9a e;
     public ShareReportModel f;
     public PermissionJudgePolicy g;
 
@@ -94,9 +94,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            k7a k7aVar = this.d;
-            if (k7aVar != null) {
-                k7aVar.r();
+            d9a d9aVar = this.d;
+            if (d9aVar != null) {
+                d9aVar.r();
             }
             ShareReportModel shareReportModel = this.f;
             if (shareReportModel != null) {
@@ -121,43 +121,43 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        o7a o7aVar;
+        h9a h9aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (o7aVar = this.e) != null) {
-            o7aVar.N();
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (h9aVar = this.e) != null) {
+            h9aVar.N();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        o7a o7aVar;
+        h9a h9aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (o7aVar = this.e) != null) {
-            o7aVar.O();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (h9aVar = this.e) != null) {
+            h9aVar.O();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        o7a o7aVar;
+        h9a h9aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (o7aVar = this.e) != null) {
-            o7aVar.P();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (h9aVar = this.e) != null) {
+            h9aVar.P();
         }
     }
 
-    @Override // com.baidu.tieba.r7a
-    public void X0(int i, int i2) {
+    @Override // com.baidu.tieba.k9a
+    public void U0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (i2 == 1) {
-                u7a.b(i, this.c);
+                n9a.b(i, this.c);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    u7a.a(i, this.c);
+                    n9a.a(i, this.c);
                 } else {
-                    u7a.b(i, this.c);
+                    n9a.b(i, this.c);
                 }
             }
             if (this.c.getStats() != null) {
@@ -165,10 +165,10 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
                 this.c.getStats().getString("pid");
             }
             String str = null;
-            if (!di.isEmpty(this.c.taskCompleteId)) {
+            if (!ei.isEmpty(this.c.taskCompleteId)) {
                 str = this.c.taskCompleteId;
             }
-            s1(i, i2, this.c.getStats(), str);
+            o1(i, i2, this.c.getStats(), str);
         }
     }
 
@@ -178,9 +178,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                k7a k7aVar = this.d;
-                if (k7aVar != null) {
-                    k7aVar.n(intent);
+                d9a d9aVar = this.d;
+                if (d9aVar != null) {
+                    d9aVar.n(intent);
                     return;
                 }
                 return;
@@ -206,16 +206,16 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
                 finish();
                 return;
             }
-            u1(shareEntity.getStats());
+            p1(shareEntity.getStats());
             this.b = this.c.getShareTo();
-            k7a k7aVar = this.d;
-            if (k7aVar != null) {
-                k7aVar.r();
+            d9a d9aVar = this.d;
+            if (d9aVar != null) {
+                d9aVar.r();
                 this.d = null;
             }
-            o7a o7aVar = this.e;
-            if (o7aVar != null) {
-                o7aVar.r();
+            h9a h9aVar = this.e;
+            if (h9aVar != null) {
+                h9aVar.r();
                 this.e = null;
             }
             int i = this.b;
@@ -227,28 +227,28 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
                                 if (i != 4) {
                                     this.d = null;
                                 } else {
-                                    this.d = new m7a(this);
+                                    this.d = new f9a(this);
                                 }
                             } else {
-                                this.d = new p7a(this, 3);
+                                this.d = new i9a(this, 3);
                             }
                         } else {
-                            this.d = new p7a(this, 2);
+                            this.d = new i9a(this, 2);
                         }
                     } else {
-                        this.d = new l7a(this);
+                        this.d = new e9a(this);
                     }
                 } else {
-                    o7a o7aVar2 = new o7a(this, this, this);
-                    this.e = o7aVar2;
-                    this.d = o7aVar2;
+                    h9a h9aVar2 = new h9a(this, this, this);
+                    this.e = h9aVar2;
+                    this.d = h9aVar2;
                 }
             } else {
-                this.d = new n7a(this);
+                this.d = new g9a(this);
             }
-            k7a k7aVar2 = this.d;
-            if (k7aVar2 != null) {
-                k7aVar2.A(this.c.getTid());
+            d9a d9aVar2 = this.d;
+            if (d9aVar2 != null) {
+                d9aVar2.A(this.c.getTid());
                 this.d.y(this.c.getExtLiveInfo());
                 if (!GroupInfoData.isValidGroup(this.c.groupData)) {
                     this.d.x(true);
@@ -265,9 +265,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
                     return;
                 }
             }
-            k7a k7aVar3 = this.d;
-            if (k7aVar3 != null) {
-                k7aVar3.s(getUniqueId());
+            d9a d9aVar3 = this.d;
+            if (d9aVar3 != null) {
+                d9aVar3.s(getUniqueId());
                 this.d.n(getIntent());
                 this.d.a(this.c, this);
                 return;
@@ -275,7 +275,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
             if (this.c.getStats() != null) {
                 this.c.getStats().getString("tid");
             }
-            s1(this.b, 2, this.c.getStats(), null);
+            o1(this.b, 2, this.c.getStats(), null);
         }
     }
 
@@ -287,9 +287,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
             if (intent != null) {
                 intent.getIntExtra("extra_skin", 3);
             }
-            k7a k7aVar = this.d;
-            if (k7aVar != null) {
-                k7aVar.n(intent);
+            d9a d9aVar = this.d;
+            if (d9aVar != null) {
+                d9aVar.n(intent);
             }
         }
     }
@@ -310,7 +310,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
         }
     }
 
-    public final void u1(Bundle bundle) {
+    public final void p1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048589, this, bundle) != null) || bundle == null) {
             return;
@@ -318,6 +318,6 @@ public class ShareHandlerActivity extends ShareBaseActivity implements r7a, WbSh
         if (this.f == null) {
             this.f = new ShareReportModel(getPageContext());
         }
-        this.f.O(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
+        this.f.N(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
     }
 }

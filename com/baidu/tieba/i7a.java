@@ -1,103 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.sharesdk.ShareHandlerActivity;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class i7a implements jf5 {
+public final class i7a implements tc7, rc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public i7a(Context context, if5 if5Var) {
+    @Override // com.baidu.tieba.rc7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tc7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10708" : (String) invokeV.objValue;
+    }
+
+    public i7a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, if5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = null;
-        this.a = context;
-    }
-
-    @Override // com.baidu.tieba.jf5
-    public void a(ShareItem shareItem, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b(shareItem, i);
         }
     }
 
-    public final void b(ShareItem shareItem, int i) {
-        boolean z;
+    @Override // com.baidu.tieba.tc7
+    public Map<String, String> a(f87 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
-            IntentConfig intentConfig = new IntentConfig(this.a);
-            ShareEntity shareEntity = new ShareEntity();
-            shareEntity.setTitle(shareItem.title);
-            shareEntity.setContent(shareItem.content);
-            shareEntity.setReadCount(shareItem.readCount);
-            int i2 = shareItem.obj_type;
-            if (i2 != 2 && i2 != 6 && i2 != 8) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(x6a.a.a(businessInfo));
+            String str = a.get("is_vertical_video");
+            if (str == null) {
+                str = "0";
             }
-            shareEntity.setIsVideoThread(z);
-            shareEntity.setFestivalTaskTid(shareItem.festivalTaskTid);
-            shareEntity.setFestivalTaskType(shareItem.festivalTaskType);
-            shareEntity.setImageUri(shareItem.imageUri);
-            shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
-            String str = shareItem.linkUrl;
-            if (i == 6 && !StringUtils.isNull(shareItem.spareLinkUrl)) {
-                str = shareItem.spareLinkUrl;
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
+            String str2 = a.get("author_is_living");
+            if (str2 == null) {
+                str2 = "1";
             }
-            shareEntity.setLinkUrl(str);
-            shareEntity.setLocalFile(shareItem.localFile);
-            shareEntity.setLocation(shareItem.location);
-            shareEntity.setShareTo(i);
-            shareEntity.setStats(shareItem.getStats());
-            shareEntity.setPreferImageToLink(shareItem.shareType);
-            shareEntity.setTid(shareItem.tid);
-            shareEntity.setFloorAuthorUid(shareItem.floorAuthorUid);
-            shareEntity.setfName(shareItem.fName);
-            shareEntity.setTypeShareToSmallApp(shareItem.typeShareToSmallApp);
-            shareEntity.topic = shareItem.topic;
-            if (i == 6 && !StringUtils.isNull(shareItem.wbcontent)) {
-                shareEntity.topic = shareItem.wbtitle + shareItem.wbcontent;
-                shareEntity.setContent("");
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
+            String str3 = a.get("live_type");
+            if (str3 == null) {
+                str3 = "5";
             }
-            shareEntity.taskCompleteId = shareItem.taskCompleteId;
-            shareEntity.diskPicOperate = shareItem.diskPicOperate;
-            shareEntity.setExtLiveInfo(shareItem.extLiveInfo);
-            shareEntity.setFromDuXiaoMan(shareItem.isFromDuXiaoMan);
-            shareEntity.setTopicId(shareItem.topicId);
-            shareEntity.groupData = shareItem.groupData;
-            shareEntity.shareMediaType = shareItem.shareMediaType;
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("extra_share_data", shareEntity);
-            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
-            intentConfig.getIntent().putExtras(bundle);
-            shareItem.setShowShare(true);
-            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM7, str3);
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().getHdid()");
+            hashMap.put("hdid", hdid);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }

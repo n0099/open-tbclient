@@ -167,7 +167,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    public final void u1() {
+    public final void p1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TiebaStatic.log("c10746");
@@ -185,21 +185,21 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             this.a = intent.getStringExtra("ad_pic");
             this.b = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
             intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-            v1();
-            u1();
+            q1();
+            p1();
         }
     }
 
-    public final void v1() {
+    public final void q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08b8);
+            setContentView(R.layout.obfuscated_res_0x7f0d08cd);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092222);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09221d);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09221c);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092262);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09225d);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09225c);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
             this.d.startLoad(this.a, 10, false);

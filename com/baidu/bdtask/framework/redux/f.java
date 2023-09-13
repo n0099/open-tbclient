@@ -2,9 +2,9 @@ package com.baidu.bdtask.framework.redux;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.tieba.cr;
 import com.baidu.tieba.dr;
 import com.baidu.tieba.er;
+import com.baidu.tieba.fr;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,18 +17,18 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000*\u000e\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u00028\u00000\u0001*\u0004\b\u0001\u0010\u0003*\b\b\u0002\u0010\u0005*\u00020\u0004B?\u0012\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00020\u000b\u0012\u0014\u0010\u0015\u001a\u0010\u0012\u0004\u0012\u00028\u0001\u0012\u0004\u0012\u00028\u0002\u0018\u00010\u000b\u0012\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u00028\u00010\u0010¢\u0006\u0004\b\u0016\u0010\u0017J\u001f\u0010\t\u001a\u00020\b2\u0006\u0010\u0006\u001a\u00028\u00002\b\u0010\u0007\u001a\u0004\u0018\u00018\u0002¢\u0006\u0004\b\t\u0010\nR%\u0010\f\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00020\u000b8\u0006@\u0006¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000fR\u001f\u0010\u0011\u001a\b\u0012\u0004\u0012\u00028\u00010\u00108\u0006@\u0006¢\u0006\f\n\u0004\b\u0011\u0010\u0012\u001a\u0004\b\u0013\u0010\u0014¨\u0006\u0018"}, d2 = {"Lcom/baidu/bdtask/framework/redux/SubscriptionBox;", "Lcom/baidu/bdtask/framework/redux/StateType;", "State", "SelectedState", "Lcom/baidu/bdtask/framework/redux/Action;", "AT", GameAssistConstKt.KEY_DISK_NEW_STATE, "action", "", "newValues", "(Lcom/baidu/bdtask/framework/redux/StateType;Lcom/baidu/bdtask/framework/redux/Action;)V", "Lcom/baidu/bdtask/framework/redux/Subscription;", "originalSubscription", "Lcom/baidu/bdtask/framework/redux/Subscription;", "getOriginalSubscription", "()Lcom/baidu/bdtask/framework/redux/Subscription;", "Lcom/baidu/bdtask/framework/redux/IStoreSubscriber;", "subscriber", "Lcom/baidu/bdtask/framework/redux/IStoreSubscriber;", "getSubscriber", "()Lcom/baidu/bdtask/framework/redux/IStoreSubscriber;", "transformedSubscription", "<init>", "(Lcom/baidu/bdtask/framework/redux/Subscription;Lcom/baidu/bdtask/framework/redux/Subscription;Lcom/baidu/bdtask/framework/redux/IStoreSubscriber;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
-public final class f<State extends er<State>, SelectedState, AT extends cr> {
+public final class f<State extends fr<State>, SelectedState, AT extends dr> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final e<State, AT> a;
-    public final dr<SelectedState> b;
+    public final er<SelectedState> b;
 
-    public f(e<State, AT> eVar, e<SelectedState, AT> eVar2, dr<SelectedState> drVar) {
+    public f(e<State, AT> eVar, e<SelectedState, AT> eVar2, er<SelectedState> erVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar, eVar2, drVar};
+            Object[] objArr = {eVar, eVar2, erVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,7 +39,7 @@ public final class f<State extends er<State>, SelectedState, AT extends cr> {
             }
         }
         this.a = eVar;
-        this.b = drVar;
+        this.b = erVar;
         Function0<Unit> function0 = new Function0<Unit>(this) { // from class: com.baidu.bdtask.framework.redux.SubscriptionBox$forwardFromOriginalSubscription$1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -176,13 +176,13 @@ public final class f<State extends er<State>, SelectedState, AT extends cr> {
         return (e) invokeV.objValue;
     }
 
-    public final dr<SelectedState> c() {
+    public final er<SelectedState> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (dr) invokeV.objValue;
+        return (er) invokeV.objValue;
     }
 
     public final void b(State state, AT at) {

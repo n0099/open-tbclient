@@ -1,444 +1,243 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.card.CardExtendForumItemHolder;
-import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.LikeReturnData;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.CRC32;
+import java.util.zip.CheckedInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes8.dex */
-public class sn6 extends mn6<xo6> {
+public class sn6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String D;
-    public String E;
-    public CustomMessageListener F;
-    public CustomMessageListener G;
-    public HListView t;
-    public ea8 u;
-    public CardExtendForumItemHolder v;
-    public View w;
-    public View.OnClickListener x;
-    public LikeModel y;
-    public List<fa8> z;
 
-    /* loaded from: classes8.dex */
-    public class a extends h9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sn6 a;
-
-        public a(sn6 sn6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157230, "Lcom/baidu/tieba/sn6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = sn6Var;
-        }
-
-        @Override // com.baidu.tieba.h9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof LikeReturnData) || this.a.y.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.a.y.getErrorCode(), this.a.y.getErrorString())) {
-                        AntiHelper.u(this.a.getContext(), this.a.y.getErrorString());
-                    } else {
-                        this.a.g().showToast(this.a.y.getErrorString());
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sn6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(sn6 sn6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sn6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948157230, "Lcom/baidu/tieba/sn6;");
                 return;
             }
-            this.a.J(((Long) customResponsedMessage.getData()).longValue(), false);
         }
+        a = new String[]{"../", "~/", "__MACOSX/"};
     }
 
-    /* loaded from: classes8.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sn6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(sn6 sn6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sn6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
-                return;
-            }
-            this.a.J(((Long) customResponsedMessage.getData()).longValue(), true);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sn6 a;
-
-        public d(sn6 sn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sn6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null) {
-                if (view2.getId() == R.id.forum_add_love) {
-                    if (!ViewHelper.checkUpIsLogin(this.a.h().getContext())) {
-                        return;
-                    }
-                    String str = (String) view2.getTag(R.id.tag_forum_name);
-                    String valueOf = String.valueOf(view2.getTag(R.id.tag_forum_id));
-                    if (di.isForumName(str)) {
-                        this.a.y.f0(str, valueOf);
-                        TiebaStatic.log(new StatisticItem(this.a.A).param("fid", valueOf).param(TiebaStatic.Params.OBJ_PARAM3, vn6.e()));
-                    }
-                } else if (view2.getTag(R.id.tag_forum_name) != null) {
-                    String str2 = (String) view2.getTag(R.id.tag_forum_name);
-                    String valueOf2 = String.valueOf(view2.getTag(R.id.tag_forum_id));
-                    if (di.isForumName(str2)) {
-                        if (view2.getId() == R.id.m_forum_name_textview) {
-                            TiebaStatic.log(new StatisticItem(this.a.C).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, vn6.e()));
-                        } else {
-                            TiebaStatic.log(new StatisticItem(this.a.B).param("fid", valueOf2).param(TiebaStatic.Params.OBJ_PARAM3, vn6.e()));
-                        }
-                        if (!StringUtils.isNull(this.a.D) && !StringUtils.isNull(this.a.E)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.h().getContext()).createCfgForpersonalized(str2, this.a.D, this.a.E)));
-                        } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.h().getContext()).createNormalCfg(str2, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sn6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0048, code lost:
+        throw new com.baidu.tieba.browser.exception.UnzipErrorException("创建文件夹节点时出现错误，文件夹创建失败：" + r2.getPath());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(@NonNull File file, @NonNull ZipInputStream zipInputStream) throws UnzipErrorException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.F = new b(this, 2001336);
-        this.G = new c(this, 2001335);
-        HListView hListView = new HListView(getContext());
-        this.t = hListView;
-        hListView.setHeaderDividersEnabled(false);
-        this.t.setFooterDividersEnabled(false);
-        if (TbadkCoreApplication.getInst().getPersonalizeViewData().a != null && TbadkCoreApplication.getInst().getPersonalizeViewData().a.getParent() == null) {
-            this.w = TbadkCoreApplication.getInst().getPersonalizeViewData().a;
-        } else {
-            this.w = LayoutInflater.from(getContext()).inflate(R.layout.extend_forum_item, (ViewGroup) null);
-        }
-        this.v = new CardExtendForumItemHolder(this.w);
-        this.q.addView(this.t);
-        this.t.setSelector(R.drawable.list_selector_transparent);
-        this.t.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), 0);
-        E();
-        if (this.u == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i3 = 0; i3 < 10; i3++) {
-                arrayList.add(String.valueOf(i3));
-            }
-            ea8 ea8Var = new ea8(getContext(), R.layout.extend_forum_item, this.v);
-            this.u = ea8Var;
-            ea8Var.d(this.x);
-            this.t.setAdapter((ListAdapter) this.u);
-        }
-        this.i.setOnClickListener(this);
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.y = likeModel;
-        likeModel.setLoadDataCallBack(new a(this));
-        this.t.setOnItemClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mn6
-    /* renamed from: G */
-    public void t(xo6 xo6Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xo6Var) == null) {
-            super.i(xo6Var);
-            if (xo6Var != null && ListUtils.getCount(xo6Var.getDataList()) > 0) {
-                int count = ListUtils.getCount(xo6Var.getDataList());
-                if (count > 10) {
-                    ArrayList arrayList = new ArrayList(xo6Var.getDataList());
-                    xo6Var.getDataList().clear();
-                    xo6Var.getDataList().addAll(arrayList.subList(0, 10));
-                }
-                this.E = xo6Var.e();
-                this.D = xo6Var.d();
-                if (!F(xo6Var.getDataList(), this.z)) {
-                    if (ListUtils.getCount(xo6Var.getDataList()) != ListUtils.getCount(this.z)) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    this.z = xo6Var.getDataList();
-                    if (count <= 0) {
-                        h().setVisibility(8);
-                        return;
-                    }
-                    h().setVisibility(0);
-                    ea8 ea8Var = this.u;
-                    if (ea8Var != null) {
-                        if (z) {
-                            ArrayList arrayList2 = new ArrayList();
-                            for (int i = 0; i < this.z.size(); i++) {
-                                arrayList2.add(String.valueOf(i));
+        if (interceptable == null || interceptable.invokeLL(65537, null, file, zipInputStream) == null) {
+            String str = null;
+            while (true) {
+                try {
+                    try {
+                        try {
+                            ZipEntry nextEntry = zipInputStream.getNextEntry();
+                            if (nextEntry != null) {
+                                str = nextEntry.getName();
+                                if (d(str)) {
+                                    File file2 = new File(file, str);
+                                    if (nextEntry.isDirectory()) {
+                                        if (!file2.exists() && !file2.mkdirs()) {
+                                            break;
+                                        }
+                                    } else {
+                                        b(file2, zipInputStream, true);
+                                    }
+                                }
+                            } else {
+                                try {
+                                    zipInputStream.closeEntry();
+                                    return;
+                                } catch (IOException unused) {
+                                    return;
+                                }
                             }
-                            ea8 ea8Var2 = new ea8(getContext(), R.layout.extend_forum_item, this.v);
-                            this.u = ea8Var2;
-                            ea8Var2.c(this.z);
-                            this.u.d(this.x);
-                            this.t.setAdapter((ListAdapter) this.u);
-                            j(g(), TbadkCoreApplication.getInst().getSkinType());
-                            return;
+                        } catch (IOException e) {
+                            throw new UnzipErrorException("I/O error has occurred:" + str, e);
                         }
-                        ea8Var.c(this.z);
-                        this.u.notifyDataSetChanged();
-                        return;
+                    } catch (ZipException e2) {
+                        throw new UnzipErrorException("a ZIP file error has occurred:" + str, e2);
                     }
-                    return;
+                } catch (Throwable th) {
+                    try {
+                        zipInputStream.closeEntry();
+                    } catch (IOException unused2) {
+                    }
+                    throw th;
                 }
-                return;
             }
-            h().setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.ln6
-    public void setFrom(String str) {
+    public static void b(File file, ZipInputStream zipInputStream, boolean z) throws UnzipErrorException {
+        BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            super.setFrom(str);
+        if (interceptable == null || interceptable.invokeLLZ(65538, null, file, zipInputStream, z) == null) {
+            byte[] bArr = new byte[1024];
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
+                    while (true) {
+                        try {
+                            int read = zipInputStream.read(bArr, 0, 1024);
+                            if (read != -1) {
+                                bufferedOutputStream.write(bArr, 0, read);
+                            } else {
+                                bufferedOutputStream.flush();
+                                qn6.a(fileOutputStream2, bufferedOutputStream);
+                                return;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            try {
+                                if (z) {
+                                    b(file, zipInputStream, false);
+                                    qn6.a(fileOutputStream, bufferedOutputStream);
+                                    return;
+                                }
+                                throw new UnzipErrorException("解压后写入文件时错误：" + file, e);
+                            } catch (Throwable th) {
+                                th = th;
+                                qn6.a(fileOutputStream, bufferedOutputStream);
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileOutputStream = fileOutputStream2;
+                            qn6.a(fileOutputStream, bufferedOutputStream);
+                            throw th;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedOutputStream = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedOutputStream = null;
+            }
         }
     }
 
-    public final wo6 D(String str) {
+    public static void c(File file, File file2) throws UnzipErrorException {
+        Closeable closeable;
+        Closeable closeable2;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, file, file2) == null) {
+            if (file2 != null && file != null) {
+                if (file.exists() && file.isFile() && file.canRead()) {
+                    if (on6.a(file2)) {
+                        Closeable closeable3 = null;
+                        try {
+                            inputStream = new FileInputStream(file);
+                            try {
+                                closeable = new CheckedInputStream(inputStream, new CRC32());
+                                try {
+                                    closeable2 = new ZipInputStream(closeable);
+                                } catch (FileNotFoundException e) {
+                                    e = e;
+                                    closeable2 = null;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    closeable2 = null;
+                                }
+                            } catch (FileNotFoundException e2) {
+                                e = e2;
+                                closeable2 = null;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                closeable = null;
+                                closeable2 = null;
+                            }
+                        } catch (FileNotFoundException e3) {
+                            e = e3;
+                            inputStream = null;
+                            closeable2 = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            closeable = null;
+                            closeable2 = null;
+                            qn6.a(closeable3, closeable, closeable2);
+                            throw th;
+                        }
+                        try {
+                            a(file2, closeable2);
+                            qn6.a(inputStream, closeable, closeable2);
+                            return;
+                        } catch (FileNotFoundException e4) {
+                            e = e4;
+                            closeable3 = closeable;
+                            try {
+                                throw new UnzipErrorException("读取源文件时出现错误:" + file.getPath(), e);
+                            } catch (Throwable th4) {
+                                th = th4;
+                                closeable = closeable3;
+                                closeable3 = inputStream;
+                                qn6.a(closeable3, closeable, closeable2);
+                                throw th;
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
+                            closeable3 = inputStream;
+                            qn6.a(closeable3, closeable, closeable2);
+                            throw th;
+                        }
+                    }
+                    throw new UnzipErrorException("目标文件夹创建失败：" + file2.getPath());
+                }
+                throw new UnzipErrorException("源文件不存在或不可读：" + file.getPath());
+            }
+            throw new UnzipErrorException("参数传入错误：destFile == null || srcFile == null");
+        }
+    }
+
+    public static boolean d(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (ListUtils.getCount(this.z) > 0) {
-                for (fa8 fa8Var : this.z) {
-                    if (fa8Var != null && (fa8Var instanceof wo6)) {
-                        wo6 wo6Var = (wo6) fa8Var;
-                        if (String.valueOf(wo6Var.d).equals(str)) {
-                            return wo6Var;
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            for (String str2 : a) {
+                if (str.contains(str2)) {
+                    return false;
                 }
-                return null;
             }
-            return null;
+            return true;
         }
-        return (wo6) invokeL.objValue;
-    }
-
-    public void H(BdUniqueId bdUniqueId) {
-        CustomMessageListener customMessageListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && (customMessageListener = this.F) != null && this.G != null) {
-            customMessageListener.setTag(bdUniqueId);
-            this.G.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.F);
-            MessageManager.getInstance().registerListener(this.G);
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.x = new d(this);
-        }
-    }
-
-    public final boolean F(List<fa8> list, List<fa8> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2)) == null) {
-            if (ListUtils.getCount(list) <= 0 || ListUtils.getCount(list2) <= 0 || ListUtils.getCount(list) != ListUtils.getCount(list2)) {
-                return false;
-            }
-            boolean z = true;
-            for (int i = 0; i < ListUtils.getCount(list); i++) {
-                fa8 fa8Var = (fa8) ListUtils.getItem(list, i);
-                fa8 fa8Var2 = (fa8) ListUtils.getItem(list2, i);
-                if (fa8Var != null && (fa8Var instanceof wo6) && fa8Var2 != null && (fa8Var2 instanceof wo6)) {
-                    wo6 wo6Var = (wo6) fa8Var;
-                    wo6 wo6Var2 = (wo6) fa8Var2;
-                    if (wo6Var.d != wo6Var2.d) {
-                        z = false;
-                    }
-                    if (!wo6Var.b.equals(wo6Var2.b)) {
-                        z = false;
-                    }
-                    if (wo6Var.c.equals(wo6Var2.c)) {
-                    }
-                }
-                z = false;
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void I(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) {
-            this.A = str2;
-            this.B = str3;
-            this.C = str4;
-        }
-    }
-
-    public final void J(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            wo6 D = D(String.valueOf(j));
-            if (D != null) {
-                D.e = z;
-            }
-            ea8 ea8Var = this.u;
-            if (ea8Var != null) {
-                ea8Var.c(this.z);
-                this.u.notifyDataSetChanged();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mn6, com.baidu.tieba.ln6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        ea8 ea8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i) == null) {
-            super.j(tbPageContext, i);
-            if (this.t != null && (ea8Var = this.u) != null) {
-                ea8Var.b(i);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

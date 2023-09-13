@@ -1,19 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface eg<T> {
-    BdAsyncTaskParallel getAsyncTaskParallel();
+public class eg {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    int getAsyncTaskPriority();
+    /* loaded from: classes5.dex */
+    public interface a {
+        void cancel();
+    }
 
-    T getFromLocal(String str, String str2, int i, int i2, dg dgVar, Object... objArr);
-
-    T getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr);
-
-    T getFromRemote(String str, String str2, int i, int i2, dg dgVar, Object... objArr);
-
-    boolean isNeedLoad();
-
-    void updateMemory(String str, Object obj, int i, int i2, Object... objArr);
+    public eg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

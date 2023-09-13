@@ -27,9 +27,9 @@ import androidx.constraintlayout.motion.utils.Easing;
 import androidx.core.content.ContextCompat;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fh0;
-import com.baidu.tieba.hs0;
-import com.baidu.tieba.m61;
+import com.baidu.tieba.gh0;
+import com.baidu.tieba.ls0;
+import com.baidu.tieba.q61;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.gslbsdk.db.DelayTB;
 import java.util.ArrayList;
@@ -94,12 +94,12 @@ public final class NadRewardSlidingTagView extends FrameLayout {
     public static final class b implements View.OnClickListener {
         public final /* synthetic */ LinearLayout a;
         public final /* synthetic */ NadRewardSlidingTagView b;
-        public final /* synthetic */ hs0 c;
+        public final /* synthetic */ ls0 c;
 
-        public b(LinearLayout linearLayout, NadRewardSlidingTagView nadRewardSlidingTagView, hs0 hs0Var) {
+        public b(LinearLayout linearLayout, NadRewardSlidingTagView nadRewardSlidingTagView, ls0 ls0Var) {
             this.a = linearLayout;
             this.b = nadRewardSlidingTagView;
-            this.c = hs0Var;
+            this.c = ls0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -160,7 +160,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         this.e = 3000L;
         this.h = new c();
         this.i = new Handler(Looper.getMainLooper());
-        this.m = m61.c.a(context, 11.0f);
+        this.m = q61.c.a(context, 11.0f);
         this.n = new HashMap<>();
         this.o = LazyKt__LazyJVMKt.lazy(new Function0<AnimatorSet>() { // from class: com.baidu.nadcore.slidingtag.NadRewardSlidingTagView$animatorSet$2
             {
@@ -420,11 +420,11 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         return nadRewardSlidingTagView.B();
     }
 
-    private final void setAnimation(hs0 hs0Var) {
-        this.e = hs0Var.d;
+    private final void setAnimation(ls0 ls0Var) {
+        this.e = ls0Var.d;
     }
 
-    private final void setFrame(hs0 hs0Var) {
+    private final void setFrame(ls0 ls0Var) {
         int i;
         if (getLinear().getVisibility() == 0) {
             i = 0;
@@ -435,9 +435,9 @@ public final class NadRewardSlidingTagView extends FrameLayout {
     }
 
     public final void C(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, fh0.NadRewardSlidingTagView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, gh0.NadRewardSlidingTagView);
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr….NadRewardSlidingTagView)");
-        this.m = obtainStyledAttributes.getDimension(0, m61.c.a(getContext(), 11.0f));
+        this.m = obtainStyledAttributes.getDimension(0, q61.c.a(getContext(), 11.0f));
     }
 
     public final View D(View view2) {
@@ -452,14 +452,14 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         return view2;
     }
 
-    public final void G(hs0 hs0Var) {
+    public final void G(ls0 ls0Var) {
         long j;
-        if (hs0Var != null) {
-            j = hs0Var.e;
+        if (ls0Var != null) {
+            j = ls0Var.e;
         } else {
             j = 3000;
         }
-        z(hs0Var, j);
+        z(ls0Var, j);
     }
 
     public final void I(ValueAnimator valueAnimator) {
@@ -507,7 +507,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         if (textView.getLayoutParams() == null) {
             textView.setLayoutParams(B());
         }
-        int a2 = m61.c.a(getContext(), 7.0f) + y(textView) + m61.c.a(getContext(), 7.0f);
+        int a2 = q61.c.a(getContext(), 7.0f) + y(textView) + q61.c.a(getContext(), 7.0f);
         int i = this.l;
         if (i > 0) {
             a2 = RangesKt___RangesKt.coerceAtMost(a2, i);
@@ -527,7 +527,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         if (textView.getLayoutParams() == null) {
             textView.setLayoutParams(B());
         }
-        int a2 = m61.c.a(getContext(), 7.0f) + y(textView) + m61.c.a(getContext(), 7.0f);
+        int a2 = q61.c.a(getContext(), 7.0f) + y(textView) + q61.c.a(getContext(), 7.0f);
         int i = this.l;
         if (i > 0) {
             a2 = RangesKt___RangesKt.coerceAtMost(a2, i);
@@ -596,7 +596,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.nadcore.slidingtag.NadRewardSlidingTagView.o(com.baidu.nadcore.slidingtag.NadRewardSlidingTagView, android.view.View):android.view.View");
     }
 
-    public final void F(hs0 hs0Var, long j) {
+    public final void F(ls0 ls0Var, long j) {
         if (getVisibility() != 0) {
             return;
         }
@@ -607,27 +607,27 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         this.i.postDelayed(this.h, j);
     }
 
-    public final void z(hs0 hs0Var, long j) {
+    public final void z(ls0 ls0Var, long j) {
         boolean z;
         E();
-        if (hs0Var != null) {
-            List<hs0.c> list = hs0Var.a;
+        if (ls0Var != null) {
+            List<ls0.c> list = ls0Var.a;
             if (list != null && !list.isEmpty()) {
                 z = false;
             } else {
                 z = true;
             }
             if (!z) {
-                setTextViewList(hs0Var);
-                setLinear(hs0Var);
-                setFrame(hs0Var);
-                setAnimation(hs0Var);
-                F(hs0Var, j);
+                setTextViewList(ls0Var);
+                setLinear(ls0Var);
+                setFrame(ls0Var);
+                setAnimation(ls0Var);
+                F(ls0Var, j);
             }
         }
     }
 
-    private final void setLinear(hs0 hs0Var) {
+    private final void setLinear(ls0 ls0Var) {
         LinearLayout linear = getLinear();
         int i = 0;
         if (!this.b.isEmpty()) {
@@ -638,7 +638,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 linear.addView(textView, B());
                 Unit unit = Unit.INSTANCE;
             }
-            linear.setOnClickListener(new b(linear, this, hs0Var));
+            linear.setOnClickListener(new b(linear, this, ls0Var));
         } else {
             i = 8;
         }
@@ -661,7 +661,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
             float floatValue = f2.floatValue();
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(this.b, this.c);
             if (textView != null) {
-                textView.setY(this.d + (m61.c.a(getContext(), 4.0f) * (1 - floatValue)));
+                textView.setY(this.d + (q61.c.a(getContext(), 4.0f) * (1 - floatValue)));
             }
         }
     }
@@ -682,18 +682,18 @@ public final class NadRewardSlidingTagView extends FrameLayout {
             float floatValue = f2.floatValue();
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(this.b, this.c);
             if (textView != null) {
-                textView.setY(this.d - (m61.c.a(getContext(), 4.0f) * floatValue));
+                textView.setY(this.d - (q61.c.a(getContext(), 4.0f) * floatValue));
             }
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: android.text.SpannableString */
     /* JADX WARN: Multi-variable type inference failed */
-    private final void setTextViewList(hs0 hs0Var) {
+    private final void setTextViewList(ls0 ls0Var) {
         String str;
         int color;
         int color2;
-        for (hs0.c cVar : hs0Var.a) {
+        for (ls0.c cVar : ls0Var.a) {
             if (!StringsKt__StringsJVMKt.isBlank(cVar.a)) {
                 int[] iArr = cVar.b;
                 if (iArr != null && iArr.length == 2) {

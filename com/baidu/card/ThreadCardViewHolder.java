@@ -12,46 +12,46 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.bx;
-import com.baidu.tieba.ex;
-import com.baidu.tieba.fy;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.jo6;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.cx;
+import com.baidu.tieba.fx;
+import com.baidu.tieba.gy;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.my;
+import com.baidu.tieba.kx;
+import com.baidu.tieba.mp6;
 import com.baidu.tieba.ny;
 import com.baidu.tieba.oy;
-import com.baidu.tieba.ty;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.yx;
+import com.baidu.tieba.py;
+import com.baidu.tieba.uy;
+import com.baidu.tieba.zx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder {
+public class ThreadCardViewHolder<T extends b15> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-    public ny<T> b;
+    public oy<T> b;
     public NegFeedBackDecorItem c;
-    public ty d;
-    public yx e;
-    public my f;
-    public fy g;
-    public jx h;
-    public ix i;
-    public ex j;
+    public uy d;
+    public zx e;
+    public ny f;
+    public gy g;
+    public kx h;
+    public jx i;
+    public fx j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadCardViewHolder(ny<T> nyVar) {
-        super(nyVar.k());
+    public ThreadCardViewHolder(oy<T> oyVar) {
+        super(oyVar.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nyVar};
+            Object[] objArr = {oyVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,10 +62,10 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        this.b = nyVar;
+        this.b = oyVar;
     }
 
-    public final boolean e(ThreadData threadData) {
+    public final boolean d(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, threadData)) == null) {
@@ -77,27 +77,27 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
         return invokeL.booleanValue;
     }
 
-    public yx p(boolean z) {
+    public zx o(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
             if (this.e == null) {
-                this.e = new yx(this.b.getContext());
+                this.e = new zx(this.b.getContext());
             }
             this.e.i(this.a);
             this.e.g(z);
             this.b.c(this.e);
             return this.e;
         }
-        return (yx) invokeZ.objValue;
+        return (zx) invokeZ.objValue;
     }
 
-    public NegFeedBackDecorItem q(boolean z) {
+    public NegFeedBackDecorItem p(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
             if (this.c == null) {
-                NegFeedBackDecorItem negFeedBackDecorItem = new NegFeedBackDecorItem(c(), z);
+                NegFeedBackDecorItem negFeedBackDecorItem = new NegFeedBackDecorItem(b(), z);
                 this.c = negFeedBackDecorItem;
                 negFeedBackDecorItem.mNegFeedBackView.setUniqueId(this.a);
             }
@@ -107,31 +107,31 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
         return (NegFeedBackDecorItem) invokeZ.objValue;
     }
 
-    public fy s(int i) {
+    public gy r(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
             if (this.g == null) {
-                fy fyVar = new fy(this.b.k().getContext(), i);
-                this.g = fyVar;
-                fyVar.f(this.a);
+                gy gyVar = new gy(this.b.k().getContext(), i);
+                this.g = gyVar;
+                gyVar.f(this.a);
             }
             this.b.c(this.g);
             return this.g;
         }
-        return (fy) invokeI.objValue;
+        return (gy) invokeI.objValue;
     }
 
-    public ny<T> b() {
+    public oy<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (ny) invokeV.objValue;
+        return (oy) invokeV.objValue;
     }
 
-    public final TbPageContext c() {
+    public final TbPageContext b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -140,7 +140,7 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
         return (TbPageContext) invokeV.objValue;
     }
 
-    public void g() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b.o(this.f);
@@ -151,69 +151,69 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.b.k();
         }
         return (View) invokeV.objValue;
     }
 
-    public ex k() {
+    public fx j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.j == null) {
-                this.j = new ex(c());
+                this.j = new fx(b());
             }
             this.b.c(this.j);
             return this.j;
         }
-        return (ex) invokeV.objValue;
+        return (fx) invokeV.objValue;
     }
 
-    public yx o() {
+    public zx n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return p(true);
+            return o(true);
         }
-        return (yx) invokeV.objValue;
+        return (zx) invokeV.objValue;
     }
 
-    public my t() {
+    public ny s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (this.f == null) {
-                this.f = new my(c());
+                this.f = new ny(b());
             }
             this.b.c(this.f);
             return this.f;
         }
-        return (my) invokeV.objValue;
+        return (ny) invokeV.objValue;
     }
 
-    public final void d(bx bxVar) {
+    public final void c(cx cxVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bxVar) == null) && bxVar != null && bxVar.getDecorView() != null) {
-            this.b.o(bxVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cxVar) == null) && cxVar != null && cxVar.getDecorView() != null) {
+            this.b.o(cxVar);
         }
     }
 
-    public void i(jo6<T> jo6Var) {
+    public void h(mp6<T> mp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jo6Var) == null) {
-            this.b.q(jo6Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mp6Var) == null) {
+            this.b.q(mp6Var);
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
             this.a = bdUniqueId;
         }
     }
 
-    public void f(T t) {
+    public void e(T t) {
         NEGFeedBackView nEGFeedBackView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
@@ -244,88 +244,88 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
                 }
             }
             if (this.d != null) {
-                if (e(t.getThreadData())) {
-                    d(this.d);
+                if (d(t.getThreadData())) {
+                    c(this.d);
                 } else {
                     this.d.autoAlignParent(t);
                     this.d.onBindDataToView(t.getThreadData());
                 }
             }
-            my myVar = this.f;
-            if (myVar != null) {
-                myVar.d(z);
+            ny nyVar = this.f;
+            if (nyVar != null) {
+                nyVar.d(z);
                 this.f.onBindDataToView(t.getThreadData());
             }
-            yx yxVar = this.e;
-            if (yxVar != null) {
-                yxVar.onBindDataToView(t.getThreadData());
+            zx zxVar = this.e;
+            if (zxVar != null) {
+                zxVar.onBindDataToView(t.getThreadData());
             }
-            fy fyVar = this.g;
-            if (fyVar != null) {
-                fyVar.autoAlignParent(t);
+            gy gyVar = this.g;
+            if (gyVar != null) {
+                gyVar.autoAlignParent(t);
                 this.g.onBindDataToView(t.getThreadData());
             }
-            jx jxVar = this.h;
-            if (jxVar != null) {
-                jxVar.a(t, z);
+            kx kxVar = this.h;
+            if (kxVar != null) {
+                kxVar.a(t, z);
                 this.h.onBindDataToView(t.getThreadData());
             }
-            ix ixVar = this.i;
-            if (ixVar != null) {
-                ixVar.onBindDataToView(t.getThreadData());
+            jx jxVar = this.i;
+            if (jxVar != null) {
+                jxVar.onBindDataToView(t.getThreadData());
             }
             if (this.j != null) {
-                if (e(t.getThreadData())) {
+                if (d(t.getThreadData())) {
                     this.j.onBindDataToView(t.getThreadData());
                 } else {
-                    d(this.j);
+                    c(this.j);
                 }
             }
             this.b.m(t);
         }
     }
 
-    public void h(int i, oy oyVar) {
-        yx yxVar;
+    public void g(int i, py pyVar) {
+        zx zxVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, oyVar) == null) && (yxVar = this.e) != null) {
-            yxVar.j(i, oyVar);
+        if ((interceptable == null || interceptable.invokeIL(1048582, this, i, pyVar) == null) && (zxVar = this.e) != null) {
+            zxVar.j(i, pyVar);
         }
     }
 
-    public void m(boolean z, FollowUserButton.a aVar) {
+    public void l(boolean z, FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048588, this, z, aVar) == null) {
-            n(z, aVar, false);
+            m(z, aVar, false);
         }
     }
 
-    public void l(boolean z, boolean z2) {
+    public void k(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (!z) {
-                d(this.i);
+                c(this.i);
                 return;
             }
             if (this.i == null) {
-                this.i = new ix(c());
+                this.i = new jx(b());
             }
             this.i.t(z2);
             this.b.c(this.i);
         }
     }
 
-    public void n(boolean z, FollowUserButton.a aVar, boolean z2) {
+    public void m(boolean z, FollowUserButton.a aVar, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), aVar, Boolean.valueOf(z2)}) == null) {
             if (!z) {
-                d(this.h);
+                c(this.h);
                 return;
             }
             if (this.h == null) {
-                jx jxVar = new jx(c());
-                this.h = jxVar;
-                jxVar.g(aVar);
+                kx kxVar = new kx(b());
+                this.h = kxVar;
+                kxVar.g(aVar);
             }
             this.h.h(this.a);
             this.h.e(z2);
@@ -333,15 +333,15 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void r(boolean z, Align align, NEGFeedBackView.NEGFeedbackEventCallback nEGFeedbackEventCallback) {
+    public void q(boolean z, Align align, NEGFeedBackView.NEGFeedbackEventCallback nEGFeedbackEventCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), align, nEGFeedbackEventCallback}) == null) {
             if (!z) {
-                d(this.c);
+                c(this.c);
                 return;
             }
             if (this.c == null) {
-                NegFeedBackDecorItem negFeedBackDecorItem = new NegFeedBackDecorItem(c(), align);
+                NegFeedBackDecorItem negFeedBackDecorItem = new NegFeedBackDecorItem(b(), align);
                 this.c = negFeedBackDecorItem;
                 negFeedBackDecorItem.mNegFeedBackView.setUniqueId(this.a);
                 this.c.setNegEventCallback(nEGFeedbackEventCallback);
@@ -351,15 +351,15 @@ public class ThreadCardViewHolder<T extends w05> extends TypeAdapter.ViewHolder 
         }
     }
 
-    public void u(boolean z, Align align) {
+    public void t(boolean z, Align align) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048596, this, z, align) == null) {
             if (!z) {
-                d(this.d);
+                c(this.d);
                 return;
             }
             if (this.d == null) {
-                this.d = new ty(c(), align);
+                this.d = new uy(b(), align);
             }
             this.d.autoAlignParent(align);
             this.b.c(this.d);

@@ -148,9 +148,9 @@ public class ImmersionHelper {
 
     private int getDefaultStatusBarViewBg() {
         if (Build.VERSION.SDK_INT >= 21) {
-            return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a9b);
+            return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060aa2);
         }
-        return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060a9c);
+        return this.mActivity.getResources().getColor(R.color.obfuscated_res_0x7f060aa3);
     }
 
     public static boolean isSupportImmersion() {
@@ -220,7 +220,7 @@ public class ImmersionHelper {
     }
 
     public static boolean isImmersionEnabled(View view2) {
-        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f091126) == null) {
+        if (!SUPPORT_IMMERSION || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f091128) == null) {
             return false;
         }
         return true;
@@ -228,7 +228,7 @@ public class ImmersionHelper {
 
     public static void setDialogImmersion(Dialog dialog) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071d);
+            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06071f);
             Window window = dialog.getWindow();
             window.getDecorView().setSystemUiVisibility(1280);
             window.clearFlags(67108864);
@@ -362,7 +362,7 @@ public class ImmersionHelper {
             childAt.setLayoutParams(layoutParams2);
             View view2 = new View(this.mActivity);
             view2.setTag(VIEW_TAG);
-            view2.setId(R.id.obfuscated_res_0x7f091126);
+            view2.setId(R.id.obfuscated_res_0x7f091128);
             this.mRootView.addView(view2, 0, new ViewGroup.LayoutParams(-1, statusBarHeight));
             return view2;
         }

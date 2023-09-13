@@ -5,6 +5,7 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.view.Surface;
 import com.baidu.ar.record.EncoderParams;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class f extends b {
@@ -28,7 +29,7 @@ public class f extends b {
             this.uP = dVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(encoderParams.getVideoCodec(), encoderParams.getVideoWidth(), encoderParams.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
-            createVideoFormat.setInteger("bitrate", encoderParams.getVideoBitrate());
+            createVideoFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, encoderParams.getVideoBitrate());
             createVideoFormat.setInteger("frame-rate", encoderParams.getVideoFrameRate());
             createVideoFormat.setInteger("i-frame-interval", encoderParams.getVideoIFrameInterval());
             try {

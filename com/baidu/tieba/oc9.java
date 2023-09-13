@@ -1,68 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class oc9<T, V extends TypeAdapter.ViewHolder> extends om<T, V> {
+public class oc9 extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext<HotTopicDetailActivity> b;
+    public View a;
+    public int b;
+    public int c;
+    public FrameLayout.LayoutParams d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oc9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public oc9(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (view2 == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public TbPageContext t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        this.a = view2;
+        if (view2.getVisibility() == 8 && i2 > 0) {
+            this.b = i2;
+        } else {
+            this.b = this.a.getMeasuredHeight();
         }
-        return (TbPageContext) invokeV.objValue;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+        this.d = layoutParams;
+        this.c = i;
+        if (i == 0) {
+            layoutParams.bottomMargin = -this.b;
+        } else {
+            layoutParams.bottomMargin = 0;
+        }
     }
 
-    public void u(boolean z) {
+    @Override // android.view.animation.Animation
+    public void applyTransformation(float f, Transformation transformation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+            super.applyTransformation(f, transformation);
+            if (f < 1.0f) {
+                if (this.c == 0) {
+                    FrameLayout.LayoutParams layoutParams = this.d;
+                    int i = this.b;
+                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
+                } else {
+                    this.d.bottomMargin = -((int) (this.b * f));
+                }
+                this.a.requestLayout();
+            } else if (this.c == 0) {
+                this.d.bottomMargin = 0;
+                this.a.requestLayout();
+                this.b = this.a.getMeasuredHeight();
+            } else {
+                this.d.bottomMargin = -this.b;
+                this.a.setVisibility(8);
+                this.a.requestLayout();
+            }
         }
     }
 }

@@ -55,7 +55,7 @@ public class ContextThemeWrapper extends ContextWrapper {
             return theme;
         }
         if (this.mThemeResource == 0) {
-            this.mThemeResource = R.style.obfuscated_res_0x7f10023d;
+            this.mThemeResource = R.style.obfuscated_res_0x7f100243;
         }
         initializeTheme();
         return this.mTheme;

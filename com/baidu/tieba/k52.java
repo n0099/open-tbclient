@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class k52 extends j42 {
+public class k52 extends n42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DashPathEffect a;
+    public v42 a;
 
     public k52() {
         Interceptable interceptable = $ic;
@@ -28,37 +27,26 @@ public class k52 extends j42 {
         }
     }
 
-    @Override // com.baidu.tieba.j42
-    public void a(k42 k42Var, Canvas canvas) {
-        DashPathEffect dashPathEffect;
+    @Override // com.baidu.tieba.n42
+    public void a(o42 o42Var, Canvas canvas) {
+        v42 v42Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && (dashPathEffect = this.a) != null) {
-            k42Var.c.setPathEffect(dashPathEffect);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, o42Var, canvas) == null) && (v42Var = this.a) != null && v42Var.d()) {
+            if (this.a.c()) {
+                o42Var.b.setShader(this.a.b());
+                return;
+            }
+            o42Var.e.setColor(this.a.a());
+            o42Var.b.setColor(this.a.a());
+            o42Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.j42
+    @Override // com.baidu.tieba.n42
     public void b(JSONArray jSONArray) {
-        float[] fArr;
-        JSONArray optJSONArray;
-        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            int i = 0;
-            if (jSONArray.length() > 0 && (optJSONArray = jSONArray.optJSONArray(0)) != null && (length = optJSONArray.length()) > 0) {
-                fArr = new float[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    fArr[i2] = uo3.g((float) optJSONArray.optDouble(i2));
-                }
-            } else {
-                fArr = null;
-            }
-            if (jSONArray.length() > 1) {
-                i = uo3.g((float) jSONArray.optDouble(1));
-            }
-            if (fArr != null && i >= 0) {
-                this.a = new DashPathEffect(fArr, i);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new v42(jSONArray);
         }
     }
 }

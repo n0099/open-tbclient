@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class hz0 extends oz0 {
+public class hz0 extends az0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pv0 o;
 
     public hz0() {
         Interceptable interceptable = $ic;
@@ -25,32 +25,23 @@ public class hz0 extends oz0 {
         }
     }
 
-    public void o0() {
+    @Override // com.baidu.tieba.az0, com.baidu.tieba.dz0
+    @NonNull
+    public wy0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            L(new ov0());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
+                c = 0;
+            } else {
+                c = 65535;
+            }
+            if (c != 0) {
+                return super.create(str);
+            }
+            return new fz0();
         }
-    }
-
-    public void p0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pv0 pv0Var = new pv0();
-            this.o = pv0Var;
-            L(pv0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.oz0, com.baidu.tieba.pz0
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            L(new xv0());
-            L(new zv0());
-            L(new yv0());
-            L(new aw0());
-            p0();
-            o0();
-        }
+        return (wy0) invokeL.objValue;
     }
 }

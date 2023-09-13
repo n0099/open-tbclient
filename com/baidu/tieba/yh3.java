@@ -1,18 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.aw2;
-import com.baidu.tieba.lh3;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yh3 extends d73 {
+public class yh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static volatile yh3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(String str, String str2);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +35,7 @@ public class yh3 extends d73 {
                 return;
             }
         }
-        f = nr1.a;
+        boolean z = rr1.a;
     }
 
     public yh3() {
@@ -58,115 +52,42 @@ public class yh3 extends d73 {
         }
     }
 
-    public static boolean e(@Nullable String str) {
-        InterceptResult invokeL;
+    public static yh3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.equals("0", str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (yh3.class) {
+                    if (b == null) {
+                        b = new yh3();
+                    }
+                }
             }
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (yh3) invokeV.objValue;
     }
 
-    public static void f(String str, String str2, @Nullable JSONObject jSONObject) {
-        String str3;
-        String I1;
-        Intent intent;
+    public void b(String str) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, jSONObject) != null) || !e(str2)) {
-            return;
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        String str4 = StringUtil.NULL_STRING;
-        if (str2 == null) {
-            str2 = StringUtil.NULL_STRING;
-        }
-        try {
-            jSONObject2.put("version", str2);
-            if (str == null) {
-                str3 = StringUtil.NULL_STRING;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (ProcessUtils.isMainProcess() && (aVar = this.a) != null) {
+                aVar.a("swanLauncherTag", str);
             } else {
-                str3 = str;
-            }
-            jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, str3);
-            db3 M = db3.M();
-            if (M != null) {
-                aw2.a Y = M.Y();
-                if (Y == null) {
-                    I1 = StringUtil.NULL_STRING;
-                } else {
-                    I1 = Y.I1();
-                }
-                jSONObject2.put("launchInfo", I1);
-                SwanAppActivity w = M.w();
-                aw2 aw2Var = null;
-                if (w != null && (intent = w.getIntent()) != null) {
-                    aw2Var = aw2.d1(intent);
-                }
-                if (aw2Var != null) {
-                    str4 = aw2Var.I1();
-                }
-                jSONObject2.put("launchInfoIntent", str4);
-            } else {
-                jSONObject2.put("swanApp", StringUtil.NULL_STRING);
-            }
-            jSONObject2.put("stackTrace", xo3.y());
-            if (jSONObject != null) {
-                jSONObject2.put("reportExtInfo", jSONObject);
-            }
-        } catch (JSONException e) {
-            if (f) {
-                e.printStackTrace();
+                c("swanLauncherTag", str);
             }
         }
-        y73 y = cb3.K().y();
-        if (y != null) {
+    }
+
+    public final void c(String str, String str2) {
+        c83 y;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (y = gb3.K().y()) != null) {
             Bundle bundle = new Bundle();
-            bundle.putString("key_swan_appid", str);
-            bundle.putString("key_report_info", jSONObject2.toString());
-            y.W(bundle, yh3.class);
-        }
-    }
-
-    @Override // com.baidu.tieba.d73
-    public void b(@NonNull Bundle bundle) {
-        ai2 o;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String str = "";
-            String string = bundle.getString("key_swan_appid", "");
-            String string2 = bundle.getString("key_report_info", "");
-            if (!TextUtils.isEmpty(string2)) {
-                str = string2;
-            }
-            JSONObject jSONObject = null;
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                if (f) {
-                    Log.e("VersionBusinessUbc", "execCall: ", e);
-                }
-                e.printStackTrace();
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            if (!TextUtils.isEmpty(string) && (o = SwanAppDbControl.f(AppRuntime.getAppContext()).o(string)) != null) {
-                try {
-                    jSONObject.put("appDbInfo", o.a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (f) {
-                Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
-            }
-            lh3.b bVar = new lh3.b(10002);
-            bVar.i(jSONObject.toString());
-            bVar.m();
-            c();
+            bundle.putString("statTag", str);
+            bundle.putString("statisticData", str2);
+            y.W(bundle, xh3.class);
         }
     }
 }

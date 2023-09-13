@@ -5,16 +5,16 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.c55;
+import com.baidu.tieba.dha;
+import com.baidu.tieba.e55;
 import com.baidu.tieba.feed.widget.uistate.ForumAttentionUiStateKt;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.kfa;
-import com.baidu.tieba.rd7;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.i55;
+import com.baidu.tieba.i9;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.kg;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.ye7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,23 +31,23 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class ForumAttentionUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<rd7, TbPageContext<?>, Unit> a;
+    public static final Function2<ye7, TbPageContext<?>, Unit> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static final class a extends h9 {
+    public static final class a extends i9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LikeModel a;
         public final /* synthetic */ TbPageContext<?> b;
-        public final /* synthetic */ rd7 c;
+        public final /* synthetic */ ye7 c;
 
-        public a(LikeModel likeModel, TbPageContext<?> tbPageContext, rd7 rd7Var) {
+        public a(LikeModel likeModel, TbPageContext<?> tbPageContext, ye7 ye7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {likeModel, tbPageContext, rd7Var};
+                Object[] objArr = {likeModel, tbPageContext, ye7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,10 +59,10 @@ public final class ForumAttentionUiStateKt {
             }
             this.a = likeModel;
             this.b = tbPageContext;
-            this.c = rd7Var;
+            this.c = ye7Var;
         }
 
-        @Override // com.baidu.tieba.h9
+        @Override // com.baidu.tieba.i9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -81,18 +81,18 @@ public final class ForumAttentionUiStateKt {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements kfa.a {
+    public static final class b implements dha.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rd7 a;
+        public final /* synthetic */ ye7 a;
         public final /* synthetic */ TbPageContext<?> b;
 
-        public b(rd7 rd7Var, TbPageContext<?> tbPageContext) {
+        public b(ye7 ye7Var, TbPageContext<?> tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rd7Var, tbPageContext};
+                Object[] objArr = {ye7Var, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -102,11 +102,11 @@ public final class ForumAttentionUiStateKt {
                     return;
                 }
             }
-            this.a = rd7Var;
+            this.a = ye7Var;
             this.b = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.kfa.a
+        @Override // com.baidu.tieba.dha.a
         public void a(String errorString, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, errorString, j) == null) {
@@ -115,7 +115,7 @@ public final class ForumAttentionUiStateKt {
             }
         }
 
-        @Override // com.baidu.tieba.kfa.a
+        @Override // com.baidu.tieba.dha.a
         public void b(String forumName, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumName, j) == null) {
@@ -141,98 +141,98 @@ public final class ForumAttentionUiStateKt {
         a = ForumAttentionUiStateKt$DefaultOnAttentionClick$1.INSTANCE;
     }
 
-    public static final void h(a55 dialog, TbPageContext pageContext) {
+    public static final void h(g55 dialog, TbPageContext pageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, dialog, pageContext) == null) {
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             Intrinsics.checkNotNullParameter(pageContext, "$pageContext");
-            jg.a(dialog, pageContext.getPageActivity());
+            kg.a(dialog, pageContext.getPageActivity());
         }
     }
 
-    public static final void d(rd7 rd7Var, TbPageContext<?> tbPageContext) {
+    public static final void d(ye7 ye7Var, TbPageContext<?> tbPageContext) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, rd7Var, tbPageContext) == null) {
-            if (rd7Var.f().b().length() == 0) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ye7Var, tbPageContext) == null) {
+            if (ye7Var.f().b().length() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z && rd7Var.f().a() > 0) {
+            if (!z && ye7Var.f().a() > 0) {
                 LikeModel likeModel = new LikeModel(tbPageContext);
-                likeModel.setLoadDataCallBack(new a(likeModel, tbPageContext, rd7Var));
-                likeModel.f0(rd7Var.f().b(), String.valueOf(rd7Var.f().a()));
+                likeModel.setLoadDataCallBack(new a(likeModel, tbPageContext, ye7Var));
+                likeModel.e0(ye7Var.f().b(), String.valueOf(ye7Var.f().a()));
             }
         }
     }
 
-    public static final void e(rd7 rd7Var, TbPageContext<?> tbPageContext) {
+    public static final void e(ye7 ye7Var, TbPageContext<?> tbPageContext) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, rd7Var, tbPageContext) == null) {
-            if (rd7Var.f().b().length() == 0) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, ye7Var, tbPageContext) == null) {
+            if (ye7Var.f().b().length() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (!z && rd7Var.f().a() > 0) {
-                kfa kfaVar = new kfa();
-                kfaVar.b(new b(rd7Var, tbPageContext));
-                kfaVar.c(rd7Var.f().b(), rd7Var.f().a());
+            if (!z && ye7Var.f().a() > 0) {
+                dha dhaVar = new dha();
+                dhaVar.b(new b(ye7Var, tbPageContext));
+                dhaVar.c(ye7Var.f().b(), ye7Var.f().a());
             }
         }
     }
 
-    public static final void f(final rd7 rd7Var, final TbPageContext<?> tbPageContext) {
+    public static final void f(final ye7 ye7Var, final TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, rd7Var, tbPageContext) == null) {
-            c55 c55Var = new c55(tbPageContext.getPageActivity());
-            c55Var.t(tbPageContext.getString(R.string.confirm_unlike_forum));
+        if (interceptable == null || interceptable.invokeLL(65542, null, ye7Var, tbPageContext) == null) {
+            i55 i55Var = new i55(tbPageContext.getPageActivity());
+            i55Var.t(tbPageContext.getString(R.string.confirm_unlike_forum));
             ArrayList arrayList = new ArrayList();
-            final a55 a55Var = new a55(tbPageContext, c55Var);
-            y45 y45Var = new y45(tbPageContext.getString(R.string.obfuscated_res_0x7f0f04c2), c55Var);
-            y45Var.m(new c55.e() { // from class: com.baidu.tieba.qd7
+            final g55 g55Var = new g55(tbPageContext, i55Var);
+            e55 e55Var = new e55(tbPageContext.getString(R.string.obfuscated_res_0x7f0f04c4), i55Var);
+            e55Var.m(new i55.e() { // from class: com.baidu.tieba.xe7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.c55.e
+                @Override // com.baidu.tieba.i55.e
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ForumAttentionUiStateKt.g(rd7.this, tbPageContext, a55Var);
+                        ForumAttentionUiStateKt.g(ye7.this, tbPageContext, g55Var);
                     }
                 }
             });
-            arrayList.add(y45Var);
-            c55Var.o(new c55.c() { // from class: com.baidu.tieba.pd7
+            arrayList.add(e55Var);
+            i55Var.o(new i55.c() { // from class: com.baidu.tieba.we7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.c55.c
+                @Override // com.baidu.tieba.i55.c
                 public final void onClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ForumAttentionUiStateKt.h(a55.this, tbPageContext);
+                        ForumAttentionUiStateKt.h(g55.this, tbPageContext);
                     }
                 }
             });
-            c55Var.l(arrayList);
-            a55Var.k(0.7f);
-            jg.i(a55Var, tbPageContext.getPageActivity());
-            ix.n(rd7Var.h(), rd7Var.e(), false);
+            i55Var.l(arrayList);
+            g55Var.k(0.7f);
+            kg.i(g55Var, tbPageContext.getPageActivity());
+            jx.n(ye7Var.h(), ye7Var.e(), false);
         }
     }
 
-    public static final void g(rd7 state, TbPageContext pageContext, a55 dialog) {
+    public static final void g(ye7 state, TbPageContext pageContext, g55 dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, dialog) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(pageContext, "$pageContext");
             Intrinsics.checkNotNullParameter(dialog, "$dialog");
             e(state, pageContext);
-            jg.a(dialog, pageContext.getPageActivity());
-            ix.n(state.h(), state.e(), true);
+            kg.a(dialog, pageContext.getPageActivity());
+            jx.n(state.h(), state.e(), true);
         }
     }
 }

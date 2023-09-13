@@ -8,6 +8,7 @@ import android.view.Surface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
+import com.baidu.cyberplayer.sdk.MediaPlayerImpl;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
 import com.kwad.sdk.core.video.kwai.c;
 import java.util.Iterator;
@@ -28,7 +29,7 @@ public final class b {
     public int Jo;
     public Context mContext;
     public DetailVideoView mDetailVideoView;
-    public String TAG = "MediaPlayerImpl";
+    public String TAG = MediaPlayerImpl.TAG;
     public volatile int JF = 0;
     public Handler mHandler = new Handler(Looper.getMainLooper());
     public long mStartTime = 0;
@@ -70,8 +71,8 @@ public final class b {
             com.kwad.sdk.core.e.b.i(b.this.TAG, "onCompletion ——> STATE_COMPLETED");
         }
     };
-    public c.InterfaceC0689c JU = new c.InterfaceC0689c() { // from class: com.kwad.components.core.video.b.5
-        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0689c
+    public c.InterfaceC0684c JU = new c.InterfaceC0684c() { // from class: com.kwad.components.core.video.b.5
+        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0684c
         public final boolean j(int i, int i2) {
             if (i != -38) {
                 b.this.JF = -1;
@@ -281,7 +282,7 @@ public final class b {
         if (cVar == null) {
             return;
         }
-        cVar.a((c.InterfaceC0689c) null);
+        cVar.a((c.InterfaceC0684c) null);
         this.JG.a((c.b) null);
         this.JG.b(null);
         this.JG.a((c.h) null);

@@ -1,38 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public class xw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (StringUtils.isNull(a)) {
-                return null;
+            return b(500);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = a;
+            if (j > currentTimeMillis) {
+                a = currentTimeMillis;
+                return false;
+            } else if (currentTimeMillis - j < i) {
+                return true;
+            } else {
+                a = currentTimeMillis;
+                return false;
             }
-            return a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a != null) {
-            a = null;
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a = str;
-        }
+        return invokeI.booleanValue;
     }
 }

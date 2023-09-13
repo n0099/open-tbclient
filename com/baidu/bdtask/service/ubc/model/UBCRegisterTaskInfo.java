@@ -5,7 +5,7 @@ import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.tieba.sv;
+import com.baidu.tieba.tv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -146,7 +146,7 @@ public final class UBCRegisterTaskInfo extends UBCTaskStatusInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject json = super.toJson();
             json.put("type", this.type);
-            json.put("timestamp", sv.a.a());
+            json.put("timestamp", tv.a.a());
             return json;
         }
         return (JSONObject) invokeV.objValue;

@@ -1,43 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.MainThread;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.sna;
-import com.baidu.tieba.tracker.core.data.AbsEventNode;
-import com.baidu.tieba.tracker.core.data.ErrCode;
-import com.baidu.tieba.tracker.core.data.TraceEventNode;
+import com.baidu.tieba.compact.DelegateFunAdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.Pair;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class ona<R extends sna> {
+public class ona implements oc7<DelegateFunAdView, ls6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public R a;
-    public AbsEventNode b;
-    public final Handler c;
-    public final Runnable d;
+    public final String a;
+    public final BdUniqueId b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
 
-    @MainThread
-    public abstract AbsEventNode a(R r);
-
-    @MainThread
-    public abstract hna c(R r);
-
-    public ona() {
+    public ona(@NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,83 +37,43 @@ public abstract class ona<R extends sna> {
                 return;
             }
         }
-        this.c = new Handler(Looper.getMainLooper());
-        this.d = new Runnable() { // from class: com.baidu.tieba.lna
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    ona.d(ona.this);
-                }
-            }
-        };
+        this.b = bdUniqueId;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.a = nna.b(bdUniqueId);
     }
 
-    public static final void d(ona this$0) {
+    @Override // com.baidu.tieba.oc7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.b(TuplesKt.to(StatConstants.KEY_EXT_ERR_CODE, ErrCode.TIME_OUT.getValue()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new DelegateFunAdView(viewGroup.getContext(), this.b);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oc7
+    /* renamed from: d */
+    public void b(@NonNull DelegateFunAdView delegateFunAdView, @NonNull ls6 ls6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, delegateFunAdView, ls6Var) == null) {
+            delegateFunAdView.a(ls6Var.c(), this.c, this.d, this.e, this.f, ls6Var.a(), ls6Var.b());
         }
     }
 
-    @MainThread
-    public final void b(Pair<String, String>... params) {
+    @Override // com.baidu.tieba.oc7
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.c.removeCallbacks(this.d);
-            R r = this.a;
-            if (r != null) {
-                TraceEventNode traceEventNode = new TraceEventNode(r.getFrom(), r.getScene(), null, null, 12, null);
-                traceEventNode.getTrackParams().putAll(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
-                c(r).c(traceEventNode);
-                qna.a(this, r.getTraceId());
-            }
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-    }
-
-    @MainThread
-    public final void f(Pair<String, String>... params) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, params) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.c.removeCallbacks(this.d);
-            R r = this.a;
-            if (r != null) {
-                TraceEventNode traceEventNode = new TraceEventNode(r.getFrom(), r.getScene(), null, null, 12, null);
-                traceEventNode.getTrackParams().putAll(MapsKt__MapsKt.mapOf((Pair[]) Arrays.copyOf(params, params.length)));
-                c(r).c(traceEventNode);
-                qna.a(this, r.getTraceId());
-            }
-            this.a = null;
-        }
-    }
-
-    @MainThread
-    public final AbsEventNode e(R thisRef, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, thisRef, j)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            this.a = thisRef;
-            AbsEventNode absEventNode = this.b;
-            if (absEventNode != null) {
-                return absEventNode;
-            }
-            if (j > 0) {
-                this.c.postDelayed(this.d, j);
-            }
-            AbsEventNode a = a(thisRef);
-            c(thisRef).c(a);
-            this.b = a;
-            Intrinsics.checkNotNull(a);
-            return a;
-        }
-        return (AbsEventNode) invokeLJ.objValue;
+        return (String) invokeV.objValue;
     }
 }

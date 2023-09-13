@@ -133,7 +133,7 @@ public final class KCallablesJvm {
             KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kCallable);
             AccessibleObject accessibleObject = null;
             if (asKCallableImpl != null && (defaultCaller = asKCallableImpl.getDefaultCaller()) != null) {
-                obj = defaultCaller.mo2096getMember();
+                obj = defaultCaller.mo2097getMember();
             } else {
                 obj = null;
             }
@@ -218,7 +218,7 @@ public final class KCallablesJvm {
             KCallableImpl<?> asKCallableImpl = UtilKt.asKCallableImpl(kCallable);
             AccessibleObject accessibleObject = null;
             if (asKCallableImpl != null && (defaultCaller = asKCallableImpl.getDefaultCaller()) != null) {
-                obj = defaultCaller.mo2096getMember();
+                obj = defaultCaller.mo2097getMember();
             } else {
                 obj = null;
             }

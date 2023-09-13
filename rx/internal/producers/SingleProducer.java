@@ -1,39 +1,39 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.r7c;
-import com.baidu.tieba.v7c;
+import com.baidu.tieba.ebc;
+import com.baidu.tieba.uac;
+import com.baidu.tieba.yac;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements r7c {
+public final class SingleProducer<T> extends AtomicBoolean implements uac {
     public static final long serialVersionUID = -3353584923995471404L;
-    public final v7c<? super T> child;
+    public final yac<? super T> child;
     public final T value;
 
-    public SingleProducer(v7c<? super T> v7cVar, T t) {
-        this.child = v7cVar;
+    public SingleProducer(yac<? super T> yacVar, T t) {
+        this.child = yacVar;
         this.value = t;
     }
 
-    @Override // com.baidu.tieba.r7c
+    @Override // com.baidu.tieba.uac
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i != 0 && compareAndSet(false, true)) {
-                v7c<? super T> v7cVar = this.child;
-                if (v7cVar.isUnsubscribed()) {
+                yac<? super T> yacVar = this.child;
+                if (yacVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.value;
                 try {
-                    v7cVar.onNext(obj);
-                    if (v7cVar.isUnsubscribed()) {
+                    yacVar.onNext(obj);
+                    if (yacVar.isUnsubscribed()) {
                         return;
                     }
-                    v7cVar.onCompleted();
+                    yacVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    b8c.g(th, v7cVar, obj);
+                    ebc.g(th, yacVar, obj);
                     return;
                 }
             }

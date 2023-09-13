@@ -8,10 +8,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ao8;
 import com.baidu.tieba.b;
-import com.baidu.tieba.bn8;
-import com.baidu.tieba.hn8;
+import com.baidu.tieba.cp8;
+import com.baidu.tieba.eo8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
@@ -19,6 +18,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.tieba.ko8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u00002\u00020\u0001:\u0003\u001b\u001c\u001dB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J$\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0016J$\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\u0006\u0010\u0015\u001a\u00020\u0016H\u0003J\b\u0010\u0017\u001a\u00020\nH\u0016J\u0010\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0019\u001a\u00020\u0014H\u0002J$\u0010\u001a\u001a\u0004\u0018\u00010\n2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u00102\u0006\u0010\u0015\u001a\u00020\u0016H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001e"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "fragment", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/GroupChatFragment;", "request", "Lcom/baidu/tbadk/net/FastRequest;", "tips", "", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "payload", "", "getCallRobotRequestData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler$CallRobotRequest;", "conf", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/RequestRouterHandler$Conf;", "provideType", "requestBotSkill", "item", "tryFindBotSkills", "CallRobotRequest", "CallRobotResponse", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class RequestRouterHandler extends hn8 {
+public final class RequestRouterHandler extends ko8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
@@ -40,7 +40,7 @@ public final class RequestRouterHandler extends hn8 {
     public String d;
     public GroupChatFragment e;
 
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.ko8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -386,12 +386,12 @@ public final class RequestRouterHandler extends hn8 {
         }
         Intrinsics.checkNotNullParameter(chatPage, "chatPage");
         this.b = chatPage;
-        GroupChatFragment F0 = chatPage.F0();
-        Intrinsics.checkNotNullExpressionValue(F0, "chatPage.groupChatFragment");
-        this.e = F0;
+        GroupChatFragment H0 = chatPage.H0();
+        Intrinsics.checkNotNullExpressionValue(H0, "chatPage.groupChatFragment");
+        this.e = H0;
     }
 
-    @Override // com.baidu.tieba.hn8
+    @Override // com.baidu.tieba.ko8
     public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
         String str;
         Interceptable interceptable = $ic;
@@ -453,9 +453,9 @@ public final class RequestRouterHandler extends hn8 {
             }
             String botUk = conf.getBotUk();
             long skillId = conf.getSkillId();
-            BotsDTO D0 = this.b.D0();
-            if (D0 != null) {
-                botListDTO = D0.findBotByUk(botUk);
+            BotsDTO F0 = this.b.F0();
+            if (F0 != null) {
+                botListDTO = F0.findBotByUk(botUk);
             } else {
                 botListDTO = null;
             }
@@ -465,7 +465,7 @@ public final class RequestRouterHandler extends hn8 {
                 skillDTO = null;
             }
             if (skillDTO != null) {
-                HashMap<String, Object> g = ao8.g(skillDTO, skillDTO.getItems(), null);
+                HashMap<String, Object> g = cp8.g(skillDTO, skillDTO.getItems(), null);
                 Intrinsics.checkNotNullExpressionValue(g, "assembleRobotParams(it, skillDTO.items, null)");
                 return DataExt.toJson(g);
             }
@@ -482,18 +482,18 @@ public final class RequestRouterHandler extends hn8 {
             }
             FastRequest fastRequest = this.c;
             Intrinsics.checkNotNull(fastRequest);
-            fastRequest.T(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.O("chatroom_id", Long.valueOf(callRobotRequest.getChatroomId()));
-            fastRequest.O("forum_id", Long.valueOf(callRobotRequest.getForumId()));
-            fastRequest.O("bot_uk", callRobotRequest.getBotUk());
-            fastRequest.O("skill_id", Long.valueOf(callRobotRequest.getSkillId()));
-            fastRequest.O("msg_id", Long.valueOf(callRobotRequest.getMsgId()));
-            fastRequest.O("msg_key", callRobotRequest.getMsgKey());
-            fastRequest.O("robot_params", callRobotRequest.getRobotParams());
-            fastRequest.Q(new bn8(this.d, this.b));
+            fastRequest.S(HttpMessageTask.HTTP_METHOD.POST);
+            fastRequest.N("chatroom_id", Long.valueOf(callRobotRequest.getChatroomId()));
+            fastRequest.N("forum_id", Long.valueOf(callRobotRequest.getForumId()));
+            fastRequest.N("bot_uk", callRobotRequest.getBotUk());
+            fastRequest.N("skill_id", Long.valueOf(callRobotRequest.getSkillId()));
+            fastRequest.N("msg_id", Long.valueOf(callRobotRequest.getMsgId()));
+            fastRequest.N("msg_key", callRobotRequest.getMsgKey());
+            fastRequest.N("robot_params", callRobotRequest.getRobotParams());
+            fastRequest.P(new eo8(this.d, this.b));
             FastRequest fastRequest2 = this.c;
             Intrinsics.checkNotNull(fastRequest2);
-            fastRequest2.P();
+            fastRequest2.O();
         }
     }
 }

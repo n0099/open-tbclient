@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import org.json.JSONObject;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface uz3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
-
-    void b(String str, JSONObject jSONObject, ResponseCallback<mz3> responseCallback);
-
-    void c(String str, ResponseCallback<vy3> responseCallback);
-
-    void d(String str);
-
-    void e(String str);
-
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    void e(View view2);
 }

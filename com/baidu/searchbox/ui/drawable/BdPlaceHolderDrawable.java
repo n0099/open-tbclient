@@ -22,7 +22,7 @@ public class BdPlaceHolderDrawable extends ForwardingDrawable {
     public Matrix mTempMatrix;
 
     public BdPlaceHolderDrawable(Drawable drawable) {
-        this(drawable, AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06048d), AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06048e), 0);
+        this(drawable, AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06048f), AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060490), 0);
     }
 
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
@@ -74,7 +74,7 @@ public class BdPlaceHolderDrawable extends ForwardingDrawable {
     }
 
     private void drawRect(Canvas canvas, Rect rect) {
-        this.mPaint.setColor(AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06048f));
+        this.mPaint.setColor(AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060491));
         this.mPaint.setStyle(Paint.Style.STROKE);
         this.mPaint.setStrokeWidth(2.0f);
         canvas.drawRect(rect, this.mPaint);

@@ -110,7 +110,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090eb9);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090eb8);
             chatShareCommonCard.setScene(1);
             chatShareCommonCard.setRoomId(this.l);
             chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(m, -2));
@@ -139,7 +139,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
                 }
 
                 @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-                public void c(View.OnLongClickListener onLongClickListener) {
+                public void b(View.OnLongClickListener onLongClickListener) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, onLongClickListener) == null) {
                         this.itemView.setOnLongClickListener(onLongClickListener);
@@ -169,7 +169,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
             SkinManager.setBackgroundResource(directParent, i3);
             ChatShareCommonCard chatShareCommonCard = (ChatShareCommonCard) holder.itemView;
             chatShareCommonCard.a(data.shareCommon);
-            chatShareCommonCard.f(data.isLeft());
+            chatShareCommonCard.e(data.isLeft());
         }
     }
 }

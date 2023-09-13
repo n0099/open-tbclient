@@ -1,126 +1,65 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.TabMenuPopView;
+import com.baidu.tieba.kv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class mv7 {
+public class mv7 implements gv7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Long> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986203, "Lcom/baidu/tieba/mv7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986203, "Lcom/baidu/tieba/mv7;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    @JvmStatic
-    public static final mv7 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a() : (mv7) invokeV.objValue;
-    }
+    public Context a;
+    public kv7.e b;
+    public List<dk7> c;
+    public View d;
+    public View e;
+    public TabMenuPopView f;
+    public kv7 g;
+    public TabMenuPopView.c h;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a implements TabMenuPopView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mv7 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(mv7 mv7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mv7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final mv7 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (mv7) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final mv7 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-591018979, "Lcom/baidu/tieba/mv7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-591018979, "Lcom/baidu/tieba/mv7$b;");
                     return;
                 }
             }
-            a = new b();
-            b = new mv7();
+            this.a = mv7Var;
         }
 
-        public b() {
+        @Override // com.baidu.tieba.frs.TabMenuPopView.c
+        public void a(View view2, dk7 dk7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, dk7Var) == null) {
+                if (this.a.g != null) {
+                    this.a.g.c();
                 }
+                this.a.b.a(dk7Var.b);
             }
-        }
-
-        public final mv7 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (mv7) invokeV.objValue;
         }
     }
 
@@ -128,46 +67,68 @@ public final class mv7 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.h = new a(this);
     }
 
-    public final long a(String fid) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gv7
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fid)) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            Long l = this.a.get(fid);
-            if (l == null) {
-                l = -1L;
-            }
-            return l.longValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return this.d.getMeasuredHeight();
         }
-        return invokeL.longValue;
+        return invokeV.intValue;
     }
 
-    public final void c(String fid, long j) {
+    @Override // com.baidu.tieba.gv7
+    public View getView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fid, j) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            if (j < 0) {
-                return;
-            }
-            Long l = this.a.get(fid);
-            if (l == null) {
-                l = -1L;
-            }
-            if (l.longValue() < j) {
-                this.a.put(fid, Long.valueOf(j));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gv7
+    public void a(Context context, kv7 kv7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, kv7Var) == null) && context != null && kv7Var != null) {
+            this.a = context;
+            this.g = kv7Var;
+            this.b = kv7Var.d();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0963, (ViewGroup) null);
+            this.d = inflate;
+            this.e = inflate.findViewById(R.id.top_line);
+            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f090652);
+            this.f = tabMenuPopView;
+            tabMenuPopView.setOnItemClickCallBack(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.gv7
+    public void setData(List<dk7> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list == null) {
+            return;
+        }
+        this.c = list;
+        dk7 dk7Var = new dk7();
+        dk7Var.b = 0;
+        dk7Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f029d);
+        dk7Var.c = false;
+        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+        this.f.setData(this.c, dk7Var);
     }
 }

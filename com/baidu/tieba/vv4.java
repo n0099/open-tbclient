@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.img.ImageFileInfo;
-import java.util.List;
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes8.dex */
 public interface vv4 {
-    void a(List<sv4> list, List<ImageFileInfo> list2, String str);
-
-    void onPreLoad();
+    View a(Context context);
 }

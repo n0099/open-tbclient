@@ -134,7 +134,7 @@ public class e extends a {
                 d.b();
                 return null;
             case 8:
-                boolean booleanValue = ((Boolean) map.get(TTDownloadField.TT_FORCE)).booleanValue();
+                boolean booleanValue = ((Boolean) map.get("force")).booleanValue();
                 d.a().a((String) map.get(TTDownloadField.TT_DOWNLOAD_URL), booleanValue);
                 return null;
             case 9:

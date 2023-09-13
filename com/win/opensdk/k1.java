@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +106,7 @@ public class k1 {
                 Context context = this.a;
                 String jSONArray = optJSONArray.toString();
                 SharedPreferences.Editor edit3 = context.getSharedPreferences("_prefs", 0).edit();
-                edit3.putString(TiebaStatic.Params.PID_MERGE, jSONArray);
+                edit3.putString("pids", jSONArray);
                 edit3.apply();
                 String optString = jSONObject2.optString("psdid");
                 SharedPreferences.Editor edit4 = this.a.getSharedPreferences("_prefs", 0).edit();

@@ -1,73 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class kq1 {
+public class kq1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static kq1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kq1() {
+        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            try {
-                byte[] bArr2 = new byte[32];
-                new SecureRandom().nextBytes(bArr2);
-                byte[] bArr3 = new byte[16];
-                System.arraycopy(bArr2, 8, bArr3, 0, 16);
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr3);
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                cipher.init(1, secretKeySpec, ivParameterSpec);
-                byte[] doFinal = cipher.doFinal(bArr);
-                byte[] bArr4 = new byte[doFinal.length + 32];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(bArr2, 0, bArr4, doFinal.length, 32);
-                return Base64.encodeToString(bArr4, 0);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                byte[] decode = Base64.decode(str, 0);
-                if (decode != null && decode.length >= 32) {
-                    byte[] bArr = new byte[32];
-                    int length = decode.length - 32;
-                    byte[] bArr2 = new byte[length];
-                    System.arraycopy(decode, 0, bArr2, 0, length);
-                    System.arraycopy(decode, length, bArr, 0, 32);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                    Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                    byte[] bArr3 = new byte[16];
-                    System.arraycopy(bArr, 8, bArr3, 0, 16);
-                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                    return cipher.doFinal(bArr2);
-                }
-                return decode;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            kq1 kq1Var = new kq1();
+            a = kq1Var;
+            kq1Var.start();
+            b = new Handler(a.getLooper());
         }
-        return (byte[]) invokeL.objValue;
+    }
+
+    public static Handler b() {
+        InterceptResult invokeV;
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (kq1.class) {
+                a();
+                handler = b;
+            }
+            return handler;
+        }
+        return (Handler) invokeV.objValue;
     }
 }

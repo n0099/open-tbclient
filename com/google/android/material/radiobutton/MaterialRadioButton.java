@@ -15,7 +15,7 @@ import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes9.dex */
 public class MaterialRadioButton extends AppCompatRadioButton {
-    public static final int DEF_STYLE_RES = 2131755896;
+    public static final int DEF_STYLE_RES = 2131755904;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @Nullable
     public ColorStateList materialThemeColorsTintList;

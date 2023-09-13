@@ -1,160 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.i43;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public final class b83 {
+public class b83 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static String b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements fh2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ c83 b;
-        public final /* synthetic */ Bundle c;
-
-        public a(Context context, c83 c83Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, c83Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = c83Var;
-            this.c = bundle;
-        }
-
-        @Override // com.baidu.tieba.fh2
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && b83.a) {
-                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
-            }
-        }
-
-        @Override // com.baidu.tieba.fh2
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (b83.a) {
-                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
-                }
-                b83.i(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements fa2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ c83 b;
-        public final /* synthetic */ Bundle c;
-
-        public b(Context context, c83 c83Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, c83Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = c83Var;
-            this.c = bundle;
-        }
-
-        @Override // com.baidu.tieba.fa2
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            boolean unused = b83.c = true;
-            b83.h(this.a, this.b, this.c);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements wp3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ c83 b;
-        public final /* synthetic */ Bundle c;
-
-        public c(Context context, c83 c83Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, c83Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = c83Var;
-            this.c = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                b83.g(this.a, this.b, this.c);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -169,216 +32,51 @@ public final class b83 {
                 return;
             }
         }
-        a = nr1.a;
-        c = false;
+        a = rr1.a;
     }
 
-    public static void h(Context context, c83 c83Var, Bundle bundle) {
+    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends h73> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, context, c83Var, bundle) == null) {
-            SwanLauncher.j().l(new c(context, c83Var, bundle));
-        }
-    }
-
-    public static void j(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
-            bundle.putBoolean("bundle_key_v8_ab", ku2.g0().x());
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("master", xh2.U().k0());
-                jSONObject.put("slave", xh2.U().n0());
-            } catch (JSONException e) {
-                if (a) {
-                    throw new RuntimeException(e);
+        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
+            Iterator<g83> it = i83.k().q().iterator();
+            while (it.hasNext()) {
+                g83 next = it.next();
+                if (next != null && next.T()) {
+                    b(next.b, bundle, cls, null);
                 }
             }
-            String jSONObject2 = jSONObject.toString();
+        }
+    }
+
+    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends h73> cls, @Nullable o73 o73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, o73Var) == null) {
             if (a) {
-                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
+                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
             }
-            if (TextUtils.isEmpty(jSONObject2)) {
-                return "";
+            Message obtain = Message.obtain((Handler) null, 125);
+            obtain.replyTo = i83.k().d;
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("ai_apps_delegation_name", cls.getName());
+            if (o73Var != null) {
+                bundle2.putString("ai_apps_observer_id", o73Var.b());
+                l73.b().e(o73Var);
             }
-            return jSONObject2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void g(Context context, c83 c83Var, Bundle bundle) {
-        boolean z;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, c83Var, bundle) == null) {
-            if (ku2.g0() != null) {
-                z = ku2.g0().t();
-            } else {
-                z = false;
-            }
-            boolean isMainProcess = ProcessUtils.isMainProcess();
-            if (isMainProcess) {
-                str = "main";
-            } else {
-                str = "aiapp";
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (z) {
-                if (isMainProcess && TextUtils.isEmpty(b)) {
-                    try {
-                        b = new WebView(context).getSettings().getUserAgentString();
-                    } catch (Exception e) {
-                        b = "exception::" + e.toString();
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("time", currentTimeMillis);
-                    jSONObject.put("process", c83Var.b.index);
-                    jSONObject.put("ua", b);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                i43.d dVar = new i43.d("812");
-                dVar.g("swan");
-                dVar.i("launch");
-                dVar.h(str);
-                dVar.e(jSONObject);
-                i43.onEvent(dVar);
-            }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            if (z) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("time", currentTimeMillis2);
-                    jSONObject2.put("process", c83Var.b.index);
-                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
-                } catch (JSONException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                i43.d dVar2 = new i43.d("812");
-                dVar2.g("swan");
-                dVar2.i("swan_updated");
-                dVar2.h(str);
-                dVar2.e(jSONObject2);
-                i43.onEvent(dVar2);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (ik3.j()) {
-                kk3.e();
-            }
-            bundle.putParcelable("bundle_key_swan_core", ik3.e(0));
-            bundle.putParcelable("bundle_key_extension_core", ml2.c(0));
-            bundle.putInt("bundle_key_preload_switch", ku2.g().a());
-            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
-            bundle.putBoolean("bundle_key_v8_ab", ku2.g0().x());
-            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
-            bundle.putString("bundle_key_preload_src", str);
-            bundle.putInt("bundle_key_process", c83Var.b.index);
-            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
-            c83Var.n0(context, bundle);
-        }
-    }
-
-    public static void i(Context context, c83 c83Var, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, c83Var, bundle) == null) {
-            if (hh2.a()) {
-                h(context, c83Var, bundle);
-            } else if (c) {
-                h(context, c83Var, bundle);
-            } else {
-                tx1.a().b().a().b(new b(context, c83Var, bundle));
-            }
-        }
-    }
-
-    public static void k(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
-            Intent intent = new Intent(context, SwanAppMessengerService.class);
-            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
             if (bundle != null) {
-                intent.putExtras(bundle);
+                bundle2.putBundle("ai_apps_data", bundle);
             }
-            try {
-                context.startService(intent);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
+            obtain.obj = bundle2;
+            x73 e = x73.e();
+            z73 z73Var = new z73(obtain);
+            z73Var.b(swanAppProcessInfo);
+            e.h(z73Var);
         }
     }
 
-    public static void l(Context context, Bundle bundle) {
+    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends h73> cls, @Nullable o73 o73Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
-            m(context, e83.k().f(), bundle);
-        }
-    }
-
-    public static void n(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
-            zu1 g0 = ku2.g0();
-            if (!c73.Y()) {
-                g0.getSwitch("swan_preload_keep_alive", true);
-            }
-            l(context, bundle);
-        }
-    }
-
-    public static void m(Context context, c83 c83Var, Bundle bundle) {
-        String string;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, context, c83Var, bundle) == null) {
-            if (a) {
-                e83 k = e83.k();
-                k.u("b4 tryPreload client=" + c83Var);
-            }
-            if (ProcessUtils.isMainProcess() && c83Var != null && c83Var.b.isSwanAppProcess() && !c83Var.E()) {
-                if (bundle == null) {
-                    string = "";
-                } else {
-                    string = bundle.getString("bundle_key_preload_preload_scene");
-                }
-                if (TextUtils.isEmpty(string)) {
-                    string = "0";
-                }
-                if (a) {
-                    Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
-                }
-                if (ku2.w0().c()) {
-                    i(context, c83Var, bundle);
-                    return;
-                }
-                hh2 hh2Var = new hh2();
-                if (TextUtils.equals(string, "0")) {
-                    str = "by_host_launch";
-                } else {
-                    str = "by_preload";
-                }
-                hh2Var.a = str;
-                ku2.w0().b(hh2Var, new a(context, c83Var, bundle));
-            }
+        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, o73Var) == null) {
+            c83.Q().X(bundle, cls, o73Var);
         }
     }
 }

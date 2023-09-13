@@ -29,14 +29,14 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm6;
+import com.baidu.tieba.an6;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.cm6;
-import com.baidu.tieba.dm6;
-import com.baidu.tieba.em6;
-import com.baidu.tieba.fm6;
-import com.baidu.tieba.i49;
-import com.baidu.tieba.wl6;
+import com.baidu.tieba.cn6;
+import com.baidu.tieba.dn6;
+import com.baidu.tieba.k59;
+import com.baidu.tieba.um6;
+import com.baidu.tieba.zm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     public boolean g;
 
     /* loaded from: classes7.dex */
-    public class a implements bm6 {
+    public class a implements zm6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -80,7 +80,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.bm6
+        @Override // com.baidu.tieba.zm6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class NewMemberCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements dm6 {
+    public class b implements bn6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -129,17 +129,17 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.dm6
-        public void d(WebView webView, String str) {
+        @Override // com.baidu.tieba.bn6
+        public void c(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.a.a2();
+                this.a.c2();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cm6 {
+    public class c implements an6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -162,21 +162,21 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.cm6
+        @Override // com.baidu.tieba.an6
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.a2();
+                    this.a.c2();
                 } else {
-                    this.a.Z1();
+                    this.a.b2();
                 }
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class d implements em6 {
+    public class d implements cn6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -199,17 +199,17 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.em6
+        @Override // com.baidu.tieba.cn6
         public void a(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLIL(1048576, this, webView, webResourceRequest, i, charSequence) == null) {
-                this.a.Z1();
+                this.a.b2();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class e implements fm6 {
+    public class e implements dn6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewMemberCenterFragment a;
@@ -232,11 +232,11 @@ public class NewMemberCenterFragment extends BaseFragment {
             this.a = newMemberCenterFragment;
         }
 
-        @Override // com.baidu.tieba.fm6
+        @Override // com.baidu.tieba.dn6
         public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
-                this.a.Z1();
+                this.a.b2();
             }
         }
     }
@@ -257,19 +257,19 @@ public class NewMemberCenterFragment extends BaseFragment {
         this.g = false;
     }
 
-    public final void a2() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.e != null && this.b != null) {
-            hideNetRefreshView(this.d);
-            this.e.setVisibility(0);
-            this.b.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.e != null && !this.g) {
+            refresh();
         }
     }
 
-    public void b() {
+    public final void c2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.e != null && !this.g) {
-            refresh();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.e != null && this.b != null) {
+            hideNetRefreshView(this.d);
+            this.e.setVisibility(0);
+            this.b.setVisibility(8);
         }
     }
 
@@ -328,21 +328,21 @@ public class NewMemberCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
             this.e.onResume();
-            b();
+            c();
         }
     }
 
-    public final void W1(String str) {
+    public final void Y1(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.e == null) {
             return;
         }
         if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-            a2();
+            c2();
             this.e.loadUrl(str);
             return;
         }
-        Z1();
+        b2();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -354,7 +354,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new i49("my_tab_vip_banner_bubble").i();
+            new k59("my_tab_vip_banner_bubble").i();
         }
     }
 
@@ -366,7 +366,7 @@ public class NewMemberCenterFragment extends BaseFragment {
         }
     }
 
-    public void X1() {
+    public void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
@@ -381,7 +381,7 @@ public class NewMemberCenterFragment extends BaseFragment {
         }
     }
 
-    public final void Y1() {
+    public final void a2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e.setHorizontalScrollBarEnabled(false);
@@ -394,13 +394,13 @@ public class NewMemberCenterFragment extends BaseFragment {
         }
     }
 
-    public final void Z1() {
+    public final void b2() {
         TbWebView tbWebView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tbWebView = this.e) != null && this.b != null) {
             tbWebView.setVisibility(8);
             this.b.setVisibility(0);
-            showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e29), true);
+            showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e40), true);
         }
     }
 
@@ -409,10 +409,10 @@ public class NewMemberCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.g = true;
             if (StringUtils.isNull(this.f)) {
-                W1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+                Y1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
                 return;
             }
-            W1(this.f);
+            Y1(this.f);
         }
     }
 
@@ -423,7 +423,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             HashMap<String, Object> hashMap = new HashMap<>();
             if (intent != null) {
                 hashMap.put(WalletPayResultActivityConfig.PAY_RESULT, intent.getStringExtra(WalletPayResultActivityConfig.PAY_RESULT));
-                wl6.a().d(this.e, "tbPayResult", hashMap);
+                um6.a().d(this.e, "tbPayResult", hashMap);
             }
         }
     }
@@ -440,9 +440,9 @@ public class NewMemberCenterFragment extends BaseFragment {
             EMManager.from(this.c).setBackGroundColor(R.color.CAM_X0201);
             if (this.e != null) {
                 if (StringUtils.isNull(this.f)) {
-                    W1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+                    Y1(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
                 } else {
-                    W1(this.f);
+                    Y1(this.f);
                 }
             }
             this.b.onChangeSkinType(getPageContext(), i);
@@ -455,14 +455,14 @@ public class NewMemberCenterFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0459, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0460, (ViewGroup) null);
             this.c = inflate;
             this.a = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
             this.b = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-            X1();
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091729);
-            this.e = (TbWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092a1b);
-            Y1();
+            Z1();
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091732);
+            this.e = (TbWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092a51);
+            a2();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");
             return this.c;

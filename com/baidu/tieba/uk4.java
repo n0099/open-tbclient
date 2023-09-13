@@ -1,141 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.bm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class uk4 extends sk4<fl4> implements bl4 {
+public class uk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile fl4 b;
 
-    public uk4() {
+    public static <T> void a(@NonNull ml4 ml4Var, @NonNull List<jl4<T>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, ml4Var, list) == null) {
+            for (jl4<T> jl4Var : list) {
+                ml4Var.c(hl4.b().a(jl4Var));
             }
         }
     }
 
-    public synchronized fl4 g() {
-        InterceptResult invokeV;
-        fl4 fl4Var;
+    public static synchronized void d(dm4 dm4Var, cj4 cj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                fl4Var = (fl4) super.c();
+        if (interceptable == null || interceptable.invokeLL(65539, null, dm4Var, cj4Var) == null) {
+            synchronized (uk4.class) {
+                jl4<ik4> i = ll4.i(dm4Var.a, cj4Var);
+                ml4 ml4Var = new ml4(cj4Var);
+                ml4Var.c(hl4.b().a(i));
+                ml4Var.e();
             }
-            return fl4Var;
         }
-        return (fl4) invokeV.objValue;
     }
 
-    public synchronized fl4 i() {
-        InterceptResult invokeV;
-        fl4 fl4Var;
+    public static synchronized void g(List<ik4> list, cj4 cj4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                fl4Var = (fl4) super.d();
+        if (interceptable == null || interceptable.invokeLL(65542, null, list, cj4Var) == null) {
+            synchronized (uk4.class) {
+                List<jl4<ik4>> e = ll4.e(list, cj4Var);
+                ml4 ml4Var = new ml4(cj4Var);
+                a(ml4Var, e);
+                ml4Var.e();
             }
-            return fl4Var;
-        }
-        return (fl4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bl4
-    public <T> void a(fl4<T> fl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fl4Var) == null) {
-            this.b = fl4Var;
         }
     }
 
-    @Override // com.baidu.tieba.bl4
-    public <T> void b(fl4<T> fl4Var) {
+    @NonNull
+    public static ml4 b(bm4 bm4Var, cj4 cj4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fl4Var) == null) {
-            if (this.b == fl4Var) {
-                this.b = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bm4Var, cj4Var)) == null) {
+            List<jl4<bm4.a>> f = ll4.f(bm4Var.a, cj4Var);
+            ml4 ml4Var = new ml4(cj4Var);
+            for (jl4<bm4.a> jl4Var : f) {
+                ml4Var.c(hl4.b().a(jl4Var));
             }
-            k(fl4Var);
+            return ml4Var;
         }
+        return (ml4) invokeLL.objValue;
     }
 
-    public final void k(fl4 fl4Var) {
+    public static synchronized void e(em4 em4Var, cj4 cj4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, fl4Var) != null) || !fl4Var.k()) {
-            return;
-        }
-        fl4Var.r(true);
-        this.a.add(0, fl4Var);
-    }
-
-    public synchronized void h(fl4 fl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fl4Var) == null) {
-            synchronized (this) {
-                if (fl4Var == null) {
-                    return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, em4Var, cj4Var) == null) {
+            synchronized (uk4.class) {
+                List<jl4<hk4>> h = ll4.h(em4Var.a, cj4Var);
+                ml4 ml4Var = new ml4(cj4Var);
+                for (jl4<hk4> jl4Var : h) {
+                    ml4Var.c(hl4.b().a(jl4Var));
                 }
-                if (this.b != null && this.b.d(fl4Var)) {
-                    fl4Var.e().f(fl4Var.f());
-                    return;
+                ml4Var.e();
+            }
+        }
+    }
+
+    public static synchronized void c(cm4 cm4Var, cj4 cj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, cm4Var, cj4Var) == null) {
+            synchronized (uk4.class) {
+                jl4<ek4> d = ll4.d(cm4Var.d, cj4Var);
+                jl4<gk4> g = ll4.g(cm4Var.a, cj4Var);
+                jl4<ck4> c = ll4.c(cm4Var.f, cj4Var);
+                List<jl4<hk4>> h = ll4.h(cm4Var.b, cj4Var);
+                List<jl4<ik4>> e = ll4.e(cm4Var.c, cj4Var);
+                ml4 ml4Var = new ml4(cj4Var);
+                ml4Var.c(hl4.b().a(d));
+                ml4Var.c(hl4.b().a(g));
+                ml4Var.c(hl4.b().a(c));
+                a(ml4Var, h);
+                a(ml4Var, e);
+                ml4Var.e();
+            }
+        }
+    }
+
+    public static synchronized void f(zn4 zn4Var, cj4 cj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, zn4Var, cj4Var) == null) {
+            synchronized (uk4.class) {
+                jl4<ek4> d = ll4.d(zn4Var.b, cj4Var);
+                jl4<ek4> d2 = ll4.d(zn4Var.a, cj4Var);
+                jl4<ck4> c = ll4.c(zn4Var.c, cj4Var);
+                ml4 ml4Var = new ml4(cj4Var);
+                if (d != null) {
+                    ml4Var.c(hl4.b().a(d));
                 }
-                fl4 e = e(fl4Var);
-                if (e != null) {
-                    fl4Var.e().f(fl4Var.f());
-                    if (fl4Var.g() <= e.g()) {
-                        return;
+                if (d2 != null) {
+                    ml4Var.c(hl4.b().a(d2));
+                }
+                if (c != null) {
+                    ml4Var.c(hl4.b().a(c));
+                }
+                if (zn4Var.d != null) {
+                    for (jk4 jk4Var : zn4Var.d) {
+                        jl4<jk4> j = ll4.j(jk4Var, cj4Var);
+                        if (j != null) {
+                            ml4Var.c(hl4.b().a(j));
+                        }
                     }
                 }
-                int g = fl4Var.g();
-                if (g != 200) {
-                    if (g != 300) {
-                        if (e == null) {
-                            this.a.add(fl4Var);
-                        }
-                    } else {
-                        j(fl4Var);
-                        if (e != null) {
-                            this.a.remove(e);
-                            this.a.add(0, e);
-                        } else {
-                            this.a.add(0, fl4Var);
+                if (zn4Var.e != null) {
+                    for (ik4 ik4Var : zn4Var.e) {
+                        jl4<ik4> i = ll4.i(ik4Var, cj4Var);
+                        if (i != null) {
+                            ml4Var.c(hl4.b().a(i));
                         }
                     }
-                } else if (e != null) {
-                    this.a.remove(e);
-                    this.a.add(0, e);
-                } else {
-                    this.a.add(0, fl4Var);
                 }
-                notifyAll();
-            }
-        }
-    }
-
-    public final void j(fl4 fl4Var) {
-        fl4 fl4Var2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, fl4Var) != null) || fl4Var.g() != 300 || (fl4Var2 = this.b) == null || fl4Var2.g() == 300) {
-            return;
-        }
-        fl4Var2.o();
-        for (int i = 0; i < 500 && this.b != null; i++) {
-            try {
-                Thread.sleep(10L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                ml4Var.e();
             }
         }
     }

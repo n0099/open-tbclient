@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes5.dex */
-public interface c06 {
-    void a(View view2, int i, int i2, int i3, int i4);
+public interface c06 extends wt5 {
+    boolean goBack();
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
+
+    void z1(String str, boolean z);
 }

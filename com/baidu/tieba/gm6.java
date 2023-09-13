@@ -1,22 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnWebScrollChangeListener.java */
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class gm6 {
+public class gm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(hm6 hm6Var, int i, int i2, int i3, int i4) {
+    public static void a() {
+        zn6 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{hm6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (b = b()) != null) {
+            b.c();
         }
     }
 
-    public static void b(hm6 hm6Var, int i, int i2, int i3, int i4) {
+    public static zn6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{hm6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (zn6) ServiceManager.getService(zn6.a);
         }
+        return (zn6) invokeV.objValue;
+    }
+
+    public static void c() {
+        zn6 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b = b()) != null) {
+            b.b();
+        }
+    }
+
+    public static JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            zn6 b = b();
+            if (b != null) {
+                return b.a();
+            }
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

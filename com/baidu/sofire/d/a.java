@@ -23,7 +23,7 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC0186a extends Binder implements a {
+    public static abstract class AbstractBinderC0175a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,12 +37,12 @@ public interface a extends IInterface {
 
         /* renamed from: com.baidu.sofire.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0187a implements a {
+        public static class C0176a implements a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0187a(IBinder iBinder) {
+            public C0176a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public interface a extends IInterface {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
                         if (!this.a.transact(1, obtain, obtain2, 0)) {
-                            int i = AbstractBinderC0186a.a;
+                            int i = AbstractBinderC0175a.a;
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -103,7 +103,7 @@ public interface a extends IInterface {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
                         if (!this.a.transact(2, obtain, obtain2, 0)) {
-                            int i = AbstractBinderC0186a.a;
+                            int i = AbstractBinderC0175a.a;
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -132,7 +132,7 @@ public interface a extends IInterface {
                         obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                         obtain.writeString(str);
                         if (!this.a.transact(3, obtain, obtain2, 0)) {
-                            int i = AbstractBinderC0186a.a;
+                            int i = AbstractBinderC0175a.a;
                         }
                         obtain2.readException();
                         if (obtain2.readInt() != 0) {
@@ -160,7 +160,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0186a() {
+        public AbstractBinderC0175a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public interface a extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                     return (a) queryLocalInterface;
                 }
-                return new C0187a(iBinder);
+                return new C0176a(iBinder);
             }
             return (a) invokeL.objValue;
         }

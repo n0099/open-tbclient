@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
@@ -31,16 +32,16 @@ public class fp {
                 return gu.a(this.a, fvVar);
             }
             if (name.equals("presence")) {
-                return gu.m538a(this.a);
+                return gu.m539a(this.a);
             }
             if (this.a.getName().equals("stream")) {
                 return null;
             }
             if (this.a.getName().equals("error")) {
-                throw new gg(gu.m539a(this.a));
+                throw new gg(gu.m540a(this.a));
             }
             if (!this.a.getName().equals("warning")) {
-                this.a.getName().equals("bind");
+                this.a.getName().equals(UbcRemoteStat.BIND_SERVICE);
                 return null;
             }
             this.a.next();

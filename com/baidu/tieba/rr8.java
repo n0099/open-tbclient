@@ -1,38 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rr8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rr8 {
+    boolean a(@NonNull List<Integer> list);
 
-    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragmentActivity, i)) == null) {
-            if (!TbadkCoreApplication.getInst().appResponseToCmd(i)) {
-                b(baseFragmentActivity);
-                return false;
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
+    void b(int i);
 
-    public static void b(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, baseFragmentActivity) != null) || baseFragmentActivity == null) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT <= 10) {
-            baseFragmentActivity.showToast(R.string.plugin_not_exit_for_2_3);
-        } else {
-            baseFragmentActivity.showToast(R.string.plugin_not_exit);
-        }
-    }
+    void c(@NonNull zq8 zq8Var);
+
+    boolean d();
+
+    void e(@NonNull List<zq8> list);
+
+    void f(int i);
+
+    @Nullable
+    zq8 g();
+
+    void h(@NonNull ChatRoomDetail chatRoomDetail);
 }

@@ -1,307 +1,449 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatUserReplyView;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.data.UserReplyInfoData;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AtUserInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class cp8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int f = 2131167453;
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public GroupChatFragment a;
-    public GroupChatUserReplyView b;
-    public e c;
-    public RelativeLayout d;
-    public boolean e;
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
-
-        void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
-
-        void c();
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947682558, "Lcom/baidu/tieba/cp8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947682558, "Lcom/baidu/tieba/cp8;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements GroupChatUserReplyView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cp8 a;
-
-        public a(cp8 cp8Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682558, "Lcom/baidu/tieba/cp8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cp8Var;
-        }
-
-        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatUserReplyView.b
-        public void onCloseEvent() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null) {
-                this.a.c.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(cp8 cp8Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp8Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ cp8 b;
-
-        public c(cp8 cp8Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp8Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cp8Var;
-            this.a = dVar;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                this.b.k(false);
-                this.b.a.Q2(true);
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.a();
-                }
-                if (this.b.a != null) {
-                    this.b.a.Y2();
-                }
-            }
-        }
-    }
-
-    public cp8(GroupChatUserReplyView groupChatUserReplyView, GroupChatFragment groupChatFragment, RelativeLayout relativeLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {groupChatUserReplyView, groupChatFragment, relativeLayout};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682558, "Lcom/baidu/tieba/cp8;");
                 return;
             }
         }
-        this.e = true;
-        this.a = groupChatFragment;
-        this.b = groupChatUserReplyView;
-        this.d = relativeLayout;
-        f();
+        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0939);
+        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f093a);
     }
 
-    public void h(boolean z) {
+    public static String a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return String.format(b, str);
+            }
+            return String.format(a, str, str2);
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void i(e eVar) {
+    @NonNull
+    public static AtUserInfo j(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.c = eVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, userDTO, str)) == null) {
+            qx5.d(i(userDTO));
+            return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(BIMManager.getBdUidFromBdUK(userDTO.getUk())), str, userDTO.getPortrait(), 0);
         }
+        return (AtUserInfo) invokeLL.objValue;
     }
 
-    public void j(@Nullable d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) && e() && this.c != null) {
-            h(true);
-            this.c.b(d(), 0, 200L, new c(this, dVar), false);
-        }
-    }
-
-    public void k(boolean z) {
-        GroupChatUserReplyView groupChatUserReplyView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) != null) || (groupChatUserReplyView = this.b) == null) {
-            return;
-        }
-        if (z) {
-            groupChatUserReplyView.setVisibility(0);
-        } else {
-            groupChatUserReplyView.setVisibility(8);
-        }
-    }
-
-    public final boolean c(@NonNull UserReplyInfoData userReplyInfoData) {
+    public static String b(@NonNull List<AtSelectData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userReplyInfoData)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(userReplyInfoData.getmNameShow()) && !TextUtils.isEmpty(userReplyInfoData.getmContent())) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f094b) + this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0958)));
-                spannableStringBuilder.append(userReplyInfoData.getmContent());
-                this.b.setData(spannableStringBuilder);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (AtSelectData atSelectData : list) {
+                sb.append("@");
+                sb.append(atSelectData.getNameShow());
+                sb.append(" ");
             }
-            return false;
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(@NonNull String str, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
+        InterceptResult invokeLLLL;
+        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+        List<AtSelectData> atUserInfos;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, skillDTO, list, list2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            if (list != null && !list.isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
+                    if (itemsDTO != null && (opts = itemsDTO.getOpts()) != null && !opts.isEmpty()) {
+                        if (itemsDTO.isNormalType()) {
+                            sb.append(a(itemsDTO.getName(), opts.get(0).getName()));
+                            sb.append("\n");
+                        } else if (itemsDTO.isFileType()) {
+                            sb2.append(a(itemsDTO.getName(), null));
+                            sb2.append("\n");
+                        } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
+                            list2.addAll(atUserInfos);
+                            sb.append(a(itemsDTO.getName(), b(atUserInfos)));
+                            sb.append("\n");
+                        }
+                    }
+                }
+            }
+            if (!TextUtils.isEmpty(skillDTO.getAlias()) && !TextUtils.isEmpty(str)) {
+                sb.append(a(skillDTO.getAlias(), str));
+                sb.append("\n");
+            }
+            sb.append((CharSequence) sb2);
+            return sb.toString();
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static String d(@NonNull String str, @NonNull String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("@");
+            sb.append(str);
+            if (z) {
+                str3 = " ";
+            } else {
+                str3 = "\n";
+            }
+            sb.append(str3);
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    @NonNull
+    public static String f(@NonNull BotsDTO.BotListDTO.UserDTO userDTO, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, userDTO, skillDTO, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(userDTO.getNameShow());
+            if (!z) {
+                sb.append("/");
+                sb.append(skillDTO.getName());
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static HashMap<String, Object> g(@NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @Nullable String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, skillDTO, list, str)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("type", Integer.valueOf(skillDTO.getType()));
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("promot", str);
+            hashMap.put("scene", "tieba_group_chat");
+            e(hashMap, list);
+            return hashMap;
+        }
+        return (HashMap) invokeLLL.objValue;
+    }
+
+    public static void e(@NonNull Map<String, Object> map, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, map, list) == null) && list != null && list.size() > 0) {
+            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
+                if (itemsDTO != null) {
+                    o(map, itemsDTO);
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public static String h(@NonNull String str, @NonNull String str2, @NonNull BotsDTO.BotListDTO.SkillDTO skillDTO, @Nullable List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list, @NonNull List<AtSelectData> list2) {
+        InterceptResult invokeLLLLL;
+        String str3;
+        List<AtSelectData> atUserInfos;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, str, str2, skillDTO, list, list2)) == null) {
+            qx5.b(str);
+            String replaceAll = str.replaceAll(skillDTO.getAliasHolder(), skillDTO.getAlias()).replaceAll(skillDTO.getKeyboardHolder(), str2);
+            if (list != null && !list.isEmpty()) {
+                for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
+                    if (itemsDTO != null) {
+                        String value = itemsDTO.getValue();
+                        replaceAll = replaceAll.replaceAll(itemsDTO.getNameHolder(), itemsDTO.getName()).replaceAll(itemsDTO.getAliasHolder(), itemsDTO.getAlias());
+                        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
+                        if (opts != null && !opts.isEmpty() && !TextUtils.isEmpty(value)) {
+                            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = opts.get(0);
+                            if (itemsDTO.isNormalType()) {
+                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), optsDTO.getName()).replaceAll(optsDTO.getAliasHolder(value), optsDTO.getAlias());
+                            } else if (itemsDTO.isAtType()) {
+                                BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = optsDTO.getExt();
+                                if (ext != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
+                                    list2.addAll(atUserInfos);
+                                    str3 = b(atUserInfos);
+                                } else {
+                                    str3 = "";
+                                }
+                                replaceAll = replaceAll.replaceAll(optsDTO.getNameHolder(value), str3).replaceAll(optsDTO.getAliasHolder(value), str3);
+                            }
+                        }
+                    }
+                }
+            }
+            return replaceAll;
+        }
+        return (String) invokeLLLLL.objValue;
+    }
+
+    public static TextMsg l(@NonNull String str, @Nullable BaseMsg baseMsg, @NonNull gn8 gn8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
+        InterceptResult invokeLLLLL;
+        boolean z;
+        String c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, baseMsg, gn8Var, list, map)) == null) {
+            BotsDTO.BotListDTO.UserDTO userDTO = gn8Var.a;
+            BotsDTO.BotListDTO.SkillDTO skillDTO = gn8Var.b;
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list2 = gn8Var.c;
+            if (userDTO != null && skillDTO != null && i(userDTO)) {
+                ArrayList arrayList = new ArrayList();
+                if (list != null) {
+                    arrayList.addAll(list);
+                }
+                String showTemplate = skillDTO.getShowTemplate(list2);
+                if (showTemplate != null && !TextUtils.isEmpty(showTemplate)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    c = h(showTemplate, str, skillDTO, list2, arrayList);
+                } else {
+                    c = c(str, skillDTO, list2, arrayList);
+                }
+                String f = f(userDTO, skillDTO, z);
+                String q = q(d(f, c, z));
+                TextMsg create = TextMsg.create(q);
+                create.addAtUserInfo(j(userDTO, f));
+                create.addAtUserInfo(n(q, arrayList));
+                HashMap<String, Object> g = g(skillDTO, list2, str);
+                if (baseMsg == null) {
+                    create.setRobotParams(g);
+                    return create;
+                }
+                if (gn8Var.c()) {
+                    create.setReMsgInfo(ReMsgInfo.create(baseMsg, baseMsg.getThumbnailText().toString()));
+                }
+                if (baseMsg.getReMsgInfo() != null) {
+                    if (baseMsg instanceof TextGenImageMsg) {
+                        g.put("last_promot", ((TextGenImageMsg) baseMsg).getLastPrompt());
+                    }
+                    g.put("user_msg_id", Long.valueOf(baseMsg.getReMsgInfo().getMsgId()));
+                    g.put("user_msg_key", baseMsg.getReMsgInfo().getMsgKey());
+                }
+                if (baseMsg.getTaskInfo() != null) {
+                    g.put("robot_msg_id", Long.valueOf(baseMsg.getTaskInfo().getOriginMsgId()));
+                    g.put("robot_msg_key", baseMsg.getTaskInfo().getOriginMsgKey());
+                }
+                create.setRobotParams(g);
+                return create;
+            }
+            return k(str, list, map);
+        }
+        return (TextMsg) invokeLLLLL.objValue;
+    }
+
+    public static boolean i(@NonNull BotsDTO.BotListDTO.UserDTO userDTO) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, userDTO)) == null) {
+            try {
+                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(userDTO.getUk());
+                if (TextUtils.isEmpty(bdUidFromBdUK)) {
+                    return false;
+                }
+                Long.parseLong(bdUidFromBdUK);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    public final int d() {
-        InterceptResult invokeV;
+    public static String q(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            GroupChatFragment groupChatFragment = this.a;
-            if (groupChatFragment == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            if (str.endsWith("\n")) {
+                return str.substring(0, str.length() - 1);
             }
-            return BdUtilHelper.getDimens(groupChatFragment.getContext(), f);
+            return str;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    @NonNull
+    public static TextMsg k(@NonNull String str, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GroupChatUserReplyView groupChatUserReplyView = this.b;
-            if (groupChatUserReplyView != null && groupChatUserReplyView.getVisibility() == 0) {
-                return true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, str, list, map)) == null) {
+            TextMsg create = TextMsg.create(str);
+            create.addAtUserInfo(p(list, map));
+            return create;
+        }
+        return (TextMsg) invokeLLL.objValue;
+    }
+
+    public static TextMsg m(@NonNull String str, @Nullable BaseMsg baseMsg, @Nullable gn8 gn8Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65549, null, str, baseMsg, gn8Var, list, map)) == null) {
+            if (gn8Var == null) {
+                return k(str, list, map);
             }
-            return false;
+            return l(str, baseMsg, gn8Var, list, map);
         }
-        return invokeV.booleanValue;
+        return (TextMsg) invokeLLLLL.objValue;
     }
 
-    public final void f() {
-        GroupChatUserReplyView groupChatUserReplyView;
+    @NonNull
+    public static List<AtUserInfo> n(@NonNull String str, @NonNull List<AtSelectData> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (groupChatUserReplyView = this.b) == null) {
-            return;
-        }
-        groupChatUserReplyView.setEventCallback(new a(this));
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(@Nullable d dVar, @NonNull UserReplyInfoData userReplyInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, dVar, userReplyInfoData) == null) && this.c != null && c(userReplyInfoData) && !e()) {
-            if (this.d != null) {
-                this.d.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, list)) == null) {
+            HashMap hashMap = new HashMap();
+            for (AtSelectData atSelectData : list) {
+                int i = 0;
+                String str2 = "@" + atSelectData.getNameShow();
+                while (true) {
+                    int indexOf = str.indexOf(str2, i);
+                    if (indexOf == -1) {
+                        break;
+                    }
+                    i = indexOf + 1;
+                    if (hashMap.get(Integer.valueOf(indexOf)) == null) {
+                        AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
+                        if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
+                            atType = AtUserInfo.AtType.ALL;
+                        }
+                        hashMap.put(Integer.valueOf(indexOf), AtUserInfo.create(atType, JavaTypesHelper.toLong(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), indexOf));
+                    }
+                }
             }
-            k(true);
-            this.a.Q2(false);
-            h(false);
-            this.c.a(0, d(), 200L, new b(this, dVar), false);
+            return new ArrayList(hashMap.values());
         }
+        return (List) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static List<AtUserInfo> p(@Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, list, map)) == null) {
+            if (list != null && !list.isEmpty() && map != null && !map.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (AtSelectData atSelectData : list) {
+                    AtUserInfo.AtType atType = AtUserInfo.AtType.USER;
+                    if (AtSelectData.AT_ALL_FAKE_UID.equals(atSelectData.getUid())) {
+                        atType = AtUserInfo.AtType.ALL;
+                    }
+                    arrayList.add(AtUserInfo.create(atType, JavaTypesHelper.toLong(atSelectData.getUid(), 0L), atSelectData.getNameShow(), atSelectData.getPortrait(), map.get(atSelectData.getUid()).intValue()));
+                }
+                return arrayList;
+            }
+            return Collections.emptyList();
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static void o(@NonNull Map<String, Object> map, @NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+        List<AtSelectData> atUserInfos;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, map, itemsDTO) == null) {
+            Map map2 = (Map) map.get("opts");
+            if (map2 == null) {
+                map2 = new HashMap();
+                map.put("opts", map2);
+            }
+            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
+            if (opts != null && !opts.isEmpty()) {
+                String str = null;
+                if (itemsDTO.isNormalType()) {
+                    str = opts.get(0).getName();
+                } else if (itemsDTO.isFileType()) {
+                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext2 = opts.get(0).getExt();
+                    if (ext2 != null) {
+                        str = ext2.getPicPath();
+                    }
+                } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < atUserInfos.size(); i++) {
+                        sb.append(BIMManager.getBdUKFromBdUid(atUserInfos.get(i).getUid()));
+                        if (i < atUserInfos.size() - 1) {
+                            sb.append(",");
+                        }
+                    }
+                    str = sb.toString();
+                }
+                if (str != null && !str.isEmpty()) {
+                    map2.put(itemsDTO.getValue(), str);
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public static BaseChatMsg<?> r(@NonNull TextMsg textMsg, @Nullable gn8 gn8Var) {
+        InterceptResult invokeLL;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO b2;
+        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, textMsg, gn8Var)) == null) {
+            if (gn8Var != null && (b2 = gn8Var.b()) != null && (opts = b2.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
+                SingleTextImageMsg create = SingleTextImageMsg.create(textMsg.getText(), ext.getPicPath(), ext.getPicSize());
+                create.fillSdkMsg4Base(textMsg);
+                create.setRobotParams(textMsg.getRobotParams());
+                create.setFileItem(b2);
+                return create;
+            }
+            return textMsg;
+        }
+        return (BaseChatMsg) invokeLL.objValue;
     }
 }

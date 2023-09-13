@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class gia {
+public class gia {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a = false;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap a;
+
+    public abstract void a(Canvas canvas);
 }

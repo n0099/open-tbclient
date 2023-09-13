@@ -93,7 +93,7 @@ public class GameVideoGridView extends BdGridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.b == null) {
-                this.b = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01009e);
+                this.b = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100a0);
             }
             if (this.c == null) {
                 GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.b);

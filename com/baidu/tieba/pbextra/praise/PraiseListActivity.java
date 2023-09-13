@@ -14,23 +14,23 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.di;
-import com.baidu.tieba.pw5;
-import com.baidu.tieba.qq9;
-import com.baidu.tieba.tq9;
-import com.baidu.tieba.uq9;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.hs9;
+import com.baidu.tieba.ks9;
+import com.baidu.tieba.ls9;
+import com.baidu.tieba.lx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements tq9.b, View.OnClickListener, AdapterView.OnItemClickListener {
+public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements ks9.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public uq9 b;
-    public tq9 c;
+    public ls9 b;
+    public ks9 c;
 
     public PraiseListActivity() {
         Interceptable interceptable = $ic;
@@ -50,11 +50,19 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         this.c = null;
     }
 
+    public final void o1() {
+        ks9 ks9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ks9Var = this.c) != null) {
+            ks9Var.v();
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s1();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            o1();
             super.onDestroy();
         }
     }
@@ -62,25 +70,17 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            this.b.A();
+            this.b.z();
         }
     }
 
-    public final void s1() {
-        tq9 tq9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (tq9Var = this.c) != null) {
-            tq9Var.v();
-        }
-    }
-
-    @Override // com.baidu.tieba.tq9.b
-    public void J0(int i, List<qq9> list, int i2, int i3) {
+    @Override // com.baidu.tieba.ks9.b
+    public void D0(int i, List<hs9> list, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.b.G(i, list, i2, i3);
+            this.b.F(i, list, i2, i3);
         }
     }
 
@@ -99,39 +99,39 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         }
     }
 
-    @Override // com.baidu.tieba.tq9.b
-    public void h(String str) {
+    @Override // com.baidu.tieba.ks9.b
+    public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (di.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
+            if (ei.isEmpty(str)) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0e40);
             }
-            this.b.F();
-            this.b.D(str, this.a);
+            this.b.E();
+            this.b.C(str, this.a);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b.u(getLayoutMode(), i);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b.t(getLayoutMode(), i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2 == this.b.y()) {
-                s1();
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            if (view2 == this.b.x()) {
+                o1();
                 if (this.c.l()) {
                     finish();
                     return;
                 }
-                pw5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
-            } else if (view2 == this.b.x() && !this.b.z()) {
-                this.b.E(true);
+                lx5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.c.k(), null, "praise_list"));
+            } else if (view2 == this.b.u() && !this.b.y()) {
+                this.b.D(true);
                 this.c.m(this.a);
             }
         }
@@ -141,45 +141,45 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     public void onCreate(Bundle bundle) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             if (bundle != null) {
                 this.a = bundle.getInt(IntentConfig.LIST_TYPE, 0);
                 z = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-                tq9 tq9Var = new tq9(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-                this.c = tq9Var;
-                tq9Var.u(bundle.getInt("KeyIntentPraiseId"));
+                ks9 ks9Var = new ks9(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+                this.c = ks9Var;
+                ks9Var.u(bundle.getInt("KeyIntentPraiseId"));
             } else if (getIntent() != null) {
                 this.a = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
                 z = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-                this.c = new tq9(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+                this.c = new ks9(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             } else {
                 z = false;
             }
             if (this.c == null) {
-                this.c = new tq9();
+                this.c = new ks9();
             }
             this.c.t(z);
-            uq9 uq9Var = new uq9(this, this.c.i());
-            this.b = uq9Var;
-            uq9Var.E(false);
+            ls9 ls9Var = new ls9(this, this.c.i());
+            this.b = ls9Var;
+            ls9Var.D(false);
             this.c.m(this.a);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        qq9 j2;
+        hs9 j2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (j2 = this.c.j(i)) != null) {
-            pw5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (j2 = this.c.j(i)) != null) {
+            lx5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             this.c.o(bundle, IntentConfig.IS_FROM_PB);
             this.c.s(bundle, "thread_id");

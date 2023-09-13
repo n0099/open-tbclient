@@ -5,17 +5,17 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.i41;
-import com.baidu.tieba.l41;
-import com.baidu.tieba.o9;
-import com.baidu.tieba.wba;
+import com.baidu.tieba.m41;
+import com.baidu.tieba.p41;
+import com.baidu.tieba.p9;
+import com.baidu.tieba.pda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class TiebaMainDatabaseHelper extends o9 {
+public class TiebaMainDatabaseHelper extends p9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 26;
     public static final String TABLE_DOWNLOAD_MULTI_INFO = "download_multi_info";
@@ -44,7 +44,7 @@ public class TiebaMainDatabaseHelper extends o9 {
         }
     }
 
-    @Override // com.baidu.tieba.o9
+    @Override // com.baidu.tieba.p9
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -80,7 +80,7 @@ public class TiebaMainDatabaseHelper extends o9 {
         }
     }
 
-    @Override // com.baidu.tieba.o9
+    @Override // com.baidu.tieba.p9
     public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
@@ -112,7 +112,7 @@ public class TiebaMainDatabaseHelper extends o9 {
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.m9
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.tieba.n9
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
@@ -292,9 +292,9 @@ public class TiebaMainDatabaseHelper extends o9 {
     public void prepareDBForV26(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, sQLiteDatabase) == null) {
-            l41 b = new wba().b();
-            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, i41.b(b));
-            Iterator<String> it = i41.a(b).iterator();
+            p41 b = new pda().b();
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, m41.b(b));
+            Iterator<String> it = m41.a(b).iterator();
             while (it.hasNext()) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, it.next());
             }

@@ -1,85 +1,50 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.NadNativeBrowserView;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.ab1;
-import com.baidu.tieba.s91;
+import android.graphics.drawable.ColorDrawable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class t91 implements s91.a {
+public class t91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.s91.a
-    public void a(Context context, int i) {
+    public static void a(Context context, PopupWindow popupWindow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
+            return;
         }
+        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
     }
 
-    @Override // com.baidu.tieba.s91.a
-    public boolean b(HashMap<String, String> hashMap, int i) {
-        InterceptResult invokeLI;
+    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, i)) == null) {
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public t91() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
+            if (!(context instanceof Activity)) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.s91.a
-    public AbsNadBrowserView c(Context context, cb1 cb1Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, cb1Var, i)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            fb1.c(context, "创建native内核browserView");
-            return new NadNativeBrowserView(context);
-        }
-        return (AbsNadBrowserView) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.s91.a
-    public void d(Context context, boolean z, int i, ab1.b listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), listener}) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    WebView.setDataDirectorySuffix(f61.a());
-                }
-                CookieSyncManager.createInstance(context);
-                listener.a();
-            } catch (Exception e) {
-                listener.b();
-                fb1.d(e);
+            if (viewGroup == null) {
+                viewGroup = new FrameLayout(context);
+                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
+                colorDrawable.setAlpha(86);
+                viewGroup.setBackground(colorDrawable);
             }
+            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
+            if (viewGroup.getParent() != null) {
+                viewGroup2.removeView(viewGroup);
+            }
+            if (z) {
+                viewGroup2.addView(viewGroup);
+            }
+            return viewGroup;
         }
+        return (ViewGroup) invokeLLZ.objValue;
     }
 }

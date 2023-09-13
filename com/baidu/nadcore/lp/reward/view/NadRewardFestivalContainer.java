@@ -11,10 +11,10 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ks0;
-import com.baidu.tieba.mp0;
-import com.baidu.tieba.pr0;
-import com.baidu.tieba.rp0;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.os0;
+import com.baidu.tieba.tp0;
+import com.baidu.tieba.tr0;
 /* loaded from: classes3.dex */
 public class NadRewardFestivalContainer extends RelativeLayout {
     public View.OnClickListener a;
@@ -81,7 +81,7 @@ public class NadRewardFestivalContainer extends RelativeLayout {
     }
 
     private int getLayoutId() {
-        return mp0.a().n();
+        return np0.a().o();
     }
 
     public void f() {
@@ -94,18 +94,18 @@ public class NadRewardFestivalContainer extends RelativeLayout {
     }
 
     public final void e(@NonNull AdBaseModel adBaseModel) {
-        ks0 ks0Var;
-        if (adBaseModel instanceof pr0) {
-            ks0Var = ((pr0) adBaseModel).h().m();
+        os0 os0Var;
+        if (adBaseModel instanceof tr0) {
+            os0Var = ((tr0) adBaseModel).g().m();
         } else {
-            ks0Var = null;
+            os0Var = null;
         }
-        if (ks0Var == null) {
+        if (os0Var == null) {
             this.b.setVisibility(8);
             return;
         }
-        rp0.a(getContext(), this.d, ks0Var.b);
-        rp0.a(getContext(), this.c, ks0Var.a);
+        tp0.a(getContext(), this.d, os0Var.b);
+        tp0.a(getContext(), this.c, os0Var.a);
         this.b.setVisibility(0);
         NadRewardVideoAdOverContainer nadRewardVideoAdOverContainer = this.e;
         if (nadRewardVideoAdOverContainer != null) {

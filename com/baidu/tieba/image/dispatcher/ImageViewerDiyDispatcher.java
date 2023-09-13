@@ -2,14 +2,14 @@ package com.baidu.tieba.image.dispatcher;
 
 import android.util.TypedValue;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.y5a;
+import com.baidu.tieba.s7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ImageViewerDiyDispatcher implements y5a {
+public class ImageViewerDiyDispatcher implements s7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,19 +42,19 @@ public class ImageViewerDiyDispatcher implements y5a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    @Override // com.baidu.tieba.y5a
+    @Override // com.baidu.tieba.s7a
     public void dispatch(org.json.JSONObject r23, android.content.Context r24) {
         /*
             r22 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.image.dispatcher.ImageViewerDiyDispatcher.$ic
-            if (r0 != 0) goto L247
+            if (r0 != 0) goto L249
         L4:
             r1 = r22
             r0 = r23
             r2 = r24
-            if (r0 == 0) goto L246
+            if (r0 == 0) goto L248
             if (r2 != 0) goto L10
-            goto L246
+            goto L248
         L10:
             java.lang.String r3 = "index"
             java.lang.String r3 = r0.optString(r3)
@@ -259,11 +259,11 @@ public class ImageViewerDiyDispatcher implements y5a {
             r6 = 0
         L190:
             int r3 = r14.size()
-            if (r6 >= r3) goto L1e0
+            if (r6 >= r3) goto L1e2
             java.lang.Object r3 = r14.get(r6)
             java.lang.CharSequence r3 = (java.lang.CharSequence) r3
             boolean r3 = android.text.TextUtils.isEmpty(r3)
-            if (r3 != 0) goto L1d9
+            if (r3 != 0) goto L1db
             com.baidu.tbadk.coreExtra.view.ImageUrlData r3 = new com.baidu.tbadk.coreExtra.view.ImageUrlData
             r3.<init>()
             r4 = 13
@@ -284,15 +284,16 @@ public class ImageViewerDiyDispatcher implements y5a {
             java.lang.String r8 = (java.lang.String) r8
             r3.originalUrl = r8
             java.lang.Object r8 = r14.get(r6)
+            java.lang.String r8 = (java.lang.String) r8
             r2.put(r8, r3)
-            goto L1db
-        L1d9:
-            r4 = r20
+            goto L1dd
         L1db:
+            r4 = r20
+        L1dd:
             int r6 = r6 + 1
             r20 = r4
             goto L190
-        L1e0:
+        L1e2:
             r4 = r20
             com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder r3 = new com.baidu.tbadk.core.atomData.ImageViewerConfig$Builder
             r3.<init>()
@@ -327,9 +328,9 @@ public class ImageViewerDiyDispatcher implements y5a {
             r4 = 2010000(0x1eab90, float:2.81661E-39)
             r3.<init>(r4, r0)
             r2.sendMessage(r3)
-        L246:
+        L248:
             return
-        L247:
+        L249:
             r20 = r0
             r21 = 1048576(0x100000, float:1.469368E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r20.invokeLL(r21, r22, r23, r24)

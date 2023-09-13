@@ -22,7 +22,6 @@ import com.google.zxing.oned.rss.DataCharacter;
 import com.google.zxing.oned.rss.FinderPattern;
 import com.google.zxing.oned.rss.RSSUtils;
 import com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder;
-import com.qq.e.comm.adevent.AdEventType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -185,7 +184,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                 i++;
             }
         }
-        if (((i - 4) * AdEventType.VIDEO_LOADING) + (checksumPortion % AdEventType.VIDEO_LOADING) != leftChar.getValue()) {
+        if (((i - 4) * 211) + (checksumPortion % 211) != leftChar.getValue()) {
             return false;
         }
         return true;

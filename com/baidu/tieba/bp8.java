@@ -1,302 +1,383 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.text.TextUtils;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatUserReplyView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public class bp8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int f = 2131167453;
+public final class bp8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GroupChatFragment a;
-    public GroupChatUserReplyView b;
-    public e c;
-    public RelativeLayout d;
-    public boolean e;
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
-
-        void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
-
-        void c();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947652767, "Lcom/baidu/tieba/bp8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947652767, "Lcom/baidu/tieba/bp8;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements GroupChatUserReplyView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bp8 a;
-
-        public a(bp8 bp8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bp8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bp8Var;
-        }
-
-        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatUserReplyView.b
-        public void onCloseEvent() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null) {
-                this.a.c.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(bp8 bp8Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bp8Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ bp8 b;
-
-        public c(bp8 bp8Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bp8Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = bp8Var;
-            this.a = dVar;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                this.b.j(false);
-                this.b.a.Q2(true);
-                d dVar = this.a;
-                if (dVar != null) {
-                    dVar.a();
-                }
-                if (this.b.a != null) {
-                    this.b.a.Y2();
-                }
-            }
-        }
-    }
-
-    public bp8(GroupChatUserReplyView groupChatUserReplyView, GroupChatFragment groupChatFragment, RelativeLayout relativeLayout) {
+    public static final void a(final String filePath, final int i, final int i2, final yo8 callback) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {groupChatUserReplyView, groupChatFragment, relativeLayout};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "filePath");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            mg.e(new Runnable() { // from class: com.baidu.tieba.xo8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bp8.b(filePath, i, i2, callback);
+                    }
+                }
+            });
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x00b8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00ba */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:80:0x014c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0073 A[Catch: all -> 0x0126, Exception -> 0x012a, TryCatch #12 {Exception -> 0x012a, all -> 0x0126, blocks: (B:7:0x0039, B:9:0x004f, B:20:0x0073, B:21:0x0079, B:24:0x0089, B:47:0x00d6, B:51:0x00e7, B:53:0x00ee, B:54:0x00f7, B:15:0x0059), top: B:89:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Type inference failed for: r7v0 */
+    /* JADX WARN: Type inference failed for: r7v12, types: [int] */
+    /* JADX WARN: Type inference failed for: r7v17 */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v19 */
+    /* JADX WARN: Type inference failed for: r7v2 */
+    /* JADX WARN: Type inference failed for: r7v4, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v5, types: [java.io.ByteArrayInputStream] */
+    /* JADX WARN: Type inference failed for: r7v6 */
+    /* JADX WARN: Type inference failed for: r7v9 */
+    /* JADX WARN: Type inference failed for: r9v0 */
+    /* JADX WARN: Type inference failed for: r9v1 */
+    /* JADX WARN: Type inference failed for: r9v10 */
+    /* JADX WARN: Type inference failed for: r9v11 */
+    /* JADX WARN: Type inference failed for: r9v14, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v15 */
+    /* JADX WARN: Type inference failed for: r9v2, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v3, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Type inference failed for: r9v5, types: [android.graphics.Bitmap] */
+    /* JADX WARN: Type inference failed for: r9v6 */
+    /* JADX WARN: Type inference failed for: r9v7 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final void b(final String filePath, int i, int i2, final yo8 callback) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ?? r7;
+        Object obj;
+        Bitmap bitmap;
+        BitmapFactory.Options options;
+        int i3;
+        int i4;
+        Bitmap.CompressFormat compressFormat;
+        int ceil;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{filePath, Integer.valueOf(i), Integer.valueOf(i2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            final String str = filePath + "_backup";
+            Bitmap bitmap2 = null;
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = false;
+                    bitmap = BitmapFactory.decodeFile(filePath, options);
+                    try {
+                        i3 = options.outWidth;
+                        i4 = options.outHeight;
+                        compressFormat = Bitmap.CompressFormat.JPEG;
+                        String str2 = options.outMimeType;
+                        Intrinsics.checkNotNullExpressionValue(str2, "options.outMimeType");
+                        if (StringsKt__StringsJVMKt.endsWith$default(str2, "png", false, 2, null)) {
+                            compressFormat = Bitmap.CompressFormat.PNG;
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        obj = null;
+                        bitmap2 = bitmap;
+                        bitmap = obj;
+                        r7 = obj;
+                        try {
+                            e.printStackTrace();
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            mg.g(new Runnable() { // from class: com.baidu.tieba.uo8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        bp8.f(yo8.this, filePath);
+                                    }
+                                }
+                            });
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        r7 = 0;
+                        bitmap2 = bitmap;
+                        bitmap = r7;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    obj = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    r7 = 0;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream = null;
+                obj = null;
+            } catch (Throwable th4) {
+                th = th4;
+                byteArrayOutputStream = null;
+                r7 = 0;
+            }
+            try {
+                try {
+                    try {
+                        if (i4 <= i && i4 <= i2) {
+                            ceil = 1;
+                            if (ceil > 1) {
+                                options.inSampleSize = ceil;
+                                bitmap = BitmapFactory.decodeFile(filePath, options);
+                            }
+                            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+                            r7 = byteArrayOutputStream.toByteArray().length;
+                            if (r7 > 5242880) {
+                                if (ceil > 1) {
+                                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                                    Bitmap decodeStream = BitmapFactory.decodeStream(byteArrayInputStream);
+                                    FileOutputStream fileOutputStream = new FileOutputStream(new File(str));
+                                    if (decodeStream.compress(compressFormat, 100, fileOutputStream)) {
+                                        fileOutputStream.flush();
+                                    }
+                                    mg.g(new Runnable() { // from class: com.baidu.tieba.so8
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+
+                                        @Override // java.lang.Runnable
+                                        public final void run() {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                bp8.c(yo8.this, str);
+                                            }
+                                        }
+                                    });
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    g(decodeStream, byteArrayInputStream, byteArrayOutputStream, fileOutputStream);
+                                    return;
+                                }
+                                mg.g(new Runnable() { // from class: com.baidu.tieba.ro8
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    @Override // java.lang.Runnable
+                                    public final void run() {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                            bp8.d(yo8.this, filePath);
+                                        }
+                                    }
+                                });
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                g(bitmap, null, byteArrayOutputStream, null);
+                                return;
+                            }
+                            int i5 = 90;
+                            while (byteArrayOutputStream.toByteArray().length > 5242880) {
+                                byteArrayOutputStream.reset();
+                                bitmap.compress(compressFormat, i5, byteArrayOutputStream);
+                                i5 -= 10;
+                            }
+                            ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+                            Bitmap decodeStream2 = BitmapFactory.decodeStream(byteArrayInputStream2);
+                            FileOutputStream fileOutputStream2 = new FileOutputStream(new File(str));
+                            if (decodeStream2.compress(compressFormat, 100, fileOutputStream2)) {
+                                fileOutputStream2.flush();
+                            }
+                            mg.g(new Runnable() { // from class: com.baidu.tieba.vo8
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        bp8.e(yo8.this, str);
+                                    }
+                                }
+                            });
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            g(decodeStream2, byteArrayInputStream2, byteArrayOutputStream, fileOutputStream2);
+                            return;
+                        }
+                        if (r7 > 5242880) {
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
+                        Bitmap bitmap3 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap3;
+                        r7 = r7;
+                        e.printStackTrace();
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        mg.g(new Runnable() { // from class: com.baidu.tieba.uo8
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+
+                            @Override // java.lang.Runnable
+                            public final void run() {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                    bp8.f(yo8.this, filePath);
+                                }
+                            }
+                        });
+                        return;
+                    } catch (Throwable th5) {
+                        th = th5;
+                        Bitmap bitmap4 = bitmap;
+                        bitmap = 0;
+                        bitmap2 = bitmap4;
+                        g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                        throw th;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    bitmap2 = 1;
+                    r7 = r7;
+                    bitmap = bitmap;
+                    e.printStackTrace();
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    mg.g(new Runnable() { // from class: com.baidu.tieba.uo8
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+
+                        @Override // java.lang.Runnable
+                        public final void run() {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                bp8.f(yo8.this, filePath);
+                            }
+                        }
+                    });
+                    return;
+                } catch (Throwable th6) {
+                    th = th6;
+                    bitmap2 = 1;
+                    g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                bitmap = 0;
+                bitmap2 = 1;
+                r7 = r7;
+                bitmap = bitmap;
+                e.printStackTrace();
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                mg.g(new Runnable() { // from class: com.baidu.tieba.uo8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            bp8.f(yo8.this, filePath);
+                        }
+                    }
+                });
                 return;
+            } catch (Throwable th7) {
+                th = th7;
+                bitmap = 0;
+                bitmap2 = 1;
+                g(bitmap2, r7, byteArrayOutputStream, bitmap);
+                throw th;
             }
-        }
-        this.e = true;
-        this.a = groupChatFragment;
-        this.b = groupChatUserReplyView;
-        this.d = relativeLayout;
-        f();
-    }
-
-    public final boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str)) {
-                this.b.setData(str);
-                return true;
+            ceil = (int) Math.ceil(i3 / i);
+            int ceil2 = (int) Math.ceil(i4 / i2);
+            if (ceil <= ceil2) {
+                ceil = ceil2;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void i(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
-            this.c = eVar;
-        }
-    }
-
-    public void j(boolean z) {
-        GroupChatUserReplyView groupChatUserReplyView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || (groupChatUserReplyView = this.b) == null) {
-            return;
-        }
-        if (z) {
-            groupChatUserReplyView.setVisibility(0);
-        } else {
-            groupChatUserReplyView.setVisibility(8);
-        }
-    }
-
-    public void k(@Nullable d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) && e() && this.c != null) {
-            h(true);
-            this.c.b(d(), 0, 200L, new c(this, dVar), false);
-        }
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            GroupChatFragment groupChatFragment = this.a;
-            if (groupChatFragment == null) {
-                return 0;
+            if (ceil > 1) {
             }
-            return BdUtilHelper.getDimens(groupChatFragment.getContext(), f);
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            r7 = byteArrayOutputStream.toByteArray().length;
         }
-        return invokeV.intValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public static final void c(yo8 callback, String toFilePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            GroupChatUserReplyView groupChatUserReplyView = this.b;
-            if (groupChatUserReplyView != null && groupChatUserReplyView.getVisibility() == 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65538, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
+        }
+    }
+
+    public static final void d(yo8 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void e(yo8 callback, String toFilePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callback, toFilePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(toFilePath, "$toFilePath");
+            callback.onFinish(toFilePath);
+        }
+    }
+
+    public static final void f(yo8 callback, String filePath) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, callback, filePath) == null) {
+            Intrinsics.checkNotNullParameter(callback, "$callback");
+            Intrinsics.checkNotNullParameter(filePath, "$filePath");
+            callback.onFinish(filePath);
+        }
+    }
+
+    public static final void g(Bitmap bitmap, ByteArrayInputStream byteArrayInputStream, ByteArrayOutputStream byteArrayOutputStream, FileOutputStream fileOutputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, bitmap, byteArrayInputStream, byteArrayOutputStream, fileOutputStream) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        GroupChatUserReplyView groupChatUserReplyView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (groupChatUserReplyView = this.b) == null) {
-            return;
-        }
-        groupChatUserReplyView.setEventCallback(new a(this));
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l(@Nullable d dVar, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, dVar, str) == null) && this.c != null && c(str) && !e()) {
-            if (this.d != null) {
-                this.d.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            if (byteArrayOutputStream != null) {
+                byteArrayOutputStream.close();
             }
-            j(true);
-            this.a.Q2(false);
-            h(false);
-            this.c.a(0, d(), 200L, new b(this, dVar), false);
+            if (byteArrayInputStream != null) {
+                byteArrayInputStream.close();
+            }
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
         }
     }
 }

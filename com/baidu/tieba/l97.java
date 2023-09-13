@@ -1,85 +1,107 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedPicComponent;
-import tbclient.PicInfo;
 /* loaded from: classes6.dex */
 public final class l97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final int c;
+    public final int d;
 
-    public static final e67 a(List<PicInfo> picInfoList, String schema, p77 feedExtraData) {
-        InterceptResult invokeLLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, picInfoList, schema, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            e77 e77Var = new e77();
-            ArrayList arrayList = new ArrayList();
-            Iterator<PicInfo> it = picInfoList.iterator();
-            while (true) {
-                boolean z = false;
-                if (it.hasNext()) {
-                    PicInfo next = it.next();
-                    m87 m87Var = new m87();
-                    m87Var.a = next.small_pic_url;
-                    Integer num = next.width;
-                    Intrinsics.checkNotNullExpressionValue(num, "component.width");
-                    m87Var.b = num.intValue();
-                    Integer num2 = next.height;
-                    Intrinsics.checkNotNullExpressionValue(num2, "component.height");
-                    m87Var.c = num2.intValue();
-                    Double d = next.crop_point_width_ratio;
-                    Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
-                    m87Var.e = d.doubleValue();
-                    Double d2 = next.crop_point_height_ratio;
-                    Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
-                    m87Var.f = d2.doubleValue();
-                    Integer num3 = next.is_long_pic;
-                    if (num3 != null && num3.intValue() == 1) {
-                        z = true;
-                    }
-                    m87Var.d = z;
-                    arrayList.add(m87Var);
-                } else {
-                    e77Var.a = arrayList;
-                    return new e67(e77Var, schema, CollectionsKt__CollectionsKt.listOf((Object[]) new r87[]{q77.b(feedExtraData, "image_click"), q77.b(feedExtraData, "image_click2"), q77.b(feedExtraData, "image_click3"), q77.b(feedExtraData, "image_click4"), q77.b(feedExtraData, "image_click5")}), null, 8, null);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-        } else {
-            return (e67) invokeLLL.objValue;
+            if (obj instanceof l97) {
+                l97 l97Var = (l97) obj;
+                return this.a == l97Var.a && Intrinsics.areEqual(this.b, l97Var.b) && this.c == l97Var.c && this.d == l97Var.d;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static final void b(FeedPicComponent feedPicComponent, List<jb7<?>> dataList, p77 feedExtraData) {
-        boolean z;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, feedPicComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<PicInfo> list = feedPicComponent.pics;
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((this.a * 31) + this.b.hashCode()) * 31) + this.c) * 31) + this.d : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "LocalIconInfo(iconId=" + this.a + ", type=" + this.b + ", colorId=" + this.c + ", padding=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public l97(int i, String type, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), type, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            List<PicInfo> pics = feedPicComponent.pics;
-            Intrinsics.checkNotNullExpressionValue(pics, "pics");
-            String schema = feedPicComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            dataList.add(new kb7(a(pics, schema, feedExtraData), "pic"));
         }
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = i;
+        this.b = type;
+        this.c = i2;
+        this.d = i3;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

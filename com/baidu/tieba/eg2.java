@@ -1,220 +1,137 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.cg2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.baidubce.http.Headers;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class eg2 implements fg2 {
+public class eg2 extends vf2 implements qf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<hg2> a;
-    public boolean b;
+    public nf2 b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-834053988, "Lcom/baidu/tieba/eg2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-834053988, "Lcom/baidu/tieba/eg2$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[RecordType.values().length];
-            a = iArr;
-            try {
-                iArr[RecordType.APP_ID.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RecordType.APP_VERSION.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-        }
-    }
-
-    public eg2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eg2(@NonNull Context context, kf2 kf2Var) {
+        super(context, kf2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, kf2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (kf2) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = false;
+        this.b = new fg2();
     }
 
-    public void a(String str, UbcFlowEvent ubcFlowEvent) {
+    public final WebResourceResponse b(String str, InputStream inputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
+            return new WebResourceResponse(true, str, "UTF-8", 200, DnsModel.MSG_OK, hashMap, new BufferedInputStream(inputStream));
         }
-        i43.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public void d(String str, boolean z) {
-        String str2;
+    @Override // com.baidu.tieba.cg2
+    @SuppressLint({"BDThrowableCheck"})
+    public WebResourceResponse a(@NonNull cg2.a aVar) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!d(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
+            }
+            if (qf2.a) {
+                Log.d("HybridIntercept", "intercept file = " + d);
+            }
+            String c = c(d);
+            if (TextUtils.isEmpty(c)) {
+                if (!qf2.a) {
+                    return null;
+                }
+                throw new IllegalArgumentException("file path can't be null, src = " + d);
+            }
+            File file = new File(c);
+            if (file.exists() && file.isFile()) {
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
+                        str = "text/css";
+                    } else if (c.endsWith(".js")) {
+                        str = "application/javascript";
+                    } else {
+                        str = "text/plan";
+                    }
+                    return b(str, fileInputStream);
+                } catch (Throwable th) {
+                    if (qf2.a) {
+                        Log.e("HybridIntercept", Log.getStackTraceString(th));
+                    }
+                }
+            }
+            h82.c("HybridIntercept", "file intercept error, src = " + d);
+            return null;
         }
-        HybridUbcFlow q = i43.q(PrefetchEvent.MODULE, str);
-        if (z) {
-            str2 = "success";
-        } else {
-            str2 = "fail";
-        }
-        q.E("value", str2);
+        return (WebResourceResponse) invokeL.objValue;
     }
 
-    public void e(String str, hg2 hg2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, hg2Var) != null) || !b(str)) {
-            return;
-        }
-        c(i43.q(PrefetchEvent.MODULE, str), hg2Var);
-    }
-
-    public final boolean b(String str) {
+    public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return !TextUtils.isEmpty(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("interceptfile://") && str.length() > 16) {
+                str = str.substring(16);
+            }
+            if (qf2.a) {
+                Log.d("HybridIntercept", "file request url = " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean d(@NonNull cg2.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
+            if (!aVar.c()) {
+                return true;
+            }
+            return this.b.a(aVar);
         }
         return invokeL.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
-            return;
-        }
-        i43.s(PrefetchEvent.MODULE, str);
-        i43.q(PrefetchEvent.MODULE, str);
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
-            this.b = true;
-            HybridUbcFlow q = i43.q(PrefetchEvent.MODULE, str);
-            g(q);
-            q.A();
-            i43.s(PrefetchEvent.MODULE, str);
-        }
-    }
-
-    public final void c(HybridUbcFlow hybridUbcFlow, hg2 hg2Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, hg2Var) == null) && hybridUbcFlow != null && hg2Var != null) {
-            switch (a.a[hg2Var.a.ordinal()]) {
-                case 1:
-                    hybridUbcFlow.D("app_id", hg2Var.b);
-                    return;
-                case 2:
-                    hybridUbcFlow.D("app_version", hg2Var.b);
-                    return;
-                case 3:
-                    if (hg2Var.c) {
-                        str = "hot";
-                    } else {
-                        str = "cold";
-                    }
-                    hybridUbcFlow.E("type", str);
-                    return;
-                case 4:
-                    hybridUbcFlow.E("source", hg2Var.b);
-                    return;
-                case 5:
-                    hybridUbcFlow.D("msg", hg2Var.b);
-                    return;
-                case 6:
-                    synchronized (this.a) {
-                        this.a.add(hg2Var);
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public final void g(HybridUbcFlow hybridUbcFlow) {
-        List<hg2> list;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (hg2 hg2Var : this.a) {
-                        String str2 = hg2Var.b;
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("url", str2);
-                        if (hg2Var.c) {
-                            str = "1";
-                        } else {
-                            str = "0";
-                        }
-                        jSONObject2.put("link", str);
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("links", jSONArray);
-                } catch (JSONException unused) {
-                }
-                this.a.clear();
-            }
-            if (jSONObject.length() > 0) {
-                hybridUbcFlow.D("prelink", jSONObject.toString());
-            }
-        }
     }
 }

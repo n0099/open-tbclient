@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface tm6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "EMManagerProvider");
+    void a(WebView webView, String str, JSONObject jSONObject);
 
-    void a(View view2, int i);
+    @Deprecated
+    boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
+
+    void onDestroy();
 }

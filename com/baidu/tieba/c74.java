@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c74 {
+public class c74 extends tm2<a74> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile b74 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized b74 a() {
-        InterceptResult invokeV;
-        b74 b74Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c74() {
+        super(new a74());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (c74.class) {
-                if (a == null) {
-                    a = new b74();
-                }
-                b74Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((qm2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return b74Var;
         }
-        return (b74) invokeV.objValue;
     }
 }

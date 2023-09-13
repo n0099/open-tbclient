@@ -13,14 +13,15 @@ import com.baidu.searchbox.live.interfaces.DI;
 @Keep
 /* loaded from: classes3.dex */
 public class DeviceInfoUtils {
-    public static final Object a = new Object();
-    public static String b = "";
-    public static String c = "";
-    public static String d = "";
-    public static String e = "";
-    public static String f = "";
-    public static boolean g = true;
-    public static HDRInfo h;
+    public static final Object LOCK_OBJ = new Object();
+    public static final String TAG = "DeviceInfoUtils";
+    public static String sDeviceDevice = "";
+    public static String sDeviceManufacturer = "";
+    public static String sDeviceModel = "";
+    public static HDRInfo sHDRInfo = null;
+    public static String sHarmonyVersion = "";
+    public static boolean sOperatorForce = true;
+    public static String sOsVersion = "";
 
     @Keep
     /* loaded from: classes3.dex */
@@ -33,124 +34,54 @@ public class DeviceInfoUtils {
         public float minLum;
     }
 
-    public static boolean a(int i) {
+    public static boolean needForceApi(int i) {
         return i == -2 || i == 2 || i == -3;
     }
 
     public static void clearOperator() {
-        synchronized (a) {
-            g = true;
+        synchronized (LOCK_OBJ) {
+            sOperatorForce = true;
         }
     }
 
     public static String getDeviceDevice() {
-        if (TextUtils.isEmpty(d)) {
-            d = Build.DEVICE;
+        if (TextUtils.isEmpty(sDeviceDevice)) {
+            sDeviceDevice = Build.DEVICE;
         }
-        return d;
+        return sDeviceDevice;
     }
 
     public static String getDeviceManufacturer() {
-        if (TextUtils.isEmpty(b)) {
+        if (TextUtils.isEmpty(sDeviceManufacturer)) {
             try {
-                b = DeviceInfoManager.INSTANCE.getManufacturer(DI.LIVE_PLAYER, "").deviceId;
-            } catch (Error | Exception e2) {
-                e2.printStackTrace();
+                sDeviceManufacturer = DeviceInfoManager.INSTANCE.getManufacturer(DI.LIVE_PLAYER, "").deviceId;
+            } catch (Error | Exception e) {
+                e.printStackTrace();
             }
         }
-        return b;
+        return sDeviceManufacturer;
     }
 
     public static String getDeviceModel() {
-        if (TextUtils.isEmpty(c)) {
+        if (TextUtils.isEmpty(sDeviceModel)) {
             try {
-                c = DeviceInfoManager.INSTANCE.getModel(DI.LIVE_PLAYER, "").deviceId;
+                sDeviceModel = DeviceInfoManager.INSTANCE.getModel(DI.LIVE_PLAYER, "").deviceId;
             } catch (Error | Exception unused) {
-                c = Build.MODEL;
+                sDeviceModel = Build.MODEL;
             }
         }
-        return c;
+        return sDeviceModel;
     }
 
     public static String getOsVersion() {
-        if (TextUtils.isEmpty(e)) {
+        if (TextUtils.isEmpty(sOsVersion)) {
             try {
-                e = DeviceInfoManager.INSTANCE.getOsVersion(DI.LIVE_PLAYER, "").deviceId;
-            } catch (Error | Exception e2) {
-                e2.printStackTrace();
+                sOsVersion = DeviceInfoManager.INSTANCE.getOsVersion(DI.LIVE_PLAYER, "").deviceId;
+            } catch (Error | Exception e) {
+                e.printStackTrace();
             }
         }
-        return e;
-    }
-
-    public static boolean a(Context context) {
-        int i = 0;
-        if (Build.VERSION.SDK_INT < 24) {
-            return false;
-        }
-        int[] supportedHdrTypes = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHdrCapabilities().getSupportedHdrTypes();
-        boolean z = false;
-        while (i < supportedHdrTypes.length) {
-            CyberLog.d(com.baidu.down.utils.DeviceInfoUtils.TAG, "type= " + supportedHdrTypes[i]);
-            i++;
-            z = true;
-        }
-        h.hdrTypes = supportedHdrTypes;
-        return z;
-    }
-
-    public static boolean c(Context context) {
-        boolean z = false;
-        if (Build.VERSION.SDK_INT >= 26) {
-            Configuration configuration = context.getResources().getConfiguration();
-            boolean isScreenWideColorGamut = configuration.isScreenWideColorGamut();
-            boolean isScreenHdr = configuration.isScreenHdr();
-            CyberLog.d(com.baidu.down.utils.DeviceInfoUtils.TAG, "Configuration color " + isScreenWideColorGamut + " hdr " + isScreenHdr);
-            if (isScreenWideColorGamut && isScreenHdr) {
-                z = true;
-            }
-            HDRInfo hDRInfo = h;
-            hDRInfo.isColorGamut = isScreenWideColorGamut;
-            hDRInfo.isScreenHdr = isScreenHdr;
-        }
-        return z;
-    }
-
-    public static String getOperator(Context context) {
-        boolean z;
-        synchronized (a) {
-            z = g;
-            g = false;
-        }
-        try {
-            DeviceIdBag operator = DeviceInfoManager.INSTANCE.getOperator(context, DI.LIVE_PLAYER, "", z);
-            if (operator != null && a(operator.errorCode)) {
-                operator = DeviceInfoManager.INSTANCE.getOperator(context, DI.LIVE_PLAYER, "", true);
-            }
-            return operator.deviceId;
-        } catch (Error | Exception e2) {
-            e2.printStackTrace();
-            return "";
-        }
-    }
-
-    public static boolean b(Context context) {
-        boolean z = false;
-        if (Build.VERSION.SDK_INT >= 24) {
-            Display.HdrCapabilities hdrCapabilities = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHdrCapabilities();
-            float desiredMaxAverageLuminance = hdrCapabilities.getDesiredMaxAverageLuminance();
-            float desiredMaxLuminance = hdrCapabilities.getDesiredMaxLuminance();
-            float desiredMinLuminance = hdrCapabilities.getDesiredMinLuminance();
-            CyberLog.d(com.baidu.down.utils.DeviceInfoUtils.TAG, "MaxAverageLuminance = " + desiredMaxAverageLuminance + " MaxLuminance= " + desiredMaxLuminance + " MinLuminance = " + desiredMinLuminance);
-            if (desiredMaxLuminance > 1000.0f) {
-                z = true;
-            }
-            HDRInfo hDRInfo = h;
-            hDRInfo.maxLumAVG = desiredMaxAverageLuminance;
-            hDRInfo.maxLum = desiredMaxLuminance;
-            hDRInfo.minLum = desiredMinLuminance;
-        }
-        return z;
+        return sOsVersion;
     }
 
     public static int getDeviceDensityDpi(Context context) {
@@ -168,27 +99,27 @@ public class DeviceInfoUtils {
     public static synchronized HDRInfo getDisplayHDRInfo(Context context) {
         HDRInfo hDRInfo;
         synchronized (DeviceInfoUtils.class) {
-            if (h == null) {
+            if (sHDRInfo == null) {
                 try {
-                    h = new HDRInfo();
-                    a(context);
-                    b(context);
-                    c(context);
-                } catch (Error | Exception e2) {
-                    e2.printStackTrace();
+                    sHDRInfo = new HDRInfo();
+                    queryDisplay(context);
+                    queryLuminance(context);
+                    queryConfig(context);
+                } catch (Error | Exception e) {
+                    e.printStackTrace();
                 }
             }
-            hDRInfo = h;
+            hDRInfo = sHDRInfo;
         }
         return hDRInfo;
     }
 
     public static boolean isHarmonyOs(Context context) {
         boolean z = false;
-        if (TextUtils.isEmpty(f)) {
+        if (TextUtils.isEmpty(sHarmonyVersion)) {
             try {
                 try {
-                    f = DeviceInfoManager.INSTANCE.getHarmonyVersion(context, DI.LIVE_PLAYER, "").deviceId;
+                    sHarmonyVersion = DeviceInfoManager.INSTANCE.getHarmonyVersion(context, DI.LIVE_PLAYER, "").deviceId;
                 } catch (Exception unused) {
                 }
             } catch (Error | Exception unused2) {
@@ -197,8 +128,78 @@ public class DeviceInfoUtils {
                 }
             }
         }
-        if (!TextUtils.isEmpty(f)) {
+        if (!TextUtils.isEmpty(sHarmonyVersion)) {
             return true;
+        }
+        return z;
+    }
+
+    public static String getOperator(Context context) {
+        boolean z;
+        synchronized (LOCK_OBJ) {
+            z = sOperatorForce;
+            sOperatorForce = false;
+        }
+        try {
+            DeviceIdBag operator = DeviceInfoManager.INSTANCE.getOperator(context, DI.LIVE_PLAYER, "", z);
+            if (operator != null && needForceApi(operator.errorCode)) {
+                operator = DeviceInfoManager.INSTANCE.getOperator(context, DI.LIVE_PLAYER, "", true);
+            }
+            return operator.deviceId;
+        } catch (Error | Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    public static boolean queryConfig(Context context) {
+        boolean z = false;
+        if (Build.VERSION.SDK_INT >= 26) {
+            Configuration configuration = context.getResources().getConfiguration();
+            boolean isScreenWideColorGamut = configuration.isScreenWideColorGamut();
+            boolean isScreenHdr = configuration.isScreenHdr();
+            CyberLog.d("DeviceInfoUtils", "Configuration color " + isScreenWideColorGamut + " hdr " + isScreenHdr);
+            if (isScreenWideColorGamut && isScreenHdr) {
+                z = true;
+            }
+            HDRInfo hDRInfo = sHDRInfo;
+            hDRInfo.isColorGamut = isScreenWideColorGamut;
+            hDRInfo.isScreenHdr = isScreenHdr;
+        }
+        return z;
+    }
+
+    public static boolean queryDisplay(Context context) {
+        int i = 0;
+        if (Build.VERSION.SDK_INT < 24) {
+            return false;
+        }
+        int[] supportedHdrTypes = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHdrCapabilities().getSupportedHdrTypes();
+        boolean z = false;
+        while (i < supportedHdrTypes.length) {
+            CyberLog.d("DeviceInfoUtils", "type= " + supportedHdrTypes[i]);
+            i++;
+            z = true;
+        }
+        sHDRInfo.hdrTypes = supportedHdrTypes;
+        return z;
+    }
+
+    public static boolean queryLuminance(Context context) {
+        boolean z = false;
+        if (Build.VERSION.SDK_INT >= 24) {
+            Display.HdrCapabilities hdrCapabilities = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getHdrCapabilities();
+            float desiredMaxAverageLuminance = hdrCapabilities.getDesiredMaxAverageLuminance();
+            float desiredMaxLuminance = hdrCapabilities.getDesiredMaxLuminance();
+            float desiredMinLuminance = hdrCapabilities.getDesiredMinLuminance();
+            CyberLog.d("DeviceInfoUtils", "MaxAverageLuminance = " + desiredMaxAverageLuminance + " MaxLuminance= " + desiredMaxLuminance + " MinLuminance = " + desiredMinLuminance);
+            if (desiredMaxLuminance > 1000.0f) {
+                z = true;
+            }
+            HDRInfo hDRInfo = sHDRInfo;
+            hDRInfo.maxLumAVG = desiredMaxAverageLuminance;
+            hDRInfo.maxLum = desiredMaxLuminance;
+            hDRInfo.minLum = desiredMinLuminance;
         }
         return z;
     }

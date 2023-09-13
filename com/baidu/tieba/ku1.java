@@ -1,15 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ku1 implements ax1 {
+public class ku1 implements su1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.su1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.su1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public ku1() {
         Interceptable interceptable = $ic;
@@ -23,41 +40,5 @@ public class ku1 implements ax1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ax1
-    public void a(Context context, wp3<Boolean> wp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, wp3Var) != null) || wp3Var == null) {
-            return;
-        }
-        wp3Var.a(null);
-    }
-
-    @Override // com.baidu.tieba.ax1
-    public void b(boolean z, wp3<String> wp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, wp3Var) != null) || wp3Var == null) {
-            return;
-        }
-        wp3Var.a(null);
-    }
-
-    @Override // com.baidu.tieba.ax1
-    public void c(Context context, wp3<String> wp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, wp3Var) != null) || wp3Var == null) {
-            return;
-        }
-        wp3Var.a(null);
-    }
-
-    @Override // com.baidu.tieba.ax1
-    public void d(wp3<Integer> wp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, wp3Var) != null) || wp3Var == null) {
-            return;
-        }
-        wp3Var.a(null);
     }
 }

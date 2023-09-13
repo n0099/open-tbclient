@@ -34,13 +34,13 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     public KSFrameLayout dN;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f8do;
+    public ImageView f7do;
     public com.kwad.sdk.core.video.videoview.a dp;
     @Nullable
     public boolean ds = false;
-    public final a.InterfaceC0659a du = new a.InterfaceC0659a() { // from class: com.kwad.components.ad.interstitial.b.h.3
+    public final a.InterfaceC0654a du = new a.InterfaceC0654a() { // from class: com.kwad.components.ad.interstitial.b.h.3
         /* JADX WARN: Removed duplicated region for block: B:15:0x002e  */
-        @Override // com.kwad.components.core.video.a.InterfaceC0659a
+        @Override // com.kwad.components.core.video.a.InterfaceC0654a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -60,7 +60,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
                 bVar.gL = aVar;
                 bVar.gJ = i2;
                 bVar.abH = ag.cB(h.this.getContext()) ? 2 : 1;
-                com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+                com.kwad.components.core.c.a.a.a(new a.C0643a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         h.this.dx();
@@ -74,7 +74,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
             bVar2.gL = aVar;
             bVar2.gJ = i2;
             bVar2.abH = ag.cB(h.this.getContext()) ? 2 : 1;
-            com.kwad.components.core.c.a.a.a(new a.C0648a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar2).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
+            com.kwad.components.core.c.a.a.a(new a.C0643a(com.kwad.sdk.b.kwai.a.x(h.this.dp)).L(h.this.mAdTemplate).b(h.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar2).a(new a.b() { // from class: com.kwad.components.ad.interstitial.b.h.3.1
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     h.this.dx();
@@ -119,12 +119,12 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         this.ds = this.cN.isVideoSoundEnable();
         String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
         if (TextUtils.isEmpty(url)) {
-            imageView = this.f8do;
+            imageView = this.f7do;
             i = 8;
         } else {
-            this.f8do.setImageDrawable(null);
-            KSImageLoader.loadImage(this.f8do, url, this.mAdTemplate);
-            imageView = this.f8do;
+            this.f7do.setImageDrawable(null);
+            KSImageLoader.loadImage(this.f7do, url, this.mAdTemplate);
+            imageView = this.f7do;
             i = 0;
         }
         imageView.setVisibility(i);
@@ -242,7 +242,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         this.hz.oS();
         this.mApkDownloadHelper = this.gh.mApkDownloadHelper;
         dw();
-        float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c2);
+        float dimension = getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704c7);
         this.dN.setRadius(dimension, dimension, 0.0f, 0.0f);
     }
 
@@ -259,9 +259,9 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912a9);
-        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091433);
-        this.f8do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091443);
+        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912af);
+        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091439);
+        this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091449);
         this.dN.setVisibility(4);
         this.mContext = getContext();
     }

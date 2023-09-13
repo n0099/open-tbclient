@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bv6;
+import com.baidu.tieba.cv6;
+import com.baidu.tieba.dv6;
 import com.baidu.tieba.tbadkcore.databinding.RecommendCardViewBinding;
-import com.baidu.tieba.xt6;
-import com.baidu.tieba.yt6;
-import com.baidu.tieba.zt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -215,17 +215,17 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    private final void setBottomLeftIconImage(yt6 yt6Var) {
+    private final void setBottomLeftIconImage(cv6 cv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, yt6Var) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeL(65542, this, cv6Var) == null) {
+            if (cv6Var.d()) {
                 getBinding().d.setVisibility(8);
                 return;
             }
             getBinding().d.setVisibility(0);
             TbImageView tbImageView = getBinding().d;
             Intrinsics.checkNotNullExpressionValue(tbImageView, "binding.bottomIconLeft");
-            j(tbImageView, yt6Var);
+            j(tbImageView, cv6Var);
         }
     }
 
@@ -248,17 +248,17 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    private final void setBottomRightEndIconImage(yt6 yt6Var) {
+    private final void setBottomRightEndIconImage(cv6 cv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, yt6Var) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeL(65544, this, cv6Var) == null) {
+            if (cv6Var.d()) {
                 getBinding().e.setVisibility(8);
                 return;
             }
             getBinding().e.setVisibility(0);
             TbImageView tbImageView = getBinding().e;
             Intrinsics.checkNotNullExpressionValue(tbImageView, "binding.bottomIconRightEnd");
-            j(tbImageView, yt6Var);
+            j(tbImageView, cv6Var);
         }
     }
 
@@ -281,17 +281,17 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    private final void setBottomRightStartIconImage(yt6 yt6Var) {
+    private final void setBottomRightStartIconImage(cv6 cv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, yt6Var) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeL(65546, this, cv6Var) == null) {
+            if (cv6Var.d()) {
                 getBinding().f.setVisibility(8);
                 return;
             }
             getBinding().f.setVisibility(0);
             TbImageView tbImageView = getBinding().f;
             Intrinsics.checkNotNullExpressionValue(tbImageView, "binding.bottomIconRightStart");
-            j(tbImageView, yt6Var);
+            j(tbImageView, cv6Var);
         }
     }
 
@@ -333,17 +333,17 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    private final void setLeftIconImage(yt6 yt6Var) {
+    private final void setLeftIconImage(cv6 cv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, this, yt6Var) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeL(65549, this, cv6Var) == null) {
+            if (cv6Var.d()) {
                 getBinding().n.setVisibility(8);
                 return;
             }
             getBinding().n.setVisibility(0);
             TbImageView tbImageView = getBinding().n;
             Intrinsics.checkNotNullExpressionValue(tbImageView, "binding.iconLeft");
-            j(tbImageView, yt6Var);
+            j(tbImageView, cv6Var);
         }
     }
 
@@ -365,10 +365,10 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    private final void setMainImage(yt6 yt6Var) {
+    private final void setMainImage(cv6 cv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, this, yt6Var) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeL(65554, this, cv6Var) == null) {
+            if (cv6Var.d()) {
                 getBinding().r.setVisibility(8);
                 return;
             }
@@ -376,7 +376,7 @@ public final class RecommendCardView extends FrameLayout {
             n();
             TbImageView tbImageView = getBinding().r;
             Intrinsics.checkNotNullExpressionValue(tbImageView, "binding.mainImage");
-            j(tbImageView, yt6Var);
+            j(tbImageView, cv6Var);
         }
     }
 
@@ -427,10 +427,10 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    private final void setTitleTags(zt6 zt6Var) {
+    private final void setTitleTags(dv6 dv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, this, zt6Var) == null) {
-            getBinding().u.c(zt6Var);
+        if (interceptable == null || interceptable.invokeL(65558, this, dv6Var) == null) {
+            getBinding().u.c(dv6Var);
         }
     }
 
@@ -477,7 +477,7 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    public final void a(xt6 item) {
+    public final void a(bv6 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -505,38 +505,38 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    public final void c(yt6 yt6Var, String str, yt6 yt6Var2, String str2, yt6 yt6Var3) {
+    public final void c(cv6 cv6Var, String str, cv6 cv6Var2, String str2, cv6 cv6Var3) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, yt6Var, str, yt6Var2, str2, yt6Var3) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, cv6Var, str, cv6Var2, str2, cv6Var3) == null) {
+            if (cv6Var.d()) {
                 boolean z2 = true;
                 if (str.length() == 0) {
                     z = true;
                 } else {
                     z = false;
                 }
-                if (z && yt6Var2.d()) {
+                if (z && cv6Var2.d()) {
                     if (str2.length() != 0) {
                         z2 = false;
                     }
-                    if (z2 && yt6Var3.d()) {
+                    if (z2 && cv6Var3.d()) {
                         getBinding().c.setVisibility(8);
                         return;
                     }
                 }
             }
             getBinding().c.setVisibility(0);
-            d(yt6Var, str);
-            f(yt6Var2, str2, yt6Var3);
+            d(cv6Var, str);
+            f(cv6Var2, str2, cv6Var3);
         }
     }
 
-    public final void d(yt6 yt6Var, CharSequence charSequence) {
+    public final void d(cv6 cv6Var, CharSequence charSequence) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, yt6Var, charSequence) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cv6Var, charSequence) == null) {
+            if (cv6Var.d()) {
                 if (charSequence.length() == 0) {
                     z = true;
                 } else {
@@ -548,7 +548,7 @@ public final class RecommendCardView extends FrameLayout {
                 }
             }
             getBinding().g.setVisibility(0);
-            setBottomLeftIconImage(yt6Var);
+            setBottomLeftIconImage(cv6Var);
             setBottomLeftIconText(charSequence);
         }
     }
@@ -585,48 +585,48 @@ public final class RecommendCardView extends FrameLayout {
         }
     }
 
-    public final void f(yt6 yt6Var, CharSequence charSequence, yt6 yt6Var2) {
+    public final void f(cv6 cv6Var, CharSequence charSequence, cv6 cv6Var2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, yt6Var, charSequence, yt6Var2) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, cv6Var, charSequence, cv6Var2) == null) {
+            if (cv6Var.d()) {
                 if (charSequence.length() == 0) {
                     z = true;
                 } else {
                     z = false;
                 }
-                if (z && yt6Var2.d()) {
+                if (z && cv6Var2.d()) {
                     getBinding().h.setVisibility(8);
                     return;
                 }
             }
             getBinding().h.setVisibility(0);
-            setBottomRightStartIconImage(yt6Var);
+            setBottomRightStartIconImage(cv6Var);
             setBottomRightIconText(charSequence);
-            setBottomRightEndIconImage(yt6Var2);
+            setBottomRightEndIconImage(cv6Var2);
         }
     }
 
-    public final void j(TbImageView tbImageView, yt6 yt6Var) {
+    public final void j(TbImageView tbImageView, cv6 cv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, tbImageView, yt6Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, tbImageView, cv6Var) == null) {
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-            layoutParams.width = yt6Var.c();
-            layoutParams.height = yt6Var.a();
-            tbImageView.startLoad(yt6Var.b());
+            layoutParams.width = cv6Var.c();
+            layoutParams.height = cv6Var.a();
+            tbImageView.startLoad(cv6Var.b());
         }
     }
 
-    public final void k(String str, int i, yt6 yt6Var, String str2, CharSequence charSequence, String str3, CharSequence charSequence2) {
+    public final void k(String str, int i, cv6 cv6Var, String str2, CharSequence charSequence, String str3, CharSequence charSequence2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), yt6Var, str2, charSequence, str3, charSequence2}) == null) {
-            if (yt6Var.d()) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i), cv6Var, str2, charSequence, str3, charSequence2}) == null) {
+            if (cv6Var.d()) {
                 getBinding().p.setVisibility(8);
                 return;
             }
             getBinding().p.setVisibility(0);
             l(str, i);
-            setLeftIconImage(yt6Var);
+            setLeftIconImage(cv6Var);
             setLeftIconTextStyle(str2);
             setLeftIconText(charSequence);
             m(str3, charSequence2);

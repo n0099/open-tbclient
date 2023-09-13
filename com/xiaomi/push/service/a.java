@@ -11,24 +11,24 @@ public class a {
     public static volatile a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f875a;
+    public Context f874a;
     public volatile String e;
     public volatile String f;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f876a = new Object();
+    public final Object f875a = new Object();
     public final Object b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f877a = "mipush_region";
+    public final String f876a = "mipush_region";
 
     /* renamed from: b  reason: collision with other field name */
-    public final String f878b = "mipush_country_code";
+    public final String f877b = "mipush_country_code";
     public final String c = "mipush_region.lock";
     public final String d = "mipush_country_code.lock";
 
     public a(Context context) {
-        this.f875a = context;
+        this.f874a = context;
     }
 
     public static a a(Context context) {
@@ -48,13 +48,13 @@ public class a {
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m181a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.y.m843a(file2);
+                com.xiaomi.push.y.m844a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
             } catch (Exception e) {
                 e = e;
@@ -125,7 +125,7 @@ public class a {
             try {
                 try {
                     File file = new File(context.getFilesDir(), str3);
-                    com.xiaomi.push.y.m843a(file);
+                    com.xiaomi.push.y.m844a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {
@@ -183,7 +183,7 @@ public class a {
 
     public String a() {
         if (TextUtils.isEmpty(this.e)) {
-            this.e = a(this.f875a, "mipush_region", "mipush_region.lock", this.f876a);
+            this.e = a(this.f874a, "mipush_region", "mipush_region.lock", this.f875a);
         }
         return this.e;
     }
@@ -193,13 +193,13 @@ public class a {
             this.e = str;
         }
         if (z) {
-            a(this.f875a, str, "mipush_region", "mipush_region.lock", this.f876a);
+            a(this.f874a, str, "mipush_region", "mipush_region.lock", this.f875a);
         }
     }
 
     public String b() {
         if (TextUtils.isEmpty(this.f)) {
-            this.f = a(this.f875a, "mipush_country_code", "mipush_country_code.lock", this.b);
+            this.f = a(this.f874a, "mipush_country_code", "mipush_country_code.lock", this.b);
         }
         return this.f;
     }
@@ -209,7 +209,7 @@ public class a {
             this.f = str;
         }
         if (z) {
-            a(this.f875a, str, "mipush_country_code", "mipush_region.lock", this.f876a);
+            a(this.f874a, str, "mipush_country_code", "mipush_region.lock", this.f875a);
         }
     }
 }

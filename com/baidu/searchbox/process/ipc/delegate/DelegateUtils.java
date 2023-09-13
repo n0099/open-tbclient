@@ -16,8 +16,8 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.v7c;
+import com.baidu.tieba.sac;
+import com.baidu.tieba.yac;
 /* loaded from: classes4.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
@@ -96,13 +96,13 @@ public final class DelegateUtils implements DelegateDef {
     }
 
     @NonNull
-    public static p7c<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
-        return p7c.d(new p7c.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+    public static sac<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
+        return sac.d(new sac.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
-            public void call(v7c<? super DelegateResult> v7cVar) {
-                v7cVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
-                v7cVar.onCompleted();
+            @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
+            public void call(yac<? super DelegateResult> yacVar) {
+                yacVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
+                yacVar.onCompleted();
             }
         });
     }

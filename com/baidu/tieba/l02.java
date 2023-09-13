@@ -1,178 +1,355 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tieba.hv2;
+import com.baidu.tieba.m02;
+import com.baidu.tieba.mg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class l02 {
+public class l02 extends kz1 implements m02.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final MediaType g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888987, "Lcom/baidu/tieba/l02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947888987, "Lcom/baidu/tieba/l02;");
-                return;
-            }
-        }
-        boolean z = nr1.a;
-        f = String.format("%s/ma/call", x72.b());
-        g = k23.a;
-    }
-
-    public final void b() {
-        db3 b0;
+    @Override // com.baidu.tieba.kz1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (b0 = db3.b0()) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LocationService" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "GetLocationApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements aq3<kg3<mg3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ l02 b;
+
+        /* loaded from: classes6.dex */
+        public class a implements hv2.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.hv2.a
+            public void a(ge3 ge3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, ge3Var) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("data", ge3Var.a().toString());
+                    uw2.T().u(new il2("locationChange", hashMap));
+                }
+            }
+
+            @Override // com.baidu.tieba.hv2.a
+            public void onFailed(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                    ni3.b("startLocationUpdate", 4000, "sdk's errCode is " + i, -1, "");
+                }
+            }
         }
-        int k = b0.k();
-        String i = ik3.i(qw2.T().getCoreVersion(), k);
-        if (k == 0) {
-            this.c.put("swan_ver", i);
-        } else if (k == 1) {
-            this.c.put("game_ver", i);
+
+        public b(l02 l02Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l02Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = l02Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(kg3<mg3.e> kg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                if (!fg3.h(kg3Var)) {
+                    int b = kg3Var.b();
+                    ni3.b("startLocationUpdate", 5000, fg3.f(b), b, fg3.f(b));
+                    this.b.d(this.a, new h32(b, fg3.f(b)));
+                } else if (!bp3.M()) {
+                    ni3.b("startLocationUpdate", 5004, "user no permission", 10005, fg3.f(10005));
+                    this.b.d(this.a, new h32(10005, fg3.f(10005)));
+                } else {
+                    this.b.d(this.a, new h32(0));
+                    ou2.I().f(new a(this));
+                }
+            }
         }
     }
 
-    public l02() {
+    /* loaded from: classes6.dex */
+    public class a implements aq3<kg3<mg3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ l02 b;
+
+        public a(l02 l02Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l02Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = l02Var;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(kg3<mg3.e> kg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kg3Var) == null) {
+                this.b.z(kg3Var, this.a, false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public String c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                c cVar = new c();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    String optString = jSONObject.optString("type");
+                    cVar.a = optString;
+                    if (TextUtils.isEmpty(optString)) {
+                        cVar.a = "wgs84";
+                    }
+                    cVar.b = jSONObject.optBoolean("altitude");
+                    String optString2 = jSONObject.optString("cb");
+                    cVar.c = optString2;
+                    if (TextUtils.isEmpty(optString2)) {
+                        return null;
+                    }
+                    return cVar;
+                } catch (JSONException e) {
+                    h82.d("GetLocationApi", "# parseFromJSON error", e);
+                    return null;
+                }
+            }
+            return (c) invokeL.objValue;
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if ((TextUtils.equals(this.a, "wgs84") || TextUtils.equals(this.a, "gcj02") || TextUtils.equals(this.a, "bd09ll")) && !TextUtils.isEmpty(this.c)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l02(@NonNull iz1 iz1Var) {
+        super(iz1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iz1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((iz1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f + "?";
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = "";
-        d();
-        e();
     }
 
-    public final void a() {
-        db3 b0;
-        PMSAppInfo f0;
+    public h32 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = db3.b0()) == null || (f0 = b0.W().f0()) == null) {
-            return;
-        }
-        this.c.put("app_ver", String.valueOf(f0.versionCode));
-    }
-
-    public final void e() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Map<String, String> map = this.b;
-            if (SwanAppAllianceLoginHelper.d.f()) {
-                i = 2;
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#startLocationUpdate", false);
+            hb3 b0 = hb3.b0();
+            if (b0 == null) {
+                ni3.b("startLocationUpdate", 2001, "SwanApp is null", 1001, "SwanApp is null");
+                return new h32(1001, "SwanApp is null");
             }
-            map.put("mnpunion", String.valueOf(i));
-            this.b.put("Referer", ko3.b());
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                return h32Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                ni3.b("startLocationUpdate", 1001, "empty cb", 201, "empty cb");
+                h82.c("GetLocationApi", "empty cb");
+                return new h32(201, "empty cb");
+            }
+            b0.e0().g(getContext(), "mapp_location", new b(this, optString));
+            return h32.f();
+        }
+        return (h32) invokeL.objValue;
+    }
+
+    public h32 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            q("#getLocation", false);
+            hb3 b0 = hb3.b0();
+            if (b0 == null) {
+                ni3.b(GameAssistConstKt.METHOD_GET_LOCATION, 2001, "SwanApp is null", 1001, "SwanApp is null");
+                return new h32(1001, "SwanApp is null");
+            }
+            Pair<h32, JSONObject> s = s(str);
+            h32 h32Var = (h32) s.first;
+            if (!h32Var.isSuccess()) {
+                return h32Var;
+            }
+            c b2 = c.b(((JSONObject) s.second).toString());
+            if (b2 != null && b2.a()) {
+                if (TextUtils.isEmpty(b2.c)) {
+                    ni3.b(GameAssistConstKt.METHOD_GET_LOCATION, 1001, "empty cb", 201, "empty cb");
+                    h82.c("GetLocationApi", "empty cb");
+                    return new h32(201, "empty cb");
+                }
+                b0.e0().g(getContext(), "mapp_location", new a(this, b2));
+                return h32.f();
+            }
+            ni3.b(GameAssistConstKt.METHOD_GET_LOCATION, 1001, "params is invalid", 201, "params is invalid");
+            p("params is invalid", null, true);
+            return new h32(201, "params is invalid");
+        }
+        return (h32) invokeL.objValue;
+    }
+
+    public h32 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ou2.I().e();
+            return h32.f();
+        }
+        return (h32) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m02.c
+    public void b(c cVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, cVar, i) == null) {
+            h82.c("GetLocationApi", "request location error code : " + i);
+            d(cVar.c, new h32(1001, String.valueOf(i)));
         }
     }
 
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+    @Override // com.baidu.tieba.m02.c
+    public void f(c cVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
+        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, str) == null) {
+            d(cVar.c, new h32(10005, "system deny"));
+        }
+    }
+
+    @Override // com.baidu.tieba.m02.c
+    public void g(c cVar, ge3 ge3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, cVar, ge3Var) == null) {
+            d(cVar.c, new h32(0, "success", ge3Var.a()));
+        }
+    }
+
+    public final void z(kg3<mg3.e> kg3Var, c cVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, kg3Var, cVar, z) == null) {
+            h82.i("GetLocationApi", "authorized result is " + kg3Var);
+            if (fg3.h(kg3Var)) {
+                m02.d().e(cVar, this, z);
                 return;
             }
-            String b = vo3.b(this.a, this.c);
-            this.a = b;
-            this.a = z72.b(b);
-            gi4 gi4Var = new gi4(this.a, RequestBody.create(g, this.e), responseCallback);
-            gi4Var.c = this.b;
-            gi4Var.g = true;
-            d82.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            hi4.g().e(gi4Var);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (yu3.getContext() == null) {
-                d82.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
-            }
-            this.c.put("host_os", er4.f());
-            this.c.put("host_os_ver", er4.g());
-            this.c.put("host_app", yu3.getContext().c());
-            this.c.put("host_app_ver", yu3.getContext().h());
-            this.c.put("sdk_ver", yu3.getContext().b());
-            this.c.put("ua", mr4.b(yu3.getContext().h()));
-            this.c.put("ut", z72.f());
-            this.c.put("network", er4.e());
-            this.c.put("bundle_Id", cb3.K().getAppId());
-            this.c.put("cuid", yu3.getContext().g());
-            this.c.put("uuid", yu3.getContext().e());
-            Map<String, String> map = this.c;
-            map.put("sid", ku2.g0().k() + "");
-            this.c.put("source", "swan_sdk");
-            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.e = "";
-            } else {
-                this.e = jSONObject.toString();
-            }
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.c.put("service", str);
-            this.d = true;
+            int b2 = kg3Var.b();
+            ni3.b(GameAssistConstKt.METHOD_GET_LOCATION, 5000, fg3.f(b2), b2, fg3.f(b2));
+            d(cVar.c, new h32(b2, fg3.f(b2)));
         }
     }
 }

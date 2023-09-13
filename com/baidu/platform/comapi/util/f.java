@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.baidu.vi.VIContext;
 import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes3.dex */
@@ -64,7 +65,7 @@ public class f {
             jsonBuilder.putStringValue("channel", "oem");
             jsonBuilder.putStringValue(FunAdSdk.PLATFORM_MB, str);
             jsonBuilder.putStringValue("sv", SyncSysInfo.getSoftWareVer());
-            jsonBuilder.putStringValue("os", "android");
+            jsonBuilder.putStringValue(TtsLogLoad.KEY_OS, "android");
             jsonBuilder.putStringValue("cuid", SyncSysInfo.getCid());
             jsonBuilder.putStringValue("path", SysOSUtil.getInstance().getOutputDirPath() + "/udc/");
             jsonBuilder.endObject();

@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface az2 {
-    void a(int i);
+    void c();
+
+    void d();
+
+    void f();
 }

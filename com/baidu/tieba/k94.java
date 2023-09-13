@@ -1,120 +1,71 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.tieba.ob3;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Callback;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class k94 extends HttpManager {
+public class k94 extends JSEvent {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile k94 a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @V8JavascriptField
+        public boolean devhook;
+        @V8JavascriptField
+        public String scene;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k94() {
-        super(ku2.c());
+    public k94(ew2 ew2Var) {
+        super("appshow");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ew2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.data = a(ew2Var);
     }
 
-    public static k94 a() {
-        InterceptResult invokeV;
+    public final Object a(ew2 ew2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (k94.class) {
-                    if (a == null) {
-                        a = new k94();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ew2Var)) == null) {
+            a aVar = new a();
+            aVar.scene = ew2Var.T();
+            aVar.devhook = ew2Var.m0();
+            return aVar;
         }
-        return (k94) invokeV.objValue;
-    }
-
-    public static k94 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            k94 k94Var = new k94();
-            k94Var.setHttpDnsEnable(a().getHttpDnsEnable());
-            return k94Var;
-        }
-        return (k94) invokeV.objValue;
-    }
-
-    public void call(Request request, List<Interceptor> list, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, request, list, callback) != null) || request == null) {
-            return;
-        }
-        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
-        if (list != null && !list.isEmpty()) {
-            for (Interceptor interceptor : list) {
-                if (interceptor != null) {
-                    newBuilder.addInterceptor(interceptor);
-                }
-            }
-        }
-        newBuilder.build().newCall(request).enqueue(callback);
-    }
-
-    public void call(Request request, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) && request != null) {
-            getOkHttpClient().newCall(request).enqueue(callback);
-        }
-    }
-
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    public OkHttpClient initClient() {
-        InterceptResult invokeV;
-        ob3.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (db3.M() == null) {
-                return super.initClient();
-            }
-            xa4 xa4Var = (xa4) db3.M().T();
-            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
-            int i = 60000;
-            if (xa4Var != null && (aVar = xa4Var.a) != null) {
-                i = aVar.a;
-                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
-                newBuilder.addNetworkInterceptor(new w23());
-            }
-            long j = i;
-            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
-            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
-            OkHttpClient build = newBuilder.build();
-            build.dispatcher().setMaxRequests(10);
-            return build;
-        }
-        return (OkHttpClient) invokeV.objValue;
+        return invokeL.objValue;
     }
 }

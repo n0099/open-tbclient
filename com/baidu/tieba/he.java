@@ -1,293 +1,30 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ge;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class he {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface he {
 
     /* loaded from: classes6.dex */
-    public static class a implements ge.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public LinkedList<ie<?>> b;
+    public interface a extends he {
+        void b();
 
-        @Override // com.baidu.tieba.ge
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
+        void c();
 
-        public a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // com.baidu.tieba.ge.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.clear();
-                this.b = null;
-            }
-        }
-
-        @Override // com.baidu.tieba.ge.a
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b = new LinkedList<>();
-            }
-        }
-
-        @Override // com.baidu.tieba.ge
-        public int getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ge.a
-        public String h(ie<?> ieVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ieVar)) == null) {
-                if (ieVar.f < System.currentTimeMillis()) {
-                    return ieVar.a;
-                }
-                this.b.add(ieVar);
-                String str = null;
-                if (this.b.size() > getMaxSize()) {
-                    long j = 0;
-                    int i = -1;
-                    for (int i2 = 0; i2 < this.b.size(); i2++) {
-                        ie<?> ieVar2 = this.b.get(i2);
-                        if (i == -1 || ieVar2.e < j) {
-                            str = ieVar2.a;
-                            j = ieVar2.e;
-                            i = i2;
-                        }
-                    }
-                    this.b.remove(i);
-                }
-                return str;
-            }
-            return (String) invokeL.objValue;
-        }
+        String h(je<?> jeVar);
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements ge.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public HashMap<String, Long> b;
+    public interface b extends he {
+        String d(je<?> jeVar);
 
-        @Override // com.baidu.tieba.ge
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
+        void e();
 
-        @Override // com.baidu.tieba.ge.b
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
+        void f();
 
-        @Override // com.baidu.tieba.ge.b
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
+        String g(je<?> jeVar);
 
-        public b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new HashMap<>();
-            this.a = i;
-        }
-
-        @Override // com.baidu.tieba.ge.b
-        public String d(ie<?> ieVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ieVar)) == null) {
-                String i = i(ieVar.a);
-                synchronized (this) {
-                    this.b.put(ieVar.a, Long.valueOf(ieVar.e));
-                }
-                return i;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.ge.b
-        public String g(ie<?> ieVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ieVar)) == null) {
-                if (ieVar.f < System.currentTimeMillis()) {
-                    return ieVar.a;
-                }
-                return d(ieVar);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.ge
-        public int getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.a;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.ge.b
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                synchronized (this) {
-                    this.b.clear();
-                }
-            }
-        }
-
-        public String i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                String str2 = null;
-                if (this.b.containsKey(str) || this.b.size() < this.a) {
-                    return null;
-                }
-                synchronized (this) {
-                    long j = -1;
-                    for (Map.Entry<String, Long> entry : this.b.entrySet()) {
-                        long longValue = entry.getValue().longValue();
-                        if (j == -1 || j > longValue) {
-                            str2 = entry.getKey();
-                            j = longValue;
-                        }
-                    }
-                    if (str2 != null) {
-                        this.b.remove(str2);
-                    }
-                }
-                return str2;
-            }
-            return (String) invokeL.objValue;
-        }
+        void release();
     }
 
-    /* loaded from: classes6.dex */
-    public static class c implements ge {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    boolean a();
 
-        @Override // com.baidu.tieba.ge
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ge
-        public int getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static ge a(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                return new b(i);
-            }
-            return new a(i);
-        }
-        return (ge) invokeCommon.objValue;
-    }
-
-    public static ge b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new c();
-        }
-        return (ge) invokeV.objValue;
-    }
+    int getMaxSize();
 }

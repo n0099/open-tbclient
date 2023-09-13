@@ -1,137 +1,147 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Patterns;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.yf2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.baidubce.http.Headers;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ag2 extends rf2 implements mf2 {
+public final class ag2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jf2 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag2(@NonNull Context context, gf2 gf2Var) {
-        super(context, gf2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, gf2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (gf2) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new bg2();
-    }
-
-    public final WebResourceResponse b(String str, InputStream inputStream) {
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0115  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static wf2 a(String str, Map<String, String> map) {
         InterceptResult invokeLL;
+        String str2;
+        String str3;
+        InputStream inputStream;
+        int i;
+        HttpURLConnection httpURLConnection;
+        String scheme;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
-            return new WebResourceResponse(true, str, "UTF-8", 200, DnsModel.MSG_OK, hashMap, new BufferedInputStream(inputStream));
-        }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.yf2
-    @SuppressLint({"BDThrowableCheck"})
-    public WebResourceResponse a(@NonNull yf2.a aVar) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!d(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
+            String str4 = null;
+            if (TextUtils.isEmpty(str) || !Patterns.WEB_URL.matcher(str).matches()) {
+                return null;
             }
-            if (mf2.a) {
-                Log.d("HybridIntercept", "intercept file = " + d);
-            }
-            String c = c(d);
-            if (TextUtils.isEmpty(c)) {
-                if (!mf2.a) {
-                    return null;
-                }
-                throw new IllegalArgumentException("file path can't be null, src = " + d);
-            }
-            File file = new File(c);
-            if (file.exists() && file.isFile()) {
+            String scheme2 = Uri.parse(str).getScheme();
+            int i2 = 200;
+            HttpURLConnection httpURLConnection2 = null;
+            while (true) {
                 try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        str = "text/css";
-                    } else if (c.endsWith(".js")) {
-                        str = "application/javascript";
-                    } else {
-                        str = "text/plan";
+                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    try {
+                        httpURLConnection.setRequestMethod("GET");
+                        if (map != null) {
+                            for (Map.Entry<String, String> entry : map.entrySet()) {
+                                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                            }
+                        }
+                        httpURLConnection.setUseCaches(false);
+                        httpURLConnection.setDoInput(true);
+                        httpURLConnection.setConnectTimeout(mf2.a().e());
+                        httpURLConnection.setReadTimeout(mf2.a().h());
+                        String headerField = httpURLConnection.getHeaderField("Location");
+                        if (headerField == null) {
+                            scheme = null;
+                        } else {
+                            scheme = Uri.parse(headerField).getScheme();
+                        }
+                        if (headerField == null || (scheme != null && scheme.equals(scheme2))) {
+                            break;
+                        }
+                        scheme2 = scheme;
+                        httpURLConnection2 = httpURLConnection;
+                        str = headerField;
+                    } catch (Exception e) {
+                        e = e;
+                        httpURLConnection2 = httpURLConnection;
+                        str2 = null;
+                        if (qf2.a) {
+                            Log.e("HybridIntercept", Log.getStackTraceString(e));
+                        }
+                        str3 = str2;
+                        inputStream = null;
+                        i = i2;
+                        httpURLConnection = httpURLConnection2;
+                        HashMap hashMap = new HashMap();
+                        String str5 = "UTF-8";
+                        if (httpURLConnection != null) {
+                        }
+                        String str6 = str5;
+                        String str7 = str4;
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                        return new wf2(i, str3, inputStream, hashMap, str6, str7);
                     }
-                    return b(str, fileInputStream);
-                } catch (Throwable th) {
-                    if (mf2.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(th));
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            }
+            i2 = httpURLConnection.getResponseCode();
+            str3 = httpURLConnection.getResponseMessage();
+            try {
+                inputStream = httpURLConnection.getInputStream();
+                i = i2;
+            } catch (Exception e3) {
+                httpURLConnection2 = httpURLConnection;
+                str2 = str3;
+                e = e3;
+                if (qf2.a) {
+                }
+                str3 = str2;
+                inputStream = null;
+                i = i2;
+                httpURLConnection = httpURLConnection2;
+                HashMap hashMap2 = new HashMap();
+                String str52 = "UTF-8";
+                if (httpURLConnection != null) {
+                }
+                String str62 = str52;
+                String str72 = str4;
+                if (TextUtils.isEmpty(str3)) {
+                }
+                return new wf2(i, str3, inputStream, hashMap2, str62, str72);
+            }
+            HashMap hashMap22 = new HashMap();
+            String str522 = "UTF-8";
+            if (httpURLConnection != null) {
+                if (httpURLConnection.getContentEncoding() != null) {
+                    str522 = httpURLConnection.getContentEncoding();
+                }
+                str4 = httpURLConnection.getContentType();
+                Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
+                if (headerFields != null) {
+                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
+                        List<String> value = entry2.getValue();
+                        if (!value.isEmpty()) {
+                            hashMap22.put(entry2.getKey(), value.get(0));
+                        }
                     }
                 }
             }
-            d82.c("HybridIntercept", "file intercept error, src = " + d);
-            return null;
+            String str622 = str522;
+            String str722 = str4;
+            if (TextUtils.isEmpty(str3)) {
+                str3 = DnsModel.MSG_OK;
+            }
+            return new wf2(i, str3, inputStream, hashMap22, str622, str722);
         }
-        return (WebResourceResponse) invokeL.objValue;
-    }
-
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (str.startsWith("interceptfile://") && str.length() > 16) {
-                str = str.substring(16);
-            }
-            if (mf2.a) {
-                Log.d("HybridIntercept", "file request url = " + str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean d(@NonNull yf2.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-            if (!aVar.c()) {
-                return true;
-            }
-            return this.b.a(aVar);
-        }
-        return invokeL.booleanValue;
+        return (wf2) invokeLL.objValue;
     }
 }

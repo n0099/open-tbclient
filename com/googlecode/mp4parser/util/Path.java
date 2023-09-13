@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Path {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static Pattern component = Pattern.compile("(....|\\.\\.)(\\[(.*)\\])?");

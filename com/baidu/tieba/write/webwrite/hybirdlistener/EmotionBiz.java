@@ -7,12 +7,12 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.c0b;
-import com.baidu.tieba.jza;
-import com.baidu.tieba.kza;
-import com.baidu.tieba.n0b;
-import com.baidu.tieba.np6;
-import com.baidu.tieba.uc5;
+import com.baidu.tieba.ed5;
+import com.baidu.tieba.k2b;
+import com.baidu.tieba.p1b;
+import com.baidu.tieba.q1b;
+import com.baidu.tieba.rq6;
+import com.baidu.tieba.v2b;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public final class EmotionBiz extends BizBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mza
+    @Override // com.baidu.tieba.s1b
     public WrapListener[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,18 +42,18 @@ public final class EmotionBiz extends BizBase {
         return (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mza
-    public kza[] f() {
+    @Override // com.baidu.tieba.s1b
+    public q1b[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (kza[]) invokeV.objValue;
+        return (q1b[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, c0b writePageState) {
+    public EmotionBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, k2b writePageState) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +65,7 @@ public final class EmotionBiz extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (c0b) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (k2b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,35 +77,35 @@ public final class EmotionBiz extends BizBase {
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
     }
 
-    @Override // com.baidu.tieba.mza
-    public jza[] d() {
+    @Override // com.baidu.tieba.s1b
+    public p1b[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new jza[]{n(24, new EmotionBiz$editorActionHandlers$1(this))} : (jza[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new p1b[]{n(24, new EmotionBiz$editorActionHandlers$1(this))} : (p1b[]) invokeV.objValue;
     }
 
     public final void s(int i, Object obj) {
-        uc5 uc5Var;
+        ed5 ed5Var;
         String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, obj) == null) {
             if (k().getWriteImagesInfo() == null) {
                 k().setWriteImagesInfo(new WriteImagesInfo(9));
             }
-            if (obj instanceof uc5) {
-                uc5Var = (uc5) obj;
+            if (obj instanceof ed5) {
+                ed5Var = (ed5) obj;
             } else {
-                uc5Var = null;
+                ed5Var = null;
             }
-            if (uc5Var == null) {
+            if (ed5Var == null) {
                 return;
             }
-            if (EmotionGroupType.isSendAsPic(uc5Var.getType())) {
+            if (EmotionGroupType.isSendAsPic(ed5Var.getType())) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setImageType(1);
-                imageFileInfo.setFilePath(uc5Var.d());
-                imageFileInfo.width = uc5Var.h();
-                imageFileInfo.height = uc5Var.b();
+                imageFileInfo.setFilePath(ed5Var.d());
+                imageFileInfo.width = ed5Var.h();
+                imageFileInfo.height = ed5Var.b();
                 Function1<ImageFileInfo, Unit> h = l().h();
                 if (h != null) {
                     h.invoke(imageFileInfo);
@@ -113,19 +113,19 @@ public final class EmotionBiz extends BizBase {
                 }
                 return;
             }
-            String d = uc5Var.d();
-            uc5Var.getType();
+            String d = ed5Var.d();
+            ed5Var.getType();
             JSONObject jSONObject = new JSONObject();
-            EmotionGroupType type = uc5Var.getType();
+            EmotionGroupType type = ed5Var.getType();
             Intrinsics.checkNotNullExpressionValue(type, "data.type");
-            b = n0b.b(type);
-            np6.a(jSONObject, "type", b);
-            np6.a(jSONObject, "name", d);
-            if (uc5Var.getType() != EmotionGroupType.LOCAL) {
-                np6.a(jSONObject, "width", Integer.valueOf(uc5Var.h()));
-                np6.a(jSONObject, "height", Integer.valueOf(uc5Var.b()));
-                np6.a(jSONObject, "pid", uc5Var.e());
-                np6.a(jSONObject, "pname", uc5Var.f());
+            b = v2b.b(type);
+            rq6.a(jSONObject, "type", b);
+            rq6.a(jSONObject, "name", d);
+            if (ed5Var.getType() != EmotionGroupType.LOCAL) {
+                rq6.a(jSONObject, "width", Integer.valueOf(ed5Var.h()));
+                rq6.a(jSONObject, "height", Integer.valueOf(ed5Var.b()));
+                rq6.a(jSONObject, "pid", ed5Var.e());
+                rq6.a(jSONObject, "pname", ed5Var.f());
             }
             g().invoke("writePageNa.addEmotion", jSONObject);
         }

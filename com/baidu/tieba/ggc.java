@@ -1,52 +1,104 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.activity.PayCommonWebActivity;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes6.dex */
-public class ggc {
+public final class ggc implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final fgc b;
+    public final IRevenue c;
 
-    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
-        String str3;
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayEventStatisticsApi getPayEventStatisticApi() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
-            boolean z = false;
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                if (TextUtils.isEmpty(str)) {
-                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
-                    return;
-                }
-                if (str2 != null && !str2.isEmpty()) {
-                    str3 = str2;
-                } else {
-                    str3 = "";
-                }
-                Intent intent = new Intent(activity, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
-                intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
-                if (str.equals(rfc.f(payUIKitConfig))) {
-                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
-                    z = true;
-                }
-                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = wgc.a(str);
-                }
-                PayCommonWebActivity.B(activity, payFlowType, intent, i, i2, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (IPayEventStatisticsApi) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayServiceStatisticsApi getPayServiceStatisticsApi() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (IPayServiceStatisticsApi) invokeV.objValue;
+    }
+
+    public ggc(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {middleRevenueConfig, iRevenue};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
+        }
+        this.c = iRevenue;
+        this.a = "MiddleRevenue";
+        IAppPayService appPayService = this.c.getAppPayService();
+        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
+        this.b = new fgc(middleRevenueConfig, appPayService);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (IAppPayService) invokeV.objValue;
+    }
+
+    @Override // tv.athena.revenue.api.IMiddleRevenue
+    public IMiddlePayService getMiddlePayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (IMiddlePayService) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a + hashCode() + " :{revenue:" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public void updateConfig(RevenueConfig revenueConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, revenueConfig) == null) {
+            this.c.updateConfig(revenueConfig);
         }
     }
 }

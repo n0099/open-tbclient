@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.StatFs;
 import android.text.TextUtils;
-import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -115,7 +114,7 @@ public final class b {
                     LogUtil.logD("Helpers", sb2.toString());
                     StringBuilder sb3 = new StringBuilder();
                     sb3.append(" available < 20 * 1024 * 1024 is: ");
-                    int i3 = (a3 > DownloadManager.MIN_LEFT_SIZE ? 1 : (a3 == DownloadManager.MIN_LEFT_SIZE ? 0 : -1));
+                    int i3 = (a3 > 20971520L ? 1 : (a3 == 20971520L ? 0 : -1));
                     sb3.append(i3 < 0);
                     LogUtil.logD("Helpers", sb3.toString());
                     if (z2) {

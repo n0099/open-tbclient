@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class bd4 extends m54 {
+public class bd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String value;
 
     public bd4(String str) {
         Interceptable interceptable = $ic;
@@ -24,6 +27,6 @@ public final class bd4 extends m54 {
                 return;
             }
         }
-        this.errMsg = str;
+        this.value = str;
     }
 }

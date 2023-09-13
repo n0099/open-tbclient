@@ -1,11 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public interface cp5 extends mn5 {
-    public static final String a = "com.baidu.tieba.cp5";
+public interface cp5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(boolean z, boolean z2);
+
+        void b(boolean z);
+    }
+
+    void g();
+
+    void h(@Nullable a aVar);
+
+    void hide();
+
+    void i();
 
     @NonNull
-    bp5 b(@NonNull TbPageContext tbPageContext);
+    Fragment j(@NonNull String str);
+
+    void show();
 }

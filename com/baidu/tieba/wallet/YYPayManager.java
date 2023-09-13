@@ -10,6 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -17,8 +18,8 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.pay.IyyPayResultCallback;
 import com.baidu.tbadk.pay.YYPayData;
 import com.baidu.tbadk.pay.YYPayResult;
-import com.baidu.tieba.yr5;
-import com.baidu.tieba.zr5;
+import com.baidu.tieba.ss5;
+import com.baidu.tieba.ts5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -228,11 +229,11 @@ public class YYPayManager {
             }
         }
         IyyPayResultCallback iyyPayResultCallback = yyPayResultCallback;
-        if (iyyPayResultCallback instanceof yr5) {
-            viewParams.viewEventListener = new AbsViewEventHandler((yr5) iyyPayResultCallback) { // from class: com.baidu.tieba.wallet.YYPayManager.1
+        if (iyyPayResultCallback instanceof ss5) {
+            viewParams.viewEventListener = new AbsViewEventHandler((ss5) iyyPayResultCallback) { // from class: com.baidu.tieba.wallet.YYPayManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ yr5 val$absPayAllResult;
+                public final /* synthetic */ ss5 val$absPayAllResult;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -331,7 +332,7 @@ public class YYPayManager {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
             }
             if (TbSingleton.getInstance().isUserBan()) {
-                zr5.a(null);
+                ts5.a(null);
             }
         }
     }
@@ -468,7 +469,7 @@ public class YYPayManager {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, intent) == null) {
                             HashMap hashMap2 = new HashMap();
-                            hashMap2.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
+                            hashMap2.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt(CloudStabilityUBCUtils.KEY_ERROR_CODE, -1)));
                             hashMap2.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg", ""));
                             YYPayManager.onWxPayResult(hashMap2);
                         }

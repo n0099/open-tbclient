@@ -2,101 +2,50 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.tx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tf4 extends pf4<px2> {
+public abstract class tf4<T extends tx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179271, "Lcom/baidu/tieba/tf4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948179271, "Lcom/baidu/tieba/tf4;");
-                return;
-            }
-        }
-        boolean z = nr1.a;
-    }
+    public abstract boolean b(Context context, T t, qx2 qx2Var, hb3 hb3Var, JSONObject jSONObject);
 
     public tf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static tf4 d() {
-        InterceptResult invokeV;
+    public boolean c(Context context, T t, qx2 qx2Var, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new tf4();
-        }
-        return (tf4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pf4
-    public boolean b(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
-            return e(context, px2Var, mx2Var, db3Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
-            d82.i("map", "GetCenterLcationAction start");
-            lx1 A = qw2.T().A(px2Var.c);
-            if (!(A instanceof jx1)) {
-                d82.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, qx2Var, hb3Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!b(context, t, qx2Var, hb3Var, jSONObject)) {
+                qx2Var.d(1001);
+                h82.c("map", "doAction fail");
                 return false;
             }
-            ng4 d = mf4.b().c((jx1) A).d(px2Var.b);
-            if (d == null) {
-                d82.c("map", "can not find map by id " + px2Var.b);
-                return false;
+            if (jSONObject.length() <= 0) {
+                jSONObject = null;
             }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            wx2 wx2Var = new wx2();
-            LatLng latLng = mapStatus.target;
-            double d2 = latLng.latitude;
-            wx2Var.a = d2;
-            wx2Var.b = latLng.longitude;
-            try {
-                jSONObject.put("latitude", d2);
-                jSONObject.put("longitude", wx2Var.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            d82.i("map", "GetCenterLocationAction end");
+            qx2Var.e(jSONObject);
             return true;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

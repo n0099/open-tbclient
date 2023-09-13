@@ -190,10 +190,10 @@ public abstract class Visibility extends Transition {
     }
 
     private void captureValues(TransitionValues transitionValues) {
-        transitionValues.values.put(PROPNAME_VISIBILITY, Integer.valueOf(transitionValues.f1029view.getVisibility()));
-        transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1029view.getParent());
+        transitionValues.values.put(PROPNAME_VISIBILITY, Integer.valueOf(transitionValues.f1028view.getVisibility()));
+        transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1028view.getParent());
         int[] iArr = new int[2];
-        transitionValues.f1029view.getLocationOnScreen(iArr);
+        transitionValues.f1028view.getLocationOnScreen(iArr);
         transitionValues.values.put(PROPNAME_SCREEN_LOCATION, iArr);
     }
 
@@ -297,12 +297,12 @@ public abstract class Visibility extends Transition {
             return null;
         }
         if (transitionValues == null) {
-            View view2 = (View) transitionValues2.f1029view.getParent();
+            View view2 = (View) transitionValues2.f1028view.getParent();
             if (getVisibilityChangeInfo(getMatchedTransitionValues(view2, false), getTransitionValues(view2, false)).mVisibilityChange) {
                 return null;
             }
         }
-        return onAppear(viewGroup, transitionValues2.f1029view, transitionValues, transitionValues2);
+        return onAppear(viewGroup, transitionValues2.f1028view, transitionValues, transitionValues2);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:42:0x008a, code lost:
@@ -321,13 +321,13 @@ public abstract class Visibility extends Transition {
         if ((this.mMode & 2) != 2 || transitionValues == null) {
             return null;
         }
-        final View view5 = transitionValues.f1029view;
+        final View view5 = transitionValues.f1028view;
         if (transitionValues2 != null) {
-            view2 = transitionValues2.f1029view;
+            view2 = transitionValues2.f1028view;
         } else {
             view2 = null;
         }
-        final View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0920e0);
+        final View view6 = (View) view5.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09211f);
         if (view6 != null) {
             view4 = null;
             z2 = true;
@@ -408,11 +408,11 @@ public abstract class Visibility extends Transition {
                 if (onDisappear == null) {
                     ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                 } else {
-                    view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0920e0, view6);
+                    view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09211f, view6);
                     addListener(new TransitionListenerAdapter() { // from class: androidx.transition.Visibility.1
                         @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener
                         public void onTransitionEnd(@NonNull Transition transition) {
-                            view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0920e0, null);
+                            view5.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09211f, null);
                             ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                             transition.removeListener(this);
                         }

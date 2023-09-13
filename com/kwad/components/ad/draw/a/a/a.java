@@ -9,12 +9,12 @@ public final class a {
     @Nullable
     public b bA;
     public boolean bB = false;
-    public InterfaceC0599a bz;
+    public InterfaceC0594a bz;
     public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0599a {
+    public interface InterfaceC0594a {
         void ax();
     }
 
@@ -28,8 +28,8 @@ public final class a {
     }
 
     @MainThread
-    public final void a(InterfaceC0599a interfaceC0599a) {
-        this.bz = interfaceC0599a;
+    public final void a(InterfaceC0594a interfaceC0594a) {
+        this.bz = interfaceC0594a;
     }
 
     @MainThread
@@ -38,7 +38,7 @@ public final class a {
     }
 
     public final void aw() {
-        InterfaceC0599a interfaceC0599a;
+        InterfaceC0594a interfaceC0594a;
         if (this.bB) {
             return;
         }
@@ -47,8 +47,8 @@ public final class a {
             return;
         }
         b bVar = this.bA;
-        if ((bVar == null || !bVar.ay()) && (interfaceC0599a = this.bz) != null) {
-            interfaceC0599a.ax();
+        if ((bVar == null || !bVar.ay()) && (interfaceC0594a = this.bz) != null) {
+            interfaceC0594a.ax();
         }
     }
 }

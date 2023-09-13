@@ -1,154 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.TextView;
+import android.app.Activity;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.List;
-import tbclient.Post;
-import tbclient.User;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes7.dex */
-public class rh9 {
+public final class rh9 implements t65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public TextView c;
-    public qh9 d;
-    public qh9 e;
-    public qh9 f;
-    public View g;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948121766, "Lcom/baidu/tieba/rh9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948121766, "Lcom/baidu/tieba/rh9;");
+        }
     }
 
-    public rh9(Context context, a aVar) {
+    public rh9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0200, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090709);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f090706);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f09076a);
-        this.d = new qh9((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09070a), aVar);
-        this.e = new qh9((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09070b), aVar);
-        this.f = new qh9((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09070c), aVar);
     }
 
-    public final User a(Post post, List<User> list) {
-        InterceptResult invokeLL;
-        Long l;
-        Long l2;
+    @Override // com.baidu.tieba.t65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
-            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialogName", "pbFriendBotBottomNewSkill");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.t65
+    public boolean b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        List<RobotSkillInfo> list;
+        List<RobotSkill> list2;
+        aj9 r1;
+        aj9 r12;
+        RobotEntrance K;
+        aj9 r13;
+        RobotEntrance K2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof PbActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导策略校验失败：当前Activity非PbActivity");
+                return false;
             }
-            long longValue = l.longValue();
-            for (User user : list) {
-                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
-                    return user;
+            PbActivity pbActivity = (PbActivity) currentActivity;
+            PbModel J1 = pbActivity.J1();
+            RobotEntrance robotEntrance = null;
+            if (J1 != null && (r13 = J1.r1()) != null && (K2 = r13.K()) != null) {
+                list = K2.robot_skill_info;
+            } else {
+                list = null;
+            }
+            PbModel J12 = pbActivity.J1();
+            if (J12 != null && (r12 = J12.r1()) != null && (K = r12.K()) != null) {
+                list2 = K.bottom_bar_robot_skill;
+            } else {
+                list2 = null;
+            }
+            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+                PbModel J13 = pbActivity.J1();
+                if (J13 != null && (r1 = J13.r1()) != null) {
+                    robotEntrance = r1.K();
                 }
-            }
-            return null;
-        }
-        return (User) invokeLL.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.d.c();
-            this.e.c();
-            this.f.c();
-        }
-    }
-
-    public void d(List<Post> list, List<User> list2) {
-        boolean z;
-        boolean update;
-        boolean update2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            if (list != null && !list.isEmpty()) {
-                this.g.setVisibility(0);
-                int size = list.size();
-                if (size == 1) {
-                    z = this.d.update(list.get(0), a(list.get(0), list2));
-                    this.e.d(false);
-                    this.f.d(false);
-                } else {
-                    if (size == 2) {
-                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
-                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
-                        this.f.d(false);
-                        update = update4;
-                        z = update3;
-                        update2 = false;
-                    } else if (size >= 3) {
-                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
-                        update = this.e.update(list.get(1), a(list.get(1), list2));
-                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
-                        z = update5;
-                    } else {
-                        z = false;
-                    }
-                    if (z && !update && !update2) {
-                        this.c.setVisibility(8);
-                        return;
-                    } else {
-                        this.c.setVisibility(0);
-                        return;
-                    }
+                if (robotEntrance == null) {
+                    return false;
                 }
-                update2 = false;
-                update = false;
-                if (z) {
+                String string = SharedPrefHelper.getInstance().getString("pb_friend_bot_bottom_new_skill_text", "default");
+                String j = BotEntranceManager.c.c().j(robotEntrance.robot_skill_info);
+                if (!TextUtils.equals("default", string) && !TextUtils.isEmpty(j)) {
+                    return !TextUtils.equals(string, j);
                 }
-                this.c.setVisibility(0);
-                return;
+                if (!TextUtils.equals(j, string)) {
+                    SharedPrefHelper.getInstance().putString("pb_friend_bot_bottom_new_skill_text", j);
+                }
+                return false;
             }
-            this.c.setVisibility(8);
-            this.d.d(false);
-            this.e.d(false);
-            this.f.d(false);
-            this.g.setVisibility(8);
+            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导此时没有数据");
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

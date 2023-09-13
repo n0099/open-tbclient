@@ -1,20 +1,83 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.base.BdPageContextSupport;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
-public interface m9 {
+public class m9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onDatabaseCreated(SQLiteDatabase sQLiteDatabase);
+    public static BdPageContext<?> a(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof BdPageContext) {
+                return (BdPageContext) context;
+            }
+            if (context instanceof BdPageContextSupport) {
+                return ((BdPageContextSupport) context).getPageContext();
+            }
+            Field b = wh.b(context.getClass(), l9.class);
+            if (b == null || (a = wh.a(context, b)) == null || !(a instanceof l9) || !(a instanceof BdPageContextSupport)) {
+                return null;
+            }
+            return ((BdPageContextSupport) a).getPageContext();
+        }
+        return (BdPageContext) invokeL.objValue;
     }
 
-    boolean dropDatabase(Context context);
+    public static l9 c(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof l9) {
+                return (l9) context;
+            }
+            if (context instanceof BdPageContextSupport) {
+                Object orignalPage = ((BdPageContextSupport) context).getPageContext().getOrignalPage();
+                if (orignalPage instanceof l9) {
+                    return (l9) orignalPage;
+                }
+            }
+            Field b = wh.b(context.getClass(), l9.class);
+            if (b == null || (a = wh.a(context, b)) == null || !(a instanceof l9)) {
+                return null;
+            }
+            return (l9) a;
+        }
+        return (l9) invokeL.objValue;
+    }
 
-    SQLiteDatabase getWritableDatabase();
-
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
-
-    void setOnCreateCallback(a aVar);
+    public static BdPageContextSupport<?> b(Context context) {
+        InterceptResult invokeL;
+        Object a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (context instanceof BdPageContextSupport) {
+                return (BdPageContextSupport) context;
+            }
+            Field b = wh.b(context.getClass(), l9.class);
+            if (b == null || (a = wh.a(context, b)) == null || !(a instanceof l9) || !(a instanceof BdPageContextSupport)) {
+                return null;
+            }
+            return (BdPageContextSupport) a;
+        }
+        return (BdPageContextSupport) invokeL.objValue;
+    }
 }

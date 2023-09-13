@@ -10,29 +10,29 @@ public final class ec {
     public static volatile ec a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f306a;
+    public int f305a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f307a;
+    public Context f306a;
 
     /* renamed from: a  reason: collision with other field name */
-    public eg f308a;
+    public eg f307a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f309a;
+    public String f308a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<ee, ef> f310a;
+    public HashMap<ee, ef> f309a;
     public String b;
 
     public ec(Context context) {
         HashMap<ee, ef> hashMap = new HashMap<>();
-        this.f310a = hashMap;
-        this.f307a = context;
+        this.f309a = hashMap;
+        this.f306a = context;
         hashMap.put(ee.SERVICE_ACTION, new ei());
-        this.f310a.put(ee.SERVICE_COMPONENT, new ej());
-        this.f310a.put(ee.ACTIVITY, new ea());
-        this.f310a.put(ee.PROVIDER, new eh());
+        this.f309a.put(ee.SERVICE_COMPONENT, new ej());
+        this.f309a.put(ee.ACTIVITY, new ea());
+        this.f309a.put(ee.PROVIDER, new eh());
     }
 
     public static ec a(Context context) {
@@ -48,36 +48,36 @@ public final class ec {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ee eeVar, Context context, eb ebVar) {
-        this.f310a.get(eeVar).a(context, ebVar);
+        this.f309a.get(eeVar).a(context, ebVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m448a(Context context) {
-        return com.xiaomi.push.service.ak.m763a(context, context.getPackageName());
+    public static boolean m449a(Context context) {
+        return com.xiaomi.push.service.ak.m764a(context, context.getPackageName());
     }
 
     public int a() {
-        return this.f306a;
+        return this.f305a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eg m449a() {
+    public eg m450a() {
+        return this.f307a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public String m451a() {
         return this.f308a;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public String m450a() {
-        return this.f309a;
-    }
-
     public void a(int i) {
-        this.f306a = i;
+        this.f305a = i;
     }
 
     public void a(Context context, String str, int i, String str2, String str3) {
         if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             a(i);
-            aj.a(this.f307a).a(new ed(this, str, context, str2, str3));
+            aj.a(this.f306a).a(new ed(this, str, context, str2, str3));
             return;
         }
         dy.a(context, "" + str, 1008, "A receive a incorrect message");
@@ -85,18 +85,18 @@ public final class ec {
 
     public void a(ee eeVar, Context context, Intent intent, String str) {
         if (eeVar != null) {
-            this.f310a.get(eeVar).a(context, intent, str);
+            this.f309a.get(eeVar).a(context, intent, str);
         } else {
             dy.a(context, StringUtil.NULL_STRING, 1008, "A receive a incorrect message with empty type");
         }
     }
 
     public void a(eg egVar) {
-        this.f308a = egVar;
+        this.f307a = egVar;
     }
 
     public void a(String str) {
-        this.f309a = str;
+        this.f308a = str;
     }
 
     public void a(String str, String str2, int i, eg egVar) {

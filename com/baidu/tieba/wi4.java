@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import java.util.Set;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public interface wi4 {
-    @NonNull
-    Bundle m(@NonNull Bundle bundle, Set<String> set);
+    void a(@Nullable Map<String, String> map);
+
+    void onFail(Exception exc);
 }

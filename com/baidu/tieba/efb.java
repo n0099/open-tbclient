@@ -1,34 +1,99 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import android.util.Log;
-import android.view.Surface;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
 import java.io.File;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class efb {
+public class efb extends cfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaMuxer a;
-    public MediaCodec b;
-    public MediaCodec.BufferInfo c;
-    public boolean d;
-    public long e;
-    public long f;
-    public int g;
-    public int h;
-    public volatile boolean i;
+    public ofb h;
+    public int i;
+    public int j;
+
+    /* loaded from: classes5.dex */
+    public class a extends dhb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ AudioPlayData c;
+        public final /* synthetic */ xeb d;
+        public final /* synthetic */ efb e;
+
+        public a(efb efbVar, String str, int i, AudioPlayData audioPlayData, xeb xebVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {efbVar, str, Integer.valueOf(i), audioPlayData, xebVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = efbVar;
+            this.a = str;
+            this.b = i;
+            this.c = audioPlayData;
+            this.d = xebVar;
+        }
+
+        @Override // com.baidu.tieba.dhb, com.baidu.tieba.chb
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.e.h.cancel();
+                AudioPlayData audioPlayData = this.c;
+                if (audioPlayData.mSpeed != 1.0f || hfb.o(audioPlayData.mSoundTypes)) {
+                    this.e.g(str);
+                    this.e.h.cancel();
+                } else {
+                    this.e.h.cancel();
+                    this.e.q(this.d, this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.dhb
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                if (z) {
+                    this.e.q(new xeb(new AudioPlayData(this.a, 0, -1, 1.0f)), this.b);
+                }
+                synchronized (this.e) {
+                    this.e.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.dhb, com.baidu.tieba.chb
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+                efb efbVar = this.e;
+                efbVar.i((int) (((((efbVar.j - 1) + d) * 1.0d) / this.e.i) * 100.0d));
+            }
+        }
+    }
 
     public efb() {
         Interceptable interceptable = $ic;
@@ -40,208 +105,171 @@ public class efb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = false;
     }
 
-    public static MediaCodecInfo b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.cfb
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int codecCount = MediaCodecList.getCodecCount();
-            for (int i = 0; i < codecCount; i++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
-                if (codecInfoAt.isEncoder()) {
-                    for (String str2 : codecInfoAt.getSupportedTypes()) {
-                        if (str2.equalsIgnoreCase(str)) {
-                            return codecInfoAt;
-                        }
-                    }
-                    continue;
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f = true;
+            ofb ofbVar = this.h;
+            if (ofbVar != null) {
+                ofbVar.cancel();
             }
-            return null;
-        }
-        return (MediaCodecInfo) invokeL.objValue;
-    }
-
-    public final int a(MediaCodec mediaCodec) {
-        InterceptResult invokeL;
-        int addTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaCodec)) == null) {
             synchronized (this) {
-                MediaFormat outputFormat = mediaCodec.getOutputFormat();
-                if (peb.g(outputFormat) == 1) {
-                    outputFormat.setString("qlc", "123adb");
-                    outputFormat.setString("adc", "123adb");
-                    addTrack = this.a.addTrack(outputFormat);
-                    this.g = addTrack;
-                } else {
-                    addTrack = this.a.addTrack(outputFormat);
-                    this.h = addTrack;
+                notifyAll();
+            }
+            o();
+        }
+    }
+
+    @Override // com.baidu.tieba.cfb
+    public void d(zeb zebVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zebVar) == null) {
+            if (zebVar == null || nib.e(zebVar.c())) {
+                g("input data error: null or length=0");
+            } else if (!j(zebVar)) {
+                l(zebVar);
+            } else {
+                String a2 = zebVar.a();
+                this.g = a2;
+                if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
+                    new File(this.g).mkdir();
                 }
-                if (this.g != -1) {
-                    this.a.start();
-                    this.i = true;
-                    notifyAll();
-                    Log.i("HWRecorder", "MediaMuxer has added all track, notifyAll");
+                this.e = false;
+                this.f = false;
+                y(zebVar);
+                x(zebVar);
+                List<bfb> c = zebVar.c();
+                int size = c.size();
+                for (int i = 0; i < size; i++) {
+                    r(c.get(i), i);
                 }
+                if (this.e || this.f) {
+                    return;
+                }
+                l(this.d);
             }
-            return addTrack;
-        }
-        return invokeL.intValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                h();
-            } catch (Exception e) {
-                Log.e("HWRecorder", "stop exception occur: " + e.getLocalizedMessage());
-            }
-            if (this.d) {
-                Log.i("HWRecorder", "Recorder released");
-            }
-            this.d = false;
         }
     }
 
-    public void d(int i, int i2, int i3, int i4, int i5, int i6, String str) throws Exception {
+    @Override // com.baidu.tieba.cfb
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str}) == null) {
-            if (b("video/avc") == null || b("audio/mp4a-latm") == null) {
-                throw new Exception("cannot find suitable codec");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ofb ofbVar = this.h;
+            if (ofbVar != null) {
+                ofbVar.J();
             }
-            MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
-            createVideoFormat.setInteger("bitrate", i4);
-            createVideoFormat.setInteger("frame-rate", 30);
-            createVideoFormat.setInteger("i-frame-interval", 5);
-            createVideoFormat.setInteger("color-format", i3);
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
-            this.b = createEncoderByType;
-            createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-            this.b.start();
-            File file = new File(str);
-            if (file.exists() && !file.delete()) {
-                Log.w("HWRecorder", "delete file failed");
+            synchronized (this) {
+                notifyAll();
             }
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            this.a = new MediaMuxer(str, 0);
-            this.i = false;
-            this.g = -1;
-            this.h = -1;
-            this.e = -1L;
-            this.f = -1L;
-            this.c = new MediaCodec.BufferInfo();
-            new MediaCodec.BufferInfo();
-            this.d = true;
-            Log.i("HWRecorder", "Recorder initialized");
         }
     }
 
-    public final void e(MediaCodec mediaCodec, MediaCodec.BufferInfo bufferInfo) throws Exception {
+    public final void q(xeb xebVar, int i) {
+        zeb zebVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048579, this, mediaCodec, bufferInfo) != null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, xebVar, i) == null) || (zebVar = this.d) == null || zebVar.c() == null || this.d.c().get(i) == null) {
             return;
         }
-        int i = mediaCodec == this.b ? this.g : this.h;
-        while (true) {
-            ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
-                if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    i = a(mediaCodec);
-                } else if (dequeueOutputBuffer == -1) {
-                    return;
-                } else {
-                    if (dequeueOutputBuffer < 0) {
-                        Log.w("HWRecorder", "drainEncoder unexpected result: " + dequeueOutputBuffer);
-                    } else if ((bufferInfo.flags & 2) == 0) {
-                        if (bufferInfo.size != 0) {
-                            ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                            if (byteBuffer == null) {
-                                throw new RuntimeException("drainEncoder get outputBuffer " + dequeueOutputBuffer + " was null");
-                            }
-                            synchronized (this) {
-                                if (!this.i) {
-                                    wait();
-                                }
-                            }
-                            byteBuffer.position(bufferInfo.offset);
-                            byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                            this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                        }
-                        mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    } else {
-                        continue;
-                    }
-                }
-            }
-        }
+        this.d.c().get(i).a().add(xebVar);
     }
 
-    public final void f(MediaCodec mediaCodec, MediaCodec.BufferInfo bufferInfo, byte[] bArr, long j) throws Exception {
+    public final void r(bfb bfbVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{mediaCodec, bufferInfo, bArr, Long.valueOf(j)}) == null) {
-            if (!this.d) {
-                Log.e("HWRecorder", "Recorder must be initialized!");
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, bfbVar, i) == null) || bfbVar == null || nib.e(bfbVar.a()) || this.f || this.e) {
+            return;
+        }
+        for (xeb xebVar : bfbVar.a()) {
+            if (this.e || this.f) {
                 return;
             }
-            int dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L);
-            ByteBuffer byteBuffer = mediaCodec.getInputBuffers()[dequeueInputBuffer];
-            if (dequeueInputBuffer >= 0) {
-                byteBuffer.clear();
-                byteBuffer.put(bArr);
-                mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, bArr.length, j, 0);
-            }
-            e(mediaCodec, bufferInfo);
-        }
-    }
-
-    public void g(byte[] bArr) throws Exception {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-            int i = (this.e > (-1L) ? 1 : (this.e == (-1L) ? 0 : -1));
-            long nanoTime = System.nanoTime();
-            if (i == 0) {
-                this.e = nanoTime;
-                j = 0;
+            this.j++;
+            if (t(xebVar)) {
+                v(xebVar, i);
             } else {
-                j = (nanoTime - this.e) / 1000;
+                q(xebVar, i);
+                i((int) (((this.j * 1.0f) / this.i) * 100.0f));
             }
-            long j2 = this.f;
-            if (j <= j2) {
-                j += (j2 - j) + 1000;
-            }
-            long j3 = j;
-            this.f = j3;
-            f(this.b, this.c, bArr, j3);
         }
     }
 
-    public final void h() throws Exception {
+    public final boolean t(xeb xebVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MediaCodec mediaCodec = this.b;
-            if (mediaCodec != null) {
-                mediaCodec.stop();
-                this.b.release();
-                this.b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xebVar)) == null) {
+            if (xebVar == null || xebVar.b() == null || !xebVar.c()) {
+                return false;
             }
-            MediaMuxer mediaMuxer = this.a;
-            if (mediaMuxer != null) {
-                mediaMuxer.stop();
-                this.a.release();
-                this.a = null;
+            if (!hfb.o(xebVar.b().mSoundTypes) && xebVar.b().mSpeed == 1.0f && xebVar.b().start == 0 && xebVar.b().end == -1 && xebVar.b().volume == 1.0f) {
+                return (xebVar.a() == null || "audio/mp4a-latm".equals(xebVar.a().f())) ? false : true;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void v(xeb xebVar, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048582, this, xebVar, i) == null) || this.f || this.e) {
+            return;
+        }
+        AudioPlayData b = xebVar.b();
+        if (b == null || !FileUtils.isExists(b.audioPath)) {
+            g("dealAudioPlayData,trackIndx:inputerror");
+            return;
+        }
+        String str = b.audioPath;
+        String a2 = a(str, System.currentTimeMillis() + "_mediacodec.aac");
+        try {
+            ofb ofbVar = new ofb(b.audioPath, a2, b.mSoundTypes);
+            this.h = ofbVar;
+            ofbVar.S(new a(this, a2, i, b, xebVar));
+            this.h.D(b.mSoundTypes);
+            this.h.G(b.mSpeed);
+            this.h.H(b.volume);
+            this.h.B(b.start);
+            this.h.R(b.end);
+            this.h.I();
+            synchronized (this) {
+                wait();
+            }
+        } catch (Exception e) {
+            g("dealAudioPlayData exception:" + sib.g(e));
+            e.printStackTrace();
+        }
+    }
+
+    public final void x(zeb zebVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, zebVar) == null) || zebVar == null || nib.e(zebVar.c())) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < zebVar.c().size(); i++) {
+            arrayList.add(new bfb(new ArrayList()));
+        }
+        zeb zebVar2 = new zeb(arrayList);
+        this.d = zebVar2;
+        zebVar2.e(zebVar.b());
+        this.d.d(zebVar.a());
+    }
+
+    public final void y(zeb zebVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zebVar) == null) {
+            this.i = 0;
+            this.j = 0;
+            List<bfb> c = zebVar.c();
+            int size = c.size();
+            for (int i = 0; i < size; i++) {
+                if (c.get(i) != null && c.get(i).a() != null) {
+                    this.i += c.get(i).a().size();
+                }
             }
         }
     }

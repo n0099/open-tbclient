@@ -7,7 +7,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.l;
+import com.baidu.tieba.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,22 +34,22 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onPause(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onPause(this, lifecycleOwner);
+        m.$default$onPause(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onResume(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onResume(this, lifecycleOwner);
+        m.$default$onResume(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onStart(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onStart(this, lifecycleOwner);
+        m.$default$onStart(this, lifecycleOwner);
     }
 
     @Override // androidx.lifecycle.DefaultLifecycleObserver, androidx.lifecycle.FullLifecycleObserver
     public /* synthetic */ void onStop(@NonNull LifecycleOwner lifecycleOwner) {
-        l.$default$onStop(this, lifecycleOwner);
+        m.$default$onStop(this, lifecycleOwner);
     }
 
     /* loaded from: classes4.dex */
@@ -124,7 +124,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         return (PollingLifecycleHelper) invokeL.objValue;
     }
 
-    public final PollingLifecycleHelper m(long j) {
+    public final PollingLifecycleHelper l(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -140,7 +140,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         if (interceptable == null || interceptable.invokeL(1048579, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
             SafeHandler.getInst().removeCallbacks(this.f);
-            l.$default$onDestroy(this, owner);
+            m.$default$onDestroy(this, owner);
         }
     }
 
@@ -149,7 +149,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, owner) == null) {
             Intrinsics.checkNotNullParameter(owner, "owner");
-            l.$default$onCreate(this, owner);
+            m.$default$onCreate(this, owner);
             if (owner instanceof TbPageContextSupport) {
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) owner;
                 this.e = new PollingModel(tbPageContextSupport.getPageContext(), tbPageContextSupport.getPageContext().getUniqueId());

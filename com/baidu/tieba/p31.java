@@ -1,64 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.widget.TextView;
+import com.baidu.tieba.ls0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public class p31 {
+public final class p31 {
     public static /* synthetic */ Interceptable $ic;
-    public static m31 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948011003, "Lcom/baidu/tieba/p31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948011003, "Lcom/baidu/tieba/p31;");
-        }
-    }
-
-    public p31() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: android.text.SpannableString */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static final TextView a(Context context, ls0.c cVar) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static m31 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (p31.class) {
-                    if (a == null) {
-                        a = (m31) ServiceManager.getService(m31.a);
-                    }
-                    if (a == null) {
-                        a = m31.b;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cVar)) == null) {
+            if (cVar != null && !StringsKt__StringsJVMKt.isBlank(cVar.a)) {
+                int[] iArr = cVar.b;
+                if (iArr != null && iArr.length == 2) {
+                    SpannableString spannableString = new SpannableString(cVar.a);
+                    int a = m61.a(cVar.d, R.color.nad_sliding_tag_highlight_color_default);
+                    StyleSpan styleSpan = new StyleSpan(1);
+                    ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(a);
+                    spannableString.setSpan(styleSpan, iArr[0], iArr[1], 17);
+                    spannableString.setSpan(foregroundColorSpan, iArr[0], iArr[1], 17);
+                    str = spannableString;
+                } else {
+                    str = cVar.a;
                 }
+                int a2 = m61.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
+                TextView textView = new TextView(context);
+                textView.setText(str);
+                textView.setTextColor(a2);
+                return textView;
             }
-            return a;
+            return null;
         }
-        return (m31) invokeV.objValue;
+        return (TextView) invokeLL.objValue;
     }
 }

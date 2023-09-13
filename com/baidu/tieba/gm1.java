@@ -1,120 +1,34 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Future;
+import com.coremedia.iso.boxes.FreeSpaceBox;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class gm1<T> implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public static b b;
+public class gm1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 120;
     public transient /* synthetic */ FieldHolder $fh;
-    public Future<T> a;
 
-    public abstract T b();
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947798622, "Lcom/baidu/tieba/gm1;")) == null) {
+            return;
         }
-    }
-
-    public void f(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-    }
-
-    public void g(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final gm1 a;
-        public final T b;
-
-        public a(gm1 gm1Var, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gm1Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gm1Var;
-            this.b = t;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                a aVar = (a) message.obj;
-                int i = message.what;
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i == 3) {
-                            aVar.a.e();
-                            return;
-                        }
-                        return;
-                    }
-                    aVar.a.f((Throwable) aVar.b);
-                    return;
-                }
-                aVar.a.g(aVar.b);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947798622, "Lcom/baidu/tieba/gm1;");
         }
     }
 
@@ -122,79 +36,169 @@ public abstract class gm1<T> implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static Handler d() {
-        InterceptResult invokeV;
-        b bVar;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final JSONObject a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        char c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (gm1.class) {
-                if (b == null) {
-                    b = new b(Looper.getMainLooper());
-                }
-                bVar = b;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            switch (str.hashCode()) {
+                case -1472943047:
+                    if (str.equals("click_float_lottie")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1340273551:
+                    if (str.equals("wifi_tip")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1152479161:
+                    if (str.equals("ad_logo")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -264975480:
+                    if (str.equals("bd_logo")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3327403:
+                    if (str.equals("logo")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3532159:
+                    if (str.equals(FreeSpaceBox.TYPE)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 31392744:
+                    if (str.equals("download_desc")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 102727412:
+                    if (str.equals("label")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return bVar;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(false);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c();
-        }
-    }
-
-    public void a(boolean z) {
-        Future<T> future;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (future = this.a) != null) {
-            future.cancel(z);
-            d().obtainMessage(3, new a(this, null)).sendToTarget();
-        }
-    }
-
-    public void h(Future future) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, future) == null) {
-            this.a = future;
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, CONST, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public gm1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            switch (c) {
+                case 0:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
+                    }
+                case 1:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + a + "\"}";
+                        break;
+                    }
+                case 2:
+                    str2 = "{\"l_gravity\": 9,\"margin\": \"0_20_15_0\"}";
+                    break;
+                case 3:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"15_20_0_0\"}";
+                    break;
+                case 4:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_15\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 15) + "\"}";
+                        break;
+                    }
+                case 5:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"14_14_0_0\"}";
+                    break;
+                case 6:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_65\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
+                    }
+                case 7:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_37\"}";
+                        break;
+                    } else {
+                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 39) + "\"}";
+                        break;
+                    }
+                default:
+                    str2 = "";
+                    break;
+            }
             try {
-                System.currentTimeMillis();
-                d().obtainMessage(1, new a(this, b())).sendToTarget();
-            } finally {
-                try {
-                    return this;
-                } finally {
-                }
+                return new JSONObject(str2);
+            } catch (Throwable unused) {
+                return null;
             }
-            return this;
         }
-        return (gm1) invokeV.objValue;
+        return (JSONObject) invokeLZ.objValue;
+    }
+
+    public JSONObject b(JSONObject jSONObject, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, z)) == null) {
+            JSONObject jSONObject2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (jSONObject != null) {
+                if (z) {
+                    str2 = str + "_f";
+                } else {
+                    str2 = str;
+                }
+                jSONObject2 = jSONObject.optJSONObject(str2);
+            }
+            if (jSONObject2 != null && !jSONObject2.isNull("l_gravity")) {
+                return jSONObject2;
+            }
+            return a(str, z);
+        }
+        return (JSONObject) invokeLLZ.objValue;
     }
 }

@@ -1,31 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.app.Activity;
+import android.content.ComponentName;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "PageUtil")
 /* loaded from: classes8.dex */
 public final class vq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final TbPageContext<?> a(Context context) {
+    public static final boolean a(Activity activity) {
         InterceptResult invokeL;
+        ComponentName componentName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            if (context instanceof BaseActivity) {
-                return ((BaseActivity) context).getPageContext();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (activity != null) {
+                componentName = activity.getComponentName();
+            } else {
+                componentName = null;
             }
-            if (context instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) context).getPageContext();
+            if (componentName == null) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (TbPageContext) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean b(Activity activity, String activityClassName) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, activityClassName)) == null) {
+            Intrinsics.checkNotNullParameter(activityClassName, "activityClassName");
+            if (!a(activity)) {
+                Intrinsics.checkNotNull(activity);
+                ComponentName componentName = activity.getComponentName();
+                Intrinsics.checkNotNull(componentName);
+                if (Intrinsics.areEqual(activityClassName, componentName.getClassName())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

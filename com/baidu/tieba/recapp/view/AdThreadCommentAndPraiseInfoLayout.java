@@ -34,12 +34,12 @@ import com.baidu.tbadk.switchs.PraiseSwitch;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c4a;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
-import com.baidu.tieba.l2a;
-import com.baidu.tieba.mf5;
-import com.baidu.tieba.t31;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.wh;
+import com.baidu.tieba.wf5;
+import com.baidu.tieba.x31;
+import com.baidu.tieba.xh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int A0;
     public int B0;
     public int C0;
-    public l2a D0;
+    public c4a D0;
     public int z0;
 
     static {
@@ -231,11 +231,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(l2a l2aVar) {
+    public void setShareData(c4a c4aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, l2aVar) == null) {
-            this.D0 = l2aVar;
-            setData(l2aVar.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048595, this, c4aVar) == null) {
+            this.D0 = c4aVar;
+            setData(c4aVar.getThreadData());
         }
     }
 
@@ -258,7 +258,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
             try {
-                return new JSONObject(new String(wh.d(str))).getString(str2);
+                return new JSONObject(new String(xh.d(str))).getString(str2);
             } catch (Exception e) {
                 e.printStackTrace();
                 return "";
@@ -269,11 +269,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void J(View view2) {
-        l2a l2aVar;
+        c4a c4aVar;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.F != null && this.G != null && (l2aVar = this.D0) != null) {
-            q0(l2aVar.getThreadData(), "share", 0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.F != null && this.G != null && (c4aVar = this.D0) != null) {
+            q0(c4aVar.getThreadData(), "share", 0);
             r0(this.D0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.G)) {
                 return;
@@ -325,7 +325,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.linkUrl = mf5.t(shareItem2.linkUrl, shareItem2.tid, UtilHelper.isVideoThread(shareItem2.obj_type));
+                        shareItem2.linkUrl = wf5.t(shareItem2.linkUrl, shareItem2.tid, UtilHelper.isVideoThread(shareItem2.obj_type));
                         AndroidUtils.copyToClipboard(this.a.linkUrl);
                         BdUtilHelper.showToast(this.b.G, view3.getResources().getString(R.string.copy_pb_url_success));
                     }
@@ -451,7 +451,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                                 data.hasAgree = false;
                                 data.diffAgreeNum--;
                                 data.agreeNum--;
-                                this.a.e.d0();
+                                this.a.e.c0();
                             }
                             i = 1;
                         } else {
@@ -461,7 +461,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                                 data.diffAgreeNum += 2;
                                 data.agreeNum++;
                                 data.disAgreeNum--;
-                                this.a.e.e0(true);
+                                this.a.e.d0(true);
                             }
                         }
                     } else {
@@ -470,7 +470,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.hasAgree = true;
                             data.diffAgreeNum++;
                             data.agreeNum++;
-                            this.a.e.e0(true);
+                            this.a.e.d0(true);
                         }
                     }
                     this.a.o0(i);
@@ -518,7 +518,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                             data.hasAgree = false;
                             data.diffAgreeNum++;
                             data.disAgreeNum--;
-                            this.a.e.d0();
+                            this.a.e.c0();
                             this.a.o0(i);
                         }
                         data.agreeType = 5;
@@ -526,13 +526,13 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                         data.diffAgreeNum -= 2;
                         data.agreeNum--;
                         data.disAgreeNum++;
-                        this.a.e.e0(false);
+                        this.a.e.d0(false);
                     } else {
                         data.agreeType = 5;
                         data.hasAgree = true;
                         data.diffAgreeNum--;
                         data.disAgreeNum++;
-                        this.a.e.e0(false);
+                        this.a.e.d0(false);
                     }
                     i = 0;
                     this.a.o0(i);
@@ -562,7 +562,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 i = -1;
             }
             q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-            t31.e(clogBuilder);
+            x31.e(clogBuilder);
         }
     }
 
@@ -646,7 +646,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
             super.updatePraiseNum(threadData);
             AgreeView agreeView = this.e;
             if (agreeView != null) {
-                agreeView.Q(TbadkCoreApplication.getInst().getSkinType());
+                agreeView.P(TbadkCoreApplication.getInst().getSkinType());
             }
             if (this.A0 != 1) {
             }

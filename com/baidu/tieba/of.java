@@ -1,22 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class of {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pf a;
-    public qf b;
-    public LinkedList<nf> c;
-    public nf d;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
+    public long g;
+    public String h;
+    public int i;
+    public int j;
+    public String k;
+    public String l;
+    public BDHttpDnsResult.ResolveType m;
+    public boolean n;
+    public BDHttpDnsResult.ResolveStatus o;
+    public String p;
+    public int q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public int v;
+    public long w;
+    public long x;
+    public long y;
 
     public of() {
         Interceptable interceptable = $ic;
@@ -31,59 +48,26 @@ public class of {
                 return;
             }
         }
-        this.a = new pf();
-        this.b = new qf();
-        this.c = new LinkedList<>();
-        this.d = null;
-    }
-
-    public nf a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (nf) invokeV.objValue;
-    }
-
-    public pf b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (pf) invokeV.objValue;
-    }
-
-    public qf c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (qf) invokeV.objValue;
-    }
-
-    public List<nf> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return Collections.unmodifiableList(this.c);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void e(nf nfVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, nfVar) == null) && nfVar != null) {
-            this.c.add(nfVar);
-        }
-    }
-
-    public void f(nf nfVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nfVar) == null) {
-            this.d = nfVar;
-        }
+        this.a = -1L;
+        this.b = -1L;
+        this.c = -1L;
+        this.d = -1L;
+        this.e = 0;
+        this.f = -1L;
+        this.g = -1L;
+        this.h = "";
+        this.i = -1;
+        this.j = 0;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.o = null;
+        this.p = null;
+        this.q = 0;
+        this.r = null;
+        this.s = null;
+        this.t = null;
+        this.u = null;
+        this.v = 0;
     }
 }

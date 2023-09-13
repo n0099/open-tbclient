@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.app.Application;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.do0;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,13 +16,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ny0 implements do0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.do0
-    public void a(@Nullable String str, @Nullable String str2, do0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
-        }
-    }
 
     public ny0() {
         Interceptable interceptable = $ic;
@@ -33,6 +28,24 @@ public class ny0 implements do0 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.do0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || jk0.a().a()) {
+            return;
+        }
+        u21.a();
+    }
+
+    @Override // com.baidu.tieba.do0
+    public void b(@NonNull Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
+            AppRuntimeInit.onApplicationattachBaseContext(application);
+            uk1.b(application);
         }
     }
 }

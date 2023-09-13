@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class pn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, qn4> a;
-    public static HashMap<String, qn4> b;
+    public static volatile pn4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public pn4() {
@@ -34,106 +31,99 @@ public class pn4 {
         }
     }
 
-    public static String d() {
+    public static pn4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return oi4.c().a("SwanDownloadApiStrategy").getString("version", "0");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (pn4.class) {
+                    if (a == null) {
+                        a = new pn4();
+                    }
+                }
+            }
+            return a;
+        }
+        return (pn4) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return si4.b().i().getString("web_mode_version", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public static qn4 a(@Nullable String str) {
-        InterceptResult invokeL;
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a == null) {
-                synchronized (pn4.class) {
-                    if (a == null) {
-                        HashMap<String, qn4> hashMap = new HashMap<>();
-                        a = hashMap;
-                        e(hashMap, "download_api_ctrl");
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (si4.b().i().getInt("web_mode_switch", 1) == 1) {
+                return true;
             }
-            return c(str, a);
+            return false;
         }
-        return (qn4) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public static qn4 b(@Nullable String str) {
-        InterceptResult invokeL;
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (b == null) {
-                synchronized (pn4.class) {
-                    if (b == null) {
-                        HashMap<String, qn4> hashMap = new HashMap<>();
-                        b = hashMap;
-                        e(hashMap, "preload_api_ctrl");
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = si4.b().i().getString("web_mode_degrade_list", "");
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException unused) {
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    arrayList.add(jSONArray.optString(i));
                 }
             }
-            return c(str, b);
+            return arrayList;
         }
-        return (qn4) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static void f(@Nullable JSONObject jSONObject) {
-        String str;
+    public final String e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
+            if (optJSONArray != null) {
+                return optJSONArray.toString();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-        fr4 a2 = oi4.c().a("SwanDownloadApiStrategy");
-        a2.putString("version", optString);
-        if (optJSONObject != null) {
-            str = optJSONObject.toString();
-        } else {
-            str = null;
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+            return;
         }
-        a2.putString("data", str);
-    }
-
-    @NonNull
-    public static qn4 c(@Nullable String str, @NonNull HashMap<String, qn4> hashMap) {
-        InterceptResult invokeLL;
-        qn4 qn4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
-            if (!TextUtils.isEmpty(str) && (qn4Var = hashMap.get(str)) != null) {
-                return qn4Var;
-            }
-            qn4 qn4Var2 = hashMap.get("default");
-            if (qn4Var2 != null) {
-                return qn4Var2;
-            }
-            return qn4.a();
+        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
+        String e = e(optJSONObject);
+        qi4 b = si4.b();
+        if (b == null) {
+            return;
         }
-        return (qn4) invokeLL.objValue;
-    }
-
-    public static void e(@NonNull HashMap<String, qn4> hashMap, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
-            try {
-                JSONObject optJSONObject = new JSONObject(oi4.c().a("SwanDownloadApiStrategy").getString("data", "{}")).optJSONObject(str);
-                if (optJSONObject != null) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next)) {
-                            hashMap.put(next, qn4.b(optJSONObject.optJSONObject(next)));
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        jr4 i = b.i();
+        i.putInt("web_mode_switch", optInt);
+        i.putString("web_mode_degrade_list", e);
+        i.putString("web_mode_version", optString);
     }
 }

@@ -17,22 +17,22 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public boolean b;
-    public a.C0133a c;
+    public a.C0122a c;
     public MapController d;
-    public InterfaceC0134a e;
+    public InterfaceC0123a e;
 
     /* renamed from: com.baidu.platform.comapi.map.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0134a {
+    public interface InterfaceC0123a {
         boolean a(a aVar);
     }
 
-    public a(InterfaceC0134a interfaceC0134a, MapController mapController) {
+    public a(InterfaceC0123a interfaceC0123a, MapController mapController) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0134a, mapController};
+            Object[] objArr = {interfaceC0123a, mapController};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class a {
         }
         this.a = 0L;
         this.b = false;
-        this.e = interfaceC0134a;
+        this.e = interfaceC0123a;
         this.d = mapController;
     }
 
@@ -62,10 +62,10 @@ public class a {
         boolean z2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, this, motionEvent) == null) && motionEvent.getPointerCount() == 2 && this.c != null) {
-            a.C0133a a = a.C0133a.a(motionEvent);
-            a.C0133a c0133a = new a.C0133a(this.c.a, a.a);
-            a.C0133a c0133a2 = new a.C0133a(this.c.b, a.b);
-            if (Math.abs(c0133a.b()) < 20.0d && Math.abs(c0133a2.b()) < 20.0d) {
+            a.C0122a a = a.C0122a.a(motionEvent);
+            a.C0122a c0122a = new a.C0122a(this.c.a, a.a);
+            a.C0122a c0122a2 = new a.C0122a(this.c.b, a.b);
+            if (Math.abs(c0122a.b()) < 20.0d && Math.abs(c0122a2.b()) < 20.0d) {
                 z = true;
             } else {
                 z = false;
@@ -103,7 +103,7 @@ public class a {
         if ((interceptable != null && interceptable.invokeL(65539, this, motionEvent) != null) || motionEvent.getPointerCount() != 2) {
             return;
         }
-        this.c = a.C0133a.a(motionEvent);
+        this.c = a.C0122a.a(motionEvent);
         this.b = true;
     }
 

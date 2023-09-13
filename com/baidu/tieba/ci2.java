@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.UriMatcher;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,19 +14,65 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ci2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
-    public static final Uri c;
+    public static final boolean a;
+    public static final boolean b;
+    public static Runnable c;
     public transient /* synthetic */ FieldHolder $fh;
-    public UriMatcher a;
 
-    @Nullable
-    public String getType(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            return null;
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rv3.e(AppRuntime.getAppContext());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                rv3.d(AppRuntime.getAppContext()).g();
+            }
+        }
     }
 
     static {
@@ -52,192 +88,97 @@ public class ci2 {
                 return;
             }
         }
-        b = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-        c = Uri.parse(DownloadConstants.LOCAL_DATA_URI_PREFIX + b);
-    }
-
-    public ci2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        a = rr1.a;
+        ou2.g0().getSwitch("swan_cpu_booster", 0);
+        b = b(0);
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
+            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
         }
-        UriMatcher uriMatcher = new UriMatcher(-1);
-        this.a = uriMatcher;
-        uriMatcher.addURI(b, "favorite", 0);
-        this.a.addURI(b, "favorite_and_aps", 1);
-        this.a.addURI(b, "history", 2);
-        this.a.addURI(b, "history_with_app", 3);
-        this.a.addURI(b, "favorite_with_aps_pms", 4);
-        this.a.addURI(b, "history_with_aps_pms", 5);
-        this.a.addURI(b, "user_behavior", 6);
+        a();
     }
 
-    public static void b() {
+    public static void a() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            AppRuntime.getAppContext().getContentResolver().notifyChange(fi2.b(), (ContentObserver) null, false);
-            AppRuntime.getAppContext().getContentResolver().notifyChange(fi2.c(), (ContentObserver) null, false);
-            AppRuntime.getAppContext().getContentResolver().notifyChange(fi2.a(), (ContentObserver) null, false);
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
+            return;
+        }
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        rv3.b(a);
+        if (c == null) {
+            c = new b();
+        }
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
         }
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public final String a(int i) {
+    public static void e() {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "startBooster");
+        }
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        d(c);
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
+        }
+    }
+
+    public static boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 6) {
-                if (!nr1.a) {
-                    return "";
-                }
-                throw new NullPointerException("tableName must not Null");
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i <= 0) {
+                return false;
             }
-            return "user_behavior";
+            if (i == 1) {
+                return true;
+            }
+            if (i != 2) {
+                return false;
+            }
+            return ou2.u0().a();
         }
-        return (String) invokeI.objValue;
+        return invokeI.booleanValue;
     }
 
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        SQLiteDatabase e;
+    public static void d(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
-                        return 0;
-                    }
-                    return e.delete(a(match), str, strArr);
-                }
-                int c2 = SwanAppDbControl.f(AppRuntime.getAppContext()).c(str, strArr);
-                if (c2 > 0) {
-                    b();
-                }
-                return c2;
-            }
-            return SwanAppDbControl.f(AppRuntime.getAppContext()).b(str, strArr);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
+            return;
         }
-        return invokeLLL.intValue;
+        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
-        SQLiteDatabase e;
+    public static void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
-                        return null;
-                    }
-                    e.insertWithOnConflict(a(match), null, contentValues, 5);
-                    return uri;
-                }
-                long j = SwanAppDbControl.f(AppRuntime.getAppContext()).j(contentValues);
-                if (j < 0) {
-                    return null;
-                }
-                b();
-                return ContentUris.withAppendedId(c.buildUpon().build(), j);
-            }
-            long i = SwanAppDbControl.f(AppRuntime.getAppContext()).i(contentValues);
-            if (i < 0) {
-                return null;
-            }
-            return ContentUris.withAppendedId(c.buildUpon().build(), i);
+        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
+            return;
         }
-        return (Uri) invokeLL.objValue;
-    }
-
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            int match = this.a.match(uri);
-            switch (match) {
-                case 0:
-                    Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(strArr, str, strArr2, str2);
-                    l.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return l;
-                case 1:
-                    Cursor k = SwanAppDbControl.f(AppRuntime.getAppContext()).k(strArr, str, strArr2, str2);
-                    k.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return k;
-                case 2:
-                    Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(strArr, str, strArr2, str2);
-                    n.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return n;
-                case 3:
-                    Cursor m = SwanAppDbControl.f(AppRuntime.getAppContext()).m(strArr, str, strArr2, str2);
-                    m.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return m;
-                case 4:
-                    Cursor s = bi2.s();
-                    s.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return s;
-                case 5:
-                    int i = -1;
-                    try {
-                        i = Integer.valueOf(uri.getQueryParameter("query_limit")).intValue();
-                    } catch (Exception e) {
-                        if (nr1.a) {
-                            e.printStackTrace();
-                        }
-                    }
-                    String queryParameter = uri.getQueryParameter("query_word");
-                    if (queryParameter == null) {
-                        queryParameter = "";
-                    }
-                    Cursor o = gi2.o(queryParameter, i);
-                    o.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                    return o;
-                case 6:
-                    SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
-                    if (e2 == null) {
-                        return null;
-                    }
-                    return e2.query(a(match), strArr, str, strArr2, null, null, str2);
-                default:
-                    return null;
-            }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
         }
-        return (Cursor) invokeLLLLL.objValue;
-    }
-
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
-        SQLiteDatabase e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            int match = this.a.match(uri);
-            if (match != 0) {
-                if (match != 2) {
-                    if (match != 6 || (e = SwanAppDbControl.f(AppRuntime.getAppContext()).e()) == null) {
-                        return 0;
-                    }
-                    return e.update(a(match), contentValues, str, strArr);
-                }
-                int r = SwanAppDbControl.f(AppRuntime.getAppContext()).r(contentValues, str, strArr);
-                if (r > 0) {
-                    b();
-                }
-                return r;
-            }
-            return SwanAppDbControl.f(AppRuntime.getAppContext()).q(contentValues, str, strArr);
+        a aVar = new a();
+        if (z) {
+            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
+        } else {
+            aVar.run();
         }
-        return invokeLLLL.intValue;
     }
 }

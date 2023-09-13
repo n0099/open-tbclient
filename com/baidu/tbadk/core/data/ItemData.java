@@ -8,6 +8,7 @@ import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
@@ -117,6 +118,7 @@ public class ItemData extends OrmObject implements Serializable {
                     builder.authority_url = optJSONObject.optString("authority_url");
                     builder.privacy_url = optJSONObject.optString("privacy_url");
                     builder.pkg_source = Integer.valueOf(optJSONObject.optInt("pkg_source"));
+                    builder.app_effect = optJSONObject.optString("app_effect");
                     this.apkDetail = builder.build(true);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
@@ -204,6 +206,16 @@ public class ItemData extends OrmObject implements Serializable {
         builder.privacy_url = tiebaPlusInfo.app_privacy;
         builder.authority_url = tiebaPlusInfo.app_power;
         builder.developer = tiebaPlusInfo.app_company;
+        builder.app_effect = tiebaPlusInfo.app_effect;
         this.apkDetail = builder.build(true);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ItemData{itemId=" + this.itemId + ", buttonName='" + this.buttonName + "', buttonLink='" + this.buttonLink + "', buttonLinkType=" + this.buttonLinkType + ", pkgName='" + this.pkgName + "', packageName='" + this.packageName + "', forumName='" + this.forumName + "', apkDetail=" + this.apkDetail + ", appId='" + this.appId + "', mIconUrl='" + this.mIconUrl + "', mTitle='" + this.mTitle + "', mTags=" + this.mTags + ", mScore=" + this.mScore + ", mStar=" + this.mStar + ", mIconSize=" + this.mIconSize + ", isFromTbDownloaderTable=" + this.isFromTbDownloaderTable + ", mTbFileDownloaderType=" + this.mTbFileDownloaderType + ", notificationShowCount=" + this.notificationShowCount + ", fileType='" + this.fileType + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

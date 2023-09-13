@@ -93,10 +93,10 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         this.mPresenter = addrListPagerPresenter;
         addrListPagerPresenter.attachView(this);
         this.mDataEntity = new ElementNode.AddressEntity();
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0576, this);
-        this.mEmptyView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c3);
-        this.mLoadingView = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09208a);
-        this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0920a3);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0583, this);
+        this.mEmptyView = (TextView) findViewById(R.id.obfuscated_res_0x7f092102);
+        this.mLoadingView = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0920c9);
+        this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0920e2);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mContext);
         this.mLinearLayoutManager = linearLayoutManager;
         this.mRecyclerView.setLayoutManager(linearLayoutManager);

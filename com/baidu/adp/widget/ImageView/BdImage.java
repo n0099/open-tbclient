@@ -13,7 +13,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ob;
+import com.baidu.tieba.pb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class BdImage {
     public volatile boolean isGif;
     public boolean isNinePatchBitmap;
     public byte[] mByteData;
-    public ob mGif;
+    public pb mGif;
     public boolean mIsEmotionGif;
     public Rect mPadding;
     public boolean mRecyclable;
@@ -145,13 +145,13 @@ public class BdImage {
         return (byte[]) invokeV.objValue;
     }
 
-    public ob getGif() {
+    public pb getGif() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mGif;
         }
-        return (ob) invokeV.objValue;
+        return (pb) invokeV.objValue;
     }
 
     public int getHeight() {
@@ -418,12 +418,12 @@ public class BdImage {
         checkIsNinePatchBitmap();
     }
 
-    public BdImage(ob obVar) {
+    public BdImage(pb pbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obVar};
+            Object[] objArr = {pbVar};
             interceptable.invokeUnInit(65542, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -442,16 +442,16 @@ public class BdImage {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.mGif = obVar;
+        this.mGif = pbVar;
         this.mIsEmotionGif = true;
     }
 
-    public BdImage(ob obVar, Bitmap bitmap, boolean z) {
+    public BdImage(pb pbVar, Bitmap bitmap, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obVar, bitmap, Boolean.valueOf(z)};
+            Object[] objArr = {pbVar, bitmap, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65543, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -470,17 +470,17 @@ public class BdImage {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.mGif = obVar;
+        this.mGif = pbVar;
         this.image = bitmap;
         this.isGif = z;
     }
 
-    public BdImage(ob obVar, Bitmap bitmap, boolean z, byte[] bArr) {
+    public BdImage(pb pbVar, Bitmap bitmap, boolean z, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obVar, bitmap, Boolean.valueOf(z), bArr};
+            Object[] objArr = {pbVar, bitmap, Boolean.valueOf(z), bArr};
             interceptable.invokeUnInit(65544, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -499,7 +499,7 @@ public class BdImage {
         this.mIsEmotionGif = false;
         this.timeStamp = -1L;
         this.isNinePatchBitmap = false;
-        this.mGif = obVar;
+        this.mGif = pbVar;
         this.image = bitmap;
         this.isGif = z;
         this.mByteData = bArr;
@@ -635,10 +635,10 @@ public class BdImage {
                 this.image = null;
                 bitmap.recycle();
             }
-            ob obVar = this.mGif;
-            if (obVar != null) {
+            pb pbVar = this.mGif;
+            if (pbVar != null) {
                 this.mGif = null;
-                obVar.close();
+                pbVar.close();
                 return true;
             }
             return true;

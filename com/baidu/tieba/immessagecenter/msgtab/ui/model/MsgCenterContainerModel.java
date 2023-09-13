@@ -4,15 +4,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.ak8;
+import com.baidu.tieba.cbc;
+import com.baidu.tieba.cl8;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.repository.MsgCenterRepository;
-import com.baidu.tieba.lcc;
-import com.baidu.tieba.ot8;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.z7c;
+import com.baidu.tieba.ofc;
+import com.baidu.tieba.qu8;
+import com.baidu.tieba.sac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class MsgCenterContainerModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MsgCenterRepository a;
-    public final lcc<List<ot8>> b;
+    public final ofc<List<qu8>> b;
 
     public MsgCenterContainerModel() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public final class MsgCenterContainerModel {
             }
         }
         this.a = new MsgCenterRepository();
-        lcc<List<ot8>> Q = lcc.Q();
+        ofc<List<qu8>> Q = ofc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.b = Q;
         this.a.k(new Function1<ForumListData, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgCenterContainerModel.1
@@ -95,7 +95,7 @@ public final class MsgCenterContainerModel {
         });
     }
 
-    public final List<ot8> b() {
+    public final List<qu8> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -104,15 +104,15 @@ public final class MsgCenterContainerModel {
         return (List) invokeV.objValue;
     }
 
-    public final p7c<List<ot8>> e() {
+    public final sac<List<qu8>> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            p7c<List<ot8>> s = this.b.a().x().s(z7c.b());
+            sac<List<qu8>> s = this.b.a().x().s(cbc.b());
             Intrinsics.checkNotNullExpressionValue(s, "mUiDataBs\n              …dSchedulers.mainThread())");
             return s;
         }
-        return (p7c) invokeV.objValue;
+        return (sac) invokeV.objValue;
     }
 
     public final void c(ForumListData forumListData) {
@@ -123,11 +123,11 @@ public final class MsgCenterContainerModel {
             if (forumData != null) {
                 for (MsgTabForumData msgTabForumData : forumData) {
                     ForumChannelDataObs.b.a().g(msgTabForumData.getForumId(), msgTabForumData);
-                    arrayList.add(new ot8(msgTabForumData.getForumId(), 3, false, 4, null));
+                    arrayList.add(new qu8(msgTabForumData.getForumId(), 3, false, 4, null));
                 }
                 ForumChannelDataObs.b.a().f();
             }
-            if (ak8.a.b(arrayList, b())) {
+            if (cl8.a.b(arrayList, b())) {
                 this.b.onNext(arrayList);
             }
         }
@@ -200,7 +200,7 @@ public final class MsgCenterContainerModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, forumListData) == null) {
             try {
-                List<ot8> b = b();
+                List<qu8> b = b();
                 if (forumListData != null) {
                     z = true;
                 } else {
@@ -222,8 +222,8 @@ public final class MsgCenterContainerModel {
         }
     }
 
-    public final void g(List<MsgTabForumData> list, List<ot8> list2) {
-        ot8 ot8Var;
+    public final void g(List<MsgTabForumData> list, List<qu8> list2) {
+        qu8 qu8Var;
         Object obj;
         boolean z;
         Interceptable interceptable = $ic;
@@ -236,9 +236,9 @@ public final class MsgCenterContainerModel {
                     if (i < 0) {
                         CollectionsKt__CollectionsKt.throwIndexOverflow();
                     }
-                    ot8 ot8Var2 = (ot8) obj2;
-                    if (ot8Var2.getType() != 3) {
-                        arrayList.add(ot8Var2);
+                    qu8 qu8Var2 = (qu8) obj2;
+                    if (qu8Var2.getType() != 3) {
+                        arrayList.add(qu8Var2);
                     }
                     i = i2;
                 }
@@ -251,7 +251,7 @@ public final class MsgCenterContainerModel {
                         while (true) {
                             if (it.hasNext()) {
                                 obj = it.next();
-                                if (msgTabForumData.getForumId() == ((ot8) obj).a()) {
+                                if (msgTabForumData.getForumId() == ((qu8) obj).a()) {
                                     z = true;
                                     continue;
                                 } else {
@@ -266,17 +266,17 @@ public final class MsgCenterContainerModel {
                                 break;
                             }
                         }
-                        ot8Var = (ot8) obj;
-                        if (ot8Var != null) {
-                            arrayList.add(ot8Var);
+                        qu8Var = (qu8) obj;
+                        if (qu8Var != null) {
+                            arrayList.add(qu8Var);
                         }
                     }
-                    ot8Var = new ot8(msgTabForumData.getForumId(), 3, false, 4, null);
-                    arrayList.add(ot8Var);
+                    qu8Var = new qu8(msgTabForumData.getForumId(), 3, false, 4, null);
+                    arrayList.add(qu8Var);
                 }
                 ForumChannelDataObs.b.a().f();
             }
-            if (ak8.a.b(arrayList, b())) {
+            if (cl8.a.b(arrayList, b())) {
                 this.b.onNext(arrayList);
             }
         }

@@ -33,24 +33,24 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bt5;
-import com.baidu.tieba.jx5;
-import com.baidu.tieba.lya;
-import com.baidu.tieba.mxa;
-import com.baidu.tieba.mya;
-import com.baidu.tieba.nxa;
-import com.baidu.tieba.oxa;
-import com.baidu.tieba.qxa;
-import com.baidu.tieba.rxa;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.sxa;
-import com.baidu.tieba.txa;
-import com.baidu.tieba.tya;
+import com.baidu.tieba.aw4;
+import com.baidu.tieba.bw4;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.q0b;
+import com.baidu.tieba.r0b;
+import com.baidu.tieba.rza;
+import com.baidu.tieba.sza;
+import com.baidu.tieba.tza;
+import com.baidu.tieba.vt5;
+import com.baidu.tieba.vza;
 import com.baidu.tieba.write.album.TbCameraView;
 import com.baidu.tieba.write.util.PhotoType;
 import com.baidu.tieba.wv4;
-import com.baidu.tieba.xv4;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.wza;
+import com.baidu.tieba.xza;
+import com.baidu.tieba.y0b;
+import com.baidu.tieba.yza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,30 +61,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class ImageListFragment extends BaseFragment implements nxa.d, AbsListView.OnScrollListener {
+public class ImageListFragment extends BaseFragment implements sza.d, AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int H = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public TbCameraView.f A;
     public TbCameraView.d B;
     public PopupWindow.OnDismissListener C;
-    public qxa D;
-    public tya.f E;
-    public rxa F;
-    public txa G;
+    public vza D;
+    public y0b.f E;
+    public wza F;
+    public yza G;
     public BaseFragmentActivity a;
-    public oxa b;
-    public mxa c;
-    public xv4 d;
+    public tza b;
+    public rza c;
+    public bw4 d;
     public View e;
     public RelativeLayout f;
     public ImageView g;
     public TextView h;
     public TBSpecificationBtn i;
     public TextView j;
-    public tya k;
+    public y0b k;
     public TransparentHeadGridView l;
-    public sxa m;
+    public xza m;
     public NoDataView n;
     public View o;
     public NavigationBar p;
@@ -141,7 +141,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || jx5.a() || this.a.c == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || fy5.a() || this.a.c == null) {
                 return;
             }
             int l = this.a.c.l();
@@ -301,7 +301,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     }
 
     /* loaded from: classes8.dex */
-    public class f implements qxa {
+    public class f implements vza {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
@@ -324,7 +324,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
             this.a = imageListFragment;
         }
 
-        @Override // com.baidu.tieba.qxa
+        @Override // com.baidu.tieba.vza
         public void a(int i, MediaFileInfo mediaFileInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, mediaFileInfo) == null) {
@@ -347,7 +347,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     }
 
     /* loaded from: classes8.dex */
-    public class g implements tya.f {
+    public class g implements y0b.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
@@ -370,13 +370,13 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
             this.a = imageListFragment;
         }
 
-        @Override // com.baidu.tieba.tya.f
-        public void a(int i, sv4 sv4Var) {
+        @Override // com.baidu.tieba.y0b.f
+        public void b(int i, wv4 wv4Var) {
             List<MediaFileInfo> d;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, sv4Var) == null) && this.a.c != null && sv4Var != null) {
-                String b = sv4Var.b();
-                String g = sv4Var.g();
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, wv4Var) == null) && this.a.c != null && wv4Var != null) {
+                String b = wv4Var.b();
+                String g = wv4Var.g();
                 if (b == null || b.equals(this.a.c.h()) || (d = this.a.c.d(b)) == null) {
                     return;
                 }
@@ -389,7 +389,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     }
 
     /* loaded from: classes8.dex */
-    public class h implements rxa {
+    public class h implements wza {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
@@ -413,9 +413,9 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:57:0x014d, code lost:
-            if (r5.a.q2(r7) != false) goto L52;
+            if (r5.a.s2(r7) != false) goto L52;
          */
-        @Override // com.baidu.tieba.rxa
+        @Override // com.baidu.tieba.wza
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -428,16 +428,16 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                 }
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
-                    if (lya.a(imageFileInfo.getFilePath()) == PhotoType.APNG) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e88);
+                    if (q0b.a(imageFileInfo.getFilePath()) == PhotoType.APNG) {
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e9f);
                         return false;
-                    } else if (mya.a(imageFileInfo)) {
+                    } else if (r0b.a(imageFileInfo)) {
                         this.a.a.showToast(R.string.obfuscated_res_0x7f0f0286);
                         return false;
-                    } else if (this.a.w == ImageListFragment.H && mya.c(imageFileInfo)) {
+                    } else if (this.a.w == ImageListFragment.H && r0b.c(imageFileInfo)) {
                         this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0287), new Object[0]));
                         return false;
-                    } else if (mya.b(imageFileInfo)) {
+                    } else if (r0b.b(imageFileInfo)) {
                         this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0288), Integer.valueOf(SharedPrefHelper.getInstance().getInt("key_upload_pic_max_width", 0)), Integer.valueOf(SharedPrefHelper.getInstance().getInt("key_upload_pic_max_height", 0))));
                         return false;
                     } else {
@@ -448,7 +448,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                         }
                         this.a.c.w(null);
                         this.a.m.notifyDataSetChanged();
-                        this.a.G2();
+                        this.a.I2();
                         return true;
                     }
                 } else if (!(mediaFileInfo instanceof VideoFileInfo)) {
@@ -460,11 +460,11 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                     }
                     VideoFileInfo videoFileInfo = (VideoFileInfo) mediaFileInfo;
                     if (AlbumActivityConfig.FROM_FLUTTER_GAME_VIDEO.equals(this.a.b.m)) {
-                        if (!this.a.p2(videoFileInfo) || !this.a.q2(videoFileInfo) || !this.a.o2(videoFileInfo)) {
+                        if (!this.a.r2(videoFileInfo) || !this.a.s2(videoFileInfo) || !this.a.q2(videoFileInfo)) {
                             return true;
                         }
                     } else {
-                        if (this.a.r2(videoFileInfo)) {
+                        if (this.a.t2(videoFileInfo)) {
                         }
                         return true;
                     }
@@ -480,12 +480,12 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     }
 
     /* loaded from: classes8.dex */
-    public class i implements wv4 {
+    public class i implements aw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
 
-        @Override // com.baidu.tieba.wv4
+        @Override // com.baidu.tieba.aw4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -510,25 +510,25 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
             this.a = imageListFragment;
         }
 
-        @Override // com.baidu.tieba.wv4
-        public void a(yv4 yv4Var) {
+        @Override // com.baidu.tieba.aw4
+        public void a(cw4 cw4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, yv4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cw4Var) == null) {
                 if (this.a.x != null) {
                     this.a.x.setDialogVisiable(false);
                 }
-                if (yv4Var == null) {
-                    yv4Var = new yv4();
+                if (cw4Var == null) {
+                    cw4Var = new cw4();
                 }
                 if (this.a.c != null && this.a.m != null) {
-                    this.a.c.z(yv4Var);
+                    this.a.c.z(cw4Var);
                     String h = this.a.c.h();
                     this.a.c.x(h);
                     this.a.m.n(this.a.c.d(h));
                     if (this.a.l != null) {
                         this.a.l.smoothScrollToPosition(0);
                     }
-                    this.a.G2();
+                    this.a.I2();
                 }
                 if (this.a.l != null) {
                     this.a.l.n();
@@ -563,12 +563,12 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         this.F = new h(this);
     }
 
-    public void x2() {
+    public void z2() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && this.b != null && getPageContext() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && this.b != null && getPageContext() != null) {
             if (this.d == null) {
-                this.d = new xv4(getPageContext().getPageActivity());
+                this.d = new bw4(getPageContext().getPageActivity());
             }
             if (this.b.h()) {
                 if (this.b.g()) {
@@ -585,39 +585,39 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         }
     }
 
-    public void C2(oxa oxaVar) {
+    public void E2(tza tzaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oxaVar) == null) {
-            this.b = oxaVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tzaVar) == null) {
+            this.b = tzaVar;
         }
     }
 
-    public void D2(NavigationBar navigationBar) {
+    public void F2(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, navigationBar) == null) {
             this.p = navigationBar;
         }
     }
 
-    public void E2(txa txaVar) {
+    public void G2(yza yzaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, txaVar) == null) {
-            this.G = txaVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, yzaVar) == null) {
+            this.G = yzaVar;
         }
     }
 
-    @Override // com.baidu.tieba.nxa.d
-    public void H(boolean z) {
+    @Override // com.baidu.tieba.sza.d
+    public void J(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            D();
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            F();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onActivityCreated(bundle);
             if (!this.u) {
                 PermissionUtil.requestWriteExternalStorgePermission(requireActivity(), 1);
@@ -625,11 +625,11 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         }
     }
 
-    public final boolean p2(VideoFileInfo videoFileInfo) {
+    public final boolean r2(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, videoFileInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, videoFileInfo)) == null) {
             if (videoFileInfo != null) {
                 i2 = videoFileInfo.videoDuration;
             } else {
@@ -644,11 +644,11 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         return invokeL.booleanValue;
     }
 
-    public final boolean q2(VideoFileInfo videoFileInfo) {
+    public final boolean s2(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, videoFileInfo)) == null) {
-            VideoFileInfo h2 = txa.h(videoFileInfo.videoPath);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, videoFileInfo)) == null) {
+            VideoFileInfo h2 = yza.h(videoFileInfo.videoPath);
             if (h2 == null || Math.max(h2.videoWidth, h2.videoHeight) <= 3000) {
                 return true;
             }
@@ -658,11 +658,11 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         return invokeL.booleanValue;
     }
 
-    public final boolean r2(VideoFileInfo videoFileInfo) {
+    public final boolean t2(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, videoFileInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, videoFileInfo)) == null) {
             if (videoFileInfo != null) {
                 i2 = videoFileInfo.videoDuration;
             } else {
@@ -677,21 +677,21 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         return invokeL.booleanValue;
     }
 
-    public final void D() {
+    public final void F() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !isHidden() && !this.t) {
-            y2();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isHidden() && !this.t) {
+            A2();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDetach();
-            tya tyaVar = this.k;
-            if (tyaVar != null) {
-                tyaVar.f();
+            y0b y0bVar = this.k;
+            if (y0bVar != null) {
+                y0bVar.f();
             }
         }
     }
@@ -699,7 +699,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onPause();
             this.t = true;
         }
@@ -708,20 +708,20 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onResume();
             this.t = false;
             if (!isShow()) {
                 return;
             }
-            D();
+            F();
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onStart();
         }
     }
@@ -729,17 +729,17 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStop();
         }
     }
 
-    public View s2() {
+    public View u2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            oxa oxaVar = this.b;
-            if (oxaVar != null && oxaVar.s() == 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            tza tzaVar = this.b;
+            if (tzaVar != null && tzaVar.s() == 1) {
                 return this.g;
             }
             return this.h;
@@ -747,59 +747,59 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         return (View) invokeV.objValue;
     }
 
-    public View t2() {
+    public View v2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.i;
         }
         return (View) invokeV.objValue;
     }
 
-    public TbCameraView u2() {
+    public TbCameraView w2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            sxa sxaVar = this.m;
-            if (sxaVar != null) {
-                return sxaVar.j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            xza xzaVar = this.m;
+            if (xzaVar != null) {
+                return xzaVar.j();
             }
             return null;
         }
         return (TbCameraView) invokeV.objValue;
     }
 
-    public TransparentHeadGridView v2() {
+    public TransparentHeadGridView x2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.l;
         }
         return (TransparentHeadGridView) invokeV.objValue;
     }
 
-    public View w2() {
+    public View y2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.r;
         }
         return (View) invokeV.objValue;
     }
 
-    public void A2(ImageFileInfo imageFileInfo, boolean z) {
-        sxa sxaVar;
+    public void C2(ImageFileInfo imageFileInfo, boolean z) {
+        xza xzaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, imageFileInfo, z) != null) || imageFileInfo == null || (sxaVar = this.m) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, z) != null) || imageFileInfo == null || (xzaVar = this.m) == null) {
             return;
         }
-        z2(sxaVar.i(imageFileInfo), z);
+        B2(xzaVar.i(imageFileInfo), z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, absListView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048596, this, absListView, i2) == null) {
             super.onScrollStateChanged(absListView, i2);
             if (i2 == 2) {
                 this.m.s(true);
@@ -809,11 +809,90 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         }
     }
 
-    public void B2(boolean z) {
+    public final void A2() {
+        tza tzaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.c == null && (tzaVar = this.b) != null) {
+                this.c = tzaVar.t();
+            }
+            rza rzaVar = this.c;
+            if (rzaVar == null) {
+                return;
+            }
+            if (!rzaVar.r()) {
+                this.m.notifyDataSetChanged();
+            } else {
+                z2();
+            }
+            D2(this.c.s());
+        }
+    }
+
+    public final void H2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.x == null) {
+                this.x = new BlueCircleProgressDialog(getPageContext());
+            }
+            this.x.setCancelListener(null);
+            this.x.setTipString(R.string.obfuscated_res_0x7f0f0c01);
+            this.x.setDialogVisiable(true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onDestroy();
+            TransparentHeadGridView transparentHeadGridView = this.l;
+            if (transparentHeadGridView != null) {
+                transparentHeadGridView.setOuterOnScrollListener(null);
+            }
+            bw4 bw4Var = this.d;
+            if (bw4Var != null) {
+                bw4Var.c();
+            }
+            BaseFragmentActivity baseFragmentActivity = this.a;
+            if (baseFragmentActivity != null) {
+                baseFragmentActivity.closeLoadingDialog();
+            }
+            BlueCircleProgressDialog blueCircleProgressDialog = this.x;
+            if (blueCircleProgressDialog != null) {
+                blueCircleProgressDialog.setDialogVisiable(false);
+            }
+            xza xzaVar = this.m;
+            if (xzaVar != null) {
+                xzaVar.m();
+            }
+            sza.f().k(this);
+        }
+    }
+
+    public void B2(int i2, boolean z) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            TransparentHeadGridView transparentHeadGridView = this.l;
+            if (transparentHeadGridView != null) {
+                int firstVisiblePosition = transparentHeadGridView.getFirstVisiblePosition();
+                int lastVisiblePosition = this.l.getLastVisiblePosition();
+                if (i2 >= firstVisiblePosition && i2 <= lastVisiblePosition && (childAt = this.l.getChildAt(i2 - firstVisiblePosition)) != null && this.m != null) {
+                    this.m.u((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f0921b2), z);
+                } else {
+                    return;
+                }
+            }
+            I2();
+        }
+    }
+
+    public void D2(boolean z) {
         BaseFragmentActivity baseFragmentActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (baseFragmentActivity = this.a) != null && this.r != null) {
-            this.r.setText(baseFragmentActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0f11));
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (baseFragmentActivity = this.a) != null && this.r != null) {
+            this.r.setText(baseFragmentActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0f28));
             if (z) {
                 this.r.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.icon_pure_image_ok_select16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
@@ -824,82 +903,21 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         }
     }
 
-    public final void F2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.x == null) {
-                this.x = new BlueCircleProgressDialog(getPageContext());
-            }
-            this.x.setCancelListener(null);
-            this.x.setTipString(R.string.obfuscated_res_0x7f0f0bec);
-            this.x.setDialogVisiable(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.onDestroy();
-            TransparentHeadGridView transparentHeadGridView = this.l;
-            if (transparentHeadGridView != null) {
-                transparentHeadGridView.setOuterOnScrollListener(null);
-            }
-            xv4 xv4Var = this.d;
-            if (xv4Var != null) {
-                xv4Var.c();
-            }
-            BaseFragmentActivity baseFragmentActivity = this.a;
-            if (baseFragmentActivity != null) {
-                baseFragmentActivity.closeLoadingDialog();
-            }
-            BlueCircleProgressDialog blueCircleProgressDialog = this.x;
-            if (blueCircleProgressDialog != null) {
-                blueCircleProgressDialog.setDialogVisiable(false);
-            }
-            sxa sxaVar = this.m;
-            if (sxaVar != null) {
-                sxaVar.m();
-            }
-            nxa.f().k(this);
-        }
-    }
-
-    public final void y2() {
-        oxa oxaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            if (this.c == null && (oxaVar = this.b) != null) {
-                this.c = oxaVar.t();
-            }
-            mxa mxaVar = this.c;
-            if (mxaVar == null) {
-                return;
-            }
-            if (!mxaVar.r()) {
-                this.m.notifyDataSetChanged();
-            } else {
-                x2();
-            }
-            B2(this.c.s());
-        }
-    }
-
     /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
-    public final void G2() {
-        mxa mxaVar;
+    public final void I2() {
+        rza rzaVar;
         String string;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (mxaVar = this.c) != null && this.i != null) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (rzaVar = this.c) != null && this.i != null) {
             boolean z = false;
-            if (mxaVar.p()) {
+            if (rzaVar.p()) {
                 ?? p = this.c.p();
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f0a75, new Object[]{Integer.valueOf((int) p), 1});
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f0a7e, new Object[]{Integer.valueOf((int) p), 1});
                 i2 = p;
             } else {
                 int count = ListUtils.getCount(this.c.g());
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f0a75, new Object[]{Integer.valueOf(count), Integer.valueOf(this.c.l())});
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f0a7e, new Object[]{Integer.valueOf(count), Integer.valueOf(this.c.l())});
                 i2 = count;
             }
             this.i.setText(string);
@@ -911,30 +929,17 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         }
     }
 
-    public final boolean o2(VideoFileInfo videoFileInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, videoFileInfo)) == null) {
-            if (new File(videoFileInfo.videoPath).length() > 104857600) {
-                this.a.showToast(String.format(getString(R.string.obfuscated_res_0x7f0f028a), new Object[0]));
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.onChangeSkinType(i2);
-            bt5.a(getPageContext(), this.e);
+            vt5.a(getPageContext(), this.e);
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204, i2);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, i2);
             if (this.h != null && this.g != null) {
-                oxa oxaVar = this.b;
-                if (oxaVar != null && oxaVar.s() == 1) {
+                tza tzaVar = this.b;
+                if (tzaVar != null && tzaVar.s() == 1) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0105, null);
                     this.h.setVisibility(8);
                 } else {
@@ -945,17 +950,17 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
             if (this.j != null) {
                 this.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null), (Drawable) null);
             }
-            sxa sxaVar = this.m;
-            if (sxaVar != null) {
-                sxaVar.notifyDataSetChanged();
+            xza xzaVar = this.m;
+            if (xzaVar != null) {
+                xzaVar.notifyDataSetChanged();
             }
             NoDataView noDataView = this.n;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            mxa mxaVar = this.c;
-            if (mxaVar != null) {
-                B2(mxaVar.s());
+            rza rzaVar = this.c;
+            if (rzaVar != null) {
+                D2(rzaVar.s());
             }
         }
     }
@@ -963,7 +968,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             this.a = baseFragmentActivity;
@@ -974,17 +979,17 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                     this.b = ((AlbumActivity) baseFragmentActivity).a;
                 }
             }
-            oxa oxaVar = this.b;
-            if (oxaVar != null) {
-                this.c = oxaVar.t();
+            tza tzaVar = this.b;
+            if (tzaVar != null) {
+                this.c = tzaVar.t();
                 this.u = this.b.A();
                 this.v = this.b.z();
             }
-            nxa.f().d(this);
-            this.d = new xv4(this.a);
-            tya tyaVar = new tya(this.a);
-            this.k = tyaVar;
-            tyaVar.setOnDismissListener(this.C);
+            sza.f().d(this);
+            this.d = new bw4(this.a);
+            y0b y0bVar = new y0b(this.a);
+            this.k = y0bVar;
+            y0bVar.setOnDismissListener(this.C);
             this.k.l(this.E);
         }
     }
@@ -994,7 +999,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
         InterceptResult invokeLLL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             this.a = baseFragmentActivity;
             if (this.b == null) {
@@ -1004,25 +1009,25 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                     this.b = ((AlbumActivity) baseFragmentActivity).a;
                 }
             }
-            oxa oxaVar = this.b;
-            if (oxaVar != null) {
-                this.c = oxaVar.t();
+            tza tzaVar = this.b;
+            if (tzaVar != null) {
+                this.c = tzaVar.t();
             }
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0120, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0125, (ViewGroup) null);
             this.e = inflate;
-            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09024f);
+            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090251);
             this.o = this.e.findViewById(R.id.layout_title);
-            this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090275);
+            this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090279);
             this.g = (ImageView) this.e.findViewById(R.id.img_close);
             this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0910e0);
-            this.s = this.e.findViewById(R.id.obfuscated_res_0x7f0918dc);
-            this.q = this.e.findViewById(R.id.obfuscated_res_0x7f091497);
-            this.r = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091a22);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091962);
+            this.s = this.e.findViewById(R.id.obfuscated_res_0x7f0918f4);
+            this.q = this.e.findViewById(R.id.obfuscated_res_0x7f09149e);
+            this.r = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091a3c);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f09197c);
             this.i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             this.i.getStyleConfig().n(BdUtilHelper.getDimens(this.a, R.dimen.tbds25));
-            this.c.x(sv4.f);
+            this.c.x(wv4.f);
             this.j.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0283));
             if (this.c.m() != null) {
                 this.w = this.c.m().getSource();
@@ -1038,11 +1043,11 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                 this.q.setVisibility(8);
             }
             this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f028e, R.string.obfuscated_res_0x7f0f028f), null);
-            TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.e.findViewById(R.id.obfuscated_res_0x7f090ee7);
+            TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.e.findViewById(R.id.obfuscated_res_0x7f090ee6);
             this.l = transparentHeadGridView;
             transparentHeadGridView.setSelector(R.color.transparent);
-            sxa sxaVar = new sxa(this.a, this.c);
-            this.m = sxaVar;
+            xza xzaVar = new xza(this.a, this.c);
+            this.m = xzaVar;
             if (this.u) {
                 if (this.c.m() != null && this.c.m().isFromQRCode()) {
                     this.m.w(false);
@@ -1051,7 +1056,7 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
                     this.m.w(true);
                 }
             } else {
-                sxaVar.w(false);
+                xzaVar.w(false);
             }
             if (this.v && this.c.l() == 1) {
                 this.m.x(false);
@@ -1071,8 +1076,8 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
             this.r.setOnClickListener(this.a);
             this.j.setOnClickListener(this.z);
             this.q.setOnClickListener(this.z);
-            G2();
-            F2();
+            I2();
+            H2();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (this.p != null) {
                 if (this.j.getParent() instanceof ViewGroup) {
@@ -1089,26 +1094,21 @@ public class ImageListFragment extends BaseFragment implements nxa.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048594, this, absListView, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048595, this, absListView, i2, i3, i4) == null) {
             super.onScroll(absListView, i2, i3, i4);
         }
     }
 
-    public void z2(int i2, boolean z) {
-        View childAt;
+    public final boolean q2(VideoFileInfo videoFileInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            TransparentHeadGridView transparentHeadGridView = this.l;
-            if (transparentHeadGridView != null) {
-                int firstVisiblePosition = transparentHeadGridView.getFirstVisiblePosition();
-                int lastVisiblePosition = this.l.getLastVisiblePosition();
-                if (i2 >= firstVisiblePosition && i2 <= lastVisiblePosition && (childAt = this.l.getChildAt(i2 - firstVisiblePosition)) != null && this.m != null) {
-                    this.m.u((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f092172), z);
-                } else {
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, videoFileInfo)) == null) {
+            if (new File(videoFileInfo.videoPath).length() > 104857600) {
+                this.a.showToast(String.format(getString(R.string.obfuscated_res_0x7f0f028a), new Object[0]));
+                return false;
             }
-            G2();
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

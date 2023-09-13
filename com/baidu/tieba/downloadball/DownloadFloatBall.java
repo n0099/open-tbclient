@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
-import com.baidu.tieba.mx6;
-import com.baidu.tieba.ova;
-import com.baidu.tieba.s1a;
+import com.baidu.tieba.j3a;
+import com.baidu.tieba.mxa;
+import com.baidu.tieba.qy6;
 import com.baidu.tieba.view.progressball.ProgressBall;
-import com.baidu.tieba.zua;
+import com.baidu.tieba.xwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public final class DownloadFloatBall {
     public final List<String> c;
     public final Lazy d;
     public final Lazy e;
-    public mx6 f;
+    public qy6 f;
     public View.OnClickListener g;
     public View.OnClickListener h;
 
@@ -87,7 +87,7 @@ public final class DownloadFloatBall {
             }
 
             /* loaded from: classes5.dex */
-            public static final class a implements zua {
+            public static final class a implements xwa {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadFloatBall a;
@@ -110,7 +110,7 @@ public final class DownloadFloatBall {
                     this.a = downloadFloatBall;
                 }
 
-                @Override // com.baidu.tieba.zua
+                @Override // com.baidu.tieba.xwa
                 public void a(boolean z) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -138,33 +138,33 @@ public final class DownloadFloatBall {
                 return a2;
             }
         });
-        this.f = new mx6();
+        this.f = new qy6();
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.ova) type: VIRTUAL call: com.baidu.tieba.ova.e():int), ('%' char)] */
-    public final ova c() {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.mxa) type: VIRTUAL call: com.baidu.tieba.mxa.e():int), ('%' char)] */
+    public final mxa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ova ovaVar = new ova();
+            mxa mxaVar = new mxa();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            ovaVar.h(c);
-            ovaVar.j(R.drawable.progress_ball_dynamic);
-            ovaVar.l(Math.min(Math.max(this.f.f(), 0), 100));
+            mxaVar.h(c);
+            mxaVar.j(R.drawable.progress_ball_dynamic);
+            mxaVar.l(Math.min(Math.max(this.f.f(), 0), 100));
             StringBuilder sb = new StringBuilder();
-            sb.append(ovaVar.e());
+            sb.append(mxaVar.e());
             sb.append('%');
-            ovaVar.m(new SpannableString(sb.toString()));
-            ovaVar.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, ovaVar.f().length() - 1, 17);
-            return ovaVar;
+            mxaVar.m(new SpannableString(sb.toString()));
+            mxaVar.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, mxaVar.f().length() - 1, 17);
+            return mxaVar;
         }
-        return (ova) invokeV.objValue;
+        return (mxa) invokeV.objValue;
     }
 
-    public final void m(mx6 data) {
+    public final void m(qy6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -198,13 +198,13 @@ public final class DownloadFloatBall {
         q(TbadkCoreStatisticKey.DOWNLOAD_FLOAT_BALL_SHOW, false, z);
     }
 
-    public final mx6 b() {
+    public final qy6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (mx6) invokeV.objValue;
+        return (qy6) invokeV.objValue;
     }
 
     public final FoldCloseEdgeFloat d() {
@@ -259,45 +259,45 @@ public final class DownloadFloatBall {
         return invokeV.booleanValue;
     }
 
-    public final ova e() {
+    public final mxa e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ova ovaVar = new ova();
+            mxa mxaVar = new mxa();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            ovaVar.h(c);
-            ovaVar.i(R.color.CAM_X0302);
-            ovaVar.l(100);
-            ovaVar.m(new SpannableString(this.f.b()));
-            return ovaVar;
+            mxaVar.h(c);
+            mxaVar.i(R.color.CAM_X0302);
+            mxaVar.l(100);
+            mxaVar.m(new SpannableString(this.f.b()));
+            return mxaVar;
         }
-        return (ova) invokeV.objValue;
+        return (mxa) invokeV.objValue;
     }
 
-    public final ova g() {
+    public final mxa g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ova ovaVar = new ova();
+            mxa mxaVar = new mxa();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            ovaVar.h(c);
-            ovaVar.i(R.color.CAM_X0305);
-            ovaVar.l(Math.min(Math.max(this.f.f(), 0), 100));
-            ovaVar.m(new SpannableString(this.f.b()));
-            return ovaVar;
+            mxaVar.h(c);
+            mxaVar.i(R.color.CAM_X0305);
+            mxaVar.l(Math.min(Math.max(this.f.f(), 0), 100));
+            mxaVar.m(new SpannableString(this.f.b()));
+            return mxaVar;
         }
-        return (ova) invokeV.objValue;
+        return (mxa) invokeV.objValue;
     }
 
-    public final ova i() {
+    public final mxa i() {
         InterceptResult invokeV;
-        ova e;
+        mxa e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.f.a() == 7) {
@@ -314,7 +314,7 @@ public final class DownloadFloatBall {
             }
             return e;
         }
-        return (ova) invokeV.objValue;
+        return (mxa) invokeV.objValue;
     }
 
     public final void q(String key, boolean z, boolean z2) {
@@ -325,7 +325,7 @@ public final class DownloadFloatBall {
             StatisticItem statisticItem = new StatisticItem(key);
             statisticItem.param("obj_source", this.f.d());
             int i2 = 2;
-            if (s1a.i(this.f.e())) {
+            if (j3a.i(this.f.e())) {
                 i = 4;
             } else {
                 if (!z2) {

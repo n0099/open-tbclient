@@ -7,9 +7,9 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.HorizontalVideoTailView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f31;
-import com.baidu.tieba.vr0;
-import com.baidu.tieba.wr0;
+import com.baidu.tieba.as0;
+import com.baidu.tieba.j31;
+import com.baidu.tieba.zr0;
 /* loaded from: classes3.dex */
 public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     public HorizontalVideoTailView u;
@@ -19,10 +19,10 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     }
 
     public final void K(AdBaseModel adBaseModel) {
-        wr0 wr0Var;
+        as0 as0Var;
         HorizontalVideoTailView horizontalVideoTailView = this.u;
-        if (horizontalVideoTailView != null && adBaseModel != null && (wr0Var = adBaseModel.i) != null && wr0Var.l) {
-            horizontalVideoTailView.setAdInfo(wr0Var);
+        if (horizontalVideoTailView != null && adBaseModel != null && (as0Var = adBaseModel.i) != null && as0Var.l) {
+            horizontalVideoTailView.setAdInfo(as0Var);
         }
     }
 
@@ -37,10 +37,10 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, vr0 vr0Var) {
+    public void m(LayoutInflater layoutInflater, zr0 zr0Var) {
         int i;
         Integer num;
-        if (vr0Var != null && (num = (Integer) f31.b(vr0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
+        if (zr0Var != null && (num = (Integer) j31.b(zr0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
             i = num.intValue();
         } else {
             i = R.layout.nad_reward_horizontal_video_view;
@@ -52,8 +52,8 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet, int i, vr0 vr0Var) {
-        super(context, attributeSet, i, vr0Var);
+    public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet, int i, zr0 zr0Var) {
+        super(context, attributeSet, i, zr0Var);
         this.u = (HorizontalVideoTailView) findViewById(R.id.nad_horizontal_video_tail_frame_view);
     }
 

@@ -966,7 +966,7 @@ public final class DownloadManager {
                 if (file == null && file.exists()) {
                     a = null;
                 } else {
-                    a = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath);
+                    a = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + 20971520, download.mSavedPath);
                     if (a == null) {
                         z = true;
                     }
@@ -1060,7 +1060,7 @@ public final class DownloadManager {
             z = false;
             if (file == null) {
             }
-            a = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath);
+            a = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + 20971520, download.mSavedPath);
             if (a == null) {
             }
             if (a == null) {

@@ -13,7 +13,7 @@ public class CyberVersion {
 
     public static String getCoreVersion() {
         String coreVersionInternal = getCoreVersionInternal();
-        if (CyberCfgManager.getInstance().a("enable_version_for_short", true)) {
+        if (CyberCfgManager.getInstance().getCfgBoolValueFast(CyberCfgManager.KEY_INT_ENABLE_VERSION_FOR_SHORT, true)) {
             try {
                 return coreVersionInternal.substring(0, coreVersionInternal.lastIndexOf("."));
             } catch (Exception e) {
@@ -25,16 +25,16 @@ public class CyberVersion {
     }
 
     public static String getCoreVersionInternal() {
-        String a = f.a();
-        if (TextUtils.isEmpty(a)) {
+        String coreVersion = CyberPlayerCoreInvoker.getCoreVersion();
+        if (TextUtils.isEmpty(coreVersion)) {
             return "0.0.0.0";
         }
-        return a;
+        return coreVersion;
     }
 
     public static String getSDKVersion() {
-        if (CyberCfgManager.getInstance().a("enable_version_for_short", true)) {
-            return "7.39.94";
+        if (CyberCfgManager.getInstance().getCfgBoolValueFast(CyberCfgManager.KEY_INT_ENABLE_VERSION_FOR_SHORT, true)) {
+            return "7.41.94";
         }
         return SDKVersion.VERSION;
     }

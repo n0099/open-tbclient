@@ -170,6 +170,7 @@ public final class TBAlertConfig {
         public static final OperateBtnStyle BG_GRADIENT;
         public static final OperateBtnStyle FORCE;
         public static final OperateBtnStyle MAIN;
+        public static final OperateBtnStyle MAIN_BG;
         public static final OperateBtnStyle SECONDARY;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -187,12 +188,13 @@ public final class TBAlertConfig {
                 }
             }
             MAIN = new OperateBtnStyle("MAIN", 0);
-            FORCE = new OperateBtnStyle("FORCE", 1);
-            SECONDARY = new OperateBtnStyle("SECONDARY", 2);
-            ALERT = new OperateBtnStyle("ALERT", 3);
-            OperateBtnStyle operateBtnStyle = new OperateBtnStyle("BG_GRADIENT", 4);
+            MAIN_BG = new OperateBtnStyle("MAIN_BG", 1);
+            FORCE = new OperateBtnStyle("FORCE", 2);
+            SECONDARY = new OperateBtnStyle("SECONDARY", 3);
+            ALERT = new OperateBtnStyle("ALERT", 4);
+            OperateBtnStyle operateBtnStyle = new OperateBtnStyle("BG_GRADIENT", 5);
             BG_GRADIENT = operateBtnStyle;
-            $VALUES = new OperateBtnStyle[]{MAIN, FORCE, SECONDARY, ALERT, operateBtnStyle};
+            $VALUES = new OperateBtnStyle[]{MAIN, MAIN_BG, FORCE, SECONDARY, ALERT, operateBtnStyle};
         }
 
         public OperateBtnStyle(String str, int i) {

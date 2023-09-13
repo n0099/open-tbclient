@@ -1,14 +1,77 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public interface zm3 {
-    public static final ym3<Long> b = new ym3<>("index_cost_recent_launch_total");
-    public static final ym3<Long> c = new ym3<>("index_cost_recent_download");
-    public static final ym3<Long> d = new ym3<>("index_cost_recent_page_switch");
-    public static final ym3<Long> e = new ym3<>("index_cost_recent_page_rendered_initial");
-    public static final ym3<Long> f = new ym3<>("index_cost_current_page_rendered");
-    public static final ym3<Long> g = new ym3<>("index_cost_startup_page_first_rendered");
-    public static final ym3<Long> h = new ym3<>("index_storage_size");
-    public static final ym3<Long> i = new ym3<>("index_cost_on_screen");
-    public static final ym3<String> j = new ym3<>("index_start_up_api_info");
-    public static final ym3<String> k = new ym3<>("index_prelink_info");
+public class zm3 extends ed3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zm3(ec3 ec3Var) {
+        super(ec3Var, "/swanAPI/updateTextarea");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ec3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ed3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hb3 hb3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hb3Var)) == null) {
+            if (ed3.b) {
+                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            h82.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
+            String optString = optParamsAsJo.optString("slaveId");
+            String optString2 = optParamsAsJo.optString("componentId");
+            s72 s72Var = (s72) u72.b(optString, optString2);
+            if (s72Var == null) {
+                String str = "can't find textarea component:#" + optString2;
+                h82.c("UpdateTextAreaAction", str);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+                return false;
+            }
+            t72 t72Var = (t72) s72Var.l();
+            t72Var.g(optParamsAsJo);
+            y62 update = s72Var.update((s72) t72Var);
+            if (!update.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            s72Var.U0(optString2);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
 }

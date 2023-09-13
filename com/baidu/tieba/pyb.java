@@ -1,591 +1,327 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tieba.wxb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.adapter.internal.CommonCode;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.yy.hiidostatis.inner.BaseStatisContent;
-import java.io.UnsupportedEncodingException;
-import java.net.NetworkInterface;
-import java.util.Collections;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class pyb {
+public class pyb extends txb {
     public static /* synthetic */ Interceptable $ic;
+    public static List<myb> c;
+    public static final Object d;
+    public static final Map<String, txb> e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final uxb a;
+    public final qyb b;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a implements wxb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    public static void w(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, context) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Intent a;
-
-        public b(Context context) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
-        public /* synthetic */ b(Context context, a aVar) {
-            this(context);
-        }
-
-        public final int e() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.wxb.a
+        public String a(uxb uxbVar) {
+            InterceptResult invokeL;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.getIntExtra("level", 0);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uxbVar)) == null) {
+                if (uxbVar.b().equals(rxb.c)) {
+                    str = "/agcgw_all/CN";
+                } else if (uxbVar.b().equals(rxb.e)) {
+                    str = "/agcgw_all/RU";
+                } else if (uxbVar.b().equals(rxb.d)) {
+                    str = "/agcgw_all/DE";
+                } else if (!uxbVar.b().equals(rxb.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG";
+                }
+                return uxbVar.a(str);
             }
-            return invokeV.intValue;
+            return (String) invokeL.objValue;
         }
+    }
 
-        public final int f() {
-            InterceptResult invokeV;
+    /* loaded from: classes7.dex */
+    public static class b implements wxb.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.getIntExtra("scale", 0);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return invokeV.intValue;
         }
 
-        public final int g() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.wxb.a
+        public String a(uxb uxbVar) {
+            InterceptResult invokeL;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.getIntExtra("temperature", 0);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uxbVar)) == null) {
+                if (uxbVar.b().equals(rxb.c)) {
+                    str = "/agcgw_all/CN_back";
+                } else if (uxbVar.b().equals(rxb.e)) {
+                    str = "/agcgw_all/RU_back";
+                } else if (uxbVar.b().equals(rxb.d)) {
+                    str = "/agcgw_all/DE_back";
+                } else if (!uxbVar.b().equals(rxb.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG_back";
+                }
+                return uxbVar.a(str);
             }
-            return invokeV.intValue;
+            return (String) invokeL.objValue;
         }
+    }
 
-        public final int h() {
-            InterceptResult invokeV;
+    /* loaded from: classes7.dex */
+    public static class c implements wxb.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.getIntExtra("voltage", 0);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.wxb.a
+        public String a(uxb uxbVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uxbVar)) == null) {
+                if (uxbVar.b().equals(rxb.c)) {
+                    str = "/service/analytics/collector_url_cn";
+                } else if (uxbVar.b().equals(rxb.e)) {
+                    str = "/service/analytics/collector_url_ru";
+                } else if (uxbVar.b().equals(rxb.d)) {
+                    str = "/service/analytics/collector_url_de";
+                } else if (!uxbVar.b().equals(rxb.f)) {
+                    return null;
+                } else {
+                    str = "/service/analytics/collector_url_sg";
+                }
+                return uxbVar.a(str);
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        String str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948079792, "Lcom/baidu/tieba/pyb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948079792, "Lcom/baidu/tieba/pyb;");
+                return;
+            }
+        }
+        d = new Object();
+        e = new HashMap();
+    }
+
+    public pyb(uxb uxbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                String p = p();
-                if (!TextUtils.isEmpty(p)) {
-                    jSONObject.put("os", p);
-                }
-                String i = i(context);
-                if (!TextUtils.isEmpty(i)) {
-                    jSONObject.put("imei", i);
-                }
-                String m = m(context);
-                if (!TextUtils.isEmpty(m)) {
-                    jSONObject.put("meid", m);
-                }
-                String j = j(context);
-                if (!TextUtils.isEmpty(j)) {
-                    jSONObject.put(BaseStatisContent.IMSI, j);
-                }
-                String k = k(context);
-                if (!TextUtils.isEmpty(k)) {
-                    jSONObject.put("mac", k);
-                }
-                String h = h(context);
-                if (!TextUtils.isEmpty(h)) {
-                    jSONObject.put("iccid", h);
-                }
-                String s = s();
-                if (!TextUtils.isEmpty(s)) {
-                    jSONObject.put("serial", s);
-                }
-                String c = c(context);
-                if (!TextUtils.isEmpty(c)) {
-                    jSONObject.put("androidid", c);
-                }
-                String f = f();
-                if (!TextUtils.isEmpty(f)) {
-                    jSONObject.put("cpu", f);
-                }
-                String o = o();
-                if (!TextUtils.isEmpty(o)) {
-                    jSONObject.put("model", o);
-                }
-                String r = r();
-                if (!TextUtils.isEmpty(r)) {
-                    jSONObject.put("sdcard", r);
-                }
-                String q = q(context);
-                if (!TextUtils.isEmpty(q)) {
-                    jSONObject.put(CommonCode.MapKey.HAS_RESOLUTION, q);
-                }
-                String u = u(context);
-                if (!TextUtils.isEmpty(u)) {
-                    jSONObject.put(YyLiveRoomConfig.KEY_SSID, u);
-                }
-                String v = v(context);
-                if (!TextUtils.isEmpty(v)) {
-                    jSONObject.put("bssid", v);
-                }
-                String g = g();
-                if (!TextUtils.isEmpty(g)) {
-                    jSONObject.put("deviceName", g);
-                }
-                String e = e(context);
-                if (!TextUtils.isEmpty(e)) {
-                    jSONObject.put("connecttype", e);
-                }
-                try {
-                    str = b(context);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    str = "";
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("ua", str);
-                }
-                double d = d(context);
-                jSONObject.put("batterymaxcapacity", String.valueOf(d));
-                jSONObject.put("batterycurrentcapacity", String.valueOf(d));
-                b bVar = new b(context, null);
-                jSONObject.put("batterycurrentvoltage", bVar.h());
-                jSONObject.put("batterycurrenttemperature", bVar.g());
-                jSONObject.put("batterycurrentcapacity", (d * bVar.e()) / bVar.f());
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uxbVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            StringBuilder sb = new StringBuilder();
-            String packageName = context.getPackageName();
-            if (!TextUtils.isEmpty(packageName) && packageName.contains("com.sina.weibo")) {
-                str = "weibo";
-            } else {
-                str = "ssosdk";
-            }
-            sb.append(Build.MANUFACTURER);
-            sb.append("-");
-            sb.append(Build.MODEL);
-            sb.append("__");
-            sb.append(str);
-            sb.append("__");
-            try {
-                sb.append("1.0".replaceAll("\\s+", "_"));
-            } catch (Exception unused) {
-                sb.append("unknown");
-            }
-            sb.append("__");
-            sb.append("android");
-            sb.append("__android");
-            sb.append(Build.VERSION.RELEASE);
-            return sb.toString();
+        this.a = uxbVar;
+        if (c == null) {
+            Log.e("AGConnectInstance", "please call `initialize()` first");
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str2 = "none";
-            try {
-                activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Exception unused) {
-            }
-            if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.getType() == 0) {
-                    switch (activeNetworkInfo.getSubtype()) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            str = "2G";
-                            str2 = str;
-                            break;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            str = "3G";
-                            str2 = str;
-                            break;
-                        case 13:
-                            str = "4G";
-                            str2 = str;
-                            break;
-                    }
-                } else if (activeNetworkInfo.getType() == 1) {
-                    str = "wifi";
-                    str2 = str;
-                }
-                return str2;
-            }
-            return str2;
+        new qyb(c, uxbVar.getContext());
+        qyb qybVar = new qyb(null, uxbVar.getContext());
+        this.b = qybVar;
+        if (uxbVar instanceof cyb) {
+            qybVar.c(((cyb) uxbVar).d(), uxbVar.getContext());
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getSimSerialNumber((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String n(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            try {
-                return new String(a(context).getBytes(), "UTF-8");
-            } catch (UnsupportedEncodingException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String u(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            try {
-                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-                if (connectionInfo != null) {
-                    return connectionInfo.getSSID();
-                }
-                return "";
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String v(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) {
-            try {
-                WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
-                if (connectionInfo != null) {
-                    return connectionInfo.getBSSID();
-                }
-                return "";
-            } catch (SecurityException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static double d(Context context) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                obj = Class.forName("com.android.internal.os.PowerProfile").getConstructor(Context.class).newInstance(context);
-            } catch (Exception unused) {
-                obj = null;
-            }
-            try {
-                return ((Double) Class.forName("com.android.internal.os.PowerProfile").getMethod("getAveragePower", String.class).invoke(obj, "battery.capacity")).doubleValue();
-            } catch (Exception unused2) {
-                return 0.0d;
-            }
-        }
-        return invokeL.doubleValue;
-    }
-
-    public static String q(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            try {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
-                return String.valueOf(displayMetrics.widthPixels) + "*" + String.valueOf(displayMetrics.heightPixels);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f() {
+    public static txb e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                return Build.CPU_ABI;
-            } catch (Exception unused) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = f;
+            if (str == null) {
+                str = "DEFAULT_INSTANCE";
             }
+            return h(str);
         }
-        return (String) invokeV.objValue;
+        return (txb) invokeV.objValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            try {
-                return Build.BRAND;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            try {
-                return Build.MODEL;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            try {
-                return "Android " + Build.VERSION.RELEASE;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @TargetApi(26)
-    public static String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            try {
-                return Build.getSerial();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String k(Context context) {
+    public static txb f(uxb uxbVar) {
         InterceptResult invokeL;
-        WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return l();
-            }
-            try {
-                WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
-                    return "";
-                }
-                return ApiReplaceUtil.getMacAddress(connectionInfo);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uxbVar)) == null) ? g(uxbVar, false) : (txb) invokeL.objValue;
     }
 
-    public static String l() {
-        InterceptResult invokeV;
+    public static txb g(uxb uxbVar, boolean z) {
+        InterceptResult invokeLZ;
+        txb txbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            try {
-                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
-                        if (hardwareAddress == null) {
-                            return "";
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        int length = hardwareAddress.length;
-                        for (int i = 0; i < length; i++) {
-                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                        }
-                        if (sb.length() > 0) {
-                            sb.deleteCharAt(sb.length() - 1);
-                        }
-                        return sb.toString();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, uxbVar, z)) == null) {
+            synchronized (d) {
+                txbVar = e.get(uxbVar.getIdentifier());
+                if (txbVar == null || z) {
+                    txbVar = new pyb(uxbVar);
+                    e.put(uxbVar.getIdentifier(), txbVar);
+                }
+            }
+            return txbVar;
+        }
+        return (txb) invokeLZ.objValue;
+    }
+
+    public static txb h(String str) {
+        InterceptResult invokeL;
+        txb txbVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (d) {
+                txbVar = e.get(str);
+                if (txbVar == null) {
+                    if ("DEFAULT_INSTANCE".equals(str)) {
+                        Log.w("AGC_Instance", "please call `initialize()` first");
+                    } else {
+                        Log.w("AGC_Instance", "not find instance for : " + str);
                     }
                 }
-                return "";
-            } catch (Exception unused) {
-                return "";
             }
+            return txbVar;
         }
-        return (String) invokeV.objValue;
+        return (txb) invokeL.objValue;
     }
 
-    public static String r() {
-        InterceptResult invokeV;
+    public static synchronized void i(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                return Long.toString(statFs.getBlockCount() * statFs.getBlockSize());
-            } catch (Exception unused) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (pyb.class) {
+                if (e.size() > 0) {
+                    Log.w("AGC_Instance", "Repeated invoking initialize");
+                } else {
+                    j(context, xxb.c(context));
+                }
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String s() {
-        InterceptResult invokeV;
+    public static synchronized void j(Context context, uxb uxbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return t();
-            }
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, "ro.serialno", "unknown");
-            } catch (Exception unused) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, uxbVar) == null) {
+            synchronized (pyb.class) {
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext == null) {
+                    Log.w("AGC_Instance", "context.getApplicationContext null");
+                } else {
+                    context = applicationContext;
+                }
+                k();
+                l();
+                byb.a(context);
+                if (c == null) {
+                    c = new com.huawei.agconnect.core.a.c(context).b();
+                }
+                g(uxbVar, true);
+                f = uxbVar.getIdentifier();
+                Log.i("AGC_Instance", "AGC SDK initialize end, default route:" + uxbVar.b().a());
+                oyb.a();
             }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            wxb.b("/agcgw/url", new a());
+            wxb.b("/agcgw/backurl", new b());
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            wxb.b("/service/analytics/collector_url", new c());
+        }
+    }
+
+    @Override // com.baidu.tieba.txb
+    public uxb c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (uxb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.txb
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.txb
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIdentifier() : (String) invokeV.objValue;
     }
 }

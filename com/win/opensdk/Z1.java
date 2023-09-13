@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -208,7 +207,7 @@ public class Z1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
-            return context.getSharedPreferences("_prefs", 0).getString(TiebaStatic.Params.PID_MERGE, "[]");
+            return context.getSharedPreferences("_prefs", 0).getString("pids", "[]");
         }
         return (String) invokeL.objValue;
     }

@@ -1,146 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zk9 {
+public class zk9 extends wk9<al9, CustomDialogData> {
     public static /* synthetic */ Interceptable $ic;
-    public static zk9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Integer> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948362977, "Lcom/baidu/tieba/zk9;")) == null) {
-            return;
+    @Override // com.baidu.tieba.bl9
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948362977, "Lcom/baidu/tieba/zk9;");
-        }
+        return invokeV.booleanValue;
     }
 
-    public zk9() {
+    @Override // com.baidu.tieba.bl9
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zk9(TbPageContext tbPageContext, CustomDialogData customDialogData) {
+        super(tbPageContext, new al9(tbPageContext), customDialogData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, customDialogData};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (cl9) objArr2[1], (IBaseDialogData) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        c();
+        V v = this.h;
+        if (v instanceof al9) {
+            ((al9) v).f(this);
+        }
     }
 
-    public static zk9 a() {
+    @Override // com.baidu.tieba.bl9
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (zk9.class) {
-                    if (b == null) {
-                        b = new zk9();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f070426);
         }
-        return (zk9) invokeV.objValue;
-    }
-
-    public int b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num == null) {
-                return -1;
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public int d(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Integer remove = this.a.remove(str);
-            if (remove != null) {
-                f();
-                return remove.intValue();
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String string = SharedPrefHelper.getInstance().getString("key_recently_visited_pb_forum_post", "");
-            if (!di.isEmpty(string)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(string);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        this.a.put(next, Integer.valueOf(jSONObject.getInt(next)));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, Integer> entry : this.a.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            SharedPrefHelper.getInstance().putString("key_recently_visited_pb_forum_post", jSONObject.toString());
-        }
-    }
-
-    public void e(@NonNull String str, @NonNull int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048579, this, str, i) != null) || this.a.size() >= Integer.MAX_VALUE) {
-            return;
-        }
-        Integer num = this.a.get(str);
-        if (num == null || i != num.intValue()) {
-            this.a.put(str, Integer.valueOf(i));
-            f();
-        }
+        return invokeV.intValue;
     }
 }

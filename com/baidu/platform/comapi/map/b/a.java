@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final C0133a a;
-    public static final C0133a b;
-    public static final C0133a c;
+    public static final C0122a a;
+    public static final C0122a b;
+    public static final C0122a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.platform.comapi.map.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0133a {
+    public static class C0122a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
         public b b;
 
-        public C0133a(b bVar, b bVar2) {
+        public C0122a(b bVar, b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,13 +44,13 @@ public class a {
             this.b = bVar2;
         }
 
-        public static C0133a a(MotionEvent motionEvent) {
+        public static C0122a a(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
-                return new C0133a(new b(motionEvent.getX(0), motionEvent.getY(0)), new b(motionEvent.getX(1), motionEvent.getY(1)));
+                return new C0122a(new b(motionEvent.getX(0), motionEvent.getY(0)), new b(motionEvent.getX(1), motionEvent.getY(1)));
             }
-            return (C0133a) invokeL.objValue;
+            return (C0122a) invokeL.objValue;
         }
 
         public b a() {
@@ -96,7 +96,7 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return C0133a.class.getSimpleName() + "  a : " + this.a.toString() + " b : " + this.b.toString();
+                return C0122a.class.getSimpleName() + "  a : " + this.a.toString() + " b : " + this.b.toString();
             }
             return (String) invokeV.objValue;
         }
@@ -146,12 +146,12 @@ public class a {
         public final double b;
         public final d c;
 
-        public c(C0133a c0133a, C0133a c0133a2) {
+        public c(C0122a c0122a, C0122a c0122a2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0133a, c0133a2};
+                Object[] objArr = {c0122a, c0122a2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -161,9 +161,9 @@ public class a {
                     return;
                 }
             }
-            this.c = new d(c0133a.a(), c0133a2.a());
-            this.b = c0133a2.b() / c0133a.b();
-            this.a = d.a(c0133a.c(), c0133a2.c());
+            this.c = new d(c0122a.a(), c0122a2.a());
+            this.b = c0122a2.b() / c0122a.b();
+            this.a = d.a(c0122a.c(), c0122a2.c());
         }
 
         public String toString() {
@@ -259,8 +259,8 @@ public class a {
                 return;
             }
         }
-        a = new C0133a(new b(0.0d, 0.0d), new b(1.0d, 0.0d));
-        b = new C0133a(new b(0.0d, 0.0d), new b(0.0d, 1.0d));
-        c = new C0133a(new b(0.0d, 1.0d), new b(0.0d, 0.0d));
+        a = new C0122a(new b(0.0d, 0.0d), new b(1.0d, 0.0d));
+        b = new C0122a(new b(0.0d, 0.0d), new b(0.0d, 1.0d));
+        c = new C0122a(new b(0.0d, 1.0d), new b(0.0d, 0.0d));
     }
 }

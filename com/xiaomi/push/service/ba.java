@@ -13,10 +13,10 @@ public class ba {
     public static volatile ba a;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f923a;
+    public SharedPreferences f922a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashSet<a> f924a = new HashSet<>();
+    public HashSet<a> f923a = new HashSet<>();
     public SharedPreferences b;
 
     /* loaded from: classes10.dex */
@@ -46,7 +46,7 @@ public class ba {
     }
 
     public ba(Context context) {
-        this.f923a = context.getSharedPreferences("mipush_oc_normal", 0);
+        this.f922a = context.getSharedPreferences("mipush_oc_normal", 0);
         this.b = context.getSharedPreferences("mipush_oc_custom", 0);
     }
 
@@ -91,18 +91,18 @@ public class ba {
     public int a(int i, int i2) {
         try {
             String a2 = a(i);
-            return this.b.contains(a2) ? this.b.getInt(a2, 0) : this.f923a.contains(a2) ? this.f923a.getInt(a2, 0) : i2;
+            return this.b.contains(a2) ? this.b.getInt(a2, 0) : this.f922a.contains(a2) ? this.f922a.getInt(a2, 0) : i2;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a(i + " oc int error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a(i + " oc int error " + e);
             return i2;
         }
     }
 
     public int a(hn hnVar, int i) {
         try {
-            return this.f923a.getInt(a(hnVar), i);
+            return this.f922a.getInt(a(hnVar), i);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a(hnVar + " version error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a(hnVar + " version error " + e);
             return i;
         }
     }
@@ -110,9 +110,9 @@ public class ba {
     public long a(int i, long j) {
         try {
             String a2 = a(i);
-            return this.b.contains(a2) ? this.b.getLong(a2, 0L) : this.f923a.contains(a2) ? this.f923a.getLong(a2, 0L) : j;
+            return this.b.contains(a2) ? this.b.getLong(a2, 0L) : this.f922a.contains(a2) ? this.f922a.getLong(a2, 0L) : j;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a(i + " oc long error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a(i + " oc long error " + e);
             return j;
         }
     }
@@ -120,20 +120,20 @@ public class ba {
     public String a(int i, String str) {
         try {
             String a2 = a(i);
-            return this.b.contains(a2) ? this.b.getString(a2, null) : this.f923a.contains(a2) ? this.f923a.getString(a2, null) : str;
+            return this.b.contains(a2) ? this.b.getString(a2, null) : this.f922a.contains(a2) ? this.f922a.getString(a2, null) : str;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a(i + " oc string error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a(i + " oc string error " + e);
             return str;
         }
     }
 
     public synchronized void a() {
-        this.f924a.clear();
+        this.f923a.clear();
     }
 
     public synchronized void a(a aVar) {
-        if (!this.f924a.contains(aVar)) {
-            this.f924a.add(aVar);
+        if (!this.f923a.contains(aVar)) {
+            this.f923a.add(aVar);
         }
     }
 
@@ -158,10 +158,10 @@ public class ba {
 
     public void a(List<Pair<hn, Integer>> list, List<Pair<Integer, Object>> list2) {
         if (com.xiaomi.push.ad.a(list) || com.xiaomi.push.ad.a(list2)) {
-            com.xiaomi.channel.commonutils.logger.b.m180a("not update oc, because versions or configs are empty");
+            com.xiaomi.channel.commonutils.logger.b.m181a("not update oc, because versions or configs are empty");
             return;
         }
-        SharedPreferences.Editor edit = this.f923a.edit();
+        SharedPreferences.Editor edit = this.f922a.edit();
         edit.clear();
         for (Pair<hn, Integer> pair : list) {
             Object obj = pair.first;
@@ -181,9 +181,9 @@ public class ba {
     public boolean a(int i, boolean z) {
         try {
             String a2 = a(i);
-            return this.b.contains(a2) ? this.b.getBoolean(a2, false) : this.f923a.contains(a2) ? this.f923a.getBoolean(a2, false) : z;
+            return this.b.contains(a2) ? this.b.getBoolean(a2, false) : this.f922a.contains(a2) ? this.f922a.getBoolean(a2, false) : z;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m180a(i + " oc boolean error " + e);
+            com.xiaomi.channel.commonutils.logger.b.m181a(i + " oc boolean error " + e);
             return z;
         }
     }
@@ -192,7 +192,7 @@ public class ba {
         com.xiaomi.channel.commonutils.logger.b.c("OC_Callback : receive new oc data");
         HashSet hashSet = new HashSet();
         synchronized (this) {
-            hashSet.addAll(this.f924a);
+            hashSet.addAll(this.f923a);
         }
         Iterator it = hashSet.iterator();
         while (it.hasNext()) {

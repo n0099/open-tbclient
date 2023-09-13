@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-import com.baidu.tieba.jo5;
-import com.baidu.tieba.mo6;
-import com.baidu.tieba.no6;
-import com.baidu.tieba.o85;
+import com.baidu.tieba.cp5;
+import com.baidu.tieba.pp6;
+import com.baidu.tieba.qp6;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class SecondFloorFragment extends BaseFragment {
     public boolean e;
     public String f;
     @Nullable
-    public jo5.a g;
+    public cp5.a g;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -71,7 +71,7 @@ public class SecondFloorFragment extends BaseFragment {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.Z1();
+                this.a.b2();
             }
         }
     }
@@ -106,7 +106,7 @@ public class SecondFloorFragment extends BaseFragment {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.a2();
+            this.a.c2();
         }
     }
 
@@ -118,7 +118,7 @@ public class SecondFloorFragment extends BaseFragment {
 
         @Override // com.baidu.tbadk.core.leveiconlivepolling.PollingModel.d
         public /* synthetic */ void onFail() {
-            o85.a(this);
+            x85.a(this);
         }
 
         public c(SecondFloorFragment secondFloorFragment) {
@@ -146,7 +146,7 @@ public class SecondFloorFragment extends BaseFragment {
                 return;
             }
             this.a.c = list;
-            this.a.h2(list);
+            this.a.j2(list);
         }
     }
 
@@ -180,8 +180,8 @@ public class SecondFloorFragment extends BaseFragment {
                 d dVar = new d();
                 dVar.a = view2;
                 dVar.b = (AlaRecommendLayout) view2.findViewById(R.id.recommend_layout);
-                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091e99);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e9b);
+                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091ec2);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec4);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -204,14 +204,14 @@ public class SecondFloorFragment extends BaseFragment {
         this.d = new a(this);
     }
 
-    public void Y1() {
+    public void a2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SafeHandler.getInst().removeCallbacks(this.d);
         }
     }
 
-    public final void b2() {
+    public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.b == null) {
@@ -223,14 +223,14 @@ public class SecondFloorFragment extends BaseFragment {
         }
     }
 
-    public void c2() {
+    public void e2() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c == null) {
             return;
         }
         this.a.c.setVisibility(8);
         this.a.b.setVisibility(8);
-        jo5.a aVar = this.g;
+        cp5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(false, this.e);
         }
@@ -245,18 +245,18 @@ public class SecondFloorFragment extends BaseFragment {
             if (pollingModel != null) {
                 pollingModel.onDestroy();
             }
-            Y1();
+            a2();
         }
     }
 
-    public void e2(@Nullable jo5.a aVar) {
+    public void g2(@Nullable cp5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    public void f2(@NonNull String str) {
+    public void h2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.f = str;
@@ -268,7 +268,7 @@ public class SecondFloorFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            b2();
+            d2();
         }
     }
 
@@ -278,48 +278,48 @@ public class SecondFloorFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeLL(1048590, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
             this.a = d.a(view2);
-            d2();
-            h2(this.c);
+            f2();
+            j2(this.c);
         }
     }
 
-    public void Z1() {
+    public void b2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && this.e) {
             this.e = false;
             this.a.c.setVisibility(0);
             this.a.b.setVisibility(8);
-            jo5.a aVar = this.g;
+            cp5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(false);
             }
         }
     }
 
-    public final void a2() {
+    public final void c2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = true;
             this.a.c.setVisibility(8);
             this.a.b.setVisibility(0);
-            TiebaStatic.log(mo6.c("c13620", 7));
-            jo5.a aVar = this.g;
+            TiebaStatic.log(pp6.c("c13620", 7));
+            cp5.a aVar = this.g;
             if (aVar != null) {
                 aVar.b(true);
             }
         }
     }
 
-    public final void d2() {
+    public final void f2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a.b.setDarkMode(true);
-            this.a.b.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604a7));
+            this.a.b.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0604a9));
             this.a.c.setOnClickListener(new b(this));
         }
     }
 
-    public void g2() {
+    public void i2() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.c == null) {
             return;
@@ -329,21 +329,21 @@ public class SecondFloorFragment extends BaseFragment {
         } else {
             this.a.c.setVisibility(0);
         }
-        jo5.a aVar = this.g;
+        cp5.a aVar = this.g;
         if (aVar != null) {
             aVar.a(true, this.e);
         }
     }
 
-    public final void h2(@Nullable List<AlaLiveInfo> list) {
+    public final void j2(@Nullable List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1201), Integer.valueOf(list.size())));
-            this.a.b.setData(new no6(getUniqueId(), list, this.f));
+            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f121a), Integer.valueOf(list.size())));
+            this.a.b.setData(new qp6(getUniqueId(), list, this.f));
             TbSingleton tbSingleton = TbSingleton.getInstance();
             if (tbSingleton.isFirstEnterBigPicPage()) {
                 tbSingleton.setFirstEnterBigPicPage(false);
-                a2();
+                c2();
                 SafeHandler.getInst().postDelayed(this.d, 3000L);
                 return;
             }
@@ -365,7 +365,7 @@ public class SecondFloorFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00f6, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00fb, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

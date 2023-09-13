@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b06;
-import com.baidu.tieba.h05;
-import com.baidu.tieba.jo6;
-import com.baidu.tieba.lm;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.mm;
+import com.baidu.tieba.mp6;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.tx;
-import com.baidu.tieba.w05;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.x06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
+public class MutiImgMoreLayout extends LinearLayout implements ux<b15> {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,15 +54,15 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
     public TbImageView g;
     public String h;
     public boolean i;
-    public jo6<w05> j;
-    public w05 k;
+    public mp6<b15> j;
+    public b15 k;
     public int l;
-    public b06 m;
+    public x06 m;
     public LinkedList<MediaData> n;
 
-    public void setPreloadSizeReadyCallback(lm lmVar) {
+    public void setPreloadSizeReadyCallback(mm mmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, mmVar) == null) {
         }
     }
 
@@ -92,7 +92,7 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            jo6<w05> subClickListener;
+            mp6<b15> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -102,7 +102,7 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements b06 {
+    public class b implements x06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgMoreLayout a;
@@ -125,11 +125,11 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
             this.a = mutiImgMoreLayout;
         }
 
-        @Override // com.baidu.tieba.b06
+        @Override // com.baidu.tieba.x06
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                jo6<w05> subClickListener = this.a.getSubClickListener();
+                mp6<b15> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.k.objType = 2;
@@ -185,14 +185,14 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.m == null) {
                 return;
             }
-            b06 b06Var = this.d.m;
+            x06 x06Var = this.d.m;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            b06Var.a(view2, i, z);
+            x06Var.a(view2, i, z);
         }
     }
 
@@ -313,10 +313,10 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
         }
     }
 
-    public void setSubClickListener(jo6<w05> jo6Var) {
+    public void setSubClickListener(mp6<b15> mp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jo6Var) == null) {
-            this.j = jo6Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, mp6Var) == null) {
+            this.j = mp6Var;
         }
     }
 
@@ -325,7 +325,7 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (h05.c().g() && ListUtils.getCount(medias) != 0) {
+            if (m05.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -378,15 +378,15 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tx
+    @Override // com.baidu.tieba.ux
     /* renamed from: h */
-    public void onBindDataToView(w05 w05Var) {
+    public void onBindDataToView(b15 b15Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, w05Var) == null) {
-            this.k = w05Var;
-            ThreadData threadData = w05Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, b15Var) == null) {
+            this.k = b15Var;
+            ThreadData threadData = b15Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, o);
             TextView textView = this.a;
@@ -433,13 +433,13 @@ public class MutiImgMoreLayout extends LinearLayout implements tx<w05> {
         }
     }
 
-    public jo6<w05> getSubClickListener() {
+    public mp6<b15> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.j;
         }
-        return (jo6) invokeV.objValue;
+        return (mp6) invokeV.objValue;
     }
 
     public final void i(TbImageView tbImageView, int i, boolean z, boolean z2) {

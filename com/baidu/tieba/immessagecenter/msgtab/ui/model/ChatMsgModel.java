@@ -21,8 +21,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d8c;
-import com.baidu.tieba.id8;
+import com.baidu.tieba.bl8;
+import com.baidu.tieba.cbc;
+import com.baidu.tieba.gbc;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
@@ -36,18 +37,18 @@ import com.baidu.tieba.immessagecenter.im.model.IMOfficialMaskModel;
 import com.baidu.tieba.immessagecenter.im.model.MsgChatTabModel;
 import com.baidu.tieba.immessagecenter.msgtab.obs.MainTabChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.ChatMsgModel;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.jh8;
-import com.baidu.tieba.km6;
-import com.baidu.tieba.lcc;
-import com.baidu.tieba.lg;
+import com.baidu.tieba.ke8;
+import com.baidu.tieba.le8;
+import com.baidu.tieba.li8;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.qk8;
+import com.baidu.tieba.mg;
+import com.baidu.tieba.mn6;
+import com.baidu.tieba.ofc;
+import com.baidu.tieba.ro5;
+import com.baidu.tieba.sac;
+import com.baidu.tieba.sl8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.yn5;
-import com.baidu.tieba.z7c;
-import com.baidu.tieba.zj8;
+import com.baidu.tieba.zac;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,22 +62,22 @@ import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000Ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0015\u0012\u000e\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0005J\u000e\u0010C\u001a\u00020D2\u0006\u0010E\u001a\u00020\u0014J\b\u0010F\u001a\u00020\u0007H\u0002J\u0016\u0010G\u001a\u00020D2\u0006\u0010H\u001a\u00020 2\u0006\u0010I\u001a\u00020JJ\u0006\u0010K\u001a\u00020DJ\f\u0010L\u001a\b\u0012\u0004\u0012\u00020\u00140MJ\u0012\u0010N\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u001f0MJ\u0006\u0010O\u001a\u00020+J\u0006\u0010P\u001a\u00020\u0007J\b\u0010Q\u001a\u00020DH\u0002J\b\u0010R\u001a\u00020\u0014H\u0002J.\u0010S\u001a\b\u0012\u0004\u0012\u00020\n0\t2\u000e\u0010T\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t2\u000e\u0010U\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\tH\u0002J\u0006\u0010V\u001a\u00020DJ\u0006\u0010W\u001a\u00020DJ\u0006\u0010X\u001a\u00020DJ\u0010\u0010Y\u001a\u00020D2\u0006\u0010Z\u001a\u00020[H\u0002J\u0010\u0010\\\u001a\u00020D2\u0006\u0010]\u001a\u00020^H\u0002J\u0010\u0010_\u001a\u00020D2\u0006\u0010`\u001a\u00020aH\u0002J\u000e\u0010b\u001a\u00020D2\u0006\u0010c\u001a\u00020\u0014J\u0006\u0010d\u001a\u00020DJ\u0006\u0010e\u001a\u00020DJ(\u0010f\u001a\u00020D2\u000e\u0010g\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\u001f2\b\u0010H\u001a\u0004\u0018\u00010 2\u0006\u0010h\u001a\u00020iJ$\u0010j\u001a\u00020D2\b\u0010k\u001a\u0004\u0018\u00010l2\b\b\u0001\u0010m\u001a\u00020i2\u0006\u0010n\u001a\u00020\u0014H\u0002J\u0016\u0010o\u001a\u00020D2\u0006\u0010p\u001a\u00020\u00142\u0006\u0010q\u001a\u00020rJ\u0006\u0010s\u001a\u00020DR\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\b\u001a\b\u0012\u0004\u0012\u00020\n0\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R!\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u000e\u001a\u0004\b\u001b\u0010\u001cR\u001a\u0010\u001e\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u001f0\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010$\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u001cR\u000e\u0010&\u001a\u00020'X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010*\u001a\u00020+8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u000e\u001a\u0004\b,\u0010-R\u000e\u0010/\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R*\u00101\u001a\b\u0012\u0004\u0012\u0002000\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u0002000\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b2\u0010\u001cR\u000e\u00103\u001a\u000204X\u0082\u0004¢\u0006\u0002\n\u0000R*\u00105\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b6\u0010\u001cR\u000e\u00107\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u000209X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010:\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\"\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u0010<\"\u0004\b=\u0010\u0005R!\u0010>\u001a\b\u0012\u0004\u0012\u00020\n0\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b@\u0010\u000e\u001a\u0004\b?\u0010\fR\u000e\u0010A\u001a\u00020BX\u0082.¢\u0006\u0002\n\u0000¨\u0006t"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/ChatMsgModel;", "Lcom/baidu/tieba/immessagecenter/arch/model/BaseModel;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/TbPageContext;)V", "dispatcher", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher;", "groupCacheList", "", "Lcom/baidu/tieba/im/db/pojo/ImMessageCenterPojo;", "getGroupCacheList", "()Ljava/util/List;", "groupCacheList$delegate", "Lkotlin/Lazy;", "imOfficialMaskModel", "Lcom/baidu/tieba/immessagecenter/im/model/IMOfficialMaskModel;", "imUserListModel", "Lcom/baidu/tieba/im/model/IMUserListModel;", "isCurrentChatTab", "", "isInit", "isMsgTabPrimary", "mAgainRequestGroupListListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mAnswerVisibleBs", "Lrx/subjects/BehaviorSubject;", "getMAnswerVisibleBs", "()Lrx/subjects/BehaviorSubject;", "mAnswerVisibleBs$delegate", "mChatMsgDataBs", "", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "mCompleteProcess", "Lcom/baidu/tieba/im/chat/notify/ICompleteProcess;", "<set-?>", "mCompleteProcessBs", "getMCompleteProcessBs", "mId", "Lcom/baidu/adp/BdUniqueId;", "mMarkTopListener", "mMemoryListener", "mModel", "Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "getMModel", "()Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "mModel$delegate", "mMsgInvitationListener", "", "mNotifyAdapterBs", "getMNotifyAdapterBs", "mOnChatGroupCallback", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher$OnChatGroupMessageCallback;", "mRefreshStatusBs", "getMRefreshStatusBs", "mRemoveListItemListener", "mUserListMessageListener", "Lcom/baidu/adp/framework/listener/HttpMessageListener;", "memoryInitCompleted", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "setPageContext", "personCacheList", "getPersonCacheList", "personCacheList$delegate", "tabChangeSubscribe", "Lrx/Subscription;", "answerVisibleChange", "", "boolean", "createDispatcher", "deleteItem", "data", "iProcess", "Lcom/baidu/tieba/im/chat/notify/IProcess;", "forceRefreshUserListWhenInit", "getAnswerVisibleBs", "Lrx/Observable;", "getChatMsgDataObs", "getChatTabModel", "getSocketDispatcher", "getSubscribeRequest", "isHaveLocalGroupCache", "mergeChatTabData", "groupList", "personList", MissionEvent.MESSAGE_DESTROY, "onMsgTabPause", "onMsgTabPrimary", "processMemoryChanged", "changeMessage", "Lcom/baidu/tieba/im/message/MemoryChangedMessage;", "processMemoryInitComplete", "message", "Lcom/baidu/tieba/im/message/MemoryInitCompleteMessage;", "processResponseMemoryList", "resMessage", "Lcom/baidu/tieba/im/message/ResponsedMemoryListMessage;", "refreshMsg", "isSort", "refreshUserList", "registerListener", "sendChatTabRedTipUpdateMsg", "list", "type", "", "showTopToast", "act", "Landroid/app/Activity;", "resId", "isSuc", "switchSingleMask", "isMask", TbEnum.ParamKey.GID, "", "unRegisterListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000Ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0015\u0012\u000e\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0005J\u000e\u0010C\u001a\u00020D2\u0006\u0010E\u001a\u00020\u0014J\b\u0010F\u001a\u00020\u0007H\u0002J\u0016\u0010G\u001a\u00020D2\u0006\u0010H\u001a\u00020 2\u0006\u0010I\u001a\u00020JJ\u0006\u0010K\u001a\u00020DJ\f\u0010L\u001a\b\u0012\u0004\u0012\u00020\u00140MJ\u0012\u0010N\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u001f0MJ\u0006\u0010O\u001a\u00020+J\u0006\u0010P\u001a\u00020\u0007J\b\u0010Q\u001a\u00020DH\u0002J\b\u0010R\u001a\u00020\u0014H\u0002J.\u0010S\u001a\b\u0012\u0004\u0012\u00020\n0\t2\u000e\u0010T\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t2\u000e\u0010U\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\tH\u0002J\u0006\u0010V\u001a\u00020DJ\u0006\u0010W\u001a\u00020DJ\u0006\u0010X\u001a\u00020DJ\u0010\u0010Y\u001a\u00020D2\u0006\u0010Z\u001a\u00020[H\u0002J\u0010\u0010\\\u001a\u00020D2\u0006\u0010]\u001a\u00020^H\u0002J\u0010\u0010_\u001a\u00020D2\u0006\u0010`\u001a\u00020aH\u0002J\u000e\u0010b\u001a\u00020D2\u0006\u0010c\u001a\u00020\u0014J\u0006\u0010d\u001a\u00020DJ\u0006\u0010e\u001a\u00020DJ(\u0010f\u001a\u00020D2\u000e\u0010g\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\u001f2\b\u0010H\u001a\u0004\u0018\u00010 2\u0006\u0010h\u001a\u00020iJ$\u0010j\u001a\u00020D2\b\u0010k\u001a\u0004\u0018\u00010l2\b\b\u0001\u0010m\u001a\u00020i2\u0006\u0010n\u001a\u00020\u0014H\u0002J\u0016\u0010o\u001a\u00020D2\u0006\u0010p\u001a\u00020\u00142\u0006\u0010q\u001a\u00020rJ\u0006\u0010s\u001a\u00020DR\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\b\u001a\b\u0012\u0004\u0012\u00020\n0\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R!\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u000e\u001a\u0004\b\u001b\u0010\u001cR\u001a\u0010\u001e\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u001f0\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010$\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u001cR\u000e\u0010&\u001a\u00020'X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010*\u001a\u00020+8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u000e\u001a\u0004\b,\u0010-R\u000e\u0010/\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R*\u00101\u001a\b\u0012\u0004\u0012\u0002000\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u0002000\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b2\u0010\u001cR\u000e\u00103\u001a\u000204X\u0082\u0004¢\u0006\u0002\n\u0000R*\u00105\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b6\u0010\u001cR\u000e\u00107\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u000209X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010:\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\"\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u0010<\"\u0004\b=\u0010\u0005R!\u0010>\u001a\b\u0012\u0004\u0012\u00020\n0\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b@\u0010\u000e\u001a\u0004\b?\u0010\fR\u0010\u0010A\u001a\u0004\u0018\u00010BX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006t"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/ChatMsgModel;", "Lcom/baidu/tieba/immessagecenter/arch/model/BaseModel;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/TbPageContext;)V", "dispatcher", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher;", "groupCacheList", "", "Lcom/baidu/tieba/im/db/pojo/ImMessageCenterPojo;", "getGroupCacheList", "()Ljava/util/List;", "groupCacheList$delegate", "Lkotlin/Lazy;", "imOfficialMaskModel", "Lcom/baidu/tieba/immessagecenter/im/model/IMOfficialMaskModel;", "imUserListModel", "Lcom/baidu/tieba/im/model/IMUserListModel;", "isCurrentChatTab", "", "isInit", "isMsgTabPrimary", "mAgainRequestGroupListListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mAnswerVisibleBs", "Lrx/subjects/BehaviorSubject;", "getMAnswerVisibleBs", "()Lrx/subjects/BehaviorSubject;", "mAnswerVisibleBs$delegate", "mChatMsgDataBs", "", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "mCompleteProcess", "Lcom/baidu/tieba/im/chat/notify/ICompleteProcess;", "<set-?>", "mCompleteProcessBs", "getMCompleteProcessBs", "mId", "Lcom/baidu/adp/BdUniqueId;", "mMarkTopListener", "mMemoryListener", "mModel", "Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "getMModel", "()Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "mModel$delegate", "mMsgInvitationListener", "", "mNotifyAdapterBs", "getMNotifyAdapterBs", "mOnChatGroupCallback", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher$OnChatGroupMessageCallback;", "mRefreshStatusBs", "getMRefreshStatusBs", "mRemoveListItemListener", "mUserListMessageListener", "Lcom/baidu/adp/framework/listener/HttpMessageListener;", "memoryInitCompleted", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "setPageContext", "personCacheList", "getPersonCacheList", "personCacheList$delegate", "tabChangeSubscribe", "Lrx/Subscription;", "answerVisibleChange", "", "boolean", "createDispatcher", "deleteItem", "data", "iProcess", "Lcom/baidu/tieba/im/chat/notify/IProcess;", "forceRefreshUserListWhenInit", "getAnswerVisibleBs", "Lrx/Observable;", "getChatMsgDataObs", "getChatTabModel", "getSocketDispatcher", "getSubscribeRequest", "isHaveLocalGroupCache", "mergeChatTabData", "groupList", "personList", MissionEvent.MESSAGE_DESTROY, "onMsgTabPause", "onMsgTabPrimary", "processMemoryChanged", "changeMessage", "Lcom/baidu/tieba/im/message/MemoryChangedMessage;", "processMemoryInitComplete", "message", "Lcom/baidu/tieba/im/message/MemoryInitCompleteMessage;", "processResponseMemoryList", "resMessage", "Lcom/baidu/tieba/im/message/ResponsedMemoryListMessage;", "refreshMsg", "isSort", "refreshUserList", "registerListener", "sendChatTabRedTipUpdateMsg", "list", "type", "", "showTopToast", "act", "Landroid/app/Activity;", "resId", "isSuc", "switchSingleMask", "isMask", TbEnum.ParamKey.GID, "", "unRegisterListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ChatMsgModel extends zj8 {
+public final class ChatMsgModel extends bl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<BaseFragmentActivity> a;
-    public final lcc<List<ImMessageCenterShowItemData>> b;
+    public final ofc<List<ImMessageCenterShowItemData>> b;
     public final Lazy c;
-    public lcc<Boolean> d;
-    public lcc<Object> e;
-    public lcc<Boolean> f;
-    public qk8 g;
+    public ofc<Boolean> d;
+    public ofc<Object> e;
+    public ofc<Boolean> f;
+    public sl8 g;
     public final BdUniqueId h;
     public final Lazy i;
     public final IMUserListModel j;
-    public final id8 k;
+    public final ke8 k;
     public final IMOfficialMaskModel l;
     public final Lazy m;
     public final Lazy n;
@@ -84,16 +85,17 @@ public final class ChatMsgModel extends zj8 {
     public boolean p;
     public boolean q;
     public boolean r;
-    public final CustomMessageListener s;
-    public final qk8.o t;
-    public final CustomMessageListener u;
+    public zac s;
+    public final CustomMessageListener t;
+    public final sl8.o u;
     public final CustomMessageListener v;
     public final CustomMessageListener w;
     public final CustomMessageListener x;
-    public final HttpMessageListener y;
+    public final CustomMessageListener y;
+    public final HttpMessageListener z;
 
     /* loaded from: classes6.dex */
-    public static final class a implements yn5 {
+    public static final class a implements ro5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMsgModel a;
@@ -127,11 +129,11 @@ public final class ChatMsgModel extends zj8 {
                 } else {
                     activity = null;
                 }
-                this$0.V(activity, R.string.obfuscated_res_0x7f0f0cb3, false);
+                this$0.W(activity, R.string.obfuscated_res_0x7f0f0cc9, false);
             }
         }
 
-        @Override // com.baidu.tieba.yn5
+        @Override // com.baidu.tieba.ro5
         public void a(int i, long j, List<Long> roomIdList, int i2, String errMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), roomIdList, Integer.valueOf(i2), errMsg}) == null) {
@@ -139,7 +141,7 @@ public final class ChatMsgModel extends zj8 {
                 Intrinsics.checkNotNullParameter(errMsg, "errMsg");
                 if (this.a.o && this.a.p && i2 != 0) {
                     final ChatMsgModel chatMsgModel = this.a;
-                    lg.g(new Runnable() { // from class: com.baidu.tieba.ou8
+                    mg.g(new Runnable() { // from class: com.baidu.tieba.qv8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,14 +199,14 @@ public final class ChatMsgModel extends zj8 {
                     ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) data;
                     if (this.a.C().getData().contains(imMessageCenterShowItemData)) {
                         imMessageCenterShowItemData.setGroupDelete(true);
-                        jh8.b().e(Long.valueOf(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L)), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendBjhAvatar(), imMessageCenterShowItemData.getServerTime());
+                        li8.b().e(Long.valueOf(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L)), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendBjhAvatar(), imMessageCenterShowItemData.getServerTime());
                         this.a.C().getData().remove(imMessageCenterShowItemData);
                         this.a.b.onNext(this.a.C().getData());
-                        qk8 qk8Var = this.a.g;
-                        if (qk8Var != null) {
-                            qk8Var.X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
+                        sl8 sl8Var = this.a.g;
+                        if (sl8Var != null) {
+                            sl8Var.X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
                         }
-                        this.a.U(null, imMessageCenterShowItemData, 3);
+                        this.a.V(null, imMessageCenterShowItemData, 3);
                         return;
                     }
                     return;
@@ -299,17 +301,17 @@ public final class ChatMsgModel extends zj8 {
                     if (!(msg instanceof MemoryInitCompleteMessage)) {
                         return;
                     }
-                    this.a.P((MemoryInitCompleteMessage) msg);
+                    this.a.Q((MemoryInitCompleteMessage) msg);
                 } else if (msg.getCmd() == 2016004 && this.a.r) {
                     if (!(msg instanceof MemoryChangedMessage)) {
                         return;
                     }
-                    this.a.O((MemoryChangedMessage) msg);
+                    this.a.P((MemoryChangedMessage) msg);
                 } else if (msg.getCmd() == 2016007 && this.a.r) {
                     if (!(msg instanceof ResponsedMemoryListMessage)) {
                         return;
                     }
-                    this.a.Q((ResponsedMemoryListMessage) msg);
+                    this.a.R((ResponsedMemoryListMessage) msg);
                     this.a.E().onNext(Boolean.FALSE);
                     this.a.w();
                 } else if (msg.getCmd() == 2016001 && this.a.r) {
@@ -368,7 +370,7 @@ public final class ChatMsgModel extends zj8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class f implements qk8.o {
+    public static final class f implements sl8.o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMsgModel a;
@@ -391,17 +393,17 @@ public final class ChatMsgModel extends zj8 {
             this.a = chatMsgModel;
         }
 
-        @Override // com.baidu.tieba.qk8.o
+        @Override // com.baidu.tieba.sl8.o
         public void b(List<? extends ImMessageCenterPojo> list) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
                 return;
             }
             this.a.C().updateGroupchatList(list, this.a.k);
-            this.a.U(list, null, 1);
+            this.a.V(list, null, 1);
         }
 
-        @Override // com.baidu.tieba.qk8.o
+        @Override // com.baidu.tieba.sl8.o
         public void a(List<? extends ImMessageCenterPojo> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) {
@@ -410,7 +412,7 @@ public final class ChatMsgModel extends zj8 {
                     this.a.z().addAll(list);
                     ChatMsgModel chatMsgModel = this.a;
                     List<ImMessageCenterPojo> L = chatMsgModel.L(chatMsgModel.z(), this.a.G());
-                    this.a.U(L, null, 1);
+                    this.a.V(L, null, 1);
                     this.a.C().setData(L, this.a.k);
                     TbLog iMLog = IMLog.getInstance();
                     iMLog.i("ChatMsgModel", "mOnChatGroupCallback <hasGroupList = true> 群聊列表数据: " + ListUtils.getCount(list) + " || 私聊列表数据: " + ListUtils.getCount(this.a.G()));
@@ -418,7 +420,7 @@ public final class ChatMsgModel extends zj8 {
                 }
                 ChatMsgModel chatMsgModel2 = this.a;
                 List<ImMessageCenterPojo> L2 = chatMsgModel2.L(chatMsgModel2.z(), this.a.G());
-                this.a.U(L2, null, 1);
+                this.a.V(L2, null, 1);
                 this.a.C().setData(L2, this.a.k);
                 TbLog iMLog2 = IMLog.getInstance();
                 iMLog2.i("ChatMsgModel", "mOnChatGroupCallback <hasGroupList = false> 私聊列表数据: " + ListUtils.getCount(this.a.G()) + " || 群聊内存数据: " + ListUtils.getCount(this.a.z()));
@@ -454,12 +456,12 @@ public final class ChatMsgModel extends zj8 {
         }
 
         public static final void g(ChatMsgModel this$0) {
-            qk8 qk8Var;
+            sl8 sl8Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
-                if (!this$0.J() && (qk8Var = this$0.g) != null) {
-                    qk8Var.Y(null);
+                if (!this$0.J() && (sl8Var = this$0.g) != null) {
+                    sl8Var.Y(null);
                 }
             }
         }
@@ -478,12 +480,12 @@ public final class ChatMsgModel extends zj8 {
                         if (removeItemByRoomId != null && this.a.C().getData().contains(removeItemByRoomId)) {
                             this.a.C().getData().remove(removeItemByRoomId);
                             this.a.b.onNext(this.a.C().getData());
-                            qk8 qk8Var = this.a.g;
-                            if (qk8Var != null) {
-                                qk8Var.Z(str);
+                            sl8 sl8Var = this.a.g;
+                            if (sl8Var != null) {
+                                sl8Var.Z(str);
                             }
                             final ChatMsgModel chatMsgModel = this.a;
-                            lg.e(new Runnable() { // from class: com.baidu.tieba.pu8
+                            mg.e(new Runnable() { // from class: com.baidu.tieba.rv8
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -498,11 +500,11 @@ public final class ChatMsgModel extends zj8 {
                             if (ListUtils.isEmpty(this.a.C().getData())) {
                                 this.a.B().onNext(null);
                             }
-                            qk8 qk8Var2 = this.a.g;
-                            if (qk8Var2 != null) {
-                                qk8Var2.X(JavaTypesHelper.toLong(removeItemByRoomId.getFriendId(), 0L));
+                            sl8 sl8Var2 = this.a.g;
+                            if (sl8Var2 != null) {
+                                sl8Var2.X(JavaTypesHelper.toLong(removeItemByRoomId.getFriendId(), 0L));
                             }
-                            this.a.U(null, removeItemByRoomId, 3);
+                            this.a.V(null, removeItemByRoomId, 3);
                             return;
                         }
                         return;
@@ -582,28 +584,28 @@ public final class ChatMsgModel extends zj8 {
             }
         }
         this.a = tbPageContext;
-        lcc<List<ImMessageCenterShowItemData>> Q = lcc.Q();
+        ofc<List<ImMessageCenterShowItemData>> Q = ofc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.b = Q;
         this.c = LazyKt__LazyJVMKt.lazy(ChatMsgModel$mAnswerVisibleBs$2.INSTANCE);
-        lcc<Boolean> R = lcc.R(Boolean.FALSE);
+        ofc<Boolean> R = ofc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R, "create(false)");
         this.d = R;
-        lcc<Object> R2 = lcc.R(Boolean.FALSE);
+        ofc<Object> R2 = ofc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R2, "create(false)");
         this.e = R2;
-        lcc<Boolean> R3 = lcc.R(Boolean.FALSE);
+        ofc<Boolean> R3 = ofc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R3, "create(false)");
         this.f = R3;
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkNotNullExpressionValue(gen, "gen()");
         this.h = gen;
         this.i = LazyKt__LazyJVMKt.lazy(ChatMsgModel$mModel$2.INSTANCE);
-        this.k = new id8() { // from class: com.baidu.tieba.ru8
+        this.k = new ke8() { // from class: com.baidu.tieba.tv8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.id8
+            @Override // com.baidu.tieba.ke8
             public final void onComplete() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -614,28 +616,28 @@ public final class ChatMsgModel extends zj8 {
         this.m = LazyKt__LazyJVMKt.lazy(ChatMsgModel$personCacheList$2.INSTANCE);
         this.n = LazyKt__LazyJVMKt.lazy(ChatMsgModel$groupCacheList$2.INSTANCE);
         this.q = true;
-        this.s = new e(this);
-        this.t = new f(this);
-        this.u = new d(this);
-        this.v = new g(this);
-        this.w = new b(this);
-        this.x = new c(this);
-        this.y = new h(this);
+        this.t = new e(this);
+        this.u = new f(this);
+        this.v = new d(this);
+        this.w = new g(this);
+        this.x = new b(this);
+        this.y = new c(this);
+        this.z = new h(this);
         this.g = u();
         this.j = new IMUserListModel(null, this.h);
         this.l = new IMOfficialMaskModel();
-        Intrinsics.checkNotNullExpressionValue(MainTabChangedMonitor.c.a().d().g().H(new d8c() { // from class: com.baidu.tieba.qu8
+        this.s = MainTabChangedMonitor.c.a().d().g().H(new gbc() { // from class: com.baidu.tieba.sv8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.d8c
+            @Override // com.baidu.tieba.gbc
             public final void call(Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                     ChatMsgModel.a(ChatMsgModel.this, (Integer) obj);
                 }
             }
-        }), "MainTabChangedMonitor.ge…OTO_MESSAGE\n            }");
+        });
     }
 
     public static final void K(ChatMsgModel this$0) {
@@ -646,9 +648,9 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final void P(MemoryInitCompleteMessage memoryInitCompleteMessage) {
+    public final void Q(MemoryInitCompleteMessage memoryInitCompleteMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, memoryInitCompleteMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, memoryInitCompleteMessage) == null) {
             boolean areEqual = Intrinsics.areEqual(memoryInitCompleteMessage.getData(), Boolean.TRUE);
             this.r = areEqual;
             if (areEqual) {
@@ -659,7 +661,7 @@ public final class ChatMsgModel extends zj8 {
 
     public final void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             A().onNext(Boolean.valueOf(z));
         }
     }
@@ -678,41 +680,41 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final void W(boolean z, String gid) {
+    public final void X(boolean z, String gid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048597, this, z, gid) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048598, this, z, gid) == null) {
             Intrinsics.checkNotNullParameter(gid, "gid");
-            this.l.N(z, gid);
+            this.l.M(z, gid);
         }
     }
 
-    public final void v(ImMessageCenterShowItemData data, jd8 iProcess) {
+    public final void v(ImMessageCenterShowItemData data, le8 iProcess) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, data, iProcess) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048602, this, data, iProcess) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(iProcess, "iProcess");
             C().asyncDeleteItem(data, iProcess);
         }
     }
 
-    public final lcc<Boolean> A() {
+    public final ofc<Boolean> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Object value = this.c.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-mAnswerVisibleBs>(...)");
-            return (lcc) value;
+            return (ofc) value;
         }
-        return (lcc) invokeV.objValue;
+        return (ofc) invokeV.objValue;
     }
 
-    public final lcc<Boolean> B() {
+    public final ofc<Boolean> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.f;
         }
-        return (lcc) invokeV.objValue;
+        return (ofc) invokeV.objValue;
     }
 
     public final MsgChatTabModel C() {
@@ -724,22 +726,22 @@ public final class ChatMsgModel extends zj8 {
         return (MsgChatTabModel) invokeV.objValue;
     }
 
-    public final lcc<Object> D() {
+    public final ofc<Object> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (lcc) invokeV.objValue;
+        return (ofc) invokeV.objValue;
     }
 
-    public final lcc<Boolean> E() {
+    public final ofc<Boolean> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
-        return (lcc) invokeV.objValue;
+        return (ofc) invokeV.objValue;
     }
 
     public final TbPageContext<BaseFragmentActivity> F() {
@@ -760,26 +762,26 @@ public final class ChatMsgModel extends zj8 {
         return (List) invokeV.objValue;
     }
 
-    public final qk8 H() {
+    public final sl8 H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            qk8 qk8Var = this.g;
-            if (qk8Var == null) {
-                qk8 u = u();
+            sl8 sl8Var = this.g;
+            if (sl8Var == null) {
+                sl8 u = u();
                 this.g = u;
                 return u;
             }
-            return qk8Var;
+            return sl8Var;
         }
-        return (qk8) invokeV.objValue;
+        return (sl8) invokeV.objValue;
     }
 
     public final void I() {
-        qk8 qk8Var;
+        sl8 sl8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && (qk8Var = this.g) != null) {
-            qk8Var.W();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && (sl8Var = this.g) != null) {
+            sl8Var.W();
         }
     }
 
@@ -788,9 +790,9 @@ public final class ChatMsgModel extends zj8 {
         List<Map<String, Long>> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            qk8 qk8Var = this.g;
-            if (qk8Var != null) {
-                list = qk8Var.N(0);
+            sl8 sl8Var = this.g;
+            if (sl8Var != null) {
+                list = sl8Var.N(0);
             } else {
                 list = null;
             }
@@ -802,58 +804,72 @@ public final class ChatMsgModel extends zj8 {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.o = false;
+            zac zacVar = this.s;
+            if (zacVar != null) {
+                zacVar.unsubscribe();
+            }
+            this.s = null;
+            Y();
+            this.g = null;
+            this.a = null;
         }
     }
 
     public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.o = false;
+        }
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.o = true;
         }
     }
 
-    public final void S() {
+    public final void T() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.j.request(true, C().getUids());
         }
     }
 
-    public final qk8 u() {
+    public final sl8 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            qk8 qk8Var = new qk8(this.a, this.t);
-            qk8Var.s(new a(this));
-            return qk8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            sl8 sl8Var = new sl8(this.a, this.u);
+            sl8Var.s(new a(this));
+            return sl8Var;
         }
-        return (qk8) invokeV.objValue;
+        return (sl8) invokeV.objValue;
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && this.q) {
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && this.q) {
             this.j.request(false, C().getUids());
             this.q = false;
         }
     }
 
-    public final p7c<List<ImMessageCenterShowItemData>> x() {
+    public final sac<List<ImMessageCenterShowItemData>> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            p7c<List<ImMessageCenterShowItemData>> s = this.b.w().a().s(z7c.b());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            sac<List<ImMessageCenterShowItemData>> s = this.b.w().a().s(cbc.b());
             Intrinsics.checkNotNullExpressionValue(s, "mChatMsgDataBs.onBackpre…dSchedulers.mainThread())");
             return s;
         }
-        return (p7c) invokeV.objValue;
+        return (sac) invokeV.objValue;
     }
 
     public final MsgChatTabModel y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return C();
         }
         return (MsgChatTabModel) invokeV.objValue;
@@ -862,7 +878,7 @@ public final class ChatMsgModel extends zj8 {
     public final List<ImMessageCenterPojo> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return (List) this.n.getValue();
         }
         return (List) invokeV.objValue;
@@ -894,9 +910,9 @@ public final class ChatMsgModel extends zj8 {
         return (List) invokeLL.objValue;
     }
 
-    public final void O(MemoryChangedMessage memoryChangedMessage) {
+    public final void P(MemoryChangedMessage memoryChangedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, memoryChangedMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, memoryChangedMessage) == null) {
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
                 C().insertOrUpdate(data, this.k);
@@ -906,27 +922,27 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final void R(boolean z) {
+    public final void S(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            if (z && !km6.a(C().getData())) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            if (z && !mn6.a(C().getData())) {
                 C().sortList();
             }
             this.b.onNext(C().getData());
         }
     }
 
-    public final void Q(ResponsedMemoryListMessage responsedMemoryListMessage) {
-        qk8 qk8Var;
+    public final void R(ResponsedMemoryListMessage responsedMemoryListMessage) {
+        sl8 sl8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, responsedMemoryListMessage) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, responsedMemoryListMessage) == null) {
             G().clear();
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
             if (data != null) {
                 G().addAll(data);
             }
-            if (ListUtils.isEmpty(C().getData()) && (qk8Var = this.g) != null) {
-                qk8Var.V();
+            if (ListUtils.isEmpty(C().getData()) && (sl8Var = this.g) != null) {
+                sl8Var.V();
             }
             if (responsedMemoryListMessage.getType() == 1 && this.o) {
                 I();
@@ -934,26 +950,26 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final void T() {
+    public final void U() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            MessageManager.getInstance().registerListener(2016004, this.u);
-            MessageManager.getInstance().registerListener(2016001, this.u);
-            MessageManager.getInstance().registerListener(2016010, this.u);
-            MessageManager.getInstance().registerListener(2016007, this.u);
-            MessageManager.getInstance().registerListener(2016011, this.u);
-            MessageManager.getInstance().registerListener(2016002, this.u);
-            MessageManager.getInstance().registerListener(this.v);
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            MessageManager.getInstance().registerListener(2016004, this.v);
+            MessageManager.getInstance().registerListener(2016001, this.v);
+            MessageManager.getInstance().registerListener(2016010, this.v);
+            MessageManager.getInstance().registerListener(2016007, this.v);
+            MessageManager.getInstance().registerListener(2016011, this.v);
+            MessageManager.getInstance().registerListener(2016002, this.v);
             MessageManager.getInstance().registerListener(this.w);
             MessageManager.getInstance().registerListener(this.x);
             MessageManager.getInstance().registerListener(this.y);
-            MessageManager.getInstance().registerListener(this.s);
+            MessageManager.getInstance().registerListener(this.z);
+            MessageManager.getInstance().registerListener(this.t);
         }
     }
 
-    public final void U(List<? extends ImMessageCenterPojo> list, ImMessageCenterShowItemData imMessageCenterShowItemData, int i) {
+    public final void V(List<? extends ImMessageCenterPojo> list, ImMessageCenterShowItemData imMessageCenterShowItemData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048595, this, list, imMessageCenterShowItemData, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048596, this, list, imMessageCenterShowItemData, i) == null) {
             ResponsedGroupChatListCompleteMessage responsedGroupChatListCompleteMessage = new ResponsedGroupChatListCompleteMessage();
             if (i != 1) {
                 String str = null;
@@ -984,25 +1000,25 @@ public final class ChatMsgModel extends zj8 {
         }
     }
 
-    public final void V(Activity activity, @StringRes int i, boolean z) {
+    public final void W(Activity activity, @StringRes int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && activity != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && activity != null) {
             new BdTopToast(activity).setContent(activity.getString(i)).setIcon(z).show((ViewGroup) activity.findViewById(16908290));
         }
     }
 
-    public final void X() {
+    public final void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.u);
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.w);
             MessageManager.getInstance().unRegisterListener(this.x);
             MessageManager.getInstance().unRegisterListener(this.y);
-            MessageManager.getInstance().unRegisterListener(this.s);
-            qk8 qk8Var = this.g;
-            if (qk8Var != null) {
-                qk8Var.o();
+            MessageManager.getInstance().unRegisterListener(this.z);
+            MessageManager.getInstance().unRegisterListener(this.t);
+            sl8 sl8Var = this.g;
+            if (sl8Var != null) {
+                sl8Var.o();
             }
         }
     }

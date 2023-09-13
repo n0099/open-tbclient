@@ -1,29 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import androidx.annotation.Nullable;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbListTextView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class h16 extends ClickableSpan {
+public class h16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -31,359 +18,183 @@ public class h16 extends ClickableSpan {
     public int c;
     public String d;
     public String e;
-    public int f;
+    public String f;
     public int g;
-    public String h;
-    public int i;
-    public b j;
-    public String k;
-    @Nullable
-    public Map<String, Object> l;
+    public UserData h;
+    public SparseArray<String> i;
+    public f16 j;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(h16 h16Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public int d;
-
-        public a(int i, String str, String str2, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-            this.d = i2;
-        }
-    }
-
-    public h16(int i, String str) {
+    public h16() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.i = 0;
-        this.d = str;
-        this.c = i;
     }
 
-    public h16(int i, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = -1;
-        this.b = -1;
-        this.i = 0;
-        this.d = str;
-        this.c = i;
-        this.g = i2;
-    }
-
-    public static void a(Context context, k16 k16Var, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, k16Var, Integer.valueOf(i), str, str2}) != null) || k16Var == null) {
-            return;
-        }
-        if (i != 2) {
-            if (i != 16) {
-                if (i != 18) {
-                    if (i != 32) {
-                        if (i != 64) {
-                            if (i != 128) {
-                                if (i != 256) {
-                                    if (i != 1024) {
-                                        if (i == 1282) {
-                                            k16Var.g0(context, str, true);
-                                            return;
-                                        }
-                                        return;
-                                    }
-                                    k16Var.o0(context, str);
-                                    return;
-                                }
-                                k16Var.l0(context, str, str2);
-                                return;
-                            }
-                            k16Var.e0(context, str);
-                            return;
-                        }
-                        k16Var.t1(context, str);
-                        return;
-                    }
-                    k16Var.N(context, str);
-                    return;
-                }
-                k16Var.g0(context, str, true);
-                return;
-            }
-            k16Var.K(context, str);
-            return;
-        }
-        k16Var.g0(context, str, false);
-    }
-
-    public static void b(TbPageContext<?> tbPageContext, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65539, null, tbPageContext, i, str, str2) != null) || tbPageContext == null || !(tbPageContext.getOrignalPage() instanceof k16)) {
-            return;
-        }
-        a(tbPageContext.getPageActivity(), (k16) tbPageContext.getOrignalPage(), i, str, str2);
-    }
-
-    public static void c(TbPageContext<?> tbPageContext, k16 k16Var, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{tbPageContext, k16Var, Integer.valueOf(i), str, str2}) == null) && tbPageContext != null && k16Var != null) {
-            a(tbPageContext.getPageActivity(), k16Var, i, str, str2);
-        }
-    }
-
-    @Nullable
-    public Map<String, Object> d() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+            return this.f;
         }
-        return (Map) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Nullable
-    public String e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.k;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public int getType() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
         return invokeV.intValue;
     }
 
-    public int h() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public boolean i() {
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public f16 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.c;
-            if (i != 2 && i != 16 && i != 18 && i != 35 && i != 39) {
-                return false;
-            }
-            return true;
+            return this.j;
         }
-        return invokeV.booleanValue;
+        return (f16) invokeV.objValue;
     }
 
-    public final boolean j() {
+    public SparseArray<String> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.c;
-            if (i != 2 && i != 16 && i != 18 && i != 35 && i != 39 && i != 1282) {
-                return false;
-            }
-            return true;
+            return this.i;
         }
-        return invokeV.booleanValue;
+        return (SparseArray) invokeV.objValue;
     }
 
-    public void k(@Nullable Map<String, Object> map) {
+    public UserData i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
-            this.l = map;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (UserData) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.k = str;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.h = str;
+            this.d = str;
         }
     }
 
-    public void o(b bVar) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.j = bVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b = i;
         }
     }
 
     public void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void q(String str) {
+    public void q(f16 f16Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || interceptable.invokeL(1048592, this, f16Var) == null) {
+            this.j = f16Var;
         }
     }
 
-    public void r(int i) {
+    public void r(SparseArray<String> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeL(1048593, this, sparseArray) == null) {
+            this.i = sparseArray;
         }
     }
 
-    public void s(int i) {
+    public void s(UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || interceptable.invokeL(1048594, this, userData) == null) {
+            this.h = userData;
         }
     }
 
     public void t(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view2) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            b bVar = this.j;
-            if (bVar != null) {
-                bVar.a(this);
-                return;
-            }
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.c, this.d, this.e, this.g));
-            int i2 = 2;
-            if (this.c == 2) {
-                int i3 = this.i;
-                if (i3 == 1) {
-                    i = 2;
-                } else if (i3 == 2) {
-                    i = 1;
-                } else {
-                    i = 1;
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).param("obj_source", i2).param("obj_type", i));
-                }
-                i2 = 1;
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).param("obj_source", i2).param("obj_type", i));
-            }
-            if (view2 instanceof TbListTextView) {
-                ((TbRichTextView) view2.getParent()).setPressed(true);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-        }
-    }
-
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, textPaint) == null) {
-            int i = this.b;
-            if (i != -1) {
-                textPaint.setColor(SkinManager.getColor(i));
-            } else if (j()) {
-                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
-            } else {
-                textPaint.setColor(textPaint.linkColor);
-            }
-            textPaint.setUnderlineText(false);
-            int i2 = this.a;
-            if (i2 != -1) {
-                textPaint.bgColor = i2;
-            } else if (this.f == 1 && i()) {
-                textPaint.bgColor = SkinManager.getColor(R.color.CAM_X0210);
-            } else if (this.f == 2) {
-                textPaint.bgColor = SkinManager.getColor(R.color.transparent);
-            }
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.g = i;
         }
     }
 }

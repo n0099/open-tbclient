@@ -99,32 +99,32 @@ public class CommonEmptyView extends RelativeLayout {
     public CommonEmptyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mButtonStyle = ButtonStyle.WHITE;
-        this.mIconResId = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805ff;
+        this.mIconResId = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08060b;
         init(context);
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0216, (ViewGroup) this, true);
-        setBackground(context.getResources().getDrawable(com.baidu.tieba.R.color.obfuscated_res_0x7f06073b));
-        this.mIcon = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a12);
-        this.mTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a16);
-        this.mSubTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a15);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a13);
+        LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0219, (ViewGroup) this, true);
+        setBackground(context.getResources().getDrawable(com.baidu.tieba.R.color.obfuscated_res_0x7f06073d));
+        this.mIcon = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a0a);
+        this.mTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a0e);
+        this.mSubTitle = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a0d);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a0b);
         this.mLinkText = textView;
         textView.setOnTouchListener(new TouchStateListener(textView));
-        TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a11);
+        TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a09);
         this.mRefreshTextBtn = textView2;
         textView2.setOnTouchListener(new TouchStateListener(textView2));
-        this.mBottomLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a10);
+        this.mBottomLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090a08);
         setResourceTextSize();
         setPageResources();
     }
 
     private void setResourceTextSize() {
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mTitle, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070249);
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mSubTitle, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070248);
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mLinkText, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070247);
-        FontSizeTextViewExtKt.setScaledSizeRes(this.mRefreshTextBtn, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070245);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mTitle, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024d);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mSubTitle, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024c);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mLinkText, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024b);
+        FontSizeTextViewExtKt.setScaledSizeRes(this.mRefreshTextBtn, 0, com.baidu.tieba.R.dimen.obfuscated_res_0x7f070249);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -165,7 +165,7 @@ public class CommonEmptyView extends RelativeLayout {
     @Deprecated
     public void resetIconWidthAndHeight() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mIcon.getLayoutParams();
-        int scaledSize = FontSizeHelper.getScaledSize(0, (float) com.baidu.tieba.R.dimen.obfuscated_res_0x7f070445, 2) / 2;
+        int scaledSize = FontSizeHelper.getScaledSize(0, (float) com.baidu.tieba.R.dimen.obfuscated_res_0x7f070449, 2) / 2;
         layoutParams.width = scaledSize;
         layoutParams.height = scaledSize;
         this.mIcon.setLayoutParams(layoutParams);
@@ -179,9 +179,9 @@ public class CommonEmptyView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mBottomLayout.getLayoutParams();
             int i = configuration.orientation;
             if (i == 1) {
-                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070444);
+                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070448);
             } else if (i == 2) {
-                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070443);
+                layoutParams.bottomMargin = getResources().getDimensionPixelOffset(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070447);
             }
             this.mBottomLayout.setLayoutParams(layoutParams);
         }
@@ -189,12 +189,12 @@ public class CommonEmptyView extends RelativeLayout {
 
     public void setButtonResources() {
         if (this.mButtonStyle == ButtonStyle.BLUE) {
-            this.mRefreshTextBtn.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080608));
-            this.mRefreshTextBtn.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603a9));
+            this.mRefreshTextBtn.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080614));
+            this.mRefreshTextBtn.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ab));
             return;
         }
-        this.mRefreshTextBtn.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080603));
-        this.mRefreshTextBtn.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ab));
+        this.mRefreshTextBtn.setBackground(FontSizeHelper.getScaledDrawableRes(0, com.baidu.tieba.R.drawable.obfuscated_res_0x7f08060f));
+        this.mRefreshTextBtn.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ad));
     }
 
     public void setButtonText(String str) {
@@ -226,22 +226,22 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public void setPageResources() {
-        setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060b98));
+        setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060ba2));
         ImageView imageView = this.mIcon;
         if (imageView != null && this.mIconResId != -1) {
             FontSizeImageViewExtKt.setScaledImageDrawable(imageView, 0, getResources().getDrawable(this.mIconResId), 2);
         }
         TextView textView = this.mTitle;
         if (textView != null) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603a5));
+            textView.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603a7));
         }
         TextView textView2 = this.mSubTitle;
         if (textView2 != null) {
-            textView2.setTextColor(getContext().getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603a6));
+            textView2.setTextColor(getContext().getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603a8));
         }
         TextView textView3 = this.mLinkText;
         if (textView3 != null) {
-            textView3.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603a8));
+            textView3.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603aa));
         }
         setButtonResources();
     }

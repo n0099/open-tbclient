@@ -2,39 +2,39 @@ package rx.internal.util;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.acc;
-import com.baidu.tieba.b8c;
-import com.baidu.tieba.c8c;
-import com.baidu.tieba.dcc;
-import com.baidu.tieba.i8c;
-import com.baidu.tieba.p7c;
-import com.baidu.tieba.r7c;
-import com.baidu.tieba.r9c;
-import com.baidu.tieba.s7c;
-import com.baidu.tieba.v7c;
-import com.baidu.tieba.w7c;
+import com.baidu.tieba.dfc;
+import com.baidu.tieba.ebc;
+import com.baidu.tieba.fbc;
+import com.baidu.tieba.gfc;
+import com.baidu.tieba.lbc;
+import com.baidu.tieba.sac;
+import com.baidu.tieba.uac;
+import com.baidu.tieba.ucc;
+import com.baidu.tieba.vac;
+import com.baidu.tieba.yac;
+import com.baidu.tieba.zac;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes2.dex */
-public final class ScalarSynchronousObservable<T> extends p7c<T> {
+public final class ScalarSynchronousObservable<T> extends sac<T> {
     public static final boolean c = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     public final T b;
 
     /* loaded from: classes2.dex */
-    public class b implements i8c<c8c, w7c> {
-        public final /* synthetic */ s7c a;
+    public class b implements lbc<fbc, zac> {
+        public final /* synthetic */ vac a;
 
         /* loaded from: classes2.dex */
-        public class a implements c8c {
-            public final /* synthetic */ c8c a;
-            public final /* synthetic */ s7c.a b;
+        public class a implements fbc {
+            public final /* synthetic */ fbc a;
+            public final /* synthetic */ vac.a b;
 
-            public a(b bVar, c8c c8cVar, s7c.a aVar) {
-                this.a = c8cVar;
+            public a(b bVar, fbc fbcVar, vac.a aVar) {
+                this.a = fbcVar;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.c8c
+            @Override // com.baidu.tieba.fbc
             public void call() {
                 try {
                     this.a.call();
@@ -44,47 +44,47 @@ public final class ScalarSynchronousObservable<T> extends p7c<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, s7c s7cVar) {
-            this.a = s7cVar;
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, vac vacVar) {
+            this.a = vacVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i8c
-        public w7c call(c8c c8cVar) {
-            s7c.a createWorker = this.a.createWorker();
-            createWorker.b(new a(this, c8cVar, createWorker));
+        @Override // com.baidu.tieba.lbc
+        public zac call(fbc fbcVar) {
+            vac.a createWorker = this.a.createWorker();
+            createWorker.b(new a(this, fbcVar, createWorker));
             return createWorker;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements r7c, c8c {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements uac, fbc {
         public static final long serialVersionUID = -2466317989629281651L;
-        public final v7c<? super T> actual;
-        public final i8c<c8c, w7c> onSchedule;
+        public final yac<? super T> actual;
+        public final lbc<fbc, zac> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(v7c<? super T> v7cVar, T t, i8c<c8c, w7c> i8cVar) {
-            this.actual = v7cVar;
+        public ScalarAsyncProducer(yac<? super T> yacVar, T t, lbc<fbc, zac> lbcVar) {
+            this.actual = yacVar;
             this.value = t;
-            this.onSchedule = i8cVar;
+            this.onSchedule = lbcVar;
         }
 
-        @Override // com.baidu.tieba.c8c
+        @Override // com.baidu.tieba.fbc
         public void call() {
-            v7c<? super T> v7cVar = this.actual;
-            if (v7cVar.isUnsubscribed()) {
+            yac<? super T> yacVar = this.actual;
+            if (yacVar.isUnsubscribed()) {
                 return;
             }
             Object obj = (T) this.value;
             try {
-                v7cVar.onNext(obj);
-                if (v7cVar.isUnsubscribed()) {
+                yacVar.onNext(obj);
+                if (yacVar.isUnsubscribed()) {
                     return;
                 }
-                v7cVar.onCompleted();
+                yacVar.onCompleted();
             } catch (Throwable th) {
-                b8c.g(th, v7cVar, obj);
+                ebc.g(th, yacVar, obj);
             }
         }
 
@@ -93,7 +93,7 @@ public final class ScalarSynchronousObservable<T> extends p7c<T> {
             return "ScalarAsyncProducer[" + this.value + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + PreferencesUtil.RIGHT_MOUNT;
         }
 
-        @Override // com.baidu.tieba.r7c
+        @Override // com.baidu.tieba.uac
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
@@ -108,94 +108,94 @@ public final class ScalarSynchronousObservable<T> extends p7c<T> {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements i8c<c8c, w7c> {
-        public final /* synthetic */ r9c a;
+    public class a implements lbc<fbc, zac> {
+        public final /* synthetic */ ucc a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, r9c r9cVar) {
-            this.a = r9cVar;
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, ucc uccVar) {
+            this.a = uccVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.i8c
-        public w7c call(c8c c8cVar) {
-            return this.a.a(c8cVar);
+        @Override // com.baidu.tieba.lbc
+        public zac call(fbc fbcVar) {
+            return this.a.a(fbcVar);
         }
     }
 
     /* JADX INFO: Add missing generic type declarations: [R] */
     /* loaded from: classes2.dex */
-    public class c<R> implements p7c.a<R> {
-        public final /* synthetic */ i8c a;
+    public class c<R> implements sac.a<R> {
+        public final /* synthetic */ lbc a;
 
-        public c(i8c i8cVar) {
-            this.a = i8cVar;
+        public c(lbc lbcVar) {
+            this.a = lbcVar;
         }
 
-        public void call(v7c<? super R> v7cVar) {
-            p7c p7cVar = (p7c) this.a.call(ScalarSynchronousObservable.this.b);
-            if (p7cVar instanceof ScalarSynchronousObservable) {
-                v7cVar.f(ScalarSynchronousObservable.Q(v7cVar, ((ScalarSynchronousObservable) p7cVar).b));
+        public void call(yac<? super R> yacVar) {
+            sac sacVar = (sac) this.a.call(ScalarSynchronousObservable.this.b);
+            if (sacVar instanceof ScalarSynchronousObservable) {
+                yacVar.f(ScalarSynchronousObservable.Q(yacVar, ((ScalarSynchronousObservable) sacVar).b));
             } else {
-                p7cVar.O(acc.c(v7cVar));
+                sacVar.O(dfc.c(yacVar));
             }
         }
 
-        @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+        @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((v7c) ((v7c) obj));
+            call((yac) ((yac) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class d<T> implements p7c.a<T> {
+    public static final class d<T> implements sac.a<T> {
         public final T a;
 
         public d(T t) {
             this.a = t;
         }
 
-        public void call(v7c<? super T> v7cVar) {
-            v7cVar.f(ScalarSynchronousObservable.Q(v7cVar, this.a));
+        public void call(yac<? super T> yacVar) {
+            yacVar.f(ScalarSynchronousObservable.Q(yacVar, this.a));
         }
 
-        @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+        @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((v7c) ((v7c) obj));
+            call((yac) ((yac) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class e<T> implements p7c.a<T> {
+    public static final class e<T> implements sac.a<T> {
         public final T a;
-        public final i8c<c8c, w7c> b;
+        public final lbc<fbc, zac> b;
 
-        public e(T t, i8c<c8c, w7c> i8cVar) {
+        public e(T t, lbc<fbc, zac> lbcVar) {
             this.a = t;
-            this.b = i8cVar;
+            this.b = lbcVar;
         }
 
-        public void call(v7c<? super T> v7cVar) {
-            v7cVar.f(new ScalarAsyncProducer(v7cVar, this.a, this.b));
+        public void call(yac<? super T> yacVar) {
+            yacVar.f(new ScalarAsyncProducer(yacVar, this.a, this.b));
         }
 
-        @Override // com.baidu.tieba.p7c.a, com.baidu.tieba.d8c
+        @Override // com.baidu.tieba.sac.a, com.baidu.tieba.gbc
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((v7c) ((v7c) obj));
+            call((yac) ((yac) obj));
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class f<T> implements r7c {
-        public final v7c<? super T> a;
+    public static final class f<T> implements uac {
+        public final yac<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(v7c<? super T> v7cVar, T t) {
-            this.a = v7cVar;
+        public f(yac<? super T> yacVar, T t) {
+            this.a = yacVar;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.r7c
+        @Override // com.baidu.tieba.uac
         public void request(long j) {
             if (this.c) {
                 return;
@@ -206,20 +206,20 @@ public final class ScalarSynchronousObservable<T> extends p7c<T> {
                     return;
                 }
                 this.c = true;
-                v7c<? super T> v7cVar = this.a;
-                if (v7cVar.isUnsubscribed()) {
+                yac<? super T> yacVar = this.a;
+                if (yacVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    v7cVar.onNext(obj);
-                    if (v7cVar.isUnsubscribed()) {
+                    yacVar.onNext(obj);
+                    if (yacVar.isUnsubscribed()) {
                         return;
                     }
-                    v7cVar.onCompleted();
+                    yacVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    b8c.g(th, v7cVar, obj);
+                    ebc.g(th, yacVar, obj);
                     return;
                 }
             }
@@ -232,7 +232,7 @@ public final class ScalarSynchronousObservable<T> extends p7c<T> {
     }
 
     public ScalarSynchronousObservable(T t) {
-        super(dcc.h(new d(t)));
+        super(gfc.h(new d(t)));
         this.b = t;
     }
 
@@ -240,24 +240,24 @@ public final class ScalarSynchronousObservable<T> extends p7c<T> {
         return new ScalarSynchronousObservable<>(t);
     }
 
-    public <R> p7c<R> S(i8c<? super T, ? extends p7c<? extends R>> i8cVar) {
-        return p7c.d(new c(i8cVar));
+    public <R> sac<R> S(lbc<? super T, ? extends sac<? extends R>> lbcVar) {
+        return sac.d(new c(lbcVar));
     }
 
-    public p7c<T> T(s7c s7cVar) {
-        i8c bVar;
-        if (s7cVar instanceof r9c) {
-            bVar = new a(this, (r9c) s7cVar);
+    public sac<T> T(vac vacVar) {
+        lbc bVar;
+        if (vacVar instanceof ucc) {
+            bVar = new a(this, (ucc) vacVar);
         } else {
-            bVar = new b(this, s7cVar);
+            bVar = new b(this, vacVar);
         }
-        return p7c.d(new e(this.b, bVar));
+        return sac.d(new e(this.b, bVar));
     }
 
-    public static <T> r7c Q(v7c<? super T> v7cVar, T t) {
+    public static <T> uac Q(yac<? super T> yacVar, T t) {
         if (c) {
-            return new SingleProducer(v7cVar, t);
+            return new SingleProducer(yacVar, t);
         }
-        return new f(v7cVar, t);
+        return new f(yacVar, t);
     }
 }

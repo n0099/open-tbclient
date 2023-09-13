@@ -3,14 +3,14 @@ package com.baidu.tieba.immessagecenter.mention.dispatcher;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tieba.immessagecenter.mention.reply.ReplyMeActivity;
-import com.baidu.tieba.y5a;
+import com.baidu.tieba.s7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ReplyMeDispatcher implements y5a {
+public class ReplyMeDispatcher implements s7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class ReplyMeDispatcher implements y5a {
         }
     }
 
-    @Override // com.baidu.tieba.y5a
+    @Override // com.baidu.tieba.s7a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

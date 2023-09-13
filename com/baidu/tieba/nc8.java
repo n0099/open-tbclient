@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface nc8 {
-    void a(int i);
+    void y(String str, boolean z);
 
-    void b();
+    void z(int i, int i2, String str);
 }

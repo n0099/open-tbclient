@@ -260,37 +260,37 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
         return jSONObject.toString();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:147:0x02b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:147:0x02b4, code lost:
         r3 = r3.toString();
         kotlin.jvm.internal.Intrinsics.checkExpressionValueIsNotNull(r3, "it.toString()");
         r11.put(2017, r3);
         r0 = kotlin.Unit.INSTANCE;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x01e8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x01ea, code lost:
         if (r6 != 2) goto L66;
      */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x022a  */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x024f  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x0260 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x0261 A[Catch: Exception -> 0x0364, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:130:0x026e A[Catch: Exception -> 0x0364, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x027c  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x0282  */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x0284  */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x02a2 A[Catch: Exception -> 0x0364, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x0303 A[Catch: Exception -> 0x0364, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x022c  */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0251  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x0262 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x0263 A[Catch: Exception -> 0x0366, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0270 A[Catch: Exception -> 0x0366, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x027e  */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0284  */
+    /* JADX WARN: Removed duplicated region for block: B:138:0x0286  */
+    /* JADX WARN: Removed duplicated region for block: B:141:0x02a4 A[Catch: Exception -> 0x0366, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x0305 A[Catch: Exception -> 0x0366, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
     /* JADX WARN: Removed duplicated region for block: B:166:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x014c  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x017a A[Catch: Exception -> 0x0364, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x017f  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x0184  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x01b1  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x01b2  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x01bf  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x01c2  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x01da  */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x01dc A[Catch: Exception -> 0x0364, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x01f3 A[Catch: Exception -> 0x0364, TRY_LEAVE, TryCatch #3 {Exception -> 0x0364, blocks: (B:3:0x0012, B:5:0x0045, B:7:0x0060, B:9:0x0068, B:12:0x0072, B:14:0x007b, B:17:0x0083, B:20:0x008f, B:23:0x00c6, B:29:0x00f4, B:33:0x0101, B:35:0x0125, B:39:0x0130, B:40:0x0133, B:50:0x014e, B:51:0x0155, B:53:0x017a, B:55:0x0180, B:58:0x0185, B:61:0x018b, B:64:0x0195, B:66:0x019c, B:67:0x01a5, B:71:0x01b4, B:75:0x01c3, B:86:0x01f3, B:109:0x022c, B:111:0x0232, B:113:0x0241, B:117:0x024b, B:147:0x02b2, B:148:0x02c6, B:150:0x0303, B:126:0x0261, B:128:0x0268, B:130:0x026e, B:132:0x0277, B:135:0x027e, B:139:0x0285, B:141:0x02a2, B:145:0x02ad, B:119:0x0251, B:123:0x025b, B:78:0x01dc, B:84:0x01ed, B:43:0x013b, B:24:0x00cf, B:28:0x00f1, B:152:0x0340, B:154:0x0348, B:88:0x01f9, B:95:0x020d, B:97:0x0212, B:102:0x0221, B:98:0x0216), top: B:163:0x0012 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x014e  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x017c A[Catch: Exception -> 0x0366, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0181  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0186  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x01b3  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01b4  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01c1  */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x01c4  */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x01dc  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x01de A[Catch: Exception -> 0x0366, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x01f5 A[Catch: Exception -> 0x0366, TRY_LEAVE, TryCatch #4 {Exception -> 0x0366, blocks: (B:3:0x0013, B:5:0x0047, B:7:0x0062, B:9:0x006a, B:12:0x0074, B:14:0x007d, B:17:0x0085, B:20:0x0091, B:23:0x00c8, B:29:0x00f6, B:33:0x0103, B:35:0x0127, B:39:0x0132, B:40:0x0135, B:50:0x0150, B:51:0x0157, B:53:0x017c, B:55:0x0182, B:58:0x0187, B:61:0x018d, B:64:0x0197, B:66:0x019e, B:67:0x01a7, B:71:0x01b6, B:75:0x01c5, B:86:0x01f5, B:109:0x022e, B:111:0x0234, B:113:0x0243, B:117:0x024d, B:147:0x02b4, B:148:0x02c8, B:150:0x0305, B:126:0x0263, B:128:0x026a, B:130:0x0270, B:132:0x0279, B:135:0x0280, B:139:0x0287, B:141:0x02a4, B:145:0x02af, B:119:0x0253, B:123:0x025d, B:78:0x01de, B:84:0x01ef, B:43:0x013d, B:24:0x00d1, B:28:0x00f3, B:152:0x0342, B:154:0x034a, B:88:0x01fb, B:95:0x020f, B:97:0x0214, B:102:0x0223, B:98:0x0218), top: B:165:0x0013 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -414,30 +414,30 @@ public final class LivePreStartPlayServiceImpl implements LivePreStartPlayerServ
                                 queryParameter = Uri.parse(url).getQueryParameter("vr");
                                 try {
                                     jSONObject = new JSONObject(queryParameter);
-                                } catch (Throwable th) {
-                                    th = th;
-                                }
-                                try {
-                                    Unit unit = Unit.INSTANCE;
+                                    try {
+                                        Unit unit = Unit.INSTANCE;
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        optJSONObject = jSONObject;
+                                        th.printStackTrace();
+                                        if (queryParameter != null) {
+                                            optJSONObject = new JSONObject(URLDecoder.decode(queryParameter));
+                                            Unit unit2 = Unit.INSTANCE;
+                                        }
+                                        jSONObject = optJSONObject;
+                                        optJSONObject = jSONObject;
+                                        if (optJSONObject == null) {
+                                        }
+                                        if (valueOf != null) {
+                                        }
+                                        log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
+                                        createPlayer = getPlayerService().createPlayer(buildParams);
+                                        log("preStartPlayer: 播放器创建结束： " + createPlayer);
+                                        if (createPlayer == null) {
+                                        }
+                                    }
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    optJSONObject = jSONObject;
-                                    th.printStackTrace();
-                                    if (queryParameter != null) {
-                                        optJSONObject = new JSONObject(URLDecoder.decode(queryParameter));
-                                        Unit unit2 = Unit.INSTANCE;
-                                    }
-                                    jSONObject = optJSONObject;
-                                    optJSONObject = jSONObject;
-                                    if (optJSONObject == null) {
-                                    }
-                                    if (valueOf != null) {
-                                    }
-                                    log("preStartPlayer paramsString: 开始构建起播参数， 流类型：" + buildParams.getPlayerType() + WebvttCueParser.CHAR_SPACE);
-                                    createPlayer = getPlayerService().createPlayer(buildParams);
-                                    log("preStartPlayer: 播放器创建结束： " + createPlayer);
-                                    if (createPlayer == null) {
-                                    }
                                 }
                                 optJSONObject = jSONObject;
                             }

@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PropertyReference0Impl extends PropertyReference0 {
     @SinceKotlin(version = "1.4")
     public PropertyReference0Impl(Class cls, String str, String str2, int i) {

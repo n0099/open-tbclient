@@ -31,30 +31,30 @@ public final class StackTraceRecoveryKt {
     }
 
     static {
-        Object m849constructorimpl;
-        Object m849constructorimpl2;
+        Object m850constructorimpl;
+        Object m850constructorimpl2;
         try {
             Result.Companion companion = Result.Companion;
-            m849constructorimpl = Result.m849constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
+            m850constructorimpl = Result.m850constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m849constructorimpl = Result.m849constructorimpl(ResultKt.createFailure(th));
+            m850constructorimpl = Result.m850constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m852exceptionOrNullimpl(m849constructorimpl) != null) {
-            m849constructorimpl = baseContinuationImplClass;
+        if (Result.m853exceptionOrNullimpl(m850constructorimpl) != null) {
+            m850constructorimpl = baseContinuationImplClass;
         }
-        baseContinuationImplClassName = (String) m849constructorimpl;
+        baseContinuationImplClassName = (String) m850constructorimpl;
         try {
             Result.Companion companion3 = Result.Companion;
-            m849constructorimpl2 = Result.m849constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
+            m850constructorimpl2 = Result.m850constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
         } catch (Throwable th2) {
             Result.Companion companion4 = Result.Companion;
-            m849constructorimpl2 = Result.m849constructorimpl(ResultKt.createFailure(th2));
+            m850constructorimpl2 = Result.m850constructorimpl(ResultKt.createFailure(th2));
         }
-        if (Result.m852exceptionOrNullimpl(m849constructorimpl2) != null) {
-            m849constructorimpl2 = stackTraceRecoveryClass;
+        if (Result.m853exceptionOrNullimpl(m850constructorimpl2) != null) {
+            m850constructorimpl2 = stackTraceRecoveryClass;
         }
-        stackTraceRecoveryClassName = (String) m849constructorimpl2;
+        stackTraceRecoveryClassName = (String) m850constructorimpl2;
     }
 
     public static final int frameIndex(StackTraceElement[] stackTraceElementArr, String str) {

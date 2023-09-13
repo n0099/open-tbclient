@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes5.dex */
-public interface cw1 extends u43 {
-    File a();
+public interface cw1 {
+    sr2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    void e(String str, String str2);
+    st2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    void e(String str, String str2, Throwable th);
+    st2 c(ZeusPluginFactory.Invoker invoker, String str);
 
-    void flush(boolean z);
+    rr2 d(ZeusPluginFactory.Invoker invoker, String str);
 
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    pp2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

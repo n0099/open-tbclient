@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +13,61 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
+    public WebView a;
+    public String b;
+    public int c;
+    public long d;
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ xy5 b;
+
+        public a(xy5 xy5Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xy5Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xy5Var;
+            this.a = bVar;
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+                if (str.startsWith("http://notify/ready")) {
+                    this.b.c = 2;
+                    b bVar = this.a;
+                    if (bVar != null) {
+                        bVar.a();
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
 
     public xy5() {
         Interceptable interceptable = $ic;
@@ -30,114 +82,39 @@ public class xy5 {
                 return;
             }
         }
-        this.a = 7000;
-        this.b = 19;
-        this.c = true;
-        this.d = true;
-        this.e = true;
+        this.c = 0;
+        this.d = 0L;
+        this.d = System.currentTimeMillis();
     }
 
-    public static xy5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new xy5();
-        }
-        return (xy5) invokeV.objValue;
-    }
-
-    public int b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            if (this.c == 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void b(b bVar) {
+        WebView webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || (webView = this.a) == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        webView.setWebViewClient(new a(this, bVar));
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.b);
+        if (ei.isEmpty(Uri.parse(this.b).getQuery())) {
+            sb.append("?");
+        } else {
+            sb.append("&");
         }
-        return invokeV.booleanValue;
-    }
-
-    public xy5 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a = i;
-            return this;
-        }
-        return (xy5) invokeI.objValue;
-    }
-
-    public xy5 h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (xy5) invokeZ.objValue;
-    }
-
-    public xy5 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (xy5) invokeZ.objValue;
-    }
-
-    public xy5 j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (xy5) invokeZ.objValue;
-    }
-
-    public xy5 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            this.b = i;
-            return this;
-        }
-        return (xy5) invokeI.objValue;
+        sb.append("page_lifecycle_type=preheat_enabled");
+        this.a.loadUrl(sb.toString());
+        this.c = 1;
     }
 }

@@ -40,7 +40,7 @@ public class Configuration implements Parcelable {
     }
 
     /* loaded from: classes.dex */
-    public static class a implements Parcelable.Creator<Configuration> {
+    public class a implements Parcelable.Creator<Configuration> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

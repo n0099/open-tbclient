@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.ixa;
-import com.baidu.tieba.jxa;
+import com.baidu.tieba.nza;
+import com.baidu.tieba.oza;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public jxa a;
-    public ixa b;
+    public oza a;
+    public nza b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -89,16 +89,29 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
             this.a.k();
         }
     }
 
+    public String o1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AccessState accessState = this.d;
+            if (accessState != null && accessState.getUserInfo() != null) {
+                return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", f, this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
                 if (i2 == 12006) {
@@ -115,9 +128,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public void onCreate(Bundle bundle) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new jxa(this);
+            this.a = new oza(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -136,28 +149,15 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     } else {
                         z = false;
                     }
-                    newWriteModel2.j0(z);
+                    newWriteModel2.i0(z);
                 }
-                ixa ixaVar = new ixa(this.a, this.c);
-                this.b = ixaVar;
-                this.a.l(ixaVar);
-                this.b.h(s1());
+                nza nzaVar = new nza(this.a, this.c);
+                this.b = nzaVar;
+                this.a.l(nzaVar);
+                this.b.h(o1());
                 return;
             }
             finish();
         }
-    }
-
-    public String s1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            AccessState accessState = this.d;
-            if (accessState != null && accessState.getUserInfo() != null) {
-                return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", f, this.d.getToken(), this.d.getType(), this.d.getUserInfo().strMobile, this.d.getUserInfo().strEmail);
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
     }
 }

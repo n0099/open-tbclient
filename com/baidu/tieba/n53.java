@@ -1,55 +1,75 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.AnyThread;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.mt2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class n53 implements hw2 {
+public class n53 implements aq3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements aq3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n53 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-622537857, "Lcom/baidu/tieba/n53$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-622537857, "Lcom/baidu/tieba/n53$b;");
-                    return;
+        public a(n53 n53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new n53(null);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.aq3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || n53.b(hybridUbcFlow)) {
+                return;
+            }
+            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_first_paint", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("fe_page_show", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_page_show", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_receive_intent", "naStart");
+            }
+            if (f <= 0) {
+                f = System.currentTimeMillis();
+            }
+            Bundle bundle = new Bundle();
+            bundle.putLong("property_launch_cost", f);
+            x73 e = x73.e();
+            z73 z73Var = new z73(20, bundle);
+            z73Var.f(true);
+            e.h(z73Var);
+            u43.h().end(f);
+            k53.e().f();
         }
     }
 
@@ -63,118 +83,41 @@ public class n53 implements hw2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
     }
 
-    public static n53 a() {
-        InterceptResult invokeV;
+    public static boolean b(HybridUbcFlow hybridUbcFlow) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
+            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+                return true;
+            }
+            return false;
         }
-        return (n53) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public /* synthetic */ n53(a aVar) {
-        this();
-    }
-
-    @Nullable
-    @UiThread
-    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeCommon;
-        ViewGroup.LayoutParams layoutParams;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.aq3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
-            View d = d(i);
-            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
-                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
-                if (layoutParams2 == null) {
-                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
-                } else {
-                    layoutParams2.width = layoutParams.width;
-                    layoutParams2.height = layoutParams.height;
-                }
-                d.setLayoutParams(layoutParams2);
-            }
-            if (d == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                View inflate = LayoutInflater.from(ku2.c()).inflate(i, viewGroup, z);
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (hw2.a) {
-                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-                return inflate;
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("670");
+            hybridUbcFlow.D("preload_scene", "1");
+            hybridUbcFlow.E("from", "swan");
+            hybridUbcFlow.H("component_reporter", new i43());
+            hybridUbcFlow.H("component_reporter", new l33());
+            hybridUbcFlow.H("component_reporter", new f43());
+            hybridUbcFlow.H("component_reporter", new k43());
+            hybridUbcFlow.H("callback_on_submit", new mt2.a());
+            hybridUbcFlow.H("fmp_callback", new q53("fmp_callback"));
+            hybridUbcFlow.H("fmp_callback", new e63());
+            hybridUbcFlow.H("callback_on_submit", new q53("callback_on_submit"));
+            hybridUbcFlow.H("callback_on_submit", new fn3());
+            hybridUbcFlow.H("callback_on_submit", new a(this));
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @AnyThread
-    public void c(@LayoutRes int... iArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                int length = iArr.length;
-                LayoutInflater from = LayoutInflater.from(ku2.c());
-                for (int i : iArr) {
-                    View inflate = from.inflate(i, (ViewGroup) null);
-                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                    if (copyOnWriteArrayList == null) {
-                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-                    }
-                    copyOnWriteArrayList.add(inflate);
-                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
-                }
-                if (hw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-            } catch (Exception e) {
-                if (hw2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
-            }
-        }
-    }
-
-    @Nullable
-    @AnyThread
-    public View d(@LayoutRes int i) {
-        InterceptResult invokeI;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            View view2 = null;
-            try {
-                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
-                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
-                    view2 = copyOnWriteArrayList.remove(0);
-                }
-            } catch (Exception e) {
-                if (hw2.a) {
-                    Log.d("SwanPerformance", Log.getStackTraceString(e));
-                }
-            }
-            if (hw2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("tryObtainLayoutByResId resId = ");
-                sb.append(i);
-                if (view2 == null) {
-                    str = " cache view is null";
-                } else {
-                    str = " adopt cached view";
-                }
-                sb.append(str);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return view2;
-        }
-        return (View) invokeI.objValue;
     }
 }

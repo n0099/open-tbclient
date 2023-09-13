@@ -1,231 +1,186 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.imb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class jmb<A extends imb> extends ReporterPidLoader<A> {
+public class jmb extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TTAdNative e;
-    public final Handler f;
+    public Context a;
+    public List<ulb> b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jmb(FunAdType funAdType, Ssp.Pid pid) {
-        this(funAdType, pid, false);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public com.bytedance.tools.ui.view.b a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (com.bytedance.tools.ui.view.b) view2;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092708);
+        }
+    }
+
+    public jmb(Context context, List<ulb> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = list;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jmb(FunAdType funAdType, Ssp.Pid pid, boolean z) {
-        this(funAdType, pid, z, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jmb(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
-        super(funAdType, pid, true, z, z2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.f = new Handler(Looper.getMainLooper());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void g(int i) {
-        onError(e(i));
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public AdReporter<A> createAdReporter() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new lmb(this.mPid) : (AdReporter) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pid)) == null) ? new slb(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader, com.fun.ad.sdk.internal.api.PidLoader
-    public synchronized void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                super.destroy();
-                this.e = null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b.size();
         }
+        return invokeV.intValue;
     }
 
-    public String e(int i) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i != -8 ? i != 112 ? i != 228 ? "" : "cheat" : "toomuch" : "toofast" : (String) invokeI.objValue;
-    }
-
-    public abstract void f(Context context, FunAdSlot funAdSlot);
-
-    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
-    public Object getErrInfo(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, str)) == null) {
-            if (i != 20001 || TextUtils.isEmpty(str)) {
-                return Integer.valueOf(i);
-            }
-            String[] split = str.split("\\D+");
-            int length = split.length;
-            int i2 = 0;
-            while (true) {
-                if (i2 >= length) {
-                    str2 = "";
-                    break;
-                }
-                String str3 = split[i2];
-                if (str3.length() > 1) {
-                    str2 = i + "_" + str3;
-                    break;
-                }
-                i2++;
-            }
-            return TextUtils.isEmpty(str2) ? Integer.valueOf(i) : str2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.get(i);
         }
-        return invokeIL.objValue;
+        return invokeI.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-            Ssp.Pid pid = this.mPid;
-            final int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
-            if (checkForbidStatus != 0) {
-                this.f.postAtTime(new Runnable() { // from class: com.baidu.tieba.plb
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return this.b.get(i).a();
+        }
+        return invokeI.intValue;
+    }
 
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            jmb.this.g(checkForbidStatus);
-                        }
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            int itemViewType = getItemViewType(i);
+            ulb ulbVar = this.b.get(i);
+            if (view2 == null) {
+                if (itemViewType != 0) {
+                    if (itemViewType == 1) {
+                        com.bytedance.tools.ui.view.b bVar = new com.bytedance.tools.ui.view.b(this.a, ulbVar.f(), ulbVar, ulbVar.j());
+                        bVar.setTag(new a(bVar));
+                        return bVar;
                     }
-                }, 50L);
+                    return view2;
+                }
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05a8, viewGroup, false);
+                b bVar2 = new b(inflate);
+                bVar2.a.setText(ulbVar.f());
+                if ("1".equals(ulbVar.h())) {
+                    bVar2.b.setImageResource(R.drawable.obfuscated_res_0x7f080e3f);
+                } else {
+                    bVar2.b.setImageResource(R.drawable.obfuscated_res_0x7f080e40);
+                }
+                inflate.setTag(bVar2);
+                return inflate;
+            } else if (itemViewType != 0) {
+                if (itemViewType == 1) {
+                    ((a) view2.getTag()).a.f(ulbVar.f(), ulbVar, ulbVar.j());
+                    return view2;
+                }
+                return view2;
             } else {
-                f(context, funAdSlot);
+                b bVar3 = (b) view2.getTag();
+                if ("1".equals(ulbVar.h())) {
+                    bVar3.b.setImageDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3f));
+                    return view2;
+                }
+                bVar3.b.setImageDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e40));
+                return view2;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            return ((imb) obj).a();
-        }
-        return invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
-        String str2;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            imb imbVar = (imb) obj;
-            double d3 = d * 100.0d;
-            double d4 = d2 * 100.0d;
-            if (FunAdSdk.PLATFORM_GDT.equals(str)) {
-                str2 = "ylh";
-            } else if ("baidu".equals(str)) {
-                str2 = "bqt";
-            } else if (FunAdSdk.PLATFORM_KS.equals(str)) {
-                str2 = "kuai";
-            } else {
-                str2 = null;
-            }
-            String str3 = str2;
-            if (i != 3 && i != 5) {
-                i2 = 102;
-            } else {
-                i2 = 1;
-            }
-            imbVar.b(str3, d3, d4, z, i2);
-        }
+        return (View) invokeILL.objValue;
     }
 }

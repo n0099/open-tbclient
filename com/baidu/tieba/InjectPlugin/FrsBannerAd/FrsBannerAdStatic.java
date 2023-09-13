@@ -6,16 +6,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.a36;
-import com.baidu.tieba.dn;
-import com.baidu.tieba.f36;
-import com.baidu.tieba.g36;
-import com.baidu.tieba.h36;
-import com.baidu.tieba.i36;
-import com.baidu.tieba.j36;
-import com.baidu.tieba.k36;
-import com.baidu.tieba.n36;
-import com.baidu.tieba.o36;
+import com.baidu.tieba.b46;
+import com.baidu.tieba.c46;
+import com.baidu.tieba.d46;
+import com.baidu.tieba.e46;
+import com.baidu.tieba.en;
+import com.baidu.tieba.f46;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.j46;
+import com.baidu.tieba.k46;
+import com.baidu.tieba.w36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,11 +35,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0232a implements a36.a {
+        public class C0221a implements w36.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0232a(a aVar) {
+            public C0221a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,27 +55,27 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.a36.a
-            public void a(i36 i36Var, View view2) {
-                h36 a;
+            @Override // com.baidu.tieba.w36.a
+            public void a(e46 e46Var, View view2) {
+                d46 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, i36Var, view2) == null) && (a = n36.a(i36Var)) != null) {
-                    f36 f36Var = new f36();
-                    f36Var.a = 2;
-                    f36Var.b(view2);
-                    a.Y(f36Var);
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, e46Var, view2) == null) && (a = j46.a(e46Var)) != null) {
+                    b46 b46Var = new b46();
+                    b46Var.a = 2;
+                    b46Var.b(view2);
+                    a.Z(b46Var);
                 }
             }
 
-            @Override // com.baidu.tieba.a36.a
-            public void b(i36 i36Var, View view2) {
-                h36 a;
+            @Override // com.baidu.tieba.w36.a
+            public void b(e46 e46Var, View view2) {
+                d46 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i36Var, view2) == null) && (a = n36.a(i36Var)) != null) {
-                    f36 f36Var = new f36();
-                    f36Var.a = 3;
-                    f36Var.b(view2);
-                    a.Y(f36Var);
+                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e46Var, view2) == null) && (a = j46.a(e46Var)) != null) {
+                    b46 b46Var = new b46();
+                    b46Var.a = 3;
+                    b46Var.b(view2);
+                    a.Z(b46Var);
                 }
             }
         }
@@ -101,44 +101,44 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            o36 o36Var;
+            k46 k46Var;
             TbPageContext b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof o36) || (b = (o36Var = (o36) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof h36)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof k46) || (b = (k46Var = (k46) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof d46)) {
                 return;
             }
-            h36 h36Var = (h36) b.getPageActivity();
-            g36 n1 = h36Var.n1(2);
-            if (n1 == null) {
-                j36 a = k36.b().a(2);
+            d46 d46Var = (d46) b.getPageActivity();
+            c46 o1 = d46Var.o1(2);
+            if (o1 == null) {
+                f46 a = g46.b().a(2);
                 if (a == null) {
                     return;
                 }
-                n1 = a.a();
-                h36Var.I0(2, n1);
-                n1.f(new i36(b), null);
-                if (!(n1 instanceof a36)) {
+                o1 = a.a();
+                d46Var.J0(2, o1);
+                o1.f(new e46(b), null);
+                if (!(o1 instanceof w36)) {
                     return;
                 }
-                ((a36) n1).h(new C0232a(this));
+                ((w36) o1).h(new C0221a(this));
             }
-            if (!(n1 instanceof a36)) {
+            if (!(o1 instanceof w36)) {
                 return;
             }
-            a36 a36Var = (a36) n1;
-            if (o36Var.a() == 1) {
-                a36Var.b(o36Var.g());
-                a36Var.c(o36Var.d());
-                a36Var.j();
-            } else if (o36Var.a() == 2) {
-                a36Var.l(o36Var.f());
-            } else if (o36Var.a() == 3) {
-                dn e = o36Var.e();
-                if (e != null && a36Var.getView() != null) {
-                    e.removeHeaderView(a36Var.getView());
+            w36 w36Var = (w36) o1;
+            if (k46Var.a() == 1) {
+                w36Var.b(k46Var.g());
+                w36Var.c(k46Var.d());
+                w36Var.j();
+            } else if (k46Var.a() == 2) {
+                w36Var.l(k46Var.f());
+            } else if (k46Var.a() == 3) {
+                en e = k46Var.e();
+                if (e != null && w36Var.getView() != null) {
+                    e.removeHeaderView(w36Var.getView());
                 }
-            } else if (o36Var.a() == 4) {
-                a36Var.a(o36Var.h());
+            } else if (k46Var.a() == 4) {
+                w36Var.a(k46Var.h());
             }
         }
     }

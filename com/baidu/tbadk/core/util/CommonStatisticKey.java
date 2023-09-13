@@ -32,6 +32,7 @@ public class CommonStatisticKey {
     public static final String KEY_ACCELERATOR_PAGE_SHOW = "c14543";
     public static final String KEY_ACCELERATOR_PAGE_STOP_BTN_CLICK = "c14547";
     public static final String KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW = "c14546";
+    public static final String KEY_ATTENTION_CLICK = "c15427";
     public static final String KEY_AT_PANEL_COMMIT = "c14377";
     public static final String KEY_AT_PANEL_SHOW = "c14376";
     public static final String KEY_BATCH_DELETE_MESSAGE = "c14663";
@@ -81,6 +82,9 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_BANNER_FORUM_MOUNT_SHOW = "c15435";
     public static final String KEY_FRS_CONTENT_COLLECTION_TAB_LOG = "c15138";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
+    public static final String KEY_FRS_HOT_PEI_WAN_CARD_CLICK = "c15423";
+    public static final String KEY_FRS_HOT_PEI_WAN_CARD_SHOW = "c15421";
+    public static final String KEY_FRS_HOT_PEI_WAN_VOICE_CLICK = "c15422";
     public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK = "c14541";
     public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW = "c14540";
     public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK = "c14542";
@@ -120,6 +124,7 @@ public class CommonStatisticKey {
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
     public static final String KEY_HEATING_THREAD_EXPOSE = "c14202";
+    public static final String KEY_HOME_PAGE_CLICK = "c15428";
     public static final String KEY_HOME_PAGE_MESSGAE_AGREE_PAGE_SHOW = "c14601";
     public static final String KEY_HOME_PAGE_MESSGAE_AT_CLICK = "c14598";
     public static final String KEY_HOME_PAGE_MESSGAE_AT_SUCESSED = "c14612";
@@ -133,6 +138,9 @@ public class CommonStatisticKey {
     public static final String KEY_HOME_PAGE_MESSGAE_TAB_SHOW = "c14611";
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK = "c14281";
     public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW = "c14282";
+    public static final String KEY_HOME_PEI_WAN_CARD_CLICK = "c15420";
+    public static final String KEY_HOME_PEI_WAN_CARD_SHOW = "c15418";
+    public static final String KEY_HOME_PEI_WAN_VOICE_CLICK = "c15419";
     public static final String KEY_HOT_EVENT_CLICK = "c14963";
     public static final String KEY_HOT_EVENT_SHOW = "c14962";
     public static final String KEY_HOT_TOPIC_BANNER_CLICK = "c14902";
@@ -152,6 +160,10 @@ public class CommonStatisticKey {
     public static final String KEY_ITEM_RECENT_UPDATE_CLICK = "c14354";
     public static final String KEY_ITEM_RECENT_UPDATE_SHOW = "c14353";
     public static final String KEY_LIMIT_MODE_CHANGE_TOAST = "c14554";
+    public static final String KEY_LIVE_MERGE_CARD_CLICK = "c15456";
+    public static final String KEY_LIVE_MERGE_CARD_SHOW = "c15455";
+    public static final String KEY_LIVE_ROOM_ENTRANCE_CLICK = "c15458";
+    public static final String KEY_LIVE_ROOM_ENTRANCE_SHOW = "c15457";
     public static final String KEY_LIVE_TAB_CLICK = "c14133";
     public static final String KEY_LIVE_TAB_SHOW = "c14131";
     public static final String KEY_LOCAL_INOUT_SEND_BTN_CLICK = "c14527";
@@ -194,6 +206,7 @@ public class CommonStatisticKey {
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_JUMP = "c14875";
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_SHOW = "c14874";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
+    public static final String KEY_PLAY_VOICE_CLICK = "c15429";
     public static final String KEY_POST_SUCCESS = "c15308";
     public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
@@ -207,12 +220,15 @@ public class CommonStatisticKey {
     public static final String KEY_QUESTION_TOP_NOTIFY_SHOW = "c14862";
     public static final String KEY_RD_USE = "c14470";
     public static final String KEY_RECOMMEND_GAMECENTER = "c14119";
+    public static final String KEY_RECOMMEND_REASON = "c14686";
     public static final String KEY_RECOMMEND_TIP_ITEM_CLICK = "c12049";
     public static final String KEY_RED_PACKET_POP_WINDOW_SHOW = "c13083";
     public static final String KEY_REPORT_PRIVATE_MSG_CHANGE = "c14577";
     public static final String KEY_ROBOT_MALL_ENTRANCE_EXPLORE_CLICK = "c15410";
     public static final String KEY_SCREEN_SHOT = "c13848";
     public static final String KEY_SEND_EASTER_EGG_EMOJI = "c14659";
+    public static final String KEY_SEND_POSTCARD_CLICK = "c15437";
+    public static final String KEY_SEND_POSTCARD_SHOW = "c15430";
     public static final String KEY_SERVICE_CENTER_CLICK = "c14968";
     public static final String KEY_SHARE_FRIEND_BTN = "c14644";
     public static final String KEY_SHARE_NEARLY_PERSON = "c14643";
@@ -237,6 +253,8 @@ public class CommonStatisticKey {
     public static final String KEY_TIE_PLUS_WECHAT_DIALOG_CLICK = "c14481";
     public static final String KEY_TIE_PLUS_WECHAT_DIALOG_EXPOSE = "c14480";
     public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
+    public static final String KEY_TOP_NOTIFY_CLICK = "c15446";
+    public static final String KEY_TOP_NOTIFY_SHOW = "c15445";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
     public static final String KEY_URL_NULL_REPORT = "c12619";
     public static final String KEY_USER_GROWTH_TASK_FINISH_TOAST_SHOW = "c15244";

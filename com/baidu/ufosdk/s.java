@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -127,7 +128,7 @@ public class s {
             try {
                 HashMap hashMap = new HashMap();
                 hashMap.put("category", "feedback_android");
-                hashMap.put("os", "android");
+                hashMap.put(TtsLogLoad.KEY_OS, "android");
                 hashMap.put(Constants.KEY_PRODUCT_LINE, e0.a(context).d);
                 hashMap.put("pkgname", c.a());
                 hashMap.put("app_version", c.b());

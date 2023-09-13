@@ -8,11 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class y42 extends j42 {
+public class y42 extends n42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+
+    @Override // com.baidu.tieba.n42
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public y42() {
         Interceptable interceptable = $ic;
@@ -24,29 +29,18 @@ public class y42 extends j42 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = Integer.MAX_VALUE;
-        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.baidu.tieba.j42
-    public void a(k42 k42Var, Canvas canvas) {
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.n42
+    public void a(o42 o42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && (i = this.a) != Integer.MAX_VALUE && (i2 = this.b) != Integer.MAX_VALUE) {
-            k42Var.f.lineTo(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.j42
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = uo3.g((float) jSONArray.optDouble(0));
-            this.b = uo3.g((float) jSONArray.optDouble(1));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, o42Var, canvas) == null) {
+            int alpha = o42Var.b.getAlpha();
+            o42Var.c(o42Var.b);
+            canvas.drawPath(o42Var.f, o42Var.b);
+            o42Var.b.setAlpha(alpha);
         }
     }
 }

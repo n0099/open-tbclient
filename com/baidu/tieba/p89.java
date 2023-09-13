@@ -1,88 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService;
+import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
+import com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback;
+import com.baidu.searchbox.live.nps.LiveYYPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipThemeItem;
-import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes7.dex */
-public class p89 implements bn {
+public class p89 implements LiveYYRtcLoadService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public k89 a;
-    public List<q89> b;
-    public List<q89> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948016056, "Lcom/baidu/tieba/p89;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements YYEnvResultCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack a;
+
+        public a(p89 p89Var, LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p89Var, iLiveThunderLibDownloadStatusCallBack};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948016056, "Lcom/baidu/tieba/p89;");
-                return;
+            this.a = iLiveThunderLibDownloadStatusCallBack;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onFail(int i, String str) {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadFailed();
             }
         }
-        d = BdUniqueId.gen();
-    }
 
-    @Override // com.baidu.tieba.bn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
+        @Override // com.baidu.searchbox.live.interfaces.yy.YYEnvResultCallback
+        public void onSuccess() {
+            LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (iLiveThunderLibDownloadStatusCallBack = this.a) != null) {
+                iLiveThunderLibDownloadStatusCallBack.onLibDownloadSuccess();
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public p89(VipThemeList vipThemeList) {
+    public p89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (vipThemeList == null) {
-            return;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.bd.LiveYYRtcLoadService
+    public boolean isLibReady(@NonNull Context context, @Nullable String str, @Nullable LiveYYRtcLoadService.ILiveThunderLibDownloadStatusCallBack iLiveThunderLibDownloadStatusCallBack) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, iLiveThunderLibDownloadStatusCallBack)) == null) {
+            LiveYYPluginManager.getInstance().prepareYYEnv(context, IYYLiveNPSPlugin.YY_ENV_CREATE_LIVE, new a(this, iLiveThunderLibDownloadStatusCallBack));
+            return true;
         }
-        String str = vipThemeList.card_id;
-        k89 k89Var = new k89();
-        this.a = k89Var;
-        k89Var.e(2);
-        this.a.d(vipThemeList.class_name);
-        this.a.f(vipThemeList.class_url_name);
-        this.a.g(vipThemeList.class_url);
-        if (vipThemeList.item != null) {
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.b.add(new q89(vipThemeItem));
-            }
-        }
-        if (vipThemeList.item_card != null) {
-            this.c = new ArrayList();
-            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.c.add(new q89(vipThemeItem2));
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

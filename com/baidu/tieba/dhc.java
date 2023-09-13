@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.app.Activity;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
 /* loaded from: classes5.dex */
-public interface dhc extends ahc {
+public interface dhc {
+    void a(Activity activity, sic sicVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
+    vic b();
 
-    void setCallback(a aVar);
+    void c(vic vicVar);
 
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    void release();
 }

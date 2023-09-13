@@ -1,127 +1,163 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class no4 extends gp4 {
+public class no4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jo4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ int c;
-
-        public a(String[] strArr, Activity activity, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009174, "Lcom/baidu/tieba/no4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009174, "Lcom/baidu/tieba/no4;");
+                return;
             }
         }
+        a = jo4.d();
     }
 
-    public static void e(Activity activity) {
+    public static String a(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                oo4.a(activity);
-            } else {
-                activity.finish();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (strArr != null) {
+                try {
+                    if (strArr.length > 0 && strArr.length % 2 == 0) {
+                        for (int i = 0; i < strArr.length; i += 2) {
+                            String str = strArr[i];
+                            String str2 = strArr[i + 1];
+                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                                jSONObject.put(str, str2);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    si4.b().G("PMSFileUtil", "#createErrorJson put异常", e);
+                }
             }
+            return "errmsg:" + jSONObject.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public static boolean f(@NonNull Activity activity, @NonNull String str) {
+    @Nullable
+    public static ik4 b(String str, long j, long j2, @Nullable List<ik4> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
+            List<ik4> s = ej4.i().s(str, j, j2);
+            if (s != null) {
+                while (!s.isEmpty()) {
+                    ik4 remove = s.remove(0);
+                    if (si4.b().r(remove)) {
+                        return remove;
+                    }
+                    if (list != null) {
+                        list.add(remove);
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (ik4) invokeCommon.objValue;
+    }
+
+    public static File c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return po4.a(activity, str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
+                return null;
             }
-            return false;
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                si4.b().y("PMSFileUtil", "cannot mkdir in : " + file);
+                return null;
+            }
+            String e = e(str, str2);
+            String str3 = e;
+            for (int i = 0; i < 1000; i++) {
+                File file2 = new File(str3);
+                try {
+                    if (!file2.exists() && file2.createNewFile()) {
+                        return file2;
+                    }
+                } catch (IOException e2) {
+                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
+                }
+                str3 = e + "_" + i;
+            }
+            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (File) invokeLL.objValue;
     }
 
-    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+    public static File d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                po4.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            File dir = context.getDir("pms_dir", 0);
+            if (!dir.exists()) {
+                dir.mkdir();
             }
+            return dir;
         }
+        return (File) invokeL.objValue;
     }
 
-    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                ro4.startActivity(activity, intent, bundle);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return f(str, str2, File.separator);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return str;
+            }
+            if (str.endsWith(str3)) {
+                if (str2.startsWith(str3)) {
+                    return str.concat(str2.substring(str3.length()));
+                }
+                return str.concat(str2);
+            } else if (str2.startsWith(str3)) {
+                return str.concat(str2);
             } else {
-                activity.startActivity(intent);
+                return str.concat(str3).concat(str2);
             }
         }
-    }
-
-    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                ro4.startActivityForResult(activity, intent, i, bundle);
-            } else {
-                activity.startActivityForResult(intent, i);
-            }
-        }
+        return (String) invokeLLL.objValue;
     }
 }

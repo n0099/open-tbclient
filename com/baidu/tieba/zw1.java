@@ -1,12 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
 /* loaded from: classes9.dex */
 public interface zw1 {
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    void b();
 
-    boolean c();
+    void c();
 
-    boolean d();
+    zw1 create();
+
+    void d(r03 r03Var, boolean z);
+
+    void e(r03 r03Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

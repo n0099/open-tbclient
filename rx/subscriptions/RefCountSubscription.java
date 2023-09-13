@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.tcc;
-import com.baidu.tieba.w7c;
+import com.baidu.tieba.wfc;
+import com.baidu.tieba.zac;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class RefCountSubscription implements w7c {
+public final class RefCountSubscription implements zac {
     public static final a c = new a(false, 0);
-    public final w7c a;
+    public final zac a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
     /* loaded from: classes2.dex */
-    public static final class InnerSubscription extends AtomicInteger implements w7c {
+    public static final class InnerSubscription extends AtomicInteger implements zac {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements w7c {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.w7c
+        @Override // com.baidu.tieba.zac
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements w7c {
             return false;
         }
 
-        @Override // com.baidu.tieba.w7c
+        @Override // com.baidu.tieba.zac
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements w7c {
         }
     }
 
-    public w7c a() {
+    public zac a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return tcc.c();
+                return wfc.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements w7c {
         c(b);
     }
 
-    @Override // com.baidu.tieba.w7c
+    @Override // com.baidu.tieba.zac
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.w7c
+    @Override // com.baidu.tieba.zac
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements w7c {
         c(c2);
     }
 
-    public RefCountSubscription(w7c w7cVar) {
-        if (w7cVar != null) {
-            this.a = w7cVar;
+    public RefCountSubscription(zac zacVar) {
+        if (zacVar != null) {
+            this.a = zacVar;
             return;
         }
         throw new IllegalArgumentException("s");

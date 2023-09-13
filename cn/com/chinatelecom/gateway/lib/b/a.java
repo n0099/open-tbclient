@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tts.jni.TtsLogLoad;
 import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
@@ -779,7 +780,7 @@ public class a {
                 jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f);
                 jSONObject.put("br", this.g);
                 jSONObject.put("ml", this.h);
-                jSONObject.put("os", this.i);
+                jSONObject.put(TtsLogLoad.KEY_OS, this.i);
                 jSONObject.put("ov", this.j);
                 jSONObject.put("sv", this.k);
                 jSONObject.put("ri", this.l);

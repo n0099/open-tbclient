@@ -6,20 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes7.dex */
-public class nfc {
+public final class nfc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GiftBagsInfo a;
-    public boolean b;
+    public final long a;
+    public final T b;
 
-    public nfc(GiftBagsInfo giftBagsInfo, boolean z) {
+    public nfc(long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
+            Object[] objArr = {Long.valueOf(j), t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +28,78 @@ public class nfc {
                 return;
             }
         }
-        this.a = giftBagsInfo;
-        this.b = z;
+        this.b = t;
+        this.a = j;
     }
 
-    public static boolean b(nfc nfcVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nfcVar)) == null) {
-            if (nfcVar != null && nfcVar.a() != null && nfcVar.a().giftbag != null && !nfcVar.a().giftbag.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public GiftBagsInfo a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (GiftBagsInfo) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public boolean c() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
+        return (T) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public int hashCode() {
+        InterceptResult invokeV;
+        int hashCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.a;
+            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
+            T t = this.b;
+            if (t == null) {
+                hashCode = 0;
+            } else {
+                hashCode = t.hashCode();
+            }
+            return i + hashCode;
         }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof nfc)) {
+                return false;
+            }
+            nfc nfcVar = (nfc) obj;
+            if (this.a == nfcVar.a) {
+                T t = this.b;
+                T t2 = nfcVar.b;
+                if (t == t2) {
+                    return true;
+                }
+                if (t != null && t.equals(t2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class lw0 extends sw0 {
+/* loaded from: classes6.dex */
+public class lw0 extends qw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,28 +25,39 @@ public class lw0 extends sw0 {
         }
     }
 
-    public static sw0 w(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            sw0 m = sw0.m(str, 7);
-            m.u(1);
-            m.s(i);
-            return m;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ww0 w = iw0.w(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
+            w.s(1);
+            c(w);
         }
-        return (sw0) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.sw0
-    public boolean b(@NonNull tx0 tx0Var) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tx0Var)) == null) {
-            if (1 != tx0Var.getType()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ww0 w = iw0.w(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
+            w.s(1);
+            c(w);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ww0 w = iw0.w(InternalSyncControlEvent.INTERNAL_ACTION_START);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ww0 w = iw0.w(InternalSyncControlEvent.INTERNAL_ACTION_STOP);
+            w.s(1);
+            c(w);
+        }
     }
 }

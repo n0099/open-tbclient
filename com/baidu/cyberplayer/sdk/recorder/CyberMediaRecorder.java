@@ -22,6 +22,9 @@ public class CyberMediaRecorder {
         public static final int CYBER_ENCODING_PCM_S64P = 10009;
         public static final int CYBER_ENCODING_PCM_U8 = 3;
         public static final int CYBER_ENCODING_PCM_U8P = 10003;
+
+        public AudioFormat() {
+        }
     }
 
     @Keep
@@ -30,5 +33,8 @@ public class CyberMediaRecorder {
         public static final int CAMCORDER = 5;
         public static final int DEFAULT = 0;
         public static final int MIC = 1;
+
+        public AudioSource() {
+        }
     }
 }

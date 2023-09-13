@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 /* loaded from: classes5.dex */
-public interface am0<VIEW extends View> {
-    void b(@NonNull ViewGroup viewGroup);
+public interface am0 {
+    void a(@NonNull AdDownloadAction adDownloadAction, @NonNull il0 il0Var);
 
-    @NonNull
-    VIEW getRealView();
-
-    void update(String str, @NonNull hl0 hl0Var);
+    il0 getData();
 }

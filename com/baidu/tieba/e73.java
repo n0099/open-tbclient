@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
+import com.tencent.open.SocialOperation;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.UUID;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class e73 {
     public static /* synthetic */ Interceptable $ic;
@@ -32,98 +36,91 @@ public class e73 {
                 return;
             }
         }
-        a = nr1.a;
+        a = rr1.a;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
+    public static String a(String str, long j, String str2) {
+        InterceptResult invokeCommon;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
-            d73 b = b(str);
-            if (b == null) {
-                if (!a) {
-                    c(i, str2, null);
-                    return;
-                }
-                throw new RuntimeException("Messenger创建代理类失败");
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
+            hb3 M = hb3.M();
+            if (M == null) {
+                str3 = "";
+            } else {
+                str3 = j32.a(M.O());
             }
-            if (a) {
-                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            b.a = bundle;
-            b.b = i;
-            b.c = str2;
-            b.b(bundle);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static d73 b(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
-                }
-                return null;
+            String[] strArr = {str3, str, String.valueOf(j), str2};
+            Arrays.sort(strArr);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < 4; i++) {
+                sb.append(strArr[i]);
             }
             try {
-                Class<?> cls = Class.forName(str);
-                if (cls == null) {
-                    if (!a) {
-                        return null;
-                    }
-                    throw new RuntimeException("Messenger代理类不存在：" + str);
-                }
-                int modifiers = cls.getModifiers();
-                if (d73.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
-                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
-                    declaredConstructor.setAccessible(true);
-                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
-                    if (!(newInstance instanceof d73)) {
-                        if (!a) {
-                            return null;
-                        }
-                        throw new RuntimeException("Messenger代理类不是:" + d73.class.getName());
-                    }
-                    return (d73) newInstance;
-                }
+                return zn3.c("SHA-1", sb.toString().getBytes(), false);
+            } catch (NoSuchAlgorithmException e) {
                 if (!a) {
-                    return null;
+                    return "";
                 }
-                throw new RuntimeException("Messenger代理类不合法：" + str);
-            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
-                if (!a) {
-                    return null;
-                }
-                e.printStackTrace();
-                throw new RuntimeException(e);
+                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
+                return "";
             }
         }
-        return (d73) invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public static void c(int i, String str, @Nullable Bundle bundle) {
+    public static boolean c(String str, String str2, ik4 ik4Var) {
+        InterceptResult invokeLLL;
+        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || l73.a(str)) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, ik4Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && ik4Var != null) {
+                String str3 = ik4Var.q;
+                if (TextUtils.isEmpty(str3)) {
+                    return false;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
+                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
+                        return false;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < length; i++) {
+                        String optString = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString)) {
+                            arrayList.add(optString);
+                        }
+                    }
+                    return yb3.b(new URI(str2).getHost(), arrayList);
+                } catch (URISyntaxException | JSONException e) {
+                    z63.b(Log.getStackTraceString(e));
+                }
+            }
+            return false;
         }
-        if (a) {
-            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        return invokeLLL.booleanValue;
+    }
+
+    public static String b(ik4 ik4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ik4Var)) == null) {
+            if (ik4Var == null) {
+                return "";
+            }
+            String str = ik4Var.p;
+            JSONObject jSONObject = new JSONObject();
+            String uuid = UUID.randomUUID().toString();
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            try {
+                jSONObject.put("noncestr", uuid);
+                jSONObject.put("timestamp", currentTimeMillis);
+                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
+            } catch (JSONException e) {
+                z63.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
         }
-        Bundle bundle2 = new Bundle();
-        bundle2.putString("key_observer_id", str);
-        if (bundle != null) {
-            bundle2.putBundle("key_result_data", bundle);
-        }
-        if (i == -1000) {
-            w73.f(bundle2);
-        } else {
-            w73.e(i, bundle2);
-        }
+        return (String) invokeL.objValue;
     }
 }

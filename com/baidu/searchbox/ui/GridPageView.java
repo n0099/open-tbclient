@@ -96,7 +96,7 @@ public class GridPageView extends FrameLayout {
         gridView.setNumColumns(5);
         this.mGridView.setFocusableInTouchMode(false);
         this.mGridView.setStretchMode(2);
-        this.mGridView.setVerticalSpacing((int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f07024d));
+        this.mGridView.setVerticalSpacing((int) getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070251));
         this.mGridView.setSelector(new ColorDrawable(0));
         this.mGridView.setAdapter((ListAdapter) new ItemAdapter(context));
         this.mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.searchbox.ui.GridPageView.1

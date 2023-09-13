@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
-public class r implements Handler.Callback, a.InterfaceC0748a {
+public class r implements Handler.Callback, a.InterfaceC0743a {
     public static volatile r a;
     public static b i;
     public final boolean e;
@@ -455,12 +455,12 @@ public class r implements Handler.Callback, a.InterfaceC0748a {
         a(downloadInfo, downloadInfo.isOnlyWifi() || downloadInfo.isPauseReserveOnWifi(), g());
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0743a
     public void b() {
         a(4, false);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0748a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0743a
     public void c() {
         a(3, false);
     }

@@ -11,13 +11,13 @@ public final class fq extends fk {
 
     @Override // com.xiaomi.push.fk
     /* renamed from: a */
-    public ByteBuffer mo483a(ByteBuffer byteBuffer) {
-        return m486a().length == 0 ? byteBuffer : super.mo483a(byteBuffer);
+    public ByteBuffer mo484a(ByteBuffer byteBuffer) {
+        return m487a().length == 0 ? byteBuffer : super.mo484a(byteBuffer);
     }
 
     @Override // com.xiaomi.push.fk
     public int c() {
-        if (m486a().length == 0) {
+        if (m487a().length == 0) {
             return 0;
         }
         return super.c();

@@ -1,117 +1,124 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.SocketMessageListener;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.mutiprocess.MutiProcessManager;
+import com.baidu.tbadk.mutiprocess.location.LocationEvent;
+import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
+import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zq5 {
+public class zq5 implements eq5<LocationEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public BdUniqueId c;
-    public tq5 d;
-    public br5 e;
-    public Object f;
+    public SocketMessageListener a;
 
-    public zq5(int i, tq5 tq5Var, br5 br5Var, sq5 sq5Var) {
+    /* loaded from: classes9.dex */
+    public class a extends SocketMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(zq5 zq5Var, int i, boolean z) {
+            super(i, z);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zq5Var, Integer.valueOf(i), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: g */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            LocationData locationData;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || socketResponsedMessage == null) {
+                return;
+            }
+            LocationEvent locationEvent = new LocationEvent();
+            locationEvent.setType(1);
+            locationEvent.eventType = 1;
+            locationEvent.errorCode = socketResponsedMessage.getError();
+            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
+            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
+                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
+            }
+            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
+                LocationModel.P(locationData);
+                sia.a().f(System.currentTimeMillis());
+                sia.a().d(locationEvent.locationData);
+            }
+            MutiProcessManager.publishEvent(locationEvent);
+        }
+    }
+
+    public zq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), tq5Var, br5Var, sq5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.a = i;
-        this.d = tq5Var;
-        this.e = br5Var;
+        this.a = new a(this, 303017, true);
     }
 
-    public tq5 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eq5
+    /* renamed from: a */
+    public boolean onEvent(LocationEvent locationEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
+            if (locationEvent == null) {
+                return false;
+            }
+            if (locationEvent.getType() == 3) {
+                MessageManager.getInstance().unRegisterListener(this.a);
+                MessageManager.getInstance().registerListener(this.a);
+                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
+                locationSocketRequestMessage.setLat(locationEvent.lat);
+                locationSocketRequestMessage.setLng(locationEvent.lng);
+                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
+            } else if (locationEvent.eventType == 1) {
+                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
+                locationSocketResponsedMessage.setError(locationEvent.errorCode);
+                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
+                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
+                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
+            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
+                sia.a().d(locationEvent.locationData);
+            } else {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
+            }
+            return false;
         }
-        return (tq5) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public Object c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.objValue;
-    }
-
-    public br5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (br5) invokeV.objValue;
-    }
-
-    public BdUniqueId e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-            this.f = obj;
-        }
-    }
-
-    public void h(br5 br5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, br5Var) == null) {
-            this.e = br5Var;
-        }
-    }
-
-    public void i(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
-        }
+        return invokeL.booleanValue;
     }
 }

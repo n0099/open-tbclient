@@ -1,160 +1,155 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes5.dex */
-public class dq9 extends om<ti9, VideoTabPbFloatEnterForumViewHolder> {
+public class dq9 implements lf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dq9 a;
-
-        public a(dq9 dq9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dq9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dq9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.a;
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", videoPbCommentFloatFragment.W().getForumId());
-                statisticItem.param("tid", videoPbCommentFloatFragment.W().M1());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", videoPbCommentFloatFragment.W().Q0());
-                statisticItem.param("obj_source", 1);
-                statisticItem.param("obj_type", 16);
-                statisticItem.param("obj_locate", videoPbCommentFloatFragment.E3());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dq9(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
-        super(context, bdUniqueId);
+    public dq9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = baseFragment;
     }
 
-    public void x(boolean z) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_floor", 5);
         }
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.om
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ti9 ti9Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        u(i, view2, viewGroup, ti9Var, videoTabPbFloatEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om
-    /* renamed from: t */
-    public VideoTabPbFloatEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.tbds156);
-            layoutParams.topMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_H_X003);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = BdUtilHelper.getDimens(this.mContext, R.dimen.M_H_X005);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            View view2 = new View(this.mContext);
-            view2.setId(R.id.obfuscated_res_0x7f090b7d);
-            view2.setAlpha(0.5f);
-            frameLayout.addView(view2, new FrameLayout.LayoutParams(-1, -1));
-            return new VideoTabPbFloatEnterForumViewHolder(this.mContext, frameLayout);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_new_post_num", 100);
         }
-        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public View u(int i, View view2, ViewGroup viewGroup, ti9 ti9Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        InterceptResult invokeCommon;
-        int i2;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ti9Var, videoTabPbFloatEnterForumViewHolder})) == null) {
-            if (ti9Var != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(ti9Var.a);
-                videoTabPbFloatEnterForumViewHolder.c(new a(this));
-            }
-            if (this.b) {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(0);
-            } else {
-                videoTabPbFloatEnterForumViewHolder.d.setVisibility(8);
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            View view3 = videoTabPbFloatEnterForumViewHolder.d;
-            if (this.b) {
-                i2 = R.color.CAM_X0201;
-            } else {
-                i2 = R.color.transparent;
-            }
-            SkinManager.setBackgroundColor(view3, i2);
-            videoTabPbFloatEnterForumViewHolder.b();
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_time", 10);
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_followed_visit_day", 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_no_followed_floor", 8);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return SharedPrefHelper.getInstance().getInt("key_pb_enter_frs_tip_no_followed_time", 30);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            if (z) {
+                return a();
+            }
+            return f();
+        }
+        return invokeZ.intValue;
+    }
+
+    public static int h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65544, null, z)) == null) {
+            if (z) {
+                return c();
+            }
+            return g();
+        }
+        return invokeZ.intValue;
+    }
+
+    @Override // com.baidu.tieba.lf5
+    public void parseJson(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            i(jSONObject.optJSONObject("sprite_pb_guide"));
+        }
+    }
+
+    public static void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65545, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("followed");
+        if (optJSONObject != null) {
+            int optInt = optJSONObject.optInt("waiting_floor");
+            if (optInt > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_floor", optInt);
+            }
+            int optInt2 = optJSONObject.optInt("waiting_time");
+            if (optInt2 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_time", optInt2);
+            }
+            int optInt3 = optJSONObject.optInt("visit_day");
+            if (optInt3 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_visit_day", optInt3);
+            }
+            int optInt4 = optJSONObject.optInt("new_post_num");
+            if (optInt4 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_followed_new_post_num", optInt4);
+            }
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("unfollowed");
+        if (optJSONObject2 != null) {
+            int optInt5 = optJSONObject2.optInt("waiting_floor");
+            if (optInt5 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_no_followed_floor", optInt5);
+            }
+            int optInt6 = optJSONObject2.optInt("waiting_time");
+            if (optInt6 > 0) {
+                SharedPrefHelper.getInstance().putInt("key_pb_enter_frs_tip_no_followed_time", optInt6);
+            }
+        }
     }
 }

@@ -2,15 +2,19 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes6.dex */
-public class ft1 implements iv1 {
+/* loaded from: classes5.dex */
+public class ft1 implements cv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.cv1
+    public void a(String str, g83 g83Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, g83Var) == null) {
+        }
+    }
 
     public ft1() {
         Interceptable interceptable = $ic;
@@ -24,15 +28,5 @@ public class ft1 implements iv1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.iv1
-    public InputStream a(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new x4c(inputStream);
-        }
-        return (InputStream) invokeL.objValue;
     }
 }

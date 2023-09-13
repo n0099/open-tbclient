@@ -1,28 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.Arrays;
 /* loaded from: classes8.dex */
 public class vo2 {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
-    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,31 +25,29 @@ public class vo2 {
                 return;
             }
         }
-        a = zt2.g();
-        b = "swan_core";
-        c = "extension_core";
-        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        e = "cloneFolder_";
-        f = d + File.separator + e;
-        g = "clone_pkg_folder";
-        h = "clone_core_folder";
-        i = "clone_dynamic_lib_folder";
-        j = "clone_sp_folder";
-        k = "clone_db_folder";
-        l = "cloneZip.zip";
-        m = "clone_zipFiles";
+        boolean z = rr1.a;
     }
 
-    public static File a() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(li3.w());
-            if (!hr4.l(file)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String[] b = hn4.a().b();
+            h82.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
+            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
+                if (str != null && str.trim().length() > 0) {
+                    str2 = String.format("(%s) AND ", str.trim());
+                } else {
+                    str2 = "";
+                }
+                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
+                h82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
+                return format;
             }
-            return file;
+            h82.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
+            return str;
         }
-        return (File) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

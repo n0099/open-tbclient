@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.g45;
-import com.baidu.tieba.jfa;
-import com.baidu.tieba.l9;
+import com.baidu.tieba.cha;
+import com.baidu.tieba.i45;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public d45 k;
-    public g45 l;
+    public i45 k;
+    public l45 l;
     public ImageView m;
     public View n;
     public int o;
@@ -84,11 +84,11 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             if (view2 == this.a.b) {
                 if (this.a.k != null && !TextUtils.isEmpty(this.a.k.b())) {
                     TiebaStatic.eventStat(this.a.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                    UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
                 }
-            } else if (view2 == this.a.c && this.a.l != null && !TextUtils.isEmpty(this.a.l.z1())) {
+            } else if (view2 == this.a.c && this.a.l != null && !TextUtils.isEmpty(this.a.l.D1())) {
                 TiebaStatic.eventStat(this.a.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                UrlManager.getInstance().dealOneLink((TbPageContext) l9.a(this.a.a.getPageActivity()), new String[]{this.a.l.z1()});
+                UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.a.getPageActivity()), new String[]{this.a.l.D1()});
             }
         }
     }
@@ -131,28 +131,28 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.n = view2.findViewById(R.id.frs_list_item_u9_top_line);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
-        i();
+        h();
     }
 
-    public void g(jfa jfaVar) {
+    public void f(cha chaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jfaVar) != null) || jfaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, chaVar) != null) || chaVar == null) {
             return;
         }
-        d45 c = jfaVar.c();
-        g45 d = jfaVar.d();
+        i45 c = chaVar.c();
+        l45 d = chaVar.d();
         this.k = c;
         this.l = d;
-        if (jfaVar.e()) {
+        if (chaVar.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        d45 d45Var = this.k;
-        if (d45Var == null) {
+        i45 i45Var = this.k;
+        if (i45Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(d45Var.g())) {
+        } else if (StringUtils.isNull(i45Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -192,15 +192,15 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 }
             }
         }
-        if (this.l != null && !StringUtils.isNull(d.A1())) {
+        if (this.l != null && !StringUtils.isNull(d.E1())) {
             this.c.setVisibility(0);
-            this.j.setText(d.A1());
+            this.j.setText(d.E1());
             return;
         }
         this.c.setVisibility(8);
     }
 
-    public void h(int i) {
+    public void g(int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.o != i) {
@@ -219,7 +219,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void i() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b.setOnClickListener(this.p);

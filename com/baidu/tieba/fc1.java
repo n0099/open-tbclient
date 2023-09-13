@@ -1,104 +1,798 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.coremedia.iso.boxes.DataEntryUrlBox;
+import com.kwad.sdk.core.imageloader.core.ImageLoader;
+import java.io.ByteArrayOutputStream;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes5.dex */
-public final class fc1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] AdImageView;
-    public static final int AdImageView_adCornerRadius = 0;
-    public static final int AdImageView_borderColor = 1;
-    public static final int AdImageView_borderColorWidth = 2;
-    public static final int AdImageView_circleType = 3;
-    public static final int AdImageView_errorHolder = 4;
-    public static final int AdImageView_holder = 5;
-    public static final int AdImageView_imageScaleType = 6;
-    public static final int AdImageView_leftBottomRadius = 7;
-    public static final int AdImageView_leftTopRadius = 8;
-    public static final int AdImageView_loadingHolder = 9;
-    public static final int AdImageView_rightBottomRadius = 10;
-    public static final int AdImageView_rightTopRadius = 11;
-    public static final int[] ExpandIconView;
-    public static final int ExpandIconView_animationDuration = 0;
-    public static final int ExpandIconView_color = 1;
-    public static final int ExpandIconView_length = 2;
-    public static final int ExpandIconView_thick = 3;
-    public static final int[] NADUnifyTextView;
-    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
-    public static final int NADUnifyTextView_spannable_top_padding = 1;
-    public static final int[] NadBdThumbSeekBar;
-    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
-    public static final int[] NadEnhanceButtonView;
-    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
-    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
-    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
-    public static final int[] NadRoundProgressBar;
-    public static final int NadRoundProgressBar_max = 0;
-    public static final int NadRoundProgressBar_nad_style = 1;
-    public static final int NadRoundProgressBar_reverse = 2;
-    public static final int NadRoundProgressBar_roundColor = 3;
-    public static final int NadRoundProgressBar_roundHintTextSize = 4;
-    public static final int NadRoundProgressBar_roundMax = 5;
-    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
-    public static final int NadRoundProgressBar_roundProgressColor = 7;
-    public static final int NadRoundProgressBar_roundTextColor = 8;
-    public static final int NadRoundProgressBar_roundTextSize = 9;
-    public static final int NadRoundProgressBar_roundWidth = 10;
-    public static final int NadRoundProgressBar_textColor = 11;
-    public static final int NadRoundProgressBar_textIsDisplayable = 12;
-    public static final int NadRoundProgressBar_textSize = 13;
-    public static final int[] NadShadowViewGroup;
-    public static final int NadShadowViewGroup_containerCornerRadius = 0;
-    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
-    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
-    public static final int NadShadowViewGroup_containerShadowColor = 3;
-    public static final int NadShadowViewGroup_containerShadowRadius = 4;
-    public static final int NadShadowViewGroup_deltaX = 5;
-    public static final int NadShadowViewGroup_deltaY = 6;
-    public static final int NadShadowViewGroup_enable = 7;
-    public static final int NadShadowViewGroup_shadowAlpha = 8;
-    public static final int[] NadTextProgressView;
-    public static final int NadTextProgressView_nad_progressGravity = 0;
-    public static final int NadTextProgressView_nad_progressTextColor = 1;
-    public static final int NadTextProgressView_nad_progressTextMode = 2;
-    public static final int NadTextProgressView_nad_progressTextSize = 3;
-    public static final int[] RoundCornerRelativeLayout;
-    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
-    public static final int[] SimpleAdInfoView;
-    public static final int SimpleAdInfoView_layoutId = 0;
-    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
+public class fc1 implements hc1<ImageView> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, h> c;
+    public final Lock d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947759221, "Lcom/baidu/tieba/fc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public interface g {
+        void a();
+
+        void b(Bitmap bitmap);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class d implements g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<ImageView> a;
+        public int b;
+        public int c;
+
+        @Override // com.baidu.tieba.fc1.g
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947759221, "Lcom/baidu/tieba/fc1;");
+        }
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImageView a;
+            public final /* synthetic */ Bitmap b;
+            public final /* synthetic */ d c;
+
+            public a(d dVar, ImageView imageView, Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, imageView, bitmap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = dVar;
+                this.a = imageView;
+                this.b = bitmap;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.setImageBitmap(this.b);
+                    if (this.c.c >= 0) {
+                        this.a.setAlpha(this.c.c / 100.0f);
+                    }
+                }
+            }
+        }
+
+        public d(ImageView imageView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(imageView);
+            this.b = i;
+            this.c = i2;
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void b(Bitmap bitmap) {
+            ImageView imageView;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) != null) || (imageView = this.a.get()) == null) {
+                return;
+            }
+            imageView.post(new a(this, imageView, ((fc1) zb1.a()).k(imageView, bitmap, this.b, this.c)));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class e implements g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<ImageView> a;
+        public Boolean b;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImageView a;
+            public final /* synthetic */ Bitmap b;
+            public final /* synthetic */ e c;
+
+            public a(e eVar, ImageView imageView, Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, imageView, bitmap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = eVar;
+                this.a = imageView;
+                this.b = bitmap;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.setImageBitmap(this.b);
+                    this.a.setBackgroundResource(17170445);
+                    if (this.c.b.booleanValue()) {
+                        this.a.setVisibility(0);
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ImageView a;
+
+            public b(e eVar, ImageView imageView) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, imageView};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = imageView;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                    return;
+                }
+                this.a.setImageDrawable(((fc1) zb1.a()).l(this.a));
+            }
+        }
+
+        public e(ImageView imageView, Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView, bool};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(imageView);
+            this.b = bool;
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void b(Bitmap bitmap) {
+            ImageView imageView;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) != null) || (imageView = this.a.get()) == null) {
+                return;
+            }
+            ik0.c(new a(this, imageView, bitmap));
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void a() {
+            ImageView imageView;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (imageView = this.a.get()) == null) {
+                return;
+            }
+            ik0.c(new b(this, imageView));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements lt0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ h b;
+        public final /* synthetic */ fc1 c;
+
+        public a(fc1 fc1Var, String str, h hVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fc1Var, str, hVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = fc1Var;
+            this.a = str;
+            this.b = hVar;
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                this.c.d.lock();
+                try {
+                    this.c.c.remove(this.a);
+                    this.b.a();
+                } finally {
+                    this.c.d.unlock();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.lt0
+        public void c(Headers headers, InputStream inputStream, int i) {
+            Bitmap bitmap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inPurgeable = true;
+                options.inInputShareable = true;
+                Bitmap decodeStream = BitmapFactory.decodeStream(new f(inputStream), null, options);
+                if (decodeStream != null) {
+                    String str = this.a;
+                    if (!str.substring(str.lastIndexOf("/") + 1).toUpperCase().contains("PNG")) {
+                        bitmap = fc1.p(fc1.q(decodeStream, 100 - (this.c.r(decodeStream) * 10)), fc1.s(options));
+                    } else {
+                        bitmap = decodeStream;
+                    }
+                    if (bitmap != null) {
+                        decodeStream = bitmap;
+                    }
+                    ri0.d().j(this.a, decodeStream);
+                    this.c.d.lock();
+                    try {
+                        this.c.c.remove(this.a);
+                        this.b.b(decodeStream);
+                        return;
+                    } finally {
+                    }
+                }
+                this.c.d.lock();
+                try {
+                    this.c.c.remove(this.a);
+                    this.b.a();
+                } finally {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uo0 a;
+
+        public b(fc1 fc1Var, uo0 uo0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fc1Var, uo0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uo0Var;
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a();
+            }
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void b(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                this.a.b(bitmap);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uo0 a;
+
+        public c(fc1 fc1Var, uo0 uo0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fc1Var, uo0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uo0Var;
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a();
+            }
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void b(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                this.a.b(bitmap);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f extends FilterInputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(InputStream inputStream) {
+            super(inputStream);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((InputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.io.FilterInputStream, java.io.InputStream
+        public long skip(long j) throws IOException {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                long j2 = 0;
+                while (j2 < j) {
+                    long skip = ((FilterInputStream) this).in.skip(j - j2);
+                    if (skip == 0) {
+                        if (read() < 0) {
+                            break;
+                        }
+                        skip = 1;
+                    }
+                    j2 += skip;
+                }
+                return j2;
+            }
+            return invokeJ.longValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class h implements g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @NonNull
+        public final List<g> a;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new LinkedList();
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (g gVar : this.a) {
+                    gVar.a();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.fc1.g
+        public void b(Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                for (g gVar : this.a) {
+                    gVar.b(bitmap);
+                }
+            }
+        }
+
+        public void c(@Nullable g gVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) && gVar != null) {
+                h31.b(this.a, gVar);
+            }
+        }
+    }
+
+    public fc1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AdImageView = new int[]{R.attr.adCornerRadius, R.attr.obfuscated_res_0x7f0400ea, R.attr.borderColorWidth, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f0402a9, R.attr.obfuscated_res_0x7f040346, R.attr.imageScaleType, R.attr.leftBottomRadius, R.attr.leftTopRadius, R.attr.loadingHolder, R.attr.rightBottomRadius, R.attr.rightTopRadius};
-        ExpandIconView = new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f040177, R.attr.obfuscated_res_0x7f040456, R.attr.obfuscated_res_0x7f04076e};
-        NADUnifyTextView = new int[]{R.attr.obfuscated_res_0x7f0406a8, R.attr.obfuscated_res_0x7f0406a9};
-        NadBdThumbSeekBar = new int[]{R.attr.nad_ThumbSeekBarStyle};
-        NadEnhanceButtonView = new int[]{R.attr.btnBackgroundEndColor, R.attr.btnBackgroundStartColor, R.attr.btnCornerRadius};
-        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404e5, R.attr.nad_style, R.attr.obfuscated_res_0x7f040605, R.attr.obfuscated_res_0x7f040623, R.attr.roundHintTextSize, R.attr.obfuscated_res_0x7f040626, R.attr.obfuscated_res_0x7f040627, R.attr.obfuscated_res_0x7f040629, R.attr.roundTextColor, R.attr.roundTextSize, R.attr.obfuscated_res_0x7f040630, R.attr.obfuscated_res_0x7f040758, R.attr.obfuscated_res_0x7f040762, R.attr.obfuscated_res_0x7f040765};
-        NadShadowViewGroup = new int[]{R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04019b, R.attr.obfuscated_res_0x7f04019c, R.attr.obfuscated_res_0x7f04019d, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040254, R.attr.obfuscated_res_0x7f04029b, R.attr.obfuscated_res_0x7f040673};
-        NadTextProgressView = new int[]{R.attr.nad_progressGravity, R.attr.nad_progressTextColor, R.attr.nad_progressTextMode, R.attr.nad_progressTextSize};
-        RoundCornerRelativeLayout = new int[]{R.attr.round_edge_radius};
-        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f040435};
-        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.nad_bdvideoplayer_progressGravity, R.attr.nad_bdvideoplayer_progressTextColor, R.attr.nad_bdvideoplayer_progressTextMode, R.attr.nad_bdvideoplayer_progressTextSize};
+        this.c = new ConcurrentHashMap();
+        this.d = new ReentrantLock();
+    }
+
+    public static int j(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 19) {
+                return bitmap.getAllocationByteCount();
+            }
+            if (i >= 12) {
+                return bitmap.getByteCount();
+            }
+            return bitmap.getRowBytes() * bitmap.getHeight();
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.vo0
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || ri0.d().h(str) != null) {
+            return;
+        }
+        n(str, null);
+    }
+
+    public int r(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bitmap)) == null) {
+            int j = j(bitmap);
+            if (j > 2457600) {
+                int i = j / 2457600;
+                if (i > 6) {
+                    return 6;
+                }
+                return i;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.vo0
+    public void c(String str, uo0 uo0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, uo0Var) != null) || uo0Var == null) {
+            return;
+        }
+        Bitmap h2 = ri0.d().h(str);
+        if (h2 == null) {
+            n(str, new c(this, uo0Var));
+        } else {
+            uo0Var.b(h2);
+        }
+    }
+
+    @Override // com.baidu.tieba.hc1
+    public void e(@NonNull String str, uo0 uo0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, uo0Var) == null) {
+            Bitmap h2 = ri0.d().h(str);
+            if (h2 == null) {
+                n(str, new b(this, uo0Var));
+            } else {
+                uo0Var.b(h2);
+            }
+        }
+    }
+
+    public final void o(String str, @NonNull h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, hVar) == null) {
+            ut0 ut0Var = new ut0();
+            ut0Var.l(str);
+            ut0Var.c();
+            bt0.b().a().b(ut0Var, new a(this, str, hVar));
+        }
+    }
+
+    public static Bitmap p(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bitmap, i)) == null) {
+            if (i <= 1) {
+                return bitmap;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            Matrix matrix = new Matrix();
+            float f2 = 1.0f / i;
+            matrix.postScale(f2, f2);
+            return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public static Bitmap q(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bitmap, i)) == null) {
+            if (i == 100) {
+                return bitmap;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+            try {
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public static int s(BitmapFactory.Options options) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, options)) == null) {
+            int i2 = options.outHeight;
+            int i3 = options.outWidth;
+            if (i2 <= 1140 && i3 <= 1140) {
+                i = 1;
+            } else {
+                int i4 = 2;
+                int i5 = i2 / 2;
+                int i6 = i3 / 2;
+                while (true) {
+                    if (i5 < 1140 && i6 < 1140) {
+                        break;
+                    }
+                    i4 *= 2;
+                    i5 /= 2;
+                    i6 /= 2;
+                }
+                i = i4;
+            }
+            if (i > 6) {
+                return 6;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public final Drawable l(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            if (!(view2 instanceof AdImageView)) {
+                return ac1.b().a(view2.getContext());
+            }
+            int i = ((AdImageView) view2).getConfig().c;
+            if (i != 0) {
+                return view2.getResources().getDrawable(i);
+            }
+            return ac1.b().a(view2.getContext());
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hc1
+    public void a(String str, ImageView imageView, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, str, imageView, z) != null) || imageView == null) {
+            return;
+        }
+        Bitmap h2 = ri0.d().h(str);
+        if (h2 == null) {
+            imageView.setImageDrawable(m(imageView));
+            n(str, new e(imageView, Boolean.valueOf(z)));
+            return;
+        }
+        imageView.setImageBitmap(h2);
+        imageView.setBackgroundResource(17170445);
+        if (z) {
+            imageView.setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.hc1
+    public void b(String str, ImageView imageView, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageView, i, i2) != null) || imageView == null) {
+            return;
+        }
+        Bitmap h2 = ri0.d().h(str);
+        if (h2 == null) {
+            n(str, new d(imageView, i, i2));
+            return;
+        }
+        imageView.setImageBitmap(k(imageView, h2, i, i2));
+        if (i2 >= 0) {
+            imageView.setAlpha(i2 / 100.0f);
+        }
+    }
+
+    public final Bitmap k(View view2, Bitmap bitmap, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048581, this, view2, bitmap, i, i2)) == null) {
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth(), bitmap.getHeight(), false);
+            Bitmap createBitmap = Bitmap.createBitmap(createScaledBitmap);
+            RenderScript create = RenderScript.create(view2.getContext());
+            if (Build.VERSION.SDK_INT >= 17) {
+                ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
+                Allocation createFromBitmap = Allocation.createFromBitmap(create, createScaledBitmap);
+                Allocation createFromBitmap2 = Allocation.createFromBitmap(create, createBitmap);
+                create2.setRadius(i);
+                create2.setInput(createFromBitmap);
+                create2.forEach(createFromBitmap2);
+                createFromBitmap2.copyTo(createBitmap);
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeLLII.objValue;
+    }
+
+    public final Drawable m(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view2)) == null) {
+            if (!(view2 instanceof AdImageView)) {
+                return ac1.b().b(view2.getContext());
+            }
+            AdImageView adImageView = (AdImageView) view2;
+            if (adImageView.getConfig().b != null) {
+                return adImageView.getConfig().b;
+            }
+            int i = adImageView.getConfig().a;
+            if (i != 0) {
+                return view2.getResources().getDrawable(i);
+            }
+            return ac1.b().b(view2.getContext());
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    public final void n(String str, @Nullable g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, gVar) == null) {
+            this.d.lock();
+            try {
+                h hVar = this.c.get(str);
+                if (hVar == null) {
+                    h hVar2 = new h();
+                    this.c.put(str, hVar2);
+                    hVar2.c(gVar);
+                    o(str, hVar2);
+                } else {
+                    tk0.a(ImageLoader.TAG, DataEntryUrlBox.TYPE + str + " cached connection!");
+                    hVar.c(gVar);
+                }
+            } finally {
+                this.d.unlock();
+            }
+        }
     }
 }

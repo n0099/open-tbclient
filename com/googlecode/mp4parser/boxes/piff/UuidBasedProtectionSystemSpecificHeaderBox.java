@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     public static byte[] USER_TYPE;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;

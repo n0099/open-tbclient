@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.boxdownload.IBoxDownloadListener;
 import com.baidu.searchbox.download.callback.IDownloadListener;
 import com.baidu.searchbox.download.model.StopStatus;
-import com.baidu.tieba.x10;
+import com.baidu.tieba.y10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BoxDownloadManagerImpl$2 implements IDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ x10 this$0;
+    public final /* synthetic */ y10 this$0;
     public final /* synthetic */ IBoxDownloadListener val$downloadListener;
 
     @Override // com.baidu.searchbox.download.callback.IDownloadListener
@@ -24,12 +24,12 @@ public class BoxDownloadManagerImpl$2 implements IDownloadListener {
         }
     }
 
-    public BoxDownloadManagerImpl$2(x10 x10Var, IBoxDownloadListener iBoxDownloadListener) {
+    public BoxDownloadManagerImpl$2(y10 y10Var, IBoxDownloadListener iBoxDownloadListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x10Var, iBoxDownloadListener};
+            Object[] objArr = {y10Var, iBoxDownloadListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,7 +39,7 @@ public class BoxDownloadManagerImpl$2 implements IDownloadListener {
                 return;
             }
         }
-        this.this$0 = x10Var;
+        this.this$0 = y10Var;
         this.val$downloadListener = iBoxDownloadListener;
     }
 

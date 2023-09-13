@@ -7,27 +7,27 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ee6;
-import com.baidu.tieba.ha6;
-import com.baidu.tieba.je6;
-import com.baidu.tieba.ln6;
+import com.baidu.tieba.cf6;
+import com.baidu.tieba.fb6;
+import com.baidu.tieba.hf6;
+import com.baidu.tieba.no6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveDoubleView extends ln6<je6> {
+public class AlaGameFrsLiveDoubleView extends no6<hf6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ee6 i;
-    public ee6 j;
+    public cf6 i;
+    public cf6 j;
 
-    @Override // com.baidu.tieba.ln6
+    @Override // com.baidu.tieba.no6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0116 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d011b : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -87,13 +87,13 @@ public class AlaGameFrsLiveDoubleView extends ln6<je6> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ln6
+    @Override // com.baidu.tieba.no6
     /* renamed from: s */
-    public void i(je6 je6Var) {
+    public void i(hf6 hf6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, je6Var) == null) && je6Var != null) {
-            this.i.d(je6Var.a);
-            this.j.d(je6Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, hf6Var) == null) && hf6Var != null) {
+            this.i.d(hf6Var.a);
+            this.j.d(hf6Var.b);
         }
     }
 
@@ -105,15 +105,15 @@ public class AlaGameFrsLiveDoubleView extends ln6<je6> {
         }
     }
 
-    public void u(ha6 ha6Var) {
+    public void u(fb6 fb6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ha6Var) == null) {
-            this.i.g(ha6Var);
-            this.j.g(ha6Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, fb6Var) == null) {
+            this.i.g(fb6Var);
+            this.j.g(fb6Var);
         }
     }
 
-    @Override // com.baidu.tieba.ln6
+    @Override // com.baidu.tieba.no6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -125,8 +125,8 @@ public class AlaGameFrsLiveDoubleView extends ln6<je6> {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = new ee6(g());
-            this.j = new ee6(g());
+            this.i = new cf6(g());
+            this.j = new cf6(g());
             ViewGroup viewGroup = (ViewGroup) h();
             View view2 = new View(getContext());
             viewGroup.addView(this.i.c());
